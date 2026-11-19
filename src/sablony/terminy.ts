@@ -114,7 +114,7 @@ export function splatky(d: Data, pole = { castka: 'castka', splatka: 'splatka', 
   return out;
 }
 
-const kc = (n: number) => `${formatCislo(String(n))} Kč`;
+const kc = (n: number, mena = "Kč") => `${formatCislo(String(n))}\u00a0${mena}`;
 
 /** Tabulka „Splátkový kalendář“ pro přílohu (česky) */
 export function splatkovyKalendar(d: Data, poznamka?: string): Tabulka[] {
@@ -133,7 +133,7 @@ export function splatkovyKalendar(d: Data, poznamka?: string): Tabulka[] {
 }
 
 /** Připomínky splátek: jedna opakovaná událost (měsíčně), poslední splátka zvlášť, když je nižší */
-export function pripominkySplatek(d: Data, nazev: string): Pripominka[] {
+export function pripominkySplatek(d: Data, nazev: string, mena = 'Kč', texty = { celkem: (n: number) => `celkem ${n} splátek`, posledni: 'poslední' }): Pripominka[] {
   const s = splatky(d);
   if (!s.length) return [];
   const prvni = s[0];
@@ -141,14 +141,14 @@ export function pripominkySplatek(d: Data, nazev: string): Pripominka[] {
   const stejne = s.filter((x) => x.castka === prvni.castka).length;
   const out: Pripominka[] = [
     {
-      nazev: `${nazev}: ${kc(prvni.castka)}`,
+      nazev: `${nazev}: ${kc(prvni.castka, mena)}`,
       datum: iso(prvni.datum),
       mesicne: stejne,
-      popis: `Splátka ${kc(prvni.castka)} (celkem ${s.length} splátek).`,
+      popis: `${nazev}: ${kc(prvni.castka, mena)} (${texty.celkem(s.length)}).`,
     },
   ];
   if (posledni.castka !== prvni.castka) {
-    out.push({ nazev: `${nazev} – poslední: ${kc(posledni.castka)}`, datum: iso(posledni.datum) });
+    out.push({ nazev: `${nazev} – ${texty.posledni}: ${kc(posledni.castka, mena)}`, datum: iso(posledni.datum) });
   }
   return out;
 }
