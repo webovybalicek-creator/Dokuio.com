@@ -10,3 +10,5 @@ export const SK_ELEKTRONICKE_SLUZBY = { nazev: 'Elektronické služby evidencie 
 export const TIP_TOTOZNOST_SK = 'Totožnosť druhej strany si overte podľa občianskeho preukazu a mená prepíšte presne podľa neho.';
 export const TIP_HOTOVOST_SK =
   'Hotovosť prepočítajte až pri podpise; vyššie sumy radšej prevodom. Medzi dvoma fyzickými osobami nepodnikateľmi zákon zakazuje hotovostnú platbu nad 15 000 €, ak je jednou stranou podnikateľ alebo firma, nad 5 000 €.';
+export const ZAKON_SPOTREBITEL_SK = { nazev: 'Zákon č. 108/2024 Z. z. o ochrane spotrebiteľa (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/2024/108/' };
+export const SOI = { nazev: 'Slovenská obchodná inšpekcia', url: 'https://www.soi.sk/' };
