@@ -9,64 +9,48 @@ import StazeniBand from './StazeniBand.astro';
 import Podpora from './Podpora.astro';
 import Ilustrace from './Ilustrace.astro';
 import Kontrola from './Kontrola.astro';
-import type { Sablona } from '../sablony/typy';
+import type { StrankaDokumentu } from '../obsah/typy';
+import { souvisejici as najdiSouvisejici, urlStranky, zemeKod } from '../obsah';
 import { sestavDokument, formatDatum } from '../sablony/dokument';
 import { dokumentHtml } from '../sablony/html';
 import { SITE } from '../lib/config';
-import type { Ilustrace as TypIlustrace } from '../lib/dokumenty';
+import { texty } from '../i18n';
 import '../styles/dokument.css';
 
-interface Polozka {
-  nazev: string;
-  popis: string;
-}
 interface Props {
-  sablona: Sablona;
-  base: string;
-  /** Krátký název: „Kupní smlouva na auto“ */
-  nazev: string;
-  /** Název ve 4. pádě malými písmeny: „kupní smlouvu na auto“ */
-  nazevA: string;
-  title: string;
-  description: string;
-  /** Text pod H1 */
-  perex: string;
-  /** Nadpis sekce s obsahem, např. „Šest článků podle § 2079…“ */
-  obsahPopis: string;
-  obsah: Polozka[];
-  kroky: Polozka[];
-  online: string[];
-  hodiSe: string[];
-  nehodiSe: string[];
-  poNadpis?: string;
-  po: Polozka[];
-  faq: { q: string; a: string }[];
-  zakony: string;
-  souvisejiciPopis?: string;
-  souvisejici?: { nazev: string; popis: string; url: string; ilustrace: TypIlustrace }[];
+  stranka: StrankaDokumentu;
 }
-const p = Astro.props;
-const s = p.sablona;
-const base = p.base;
+const { stranka } = Astro.props;
+const s = stranka.sablona;
+const zeme = zemeKod(s.zeme);
+const TX = texty(s.jazyk);
+const T = TX.landing;
+const base = urlStranky(stranka);
+const p = {
+  ...stranka.landing,
+  nazev: stranka.nazev,
+  nazevA: stranka.nazevA,
+  title: stranka.landing.title.replace('{rok}', s.aktualizovano.slice(0, 4)),
+  souvisejici: najdiSouvisejici(s.zeme, stranka.souvisejici, base),
+};
 const vzorPdf = `${base}${s.souborPdf}-vzor.pdf`;
 const vzorDocx = `${base}${s.souborPdf}-vzor.docx`;
 const vytvorit = `${base}vytvorit/`;
 const aktualizovano = formatDatum(s.aktualizovano);
 const mesic = s.aktualizovano.slice(5, 7).replace(/^0/, '') + '/' + s.aktualizovano.slice(0, 4);
 const nahled = dokumentHtml(sestavDokument(s, {}));
-const RIMSKE = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
-const stitek = (i: number) => (s.cislovatClanky === false ? `${i + 1}.` : `Článek ${RIMSKE[i]}`);
-
+const RIMSKE = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+const stitek = (i: number) => (s.cislovatClanky === false ? `${i + 1}.` : T.clanek(RIMSKE[i]));
 const schema = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: `${p.nazev} – online průvodce`,
+    name: `${p.nazev} – ${T.online}`,
     url: `${SITE.url}${base}`,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Any',
     inLanguage: s.jazyk,
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'CZK' },
+    offers: { '@type': 'Offer', price: '0', priceCurrency: TX.mena.kod },
   },
   {
     '@context': 'https://schema.org',
@@ -77,7 +61,7 @@ const schema = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Česko', item: `${SITE.url}/cz/` },
+      { '@type': 'ListItem', position: 1, name: zeme.nazev, item: `${SITE.url}/${zeme.kod}/` },
       { '@type': 'ListItem', position: 2, name: p.nazev, item: `${SITE.url}${base}` },
     ],
   },
@@ -87,8 +71,8 @@ const schema = [
 <Base title={p.title} description={p.description} lang={s.jazyk}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
   <Fragment slot="nav">
-    <a class="nav__odkaz" href="#jak-to-funguje">Jak to funguje</a>
-    <a class="btn btn--primarni btn--maly btn--sipka" href={vytvorit}>Vyplnit zdarma</a>
+    <a class="nav__odkaz" href="#jak-to-funguje">{T.jakToFunguje}</a>
+    <a class="btn btn--primarni btn--maly btn--sipka" href={vytvorit}>{T.vyplnitZdarma}</a>
   </Fragment>
 
   <section class="hero hero--dokument">
@@ -96,18 +80,18 @@ const schema = [
     <div class="wrap">
       <div class="ram hero__obsah hero__mrizka">
         <div>
-          <nav class="drobecky" aria-label="Drobečková navigace"><a href="/cz/">Česko</a> › {p.nazev}</nav>
-          <p class="horni-stitek">Zdarma · PDF i Word · <span>Aktualizováno {mesic}</span></p>
+          <nav class="drobecky" aria-label={TX.drobecky}><a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › {p.nazev}</nav>
+          <p class="horni-stitek">{T.stitek} · <span>{T.aktualizovano} {mesic}</span></p>
           <h1>{p.nazev}{' '}<span>{p.perex}</span></h1>
           <div class="akce">
-            <a class="btn btn--primarni btn--sipka" href={vytvorit}>Vyplnit online zdarma</a>
-            <a class="btn btn--duch" href={vzorPdf} download>Stáhnout prázdný vzor (PDF)</a>
+            <a class="btn btn--primarni btn--sipka" href={vytvorit}>{T.vyplnitOnlineZdarma}</a>
+            <a class="btn btn--duch" href={vzorPdf} download>{T.stahnoutPrazdny}</a>
           </div>
-          <Duvera class="duvera--hero" />
+          <Duvera class="duvera--hero" lang={s.jazyk} />
         </div>
         <figure class="nahled-vzoru">
           <div class="papir papir--orez" set:html={nahled} />
-          <figcaption>Náhled vzoru · šablona {s.kod} v{s.verze}</figcaption>
+          <figcaption>{T.nahledVzoru(s.kod, s.verze)}</figcaption>
         </figure>
       </div>
     </div>
@@ -116,7 +100,7 @@ const schema = [
   <section class="sekce" id="jak-to-funguje" aria-labelledby="jak-nadpis">
     <div class="wrap">
       <div class="ram sekce__in">
-        <h2 id="jak-nadpis">Hotovo za pár minut.{' '}<span>Zdarma, bez registrace a bez právnické hantýrky.</span></h2>
+        <h2 id="jak-nadpis">{T.krokyNadpis}{' '}<span>{T.krokySpan}</span></h2>
         <ol class="kroky">
           {
             p.kroky.map((k) => (
@@ -134,7 +118,7 @@ const schema = [
   <section class="sekce" aria-labelledby="obsah-nadpis">
     <div class="wrap">
       <div class="ram sekce__in">
-        <h2 id="obsah-nadpis">Co obsahuje.{' '}<span>{p.obsahPopis}</span></h2>
+        <h2 id="obsah-nadpis">{T.obsahNadpis}{' '}<span>{p.obsahPopis}</span></h2>
         <ul class="mrizka">
           {
             p.obsah.map((o, i) => (
@@ -155,20 +139,16 @@ const schema = [
   <section class="sekce" aria-labelledby="proc-nadpis">
     <div class="wrap">
       <div class="ram sekce__in">
-        <h2 id="proc-nadpis">Online, nebo na papír?{' '}<span>Obojí je zdarma. Vyberte, co vám vyhovuje.</span></h2>
+        <h2 id="proc-nadpis">{T.cestyNadpis}{' '}<span>{T.cestySpan}</span></h2>
         <div class="dve-cesty">
           <div class="cesta cesta--hlavni">
-            <h3>Vyplnit online</h3>
+            <h3>{T.online}</h3>
             <ul class="fajfky">{p.online.map((t) => <li>{t}</li>)}</ul>
-            <a class="btn btn--primarni btn--sipka" href={vytvorit}>Vyplnit online zdarma</a>
+            <a class="btn btn--primarni btn--sipka" href={vytvorit}>{T.vyplnitOnlineZdarma}</a>
           </div>
           <div class="cesta">
-            <h3>Prázdný vzor</h3>
-            <ul class="fajfky">
-              <li>Vytisknete a vyplníte rukou</li>
-              <li>Ve Wordu si upravíte cokoli</li>
-              <li>Stejný ověřený text jako online</li>
-            </ul>
+            <h3>{T.prazdny}</h3>
+            <ul class="fajfky">{T.prazdnyBody.map((t) => <li>{t}</li>)}</ul>
             <div class="akce akce--tesne">
               <a class="btn btn--duch" href={vzorPdf} download>PDF</a>
               <a class="btn btn--duch" href={vzorDocx} download>Word</a>
@@ -182,14 +162,14 @@ const schema = [
   <section class="sekce" aria-labelledby="pouziti-nadpis">
     <div class="wrap">
       <div class="ram sekce__in">
-        <h2 id="pouziti-nadpis">Je to ten správný dokument?{' '}<span>Pro koho je a pro koho ne.</span></h2>
+        <h2 id="pouziti-nadpis">{T.pouzitiNadpis}{' '}<span>{T.pouzitiSpan}</span></h2>
         <div class="dve-cesty">
           <div class="cesta">
-            <h3>Hodí se, když</h3>
+            <h3>{T.hodiSe}</h3>
             <ul class="fajfky">{p.hodiSe.map((t) => <li>{t}</li>)}</ul>
           </div>
           <div class="cesta cesta--tlumena">
-            <h3>Použijte jiný dokument, když</h3>
+            <h3>{T.nehodiSe}</h3>
             <ul class="krizky">{p.nehodiSe.map((t) => <li>{t}</li>)}</ul>
           </div>
         </div>
@@ -200,7 +180,7 @@ const schema = [
   <section class="sekce" aria-labelledby="kontrola-nadpis">
     <div class="wrap">
       <div class="ram sekce__in">
-        <h2 id="kontrola-nadpis">Ať jste v bezpečí.{' '}<span>Co si ověřit, než podepíšete.</span></h2>
+        <h2 id="kontrola-nadpis">{T.kontrolaNadpis}{' '}<span>{T.kontrolaSpan}</span></h2>
         <Kontrola sablona={s} />
       </div>
     </div>
@@ -209,7 +189,7 @@ const schema = [
   <section class="sekce" aria-labelledby="po-nadpis">
     <div class="wrap">
       <div class="ram sekce__in">
-        <h2 id="po-nadpis">{p.poNadpis ?? 'Po podpisu.'}{' '}<span>Co udělat, aby bylo vše v pořádku.</span></h2>
+        <h2 id="po-nadpis">{p.poNadpis ?? T.poNadpis}{' '}<span>{T.poSpan}</span></h2>
         <ol class="kroky">
           {
             p.po.map((k) => (
@@ -229,7 +209,7 @@ const schema = [
       <section class="sekce" aria-labelledby="souvisejici-nadpis">
         <div class="wrap">
           <div class="ram sekce__in">
-            <h2 id="souvisejici-nadpis">Hodí se k tomu.{' '}<span>{p.souvisejiciPopis ?? 'Další dokumenty k prodeji auta, také zdarma.'}</span></h2>
+            <h2 id="souvisejici-nadpis">{T.souvisejiciNadpis}{' '}<span>{p.souvisejiciPopis ?? T.souvisejiciSpan}</span></h2>
             <ul class="vypis souvisejici">
               {p.souvisejici.map((d) => (
                 <li>
@@ -239,7 +219,7 @@ const schema = [
                       <strong>{d.nazev}</strong>
                       <span>{d.popis}</span>
                     </span>
-                    <span class="vypis__stitek">PDF · Zdarma</span>
+                    <span class="vypis__stitek">{TX.hledani.zdarma}</span>
                   </a>
                 </li>
               ))}
@@ -253,7 +233,7 @@ const schema = [
   <section class="sekce" aria-labelledby="faq-nadpis">
     <div class="wrap">
       <div class="ram sekce__in">
-        <h2 id="faq-nadpis">Časté otázky</h2>
+        <h2 id="faq-nadpis">{T.faq}</h2>
         <div class="faq">
           {
             p.faq.map((f) => (
@@ -265,19 +245,19 @@ const schema = [
           }
         </div>
         <p class="poznamka">
-          {p.zakony} Šablona {s.kod} verze {s.verze}, aktualizováno {aktualizovano}. Dokuio poskytuje vzory k vyplnění,
-          nejde o právní poradenství.
+          {p.zakony} {T.pata(s.kod, s.verze, aktualizovano)}
         </p>
       </div>
     </div>
   </section>
 
   <StazeniBand
-    nadpis={`Stáhněte si ${p.nazevA} zdarma.`}
+    nadpis={T.stahnete(p.nazevA)}
     vytvorit={vytvorit}
     vzorPdf={vzorPdf}
     vzorDocx={vzorDocx}
     slovo={s.slovo}
+    jazyk={s.jazyk}
   />
-  <Podpora />
+  <Podpora jazyk={s.jazyk} />
 </Base>

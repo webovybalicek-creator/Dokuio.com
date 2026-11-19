@@ -3,7 +3,8 @@
  * Slug = cesta stránky bez lomítek („/cz/kupni-smlouva-auto/“ → „cz-kupni-smlouva-auto“); stránka
  * „vytvorit“ používá obrázek svého dokumentu. Neznámá stránka dostane „default“.
  */
-import { DOKUMENTY } from './dokumenty';
+import { AKTIVNI_ZEME, VSECHNY_STRANKY, urlStranky } from '../obsah';
+import { TEXTY, type Jazyk } from '../i18n';
 
 export interface OgStranka {
   slug: string;
@@ -14,24 +15,26 @@ export interface OgStranka {
   papir?: string;
 }
 
-const ZDARMA = { cs: 'Zdarma · PDF i Word · bez registrace', sk: 'Zadarmo · PDF aj Word · bez registrácie', en: 'Free · PDF & Word · no sign-up' };
+const ZDARMA_EN = 'Free · PDF & Word · no sign-up';
+const zdarma = (j: string) => TEXTY[j as Jazyk]?.duvera.slice(0, 3).join(' · ') ?? ZDARMA_EN;
 
 export const OG_STRANKY: OgStranka[] = [
-  { slug: 'default', stitek: ZDARMA.cs, nadpis: 'Vzory smluv zdarma', popis: 'Vyplňte online, stáhněte PDF nebo Word.' },
-  { slug: 'home', stitek: ZDARMA.en, nadpis: 'Contract templates, free', popis: 'Answer a few questions, download a ready-to-sign PDF.', papir: 'Contract' },
-  { slug: 'cz', stitek: ZDARMA.cs, nadpis: 'Vzory smluv zdarma v PDF', popis: 'Podle českého práva. Vyplňte online za pár minut.' },
-  { slug: 'sk', stitek: ZDARMA.sk, nadpis: 'Vzory zmlúv zadarmo v PDF', popis: 'Podľa slovenského práva. Vyplňte online.', papir: 'Zmluva' },
-  ...Object.entries(DOKUMENTY).flatMap(([zeme, docs]) =>
-    docs
-      .filter((d) => d.url)
-      .map((d) => ({
-        slug: d.url!.replace(/^\/|\/$/g, '').replace(/\//g, '-'),
-        stitek: ZDARMA[zeme === 'sk' ? 'sk' : 'cs'],
-        nadpis: d.nazev,
-        popis: d.popis,
-        papir: d.nazev,
-      })),
-  ),
+  { slug: 'default', stitek: zdarma('cs'), nadpis: 'Vzory smluv zdarma', popis: 'Vyplňte online, stáhněte PDF nebo Word.' },
+  { slug: 'home', stitek: ZDARMA_EN, nadpis: 'Contract templates, free', popis: 'Answer a few questions, download a ready-to-sign PDF.', papir: 'Contract' },
+  ...AKTIVNI_ZEME.map((z) => ({
+    slug: z.kod,
+    stitek: zdarma(z.jazyk),
+    nadpis: `${z.hub.h1} ${TEXTY[z.jazyk].hub.h1Em.replace(/\.$/, '')}`,
+    popis: z.hub.ogPopis,
+    papir: TEXTY[z.jazyk].slovo.n.replace(/^./, (c) => c.toUpperCase()),
+  })),
+  ...VSECHNY_STRANKY.map((st) => ({
+    slug: urlStranky(st).replace(/^\/|\/$/g, '').replace(/\//g, '-'),
+    stitek: zdarma(st.sablona.jazyk),
+    nadpis: st.nazev,
+    popis: st.katalog.popis,
+    papir: st.nazev,
+  })),
   { slug: 'cz-o-nas', stitek: 'Dokuio', nadpis: 'O Dokuio', popis: 'Vzory smluv zdarma pro každého.' },
   { slug: 'cz-podminky-uziti', stitek: 'Dokuio', nadpis: 'Podmínky užití', popis: 'Vzory zdarma, nejde o právní poradenství.' },
   { slug: 'cz-ochrana-osobnich-udaju', stitek: 'Dokuio', nadpis: 'Ochrana osobních údajů', popis: 'Údaje ze smluv zůstávají ve vašem prohlížeči.' },

@@ -6,60 +6,62 @@
  * Spouští se událostí `dokuio:stazeno` na window (průvodce) nebo kliknutím na odkaz s atributem download.
  */
 import { PODPORA } from '../lib/config';
+import { texty } from '../i18n';
+interface Props {
+  jazyk?: string;
+}
+const T = texty(Astro.props.jazyk).podpora;
 ---
 
 <dialog class="podpora" data-podpora data-stripe={PODPORA.stripe} data-iban={PODPORA.iban} data-prijemce={PODPORA.prijemce} data-castka={PODPORA.castkaKc} data-pauza={PODPORA.pauzaDni} aria-labelledby="podpora-nadpis">
-  <button type="button" class="podpora__zavrit" data-podpora-zavrit aria-label="Zavřít">
+  <button type="button" class="podpora__zavrit" data-podpora-zavrit aria-label={T.zavrit}>
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
   </button>
 
   <div class="podpora__krok" data-krok="otazka">
     <svg class="podpora__logo" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><path d="M14 6h16l-6 36H8z" fill="#533afd" fill-opacity=".9" /><path d="M24 6h12l-6 36H18z" fill="#9b5cff" fill-opacity=".9" /><path d="M34 6h8l-6 36h-8z" fill="#ff5fa2" fill-opacity=".95" /></svg>
-    <h2 id="podpora-nadpis">Staženo. Líbí se vám Dokuio?</h2>
-    <p>Vzory děláme zdarma pro všechny. Vaše odpověď nám pomůže.</p>
+    <h2 id="podpora-nadpis">{T.nadpis}</h2>
+    <p>{T.popis}</p>
     <div class="podpora__volby">
-      <button type="button" class="btn btn--primarni" data-podpora-ano>Ano, líbí</button>
-      <button type="button" class="btn btn--duch" data-podpora-ne>Něco mi chybí</button>
+      <button type="button" class="btn btn--primarni" data-podpora-ano>{T.ano}</button>
+      <button type="button" class="btn btn--duch" data-podpora-ne>{T.ne}</button>
     </div>
   </div>
 
   <div class="podpora__krok" data-krok="podpora" hidden>
-    <h2>Děkujeme! Podpoříte provoz?</h2>
-    <p>
-      Malý příspěvek pokryje hosting a nové vzory, které zůstanou zdarma pro všechny.
-      Jedno kafe stojí <strong>30&nbsp;Kč</strong> (1&nbsp;€, 1&nbsp;$). Počet si zvolíte v platbě.
-    </p>
+    <h2>{T.dik}</h2>
+    <p set:html={T.prispevek} />
     <a class="btn btn--primarni btn--plna podpora__stripe" data-podpora-stripe href={PODPORA.stripe} target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 9h9v5a4 4 0 0 1-4 4h-1a4 4 0 0 1-4-4zM16 10h1.5a2 2 0 0 1 0 4H16M9 4.5c0 1 1 1 1 2M12 4.5c0 1 1 1 1 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-      Koupit nám kafe
+      {T.kafe}
     </a>
-    <p class="podpora__metody">Karta · Apple Pay · Google Pay · bezpečně přes Stripe</p>
+    <p class="podpora__metody">{T.metody}</p>
     <div class="podpora__qr" data-podpora-qr hidden>
-      <p class="podpora__qr-titulek">Nebo QR platbou z bankovní aplikace</p>
+      <p class="podpora__qr-titulek">{T.qr}</p>
       <div class="podpora__qr-obr" data-podpora-qr-obr></div>
-      <p class="podpora__metody">Naskenujte v mobilním bankovnictví, částku můžete změnit.</p>
+      <p class="podpora__metody">{T.qrPopis}</p>
     </div>
-    <button type="button" class="odkaz-tl" data-podpora-zavrit>Teď ne</button>
+    <button type="button" class="odkaz-tl" data-podpora-zavrit>{T.tedNe}</button>
   </div>
 
   <div class="podpora__krok" data-krok="vazba" hidden>
-    <h2>Co bychom měli zlepšit?</h2>
-    <p>Stačí jedna věta. Odpověď je anonymní.</p>
+    <h2>{T.zlepsit}</h2>
+    <p>{T.zlepsitPopis}</p>
     <form data-podpora-form>
-      <label class="sr-only" for="podpora-text">Co zlepšit</label>
-      <textarea id="podpora-text" name="text" rows="3" maxlength="1000" required placeholder="Např. chyběla mi možnost…"></textarea>
+      <label class="sr-only" for="podpora-text">{T.zlepsitPopisek}</label>
+      <textarea id="podpora-text" name="text" rows="3" maxlength="1000" required placeholder={T.placeholder}></textarea>
       <div class="podpora__volby">
-        <button type="submit" class="btn btn--primarni">Odeslat</button>
-        <button type="button" class="odkaz-tl" data-podpora-zavrit>Zavřít</button>
+        <button type="submit" class="btn btn--primarni">{T.odeslat}</button>
+        <button type="button" class="odkaz-tl" data-podpora-zavrit>{T.zavrit}</button>
       </div>
     </form>
   </div>
 
   <div class="podpora__krok" data-krok="dik" hidden>
-    <h2>Děkujeme za zpětnou vazbu.</h2>
-    <p>Každou odpověď čteme a podle nich web vylepšujeme.</p>
+    <h2>{T.dikVazba}</h2>
+    <p>{T.dikVazbaPopis}</p>
     <div class="podpora__volby">
-      <button type="button" class="btn btn--duch" data-podpora-zavrit>Zavřít</button>
+      <button type="button" class="btn btn--duch" data-podpora-zavrit>{T.zavrit}</button>
     </div>
   </div>
 </dialog>

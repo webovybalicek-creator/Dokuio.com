@@ -1,0 +1,16 @@
+---
+/** Landing každého dokumentu: /<zeme>/<slug>/ – obsah ze src/obsah/<zeme>/<slug>.ts */
+import DokumentLanding from '../../../components/DokumentLanding.astro';
+import { VSECHNY_STRANKY, slugStranky } from '../../../obsah';
+import type { StrankaDokumentu } from '../../../obsah/typy';
+
+export function getStaticPaths() {
+  return VSECHNY_STRANKY.map((stranka) => ({
+    params: { zeme: stranka.sablona.zeme, dokument: slugStranky(stranka) },
+    props: { stranka },
+  }));
+}
+const { stranka } = Astro.props as { stranka: StrankaDokumentu };
+---
+
+<DokumentLanding stranka={stranka} />

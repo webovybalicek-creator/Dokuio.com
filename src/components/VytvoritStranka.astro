@@ -1,71 +1,62 @@
 ---
 /**
- * Stránka „Vyplnit online“ pro libovolnou šablonu: průvodce + stažení + podpora.
+ * Stránka „Vyplnit online“ pro libovolný dokument: průvodce + stažení + podpora.
  * Šablonu si klientský skript najde podle data-kod (registr šablon).
  */
 import Base from '../layouts/Base.astro';
 import Pruvodce from './Pruvodce.astro';
 import StazeniBand from './StazeniBand.astro';
 import Podpora from './Podpora.astro';
-import type { Sablona } from '../sablony/typy';
+import type { StrankaDokumentu } from '../obsah/typy';
+import { souvisejici, urlStranky, zemeKod } from '../obsah';
+import { texty } from '../i18n';
+import { SOUBORY } from '../sablony/registr';
 
 interface Props {
-  sablona: Sablona;
-  /** URL landing stránky dokumentu, např. /cz/kupni-smlouva-auto/ */
-  base: string;
-  /** Krátký název do drobečků a nadpisu, např. „Kupní smlouva na auto“ */
-  nazev: string;
-  /** Název ve 4. pádě malými písmeny: „kupní smlouvu na auto“ */
-  nazevA: string;
-  title: string;
-  description: string;
-  /** Podnadpis pod H1 */
-  podnadpis?: string;
-  dalsi?: { nazev: string; url: string }[];
+  stranka: StrankaDokumentu;
 }
-const {
-  sablona: s,
-  base,
-  nazev,
-  nazevA,
-  title,
-  description,
-  podnadpis = 'Zdarma · výsledek v PDF i ve Wordu · zabere pár minut',
-  dalsi = [],
-} = Astro.props;
+const { stranka } = Astro.props;
+const s = stranka.sablona;
+const zeme = zemeKod(s.zeme);
+const TX = texty(s.jazyk);
+const T = TX.vytvorit;
+const base = urlStranky(stranka);
+const dalsi = souvisejici(s.zeme, stranka.souvisejici, base);
 ---
 
-<Base title={title} description={description} lang={s.jazyk} noindex>
+<Base title={stranka.vytvorit.title} description={stranka.vytvorit.description} lang={s.jazyk} noindex>
   <Fragment slot="nav">
-    <a class="nav__odkaz" href={base}>O dokumentu</a>
-    <a class="btn btn--duch btn--maly" href="#stazeni">Stáhnout</a>
+    <a class="nav__odkaz" href={base}>{T.oDokumentu}</a>
+    <a class="btn btn--duch btn--maly" href="#stazeni">{T.stahnout}</a>
   </Fragment>
 
   <section class="pruvodce-sekce">
     <div class="wrap">
       <div class="ram pruvodce-sekce__in">
-        <nav class="drobecky" aria-label="Drobečková navigace">
-          <a href="/cz/">Česko</a> › <a href={base}>{nazev}</a> › Vyplnit online
+        <nav class="drobecky" aria-label={TX.drobecky}>
+          <a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › <a href={base}>{stranka.nazev}</a> › {T.vyplnitOnline}
         </nav>
-        <h1 class="pruvodce__nadpis">{nazev}{' '}<span>{podnadpis}</span></h1>
-        <Pruvodce sablona={s} dalsi={dalsi} />
+        <h1 class="pruvodce__nadpis">{stranka.nazev}{' '}<span>{stranka.vytvorit.podnadpis ?? T.podnadpis}</span></h1>
+        <Pruvodce sablona={s} dalsi={dalsi} soubor={SOUBORY[s.kod]} />
       </div>
     </div>
   </section>
 
   <StazeniBand
-    nadpis={`Stáhnout ${nazevA}.`}
+    nadpis={T.stahnoutNadpis(stranka.nazevA)}
     vzorPdf={`${base}${s.souborPdf}-vzor.pdf`}
     vzorDocx={`${base}${s.souborPdf}-vzor.docx`}
     pruvodce
     slovo={s.slovo}
+    jazyk={s.jazyk}
   />
-  <Podpora />
+  <Podpora jazyk={s.jazyk} />
 </Base>
 
 <script>
   import { spustPruvodce } from '../scripts/pruvodce';
-  import { SABLONY } from '../sablony/registr';
-  const kod = document.querySelector<HTMLElement>('[data-pruvodce]')?.dataset.kod;
-  if (kod && SABLONY[kod]) spustPruvodce(SABLONY[kod]);
+  import { nactiSablonu } from '../sablony/nacti';
+  const el = document.querySelector<HTMLElement>('[data-pruvodce]');
+  const { kod, soubor } = el?.dataset ?? {};
+  if (kod && soubor) nactiSablonu(soubor, kod).then((s) => s && spustPruvodce(s));
 </script>

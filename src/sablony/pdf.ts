@@ -195,7 +195,7 @@ export async function dokumentPdf(
   // Místo, datum a podpisy drží pohromadě
   zajisti(130);
   y -= 18;
-  odstavec([{ t: 'text', text: 'V ' }, ...d.misto, { t: 'text', text: ' dne ' }, ...d.datum], 0);
+  odstavec([{ t: 'text', text: `${d.mistoDne[0]} ` }, ...d.misto, { t: 'text', text: ` ${d.mistoDne[1]} ` }, ...d.datum], 0);
   y -= 58;
   const sloupec = 190;
   const x2 = OKRAJ_X + SIRKA - sloupec;

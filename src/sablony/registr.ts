@@ -1,45 +1,23 @@
-/** Všechny šablony podle kódu – průvodce si šablonu najde podle data-kod na stránce */
+/**
+ * Všechny šablony podle kódu – načtou se samy ze složek src/sablony/<zeme>/ (při buildu).
+ * Prohlížeč si stahuje jen šablonu otevřeného dokumentu (src/sablony/nacti.ts).
+ */
 import type { Sablona } from './typy';
-import { kupniSmlouvaAuto } from './cz/kupni-smlouva-auto';
-import { predavaciProtokolVozidlo } from './cz/predavaci-protokol-vozidlo';
-import { plnaMocPrepisVozidla } from './cz/plna-moc-prepis-vozidla';
-import { darovaciSmlouva } from './cz/darovaci-smlouva';
-import { smlouvaOZapujcce } from './cz/smlouva-o-zapujcce';
-import { potvrzeniPrevzetiPenez } from './cz/potvrzeni-prevzeti-penez';
-import { kupniSmlouvaMotorka } from './cz/kupni-smlouva-motorka';
-import { vypovedPovinneRuceni } from './cz/vypoved-povinne-ruceni';
-import { uznaniDluhu } from './cz/uznani-dluhu';
-import { plnaMoc } from './cz/plna-moc';
-import { kupniSmlouvaVec } from './cz/kupni-smlouva-vec';
-import { odstoupeniOdSmlouvy } from './cz/odstoupeni-od-smlouvy';
-import { reklamace } from './cz/reklamace';
-import { souhlasTrvalyPobyt } from './cz/souhlas-trvaly-pobyt';
-import { souhlasVycestovaniDite } from './cz/souhlas-vycestovani-dite';
-import { najemniSmlouvaByt } from './cz/najemni-smlouva-byt';
-import { predavaciProtokolByt } from './cz/predavaci-protokol-byt';
-import { vypovedNajmuNajemce } from './cz/vypoved-najmu-najemce';
-import { dohodaOSkonceniNajmu } from './cz/dohoda-o-skonceni-najmu';
 
-export const SABLONY: Record<string, Sablona> = Object.fromEntries(
-  [
-    kupniSmlouvaAuto,
-    predavaciProtokolVozidlo,
-    plnaMocPrepisVozidla,
-    darovaciSmlouva,
-    smlouvaOZapujcce,
-    potvrzeniPrevzetiPenez,
-    kupniSmlouvaMotorka,
-    vypovedPovinneRuceni,
-    uznaniDluhu,
-    plnaMoc,
-    kupniSmlouvaVec,
-    odstoupeniOdSmlouvy,
-    reklamace,
-    souhlasTrvalyPobyt,
-    souhlasVycestovaniDite,
-    najemniSmlouvaByt,
-    predavaciProtokolByt,
-    vypovedNajmuNajemce,
-    dohodaOSkonceniNajmu,
-  ].map((s) => [s.kod, s]),
-);
+const moduly = import.meta.glob<Record<string, unknown>>('./*/*.ts', { eager: true });
+
+const jeSablona = (x: unknown): x is Sablona =>
+  typeof x === 'object' && x !== null && 'kod' in x && 'kroky' in x && 'clanky' in x;
+
+export const SABLONY: Record<string, Sablona> = {};
+/** kód šablony → soubor (klíč pro nacti.ts) */
+export const SOUBORY: Record<string, string> = {};
+
+for (const [soubor, m] of Object.entries(moduly)) {
+  for (const x of Object.values(m)) {
+    if (!jeSablona(x)) continue;
+    if (SABLONY[x.kod] && SABLONY[x.kod] !== x) throw new Error(`Duplicitní kód šablony: ${x.kod}`);
+    SABLONY[x.kod] = x;
+    SOUBORY[x.kod] ??= soubor;
+  }
+}

@@ -4,37 +4,17 @@
  * Bez JavaScriptu se zobrazí celý výpis, hledání ho jen filtruje.
  */
 import Ilustrace from './Ilustrace.astro';
-import { DOKUMENTY, KATEGORIE } from '../lib/dokumenty';
+import { katalog, zemeKod } from '../obsah';
+import { texty } from '../i18n';
 import { SITE } from '../lib/config';
 
 interface Props {
-  zeme: 'cz' | 'sk';
+  zeme: string;
 }
-const { zeme } = Astro.props;
-const docs = DOKUMENTY[zeme];
-const kat = KATEGORIE[zeme];
-const t =
-  zeme === 'cz'
-    ? {
-        popisek: 'Hledat smlouvu',
-        placeholder: 'Např. prodej auta, půjčka, plná moc…',
-        zdarma: 'PDF · Zdarma',
-        pripravujeme: 'Připravujeme',
-        otevrit: 'Vyplnit',
-        nic: 'Takovou smlouvu zatím nemáme.',
-        napiste: 'Napište nám, jakou potřebujete',
-        vysledku: ['smlouva', 'smlouvy', 'smluv'],
-      }
-    : {
-        popisek: 'Hľadať zmluvu',
-        placeholder: 'Napr. predaj auta, pôžička, splnomocnenie…',
-        zdarma: 'PDF · Zadarmo',
-        pripravujeme: 'Pripravujeme',
-        otevrit: 'Vyplniť',
-        nic: 'Takúto zmluvu zatiaľ nemáme.',
-        napiste: 'Napíšte nám, akú potrebujete',
-        vysledku: ['zmluva', 'zmluvy', 'zmlúv'],
-      };
+const zeme = zemeKod(Astro.props.zeme);
+const docs = katalog(zeme.kod);
+const kat = zeme.kategorie;
+const t = texty(zeme.jazyk).hledani;
 const hledatText = (d: (typeof docs)[number]) => [d.nazev, d.popis, ...d.slova].join(' ');
 ---
 

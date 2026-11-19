@@ -16,14 +16,7 @@ export const SITE = {
   },
 };
 
-/**
- * Země (jurisdikce). Šablony smluv se liší podle práva dané země, ne jen jazykem,
- * proto má každá země vlastní sekci /{kod}/. Začínáme Českem.
- */
-export const ZEME = [
-  { kod: 'cz', nazev: 'Česko', nazevEn: 'Czechia', jazyk: 'cs', aktivni: true, casovaZona: 'Europe/Prague' },
-  { kod: 'sk', nazev: 'Slovensko', nazevEn: 'Slovakia', jazyk: 'sk', aktivni: true, casovaZona: 'Europe/Bratislava' },
-] as const;
+/** Země, jejich jazyky a hreflang: src/obsah/<kod>/_zeme.ts (načítá src/obsah/index.ts) */
 
 /**
  * Dobrovolná podpora provozu (okno po stažení smlouvy).
@@ -38,11 +31,3 @@ export const PODPORA = {
   /** Kolik dní po zavření okno znovu neukazovat */
   pauzaDni: 30,
 };
-
-/** Vstupní stránky zemí jsou jazykové verze téhož rozcestníku → hreflang */
-export const HREFLANG_HUBY = [
-  { hreflang: 'x-default', href: '/' },
-  { hreflang: 'en', href: '/' },
-  { hreflang: 'cs-CZ', href: '/cz/' },
-  { hreflang: 'sk-SK', href: '/sk/' },
-];

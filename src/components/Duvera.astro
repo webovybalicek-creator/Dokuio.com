@@ -1,16 +1,14 @@
 ---
 // Řádek důvěry: na každé stránce musí být vidět PDF a Zdarma (viz plán, „Sdělení, která lidi motivují“)
+import { TEXTY, type Jazyk } from '../i18n';
 interface Props {
-  lang?: 'cs' | 'en';
+  lang?: string;
   polozky?: string[];
   class?: string;
 }
 const { lang = 'cs', polozky, class: cls } = Astro.props;
-const vychozi =
-  lang === 'cs'
-    ? ['Zdarma', 'PDF i Word', 'Bez registrace', 'Údaje zůstávají ve vašem prohlížeči']
-    : ['Free', 'PDF and Word', 'No sign-up', 'Your data stays in your browser'];
-const seznam = polozky ?? vychozi;
+const EN = ['Free', 'PDF and Word', 'No sign-up', 'Your data stays in your browser'];
+const seznam = polozky ?? TEXTY[lang as Jazyk]?.duvera ?? EN;
 ---
 
 <ul class:list={['duvera', cls]}>

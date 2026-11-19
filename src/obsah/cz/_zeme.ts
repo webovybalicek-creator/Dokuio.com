@@ -1,0 +1,76 @@
+import type { Zeme } from '../typy';
+
+export const zeme: Zeme = {
+  kod: 'cz',
+  nazev: 'Česko',
+  nazevEn: 'Czechia',
+  jazyk: 'cs',
+  hreflang: 'cs-CZ',
+  casovaZona: 'Europe/Prague',
+  aktivni: true,
+  poradi: 1,
+  kategorie: {
+    auto: 'Auto a vozidla',
+    penize: 'Peníze a dary',
+    nakupy: 'Nákupy a reklamace',
+    veci: 'Prodej věcí',
+    bydleni: 'Bydlení',
+    rodina: 'Rodina a cestování',
+    zastoupeni: 'Plné moci',
+  },
+  skupiny: {
+    auto: [
+      { slug: 'kupni-smlouva-auto', popis: 'Prodej ojetého auta mezi soukromými osobami.' },
+      { slug: 'predavaci-protokol-vozidlo', popis: 'Stav km a paliva, poškození, klíče a výbava při předání.' },
+      { slug: 'plna-moc-prepis-vozidla', popis: 'Když na registr vozidel nemůžete jít osobně.' },
+      { slug: 'vypoved-povinneho-ruceni', popis: 'Po prodeji auta, k výročí nebo při zdražení.' },
+      { slug: 'kupni-smlouva-motorka', popis: 'Prodej motocyklu, skútru nebo čtyřkolky.' },
+    ],
+    penize: [
+      { slug: 'darovaci-smlouva', popis: 'Darování peněz nebo movité věci.' },
+      { slug: 'smlouva-o-zapujcce', popis: 'Půjčka peněz mezi známými, i na splátky.' },
+      { slug: 'potvrzeni-o-prevzeti-penez', popis: 'Doklad o předání hotovosti.' },
+      { slug: 'uznani-dluhu', popis: 'Dlužník písemně potvrdí, kolik a do kdy vrátí.' },
+      { slug: 'kupni-smlouva-vec', popis: 'Prodej kola, telefonu, nábytku.' },
+      { slug: 'plna-moc', popis: 'Aby za vás někdo něco vyřídil.' },
+    ],
+    bezne: [
+      { slug: 'odstoupeni-od-smlouvy', popis: 'Vrácení zboží z e-shopu.' },
+      { slug: 'reklamace', popis: 'Oprava, výměna, sleva nebo vrácení peněz.' },
+      { slug: 'souhlas-s-trvalym-pobytem', popis: 'Přihlášení na adresu.' },
+      { slug: 'souhlas-s-vycestovanim-ditete', popis: 'Cesta dítěte do zahraničí.' },
+      { slug: 'plna-moc', popis: 'Aby za vás někdo něco vyřídil.' },
+    ],
+    bydleni: [
+      { slug: 'najemni-smlouva-byt', popis: 'Nájemné, služby, kauce, doba nájmu.' },
+      { slug: 'podnajemni-smlouva', popis: 'Pokoj nebo celý byt v podnájmu.' },
+      { slug: 'predavaci-protokol-byt', popis: 'Stav bytu, měřiče a klíče.' },
+      { slug: 'vypoved-z-najmu', popis: 'Výpověď nájemce.' },
+      { slug: 'dohoda-o-skonceni-najmu', popis: 'Ukončení dohodou a vrácení kauce.' },
+      { slug: 'souhlas-s-trvalym-pobytem', popis: 'Přihlášení na adresu bytu.' },
+      { slug: 'potvrzeni-o-prevzeti-penez', popis: 'Třeba na předanou kauci.' },
+    ],
+  },
+  pripravujeme: [
+    {
+      nazev: 'Darovací smlouva na auto',
+      popis: 'Darování auta v rodině nebo mezi známými.',
+      kategorie: 'auto',
+      ilustrace: 'dar',
+      slova: ['darování auta', 'dar', 'darovat auto', 'rodina'],
+    },
+  ],
+  hub: {
+    title: 'Vzory smluv zdarma v PDF – vyplňte online',
+    description:
+      'Vzory smluv zdarma podle českého práva: kupní smlouva na auto, darovací smlouva, půjčka, plná moc. Vyplňte online, stáhněte PDF nebo Word.',
+    stitek: 'Česko',
+    stitekSpan: 'smlouvy podle českého práva',
+    h1: 'Vzory smluv',
+    h1Span: 'Vyplňte online za pár minut, nebo si stáhněte prázdný vzor. I ve Wordu, bez registrace.',
+    hledaniNadpis: 'Jakou smlouvu potřebujete?',
+    hledaniSpan: 'Hledejte podle situace, ne podle paragrafů.',
+    ogPopis: 'Podle českého práva. Vyplňte online za pár minut.',
+  },
+  informace: ['/cz/o-nas/', '/cz/podminky-uziti/', '/cz/ochrana-osobnich-udaju/'],
+};

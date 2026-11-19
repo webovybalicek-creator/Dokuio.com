@@ -3,6 +3,7 @@
  * Nevyplněná pole se mění na linky, nevybrané volby na zaškrtávací výčet.
  */
 import type { Data, Hodnota, Odstavec, Pole, Sablona } from './typy';
+import { texty as textyJazyka } from '../i18n';
 
 export type Usek =
   | { t: 'text'; text: string; tucne?: boolean; vyplneno?: boolean; pole?: string }
@@ -41,6 +42,9 @@ export interface Dokument {
   datum: Usek[];
   podpisy: { vlevo: string; vpravo: string };
   paticka: string;
+  /** „V“ a „dne“ u místa a data podpisu v jazyce dokumentu */
+  mistoDne: [string, string];
+  jazyk: string;
   /** Uživatel upravil text šablony */
   upraveno: boolean;
   /** Kolik polí je vyplněno / celkem (pro průvodce) */
@@ -79,7 +83,7 @@ export function formatCislo(v: string): string {
   return n.toLocaleString('cs-CZ', { maximumFractionDigits: 2 }).replace(/\s/g, '\u00a0');
 }
 
-export function formatHodnota(pole: Pole | undefined, h: Hodnota): string {
+export function formatHodnota(pole: Pole | undefined, h: Hodnota, jazyk?: string): string {
   if (prazdne(h)) return '';
   const v = Array.isArray(h) ? h.join(', ') : String(h).trim();
   if (!pole) return v;
@@ -87,7 +91,7 @@ export function formatHodnota(pole: Pole | undefined, h: Hodnota): string {
     case 'datum':
       return formatDatum(v);
     case 'castka':
-      return `${formatCislo(v)}\u00a0Kč`;
+      return `${formatCislo(v)}\u00a0${textyJazyka(jazyk).mena.znak}`;
     case 'cislo':
       return pole.jednotka ? `${formatCislo(v)}\u00a0${pole.jednotka}` : formatCislo(v);
     case 'vin':
@@ -156,6 +160,7 @@ export function textNaRadky(text: string): Radek[] {
 }
 
 export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dokument {
+  const T = textyJazyka(s.jazyk).dokument;
   const pole = vsechnaPole(s);
 
   const hodnotaUseku = (id: string): Usek => {
@@ -163,7 +168,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     const odvoz = s.odvozene?.[id];
     const ref = p ? { pole: id } : {};
     if (p && !poleAktivni(p, data)) return { t: 'linka', sirka: p.sirka ?? 24, ...ref };
-    const text = odvoz ? odvoz(data) : formatHodnota(p, data[id]);
+    const text = odvoz ? odvoz(data) : formatHodnota(p, data[id], s.jazyk);
     if (text) return { t: 'text', text, vyplneno: true, ...ref };
     return { t: 'linka', sirka: p?.sirka ?? 30, ...ref };
   };
@@ -193,7 +198,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
       const vybrana = typeof v === 'string' ? o.moznosti[v] : undefined;
       if (vybrana) return [{ uroven: 0, useky: rozloz(o.uvod ? `${o.uvod} ${vybrana}` : vybrana) }];
       return [
-        { uroven: 0, useky: rozloz(o.uvodVzor ?? o.uvod ?? 'Zaškrtněte jednu možnost:') },
+        { uroven: 0, useky: rozloz(o.uvodVzor ?? o.uvod ?? T.zaskrtnete) },
         ...Object.values(o.moznosti).map((text) => ({
           uroven: 1 as const,
           useky: [{ t: 'ctverec', zaskrtnuto: false, pole: o.volba } as Usek, ...rozloz(text)],
@@ -245,8 +250,8 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
   if (vlastni.length) {
     upraveno = true;
     clanky.splice(Math.max(clanky.length - 1, 0), 0, {
-      nadpis: 'Další ujednání',
-      vysvetleni: 'Vaše vlastní ustanovení. Tento text není součástí našeho ověřeného vzoru.',
+      nadpis: T.dalsiUjednani,
+      vysvetleni: T.dalsiUjednaniVysvetleni,
       odstavce: vlastni.map((t, k) => ({ id: `v${k}`, stav: 'vlastni', radky: textNaRadky(t) })),
     });
   }
@@ -255,7 +260,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     const platne = c.odstavce.filter((o) => o.stav !== 'smazano');
     let n = 0;
     return {
-      nadpis: s.cislovatClanky === false ? c.nadpis : `Článek ${RIMSKE[i]} · ${c.nadpis}`,
+      nadpis: s.cislovatClanky === false ? c.nadpis : `${T.clanek(RIMSKE[i])} · ${c.nadpis}`,
       vysvetleni: c.vysvetleni,
       odstavce: c.odstavce.map((o) =>
         o.stav === 'smazano' || platne.length < 2 || s.cislovatOdstavce === false ? o : { ...o, cislo: `${++n}.` },
@@ -279,7 +284,9 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     misto: [hodnotaUseku(s.mistoPodpisu)],
     datum: [hodnotaUseku(s.datumPodpisu)],
     podpisy: s.podpisy,
-    paticka: upraveno ? `${s.paticka} · text upraven uživatelem` : s.paticka,
+    paticka: upraveno ? `${s.paticka} · ${T.upravenoUzivatelem}` : s.paticka,
+    mistoDne: [T.v, T.dne],
+    jazyk: s.jazyk,
     upraveno,
     vyplneno,
     celkem,

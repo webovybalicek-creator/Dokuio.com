@@ -84,7 +84,7 @@ export async function dokumentDocx(
   deti.push(
     new Paragraph({
       spacing: { before: 480, after: podpisy.vlevo || podpisy.vpravo ? 240 : 960 },
-      children: [new TextRun('V '), ...behy(d.misto), new TextRun(' dne '), ...behy(d.datum)],
+      children: [new TextRun(`${d.mistoDne[0]} `), ...behy(d.misto), new TextRun(` ${d.mistoDne[1]} `), ...behy(d.datum)],
     }),
     ...(podpisy.vlevo || podpisy.vpravo
       ? [

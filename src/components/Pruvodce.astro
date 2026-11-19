@@ -4,7 +4,8 @@
  * Vpravo živý náhled, ve kterém jde každý odstavec upravit, smazat nebo vrátit.
  * Logika v src/scripts/pruvodce.ts (spouští ji stránka konkrétního dokumentu).
  */
-import { SMLOUVA, velke, type Sablona } from '../sablony/typy';
+import type { Sablona } from '../sablony/typy';
+import { texty } from '../i18n';
 import Duvera from './Duvera.astro';
 import Kontrola from './Kontrola.astro';
 import Upozorneni from './Upozorneni.astro';
@@ -14,15 +15,19 @@ interface Props {
   sablona: Sablona;
   /** Související dokumenty pro panel „Co dál?“ */
   dalsi?: { nazev: string; url: string }[];
+  /** Soubor šablony pro líné načtení v prohlížeči */
+  soubor?: string;
 }
-const { sablona: s, dalsi = [] } = Astro.props;
-const w = s.slovo ?? SMLOUVA;
+const { sablona: s, dalsi = [], soubor } = Astro.props;
+const TX = texty(s.jazyk);
+const T = TX.pruvodce;
+const w = s.slovo ?? TX.slovo;
 const pocet = s.kroky.length + 1;
 ---
 
-<div class="pruvodce" data-pruvodce data-kod={s.kod} data-verze={s.verze}>
+<div class="pruvodce" data-pruvodce data-kod={s.kod} data-soubor={soubor} data-verze={s.verze}>
   <div class="pruvodce__formular">
-    <ol class="kroky-nav" aria-label="Kroky">
+    <ol class="kroky-nav" aria-label={T.kroky}>
       {
         s.kroky.map((k, i) => (
           <li>
@@ -34,7 +39,7 @@ const pocet = s.kroky.length + 1;
         ))
       }
       <li>
-        <button type="button" data-skok={s.kroky.length}><span>{pocet}</span>Kontrola a stažení</button>
+        <button type="button" data-skok={s.kroky.length}><span>{pocet}</span>{T.kontrolaAStazeni}</button>
       </li>
     </ol>
 
@@ -42,11 +47,11 @@ const pocet = s.kroky.length + 1;
       s.prevzit && (
         <div class="prevzit" data-prevzit hidden>
           <p>
-            <strong>Máte rozpracovanou {s.prevzit.nazev}.</strong> Předvyplnit z ní jména, adresy a další údaje?
+            <strong>{T.prevzit(s.prevzit.nazev)}</strong> {T.prevzitOtazka}
           </p>
           <div class="prevzit__akce">
-            <button type="button" class="btn btn--primarni btn--maly" data-prevzit-ano>Předvyplnit</button>
-            <button type="button" class="odkaz-tl" data-prevzit-ne>Ne, děkuji</button>
+            <button type="button" class="btn btn--primarni btn--maly" data-prevzit-ano>{T.predvyplnit}</button>
+            <button type="button" class="odkaz-tl" data-prevzit-ne>{T.neDekuji}</button>
           </div>
         </div>
       )
@@ -56,7 +61,7 @@ const pocet = s.kroky.length + 1;
         s.kroky.map((k, i) => (
           <fieldset class="krok" data-krok={i} hidden={i !== 0}>
             <legend>
-              <span class="krok__poradi">Krok {i + 1} z {pocet}</span>
+              <span class="krok__poradi">{T.krokZ(i + 1, pocet)}</span>
               {k.nazev}
             </legend>
             {k.popis && <p class="krok__popis">{k.popis}</p>}
@@ -103,13 +108,13 @@ const pocet = s.kroky.length + 1;
                   {p.napoveda && <p class="pole__napoveda">{p.napoveda}</p>}
                   {p.typ === 'vin' && (
                     <details class="pole__kde">
-                      <summary>Kde VIN najdu?</summary>
+                      <summary>{TX.vin.kde}</summary>
                       <div class="kde">
-                        <svg class="kde__karta" viewBox="0 0 320 196" role="img" aria-label="Osvědčení o registraci vozidla – VIN je v kolonce E">
+                        <svg class="kde__karta" viewBox="0 0 320 196" role="img" aria-label={TX.vin.dokladAria}>
                           <rect x="1" y="1" width="318" height="194" rx="12" fill="#f6f9fc" stroke="#d6dbe6" />
                           <rect x="1" y="1" width="318" height="34" rx="12" fill="#e8edf7" />
                           <rect x="1" y="22" width="318" height="13" fill="#e8edf7" />
-                          <text x="16" y="23" font-size="10" font-weight="600" fill="#425466" letter-spacing=".06em">OSVĚDČENÍ O REGISTRACI VOZIDLA</text>
+                          <text x="16" y="23" font-size="10" font-weight="600" fill="#425466" letter-spacing=".06em">{TX.vin.dokladNadpis}</text>
                           <g font-size="11" fill="#425466">
                             <text x="16" y="60" font-weight="600">A</text><text x="48" y="60">1AB 2345</text>
                             <text x="16" y="82" font-weight="600">B</text><text x="48" y="82">15.03.2018</text>
@@ -119,14 +124,10 @@ const pocet = s.kroky.length + 1;
                           <rect x="8" y="138" width="304" height="28" rx="7" fill="#533afd" fill-opacity=".1" stroke="#533afd" />
                           <text x="16" y="157" font-size="11" font-weight="700" fill="#533afd">E</text>
                           <text x="48" y="157" font-size="12" font-weight="600" fill="#0a2540" letter-spacing=".08em">TMBJJ7NE8J0123456</text>
-                          <text x="16" y="185" font-size="9" fill="#8792a2">Ilustrace, skutečný doklad vypadá trochu jinak.</text>
+                          <text x="16" y="185" font-size="9" fill="#8792a2">{TX.vin.ilustrace}</text>
                         </svg>
-                        <ul class="kde__seznam">
-                          <li><strong>Osvědčení o registraci</strong> (malý technický průkaz) – kolonka <strong>E</strong>.</li>
-                          <li><strong>Na vozidle</strong> – u auta za čelním sklem v rohu u řidiče nebo na štítku ve dveřích, u motorky vyražený na rámu u hlavy řízení.</li>
-                          <li><strong>Velký technický průkaz</strong> nebo servisní knížka.</li>
-                        </ul>
-                        <p class="kde__tip">VIN na dokladu a na vozidle se musí shodovat. Pokud ne, raději nekupujte.</p>
+                        <ul class="kde__seznam">{TX.vin.seznam.map((t) => <li set:html={t} />)}</ul>
+                        <p class="kde__tip">{TX.vin.tip}</p>
                       </div>
                     </details>
                   )}
@@ -134,15 +135,15 @@ const pocet = s.kroky.length + 1;
                 </div>
               ))}
             </div>
-            <p class="krok__tip">Co nevyplníte, zůstane v {w.l} jako linka k ručnímu doplnění.</p>
+            <p class="krok__tip">{T.tipLinka(w)}</p>
             <div class="krok__akce">
               {i > 0 && (
                 <button type="button" class="btn btn--duch" data-zpet>
-                  Zpět
+                  {T.zpet}
                 </button>
               )}
               <button type="button" class="btn btn--primarni btn--sipka" data-dal>
-                {i === s.kroky.length - 1 ? 'Ke kontrole a stažení' : 'Pokračovat'}
+                {i === s.kroky.length - 1 ? T.keKontrole : T.pokracovat}
               </button>
             </div>
           </fieldset>
@@ -150,11 +151,8 @@ const pocet = s.kroky.length + 1;
       }
 
       <fieldset class="krok krok--hotovo" data-krok={s.kroky.length} hidden>
-        <legend><span class="krok__poradi">Krok {pocet} z {pocet}</span>Kontrola a stažení</legend>
-        <p class="krok__popis">
-          Projděte si {w.a} v náhledu. Každý odstavec můžete <strong>upravit</strong> nebo <strong>smazat</strong> a
-          přidat vlastní ustanovení. Původní ověřené znění jde vždy vrátit.
-        </p>
+        <legend><span class="krok__poradi">{T.krokZ(pocet, pocet)}</span>{T.kontrolaAStazeni}</legend>
+        <p class="krok__popis" set:html={T.hotovoPopis(w)} />
         <p class="souhrn" data-souhrn></p>
         <div class="chybi" data-chybi hidden></div>
         <Kontrola sablona={s} kompakt />
@@ -162,12 +160,8 @@ const pocet = s.kroky.length + 1;
           s.podpisPoznamka && <p class="podpis-poznamka">{s.podpisPoznamka}</p>
         ) : (
         <details class="podpis">
-          <summary>Podepsat rovnou tady <span>volitelné</span></summary>
-          <p class="podpis__popis">
-            Podepište se myší, prstem nebo perem – hodí se, když jste s druhou stranou u jednoho počítače, tabletu
-            nebo telefonu. Podpisy se nikam neukládají, vloží se jen do staženého souboru. Můžete také vytisknout a
-            podepsat ručně.
-          </p>
+          <summary>{T.podepsat} <span>{T.volitelne}</span></summary>
+          <p class="podpis__popis">{T.podpisPopis}</p>
           <div class="podpis__pole">
             {
               [
@@ -175,10 +169,10 @@ const pocet = s.kroky.length + 1;
                 ['vpravo', s.podpisy.vpravo],
               ].map(([strana, popis]) => (
                 <div class="podpis__blok">
-                  <canvas data-podpis={strana} width="600" height="200" aria-label={`Podpis: ${popis}`} />
+                  <canvas data-podpis={strana} width="600" height="200" aria-label={T.podpis(popis)} />
                   <div class="podpis__pata">
                     <span>{popis}</span>
-                    <button type="button" class="odkaz-tl" data-podpis-smazat={strana}>Smazat</button>
+                    <button type="button" class="odkaz-tl" data-podpis-smazat={strana}>{T.smazat}</button>
                   </div>
                 </div>
               ))
@@ -188,34 +182,34 @@ const pocet = s.kroky.length + 1;
         )}
         <Upozorneni jazyk={s.jazyk} />
         <div class="akce akce--tesne">
-          <button type="button" class="btn btn--primarni" data-stahnout="pdf">Stáhnout PDF zdarma</button>
-          <button type="button" class="btn btn--duch" data-stahnout="docx">Stáhnout Word</button>
+          <button type="button" class="btn btn--primarni" data-stahnout="pdf">{T.stahnoutPdf}</button>
+          <button type="button" class="btn btn--duch" data-stahnout="docx">{T.stahnoutWord}</button>
         </div>
         <div class="co-dal" data-co-dal hidden>
-          <h3>Hotovo. Co dál?</h3>
+          <h3>{T.coDal}</h3>
           <ol>{s.coDal.map((t) => <li>{t}</li>)}</ol>
           {dalsi.length > 0 && (
             <p class="co-dal__dalsi">
-              Hodí se k tomu: {dalsi.map((d, i) => <>{i > 0 && ' · '}<a href={d.url}>{d.nazev}</a></>)}
+              {T.hodiSe} {dalsi.map((d, i) => <>{i > 0 && ' · '}<a href={d.url}>{d.nazev}</a></>)}
             </p>
           )}
         </div>
         <div class="krok__akce">
-          <button type="button" class="btn btn--duch" data-zpet>Zpět</button>
-          <button type="button" class="odkaz-tl" data-smazat>Smazat moje údaje a úpravy</button>
+          <button type="button" class="btn btn--duch" data-zpet>{T.zpet}</button>
+          <button type="button" class="odkaz-tl" data-smazat>{T.smazatVse}</button>
         </div>
       </fieldset>
     </form>
-    <Duvera class="duvera--pruvodce" />
+    <Duvera class="duvera--pruvodce" lang={s.jazyk} />
   </div>
 
-  <aside class="pruvodce__nahled" id="nahled-smlouvy" aria-label={`Náhled: ${w.n}`}>
+  <aside class="pruvodce__nahled" id="nahled-smlouvy" aria-label={T.nahled(w)}>
     <div class="nahled__hlava">
-      <span>Náhled {w.g}</span>
+      <span>{T.nahledG(w)}</span>
       <span class="nahled__stav" data-stav></span>
-      <button type="button" class="nahled__zavrit" data-nahled-zavrit aria-label="Zavřít náhled">Zpět k otázkám</button>
+      <button type="button" class="nahled__zavrit" data-nahled-zavrit aria-label={T.zavritNahled}>{T.zpetKOtazkam}</button>
     </div>
-    <p class="nahled__tip">Klikněte na údaj nebo linku v {w.l} a skočíte k otázce.</p>
+    <p class="nahled__tip">{T.nahledTip(w)}</p>
     <div class="papir" data-nahled></div>
   </aside>
 
@@ -223,7 +217,7 @@ const pocet = s.kroky.length + 1;
     <span class="nahled-lista__ikona" aria-hidden="true">
       <svg viewBox="0 0 20 20" width="18" height="18"><path d="M5 2.5h7l3.5 3.5v11.5H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 10h5M8 13h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </span>
-    Zobrazit {w.a}
+    {T.zobrazit(w)}
     <span class="nahled-lista__stav" data-lista-stav></span>
   </button>
 </div>

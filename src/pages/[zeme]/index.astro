@@ -1,0 +1,66 @@
+---
+/** Rozcestník země /<kod>/ – texty z src/obsah/<kod>/_zeme.ts a src/i18n/ */
+import Base from '../../layouts/Base.astro';
+import Duvera from '../../components/Duvera.astro';
+import Hledani from '../../components/Hledani.astro';
+import { AKTIVNI_ZEME, HREFLANG_HUBY } from '../../obsah';
+import type { Zeme } from '../../obsah/typy';
+import { texty } from '../../i18n';
+
+export function getStaticPaths() {
+  return AKTIVNI_ZEME.map((zeme) => ({ params: { zeme: zeme.kod }, props: { zeme } }));
+}
+const { zeme } = Astro.props as { zeme: Zeme };
+const TX = texty(zeme.jazyk);
+const T = TX.hub;
+const h = zeme.hub;
+---
+
+<Base alternates={HREFLANG_HUBY} title={h.title} description={h.description} lang={zeme.jazyk}>
+  <Fragment slot="nav">
+    <a class="nav__odkaz" href={`#${T.kotva}`}>{T.jakToFunguje}</a>
+    <a class="btn btn--duch btn--maly" href="/?zeme=vyber" hreflang="en">{TX.jinaZeme}</a>
+  </Fragment>
+
+  <section class="hero">
+    <div class="hero__vlna" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="ram hero__obsah hero__obsah--hledani">
+        <p class="horni-stitek">{h.stitek} · <span>{h.stitekSpan}</span></p>
+        <h1>
+          {h.h1} <em>{T.h1Em}</em>{' '}
+          <span>{h.h1Span}</span>
+        </h1>
+        <Duvera class="duvera--hero" lang={zeme.jazyk} />
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" id="smlouvy" aria-labelledby="smlouvy-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in sekce__in--tesne">
+        <h2 id="smlouvy-nadpis">{h.hledaniNadpis}{' '}<span>{h.hledaniSpan}</span></h2>
+        <Hledani zeme={zeme.kod} />
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" id={T.kotva} aria-labelledby="jak-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="jak-nadpis">{T.krokyNadpis}{' '}<span>{T.krokySpan}</span></h2>
+        <ol class="kroky">
+          {
+            T.kroky.map((k) => (
+              <li>
+                <h3>{k.nazev}</h3>
+                <p>{k.popis}</p>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="poznamka">{T.poznamka}</p>
+      </div>
+    </div>
+  </section>
+</Base>

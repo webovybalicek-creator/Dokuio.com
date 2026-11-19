@@ -1,0 +1,16 @@
+---
+/** Průvodce vyplněním: /<zeme>/<slug>/vytvorit/ */
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { VSECHNY_STRANKY, slugStranky } from '../../../../obsah';
+import type { StrankaDokumentu } from '../../../../obsah/typy';
+
+export function getStaticPaths() {
+  return VSECHNY_STRANKY.map((stranka) => ({
+    params: { zeme: stranka.sablona.zeme, dokument: slugStranky(stranka) },
+    props: { stranka },
+  }));
+}
+const { stranka } = Astro.props as { stranka: StrankaDokumentu };
+---
+
+<VytvoritStranka stranka={stranka} />

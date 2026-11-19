@@ -2,7 +2,8 @@
  * Klientská logika průvodce. Vše běží v prohlížeči: údaje se nikam neodesílají,
  * rozpracovaná smlouva se pamatuje jen v localStorage tohoto prohlížeče.
  */
-import { SMLOUVA, type Data, type Sablona } from '../sablony/typy';
+import type { Data, Sablona } from '../sablony/typy';
+import { texty } from '../i18n';
 import {
   poleAktivni,
   prazdne,
@@ -56,7 +57,9 @@ export function spustPruvodce(s: Sablona) {
   const navTl = [...koren.querySelectorAll<HTMLButtonElement>('[data-skok]')];
   const pole = vsechnaPole(s);
   const klic = `dokuio:${s.kod}:${s.verze}`;
-  const w = s.slovo ?? SMLOUVA;
+  const TX = texty(s.jazyk);
+  const T = TX.pruvodce;
+  const w = s.slovo ?? TX.slovo;
 
   let stav: Stav = { data: {}, upravy: {}, krok: 0 };
   try {
@@ -113,7 +116,7 @@ export function spustPruvodce(s: Sablona) {
       const spatne = v.length > 0 && !VIN.test(v);
       var_.hidden = !spatne;
       var_.textContent = spatne
-        ? `VIN má obvykle 17 znaků bez písmen I, O a Q (teď ${v.length}). Zkontrolujte ho – do dokumentu ho zapíšeme tak, jak je.`
+        ? T.vin(v.length)
         : '';
     });
   };
@@ -128,7 +131,7 @@ export function spustPruvodce(s: Sablona) {
     const otevrene = [...nahled.querySelectorAll('details.dok__vysvetleni')].map((d) => (d as HTMLDetailsElement).open);
     nahled.innerHTML = dokumentHtml(dok, true);
     nahled.querySelectorAll<HTMLDetailsElement>('details.dok__vysvetleni').forEach((d, i) => (d.open = !!otevrene[i]));
-    stavEl.textContent = `Vyplněno ${dok.vyplneno} z ${dok.celkem} údajů${dok.upraveno ? ' · text upraven' : ''}`;
+    stavEl.textContent = T.stav(dok.vyplneno, dok.celkem, dok.upraveno);
     if (listaStav) listaStav.textContent = `${dok.vyplneno}/${dok.celkem}`;
     vykresliChybi();
     const souhrn = koren.querySelector<HTMLElement>('[data-souhrn]');
@@ -136,8 +139,8 @@ export function spustPruvodce(s: Sablona) {
       const zbyva = dok.celkem - dok.vyplneno;
       souhrn.textContent =
         zbyva === 0
-          ? 'Všechny údaje jsou vyplněné. Vše je připravené k tisku a podpisu.'
-          : `Vyplněno ${dok.vyplneno} z ${dok.celkem} údajů. Zbylých ${zbyva} zůstane jako linky k doplnění rukou.`;
+          ? T.vseVyplneno
+          : T.zbyva(dok.vyplneno, dok.celkem, zbyva);
     }
     if (otevrenyEditor) otevriEditor(otevrenyEditor);
   };
@@ -173,8 +176,8 @@ export function spustPruvodce(s: Sablona) {
       .join('');
     chybiEl.hidden = pocet === 0;
     chybiEl.innerHTML = pocet
-      ? `<p class="chybi__nadpis">Před stažením zkontrolujte (${pocet})</p>
-         <p class="chybi__popis">Nevyplněné údaje můžete klidně nechat – v ${w.l} zůstane linka a doplníte je rukou. Kliknutím skočíte k otázce.</p>
+      ? `<p class="chybi__nadpis">${T.chybiNadpis(pocet)}</p>
+         <p class="chybi__popis">${T.chybiPopis(w)}</p>
          ${skupiny}`
       : '';
   }
@@ -280,11 +283,11 @@ export function spustPruvodce(s: Sablona) {
     const editor = document.createElement('div');
     editor.className = 'editor';
     editor.innerHTML = `
-      <textarea rows="5" aria-label="Text odstavce"></textarea>
-      <p class="editor__tip">Tečky „……“ se v ${w.l} změní na linku k doplnění rukou.</p>
+      <textarea rows="5" aria-label="${TX.dokument.upravit}"></textarea>
+      <p class="editor__tip">${T.editorTip(w)}</p>
       <div class="editor__akce">
-        <button type="button" class="btn btn--primarni btn--maly" data-ed="ulozit">Uložit</button>
-        <button type="button" class="btn btn--duch btn--maly" data-ed="zrusit">Zrušit</button>
+        <button type="button" class="btn btn--primarni btn--maly" data-ed="ulozit">${T.ulozit}</button>
+        <button type="button" class="btn btn--duch btn--maly" data-ed="zrusit">${T.zrusit}</button>
       </div>`;
     const ta = editor.querySelector('textarea')!;
     ta.value = vychozi;
@@ -378,7 +381,7 @@ export function spustPruvodce(s: Sablona) {
     else if (t.closest('[data-zpet]')) ukazKrok(stav.krok - 1);
     else if (t.closest('[data-skok]')) ukazKrok(Number(t.closest<HTMLElement>('[data-skok]')!.dataset.skok));
     else if (t.closest('[data-smazat]')) {
-      if (!confirm('Opravdu smazat všechny vyplněné údaje a úpravy textu?')) return;
+      if (!confirm(T.potvrditSmazani)) return;
       stav = { data: {}, upravy: {}, krok: 0 };
       form.reset();
       aplikujVychozi();
@@ -466,7 +469,7 @@ export function spustPruvodce(s: Sablona) {
     const typ = tl.dataset.stahnout;
     const text = tl.textContent;
     tl.disabled = true;
-    tl.textContent = 'Připravuji…';
+    tl.textContent = T.pripravuji;
     try {
       const d = sestavDokument(s, stav.data, stav.upravy);
       if (typ === 'pdf') {
@@ -491,7 +494,7 @@ export function spustPruvodce(s: Sablona) {
       window.dispatchEvent(new CustomEvent('dokuio:stazeno', { detail: { typ } }));
     } catch (err) {
       console.error(err);
-      alert('Soubor se nepodařilo vytvořit. Zkuste to prosím znovu, případně v jiném prohlížeči.');
+      alert(T.chybaSouboru);
     } finally {
       tl.disabled = false;
       tl.textContent = text;

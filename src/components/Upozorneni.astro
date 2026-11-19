@@ -1,22 +1,10 @@
 ---
-/**
- * Upozornění u stažení (zadání): za smlouvu odpovídá uživatel, doporučujeme kontrolu advokátem.
- */
+/** Upozornění u stažení (zadání): za smlouvu odpovídá uživatel, doporučujeme kontrolu advokátem. */
+import { texty } from '../i18n';
 interface Props {
   jazyk?: string;
 }
-const { jazyk = 'cs' } = Astro.props;
-const T = {
-  cs: {
-    nadpis: 'Za smlouvu odpovídáte vy',
-    text: 'Dokuio je bezplatný vzor k vyplnění, ne právní služba. Za obsah, úpravy a použití dokumentu odpovídáte sami. Před podpisem si ho pečlivě přečtěte a doporučujeme nechat ho zkontrolovat advokátem – zvlášť u vyšších částek, nájmu nebo nestandardní situace.',
-  },
-  sk: {
-    nadpis: 'Za zmluvu zodpovedáte vy',
-    text: 'Dokuio je bezplatný vzor na vyplnenie, nie právna služba. Za obsah, úpravy a použitie dokumentu zodpovedáte sami. Pred podpisom si ho pozorne prečítajte a odporúčame dať ho skontrolovať advokátovi – najmä pri vyšších sumách, nájme alebo neštandardnej situácii.',
-  },
-};
-const t = jazyk === 'sk' ? T.sk : T.cs;
+const t = texty(Astro.props.jazyk).upozorneni;
 ---
 
 <div class="upozorneni" role="note">

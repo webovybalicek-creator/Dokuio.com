@@ -1,11 +1,13 @@
 ---
-import { SMLOUVA, type Slovo } from '../sablony/typy';
-import Upozorneni from './Upozorneni.astro';
 /**
  * Pás se stažením na konci každé stránky dokumentu (požadavek ze zadání):
  * vždy jde stáhnout vlastní (vyplněná/upravená) verze i obecný prázdný vzor, v PDF i ve Wordu.
  * V průvodci (`pruvodce`) tlačítka „Vaše smlouva“ obsluhuje skript průvodce (data-stahnout).
  */
+import type { Slovo } from '../sablony/typy';
+import { texty } from '../i18n';
+import Upozorneni from './Upozorneni.astro';
+
 interface Props {
   nadpis: string;
   vzorPdf: string;
@@ -13,48 +15,45 @@ interface Props {
   vytvorit?: string;
   pruvodce?: boolean;
   slovo?: Slovo;
+  jazyk?: string;
 }
-const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false, slovo: w = SMLOUVA } = Astro.props;
-const zensky = /a$|moc$/.test(w.n);
+const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false, slovo, jazyk } = Astro.props;
+const TX = texty(jazyk);
+const T = TX.stazeni;
+const w = slovo ?? TX.slovo;
 ---
 
 <section class="sekce stazeni" id="stazeni" aria-labelledby="stazeni-nadpis">
   <div class="wrap">
     <div class="ram sekce__in">
-      <h2 id="stazeni-nadpis">{nadpis}{' '}<span>Zdarma, bez registrace, v PDF i ve Wordu.</span></h2>
+      <h2 id="stazeni-nadpis">{nadpis}{' '}<span>{T.span}</span></h2>
       <div class="dve-cesty">
         <div class="cesta cesta--hlavni">
-          <h3>{pruvodce ? `${zensky ? 'Vaše' : 'Váš'} ${w.n}` : `${zensky ? 'Vyplněná' : 'Vyplněný'} ${w.n}`}</h3>
-          <p>
-            {
-              pruvodce
-                ? 'Přesně tak, jak jste ho vyplnili a upravili. Co zůstalo prázdné, bude linka k ručnímu doplnění.'.replace('ho ', zensky ? 'ji ' : 'ho ')
-                : `Vyplňte údaje online, upravte text podle sebe a stáhněte ${zensky ? 'hotovou' : 'hotový'} ${w.a}.`
-            }
-          </p>
+          <h3>{pruvodce ? T.vase(w) : T.vyplnena(w)}</h3>
+          <p>{pruvodce ? T.vasePopis(w) : T.vyplnenaPopis(w)}</p>
           {
             pruvodce ? (
               <div class="akce akce--tesne">
-                <button type="button" class="btn btn--primarni" data-stahnout="pdf">Stáhnout PDF</button>
-                <button type="button" class="btn btn--duch" data-stahnout="docx">Stáhnout Word</button>
+                <button type="button" class="btn btn--primarni" data-stahnout="pdf">{T.stahnoutPdf}</button>
+                <button type="button" class="btn btn--duch" data-stahnout="docx">{T.stahnoutWord}</button>
               </div>
             ) : (
               <div class="akce akce--tesne">
-                <a class="btn btn--primarni btn--sipka" href={vytvorit}>Vyplnit online zdarma</a>
+                <a class="btn btn--primarni btn--sipka" href={vytvorit}>{TX.landing.vyplnitOnlineZdarma}</a>
               </div>
             )
           }
         </div>
         <div class="cesta">
-          <h3>Prázdný vzor</h3>
-          <p>Obecný vzor bez údajů. Vytiskněte a vyplňte rukou, nebo si ho upravte ve Wordu.</p>
+          <h3>{T.prazdny}</h3>
+          <p>{T.prazdnyPopis}</p>
           <div class="akce akce--tesne">
-            <a class="btn btn--duch" href={vzorPdf} download>Vzor PDF</a>
-            <a class="btn btn--duch" href={vzorDocx} download>Vzor Word</a>
+            <a class="btn btn--duch" href={vzorPdf} download>{T.vzorPdf}</a>
+            <a class="btn btn--duch" href={vzorDocx} download>{T.vzorWord}</a>
           </div>
         </div>
       </div>
-      <Upozorneni />
+      <Upozorneni jazyk={jazyk} />
     </div>
   </div>
 </section>
