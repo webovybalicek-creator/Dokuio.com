@@ -25,6 +25,13 @@ export const SITE = {
  */
 export const PODPORA = {
   stripe: 'https://buy.stripe.com/7sY9AM2Ux08f1Mn4Lr48000',
+  /** Volby v okně: počet kafí (30 Kč / 1 € za kus) → Payment Link s pevným množstvím. `stripe` výše = „Jiná částka“ (1–99 ks). */
+  castky: [
+    { kusy: 1, url: 'https://buy.stripe.com/7sY9AM2Ux08f1Mn4Lr48000' },
+    { kusy: 3, url: 'https://buy.stripe.com/8x23co9iVg7d8aL3Hn48001', doporucene: true },
+    { kusy: 5, url: 'https://buy.stripe.com/eVq8wI52F8EL3Uv7XD48002' },
+    { kusy: 10, url: 'https://buy.stripe.com/14A28k1Qtf39fDdgu948003' },
+  ],
   iban: '',
   prijemce: 'Dokuio',
   castkaKc: 30,

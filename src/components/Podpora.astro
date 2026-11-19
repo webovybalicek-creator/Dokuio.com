@@ -11,9 +11,10 @@ interface Props {
   jazyk?: string;
 }
 const T = texty(Astro.props.jazyk).podpora;
+const vychozi = PODPORA.castky.find((c) => 'doporucene' in c && c.doporucene) ?? PODPORA.castky[0];
 ---
 
-<dialog class="podpora" data-podpora data-stripe={PODPORA.stripe} data-iban={PODPORA.iban} data-prijemce={PODPORA.prijemce} data-castka={PODPORA.castkaKc} data-pauza={PODPORA.pauzaDni} aria-labelledby="podpora-nadpis">
+<dialog class="podpora" data-podpora data-stripe={PODPORA.stripe} data-iban={PODPORA.iban} data-prijemce={PODPORA.prijemce} data-castka={PODPORA.castkaKc} data-prispet={T.prispet("{cena}")} data-pauza={PODPORA.pauzaDni} aria-labelledby="podpora-nadpis">
   <button type="button" class="podpora__zavrit" data-podpora-zavrit aria-label={T.zavrit}>
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
   </button>
@@ -63,12 +64,27 @@ const T = texty(Astro.props.jazyk).podpora;
       }
     </ul>
 
-    <a class="btn btn--primarni btn--plna podpora__stripe" data-podpora-stripe href={PODPORA.stripe} target="_blank" rel="noopener">
+    <fieldset class="castky" data-castky>
+      <legend class="sr-only">{T.vyberCastky}</legend>
+      {
+        PODPORA.castky.map((c) => (
+          <label class="castka">
+            <input type="radio" name="castka" value={c.url} data-cena={T.cena(c.kusy)} checked={c.kusy === vychozi.kusy} />
+            {c.doporucene && <span class="castka__stitek">{T.doporucene}</span>}
+            <strong>{T.cena(c.kusy)}</strong>
+            <span>{T.kafeKusy(c.kusy)}</span>
+          </label>
+        ))
+      }
+    </fieldset>
+
+    <a class="btn btn--primarni btn--plna podpora__stripe" data-podpora-stripe href={vychozi.url} target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 9h9v5a4 4 0 0 1-4 4h-1a4 4 0 0 1-4-4zM16 10h1.5a2 2 0 0 1 0 4H16M9 4.5c0 1 1 1 1 2M12 4.5c0 1 1 1 1 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-      {T.kafe}
-      <span class="podpora__cena">{T.cena}</span>
+      <span data-podpora-cta>{T.prispet(T.cena(vychozi.kusy))}</span>
     </a>
-    <p class="podpora__metody">{T.kafeVic}</p>
+    <p class="podpora__metody">
+      <a href={PODPORA.stripe} target="_blank" rel="noopener" data-podpora-stripe>{T.jinaCastka}</a>
+    </p>
     <p class="podpora__metody podpora__metody--zamek">
       <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
       {T.metody}
@@ -140,6 +156,16 @@ const T = texty(Astro.props.jazyk).podpora;
       dlg.querySelector<HTMLElement>('[data-podpora-qr-obr]')!.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true });
       dlg.querySelector<HTMLElement>('[data-podpora-qr]')!.hidden = false;
     }
+
+    // Volba částky přepíná odkaz hlavního tlačítka
+    const cta = dlg.querySelector<HTMLAnchorElement>('a.podpora__stripe');
+    const ctaText = dlg.querySelector<HTMLElement>('[data-podpora-cta]');
+    dlg.querySelector('[data-castky]')?.addEventListener('change', (e) => {
+      const r = e.target as HTMLInputElement;
+      if (!cta || !ctaText) return;
+      cta.href = r.value;
+      ctaText.textContent = (dlg.dataset.prispet ?? '{cena}').replace('{cena}', r.dataset.cena ?? '');
+    });
 
     const otevri = () => {
       if (dlg.open || !smiUkazat()) return;
