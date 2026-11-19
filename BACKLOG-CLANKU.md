@@ -1,6 +1,6 @@
 # 📝 Dokuio – backlog článků poradny
 
-Stav k 19. 11. 2026 (23 článků publikováno). Články se píšou do `src/content/poradna/<země>/<slug>.md` (struktura kategorií a témat v `src/obsah/<země>/_poradna.ts`).
+Stav k 19. 11. 2026 (52 článků publikováno). Články se píšou do `src/content/poradna/<země>/<slug>.md` (struktura kategorií a témat v `src/obsah/<země>/_poradna.ts`).
 
 **Pravidla pro každý článek**
 - SEO metadata podle [SEO.md](SEO.md): title ≤ 70 znaků, description 70–170, v jazyce země, titulní fotka `foto:` + fotka v textu.
@@ -9,6 +9,27 @@ Stav k 19. 11. 2026 (23 článků publikováno). Články se píšou do `src/con
 - Lhůty a částky ověřit k datu publikace; při změně zákona aktualizovat `aktualizovano:`.
 - Rozsah 500–1 200 slov, nadpisy jako kroky, shrnutí na konci. Žádné vymyšlené statistiky.
 - Priorita: **P1** = hledanost + přímá vazba na vzor, **P2** = doplňující, **P3** = dlouhý ocas.
+
+
+## Jednotná sada témat ve všech zemích
+
+Každé téma má článek v každé zemi – stejný obsah, ale **přepsaný podle práva a úřadů dané země** (ne překlad).
+Nová země = napsat všech 8 základních témat. Nové téma = napsat ho pro všechny země najednou.
+
+| Téma | 🇨🇿 cz | 🇸🇰 sk | 🇵🇱 pl | 🇩🇪 de | 🇦🇹 at | 🇨🇭 ch |
+|---|---|---|---|---|---|---|
+| Prodej auta | jak-prodat-auto | ako-predat-auto | jak-sprzedac-samochod | auto-privat-verkaufen | auto-privat-verkaufen-oesterreich | auto-privat-verkaufen-schweiz |
+| Přepis / registrace | prepis-auta | prepis-vozidla | przerejestrowanie-samochodu (+ pcc-3) | auto-ummelden-halterwechsel | auto-ab-und-anmelden | halterwechsel-strassenverkehrsamt |
+| Půjčka známému | pujcka-kamaradovi | pozicka-kamaratovi | pozyczka-dla-znajomego | privatdarlehen-freunde | privatdarlehen-oesterreich | privatdarlehen-schweiz |
+| Uznání dluhu | uznani-dluhu | uznanie-dlhu | uznanie-dlugu | schuldanerkenntnis-bgb | schuldanerkenntnis-oesterreich | schuldanerkennung-betreibung |
+| Promlčení | promlceni-dluhu | premlcanie-dlhu | przedawnienie-dlugu | verjaehrung-forderungen | verjaehrung-oesterreich | verjaehrung-schweiz |
+| Reklamace | reklamace-zbozi | reklamacia-tovaru | reklamacja-towaru | gewaehrleistung-maengel | gewaehrleistung-oesterreich | gewaehrleistung-schweiz |
+| Vrácení zboží (e-shop) | vraceni-zbozi-z-e-shopu | vratenie-tovaru-z-e-shopu | zwrot-towaru-kupionego-online | widerrufsrecht-online-kauf | ruecktritt-online-kauf-fagg | rueckgabe-online-kauf-schweiz |
+| Plná moc – forma | plna-moc-kdy-overit | splnomocnenie-kedy-overit | pelnomocnictwo-kiedy-notariusz | vollmacht-form-beglaubigung | vollmacht-oesterreich | vollmacht-schweiz |
+
+Jen pro CZ (vzory existují jen tam): kauce-u-najmu, vypoved-z-najmu, vypoved-povinneho-ruceni. Až přibudou nájemní vzory v dalších zemích, doplnit i články.
+
+**Místní odlišnosti, které musí článek zachytit** (příklady): SK prepis do 30 dní na jednom inšpektoráte; PL rejestracja 30 dní + PCC; AT tabulky patří majiteli (Abmeldung); CH tabulky u držitele, Code 178, žádné zákonné právo vrátit zboží z e-shopu; promlčení CZ 3 r., SK 3 r., PL 6 r. ke konci roku, DE 3 r. ke konci roku, AT 3/30 let, CH 10/5 let.
 
 Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 

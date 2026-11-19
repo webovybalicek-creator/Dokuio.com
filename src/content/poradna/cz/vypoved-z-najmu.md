@@ -45,6 +45,8 @@ Výpovědní doba je **3 měsíce**. Výpověď musí obsahovat **důvod** a **p
 **Bez výpovědní doby** (§ 2291) může pronajímatel vypovědět jen při zvlášť závažném porušení povinností – například když nájemce nezaplatil nájemné a služby za **alespoň 3 měsíce** nebo byt poškozuje závažně a nenapravitelně. Nájemce pak musí byt vyklidit do 1 měsíce.
 
 
+
+
 <figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1737442886747-9fb768b96ed2?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1737442886747-9fb768b96ed2?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1737442886747-9fb768b96ed2?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1737442886747-9fb768b96ed2?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Klíč ve dveřích" loading="lazy" /><figcaption>Foto: Jakub Żerdzicki / Unsplash</figcaption></figure>
 
 ## Jak výpověď doručit

@@ -38,6 +38,8 @@ Ujednání o vyšší kauci je v rozsahu přesahu **bez účinků** – nájemce
 - Do nájemní smlouvy napište výši jistoty, datum zaplacení a účet pro vrácení.
 
 
+
+
 <figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Pokoj plný krabic" loading="lazy" /><figcaption>Foto: Dina Badamshina / Unsplash</figcaption></figure>
 
 ## Kdy a jak se kauce vrací

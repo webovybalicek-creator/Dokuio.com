@@ -26,7 +26,7 @@ export const poradna: Poradna = {
       ilustrace: 'penize',
       temata: [
         { slug: 'darlehen', nazev: 'Privatdarlehen', popis: 'Geld verleihen, damit es zurückkommt.' },
-        { slug: 'schulden', nazev: 'Schulden', popis: 'Anerkenntnis, Verjährung, Raten.' },
+        { slug: 'schulden', nazev: 'Schulden', popis: 'Schuldanerkenntnis und Verjährung nach ABGB.' },
         { slug: 'schenkung', nazev: 'Schenkung', popis: 'Form, Freibeträge, Meldung.' },
       ],
     },

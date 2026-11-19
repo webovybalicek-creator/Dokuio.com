@@ -42,6 +42,8 @@ Kupující si bude ověřovat historii vozu. Ušetříte si diskuse, když mu sa
 Opište si jméno, datum narození a adresu z občanského průkazu a zkontrolujte, že fotka sedí. Číslo průkazu můžete ověřit v databázi neplatných dokladů Ministerstva vnitra. Bez přesných údajů kupujícího se špatně řeší přepis i případný spor.
 
 
+
+
 <figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1763729805496-b5dbf7f00c79?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1763729805496-b5dbf7f00c79?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1763729805496-b5dbf7f00c79?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1763729805496-b5dbf7f00c79?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Podpis smlouvy perem" loading="lazy" /><figcaption>Foto: Jakub Żerdzicki / Unsplash</figcaption></figure>
 
 ## 3. Sepište kupní smlouvu
