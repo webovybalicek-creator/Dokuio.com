@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Zurich',
   aktivni: true,
   poradi: 6,
-  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', alltag: 'Alltag, Einkauf und Vollmachten' },
+  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten' },
   skupiny: {
     auto: [
       { slug: 'kaufvertrag-auto', popis: 'Privatverkauf eines Occasionsfahrzeugs.' },
@@ -22,6 +22,11 @@ export const zeme: Zeme = {
       { slug: 'quittung', popis: 'Empfangsbestätigung für Bargeld.' },
       { slug: 'schuldanerkennung', popis: 'Schuld schriftlich bestätigen – stark in der Betreibung.' },
       { slug: 'schenkungsvertrag', popis: 'Geld oder eine Sache verschenken.' },
+    ],
+    wohnen: [
+      { slug: 'mietvertrag-wohnung', popis: 'Mietvertrag für eine Wohnung.' },
+      { slug: 'uebergabeprotokoll-wohnung', popis: 'Zählerstände, Mängel und Schlüssel.' },
+      { slug: 'kuendigung-mietvertrag', popis: 'Kündigung durch den Mieter.' },
     ],
     alltag: [
       { slug: 'vollmacht', popis: 'Damit jemand eine Sache für Sie erledigt.' },
@@ -64,6 +69,14 @@ export const zeme: Zeme = {
           { text: 'Ich verkaufe oder kaufe ein Occasionsauto', dokumenty: ['kaufvertrag-auto', 'uebergabeprotokoll-fahrzeug', 'quittung'], balicek: 'autoverkauf', tip: 'Die Schilder bleiben beim Verkäufer, der Käufer löst das Auto mit eigener Versicherung ein.' },
           { text: 'Jemand anderes geht für mich zum Strassenverkehrsamt', dokumenty: ['vollmacht-strassenverkehrsamt'] },
           { text: 'Ich leihe mein Auto aus', dokumenty: ['uebergabeprotokoll-fahrzeug'] },
+        ],
+      },
+      {
+        nazev: 'Wohnen',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Ich vermiete oder miete eine Wohnung', dokumenty: ['mietvertrag-wohnung', 'uebergabeprotokoll-wohnung'] },
+          { text: 'Ich will meine Wohnung kündigen', dokumenty: ['kuendigung-mietvertrag'] },
         ],
       },
       {

@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Vienna',
   aktivni: true,
   poradi: 5,
-  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', alltag: 'Alltag, Einkauf und Vollmachten' },
+  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten' },
   skupiny: {
     auto: [
       { slug: 'kaufvertrag-gebrauchtwagen', popis: 'Privatverkauf eines gebrauchten Autos.' },
@@ -22,6 +22,11 @@ export const zeme: Zeme = {
       { slug: 'quittung', popis: 'Empfangsbestätigung für Bargeld.' },
       { slug: 'schuldanerkenntnis', popis: 'Schuld schriftlich bestätigen, mit Raten.' },
       { slug: 'schenkungsvertrag', popis: 'Geld oder eine Sache verschenken.' },
+    ],
+    wohnen: [
+      { slug: 'mietvertrag-wohnung', popis: 'Mietvertrag für eine Wohnung.' },
+      { slug: 'uebergabeprotokoll-wohnung', popis: 'Zählerstände, Mängel und Schlüssel.' },
+      { slug: 'kuendigung-mietvertrag', popis: 'Kündigung durch den Mieter.' },
     ],
     alltag: [
       { slug: 'vollmacht', popis: 'Damit jemand eine Sache für Sie erledigt.' },
@@ -64,6 +69,14 @@ export const zeme: Zeme = {
           { text: 'Ich verkaufe oder kaufe ein gebrauchtes Auto', dokumenty: ['kaufvertrag-gebrauchtwagen', 'uebergabeprotokoll-fahrzeug', 'quittung'], balicek: 'autoverkauf', tip: 'Verkäufer meldet ab, Käufer meldet mit Kaufvertrag und Pickerl an.' },
           { text: 'Jemand anderes meldet das Auto für mich ab oder an', dokumenty: ['vollmacht-zulassung'] },
           { text: 'Ich verleihe mein Auto', dokumenty: ['uebergabeprotokoll-fahrzeug'] },
+        ],
+      },
+      {
+        nazev: 'Wohnen',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Ich vermiete oder miete eine Wohnung', dokumenty: ['mietvertrag-wohnung', 'uebergabeprotokoll-wohnung'] },
+          { text: 'Ich will meine Wohnung kündigen', dokumenty: ['kuendigung-mietvertrag'] },
         ],
       },
       {

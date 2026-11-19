@@ -38,6 +38,8 @@ Jeśli kwota **przekracza 1000 zł**, umowa wymaga **formy dokumentowej** (art. 
 - skutki opóźnienia, np. natychmiastowa wymagalność całości.
 
 
+
+
 <figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Uścisk dłoni nad umową" loading="lazy" /></figure>
 
 ## 3. Podatek PCC

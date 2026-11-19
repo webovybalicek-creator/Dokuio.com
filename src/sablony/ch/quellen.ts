@@ -31,3 +31,7 @@ export const TIPP_IDENTITAET_CH =
   'Identität der anderen Seite anhand von Pass oder Identitätskarte prüfen und Namen und Adresse genau so übernehmen.';
 export const TIPP_BAR_CH =
   'Grössere Beträge besser überweisen – der Kontoauszug ist der sicherste Zahlungsnachweis. Bei Barzahlung eine Quittung unterschreiben lassen.';
+export const OR_MIETE = or('253–273c', 'Miete');
+export const OR_257E = or('257e', 'Sicherheiten durch den Mieter');
+export const OR_266C = or('266c', 'Kündigungsfrist für Wohnungen');
+export const CH_MIETE = { nazev: 'Wohnung mieten (ch.ch)', url: 'https://www.ch.ch/de/wohnen/mieten/' };

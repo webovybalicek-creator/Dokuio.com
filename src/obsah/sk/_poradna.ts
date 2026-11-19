@@ -47,5 +47,15 @@ export const poradna: Poradna = {
       ilustrace: 'plnamoc',
       temata: [{ slug: 'splnomocnenie', nazev: 'Splnomocnenie', popis: 'Kedy treba úradne overený podpis.' }],
     },
+    {
+      slug: 'byvanie',
+      nazev: 'Bývanie a nájom',
+      popis: 'Prenájom bytu, zábezpeka, výpoveď a odovzdanie bytu.',
+      ilustrace: 'protokol',
+      temata: [
+        { slug: 'najom-bytu', nazev: 'Nájom bytu', popis: 'Nájomná zmluva, zábezpeka, práva a povinnosti.' },
+        { slug: 'koniec-najmu', nazev: 'Koniec nájmu', popis: 'Výpoveď, odovzdanie bytu a vrátenie kaucie.' },
+      ],
+    },
   ],
 };

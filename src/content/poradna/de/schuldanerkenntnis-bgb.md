@@ -37,6 +37,8 @@ Für private Darlehen reicht meist ein schriftliches, unterschriebenes Anerkennt
 Erkennt der Schuldner den Anspruch an – durch Erklärung, **Abschlagszahlung, Zinszahlung** oder Sicherheitsleistung –, **beginnt die Verjährung neu** (§ 212 Abs. 1 Nr. 1 BGB). Bei Darlehen sind das wieder drei Jahre.
 
 
+
+
 <figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Geldscheine in der Hand" loading="lazy" /></figure>
 
 ## 3. Inhalt

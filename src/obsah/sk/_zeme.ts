@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Bratislava',
   aktivni: true,
   poradi: 2,
-  kategorie: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', zastoupeni: 'Splnomocnenia', bezne: 'Nákupy a bežný život' },
+  kategorie: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', byvanie: 'Bývanie a nájom', zastoupeni: 'Splnomocnenia', bezne: 'Nákupy a bežný život' },
   skupiny: {
     auto: [
       { slug: 'kupna-zmluva-auto', popis: 'Predaj jazdeného auta medzi súkromnými osobami.' },
@@ -22,6 +22,11 @@ export const zeme: Zeme = {
       { slug: 'darovacia-zmluva', popis: 'Darovanie peňazí alebo hnuteľnej veci.' },
       { slug: 'uznanie-dlhu', popis: 'Dlh písomne, aj so splátkami.' },
       { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
+    ],
+    byvanie: [
+      { slug: 'najomna-zmluva-byt', popis: 'Prenájom bytu podľa Občianskeho zákonníka.' },
+      { slug: 'preberaci-protokol-bytu', popis: 'Merače, vady a kľúče pri odovzdaní.' },
+      { slug: 'vypoved-z-najmu', popis: 'Výpoveď nájomcu, lehota tri mesiace.' },
     ],
     bezne: [
       { slug: 'kupna-zmluva', popis: 'Predaj použitých vecí medzi ľuďmi.' },
@@ -74,6 +79,14 @@ export const zeme: Zeme = {
           { text: 'Darujem peniaze alebo vec', dokumenty: ['darovacia-zmluva'] },
           { text: 'Odovzdávam alebo preberám hotovosť', dokumenty: ['potvrdenie-o-prevzati-penazi'] },
           { text: 'Niekto mi dlhuje a chce splácať', dokumenty: ['uznanie-dlhu'] },
+        ],
+      },
+      {
+        nazev: 'Bývanie',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Prenajímam alebo si prenajímam byt', dokumenty: ['najomna-zmluva-byt', 'preberaci-protokol-bytu'] },
+          { text: 'Chcem vypovedať nájom', dokumenty: ['vypoved-z-najmu'], tip: 'Výpovedná lehota je tri mesiace.' },
         ],
       },
       {

@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Warsaw',
   aktivni: true,
   poradi: 3,
-  kategorie: { auto: 'Samochody', pieniadze: 'Pieniądze i darowizny', codzienne: 'Zakupy i sprawy codzienne' },
+  kategorie: { auto: 'Samochody', pieniadze: 'Pieniądze i darowizny', mieszkanie: 'Mieszkanie i najem', codzienne: 'Zakupy i sprawy codzienne' },
   skupiny: {
     auto: [
       { slug: 'umowa-kupna-sprzedazy-samochodu', popis: 'Sprzedaż używanego auta między osobami prywatnymi.' },
@@ -22,6 +22,11 @@ export const zeme: Zeme = {
       { slug: 'pokwitowanie-odbioru-pieniedzy', popis: 'Potwierdzenie przyjęcia gotówki.' },
       { slug: 'uznanie-dlugu', popis: 'Dług na piśmie, także z ratami.' },
       { slug: 'umowa-darowizny', popis: 'Darowizna pieniędzy lub rzeczy.' },
+    ],
+    mieszkanie: [
+      { slug: 'umowa-najmu-mieszkania', popis: 'Zwykły najem mieszkania z kaucją.' },
+      { slug: 'protokol-zdawczo-odbiorczy-mieszkania', popis: 'Liczniki, usterki i klucze.' },
+      { slug: 'wypowiedzenie-umowy-najmu', popis: 'Wypowiedzenie najemcy.' },
     ],
     codzienne: [
       { slug: 'pelnomocnictwo', popis: 'Upoważnienie do załatwienia sprawy.' },
@@ -64,6 +69,14 @@ export const zeme: Zeme = {
           { text: 'Przekazuję lub przyjmuję gotówkę', dokumenty: ['pokwitowanie-odbioru-pieniedzy'] },
           { text: 'Ktoś jest mi winien i chce spłacać w ratach', dokumenty: ['uznanie-dlugu'] },
           { text: 'Daruję pieniądze lub rzecz', dokumenty: ['umowa-darowizny'], tip: 'Najbliższa rodzina: SD-Z2 w 6 miesięcy i przelew na konto.' },
+        ],
+      },
+      {
+        nazev: 'Mieszkanie',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Wynajmuję lub najmuję mieszkanie', dokumenty: ['umowa-najmu-mieszkania', 'protokol-zdawczo-odbiorczy-mieszkania'], tip: 'Kaucja najwyżej 12-krotność czynszu.' },
+          { text: 'Chcę wypowiedzieć najem', dokumenty: ['wypowiedzenie-umowy-najmu'], tip: 'Czas nieoznaczony: 3 miesiące na koniec miesiąca.' },
         ],
       },
       {

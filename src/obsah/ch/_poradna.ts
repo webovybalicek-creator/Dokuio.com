@@ -47,5 +47,15 @@ export const poradna: Poradna = {
       ilustrace: 'plnamoc',
       temata: [{ slug: 'vollmacht', nazev: 'Vollmacht', popis: 'Wann eine einfache Vollmacht reicht.' }],
     },
+    {
+      slug: 'wohnen',
+      nazev: 'Wohnen und Miete',
+      popis: 'Wohnung mieten und vermieten, Mietkaution, Kündigung und Abgabe.',
+      ilustrace: 'protokol',
+      temata: [
+        { slug: 'mietvertrag', nazev: 'Mietvertrag', popis: 'Mietzins, Nebenkosten, Kaution.' },
+        { slug: 'kuendigung', nazev: 'Kündigung und Auszug', popis: 'Termine, Nachmieter, Wohnungsabgabe.' },
+      ],
+    },
   ],
 };

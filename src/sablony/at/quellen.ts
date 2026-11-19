@@ -9,3 +9,6 @@ export const OEGV_SCHENKUNG = { nazev: 'Schenkung – Form und Schenkungsmeldung
 export const BMF_SCHENKUNGSMELDUNG = { nazev: 'Schenkungsmeldung nach § 121a BAO (BMF)', url: 'https://www.bmf.gv.at/themen/steuern/steuern-von-a-bis-z/schenkungsmeldung.html' };
 export const WKO_RUECKTRITT = { nazev: 'Rücktrittsrecht beim Warenkauf im Internet, FAGG (WKO)', url: 'https://www.wko.at/internetrecht/ruecktrittsrecht-bei-warenkauf-im-internet' };
 export const WKO_VGG = { nazev: 'Gewährleistung beim Warenkauf nach dem VGG (WKO)', url: 'https://www.wko.at/gewerberecht/vgg-uebersicht-gewaehrleistung-warenkauf-ab-2022' };
+export const MRG = { nazev: 'Mietrechtsgesetz (RIS)', url: 'https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10002531' };
+export const OEGV_MIETE = { nazev: 'Wohnen – Miete (oesterreich.gv.at)', url: 'https://www.oesterreich.gv.at/themen/bauen_und_wohnen/wohnen.html' };
+export const OEGV_KUENDIGUNG_MIETER = { nazev: 'Kündigung eines Mietvertrags durch den Mieter (oesterreich.gv.at)', url: 'https://www.oesterreich.gv.at/themen/bauen_und_wohnen/wohnen/3/Seite.210281.html' };

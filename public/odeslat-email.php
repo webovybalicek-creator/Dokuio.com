@@ -86,7 +86,7 @@ if ($hodina($ipZaz) >= 5 || count($ipZaz) >= 20 || count($emZaz) >= 10 || count(
 /* ---------- texty e-mailu */
 $T = [
     'cs' => [
-        'predmet' => '%s – váš dokument z Dokuio',
+        'predmet' => 'Váš dokument v PDF: %s (Dokuio)',
         'nadpis' => 'Váš dokument je v příloze',
         'text' => 'Posíláme vám dokument <strong>%s</strong> ve formátu PDF. Před podpisem si ho pečlivě přečtěte a zkontrolujte všechny údaje.',
         'pravni' => 'Vzor poskytujeme zdarma a v dobré víře, nejde o právní poradenství. Za obsah a použití dokumentu odpovídáte vy; u složitějších situací doporučujeme kontrolu advokátem.',
@@ -97,7 +97,7 @@ $T = [
         'pata' => 'Tento e-mail jste si nechali poslat z webu dokuio.com. Neodpovídejte na něj.',
     ],
     'sk' => [
-        'predmet' => '%s – váš dokument z Dokuio',
+        'predmet' => 'Váš dokument v PDF: %s (Dokuio)',
         'nadpis' => 'Váš dokument je v prílohe',
         'text' => 'Posielame vám dokument <strong>%s</strong> vo formáte PDF. Pred podpisom si ho pozorne prečítajte a skontrolujte všetky údaje.',
         'pravni' => 'Vzor poskytujeme zadarmo a v dobrej viere, nejde o právne poradenstvo. Za obsah a použitie dokumentu zodpovedáte vy; pri zložitejších situáciách odporúčame kontrolu advokátom.',
@@ -108,7 +108,7 @@ $T = [
         'pata' => 'Tento e-mail ste si nechali poslať z webu dokuio.com. Neodpovedajte naň.',
     ],
     'pl' => [
-        'predmet' => '%s – Twój dokument z Dokuio',
+        'predmet' => 'Twój dokument PDF: %s (Dokuio)',
         'nadpis' => 'Twój dokument jest w załączniku',
         'text' => 'Przesyłamy dokument <strong>%s</strong> w formacie PDF. Przed podpisaniem przeczytaj go uważnie i sprawdź wszystkie dane.',
         'pravni' => 'Wzór udostępniamy za darmo i w dobrej wierze, to nie jest porada prawna. Za treść i wykorzystanie dokumentu odpowiadasz Ty; w złożonych sprawach skonsultuj się z prawnikiem.',
@@ -119,7 +119,7 @@ $T = [
         'pata' => 'Ten e-mail został wysłany na Twoją prośbę ze strony dokuio.com. Nie odpowiadaj na niego.',
     ],
     'de' => [
-        'predmet' => '%s – Ihr Dokument von Dokuio',
+        'predmet' => 'Ihr Dokument als PDF: %s (Dokuio)',
         'nadpis' => 'Ihr Dokument im Anhang',
         'text' => 'Anbei erhalten Sie das Dokument <strong>%s</strong> als PDF. Bitte lesen Sie es vor der Unterschrift sorgfältig und prüfen Sie alle Angaben.',
         'pravni' => 'Wir stellen die Vorlage kostenlos und nach bestem Wissen bereit, sie ist keine Rechtsberatung. Für Inhalt und Verwendung sind Sie verantwortlich; in komplexen Fällen empfehlen wir eine anwaltliche Prüfung.',

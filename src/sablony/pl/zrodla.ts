@@ -17,3 +17,5 @@ export const SD_ZWOLNIENIE = {
   url: 'https://www.podatki.gov.pl/poradniki-i-informatory/nabycie-spadku-lub-darowizny-w-najblizszej-rodzinie-zwolnienie-od-podatku-sd',
 };
 export const OPLATA_PELNOMOCNICTWO = 'Złożenie pełnomocnictwa w urzędzie kosztuje 17 zł opłaty skarbowej; pełnomocnictwo dla małżonka, rodziców, dziadków, dzieci, wnuków lub rodzeństwa jest zwolnione.';
+export const UOPL = { nazev: 'Ustawa o ochronie praw lokatorów (Dz.U. 2001 nr 71 poz. 733, Sejm)', url: 'https://api.sejm.gov.pl/eli/acts/DU/2001/733/text.html' };
+export const KC_NAJEM = { nazev: 'Kodeks cywilny – najem, art. 659–692 (ELI)', url: 'https://eli.gov.pl/eli/DU/1964/93/ogl' };

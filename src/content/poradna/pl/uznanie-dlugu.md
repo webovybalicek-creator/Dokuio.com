@@ -36,6 +36,8 @@ Zgodnie z **art. 123 § 1 pkt 2 KC** bieg przedawnienia przerywa **uznanie roszc
 - datę i **podpis dłużnika**.
 
 
+
+
 <figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Banknoty w dłoni" loading="lazy" /></figure>
 
 ## 3. Raty w uznaniu długu

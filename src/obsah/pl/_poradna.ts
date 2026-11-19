@@ -47,5 +47,15 @@ export const poradna: Poradna = {
       ilustrace: 'plnamoc',
       temata: [{ slug: 'pelnomocnictwo', nazev: 'Pełnomocnictwo', popis: 'Kiedy wystarczy zwykłe, ile kosztuje.' }],
     },
+    {
+      slug: 'mieszkanie',
+      nazev: 'Mieszkanie i najem',
+      popis: 'Wynajem mieszkania, kaucja, wypowiedzenie i zwrot lokalu.',
+      ilustrace: 'protokol',
+      temata: [
+        { slug: 'najem-mieszkania', nazev: 'Najem mieszkania', popis: 'Umowa najmu, kaucja, prawa i obowiązki.' },
+        { slug: 'koniec-najmu', nazev: 'Koniec najmu', popis: 'Wypowiedzenie, zwrot lokalu i kaucji.' },
+      ],
+    },
   ],
 };

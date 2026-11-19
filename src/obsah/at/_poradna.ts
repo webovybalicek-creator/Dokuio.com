@@ -47,5 +47,15 @@ export const poradna: Poradna = {
       ilustrace: 'plnamoc',
       temata: [{ slug: 'vollmacht', nazev: 'Vollmacht', popis: 'Wann eine einfache Vollmacht reicht.' }],
     },
+    {
+      slug: 'wohnen',
+      nazev: 'Wohnen und Miete',
+      popis: 'Wohnung mieten und vermieten, Kaution, Befristung und Kündigung.',
+      ilustrace: 'protokol',
+      temata: [
+        { slug: 'mietvertrag', nazev: 'Mietvertrag', popis: 'Mietzins, Befristung, Kaution.' },
+        { slug: 'kuendigung', nazev: 'Kündigung und Auszug', popis: 'Fristen, Rückgabe, Kaution zurück.' },
+      ],
+    },
   ],
 };

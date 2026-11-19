@@ -1,6 +1,6 @@
 # 📝 Dokuio – backlog článků poradny
 
-Stav k 19. 11. 2026 (52 článků publikováno). Články se píšou do `src/content/poradna/<země>/<slug>.md` (struktura kategorií a témat v `src/obsah/<země>/_poradna.ts`).
+Stav k 19. 11. 2026 (77 článků publikováno). Články se píšou do `src/content/poradna/<země>/<slug>.md` (struktura kategorií a témat v `src/obsah/<země>/_poradna.ts`).
 
 **Pravidla pro každý článek**
 - SEO metadata podle [SEO.md](SEO.md): title ≤ 70 znaků, description 70–170, v jazyce země, titulní fotka `foto:` + fotka v textu.
@@ -26,8 +26,14 @@ Nová země = napsat všech 8 základních témat. Nové téma = napsat ho pro v
 | Reklamace | reklamace-zbozi | reklamacia-tovaru | reklamacja-towaru | gewaehrleistung-maengel | gewaehrleistung-oesterreich | gewaehrleistung-schweiz |
 | Vrácení zboží (e-shop) | vraceni-zbozi-z-e-shopu | vratenie-tovaru-z-e-shopu | zwrot-towaru-kupionego-online | widerrufsrecht-online-kauf | ruecktritt-online-kauf-fagg | rueckgabe-online-kauf-schweiz |
 | Plná moc – forma | plna-moc-kdy-overit | splnomocnenie-kedy-overit | pelnomocnictwo-kiedy-notariusz | vollmacht-form-beglaubigung | vollmacht-oesterreich | vollmacht-schweiz |
+| Koupě ojetiny | koupe-ojeteho-auta | kupa-jazdeneho-auta | zakup-uzywanego-samochodu | gebrauchtwagen-privat-kaufen | gebrauchtwagen-kaufen-oesterreich | occasion-kaufen-schweiz |
+| Darování a daně | darovani-penez-v-rodine | darovanie-penazi-a-veci | darowizna-w-rodzinie | schenkung-geld-familie | schenkung-oesterreich | schenkung-schweiz |
+| Nájem – kauce | kauce-u-najmu | najom-bytu-zabezpeka | kaucja-za-mieszkanie | mietkaution | kaution-mietwohnung-oesterreich | mietkaution-schweiz |
+| Nájem – výpověď | vypoved-z-najmu | vypoved-z-najmu-bytu | wypowiedzenie-najmu-mieszkania | wohnung-kuendigen | mietvertrag-kuendigen-oesterreich | wohnung-kuendigen-schweiz |
 
-Jen pro CZ (vzory existují jen tam): kauce-u-najmu, vypoved-z-najmu, vypoved-povinneho-ruceni. Až přibudou nájemní vzory v dalších zemích, doplnit i články.
+Jen pro CZ: vypoved-povinneho-ruceni, cestovani-s-ditetem-bez-rodice, trvaly-pobyt-v-cizim-byte, limit-platby-v-hotovosti (vzory/instituty jsou specificky české).
+
+**SK pozor:** od 1. 7. 2027 platí nový Občiansky zákonník (zákon č. 260/2026 Z. z.) – před tímto datem projít všechny SK vzory a články (nájem, premlčanie, pôžička, darovanie…).
 
 **Místní odlišnosti, které musí článek zachytit** (příklady): SK prepis do 30 dní na jednom inšpektoráte; PL rejestracja 30 dní + PCC; AT tabulky patří majiteli (Abmeldung); CH tabulky u držitele, Code 178, žádné zákonné právo vrátit zboží z e-shopu; promlčení CZ 3 r., SK 3 r., PL 6 r. ke konci roku, DE 3 r. ke konci roku, AT 3/30 let, CH 10/5 let.
 

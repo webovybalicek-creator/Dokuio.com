@@ -43,6 +43,8 @@ Odporúčame písomnú formu s dôkazom o odoslaní.
 
 
 
+
+
 <figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Odovzdanie balíka" loading="lazy" /></figure>
 
 ## 3. Vráťte tovar
