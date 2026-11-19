@@ -1,23 +1,24 @@
-/* Vizuální styl podle DESIGN.md (Stripe): bílé plátno, tmavě modrý text, jediný indigový akcent
-   pro akce, písmo v tenké řezu 300, rádius 4 px, žádné stíny – hloubku dělá jen tón pozadí. */
+/* Vizuální styl podle DESIGN.md (Stripe): bílé plátno, tmavě modrý text, indigový akcent jen pro akce,
+   rádius 4 px, žádné stíny. Pozn.: Stripe sohne v řezu 300 opticky odpovídá Inter Tight ~420,
+   proto používáme 400–450 (řez 300 u Inter Tight působí výrazně slaběji než originál). */
 :root {
   --indigo: #533afd;
-  --indigo-hover: #7389ff;
+  --indigo-hover: #4434d4;
   --ink: #061b31;
+  --navy-soft: #425466;
   --slate: #64748d;
   --steel: #50617a;
-  --smoke: #839bc8;
   --white: #ffffff;
   --mist: #f8fafd;
   --frost: #e5edf5;
   --lavender: #b9b9f9;
-  --lilac: #d6d9fc;
   --wash: #e8e9ff;
 
   --f: 'Inter Tight Variable', 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --wrap: 1320px;
-  --gutter: clamp(16px, 4vw, 48px);
-  --section: clamp(64px, 9vw, 96px);
+  --wrap: 1232px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --pad: clamp(16px, 4vw, 64px);
+  --section: clamp(72px, 9vw, 112px);
   --r: 4px;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   color-scheme: light;
@@ -39,10 +40,10 @@ body {
   background: var(--white);
   color: var(--ink);
   font-family: var(--f);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1rem;
-  line-height: 1.45;
-  letter-spacing: -0.01em;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
   font-feature-settings: 'ss01' on, 'tnum' on;
   -webkit-font-smoothing: antialiased;
   min-height: 100dvh;
@@ -61,7 +62,7 @@ a {
 h1,
 h2,
 h3 {
-  font-weight: 300;
+  font-weight: 450;
   margin: 0;
   text-wrap: balance;
 }
@@ -71,32 +72,39 @@ p {
   text-wrap: pretty;
 }
 
+/* Obsahový sloupec se svislými vodicími linkami po stranách (jako na stripe.com) */
 .wrap {
-  max-width: var(--wrap);
+  max-width: calc(var(--wrap) + 2 * var(--gutter));
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+.ram {
+  border-inline: 1px solid var(--frost);
+  padding-inline: var(--pad);
 }
 
 /* ---------------------------------------------------------------- navigace */
 .nav {
-  border-bottom: 1px solid var(--frost);
+  position: relative;
+  z-index: 2;
   background: var(--white);
+  border-bottom: 1px solid var(--frost);
 }
 .nav__in {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 72px;
+  min-height: 76px;
 }
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   color: var(--ink);
-  font-weight: 500;
-  font-size: 1.25rem;
-  letter-spacing: -0.02em;
+  font-weight: 650;
+  font-size: 1.375rem;
+  letter-spacing: -0.035em;
   text-decoration: none;
 }
 .logo svg {
@@ -105,7 +113,18 @@ p {
 .nav__odkazy {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 24px;
+}
+.nav__odkaz {
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+@media (max-width: 640px) {
+  .nav__odkaz {
+    display: none;
+  }
 }
 
 /* ---------------------------------------------------------------- tlačítka */
@@ -113,36 +132,43 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   min-height: 48px;
   padding: 0 24px;
   border-radius: var(--r);
   border: 1px solid transparent;
-  font: 400 0.875rem/1 var(--f);
+  font: 500 1rem/1 var(--f);
   letter-spacing: -0.01em;
   text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
   transition:
     background-color 160ms var(--ease-out),
     border-color 160ms var(--ease-out),
-    color 160ms var(--ease-out),
     transform 160ms var(--ease-out);
 }
 .btn:active {
   transform: scale(0.97);
+}
+.btn--sipka::after {
+  content: '›';
+  font-size: 1.2em;
+  line-height: 0;
+  transition: transform 160ms var(--ease-out);
 }
 .btn--primarni {
   background: var(--indigo);
   color: var(--white);
 }
 .btn--duch {
-  background: transparent;
+  background: var(--white);
   color: var(--indigo);
   border-color: var(--lavender);
 }
 .btn--maly {
-  min-height: 36px;
+  min-height: 40px;
   padding: 0 16px;
+  font-size: 0.9375rem;
 }
 @media (hover: hover) and (pointer: fine) {
   .btn--primarni:hover {
@@ -151,11 +177,14 @@ p {
   .btn--duch:hover {
     background: var(--wash);
   }
+  .btn--sipka:hover::after {
+    transform: translateX(2px);
+  }
 }
 .akce {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
   margin-top: 40px;
 }
 
@@ -163,7 +192,8 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-weight: 400;
+  color: var(--indigo);
+  font-weight: 500;
   text-decoration: none;
 }
 .odkaz-sipka::after {
@@ -171,6 +201,7 @@ p {
   transition: transform 160ms var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
+  a:hover .odkaz-sipka::after,
   .odkaz-sipka:hover::after {
     transform: translateX(2px);
   }
@@ -178,71 +209,97 @@ p {
 
 /* ---------------------------------------------------------------- hero */
 .hero {
-  padding-block: clamp(72px, 12vw, 144px) var(--section);
+  position: relative;
+  overflow: hidden;
 }
-.stitek {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--smoke);
+/* Barevná stuha vpravo – vlastní CSS přechod s jemným proužkováním, žádný obrázek */
+.hero__vlna {
+  position: absolute;
+  top: -35%;
+  right: -26%;
+  width: min(58vw, 860px);
+  height: 170%;
+  pointer-events: none;
+  transform: rotate(-24deg) skewX(-8deg);
+  background:
+    repeating-linear-gradient(100deg, rgb(255 255 255 / 0.22) 0 1px, transparent 1px 7px),
+    linear-gradient(100deg, #a9c4ff 0%, #9d7bff 22%, #d36bf0 40%, #ff5fa2 58%, #ff7a3d 76%, #ffc24d 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%, #000 82%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 38%, #000 82%, transparent 100%);
+  border-radius: 40% 0 0 60%;
+  opacity: 0.9;
+}
+.hero__obsah {
+  position: relative;
+  padding-block: clamp(96px, 15vw, 192px) clamp(72px, 10vw, 128px);
+}
+.horni-stitek {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink);
   margin-bottom: 24px;
 }
+.horni-stitek span {
+  color: var(--slate);
+  font-weight: 400;
+}
 .hero h1 {
-  font-size: clamp(2.5rem, 6.5vw, 4rem);
-  line-height: 1.03;
-  letter-spacing: -0.03em;
-  max-width: 14ch;
+  font-size: clamp(2.25rem, 5.2vw, 3.5rem);
+  line-height: 1.07;
+  letter-spacing: -0.025em;
+  max-width: 920px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--indigo), #9b5cff 60%, #c44fe0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .hero h1 span {
-  color: var(--smoke);
+  color: var(--navy-soft);
 }
-.hero p {
-  font-size: clamp(1.125rem, 2.2vw, 1.375rem);
-  line-height: 1.4;
-  color: var(--slate);
-  max-width: 38rem;
-  margin-top: 32px;
+@media (max-width: 760px) {
+  .hero__vlna {
+    top: -55%;
+    right: -70%;
+    width: 130vw;
+    height: 90%;
+    opacity: 0.5;
+  }
 }
 
 /* ---------------------------------------------------------------- sekce */
 .sekce {
   border-top: 1px solid var(--frost);
+}
+.sekce__in {
   padding-block: var(--section);
 }
-.sekce__hlava {
-  max-width: 44rem;
+.sekce h2 {
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  max-width: 820px;
   margin-bottom: 48px;
 }
-.sekce h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-.sekce__hlava p {
-  font-size: clamp(1.0625rem, 2vw, 1.375rem);
-  line-height: 1.4;
+.sekce h2 span {
   color: var(--slate);
-  margin-top: 24px;
 }
 
 /* ---------------------------------------------------------------- mřížka a karty */
 .mrizka {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-  gap: 1px;
   list-style: none;
   padding: 0;
   margin: 0;
-  background: var(--frost);
-  border: 1px solid var(--frost);
-  border-radius: var(--r);
-  overflow: hidden;
+  padding: 1px 0 0 1px;
 }
 .mrizka > li {
-  background: var(--white);
   display: flex;
+  border: 1px solid var(--frost);
+  margin: -1px 0 0 -1px;
 }
 .karta {
   display: flex;
@@ -263,27 +320,28 @@ a.karta:focus-visible {
   }
 }
 .karta h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.375rem;
-  line-height: 1.12;
-  letter-spacing: -0.01em;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 .karta p {
   color: var(--slate);
-  font-size: 0.9375rem;
 }
 .karta .odkaz-sipka {
-  color: var(--indigo);
   margin-top: auto;
   padding-top: 16px;
 }
 .karta__znacka {
   align-self: flex-start;
-  font-size: 0.75rem;
-  font-weight: 400;
+  font-size: 0.8125rem;
+  font-weight: 500;
   color: var(--indigo);
   background: var(--wash);
   border-radius: 9999px;
-  padding: 4px 10px;
+  padding: 3px 10px;
   margin-bottom: 8px;
 }
 .karta--tlumena {
@@ -291,6 +349,13 @@ a.karta:focus-visible {
 }
 .karta--tlumena h3 {
   color: var(--steel);
+}
+.vlajka {
+  width: 27px;
+  height: 18px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--frost);
+  flex: none;
 }
 
 /* ---------------------------------------------------------------- kroky */
@@ -305,20 +370,20 @@ a.karta:focus-visible {
 }
 .kroky li {
   counter-increment: krok;
-  border-top: 1px solid var(--ink);
-  padding-top: 24px;
+  border-left: 1px solid var(--indigo);
+  padding-left: 20px;
 }
 .kroky li::before {
   content: counter(krok, decimal-leading-zero);
   display: block;
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--indigo);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .kroky h3 {
-  font-size: 1.375rem;
-  line-height: 1.12;
+  font-size: 1.25rem;
+  line-height: 1.2;
   margin-bottom: 8px;
 }
 .kroky p {
@@ -326,7 +391,7 @@ a.karta:focus-visible {
 }
 
 .poznamka {
-  margin-top: 48px;
+  margin-top: 56px;
   font-size: 0.875rem;
   color: var(--steel);
   max-width: 44rem;

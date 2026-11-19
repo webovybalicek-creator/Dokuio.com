@@ -21,5 +21,5 @@ export const SITE = {
  * proto má každá země vlastní sekci /{kod}/. Začínáme Českem.
  */
 export const ZEME = [
-  { kod: 'cz', nazev: 'Česko', nazevEn: 'Czechia', jazyk: 'cs', vlajka: '🇨🇿', aktivni: true },
+  { kod: 'cz', nazev: 'Česko', nazevEn: 'Czechia', jazyk: 'cs', aktivni: true },
 ] as const;

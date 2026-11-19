@@ -23,60 +23,70 @@ const kroky = [
   description="Odpovězte na pár otázek a stáhněte si hotovou smlouvu v PDF podle českého práva."
   lang="cs"
 >
-  <a slot="nav" class="btn btn--duch btn--maly" href="/" hreflang="en">Jiná země</a>
+  <Fragment slot="nav">
+    <a class="nav__odkaz" href="#jak-to-funguje">Jak to funguje</a>
+    <a class="btn btn--duch btn--maly" href="/" hreflang="en">Jiná země</a>
+  </Fragment>
 
-  <section class="hero wrap">
-    <span class="stitek">Česko · připravujeme</span>
-    <h1>Smlouvy a dokumenty <span>snadno a rychle.</span></h1>
-    <p>
-      Odpovězte na pár jednoduchých otázek a stáhněte si hotovou smlouvu v PDF, připravenou k podpisu. Podle
-      českého práva.
-    </p>
-    <div class="akce">
-      <a class="btn btn--primarni" href="#dokumenty">Prohlédnout dokumenty</a>
-      <a class="btn btn--duch" href="#jak-to-funguje">Jak to funguje</a>
+  <section class="hero">
+    <div class="hero__vlna" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="ram hero__obsah">
+        <p class="horni-stitek">Česko: <span>připravujeme první dokumenty</span></p>
+        <h1>
+          Smlouvy a dokumenty <em>snadno a rychle.</em>{' '}
+          <span>Odpovězte na pár jednoduchých otázek a stáhněte si hotovou smlouvu v PDF podle českého práva.</span>
+        </h1>
+        <div class="akce">
+          <a class="btn btn--primarni btn--sipka" href="#dokumenty">Prohlédnout dokumenty</a>
+          <a class="btn btn--duch" href="#jak-to-funguje">Jak to funguje</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="sekce wrap" id="dokumenty" aria-labelledby="dokumenty-nadpis">
-    <div class="sekce__hlava">
-      <span class="stitek">Dokumenty</span>
-      <h2 id="dokumenty-nadpis">Na čem pracujeme</h2>
-      <p>Začínáme jednoduchými smlouvami, které lidé potřebují nejčastěji.</p>
+  <section class="sekce" id="dokumenty" aria-labelledby="dokumenty-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="dokumenty-nadpis">
+          Na čem pracujeme.{' '}<span>Začínáme jednoduchými smlouvami, které lidé potřebují nejčastěji.</span>
+        </h2>
+        <ul class="mrizka">
+          {
+            dokumenty.map((d) => (
+              <li>
+                <div class="karta">
+                  {d.prvni && <span class="karta__znacka">Jako první</span>}
+                  <h3>{d.nazev}</h3>
+                  <p>{d.popis}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
-    <ul class="mrizka">
-      {
-        dokumenty.map((d) => (
-          <li>
-            <div class="karta">
-              {d.prvni && <span class="karta__znacka">Jako první</span>}
-              <h3>{d.nazev}</h3>
-              <p>{d.popis}</p>
-            </div>
-          </li>
-        ))
-      }
-    </ul>
   </section>
 
-  <section class="sekce wrap" id="jak-to-funguje" aria-labelledby="jak-nadpis">
-    <div class="sekce__hlava">
-      <span class="stitek">Jak to funguje</span>
-      <h2 id="jak-nadpis">Tři kroky ke hotové smlouvě</h2>
+  <section class="sekce" id="jak-to-funguje" aria-labelledby="jak-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="jak-nadpis">Tři kroky ke hotové smlouvě.{' '}<span>Bez registrace a bez právnické hantýrky.</span></h2>
+        <ol class="kroky">
+          {
+            kroky.map((k) => (
+              <li>
+                <h3>{k.nazev}</h3>
+                <p>{k.popis}</p>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="poznamka">
+          Dokuio poskytuje vzory dokumentů k vyplnění, nejde o právní poradenství. U složitějších situací
+          doporučujeme obrátit se na advokáta.
+        </p>
+      </div>
     </div>
-    <ol class="kroky">
-      {
-        kroky.map((k) => (
-          <li>
-            <h3>{k.nazev}</h3>
-            <p>{k.popis}</p>
-          </li>
-        ))
-      }
-    </ol>
-    <p class="poznamka">
-      Dokuio poskytuje vzory dokumentů k vyplnění, nejde o právní poradenství. U složitějších situací
-      doporučujeme obrátit se na advokáta.
-    </p>
   </section>
 </Base>

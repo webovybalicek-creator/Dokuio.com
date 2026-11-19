@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Vlajka from '../components/Vlajka.astro';
 import { ZEME } from '../lib/config';
 
 const kroky = [
@@ -13,66 +14,79 @@ const kroky = [
   title="Dokuio – contracts and documents made easy"
   description="Fill in a few questions and download a ready-to-sign contract as a PDF. Templates follow the law of your country."
 >
-  <section class="hero wrap">
-    <span class="stitek">Coming soon</span>
-    <h1>Contracts and documents, <span>made easy.</span></h1>
-    <p>
-      Answer a few simple questions and download a ready-to-sign PDF. Every template follows the law of your
-      country.
-    </p>
-    <div class="akce">
-      <a class="btn btn--primarni" href="#countries">Choose your country</a>
-      <a class="btn btn--duch" href="#how-it-works">How it works</a>
-    </div>
-  </section>
+  <Fragment slot="nav">
+    <a class="nav__odkaz" href="#how-it-works">How it works</a>
+    <a class="btn btn--primarni btn--maly btn--sipka" href="#countries">Choose country</a>
+  </Fragment>
 
-  <section class="sekce wrap" id="countries" aria-labelledby="countries-title">
-    <div class="sekce__hlava">
-      <span class="stitek">Countries</span>
-      <h2 id="countries-title">Built for local law</h2>
-      <p>Contracts differ from country to country, so every country gets its own set of templates.</p>
-    </div>
-    <ul class="mrizka">
-      {
-        ZEME.map((z) => (
-          <li>
-            <a class="karta" href={`/${z.kod}/`} hreflang={z.jazyk}>
-              <h3>
-                {z.vlajka} {z.nazev}
-              </h3>
-              <p>{z.nazevEn}</p>
-              <span class="odkaz-sipka">Open</span>
-            </a>
-          </li>
-        ))
-      }
-      <li>
-        <div class="karta karta--tlumena">
-          <h3>More countries</h3>
-          <p>On the way.</p>
+  <section class="hero">
+    <div class="hero__vlna" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="ram hero__obsah">
+        <p class="horni-stitek">Coming soon: <span>first templates for Czechia</span></p>
+        <h1>
+          Contracts and documents, <em>made easy.</em>{' '}
+          <span>Answer a few simple questions and download a ready-to-sign PDF that follows the law of your country.</span>
+        </h1>
+        <div class="akce">
+          <a class="btn btn--primarni btn--sipka" href="#countries">Choose your country</a>
+          <a class="btn btn--duch" href="#how-it-works">How it works</a>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </section>
 
-  <section class="sekce wrap" id="how-it-works" aria-labelledby="how-title">
-    <div class="sekce__hlava">
-      <span class="stitek">How it works</span>
-      <h2 id="how-title">Three steps to a finished contract</h2>
-    </div>
-    <ol class="kroky">
-      {
-        kroky.map((k) => (
+  <section class="sekce" id="countries" aria-labelledby="countries-title">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="countries-title">
+          Built for local law.{' '}<span>Contracts differ from country to country, so every country gets its own set of templates.</span>
+        </h2>
+        <ul class="mrizka">
+          {
+            ZEME.map((z) => (
+              <li>
+                <a class="karta" href={`/${z.kod}/`} hreflang={z.jazyk}>
+                  <h3>
+                    <Vlajka kod={z.kod} />
+                    {z.nazev}
+                  </h3>
+                  <p>{z.nazevEn}</p>
+                  <span class="odkaz-sipka">Open</span>
+                </a>
+              </li>
+            ))
+          }
           <li>
-            <h3>{k.nazev}</h3>
-            <p>{k.popis}</p>
+            <div class="karta karta--tlumena">
+              <h3>More countries</h3>
+              <p>On the way.</p>
+            </div>
           </li>
-        ))
-      }
-    </ol>
-    <p class="poznamka">
-      Dokuio provides document templates to fill in. It is not legal advice; for complex situations, consult a
-      lawyer.
-    </p>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" id="how-it-works" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="how-title">Three steps to a finished contract.{' '}<span>No account, no lawyer jargon.</span></h2>
+        <ol class="kroky">
+          {
+            kroky.map((k) => (
+              <li>
+                <h3>{k.nazev}</h3>
+                <p>{k.popis}</p>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="poznamka">
+          Dokuio provides document templates to fill in. It is not legal advice; for complex situations, consult
+          a lawyer.
+        </p>
+      </div>
+    </div>
   </section>
 </Base>

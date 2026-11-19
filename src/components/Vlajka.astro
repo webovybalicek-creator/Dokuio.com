@@ -1,0 +1,17 @@
+---
+// Vlajky jako SVG – emoji vlajky se na Windows zobrazují jen jako písmena („CZ“)
+interface Props {
+  kod: string;
+}
+const { kod } = Astro.props;
+---
+
+{
+  kod === 'cz' && (
+    <svg class="vlajka" viewBox="0 0 27 18" aria-hidden="true">
+      <rect width="27" height="9" fill="#fff" />
+      <rect y="9" width="27" height="9" fill="#d7141a" />
+      <path d="M0 0l13.5 9L0 18z" fill="#11457e" />
+    </svg>
+  )
+}
