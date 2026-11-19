@@ -32,7 +32,7 @@ Der Käufer muss die Ware **prüfen**, sobald es üblich ist, und Mängel **sofo
 Gewährleistungsansprüche verjähren **zwei Jahre nach Ablieferung** (**Art. 210 OR**). Gegenüber Konsumenten darf die Frist bei **neuen Sachen** nicht unter zwei Jahre, bei **gebrauchten** nicht unter ein Jahr gekürzt werden.
 
 
-<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Reparatur eines Smartphones" loading="lazy" /><figcaption>Foto: Clint Bustrillos / Unsplash</figcaption></figure>
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Reparatur eines Smartphones" loading="lazy" /></figure>
 
 ## 3. Gesetzliche Rechte
 

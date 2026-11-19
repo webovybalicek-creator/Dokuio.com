@@ -11,7 +11,7 @@ import type { Zeme } from '../../../../obsah/typy';
 import { texty } from '../../../../i18n';
 import { SITE } from '../../../../lib/config';
 import { formatDatum } from '../../../../sablony/dokument';
-import { urlFotky, srcsetFotky, autorFotky, altFotky } from '../../../../lib/fotky';
+import { urlFotky, srcsetFotky, altFotky } from '../../../../lib/fotky';
 import { popisSeo, PORADNY, clanky, urlKategorie, urlTematu, urlPoradny, urlClanku, minutCteni, type Clanek } from '../../../../lib/poradna';
 
 export async function getStaticPaths() {
@@ -143,7 +143,6 @@ const h2 = obsah?.headings.filter((h) => h.depth === 2) ?? [];
                       alt={altFotky(clanek.data.foto, zeme.jazyk)}
                       fetchpriority="high"
                     />
-                    <figcaption>{T.fotoAutor} {autorFotky(clanek.data.foto)} / Unsplash</figcaption>
                   </figure>
                 )}
                 <obsah.Content />

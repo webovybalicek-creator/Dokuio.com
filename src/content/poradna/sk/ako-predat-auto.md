@@ -38,7 +38,7 @@ Mená, dátum narodenia a adresu prepíšte presne podľa občianskeho preukazu.
 
 
 
-<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Tachometer auta" loading="lazy" /><figcaption>Foto: CHUTTERSNAP / Unsplash</figcaption></figure>
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Tachometer auta" loading="lazy" /></figure>
 
 ## 3. Kúpna zmluva
 

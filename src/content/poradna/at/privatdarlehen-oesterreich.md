@@ -37,7 +37,7 @@ Beim Darlehen überlässt der Darlehensgeber dem Darlehensnehmer Geld, das diese
 Überweisen Sie mit Verwendungszweck „Darlehen laut Vertrag vom …“. Bei Bargeld eine **Quittung** unterschreiben lassen.
 
 
-<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Handschlag über einem Vertrag" loading="lazy" /><figcaption>Foto: Amina Atar / Unsplash</figcaption></figure>
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Handschlag über einem Vertrag" loading="lazy" /></figure>
 
 ## 3. Laufzeit und Kündigung
 

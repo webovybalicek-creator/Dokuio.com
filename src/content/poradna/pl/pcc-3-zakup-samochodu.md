@@ -40,7 +40,7 @@ Deklarację **PCC-3** składasz i podatek wpłacasz **w ciągu 14 dni od podpisa
 
 
 
-<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Kluczyk w dłoni przed używanym autem" loading="lazy" /><figcaption>Fot. Swansway Motor Group / Unsplash</figcaption></figure>
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Kluczyk w dłoni przed używanym autem" loading="lazy" /></figure>
 
 ## Jak wypełnić PCC-3
 

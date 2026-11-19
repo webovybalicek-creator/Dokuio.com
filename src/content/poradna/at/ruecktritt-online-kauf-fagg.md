@@ -45,7 +45,7 @@ Eine eindeutige Erklärung genügt – per E-Mail, Brief oder Formular des Shops
 
 
 
-<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Online-Einkauf mit Kreditkarte" loading="lazy" /><figcaption>Foto: rupixen / Unsplash</figcaption></figure>
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Online-Einkauf mit Kreditkarte" loading="lazy" /></figure>
 
 ## 3. Rücksendung
 

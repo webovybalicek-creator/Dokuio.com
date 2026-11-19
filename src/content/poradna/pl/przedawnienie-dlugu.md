@@ -34,7 +34,7 @@ Zasady przedawnienia są w **art. 117–125 Kodeksu cywilnego**. Po upływie ter
 Koniec terminu przypada na **ostatni dzień roku kalendarzowego**, chyba że termin jest krótszy niż dwa lata. Pożyczka wymagalna 10 marca 2026 przedawni się więc 31 grudnia 2032.
 
 
-<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Dokumenty i kalkulator na biurku" loading="lazy" /><figcaption>Fot. Kelly Sikkema / Unsplash</figcaption></figure>
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Dokumenty i kalkulator na biurku" loading="lazy" /></figure>
 
 ## 3. Co przerywa przedawnienie
 

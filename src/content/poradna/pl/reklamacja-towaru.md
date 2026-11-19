@@ -37,7 +37,7 @@ Sprzedawca odpowiada za brak zgodności, który **ujawnił się w ciągu 2 lat**
 - wskaż żądanie: **naprawa** lub **wymiana**.
 
 
-<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Naprawa telefonu" loading="lazy" /><figcaption>Fot. Clint Bustrillos / Unsplash</figcaption></figure>
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Naprawa telefonu" loading="lazy" /></figure>
 
 ## 3. 14 dni na odpowiedź
 

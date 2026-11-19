@@ -34,7 +34,7 @@ Die regelmäßige Verjährungsfrist beträgt **drei Jahre** (§ 195 BGB). Sie gi
 Die Frist beginnt mit dem **Schluss des Jahres**, in dem der Anspruch entstanden ist und der Gläubiger davon wusste (§ 199 BGB). Eine im März 2026 fällige Forderung verjährt daher mit Ablauf des **31. Dezember 2029**.
 
 
-<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Belege und Taschenrechner auf dem Tisch" loading="lazy" /><figcaption>Foto: Kelly Sikkema / Unsplash</figcaption></figure>
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Belege und Taschenrechner auf dem Tisch" loading="lazy" /></figure>
 
 ## 3. Längere Fristen
 

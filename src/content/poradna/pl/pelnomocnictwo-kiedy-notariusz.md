@@ -36,7 +36,7 @@ Pełnomocnictwo to umocowanie innej osoby do działania w Twoim imieniu (**art. 
 Jeśli czynność wymaga **szczególnej formy**, pełnomocnictwo musi mieć **tę samą formę**. Sprzedaż mieszkania wymaga aktu notarialnego – więc pełnomocnictwo też.
 
 
-<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Dwie osoby przeglądają dokumenty" loading="lazy" /><figcaption>Fot. Olena Kholina / Unsplash</figcaption></figure>
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Dwie osoby przeglądają dokumenty" loading="lazy" /></figure>
 
 ## 3. Kiedy wystarczy pismo
 
