@@ -2,6 +2,7 @@
 import Base from '../../../../layouts/Base.astro';
 import Pruvodce from '../../../../components/Pruvodce.astro';
 import StazeniBand from '../../../../components/StazeniBand.astro';
+import Podpora from '../../../../components/Podpora.astro';
 import { kupniSmlouvaAuto as s } from '../../../../sablony/cz/kupni-smlouva-auto';
 
 const base = '/cz/kupni-smlouva-auto/';
@@ -38,6 +39,7 @@ const base = '/cz/kupni-smlouva-auto/';
     vzorDocx={`${base}kupni-smlouva-auto-vzor.docx`}
     pruvodce
   />
+  <Podpora />
 </Base>
 
 <script>

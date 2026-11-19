@@ -358,6 +358,7 @@ export function spustPruvodce(s: Sablona) {
         stahni(await dokumentDocx(d, podpisy, logo), `${s.souborPdf}.docx`);
       }
       koren.querySelector<HTMLElement>('[data-co-dal]')!.hidden = false;
+      window.dispatchEvent(new CustomEvent('dokuio:stazeno', { detail: { typ } }));
     } catch (err) {
       console.error(err);
       alert('Soubor se nepodařilo vytvořit. Zkuste to prosím znovu, případně v jiném prohlížeči.');

@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import Duvera from '../../../components/Duvera.astro';
 import StazeniBand from '../../../components/StazeniBand.astro';
+import Podpora from '../../../components/Podpora.astro';
 import { kupniSmlouvaAuto as s } from '../../../sablony/cz/kupni-smlouva-auto';
 import { sestavDokument, formatDatum } from '../../../sablony/dokument';
 import { dokumentHtml } from '../../../sablony/html';
@@ -265,4 +266,5 @@ const schema = [
     vzorPdf={vzorPdf}
     vzorDocx={vzorDocx}
   />
+  <Podpora />
 </Base>

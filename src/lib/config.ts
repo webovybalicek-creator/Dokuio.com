@@ -24,3 +24,17 @@ export const ZEME = [
   { kod: 'cz', nazev: 'Česko', nazevEn: 'Czechia', jazyk: 'cs', aktivni: true, casovaZona: 'Europe/Prague' },
   { kod: 'sk', nazev: 'Slovensko', nazevEn: 'Slovakia', jazyk: 'sk', aktivni: true, casovaZona: 'Europe/Bratislava' },
 ] as const;
+
+/**
+ * Dobrovolná podpora provozu (okno po stažení smlouvy).
+ * stripe: Payment Link (30 Kč / 1 € / 1 $, Apple Pay, Google Pay, karta). Po aktivaci účtu nahradit odkazem z ostrého režimu.
+ * iban: když je vyplněný, okno nabídne i QR platbu (CZ, formát SPAYD).
+ */
+export const PODPORA = {
+  stripe: 'https://buy.stripe.com/test_7sY9AM2Ux08f1Mn4Lr48000',
+  iban: '',
+  prijemce: 'Dokuio',
+  castkaKc: 30,
+  /** Kolik dní po zavření okno znovu neukazovat */
+  pauzaDni: 30,
+};
