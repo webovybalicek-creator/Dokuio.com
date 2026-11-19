@@ -64,7 +64,7 @@ const stranka: StrankaDokumentu = {
     "Összeg betűvel automatikusan",
     "Aláírás a képernyőn",
     "Letöltés PDF-ben és Wordben",
-    "Emlékeztető a 8 és 15 napos határidőre"
+    "Emlékeztető a 15 napos határidőkre"
   ],
   "hodiSe": [
     "magánszemélyként adja el vagy veszi az autóját",
@@ -77,7 +77,7 @@ const stranka: StrankaDokumentu = {
   "po": [
     {
       "nazev": "Eladó",
-      "popis": "8 napon belül bejelenti a tulajdonosváltozást."
+      "popis": "15 napon belül bejelenti a tulajdonosváltozást."
     },
     {
       "nazev": "Vevő",
@@ -95,7 +95,7 @@ const stranka: StrankaDokumentu = {
     },
     {
       "q": "Mennyi idő alatt kell átíratni?",
-      "a": "A vevő 15 napon belül kérje az átírást, az eladó 8 napon belül jelentse be az eladást."
+      "a": "Mindkét félnek 15 napja van a tulajdonjog-változástól: a vevő kéri az átírást, az eladó bejelenti az eladást."
     },
     {
       "q": "Tárolják az adataimat?",

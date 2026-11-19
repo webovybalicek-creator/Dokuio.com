@@ -1,5 +1,5 @@
 /**
- * Lakásbérleti szerződés – Magyarország, magánszemélyek között. 1993. évi LXXVIII. törvény (Ltv.) és a Ptk. bérleti szabályai.
+ * Lakásbérleti szerződés – Magyarország, magánszemélyek között. 1993. évi LXXVIII. törvény (Ltv.; írásbeli forma: 2. § (5)) és a Ptk. bérleti szabályai.
  * A felmondási időt és az óvadékot a felek a szerződésben rögzítik.
  */
 import type { Sablona } from '../typy';
@@ -39,7 +39,7 @@ export const lakasberletiSzerzodes: Sablona = {
     'Bérbeadó: a bérbeadásból származó jövedelmet be kell vallani – a szabályokat lásd a NAV oldalán.',
   ],
   kontrola: [
-    'A lakásbérleti szerződést írásba kell foglalni.',
+    'A lakás bérbeadásának érvényességéhez a szerződést írásba kell foglalni (Ltv. 2. § (5)).',
     'Ellenőrizze a tulajdoni lapon, hogy a bérbeadó a lakás tulajdonosa (vagy rendelkezik a tulajdonos hozzájárulásával).',
     'Az óvadék összegét és visszafizetésének feltételeit a szerződésben rögzítik – a bérbeadó csak a bérleti jogviszonyból eredő tartozásokat vonhatja le belőle.',
     'Határozott idejű szerződés a lejárattal megszűnik; idő előtti rendes felmondás csak akkor lehetséges, ha a szerződés megengedi.',

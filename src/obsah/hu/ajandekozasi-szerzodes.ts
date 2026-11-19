@@ -19,7 +19,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: 'penz',
   landing: {
   "title": "Ajándékozási szerződés minta {rok} – pénz vagy ingóság",
-  "description": "Ingyenes ajándékozási szerződés pénzre vagy ingóságra: rokoni kapcsolat, illeték, átadás. Családon belül gyakran illetékmentes. PDF és Word.",
+  "description": "Ingyenes ajándékozási szerződés pénzre vagy ingóságra: rokoni kapcsolat, illeték, átadás. Szülő, gyermek, testvér között illetékmentes. PDF és Word.",
   "perex": "Pénz vagy dolog ajándékozása írásban. A tippekben megmutatjuk, mikor illetékmentes.",
   "obsahPopis": "Mit tartalmaz.",
   "obsah": [
@@ -71,7 +71,7 @@ const stranka: StrankaDokumentu = {
   "faq": [
     {
       "q": "Kell illetéket fizetni?",
-      "a": "Főszabály szerint igen, de egyenes ági rokonok (szülő, gyermek, nagyszülő, unoka) és házastársak között az ajándékozás illetékmentes."
+      "a": "Főszabály szerint igen (általában 18 %), de az egyenes ági rokonnak (szülő, gyermek, nagyszülő, unoka), a házastársnak és a testvérnek adott ajándék illetékmentes."
     },
     {
       "q": "Kötelező írásba foglalni?",

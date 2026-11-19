@@ -1,4 +1,4 @@
-/** Elállási nyilatkozat – Magyarország, online vagy telefonon kötött szerződés. 45/2014. (II. 26.) Korm. rendelet: 14 napos elállási jog, mintanyilatkozat. */
+/** Elállási nyilatkozat – Magyarország, online vagy telefonon kötött szerződés. 45/2014. (II. 26.) Korm. rendelet: 20. § (14 nap az átvételtől), 23. § (visszatérítés 14 napon belül), 24. § (visszaküldés 14 napon belül), 2. melléklet (minta). */
 import type { Sablona } from '../typy';
 import { naDatum, pridejDny, isoDatum } from '../terminy';
 import { FOGY_RENDELET, PTK } from './forrasok';

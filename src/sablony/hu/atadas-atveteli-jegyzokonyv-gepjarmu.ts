@@ -32,7 +32,7 @@ export const jegyzokonyvGepjarmu: Sablona = {
     mapuj: (d) => ({
       p_jmeno: d.p_jmeno, p_adresa: d.p_adresa, k_jmeno: d.k_jmeno, k_adresa: d.k_adresa,
       znacka: d.znacka, vin: d.vin, spz: d.spz, km: d.km, klice: d.klice,
-      szerzodes_datum: d.datum_podpisu, atadas_datum: d.datum_podpisu, misto: d.misto,
+      szerzodes_datum: d.datum_podpisu, atadas_datum: d.birtok_datum ?? d.datum_podpisu, atadas_ido: d.birtok_ido, misto: d.misto,
     }),
   },
   kroky: [

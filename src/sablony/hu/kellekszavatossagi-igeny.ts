@@ -1,4 +1,4 @@
-/** Kellékszavatossági igény (hibás termék) – Magyarország, fogyasztó és vállalkozás között. Ptk. kellékszavatosság; fogyasztónál 2 év. */
+/** Kellékszavatossági igény (hibás termék) – Magyarország, fogyasztó és vállalkozás között. Ptk. 6:159. § (sorrend: kijavítás/kicserélés), 6:162. § (2 hónapon belüli közlés időben történt), fogyasztónál 2 év. */
 import type { Sablona } from '../typy';
 import { PTK } from './forrasok';
 

@@ -1,4 +1,4 @@
-/** Tartozáselismerő nyilatkozat – Magyarország. Ptk. tartozáselismerés (bizonyítási teher az elismerőn); az elismerés megszakítja az elévülést. */
+/** Tartozáselismerő nyilatkozat – Magyarország. Ptk. tartozáselismerés (bizonyítási teher az elismerőn); az elismerés megszakítja az elévülést (Ptk. 6:25. § (1) a)), elévülés 5 év (6:22. §). */
 import type { Sablona } from '../typy';
 import { osszegBetuvel } from './szamok';
 import { pripominkySplatek, splatky, isoDatum } from '../terminy';

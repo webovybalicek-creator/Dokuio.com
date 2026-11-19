@@ -1,16 +1,16 @@
 /**
  * Gépjármű adásvételi szerződés – Magyarország, magánszemélyek között. Ptk. adásvétel; tulajdonjog-fenntartás.
- * Forgalmi átíráshoz teljes bizonyító erejű magánokirat (Pp.) – két tanú. Eladó: bejelentés 8 napon belül,
- * vevő: átírás 15 napon belül (Kknyt.), vagyonszerzési illeték (Itv.), KGFB (2009. évi LXII. tv.).
+ * Teljes bizonyító erejű magánokirat (Pp. 325. § (1) b) – két tanú), kötelező tartalom: 304/2009. Korm. r. 3. §.
+ * Eladó: bejelentés 15 napon belül (304/2009. Korm. r. 2. § (1)), vevő: átírás 15 napon belül (Kknyt. 33. § (1) b)), vagyonszerzési illeték (Itv.), KGFB (2009. évi LXII. tv.).
  */
 import type { Sablona } from '../typy';
 import { osszegBetuvel } from './szamok';
 import { naDatum, pridejDny, isoDatum } from '../terminy';
-import { PTK, PP, KKNYT, ITV, KGFB, KORMANYABLAK, TIP_SZEMELYAZONOSSAG, TIP_KESZPENZ, TIP_TANUK } from './forrasok';
+import { PTK, PP, KKNYT, KORM_304, ITV, KGFB, KORMANYABLAK, TIP_SZEMELYAZONOSSAG, TIP_KESZPENZ, TIP_TANUK } from './forrasok';
 
 export const gepjarmuAdasvetel: Sablona = {
   kod: 'HU-AUTO',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
   zeme: 'hu',
@@ -18,7 +18,7 @@ export const gepjarmuAdasvetel: Sablona = {
   nazev: 'Gépjármű adásvételi szerződés',
   podnadpis: 'a Polgári Törvénykönyvről szóló 2013. évi V. törvény adásvételre vonatkozó szabályai alapján',
   souborPdf: 'gepjarmu-adasveteli-szerzodes',
-  paticka: 'Ingyenesen készült · HU-AUTO v1.0 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek, ügyvédi ellenőrzést javaslunk',
+  paticka: 'Ingyenesen készült · HU-AUTO v1.1 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek, ügyvédi ellenőrzést javaslunk',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'eladó', vpravo: 'vevő' },
@@ -26,14 +26,14 @@ export const gepjarmuAdasvetel: Sablona = {
   coDal: [
     'Nyomtassa ki három példányban (eladó, vevő, okmányiroda), és mindkét fél, valamint a két tanú írja alá mindegyiket.',
     'Adja át az autót, a kulcsokat és az okmányokat – legjobb átadás-átvételi jegyzőkönyvvel.',
-    'Eladó: 8 napon belül jelentse be a tulajdonosváltozást (kormányablak, ügyfélkapu+), és szólítsa fel a biztosítót.',
+    'Eladó: 15 napon belül jelentse be a tulajdonosváltozást (kormányablak vagy elektronikusan), és értesítse a biztosítóját.',
     'Vevő: kösse meg a kötelező biztosítást, és 15 napon belül kérje az átírást.',
   ],
   pripominky: (d) => {
     const od = naDatum(d.datum_podpisu);
     if (!od) return [];
     return [
-      { nazev: 'Tulajdonosváltozás bejelentése (eladó)', datum: isoDatum(pridejDny(od, 8)), popis: '8 nap a szerződéskötéstől.' },
+      { nazev: 'Tulajdonosváltozás bejelentése (eladó)', datum: isoDatum(pridejDny(od, 15)), popis: '15 nap a tulajdonjog-változástól.' },
       { nazev: 'Forgalmi átírás kérelmezése (vevő)', datum: isoDatum(pridejDny(od, 15)), popis: '15 nap a szerződéskötéstől; a vagyonszerzési illetéket a vevő fizeti.' },
     ];
   },
@@ -45,9 +45,10 @@ export const gepjarmuAdasvetel: Sablona = {
     TIP_TANUK,
     TIP_SZEMELYAZONOSSAG,
     TIP_KESZPENZ,
-    'Vevő: kötelező biztosítás az átvételtől, átírás és vagyonszerzési illeték 15 napon belül. Eladó: bejelentés 8 napon belül.',
+    'Mindkét félnek 15 napja van: a vevő kéri az átírást (és fizeti a vagyonszerzési illetéket), az eladó bejelenti az eladást. A vevő a birtokbavételtől köt kötelező biztosítást.',
+    'A hatóság csak akkor fogadja el a szerződést, ha szerepel benne a birtokba adás időpontja a kilométeróra-állással és a tulajdonjog-változás napja – ezeket ne hagyja üresen.',
   ],
-  zdroje: [PTK, PP, KKNYT, ITV, KGFB, KORMANYABLAK],
+  zdroje: [PTK, PP, KKNYT, KORM_304, ITV, KGFB, KORMANYABLAK],
 
   kroky: [
     {
@@ -78,6 +79,8 @@ export const gepjarmuAdasvetel: Sablona = {
         { id: 'torzskonyv', typ: 'text', popis: 'Törzskönyv száma', sirka: 14, polovina: true },
         { id: 'km', typ: 'cislo', popis: 'Kilométeróra állása', placeholder: 'pl. 154320', jednotka: 'km', sirka: 12, polovina: true },
         { id: 'klice', typ: 'cislo', popis: 'Kulcsok száma', placeholder: 'pl. 2', sirka: 4, polovina: true },
+        { id: 'birtok_datum', typ: 'datum', popis: 'Birtokba adás napja', napoveda: 'A hatóság kötelezően kéri.', sirka: 14, polovina: true, vychozi: 'dnes' },
+        { id: 'birtok_ido', typ: 'text', popis: 'Birtokba adás időpontja', placeholder: 'pl. 14:30', sirka: 8, polovina: true },
       ],
     },
     {
@@ -113,6 +116,7 @@ export const gepjarmuAdasvetel: Sablona = {
         },
         { id: 'ucet', typ: 'text', popis: 'Eladó bankszámlaszáma', placeholder: '00000000-00000000-00000000', sirka: 32, zobrazitKdyz: { pole: 'platba', je: 'utalas' } },
         { id: 'splatnost', typ: 'datum', popis: 'Fizetési határidő', sirka: 14, polovina: true, zobrazitKdyz: { pole: 'platba', je: 'utalas' } },
+        { id: 'hatalyba', typ: 'datum', popis: 'A tulajdonjog-változás napja', napoveda: 'A teljes vételár megfizetésének napja. A hatóság kötelezően kéri.', sirka: 14, polovina: true },
         { id: 't1_jmeno', typ: 'text', popis: '1. tanú neve', napoveda: 'Nem lehet a szerződő fél.', sirka: 30, polovina: true },
         { id: 't1_adresa', typ: 'text', popis: '1. tanú lakcíme', sirka: 40, polovina: true },
         { id: 't2_jmeno', typ: 'text', popis: '2. tanú neve', sirka: 30, polovina: true },
@@ -140,7 +144,8 @@ export const gepjarmuAdasvetel: Sablona = {
       odstavce: [
         'Az eladó kijelenti, hogy kizárólagos tulajdonosa a következő gépjárműnek: {{znacka}}, alvázszám: {{vin}}, forgalmi rendszám: {{spz}}, motorszám: {{motor}}, forgalmi engedély száma: {{forgalmi}}, törzskönyv száma: {{torzskonyv}} (a továbbiakban: gépjármű).',
         'Az eladó kijelenti, hogy a gépjármű per-, teher- és igénymentes, harmadik személynek nincs rajta joga, nem áll lízing, zálogjog, elidegenítési és terhelési tilalom alatt.',
-        'Az eladó eladja, a vevő megvásárolja a gépjárművet a jelen szerződésben meghatározott vételárért.',
+        'Az eladó eladja, a vevő megvásárolja a gépjárművet a jelen szerződésben meghatározott vételárért. A jogügylet jellege: visszterhes (adásvétel).',
+        'Az eladó kijelenti, hogy a gépjármű tulajdonjoga bizalmi vagyonkezelés alapján fennálló kezelt vagyonba nem tartozik.',
       ],
     },
     {
@@ -172,23 +177,24 @@ export const gepjarmuAdasvetel: Sablona = {
             utalas: 'A vevő a vételárat legkésőbb {{splatnost}} napjáig átutalja az eladó {{ucet}} számú bankszámlájára.',
           },
         },
-        'A felek megállapodnak, hogy a gépjármű tulajdonjoga a teljes vételár megfizetésével száll át a vevőre (tulajdonjog-fenntartás).',
+        'A felek megállapodnak, hogy a gépjármű tulajdonjoga a teljes vételár megfizetésével száll át a vevőre (tulajdonjog-fenntartás). A tulajdonjog-változás hatálybalépésének napja: {{hatalyba}}.',
       ],
     },
     {
       nadpis: 'Birtokbaadás',
       vysvetleni: 'Mit kap a vevő az autóval együtt.',
       odstavce: [
-        'Az eladó a gépjárművet a vételár megfizetése után adja a vevő birtokába, {{klice}} darab kulccsal, a forgalmi engedéllyel és a törzskönyvvel együtt.',
-        'A birtokbaadástól a vevőt illetik a gépjármű hasznai, őt terhelik a terhei és a kárveszély. A birtokbaadás időpontját a felek átadás-átvételi jegyzőkönyvben rögzítik.',
+        'Az eladó a gépjárművet {{birtok_datum}} napján {{birtok_ido}} órakor adja a vevő birtokába, {{klice}} darab kulccsal, a forgalmi engedéllyel és a törzskönyvvel együtt. A kilométeróra állása a birtokba adáskor: {{km}}.',
+        'A birtokbaadástól a vevőt illetik a gépjármű hasznai, őt terhelik a terhei és a kárveszély. Az átadás részleteit (állapot, tartozékok) a felek átadás-átvételi jegyzőkönyvben is rögzíthetik.',
       ],
     },
     {
       nadpis: 'Hatósági ügyek és költségek',
       vysvetleni: 'Ki mit intéz a hatóságnál, és ki fizet.',
       odstavce: [
-        'Az eladó a tulajdonosváltozást a jogszabályban előírt határidőn belül bejelenti a közlekedési igazgatási hatóságnak, és értesíti a biztosítóját.',
-        'A vevő a jogszabályban előírt határidőn belül kezdeményezi a gépjármű forgalmi átírását, és a birtokbaadástól gondoskodik a kötelező gépjármű-felelősségbiztosításról.',
+        'A felek kijelentik, hogy a közlekedési igazgatási hatóságnál fennálló bejelentési kötelezettségüknek a tulajdonjog-változás hatálybalépését követő 15 napon belül eleget tesznek: az eladó bejelenti a tulajdonosváltozást, a vevő kérelmezi a változás bejegyzését (forgalmi átírás). Az eladó értesíti a biztosítóját.',
+        'A felek kijelentik, hogy a nyilvántartásba történő bejegyzés joghatásait, valamint a bejelentés elmaradásának vagy késedelmének következményeit ismerik.',
+        'A vevő a birtokbaadástól gondoskodik a kötelező gépjármű-felelősségbiztosításról.',
         'Az átírás költségeit és a vagyonszerzési illetéket a vevő viseli.',
       ],
     },

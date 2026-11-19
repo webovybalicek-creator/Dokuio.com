@@ -1,8 +1,8 @@
 import type { Zeme } from '../typy';
 
 /**
- * Magyarország. NEAKTIVNÍ: vzory čekají na ověření proti njt.jog.gov.hu (paragrafy, illeték-mentesség,
- * lhůty 8/15 dní) a na kontrolu rodilým mluvčím / ügyvéd. Pak přepnout `aktivni: true`.
+ * Magyarország. Vzory ověřené 19. 11. 2026 (viz src/sablony/hu/forrasok.ts). NEAKTIVNÍ, dokud nebudou
+ * napsané články poradny (jednotná sada témat) – pak přepnout `aktivni: true`.
  */
 export const zeme: Zeme = {
   kod: 'hu',
@@ -60,7 +60,7 @@ export const zeme: Zeme = {
         nazev: 'Autó',
         ilustrace: 'auto',
         moznosti: [
-          { text: 'Használt autót adok el vagy veszek', dokumenty: ['gepjarmu-adasveteli-szerzodes', 'atadas-atveteli-jegyzokonyv-gepjarmu'], balicek: 'auto-eladasa', tip: 'Két tanú kell. Eladó: bejelentés 8 nap, vevő: átírás 15 nap.' },
+          { text: 'Használt autót adok el vagy veszek', dokumenty: ['gepjarmu-adasveteli-szerzodes', 'atadas-atveteli-jegyzokonyv-gepjarmu'], balicek: 'auto-eladasa', tip: 'Két tanú kell. Eladó és vevő is 15 napon belül a kormányablakba.' },
           { text: 'Az átírást más intézi helyettem', dokumenty: ['meghatalmazas-forgalmi-atirashoz'] },
           { text: 'Kölcsönadom az autómat', dokumenty: ['atadas-atveteli-jegyzokonyv-gepjarmu'] },
         ],
@@ -72,7 +72,7 @@ export const zeme: Zeme = {
           { text: 'Pénzt adok kölcsön', dokumenty: ['kolcsonszerzodes', 'atveteli-elismerveny'] },
           { text: 'Készpénzt adok át vagy veszek át', dokumenty: ['atveteli-elismerveny'] },
           { text: 'Valaki tartozik nekem, és részletekben fizetne', dokumenty: ['tartozaselismero-nyilatkozat'] },
-          { text: 'Pénzt vagy dolgot ajándékozok', dokumenty: ['ajandekozasi-szerzodes'], tip: 'Szülő, gyermek, unoka között illetékmentes.' },
+          { text: 'Pénzt vagy dolgot ajándékozok', dokumenty: ['ajandekozasi-szerzodes'], tip: 'Egyenes ági rokon, házastárs, testvér: illetékmentes.' },
         ],
       },
       {

@@ -1,7 +1,8 @@
 /**
  * Hivatalos források a magyar mintákhoz (Nemzeti Jogszabálytár, kormányzati oldalak).
- * FIGYELEM: a magyar minták még nincsenek a hivatalos forrásokkal szó szerint egyeztetve – az ország
- * addig nem aktív (`aktivni: false` a src/obsah/hu/_zeme.ts-ben).
+ * Ověřeno 19. 11. 2026 na njt.jog.gov.hu: Pp. 325. § (1) b), Kknyt. 33. §, 304/2009. Korm. r. 2.–3. §,
+ * Itv. 11. § (2), 12. §, 17. § (1) p) w), Ltv. 2. § (5), 45/2014. Korm. r. 20.–24. §, 2. melléklet.
+ * Ptk. 6:22, 6:25, 6:159, 6:162, 6:163 – text Ptk. se na NJT nenačetl, ověřeno přes odborné zdroje (Kúria/BH, jogiforum, MNB).
  */
 const NJT = (id: string) => `https://njt.jog.gov.hu/jogszabaly/${id}`;
 
@@ -12,6 +13,7 @@ export const ITV = { nazev: 'Az illetékekről szóló 1990. évi XCIII. törvé
 export const KGFB = { nazev: 'A kötelező gépjármű-felelősségbiztosításról szóló 2009. évi LXII. törvény (NJT)', url: NJT('2009-62-00-00') };
 export const FOGY_RENDELET = { nazev: '45/2014. (II. 26.) Korm. rendelet – távollévők közötti szerződések, elállás (NJT)', url: NJT('2014-45-20-22') };
 export const LTV = { nazev: 'A lakások és helyiségek bérletéről szóló 1993. évi LXXVIII. törvény (NJT)', url: NJT('1993-78-00-00') };
+export const KORM_304 = { nazev: '304/2009. (XII. 22.) Korm. rendelet – tulajdonjog-változás bejelentése, a magánokirat tartalma (NJT)', url: NJT('2009-304-20-22') };
 export const KORMANYABLAK = { nazev: 'Kormányablak – ügyintézés (kormanyablak.hu)', url: 'https://kormanyablak.hu/' };
 export const NAV = { nazev: 'Nemzeti Adó- és Vámhivatal (nav.gov.hu)', url: 'https://nav.gov.hu/' };
 

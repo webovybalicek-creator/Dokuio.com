@@ -33,7 +33,7 @@ Nová země = napsat všech 8 základních témat. Nové téma = napsat ho pro v
 
 Jen pro CZ: vypoved-povinneho-ruceni, cestovani-s-ditetem-bez-rodice, trvaly-pobyt-v-cizim-byte, limit-platby-v-hotovosti (vzory/instituty jsou specificky české).
 
-**🇭🇺 Maďarsko:** země je připravená, ale skrytá – až budou vzory ověřené, napsat všech 12 témat (poradna `/hu/tanacsadas/` + `_poradna.ts`).
+**🇭🇺 Maďarsko:** země je připravená a vzory ověřené (19. 11. 2026), ale skrytá – napsat všech 12 témat (poradna `/hu/tanacsadas/` + `_poradna.ts`).
 
 **SK pozor:** od 1. 7. 2027 platí nový Občiansky zákonník (zákon č. 260/2026 Z. z.) – před tímto datem projít všechny SK vzory a články (nájem, premlčanie, pôžička, darovanie…).
 

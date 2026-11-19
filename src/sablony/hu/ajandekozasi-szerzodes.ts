@@ -1,4 +1,4 @@
-/** Ajándékozási szerződés (pénz vagy ingóság) – Magyarország. Ptk. ajándékozás; ajándékozási illeték (Itv.), egyenes ági rokonok és házastársak között mentes. */
+/** Ajándékozási szerződés (pénz vagy ingóság) – Magyarország. Ptk. ajándékozás; ajándékozási illeték 18 % (Itv. 12. §), mentes: egyenes ági rokon, házastárs (17. § (1) p)), testvér (17. § (1) w)); okirat nélküli ingóság-ajándék 150 000 Ft-ig nem illetékköteles (11. § (2)). */
 import type { Sablona } from '../typy';
 import { osszegBetuvel } from './szamok';
 import { PTK, ITV, NAV, TIP_SZEMELYAZONOSSAG } from './forrasok';
@@ -20,7 +20,8 @@ export const ajandekozasiSzerzodes: Sablona = {
   slovo: { n: 'szerződés', g: 'szerződés', a: 'szerződést', l: 'szerződésben' },
   coDal: ['Nyomtassa ki két példányban, mindketten írják alá mindkettőt.', 'Pénz ajándékozásakor használjon átutalást – így az ajándékozás tényét is igazolja.'],
   kontrola: [
-    'Az ajándékozás főszabály szerint ajándékozási illeték alá esik. Egyenes ági rokonok (szülő, gyermek, nagyszülő, unoka) és házastársak közötti ajándékozás illetékmentes – a részleteket és a bejelentési szabályokat nézze meg a [NAV](https://nav.gov.hu/) tájékoztatójában.',
+    'Az ajándékozás főszabály szerint ajándékozási illeték alá esik. Illetékmentes az egyenes ági rokonnak (szülő, gyermek, nagyszülő, unoka), a házastársnak és a testvérnek adott ajándék. Más esetben az illeték általában 18 %; a bejelentés szabályait nézze meg a [NAV](https://nav.gov.hu/) tájékoztatójában.',
+    'Írásba foglalás nélkül az ingóság-ajándék csak 150 000 Ft feletti forgalmi érték esetén illetékköteles – az írásos szerződés viszont ettől függetlenül illetékkötelessé teheti, ezért a rokoni kapcsolatot mindig írja bele.',
     'Ingatlan ajándékozásához ügyvédi ellenjegyzés kell – erre ez a minta nem alkalmas.',
     'Gépjármű ajándékozásakor a forgalmi átíráshoz két tanú aláírása is szükséges.',
     TIP_SZEMELYAZONOSSAG,
