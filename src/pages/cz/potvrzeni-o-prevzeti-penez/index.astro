@@ -1,0 +1,46 @@
+---
+import DokumentLanding from '../../../components/DokumentLanding.astro';
+import { potvrzeniPrevzetiPenez as s } from '../../../sablony/cz/potvrzeni-prevzeti-penez';
+import { penizeKrome } from '../../../lib/souvisejici';
+
+const base = '/cz/potvrzeni-o-prevzeti-penez/';
+---
+
+<DokumentLanding
+  sablona={s}
+  base={base}
+  nazev="Potvrzení o převzetí peněz"
+  nazevA="potvrzení o převzetí peněz"
+  title={`Potvrzení o převzetí peněz ${s.aktualizovano.slice(0, 4)} – vzor PDF zdarma`}
+  description="Potvrzení o převzetí peněz (hotovosti) zdarma: kdo, kolik a za co. Vyplňte online za minutu nebo stáhněte vzor v PDF i Wordu."
+  perex="Platíte nebo přebíráte hotovost? Nechte si podepsat, že peníze převzal. Hodí se ke kupní ceně, záloze i splátce půjčky."
+  obsahPopis="Krátká kvitance podle § 1949 občanského zákoníku."
+  obsah={[
+    { nazev: 'Potvrzení', popis: 'Kdo peníze převzal, od koho a jakou částku – číslem i slovy.' },
+    { nazev: 'Účel platby', popis: 'Kupní cena, záloha, půjčka nebo splátka, s upřesněním. Celá platba, nebo jen část.' },
+  ]}
+  kroky={[
+    { nazev: 'Odpovězte na otázky', popis: 'Kdo, kolik a za co. Zabere asi minutu.' },
+    { nazev: 'Stáhněte a vytiskněte', popis: 'PDF nebo Word zdarma a bez registrace.' },
+    { nazev: 'Nechte podepsat příjemce', popis: 'Podpis toho, kdo peníze převzal, je nejdůležitější. Lze i prstem na telefonu.' },
+  ]}
+  online={['Částka slovy se dopočítá sama', 'Účel platby jedním kliknutím', 'Podpis prstem rovnou na telefonu', 'Stažení v PDF i ve Wordu']}
+  hodiSe={['platíte kupní cenu nebo zálohu v hotovosti', 'vracíte půjčku nebo splátku v hotovosti', 'chcete doklad, že jste zaplatili']}
+  nehodiSe={['platíte převodem – doklad je výpis z účtu', 'potřebujete daňový doklad od firmy (paragon, faktura)', 'chcete sepsat samotnou půjčku – použijte smlouvu o zápůjčce']}
+  poNadpis="Při předání peněz."
+  po={[
+    { nazev: 'Přepočítejte peníze', popis: 'Ještě před podpisem, ideálně oba společně.' },
+    { nazev: 'Podepište', popis: 'Příjemce podepisuje vždy, plátce může také.' },
+    { nazev: 'Schovejte si ho', popis: 'Potvrzení patří plátci. Je to důkaz, že zaplatil.' },
+  ]}
+  faq={[
+    { q: 'Mám na potvrzení nárok?', a: 'Ano. Kdo plní dluh, může od věřitele požadovat potvrzení o tom, že zaplatil (tzv. kvitanci). Příjemce peněz ho nemá odmítnout.' },
+    { q: 'Proč psát částku i slovy?', a: 'Částka slovy brání dodatečnému dopsání číslic a odstraní nejasnosti při přepisu. Průvodce ji doplní sám.' },
+    { q: 'Musí potvrzení podepsat i plátce?', a: 'Nemusí. Rozhodující je podpis příjemce. Podpis plátce ale nevadí a vzor na něj má místo.' },
+    { q: 'Hodí se potvrzení k prodeji auta?', a: 'Ano, když se kupní cena platí v hotovosti jindy než při podpisu smlouvy, nebo po částech. Do upřesnění napište auto a datum kupní smlouvy.' },
+    { q: 'Ukládáte moje údaje?', a: 'Ne. Potvrzení se skládá přímo ve vašem prohlížeči a údaje se na server neodesílají.' },
+  ]}
+  zakony="Vzor vychází z § 1949 zákona č. 89/2012 Sb., občanský zákoník (potvrzení o splnění)."
+  souvisejiciPopis="Další dokumenty k penězům a darům, také zdarma."
+  souvisejici={penizeKrome(base)}
+/>

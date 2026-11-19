@@ -71,6 +71,8 @@ export type Odstavec =
       uvod?: string;
       /** Text nad výčtem jen v nevyplněném vzoru, pokud se liší od `uvod` */
       uvodVzor?: string;
+      /** Odstavec vynechat, když je řídicí pole vyplněné jinak (v prázdném vzoru zůstává) */
+      kdyz?: { pole: string; je: string | string[] };
     }
   | {
       /** Vícenásobný výběr: vybrané položky se vypíšou jako seznam, bez výběru všechny se zaškrtávacím polem */

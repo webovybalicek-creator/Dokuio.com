@@ -1,0 +1,56 @@
+---
+import DokumentLanding from '../../../components/DokumentLanding.astro';
+import { darovaciSmlouva as s } from '../../../sablony/cz/darovaci-smlouva';
+import { penizeKrome } from '../../../lib/souvisejici';
+
+const base = '/cz/darovaci-smlouva/';
+---
+
+<DokumentLanding
+  sablona={s}
+  base={base}
+  nazev="Darovací smlouva"
+  nazevA="darovací smlouvu"
+  title={`Darovací smlouva ${s.aktualizovano.slice(0, 4)} – vzor PDF zdarma (peníze i věc)`}
+  description="Darovací smlouva zdarma: daruj peníze nebo movitou věc. Vyplňte online za 3 minuty nebo stáhněte vzor v PDF i Wordu, bez registrace."
+  perex="Na darování peněz nebo movité věci – v rodině i mezi známými. Vyplňte online, nebo si stáhněte prázdný vzor."
+  obsahPopis="Čtyři články podle § 2055 a násl. občanského zákoníku."
+  obsah={[
+    { nazev: 'Smluvní strany', popis: 'Dárce a obdarovaný, volitelně jejich příbuzenský vztah.' },
+    { nazev: 'Předmět daru', popis: 'Peněžní částka číslem i slovy, nebo přesný popis věci a známé vady.' },
+    { nazev: 'Předání daru', popis: 'Hned při podpisu, převodem na účet nebo později do určitého data.' },
+    { nazev: 'Závěrečná ustanovení', popis: 'Dva stejnopisy, účinnost a podpisy obou stran.' },
+  ]}
+  kroky={[
+    { nazev: 'Odpovězte na otázky', popis: 'Kdo dává, kdo dostává a co. Co nevíte, přeskočte – zůstane linka k ručnímu doplnění.' },
+    { nazev: 'Upravte text, pokud chcete', popis: 'Každý odstavec můžete přepsat nebo smazat. Původní znění jde vždy vrátit.' },
+    { nazev: 'Stáhněte PDF nebo Word', popis: 'Zdarma a bez registrace. Vytiskněte dvakrát a obě strany podepíší.' },
+  ]}
+  online={['Částka slovy se dopočítá sama', 'Text se přizpůsobí penězům nebo věci', 'Podpis prstem nebo myší rovnou v průvodci', 'Stažení v PDF i ve Wordu']}
+  hodiSe={[
+    'darujete peníze dítěti, vnoučeti nebo jinému příbuznému',
+    'darujete movitou věc – šperk, techniku, auto',
+    'peníze posíláte převodem nebo je předáte později (pak je písemná smlouva nutná)',
+  ]}
+  nehodiSe={[
+    'darujete byt, dům nebo pozemek – smlouvu pro katastr nemovitostí nechte připravit advokátem',
+    'peníze půjčujete a chcete je zpět – použijte smlouvu o zápůjčce',
+    'dar je podmíněný nebo s povinností obdarovaného (např. doživotí)',
+  ]}
+  po={[
+    { nazev: 'Podepište dva stejnopisy', popis: 'Každá strana si nechá jeden.' },
+    { nazev: 'Předejte dar', popis: 'Hotovost nebo věc ideálně hned při podpisu, převod do sjednaného data.' },
+    { nazev: 'Smlouvu si schovejte', popis: 'Obdarovaný jí doloží, odkud peníze nebo věc má – bance, finančnímu úřadu i v dědickém řízení.' },
+  ]}
+  faq={[
+    { q: 'Musí být darovací smlouva písemná?', a: 'Pokud se dar předává hned při dohodě z ruky do ruky, písemnou formu zákon nevyžaduje. Písemná musí být, když se dar předává později nebo převodem z účtu. Písemná smlouva je navíc důkaz pro banku, finanční úřad i dědické řízení.' },
+    { q: 'Platí se z daru daň?', a: 'Dary od manžela a příbuzných v přímé linii (rodiče, prarodiče, děti, vnoučata) i ve vedlejší linii (sourozenci, strýc, teta, synovec, neteř) a od švagrovských příbuzných jsou od daně z příjmů osvobozené. U ostatních dárců platí roční limit 50 000 Kč. Osvobozený příjem nad 5 milionů Kč je potřeba oznámit finančnímu úřadu. V konkrétní situaci se poraďte s daňovým poradcem.' },
+    { q: 'Lze dar vzít zpět?', a: 'Jen výjimečně: když se dárce dostane do nouze, nebo když mu obdarovaný hrubě ublíží (nevděk). Tato práva zákon dává dárci vždy a smlouvou je nejde vyloučit.' },
+    { q: 'Jak darovat peníze nezletilému dítěti?', a: 'Za nezletilé dítě dar přijímá a smlouvu podepisuje jeho zákonný zástupce, obvykle rodič. U velkých částek může být potřeba souhlas soudu.' },
+    { q: 'Hodí se smlouva na darování auta?', a: 'Ano. Do popisu věci uveďte značku, VIN a SPZ. Po darování je potřeba zapsat změnu vlastníka v registru vozidel stejně jako po prodeji.' },
+    { q: 'Ukládáte moje údaje?', a: 'Ne. Smlouva se skládá přímo ve vašem prohlížeči a údaje se na server neodesílají.' },
+  ]}
+  zakony="Vzor vychází ze zákona č. 89/2012 Sb., občanský zákoník (§ 2055 a násl.). Daňové informace podle zákona č. 586/1992 Sb., o daních z příjmů, jsou orientační."
+  souvisejiciPopis="Další dokumenty k penězům a darům, také zdarma."
+  souvisejici={penizeKrome(base)}
+/>

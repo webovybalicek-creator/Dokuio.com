@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { darovaciSmlouva as s } from '../../../../sablony/cz/darovaci-smlouva';
+import { penizeKrome } from '../../../../lib/souvisejici';
+const base = '/cz/darovaci-smlouva/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Darovací smlouva"
+  nazevA="darovací smlouvu"
+  title="Vyplnit darovací smlouvu na peníze nebo věc online – PDF zdarma"
+  description="Průvodce darovací smlouvou: peníze nebo movitá věc. Stáhněte PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 3 minuty"
+  dalsi={penizeKrome(base)}
+/>

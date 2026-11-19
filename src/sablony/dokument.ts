@@ -222,17 +222,22 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
   const clanky: { nadpis: string; vysvetleni?: string; odstavce: OdstavecDok[] }[] = s.clanky.map((c, i) => ({
     nadpis: c.nadpis,
     vysvetleni: c.vysvetleni,
-    odstavce: c.odstavce.map((o, j) => {
+    odstavce: c.odstavce.flatMap((o, j) => {
       const id = `${i + 1}.${j + 1}`;
+      if (typeof o === 'object' && 'kdyz' in o && o.kdyz) {
+        const v = data[o.kdyz.pole];
+        const je = Array.isArray(o.kdyz.je) ? o.kdyz.je : [o.kdyz.je];
+        if (typeof v === 'string' && v && !je.includes(v)) return [];
+      }
       if (smazane.has(id)) {
         upraveno = true;
-        return { id, stav: 'smazano', radky: radkyOdstavce(o) };
+        return [{ id, stav: 'smazano' as const, radky: radkyOdstavce(o) }];
       }
       if (texty[id] !== undefined) {
         upraveno = true;
-        return { id, stav: 'upraveno', radky: textNaRadky(texty[id]) };
+        return [{ id, stav: 'upraveno' as const, radky: textNaRadky(texty[id]) }];
       }
-      return { id, stav: 'puvodni', radky: radkyOdstavce(o) };
+      return [{ id, stav: 'puvodni' as const, radky: radkyOdstavce(o) }];
     }),
   }));
 

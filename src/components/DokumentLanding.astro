@@ -41,6 +41,7 @@ interface Props {
   po: Polozka[];
   faq: { q: string; a: string }[];
   zakony: string;
+  souvisejiciPopis?: string;
   souvisejici?: { nazev: string; popis: string; url: string; ilustrace: TypIlustrace }[];
 }
 const p = Astro.props;
@@ -218,7 +219,7 @@ const schema = [
       <section class="sekce" aria-labelledby="souvisejici-nadpis">
         <div class="wrap">
           <div class="ram sekce__in">
-            <h2 id="souvisejici-nadpis">Hodí se k tomu.{' '}<span>Další dokumenty k prodeji auta, také zdarma.</span></h2>
+            <h2 id="souvisejici-nadpis">Hodí se k tomu.{' '}<span>{p.souvisejiciPopis ?? 'Další dokumenty k prodeji auta, také zdarma.'}</span></h2>
             <ul class="vypis souvisejici">
               {p.souvisejici.map((d) => (
                 <li>

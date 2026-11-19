@@ -8,3 +8,12 @@ export const AUTO: { nazev: string; popis: string; url: string; ilustrace: Ilust
 ];
 
 export const autoKrome = (url: string) => AUTO.filter((d) => d.url !== url);
+
+/** Peníze a dary */
+export const PENIZE: { nazev: string; popis: string; url: string; ilustrace: Ilustrace }[] = [
+  { nazev: 'Darovací smlouva', popis: 'Darování peněz nebo movité věci.', url: '/cz/darovaci-smlouva/', ilustrace: 'dar' },
+  { nazev: 'Smlouva o zápůjčce', popis: 'Půjčka peněz mezi známými, i na splátky.', url: '/cz/smlouva-o-zapujcce/', ilustrace: 'pujcka' },
+  { nazev: 'Potvrzení o převzetí peněz', popis: 'Doklad o předání hotovosti.', url: '/cz/potvrzeni-o-prevzeti-penez/', ilustrace: 'penize' },
+];
+
+export const penizeKrome = (url: string) => PENIZE.filter((d) => d.url !== url);

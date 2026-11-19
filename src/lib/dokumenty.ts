@@ -42,7 +42,7 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       kategorie: 'auto',
       ilustrace: 'protokol',
       url: '/cz/predavaci-protokol-vozidlo/',
-      slova: ['předání auta', 'protokol', 'předávací', 'převzetí vozidla'],
+      slova: ['auto', 'předání auta', 'protokol', 'předávací', 'převzetí vozidla'],
     },
     {
       nazev: 'Plná moc k přepisu vozidla',
@@ -50,7 +50,7 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       kategorie: 'zastoupeni',
       ilustrace: 'plnamoc',
       url: '/cz/plna-moc-prepis-vozidla/',
-      slova: ['přepis auta', 'registr vozidel', 'zmocnění', 'převod auta'],
+      slova: ['auto', 'přepis auta', 'registr vozidel', 'zmocnění', 'převod auta', 'plná moc'],
     },
     {
       nazev: 'Darovací smlouva na auto',
@@ -71,6 +71,7 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       popis: 'Darování peněz nebo movité věci.',
       kategorie: 'penize',
       ilustrace: 'dar',
+      url: '/cz/darovaci-smlouva/',
       slova: ['dar', 'darování', 'peníze', 'dárek', 'movitá věc', 'gift'],
     },
     {
@@ -78,6 +79,7 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       popis: 'Půjčka peněz mezi známými, včetně splátek.',
       kategorie: 'penize',
       ilustrace: 'pujcka',
+      url: '/cz/smlouva-o-zapujcce/',
       slova: ['půjčka', 'zápůjčka', 'půjčit peníze', 'splátky', 'úvěr', 'loan'],
     },
     {
@@ -85,6 +87,7 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       popis: 'Doklad o předání hotovosti.',
       kategorie: 'penize',
       ilustrace: 'penize',
+      url: '/cz/potvrzeni-o-prevzeti-penez/',
       slova: ['příjmový doklad', 'potvrzení', 'hotovost', 'převzetí', 'stvrzenka', 'receipt'],
     },
     {

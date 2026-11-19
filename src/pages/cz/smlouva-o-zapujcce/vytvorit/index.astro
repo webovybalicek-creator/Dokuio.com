@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { smlouvaOZapujcce as s } from '../../../../sablony/cz/smlouva-o-zapujcce';
+import { penizeKrome } from '../../../../lib/souvisejici';
+const base = '/cz/smlouva-o-zapujcce/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Smlouva o zápůjčce"
+  nazevA="smlouvu o zápůjčce"
+  title="Vyplnit smlouvu o zápůjčce (půjčka peněz) online – PDF zdarma"
+  description="Průvodce smlouvou o zápůjčce: částka, úrok, splátky. Stáhněte PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 3 minuty"
+  dalsi={penizeKrome(base)}
+/>
