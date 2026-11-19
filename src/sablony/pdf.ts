@@ -1,0 +1,217 @@
+/**
+ * Vykreslení dokumentu do PDF (pdf-lib). Běží v prohlížeči i v Node při buildu (prázdný vzor).
+ * Písmo se předává jako bajty TTF, aby šla použít česká diakritika.
+ */
+import { PDFDocument, rgb, type PDFFont, type PDFPage } from 'pdf-lib';
+import fontkit from '@pdf-lib/fontkit';
+import type { Dokument, Usek } from './dokument';
+
+export interface Pisma {
+  regular: ArrayBuffer | Uint8Array;
+  semibold: ArrayBuffer | Uint8Array;
+}
+
+const A4: [number, number] = [595.28, 841.89];
+const OKRAJ_X = 62;
+const OKRAJ_NAHORE = 64;
+const OKRAJ_DOLE = 72;
+const SIRKA = A4[0] - 2 * OKRAJ_X;
+
+const VEL = 10.25;
+const RADEK = 15;
+const ODSAZENI = 20;
+
+const INK = rgb(6 / 255, 27 / 255, 49 / 255);
+const SEDA = rgb(100 / 255, 116 / 255, 141 / 255);
+const LINKA = rgb(150 / 255, 162 / 255, 180 / 255);
+
+/**
+ * Inter má kontextové alternativy pomlček (mezi číslicemi a velkými písmeny), které pdf-lib nezvládá:
+ * znak se vykreslí s chybnou šířkou. Proto pomlčky nahrazujeme znaky bez alternativ.
+ */
+const t = (s: string) => s.replace(/-/g, '\u2010').replace(/\u2013/g, '\u2012');
+
+type Polozka =
+  | { k: 'slovo'; text: string; font: PDFFont; w: number }
+  | { k: 'mezera'; w: number }
+  | { k: 'linka'; w: number }
+  | { k: 'ctverec'; w: number; ano: boolean };
+
+export async function dokumentPdf(
+  d: Dokument,
+  pisma: Pisma,
+  meta: { nazevSouboru?: string; vytvoreno?: Date } = {},
+): Promise<Uint8Array> {
+  const pdf = await PDFDocument.create();
+  pdf.registerFontkit(fontkit);
+  const reg = await pdf.embedFont(pisma.regular, { subset: false });
+  const semi = await pdf.embedFont(pisma.semibold, { subset: false });
+
+  pdf.setTitle(d.nazev);
+  pdf.setSubject(d.podnadpis);
+  pdf.setCreator('Dokuio.com');
+  pdf.setProducer('Dokuio.com');
+  pdf.setLanguage('cs-CZ');
+  pdf.setCreationDate(meta.vytvoreno ?? new Date());
+
+  const strany: PDFPage[] = [];
+  let strana!: PDFPage;
+  let y = 0;
+  const novaStrana = () => {
+    strana = pdf.addPage(A4);
+    strany.push(strana);
+    y = A4[1] - OKRAJ_NAHORE;
+  };
+  novaStrana();
+  const zbyva = () => y - OKRAJ_DOLE;
+  const zajisti = (vyska: number) => {
+    if (zbyva() < vyska) novaStrana();
+  };
+
+  const mezeraW = reg.widthOfTextAtSize(' ', VEL);
+  const charW = reg.widthOfTextAtSize('0', VEL);
+
+  const naPolozky = (useky: Usek[]): Polozka[] => {
+    const out: Polozka[] = [];
+    for (const u of useky) {
+      if (u.t === 'linka') out.push({ k: 'linka', w: u.sirka * charW * 0.92 });
+      else if (u.t === 'ctverec') out.push({ k: 'ctverec', w: 15, ano: u.zaskrtnuto });
+      else {
+        const font = u.tucne ? semi : reg;
+        for (const cast of t(u.text).split(/( +)/)) {
+          if (!cast) continue;
+          if (/^ +$/.test(cast)) out.push({ k: 'mezera', w: mezeraW });
+          else out.push({ k: 'slovo', text: cast, font, w: font.widthOfTextAtSize(cast, VEL) });
+        }
+      }
+    }
+    return out;
+  };
+
+  const zalom = (polozky: Polozka[], max: number): Polozka[][] => {
+    const radky: Polozka[][] = [];
+    let akt: Polozka[] = [];
+    let w = 0;
+    for (const p0 of polozky) {
+      const p = p0.k === 'linka' && p0.w > max ? { ...p0, w: max } : p0;
+      if (p.k === 'mezera' && akt.length === 0) continue;
+      if (w + p.w > max && akt.length && p.k !== 'mezera') {
+        while (akt.length && akt[akt.length - 1].k === 'mezera') akt.pop();
+        radky.push(akt);
+        akt = [];
+        w = 0;
+      }
+      akt.push(p);
+      w += p.w;
+    }
+    while (akt.length && akt[akt.length - 1].k === 'mezera') akt.pop();
+    if (akt.length) radky.push(akt);
+    return radky;
+  };
+
+  const kresliRadek = (polozky: Polozka[], x0: number, baseline: number) => {
+    let x = x0;
+    for (const p of polozky) {
+      if (p.k === 'slovo') strana.drawText(p.text, { x, y: baseline, size: VEL, font: p.font, color: INK });
+      else if (p.k === 'linka')
+        strana.drawLine({
+          start: { x: x + 1, y: baseline - 2 },
+          end: { x: x + p.w - 1, y: baseline - 2 },
+          thickness: 0.7,
+          color: LINKA,
+          dashArray: [1.2, 1.8],
+        });
+      else if (p.k === 'ctverec') {
+        const s = 7.5;
+        strana.drawRectangle({ x, y: baseline - 0.5, width: s, height: s, borderColor: INK, borderWidth: 0.7 });
+        if (p.ano) {
+          strana.drawLine({ start: { x: x + 1.6, y: baseline + 3.2 }, end: { x: x + 3.2, y: baseline + 1.2 }, thickness: 0.9, color: INK });
+          strana.drawLine({ start: { x: x + 3.2, y: baseline + 1.2 }, end: { x: x + 6, y: baseline + 5.8 }, thickness: 0.9, color: INK });
+        }
+      }
+      x += p.w;
+    }
+  };
+
+  /** Odstavec s předsazeným číslem; vrací nic, posouvá y */
+  const odstavec = (useky: Usek[], odsazeni: number, cislo?: string) => {
+    const radky = zalom(naPolozky(useky), SIRKA - odsazeni);
+    radky.forEach((r, i) => {
+      zajisti(RADEK);
+      const baseline = y - VEL;
+      if (i === 0 && cislo) strana.drawText(cislo, { x: OKRAJ_X, y: baseline, size: VEL, font: reg, color: SEDA });
+      kresliRadek(r, OKRAJ_X + odsazeni, baseline);
+      y -= RADEK;
+    });
+  };
+
+  const naStred = (text: string, font: PDFFont, size: number, color = INK) => {
+    const w = font.widthOfTextAtSize(text, size);
+    strana.drawText(text, { x: (A4[0] - w) / 2, y: y - size, size, font, color });
+    y -= size * 1.35;
+  };
+
+  // Hlava dokumentu
+  naStred(t(d.nazev.toUpperCase()), semi, 17);
+  y -= 2;
+  for (const r of zalom(naPolozky([{ t: 'text', text: d.podnadpis }]), SIRKA - 60)) {
+    const w = r.reduce((a, p) => a + p.w, 0);
+    const baseline = y - 8.5;
+    let x = (A4[0] - w) / 2;
+    for (const p of r) {
+      if (p.k === 'slovo') strana.drawText(p.text, { x, y: baseline, size: 8.5, font: reg, color: SEDA });
+      x += (p.w * 8.5) / VEL;
+    }
+    y -= 12;
+  }
+  y -= 18;
+
+  if (d.uvod.length) {
+    odstavec(d.uvod, 0);
+    y -= 6;
+  }
+
+  for (const b of d.bloky) {
+    zajisti(RADEK * 3 + 20);
+    y -= 10;
+    strana.drawText(t(b.nadpis), { x: OKRAJ_X, y: y - 10.5, size: 10.5, font: semi, color: INK });
+    y -= 22;
+    const sCisly = b.odstavce.some((o) => o.cislo);
+    for (const o of b.odstavce) {
+      if (o.stav === 'smazano') continue;
+      o.radky.forEach((r, i) => {
+        if (r.uroven === 1) odstavec(r.useky, ODSAZENI + 4);
+        else odstavec(r.useky, sCisly ? ODSAZENI : 0, i === 0 ? o.cislo : undefined);
+      });
+      y -= 3;
+    }
+  }
+
+  // Místo, datum a podpisy drží pohromadě
+  zajisti(130);
+  y -= 18;
+  odstavec([{ t: 'text', text: 'V ' }, ...d.misto, { t: 'text', text: ' dne ' }, ...d.datum], 0);
+  y -= 58;
+  const sloupec = 190;
+  const x2 = OKRAJ_X + SIRKA - sloupec;
+  for (const [x, popis] of [
+    [OKRAJ_X, d.podpisy.vlevo],
+    [x2, d.podpisy.vpravo],
+  ] as const) {
+    strana.drawLine({ start: { x, y }, end: { x: x + sloupec, y }, thickness: 0.7, color: INK });
+    const w = reg.widthOfTextAtSize(popis, 9);
+    strana.drawText(popis, { x: x + (sloupec - w) / 2, y: y - 13, size: 9, font: reg, color: SEDA });
+  }
+
+  // Patička na každé straně
+  const datum = (meta.vytvoreno ?? new Date()).toLocaleDateString('cs-CZ');
+  strany.forEach((s, i) => {
+    const text = t(`${d.paticka} · ${datum}`);
+    s.drawLine({ start: { x: OKRAJ_X, y: 46 }, end: { x: A4[0] - OKRAJ_X, y: 46 }, thickness: 0.5, color: rgb(0.9, 0.93, 0.96) });
+    s.drawText(text, { x: OKRAJ_X, y: 34, size: 7, font: reg, color: SEDA });
+    const cislo = `strana ${i + 1} / ${strany.length}`;
+    s.drawText(cislo, { x: A4[0] - OKRAJ_X - reg.widthOfTextAtSize(cislo, 7), y: 34, size: 7, font: reg, color: SEDA });
+  });
+
+  return pdf.save();
+}

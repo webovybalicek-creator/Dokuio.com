@@ -1,0 +1,141 @@
+---
+/**
+ * Průvodce vyplněním šablony: kroky z šablony + závěrečný krok „Kontrola a stažení“.
+ * Vpravo živý náhled, ve kterém jde každý odstavec upravit, smazat nebo vrátit.
+ * Logika v src/scripts/pruvodce.ts (spouští ji stránka konkrétního dokumentu).
+ */
+import type { Sablona } from '../sablony/typy';
+import Duvera from './Duvera.astro';
+import '../styles/dokument.css';
+
+interface Props {
+  sablona: Sablona;
+}
+const { sablona: s } = Astro.props;
+const pocet = s.kroky.length + 1;
+---
+
+<div class="pruvodce" data-pruvodce data-kod={s.kod} data-verze={s.verze}>
+  <div class="pruvodce__formular">
+    <ol class="kroky-nav" aria-label="Kroky">
+      {
+        s.kroky.map((k, i) => (
+          <li>
+            <button type="button" data-skok={i} aria-current={i === 0 ? 'step' : undefined}>
+              <span>{i + 1}</span>
+              {k.nazev}
+            </button>
+          </li>
+        ))
+      }
+      <li>
+        <button type="button" data-skok={s.kroky.length}><span>{pocet}</span>Kontrola a stažení</button>
+      </li>
+    </ol>
+
+    <form class="formular" novalidate autocomplete="on" onsubmit="return false">
+      {
+        s.kroky.map((k, i) => (
+          <fieldset class="krok" data-krok={i} hidden={i !== 0}>
+            <legend>
+              <span class="krok__poradi">Krok {i + 1} z {pocet}</span>
+              {k.nazev}
+            </legend>
+            {k.popis && <p class="krok__popis">{k.popis}</p>}
+            <div class="pole-mrizka">
+              {k.pole.map((p) => (
+                <div
+                  class:list={['pole', { 'pole--pul': p.polovina }]}
+                  data-pole={p.id}
+                  data-kdyz={p.zobrazitKdyz ? JSON.stringify(p.zobrazitKdyz) : undefined}
+                >
+                  {p.typ === 'volba' || p.typ === 'vice' ? (
+                    <fieldset class="volby">
+                      <legend class="pole__popis">{p.popis}</legend>
+                      {p.moznosti?.map((m) => (
+                        <label class="volba">
+                          <input
+                            type={p.typ === 'volba' ? 'radio' : 'checkbox'}
+                            name={p.id}
+                            value={m.hodnota}
+                          />
+                          <span>{m.popis}</span>
+                        </label>
+                      ))}
+                    </fieldset>
+                  ) : (
+                    <label>
+                      <span class="pole__popis">{p.popis}</span>
+                      {p.typ === 'textarea' ? (
+                        <textarea name={p.id} rows="3" placeholder={p.placeholder} />
+                      ) : (
+                        <input
+                          name={p.id}
+                          type={p.typ === 'datum' ? 'date' : 'text'}
+                          inputmode={p.typ === 'cislo' || p.typ === 'castka' ? 'numeric' : undefined}
+                          placeholder={p.placeholder}
+                          autocomplete={p.autocomplete ?? 'off'}
+                          spellcheck={p.typ === 'vin' ? 'false' : undefined}
+                          maxlength={p.typ === 'vin' ? 20 : undefined}
+                          class:list={{ 'vstup--vin': p.typ === 'vin' }}
+                        />
+                      )}
+                    </label>
+                  )}
+                  {p.napoveda && <p class="pole__napoveda">{p.napoveda}</p>}
+                  <p class="pole__varovani" hidden />
+                </div>
+              ))}
+            </div>
+            <p class="krok__tip">Co nevyplníte, zůstane ve smlouvě jako linka k ručnímu doplnění.</p>
+            <div class="krok__akce">
+              {i > 0 && (
+                <button type="button" class="btn btn--duch" data-zpet>
+                  Zpět
+                </button>
+              )}
+              <button type="button" class="btn btn--primarni btn--sipka" data-dal>
+                {i === s.kroky.length - 1 ? 'Ke kontrole a stažení' : 'Pokračovat'}
+              </button>
+            </div>
+          </fieldset>
+        ))
+      }
+
+      <fieldset class="krok krok--hotovo" data-krok={s.kroky.length} hidden>
+        <legend><span class="krok__poradi">Krok {pocet} z {pocet}</span>Kontrola a stažení</legend>
+        <p class="krok__popis">
+          Projděte si smlouvu v náhledu. Každý odstavec můžete <strong>upravit</strong> nebo <strong>smazat</strong> a
+          přidat vlastní ustanovení. Původní ověřené znění jde vždy vrátit.
+        </p>
+        <p class="souhrn" data-souhrn></p>
+        <div class="akce akce--tesne">
+          <button type="button" class="btn btn--primarni" data-stahnout="pdf">Stáhnout PDF zdarma</button>
+          <button type="button" class="btn btn--duch" data-stahnout="docx">Stáhnout Word</button>
+        </div>
+        <div class="co-dal" data-co-dal hidden>
+          <h3>Hotovo. Co dál?</h3>
+          <ol>
+            <li>Vytiskněte smlouvu dvakrát, obě strany podepíší oba výtisky.</li>
+            <li>Doplňte rukou údaje, které zůstaly prázdné.</li>
+            <li>Předejte vůz, klíče a doklady podle smlouvy.</li>
+            <li>Podejte žádost o přepis v registru vozidel v zákonné lhůtě.</li>
+          </ol>
+        </div>
+        <div class="krok__akce">
+          <button type="button" class="btn btn--duch" data-zpet>Zpět</button>
+          <button type="button" class="odkaz-tl" data-smazat>Smazat moje údaje a úpravy</button>
+        </div>
+      </fieldset>
+    </form>
+    <Duvera class="duvera--pruvodce" />
+  </div>
+
+  <aside class="pruvodce__nahled" aria-label="Náhled smlouvy">
+    <div class="nahled__hlava">
+      <span>Náhled smlouvy</span>
+      <span class="nahled__stav" data-stav></span>
+    </div>
+    <div class="papir" data-nahled></div>
+  </aside>
+</div>

@@ -32,6 +32,7 @@ const fullTitle = title.includes(SITE.nazev) ? title : `${title} | ${SITE.nazev}
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <slot name="head" />
   </head>
   <body>
     <header class="nav">
@@ -50,7 +51,23 @@ const fullTitle = title.includes(SITE.nazev) ? title : `${title} | ${SITE.nazev}
     </main>
     <footer class="paticka">
       <div class="wrap paticka__in">
-        <span>© {new Date().getFullYear()} {SITE.nazev}</span>
+        <span>
+          © {new Date().getFullYear()} {SITE.nazev} ·{' '}
+          {lang === 'cs'
+            ? 'Všechny vzory zdarma ve formátu PDF i Word, bez registrace.'
+            : lang === 'sk'
+              ? 'Všetky vzory zadarmo vo formáte PDF aj Word, bez registrácie.'
+              : 'All templates free as PDF and Word, no sign-up.'}
+        </span>
+        <p class="paticka__disclaimer">
+          {
+            lang === 'cs'
+              ? 'Vzory poskytujeme zdarma a v dobré víře jako službu pro veřejnost. Nejde o právní poradenství. Za obsah, úpravy a použití smlouvy odpovídá výhradně uživatel – před podpisem si ji pečlivě přečtěte a u složitějších situací se poraďte s advokátem.'
+              : lang === 'sk'
+                ? 'Vzory poskytujeme zadarmo a v dobrej viere ako službu pre verejnosť. Nejde o právne poradenstvo. Za obsah, úpravy a použitie zmluvy zodpovedá výlučne používateľ – pred podpisom si ju pozorne prečítajte a pri zložitejších situáciách sa poraďte s advokátom.'
+                : 'We provide templates free of charge and in good faith as a public service. This is not legal advice. You are solely responsible for the content, changes and use of any contract – read it carefully before signing and consult a lawyer in complex situations.'
+          }
+        </p>
         <slot name="paticka" />
       </div>
     </footer>

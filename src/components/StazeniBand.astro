@@ -1,0 +1,55 @@
+---
+/**
+ * Pás se stažením na konci každé stránky dokumentu (požadavek ze zadání):
+ * vždy jde stáhnout vlastní (vyplněná/upravená) verze i obecný prázdný vzor, v PDF i ve Wordu.
+ * V průvodci (`pruvodce`) tlačítka „Vaše smlouva“ obsluhuje skript průvodce (data-stahnout).
+ */
+interface Props {
+  nadpis: string;
+  vzorPdf: string;
+  vzorDocx: string;
+  vytvorit?: string;
+  pruvodce?: boolean;
+}
+const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false } = Astro.props;
+---
+
+<section class="sekce stazeni" id="stazeni" aria-labelledby="stazeni-nadpis">
+  <div class="wrap">
+    <div class="ram sekce__in">
+      <h2 id="stazeni-nadpis">{nadpis}{' '}<span>Zdarma, bez registrace, v PDF i ve Wordu.</span></h2>
+      <div class="dve-cesty">
+        <div class="cesta cesta--hlavni">
+          <h3>{pruvodce ? 'Vaše smlouva' : 'Vyplněná smlouva'}</h3>
+          <p>
+            {
+              pruvodce
+                ? 'Přesně tak, jak jste ji vyplnili a upravili. Co zůstalo prázdné, bude linka k ručnímu doplnění.'
+                : 'Vyplňte údaje online, upravte text podle sebe a stáhněte hotovou smlouvu.'
+            }
+          </p>
+          {
+            pruvodce ? (
+              <div class="akce akce--tesne">
+                <button type="button" class="btn btn--primarni" data-stahnout="pdf">Stáhnout PDF</button>
+                <button type="button" class="btn btn--duch" data-stahnout="docx">Stáhnout Word</button>
+              </div>
+            ) : (
+              <div class="akce akce--tesne">
+                <a class="btn btn--primarni btn--sipka" href={vytvorit}>Vyplnit online zdarma</a>
+              </div>
+            )
+          }
+        </div>
+        <div class="cesta">
+          <h3>Prázdný vzor</h3>
+          <p>Obecný vzor bez údajů. Vytiskněte a vyplňte rukou, nebo si ho upravte ve Wordu.</p>
+          <div class="akce akce--tesne">
+            <a class="btn btn--duch" href={vzorPdf} download>Vzor PDF</a>
+            <a class="btn btn--duch" href={vzorDocx} download>Vzor Word</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

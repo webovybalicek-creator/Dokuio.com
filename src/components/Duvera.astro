@@ -1,0 +1,27 @@
+---
+// Řádek důvěry: na každé stránce musí být vidět PDF a Zdarma (viz plán, „Sdělení, která lidi motivují“)
+interface Props {
+  lang?: 'cs' | 'en';
+  polozky?: string[];
+  class?: string;
+}
+const { lang = 'cs', polozky, class: cls } = Astro.props;
+const vychozi =
+  lang === 'cs'
+    ? ['Zdarma', 'PDF i Word', 'Bez registrace', 'Údaje zůstávají ve vašem prohlížeči']
+    : ['Free', 'PDF and Word', 'No sign-up', 'Your data stays in your browser'];
+const seznam = polozky ?? vychozi;
+---
+
+<ul class:list={['duvera', cls]}>
+  {
+    seznam.map((p) => (
+      <li>
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+          <path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        {p}
+      </li>
+    ))
+  }
+</ul>

@@ -24,8 +24,13 @@ ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # HTML vždy ověřit u serveru, ať se nový deploy projeví hned (soubory v /_astro/ mají vlastní dlouhou cache)
   <FilesMatch "\.(html)$">
-    Header set Cache-Control "public, max-age=600, stale-while-revalidate=86400"
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Prázdné vzory PDF se mění jen s novou verzí šablony
+  <FilesMatch "\.(pdf)$">
+    Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
 </IfModule>
 

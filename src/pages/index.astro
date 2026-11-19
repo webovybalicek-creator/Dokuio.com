@@ -1,19 +1,37 @@
 ---
 import Base from '../layouts/Base.astro';
 import Vlajka from '../components/Vlajka.astro';
+import Duvera from '../components/Duvera.astro';
 import { ZEME } from '../lib/config';
+
+// Směrování podle polohy: Česko → /cz/, Slovensko → /sk/.
+// Poloha z časové zóny zařízení (bez IP a bez cookies), záložně z jazyka prohlížeče.
+// Nepřesměrovává, když uživatel přišel z jiné stránky webu nebo zvolil „Jiná země“ (?zeme=…),
+// takže si zemi může vždy vybrat ručně. Roboti vyhledávačů (časová zóna USA) zůstanou na rozcestníku.
+const zony = Object.fromEntries(ZEME.map((z) => [z.casovaZona, z.kod]));
+const jazyky = Object.fromEntries(ZEME.map((z) => [z.jazyk, z.kod]));
+const geoSkript = `(function(){try{
+if(/[?&]zeme=/.test(location.search))return;
+if(document.referrer&&new URL(document.referrer).host===location.host)return;
+var z=${JSON.stringify(zony)},j=${JSON.stringify(jazyky)};
+var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone)||'';
+var k=z[tz];
+if(!k){var l=(navigator.languages||[navigator.language||'']);for(var i=0;i<l.length&&!k;i++){k=j[String(l[i]).slice(0,2).toLowerCase()];}}
+if(k)location.replace('/'+k+'/');
+}catch(e){}})();`;
 
 const kroky = [
   { nazev: 'Choose a document', popis: 'Pick the contract you need, for example a car sale agreement.' },
   { nazev: 'Answer a few questions', popis: 'A short guided form asks only what matters and explains every question.' },
-  { nazev: 'Download the PDF', popis: 'Your contract is ready to print and sign. No account needed.' },
+  { nazev: 'Download PDF or Word', popis: 'Free and ready to print and sign. No account needed.' },
 ];
 ---
 
 <Base
   title="Dokuio – contracts and documents made easy"
-  description="Fill in a few questions and download a ready-to-sign contract as a PDF. Templates follow the law of your country."
+  description="Free contract templates as PDF and Word. Answer a few questions and download a ready-to-sign contract that follows the law of your country."
 >
+  <script slot="head" is:inline set:html={geoSkript} />
   <Fragment slot="nav">
     <a class="nav__odkaz" href="#how-it-works">How it works</a>
     <a class="btn btn--primarni btn--maly btn--sipka" href="#countries">Choose country</a>
@@ -23,15 +41,16 @@ const kroky = [
     <div class="hero__vlna" aria-hidden="true"></div>
     <div class="wrap">
       <div class="ram hero__obsah">
-        <p class="horni-stitek">Coming soon: <span>first templates for Czechia</span></p>
+        <p class="horni-stitek">Free · PDF and Word · <span>Czechia and Slovakia</span></p>
         <h1>
-          Contracts and documents, <em>made easy.</em>{' '}
-          <span>Answer a few simple questions and download a ready-to-sign PDF that follows the law of your country.</span>
+          Free contract templates, <em>ready as PDF.</em>{' '}
+          <span>Answer a few simple questions and download a ready-to-sign contract that follows the law of your country.</span>
         </h1>
         <div class="akce">
           <a class="btn btn--primarni btn--sipka" href="#countries">Choose your country</a>
           <a class="btn btn--duch" href="#how-it-works">How it works</a>
         </div>
+        <Duvera lang="en" class="duvera--hero" />
       </div>
     </div>
   </section>

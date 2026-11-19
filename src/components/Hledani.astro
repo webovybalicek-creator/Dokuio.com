@@ -1,0 +1,128 @@
+---
+/**
+ * Vyhledávač a výpis smluv jedné země. Hledá jen v dokumentech dané země (CZ jen české, SK jen slovenské).
+ * Bez JavaScriptu se zobrazí celý výpis, hledání ho jen filtruje.
+ */
+import Ilustrace from './Ilustrace.astro';
+import { DOKUMENTY, KATEGORIE } from '../lib/dokumenty';
+import { SITE } from '../lib/config';
+
+interface Props {
+  zeme: 'cz' | 'sk';
+}
+const { zeme } = Astro.props;
+const docs = DOKUMENTY[zeme];
+const kat = KATEGORIE[zeme];
+const t =
+  zeme === 'cz'
+    ? {
+        popisek: 'Hledat smlouvu',
+        placeholder: 'Např. prodej auta, půjčka, plná moc…',
+        zdarma: 'PDF · Zdarma',
+        pripravujeme: 'Připravujeme',
+        otevrit: 'Vyplnit',
+        nic: 'Takovou smlouvu zatím nemáme.',
+        napiste: 'Napište nám, jakou potřebujete',
+        vysledku: ['smlouva', 'smlouvy', 'smluv'],
+      }
+    : {
+        popisek: 'Hľadať zmluvu',
+        placeholder: 'Napr. predaj auta, pôžička, splnomocnenie…',
+        zdarma: 'PDF · Zadarmo',
+        pripravujeme: 'Pripravujeme',
+        otevrit: 'Vyplniť',
+        nic: 'Takúto zmluvu zatiaľ nemáme.',
+        napiste: 'Napíšte nám, akú potrebujete',
+        vysledku: ['zmluva', 'zmluvy', 'zmlúv'],
+      };
+const hledatText = (d: (typeof docs)[number]) => [d.nazev, d.popis, ...d.slova].join(' ');
+---
+
+<div class="hledani" data-hledani data-tvary={JSON.stringify(t.vysledku)}>
+  <label class="hledani__pole">
+    <span class="sr-only">{t.popisek}</span>
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+      <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2" />
+      <path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+    <input type="search" placeholder={t.placeholder} autocomplete="off" enterkeyhint="search" data-hledani-vstup />
+  </label>
+  <p class="hledani__pocet" aria-live="polite" data-hledani-pocet></p>
+
+  {
+    Object.entries(kat).map(([klic, nazev]) => (
+      <section class="hledani__kategorie" data-kategorie>
+        <h3>{nazev}</h3>
+        <ul class="vypis">
+          {docs
+            .filter((d) => d.kategorie === klic)
+            .map((d) => {
+              const obsah = (
+                <>
+                  <Ilustrace typ={d.ilustrace} />
+                  <span class="vypis__text">
+                    <strong>{d.nazev}</strong>
+                    <span>{d.popis}</span>
+                  </span>
+                  <span class:list={['vypis__stitek', { 'vypis__stitek--brzy': !d.url }]}>
+                    {d.url ? t.zdarma : t.pripravujeme}
+                  </span>
+                </>
+              );
+              return (
+                <li data-text={hledatText(d)}>
+                  {d.url ? (
+                    <a class="vypis__polozka" href={d.url}>
+                      {obsah}
+                    </a>
+                  ) : (
+                    <div class="vypis__polozka vypis__polozka--brzy">{obsah}</div>
+                  )}
+                </li>
+              );
+            })}
+        </ul>
+      </section>
+    ))
+  }
+  <p class="hledani__nic" hidden data-hledani-nic>
+    {t.nic} <a href={`mailto:${SITE.email}`}>{t.napiste}</a>.
+  </p>
+</div>
+
+<script>
+  // Hledání bez diakritiky a bez ohledu na velikost písmen, všechna slova dotazu musí sedět
+  const norm = (s: string) =>
+    s
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '');
+
+  document.querySelectorAll<HTMLElement>('[data-hledani]').forEach((koren) => {
+    const vstup = koren.querySelector<HTMLInputElement>('[data-hledani-vstup]')!;
+    const pocet = koren.querySelector<HTMLElement>('[data-hledani-pocet]')!;
+    const nic = koren.querySelector<HTMLElement>('[data-hledani-nic]')!;
+    const tvary: string[] = JSON.parse(koren.dataset.tvary ?? '[]');
+    const polozky = [...koren.querySelectorAll<HTMLElement>('li[data-text]')].map((li) => ({
+      li,
+      text: norm(li.dataset.text ?? ''),
+    }));
+
+    const filtruj = () => {
+      const slova = norm(vstup.value).split(/\s+/).filter(Boolean);
+      let n = 0;
+      for (const p of polozky) {
+        const ok = slova.every((s) => p.text.includes(s));
+        p.li.hidden = !ok;
+        if (ok) n++;
+      }
+      koren.querySelectorAll<HTMLElement>('[data-kategorie]').forEach((k) => {
+        k.hidden = !k.querySelector('li:not([hidden])');
+      });
+      nic.hidden = n > 0;
+      const tvar = n === 1 ? tvary[0] : n >= 2 && n <= 4 ? tvary[1] : tvary[2];
+      pocet.textContent = slova.length ? `${n} ${tvar}` : '';
+    };
+    vstup.addEventListener('input', filtruj);
+  });
+</script>

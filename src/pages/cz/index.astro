@@ -1,69 +1,44 @@
 ---
 import Base from '../../layouts/Base.astro';
-
-// Plánované dokumenty pro Česko – jednoduché smlouvy mezi soukromými osobami
-const dokumenty = [
-  { nazev: 'Kupní smlouva na auto', popis: 'Prodej ojetého vozidla mezi soukromými osobami.', prvni: true },
-  { nazev: 'Předávací protokol k vozidlu', popis: 'Stav vozu, klíče a doklady při předání.' },
-  { nazev: 'Darovací smlouva', popis: 'Darování movité věci nebo peněz.' },
-  { nazev: 'Smlouva o zápůjčce', popis: 'Půjčka peněz mezi známými, včetně splátek.' },
-  { nazev: 'Plná moc', popis: 'Zmocnění někoho, aby vyřídil věc za vás.' },
-  { nazev: 'Potvrzení o převzetí peněz', popis: 'Doklad o předání hotovosti.' },
-];
+import Duvera from '../../components/Duvera.astro';
+import Hledani from '../../components/Hledani.astro';
 
 const kroky = [
-  { nazev: 'Vyberte dokument', popis: 'Najděte smlouvu, kterou potřebujete, třeba kupní smlouvu na auto.' },
-  { nazev: 'Odpovězte na otázky', popis: 'Průvodce se ptá jen na to podstatné a u každé otázky vysvětlí, co znamená.' },
-  { nazev: 'Stáhněte PDF', popis: 'Hotová smlouva je připravená k tisku a podpisu, bez registrace.' },
+  { nazev: 'Najděte smlouvu', popis: 'Napište, co řešíte – třeba „prodej auta“ – a vyberte dokument.' },
+  { nazev: 'Odpovězte na otázky', popis: 'Průvodce se ptá jen na podstatné. Text smlouvy můžete upravit nebo zkrátit.' },
+  { nazev: 'Stáhněte PDF nebo Word', popis: 'Zdarma a bez registrace. Nebo si stáhněte prázdný vzor a vyplňte ho rukou.' },
 ];
 ---
 
 <Base
-  title="Smlouvy a dokumenty snadno"
-  description="Odpovězte na pár otázek a stáhněte si hotovou smlouvu v PDF podle českého práva."
+  title="Vzory smluv zdarma v PDF – vyplňte online"
+  description="Vzory smluv zdarma: kupní smlouva na auto a další dokumenty podle českého práva. Vyplňte online, stáhněte PDF nebo Word, bez registrace."
   lang="cs"
 >
   <Fragment slot="nav">
     <a class="nav__odkaz" href="#jak-to-funguje">Jak to funguje</a>
-    <a class="btn btn--duch btn--maly" href="/" hreflang="en">Jiná země</a>
+    <a class="btn btn--duch btn--maly" href="/?zeme=vyber" hreflang="en">Jiná země</a>
   </Fragment>
 
   <section class="hero">
     <div class="hero__vlna" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="ram hero__obsah">
-        <p class="horni-stitek">Česko: <span>připravujeme první dokumenty</span></p>
+      <div class="ram hero__obsah hero__obsah--hledani">
+        <p class="horni-stitek">Česko · <span>smlouvy podle českého práva</span></p>
         <h1>
-          Smlouvy a dokumenty <em>snadno a rychle.</em>{' '}
-          <span>Odpovězte na pár jednoduchých otázek a stáhněte si hotovou smlouvu v PDF podle českého práva.</span>
+          Vzory smluv <em>zdarma v PDF.</em>{' '}
+          <span>Vyplňte online za pár minut, nebo si stáhněte prázdný vzor. I ve Wordu, bez registrace.</span>
         </h1>
-        <div class="akce">
-          <a class="btn btn--primarni btn--sipka" href="#dokumenty">Prohlédnout dokumenty</a>
-          <a class="btn btn--duch" href="#jak-to-funguje">Jak to funguje</a>
-        </div>
+        <Duvera class="duvera--hero" />
       </div>
     </div>
   </section>
 
-  <section class="sekce" id="dokumenty" aria-labelledby="dokumenty-nadpis">
+  <section class="sekce" id="smlouvy" aria-labelledby="smlouvy-nadpis">
     <div class="wrap">
-      <div class="ram sekce__in">
-        <h2 id="dokumenty-nadpis">
-          Na čem pracujeme.{' '}<span>Začínáme jednoduchými smlouvami, které lidé potřebují nejčastěji.</span>
-        </h2>
-        <ul class="mrizka">
-          {
-            dokumenty.map((d) => (
-              <li>
-                <div class="karta">
-                  {d.prvni && <span class="karta__znacka">Jako první</span>}
-                  <h3>{d.nazev}</h3>
-                  <p>{d.popis}</p>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
+      <div class="ram sekce__in sekce__in--tesne">
+        <h2 id="smlouvy-nadpis">Jakou smlouvu potřebujete?{' '}<span>Hledejte podle situace, ne podle paragrafů.</span></h2>
+        <Hledani zeme="cz" />
       </div>
     </div>
   </section>
