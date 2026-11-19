@@ -18,7 +18,8 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const robots = !SITE.indexovat || noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1';
 const ogImage = new URL(`/og/${ogSlug(Astro.url.pathname)}.png`, SITE.url).href;
 const ogLocale = lang === 'sk' ? 'sk_SK' : lang === 'en' ? 'en_US' : 'cs_CZ';
-const fullTitle = title.includes(SITE.nazev) ? title : `${title} | ${SITE.nazev}`;
+// Značku přidat jen tam, kde se titulek vejde do ~60 znaků (Google delší ořízne)
+const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${title} | ${SITE.nazev}`;
 ---
 
 <!doctype html>
