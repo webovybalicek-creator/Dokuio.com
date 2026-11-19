@@ -68,6 +68,12 @@ const fullTitle = title.includes(SITE.nazev) ? title : `${title} | ${SITE.nazev}
                 : 'We provide templates free of charge and in good faith as a public service. This is not legal advice. You are solely responsible for the content, changes and use of any contract – read it carefully before signing and consult a lawyer in complex situations.'
           }
         </p>
+        <nav class="paticka__odkazy" aria-label="Informace">
+          <a href="/cz/o-nas/">{lang === 'sk' ? 'O nás' : lang === 'en' ? 'About' : 'O nás'}</a>
+          <a href="/cz/podminky-uziti/">{lang === 'sk' ? 'Podmienky' : lang === 'en' ? 'Terms' : 'Podmínky užití'}</a>
+          <a href="/cz/ochrana-osobnich-udaju/">{lang === 'sk' ? 'Ochrana údajov' : lang === 'en' ? 'Privacy' : 'Ochrana osobních údajů'}</a>
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        </nav>
         <slot name="paticka" />
       </div>
     </footer>

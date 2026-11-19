@@ -1,0 +1,26 @@
+---
+// Rozvržení textových stránek (podmínky, GDPR, o nás)
+import Base from './Base.astro';
+interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+  aktualizovano?: string;
+}
+const { title, description, lang = 'cs', aktualizovano } = Astro.props;
+---
+
+<Base title={title} description={description} lang={lang}>
+  <Fragment slot="nav">
+    <a class="btn btn--duch btn--maly" href="/cz/">Smlouvy</a>
+  </Fragment>
+  <section class="sekce sekce--bez-cary">
+    <div class="wrap">
+      <div class="ram sekce__in text-stranka">
+        <h1>{title}</h1>
+        {aktualizovano && <p class="text-stranka__datum">Platné od {aktualizovano}</p>}
+        <slot />
+      </div>
+    </div>
+  </section>
+</Base>

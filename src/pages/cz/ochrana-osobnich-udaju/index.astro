@@ -1,0 +1,64 @@
+---
+import Text from '../../../layouts/Text.astro';
+import { SITE } from '../../../lib/config';
+const p = SITE.provozovatel;
+---
+
+<Text title="Ochrana osobních údajů" description="Jak Dokuio.com zachází s osobními údaji. Údaje ze smluv zůstávají ve vašem prohlížeči." aktualizovano="19. 11. 2026">
+  <p class="text-stranka__vytah">
+    <strong>Ve zkratce:</strong> údaje, které vyplníte do smlouvy, se nikam neodesílají. Smlouva se skládá přímo ve vašem
+    prohlížeči. Nepoužíváme cookies ani sledovací nástroje.
+  </p>
+
+  <h2>1. Správce</h2>
+  <p>
+    Správcem osobních údajů je {p.nazev}, IČO {p.ico}, se sídlem {p.sidlo}, e-mail{' '}
+    <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+  </p>
+
+  <h2>2. Údaje ve smlouvách</h2>
+  <p>
+    Jména, adresy, údaje o vozidle a další údaje, které vyplníte v průvodci, zpracovává jen váš prohlížeč. Na náš server
+    se <strong>neodesílají a neukládáme je</strong>. PDF i Word se vytvářejí přímo ve vašem zařízení.
+  </p>
+  <p>
+    Aby o rozpracovanou smlouvu nepřišel, ukládá ji prohlížeč do svého místního úložiště (localStorage) jen ve vašem
+    zařízení. Smazat ji můžete tlačítkem „Smazat moje údaje a úpravy“ v průvodci nebo vymazáním dat prohlížeče.
+    Podpisy nakreslené na obrazovce se neukládají vůbec – existují jen do zavření stránky.
+  </p>
+
+  <h2>3. Zpětná vazba</h2>
+  <p>
+    Pokud nám v okně „Líbí se vám Dokuio?“ napíšete zpětnou vazbu, uložíme text, datum a adresu stránky, ze které
+    přišel. Nežádáme jméno ani e-mail; prosíme, nepište do zpětné vazby osobní údaje. Text slouží jen ke zlepšování
+    webu a mažeme ho nejpozději po 2 letech.
+  </p>
+
+  <h2>4. Platby (dobrovolná podpora)</h2>
+  <p>
+    Platby kartou, Apple Pay a Google Pay zpracovává společnost Stripe Payments Europe, Ltd. Údaje o platební kartě
+    zadáváte přímo Stripe a my je nevidíme. Ke každé platbě od Stripe dostáváme e-mail plátce, částku a datum; tyto
+    údaje uchováváme po dobu stanovenou účetními a daňovými předpisy. Podrobnosti najdete v{' '}
+    <a href="https://stripe.com/cz/privacy" rel="noopener">zásadách ochrany soukromí Stripe</a>.
+  </p>
+  <p>
+    Při platbě převodem nebo QR platbou zpracováváme údaje z bankovního výpisu (jméno, číslo účtu, částku) ze zákonné
+    povinnosti vést účetnictví.
+  </p>
+
+  <h2>5. Hosting a provozní záznamy</h2>
+  <p>
+    Web běží na serverech poskytovatele hostingu Exon v České republice. Server, stejně jako u každého webu, krátce
+    uchovává technické záznamy o přístupech (IP adresa, čas, požadovaná stránka) kvůli bezpečnosti a řešení chyb.
+  </p>
+
+  <h2>6. Cookies</h2>
+  <p>Web nepoužívá cookies ani reklamní či analytické sledování, proto nezobrazujeme cookie lištu.</p>
+
+  <h2>7. Vaše práva</h2>
+  <p>
+    Máte právo na přístup ke svým údajům, jejich opravu, výmaz, omezení zpracování a právo vznést námitku. Napište nám
+    na <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Stížnost můžete podat u Úřadu pro ochranu osobních údajů
+    (<a href="https://uoou.gov.cz" rel="noopener">uoou.gov.cz</a>).
+  </p>
+</Text>

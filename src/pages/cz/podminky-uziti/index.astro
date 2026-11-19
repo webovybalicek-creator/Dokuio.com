@@ -1,0 +1,62 @@
+---
+import Text from '../../../layouts/Text.astro';
+import { SITE } from '../../../lib/config';
+const p = SITE.provozovatel;
+---
+
+<Text title="Podmínky užití" description="Podmínky užití webu Dokuio.com – vzory smluv zdarma v PDF a Wordu." aktualizovano="19. 11. 2026">
+  <h2>1. Kdo web provozuje</h2>
+  <p>
+    Web dokuio.com provozuje {p.nazev}, IČO {p.ico}, se sídlem {p.sidlo} (dále „provozovatel“). Kontakt:{' '}
+    <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+  </p>
+
+  <h2>2. Co Dokuio nabízí</h2>
+  <p>
+    Dokuio nabízí vzory jednoduchých smluv a dokumentů, které si uživatel vyplní v online průvodci nebo stáhne
+    prázdné. Výsledek si stáhne ve formátu PDF nebo Word. Služba je <strong>zdarma</strong> a nevyžaduje registraci.
+  </p>
+
+  <h2>3. Nejde o právní poradenství</h2>
+  <p>
+    Vzory poskytujeme v dobré víře jako službu pro veřejnost. Jsou sestavené podle platných zákonů a průběžně je
+    aktualizujeme, ale <strong>nejde o právní poradenství</strong> a vzor nemusí odpovídat každé konkrétní situaci.
+    Provozovatel není advokát a nevstupuje do smluvního vztahu mezi stranami smlouvy.
+  </p>
+
+  <h2>4. Odpovědnost uživatele</h2>
+  <p>
+    Za obsah, úpravy, vyplnění a použití smlouvy odpovídá výhradně uživatel. Před podpisem si smlouvu pečlivě
+    přečtěte. U složitějších nebo hodnotnějších věcí doporučujeme poradit se s advokátem. Text, který uživatel
+    v průvodci sám upraví, smaže nebo doplní, už není součástí našeho vzoru – v PDF je to označeno poznámkou
+    „text upraven uživatelem“.
+  </p>
+
+  <h2>5. Omezení odpovědnosti provozovatele</h2>
+  <p>
+    Provozovatel neodpovídá za škodu vzniklou použitím vzorů, jejich nesprávným vyplněním nebo použitím v situaci, pro
+    kterou nejsou určené, a to v rozsahu, v jakém to právní předpisy dovolují. Tím nejsou dotčena práva spotřebitele,
+    která podle zákona nelze vyloučit.
+  </p>
+
+  <h2>6. Dobrovolná podpora</h2>
+  <p>
+    Uživatel může provoz webu dobrovolně podpořit jednorázovou platbou přes platební bránu Stripe nebo bankovním
+    převodem. Platba není podmínkou užití služby a nezakládá nárok na žádné další plnění. Pokud jste zaplatili omylem,
+    napište nám do 14 dnů na <a href={`mailto:${SITE.email}`}>{SITE.email}</a> a platbu vrátíme.
+  </p>
+
+  <h2>7. Užití vzorů</h2>
+  <p>
+    Vzory můžete libovolně používat pro vlastní potřebu, upravovat je a sdílet vyplněné smlouvy s druhou stranou.
+    Hromadné kopírování vzorů a jejich další šíření nebo prodej jako vlastní sbírky vzorů bez souhlasu provozovatele
+    není dovoleno.
+  </p>
+
+  <h2>8. Závěrečná ustanovení</h2>
+  <p>
+    Tyto podmínky se řídí právem České republiky. Provozovatel může podmínky přiměřeně měnit; aktuální znění je vždy
+    zveřejněno na této stránce. Zpracování osobních údajů popisuje stránka{' '}
+    <a href="/cz/ochrana-osobnich-udaju/">Ochrana osobních údajů</a>.
+  </p>
+</Text>

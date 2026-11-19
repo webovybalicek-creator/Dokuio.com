@@ -487,6 +487,58 @@ a.karta:focus-visible {
   margin-top: 16px;
 }
 
+/* ---------------------------------------------------------------- textové stránky */
+.sekce--bez-cary {
+  border-top: 0;
+}
+.text-stranka {
+  max-width: none;
+}
+.text-stranka > * {
+  max-width: 44rem;
+}
+.text-stranka h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.text-stranka__datum {
+  margin-top: 8px;
+  color: var(--slate);
+  font-size: 0.875rem;
+}
+.text-stranka__vytah {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: var(--r);
+  background: var(--wash);
+  color: var(--navy-soft);
+}
+.text-stranka h2 {
+  margin-top: 36px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+.text-stranka p,
+.text-stranka li {
+  color: var(--navy-soft);
+  line-height: 1.65;
+}
+.text-stranka p + p {
+  margin-top: 12px;
+}
+.text-stranka ul {
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+}
+.paticka__odkazy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
 /* ---------------------------------------------------------------- patička – disclaimer */
 .paticka__disclaimer {
   flex-basis: 100%;

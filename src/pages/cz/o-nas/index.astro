@@ -1,0 +1,35 @@
+---
+import Text from '../../../layouts/Text.astro';
+import { SITE } from '../../../lib/config';
+const p = SITE.provozovatel;
+---
+
+<Text title="O Dokuio" description="Dokuio.com – vzory smluv zdarma v PDF a Wordu. Kdo za webem stojí a jak vzory vznikají.">
+  <p class="text-stranka__vytah">
+    Dokuio vzniklo, aby si každý mohl jednoduchou smlouvu – třeba při prodeji auta – připravit sám, rychle a zdarma.
+    Bez registrace, bez placení za stažení a bez právnické hantýrky.
+  </p>
+
+  <h2>Jak vzory vznikají</h2>
+  <ul>
+    <li>Text smluv sestavujeme podle platných zákonů (občanský zákoník a související předpisy), ne pomocí umělé inteligence.</li>
+    <li>Každý vzor má číslo verze a datum aktualizace. Je vidět na stránce i v patičce PDF.</li>
+    <li>Ke každému poli i článku smlouvy píšeme nápovědu, aby smlouvu zvládl vyplnit každý.</li>
+    <li>Záměrně nepřidáváme složité doložky (smluvní pokuty, rozhodčí doložky). Jednoduchý a vyvážený text je pro běžné situace bezpečnější.</li>
+  </ul>
+
+  <h2>Proč je to zdarma</h2>
+  <p>
+    Chceme, aby základní smlouvy byly dostupné všem. Provoz hradíme sami a z dobrovolných příspěvků uživatelů. Pokud vám
+    Dokuio ušetřilo čas, můžete ho podpořit po stažení smlouvy.
+  </p>
+
+  <h2>Kontakt</h2>
+  <p>
+    {p.nazev}<br />
+    IČO {p.ico}<br />
+    {p.sidlo}<br />
+    E-mail: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+  </p>
+  <p>Našli jste ve vzoru chybu nebo vám nějaká smlouva chybí? Napište nám, každou zprávu čteme.</p>
+</Text>
