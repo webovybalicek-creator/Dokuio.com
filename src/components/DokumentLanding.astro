@@ -1,0 +1,272 @@
+---
+/**
+ * Landing stránka dokumentu (SEO + rozcestí): hero s náhledem vzoru, jak to funguje, obsah,
+ * online vs. papír, pro koho je, co dál, FAQ (FAQPage JSON-LD), související dokumenty, stažení.
+ */
+import Base from '../layouts/Base.astro';
+import Duvera from './Duvera.astro';
+import StazeniBand from './StazeniBand.astro';
+import Podpora from './Podpora.astro';
+import Ilustrace from './Ilustrace.astro';
+import type { Sablona } from '../sablony/typy';
+import { sestavDokument, formatDatum } from '../sablony/dokument';
+import { dokumentHtml } from '../sablony/html';
+import { SITE } from '../lib/config';
+import type { Ilustrace as TypIlustrace } from '../lib/dokumenty';
+import '../styles/dokument.css';
+
+interface Polozka {
+  nazev: string;
+  popis: string;
+}
+interface Props {
+  sablona: Sablona;
+  base: string;
+  /** Krátký název: „Kupní smlouva na auto“ */
+  nazev: string;
+  /** Název ve 4. pádě malými písmeny: „kupní smlouvu na auto“ */
+  nazevA: string;
+  title: string;
+  description: string;
+  /** Text pod H1 */
+  perex: string;
+  /** Nadpis sekce s obsahem, např. „Šest článků podle § 2079…“ */
+  obsahPopis: string;
+  obsah: Polozka[];
+  kroky: Polozka[];
+  online: string[];
+  hodiSe: string[];
+  nehodiSe: string[];
+  poNadpis?: string;
+  po: Polozka[];
+  faq: { q: string; a: string }[];
+  zakony: string;
+  souvisejici?: { nazev: string; popis: string; url: string; ilustrace: TypIlustrace }[];
+}
+const p = Astro.props;
+const s = p.sablona;
+const base = p.base;
+const vzorPdf = `${base}${s.souborPdf}-vzor.pdf`;
+const vzorDocx = `${base}${s.souborPdf}-vzor.docx`;
+const vytvorit = `${base}vytvorit/`;
+const aktualizovano = formatDatum(s.aktualizovano);
+const mesic = s.aktualizovano.slice(5, 7).replace(/^0/, '') + '/' + s.aktualizovano.slice(0, 4);
+const nahled = dokumentHtml(sestavDokument(s, {}));
+const RIMSKE = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+const stitek = (i: number) => (s.cislovatClanky === false ? `${i + 1}.` : `Článek ${RIMSKE[i]}`);
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: `${p.nazev} – online průvodce`,
+    url: `${SITE.url}${base}`,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Any',
+    inLanguage: s.jazyk,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'CZK' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: p.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Česko', item: `${SITE.url}/cz/` },
+      { '@type': 'ListItem', position: 2, name: p.nazev, item: `${SITE.url}${base}` },
+    ],
+  },
+];
+---
+
+<Base title={p.title} description={p.description} lang={s.jazyk}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <Fragment slot="nav">
+    <a class="nav__odkaz" href="#jak-to-funguje">Jak to funguje</a>
+    <a class="btn btn--primarni btn--maly btn--sipka" href={vytvorit}>Vyplnit zdarma</a>
+  </Fragment>
+
+  <section class="hero hero--dokument">
+    <div class="hero__vlna" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="ram hero__obsah hero__mrizka">
+        <div>
+          <nav class="drobecky" aria-label="Drobečková navigace"><a href="/cz/">Česko</a> › {p.nazev}</nav>
+          <p class="horni-stitek">Zdarma · PDF i Word · <span>Aktualizováno {mesic}</span></p>
+          <h1>{p.nazev}{' '}<span>{p.perex}</span></h1>
+          <div class="akce">
+            <a class="btn btn--primarni btn--sipka" href={vytvorit}>Vyplnit online zdarma</a>
+            <a class="btn btn--duch" href={vzorPdf} download>Stáhnout prázdný vzor (PDF)</a>
+          </div>
+          <Duvera class="duvera--hero" />
+        </div>
+        <figure class="nahled-vzoru">
+          <div class="papir papir--orez" set:html={nahled} />
+          <figcaption>Náhled vzoru · šablona {s.kod} v{s.verze}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" id="jak-to-funguje" aria-labelledby="jak-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="jak-nadpis">Hotovo za pár minut.{' '}<span>Zdarma, bez registrace a bez právnické hantýrky.</span></h2>
+        <ol class="kroky">
+          {
+            p.kroky.map((k) => (
+              <li>
+                <h3>{k.nazev}</h3>
+                <p>{k.popis}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" aria-labelledby="obsah-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="obsah-nadpis">Co obsahuje.{' '}<span>{p.obsahPopis}</span></h2>
+        <ul class="mrizka">
+          {
+            p.obsah.map((o, i) => (
+              <li>
+                <div class="karta">
+                  <span class="karta__cislo">{stitek(i)}</span>
+                  <h3>{o.nazev}</h3>
+                  <p>{o.popis}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" aria-labelledby="proc-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="proc-nadpis">Online, nebo na papír?{' '}<span>Obojí je zdarma. Vyberte, co vám vyhovuje.</span></h2>
+        <div class="dve-cesty">
+          <div class="cesta cesta--hlavni">
+            <h3>Vyplnit online</h3>
+            <ul class="fajfky">{p.online.map((t) => <li>{t}</li>)}</ul>
+            <a class="btn btn--primarni btn--sipka" href={vytvorit}>Vyplnit online zdarma</a>
+          </div>
+          <div class="cesta">
+            <h3>Prázdný vzor</h3>
+            <ul class="fajfky">
+              <li>Vytisknete a vyplníte rukou</li>
+              <li>Ve Wordu si upravíte cokoli</li>
+              <li>Stejný ověřený text jako online</li>
+            </ul>
+            <div class="akce akce--tesne">
+              <a class="btn btn--duch" href={vzorPdf} download>PDF</a>
+              <a class="btn btn--duch" href={vzorDocx} download>Word</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" aria-labelledby="pouziti-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="pouziti-nadpis">Je to ten správný dokument?{' '}<span>Pro koho je a pro koho ne.</span></h2>
+        <div class="dve-cesty">
+          <div class="cesta">
+            <h3>Hodí se, když</h3>
+            <ul class="fajfky">{p.hodiSe.map((t) => <li>{t}</li>)}</ul>
+          </div>
+          <div class="cesta cesta--tlumena">
+            <h3>Použijte jiný dokument, když</h3>
+            <ul class="krizky">{p.nehodiSe.map((t) => <li>{t}</li>)}</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" aria-labelledby="po-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="po-nadpis">{p.poNadpis ?? 'Po podpisu.'}{' '}<span>Co udělat, aby bylo vše v pořádku.</span></h2>
+        <ol class="kroky">
+          {
+            p.po.map((k) => (
+              <li>
+                <h3>{k.nazev}</h3>
+                <p>{k.popis}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  {
+    p.souvisejici && p.souvisejici.length > 0 && (
+      <section class="sekce" aria-labelledby="souvisejici-nadpis">
+        <div class="wrap">
+          <div class="ram sekce__in">
+            <h2 id="souvisejici-nadpis">Hodí se k tomu.{' '}<span>Další dokumenty k prodeji auta, také zdarma.</span></h2>
+            <ul class="vypis souvisejici">
+              {p.souvisejici.map((d) => (
+                <li>
+                  <a class="vypis__polozka" href={d.url}>
+                    <Ilustrace typ={d.ilustrace} />
+                    <span class="vypis__text">
+                      <strong>{d.nazev}</strong>
+                      <span>{d.popis}</span>
+                    </span>
+                    <span class="vypis__stitek">PDF · Zdarma</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="sekce" aria-labelledby="faq-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="faq-nadpis">Časté otázky</h2>
+        <div class="faq">
+          {
+            p.faq.map((f) => (
+              <details>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))
+          }
+        </div>
+        <p class="poznamka">
+          {p.zakony} Šablona {s.kod} verze {s.verze}, aktualizováno {aktualizovano}. Dokuio poskytuje vzory k vyplnění,
+          nejde o právní poradenství.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <StazeniBand
+    nadpis={`Stáhněte si ${p.nazevA} zdarma.`}
+    vytvorit={vytvorit}
+    vzorPdf={vzorPdf}
+    vzorDocx={vzorDocx}
+    slovo={s.slovo}
+  />
+  <Podpora />
+</Base>

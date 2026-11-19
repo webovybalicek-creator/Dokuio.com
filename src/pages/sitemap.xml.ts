@@ -1,12 +1,12 @@
 import type { APIRoute } from 'astro';
 import { SITE, HREFLANG_HUBY } from '../lib/config';
 import { DOKUMENTY } from '../lib/dokumenty';
-import { kupniSmlouvaAuto } from '../sablony/cz/kupni-smlouva-auto';
+import { SABLONY } from '../sablony/registr';
 
-/** Datum poslední změny podle šablony (kde ji známe) */
-const AKTUALIZACE: Record<string, string> = {
-  '/cz/kupni-smlouva-auto/': kupniSmlouvaAuto.aktualizovano,
-};
+/** Datum poslední změny podle šablony: /cz/<souborPdf>/ → aktualizovano */
+const AKTUALIZACE: Record<string, string> = Object.fromEntries(
+  Object.values(SABLONY).map((s) => [`/${s.zeme}/${s.souborPdf}/`, s.aktualizovano]),
+);
 
 export const GET: APIRoute = () => {
   const huby = ['/', '/cz/', '/sk/'];

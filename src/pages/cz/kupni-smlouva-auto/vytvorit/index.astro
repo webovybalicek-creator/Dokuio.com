@@ -1,49 +1,17 @@
 ---
-import Base from '../../../../layouts/Base.astro';
-import Pruvodce from '../../../../components/Pruvodce.astro';
-import StazeniBand from '../../../../components/StazeniBand.astro';
-import Podpora from '../../../../components/Podpora.astro';
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
 import { kupniSmlouvaAuto as s } from '../../../../sablony/cz/kupni-smlouva-auto';
-
+import { autoKrome } from '../../../../lib/souvisejici';
 const base = '/cz/kupni-smlouva-auto/';
 ---
 
-<Base
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Kupní smlouva na auto"
+  nazevA="kupní smlouvu na auto"
   title="Vyplnit kupní smlouvu na auto online – PDF zdarma"
   description="Průvodce kupní smlouvou na auto: odpovězte na pár otázek, upravte text a stáhněte PDF nebo Word zdarma."
-  lang="cs"
-  noindex
->
-  <Fragment slot="nav">
-    <a class="nav__odkaz" href={base}>O smlouvě</a>
-    <a class="btn btn--duch btn--maly" href="#stazeni">Stáhnout</a>
-  </Fragment>
-
-  <section class="pruvodce-sekce">
-    <div class="wrap">
-      <div class="ram pruvodce-sekce__in">
-        <nav class="drobecky" aria-label="Drobečková navigace">
-          <a href="/cz/">Česko</a> › <a href={base}>Kupní smlouva na auto</a> › Vyplnit online
-        </nav>
-        <h1 class="pruvodce__nadpis">
-          Kupní smlouva na auto{' '}<span>Zdarma · výsledek v PDF i ve Wordu · zabere asi 3 minuty</span>
-        </h1>
-        <Pruvodce sablona={s} />
-      </div>
-    </div>
-  </section>
-
-  <StazeniBand
-    nadpis="Stáhnout kupní smlouvu na auto."
-    vzorPdf={`${base}kupni-smlouva-auto-vzor.pdf`}
-    vzorDocx={`${base}kupni-smlouva-auto-vzor.docx`}
-    pruvodce
-  />
-  <Podpora />
-</Base>
-
-<script>
-  import { spustPruvodce } from '../../../../scripts/pruvodce';
-  import { kupniSmlouvaAuto } from '../../../../sablony/cz/kupni-smlouva-auto';
-  spustPruvodce(kupniSmlouvaAuto);
-</script>
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 3 minuty"
+  dalsi={autoKrome(base)}
+/>

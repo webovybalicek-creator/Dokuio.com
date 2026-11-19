@@ -2,7 +2,7 @@
  * Klientská logika průvodce. Vše běží v prohlížeči: údaje se nikam neodesílají,
  * rozpracovaná smlouva se pamatuje jen v localStorage tohoto prohlížeče.
  */
-import type { Data, Sablona } from '../sablony/typy';
+import { SMLOUVA, type Data, type Sablona } from '../sablony/typy';
 import {
   poleAktivni,
   prazdne,
@@ -56,6 +56,7 @@ export function spustPruvodce(s: Sablona) {
   const navTl = [...koren.querySelectorAll<HTMLButtonElement>('[data-skok]')];
   const pole = vsechnaPole(s);
   const klic = `dokuio:${s.kod}:${s.verze}`;
+  const w = s.slovo ?? SMLOUVA;
 
   let stav: Stav = { data: {}, upravy: {}, krok: 0 };
   try {
@@ -112,7 +113,7 @@ export function spustPruvodce(s: Sablona) {
       const spatne = v.length > 0 && !VIN.test(v);
       var_.hidden = !spatne;
       var_.textContent = spatne
-        ? `VIN má obvykle 17 znaků bez písmen I, O a Q (teď ${v.length}). Zkontrolujte ho – do smlouvy ho zapíšeme tak, jak je.`
+        ? `VIN má obvykle 17 znaků bez písmen I, O a Q (teď ${v.length}). Zkontrolujte ho – do dokumentu ho zapíšeme tak, jak je.`
         : '';
     });
   };
@@ -135,7 +136,7 @@ export function spustPruvodce(s: Sablona) {
       const zbyva = dok.celkem - dok.vyplneno;
       souhrn.textContent =
         zbyva === 0
-          ? 'Všechny údaje jsou vyplněné. Smlouva je připravená k tisku a podpisu.'
+          ? 'Všechny údaje jsou vyplněné. Vše je připravené k tisku a podpisu.'
           : `Vyplněno ${dok.vyplneno} z ${dok.celkem} údajů. Zbylých ${zbyva} zůstane jako linky k doplnění rukou.`;
     }
     if (otevrenyEditor) otevriEditor(otevrenyEditor);
@@ -173,7 +174,7 @@ export function spustPruvodce(s: Sablona) {
     chybiEl.hidden = pocet === 0;
     chybiEl.innerHTML = pocet
       ? `<p class="chybi__nadpis">Před stažením zkontrolujte (${pocet})</p>
-         <p class="chybi__popis">Nevyplněné údaje můžete klidně nechat – ve smlouvě zůstane linka a doplníte je rukou. Kliknutím skočíte k otázce.</p>
+         <p class="chybi__popis">Nevyplněné údaje můžete klidně nechat – v ${w.l} zůstane linka a doplníte je rukou. Kliknutím skočíte k otázce.</p>
          ${skupiny}`
       : '';
   }
@@ -280,7 +281,7 @@ export function spustPruvodce(s: Sablona) {
     editor.className = 'editor';
     editor.innerHTML = `
       <textarea rows="5" aria-label="Text odstavce"></textarea>
-      <p class="editor__tip">Tečky „……“ se ve smlouvě změní na linku k doplnění rukou.</p>
+      <p class="editor__tip">Tečky „……“ se v ${w.l} změní na linku k doplnění rukou.</p>
       <div class="editor__akce">
         <button type="button" class="btn btn--primarni btn--maly" data-ed="ulozit">Uložit</button>
         <button type="button" class="btn btn--duch btn--maly" data-ed="zrusit">Zrušit</button>
@@ -496,6 +497,56 @@ export function spustPruvodce(s: Sablona) {
       tl.textContent = text;
     }
   });
+
+  /* ---------------------------------------------------------- převzetí údajů z jiné šablony */
+  const prevzitEl = koren.querySelector<HTMLElement>('[data-prevzit]');
+  if (s.prevzit && prevzitEl) {
+    const odmitnutoKlic = `dokuio:prevzit-ne:${s.kod}`;
+    let zdroj: Data | null = null;
+    try {
+      if (!localStorage.getItem(odmitnutoKlic)) {
+        const klicZdroje = Object.keys(localStorage)
+          .filter((k) => k.startsWith(`dokuio:${s.prevzit!.kod}:`))
+          .sort()
+          .pop();
+        if (klicZdroje) zdroj = JSON.parse(localStorage.getItem(klicZdroje)!).data ?? null;
+      }
+    } catch {
+      zdroj = null;
+    }
+    const nove = zdroj ? s.prevzit.mapuj(zdroj) : {};
+    const maCoPrevzit = Object.values(nove).some((v) => !prazdne(v));
+    const uzVyplneno = Object.entries(stav.data).some(([k, v]) => !pole.get(k)?.vychozi && !prazdne(v));
+    if (maCoPrevzit && !uzVyplneno) {
+      prevzitEl.hidden = false;
+      prevzitEl.addEventListener('click', (e) => {
+        const t = e.target as HTMLElement;
+        if (t.closest('[data-prevzit-ano]')) {
+          const rucne = new Set(stav.rucne ?? []);
+          for (const [k, v] of Object.entries(nove)) {
+            if (prazdne(v) || !pole.has(k)) continue;
+            stav.data[k] = v;
+            if (pole.get(k)!.vychozi) rucne.add(k);
+          }
+          stav.rucne = [...rucne];
+          naplnFormular();
+          aplikujVychozi();
+          podminenaPole();
+          kontrolaVin();
+          uloz();
+          vykresli();
+          prevzitEl.hidden = true;
+        } else if (t.closest('[data-prevzit-ne]')) {
+          prevzitEl.hidden = true;
+          try {
+            localStorage.setItem(odmitnutoKlic, '1');
+          } catch {
+            /* ignorovat */
+          }
+        }
+      });
+    }
+  }
 
   /* ---------------------------------------------------------- start */
   naplnFormular();

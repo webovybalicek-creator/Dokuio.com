@@ -41,6 +41,7 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       popis: 'Stav vozu, klíče a doklady při předání.',
       kategorie: 'auto',
       ilustrace: 'protokol',
+      url: '/cz/predavaci-protokol-vozidlo/',
       slova: ['předání auta', 'protokol', 'předávací', 'převzetí vozidla'],
     },
     {
@@ -48,6 +49,7 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       popis: 'Když přepis v registru vyřizuje někdo jiný.',
       kategorie: 'zastoupeni',
       ilustrace: 'plnamoc',
+      url: '/cz/plna-moc-prepis-vozidla/',
       slova: ['přepis auta', 'registr vozidel', 'zmocnění', 'převod auta'],
     },
     {

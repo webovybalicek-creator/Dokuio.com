@@ -1,0 +1,71 @@
+---
+/**
+ * Stránka „Vyplnit online“ pro libovolnou šablonu: průvodce + stažení + podpora.
+ * Šablonu si klientský skript najde podle data-kod (registr šablon).
+ */
+import Base from '../layouts/Base.astro';
+import Pruvodce from './Pruvodce.astro';
+import StazeniBand from './StazeniBand.astro';
+import Podpora from './Podpora.astro';
+import type { Sablona } from '../sablony/typy';
+
+interface Props {
+  sablona: Sablona;
+  /** URL landing stránky dokumentu, např. /cz/kupni-smlouva-auto/ */
+  base: string;
+  /** Krátký název do drobečků a nadpisu, např. „Kupní smlouva na auto“ */
+  nazev: string;
+  /** Název ve 4. pádě malými písmeny: „kupní smlouvu na auto“ */
+  nazevA: string;
+  title: string;
+  description: string;
+  /** Podnadpis pod H1 */
+  podnadpis?: string;
+  dalsi?: { nazev: string; url: string }[];
+}
+const {
+  sablona: s,
+  base,
+  nazev,
+  nazevA,
+  title,
+  description,
+  podnadpis = 'Zdarma · výsledek v PDF i ve Wordu · zabere pár minut',
+  dalsi = [],
+} = Astro.props;
+---
+
+<Base title={title} description={description} lang={s.jazyk} noindex>
+  <Fragment slot="nav">
+    <a class="nav__odkaz" href={base}>O dokumentu</a>
+    <a class="btn btn--duch btn--maly" href="#stazeni">Stáhnout</a>
+  </Fragment>
+
+  <section class="pruvodce-sekce">
+    <div class="wrap">
+      <div class="ram pruvodce-sekce__in">
+        <nav class="drobecky" aria-label="Drobečková navigace">
+          <a href="/cz/">Česko</a> › <a href={base}>{nazev}</a> › Vyplnit online
+        </nav>
+        <h1 class="pruvodce__nadpis">{nazev}{' '}<span>{podnadpis}</span></h1>
+        <Pruvodce sablona={s} dalsi={dalsi} />
+      </div>
+    </div>
+  </section>
+
+  <StazeniBand
+    nadpis={`Stáhnout ${nazevA}.`}
+    vzorPdf={`${base}${s.souborPdf}-vzor.pdf`}
+    vzorDocx={`${base}${s.souborPdf}-vzor.docx`}
+    pruvodce
+    slovo={s.slovo}
+  />
+  <Podpora />
+</Base>
+
+<script>
+  import { spustPruvodce } from '../scripts/pruvodce';
+  import { SABLONY } from '../sablony/registr';
+  const kod = document.querySelector<HTMLElement>('[data-pruvodce]')?.dataset.kod;
+  if (kod && SABLONY[kod]) spustPruvodce(SABLONY[kod]);
+</script>

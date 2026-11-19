@@ -1,270 +1,63 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Duvera from '../../../components/Duvera.astro';
-import StazeniBand from '../../../components/StazeniBand.astro';
-import Podpora from '../../../components/Podpora.astro';
+import DokumentLanding from '../../../components/DokumentLanding.astro';
 import { kupniSmlouvaAuto as s } from '../../../sablony/cz/kupni-smlouva-auto';
-import { sestavDokument, formatDatum } from '../../../sablony/dokument';
-import { dokumentHtml } from '../../../sablony/html';
-import { SITE } from '../../../lib/config';
-import '../../../styles/dokument.css';
+import { autoKrome } from '../../../lib/souvisejici';
 
 const base = '/cz/kupni-smlouva-auto/';
-const vzorPdf = `${base}kupni-smlouva-auto-vzor.pdf`;
-const vzorDocx = `${base}kupni-smlouva-auto-vzor.docx`;
-const aktualizovano = formatDatum(s.aktualizovano);
-const mesic = s.aktualizovano.slice(5, 7).replace(/^0/, '') + '/' + s.aktualizovano.slice(0, 4);
-const nahled = dokumentHtml(sestavDokument(s, {}));
-
-const obsah = [
-  { nazev: 'Smluvní strany', popis: 'Jméno, datum narození a adresa prodávajícího i kupujícího.' },
-  { nazev: 'Vozidlo', popis: 'Značka a typ, VIN, SPZ, rok výroby, číslo osvědčení o registraci a technického průkazu.' },
-  { nazev: 'Stav vozidla', popis: 'Stav tachometru, známé vady a prohlášení o havárii.' },
-  { nazev: 'Cena a platba', popis: 'Kupní cena číslem i slovy, platba v hotovosti nebo převodem, okamžik přechodu vlastnictví.' },
-  { nazev: 'Předání a přepis', popis: 'Datum předání, klíče a doklady, kdo podá žádost o přepis v registru vozidel.' },
-  { nazev: 'Závěrečná ustanovení', popis: 'Dva stejnopisy, účinnost a podpisy obou stran.' },
-];
-
-const kroky = [
-  { nazev: 'Odpovězte na otázky', popis: 'Průvodce se ptá jen na to podstatné. Co nevíte, přeskočte – zůstane linka k ručnímu doplnění.' },
-  { nazev: 'Upravte text, pokud chcete', popis: 'Každý odstavec můžete přepsat nebo smazat. Původní znění jde vždy vrátit jedním klikem.' },
-  { nazev: 'Stáhněte PDF nebo Word', popis: 'Zdarma a bez registrace. Vytiskněte dvakrát a obě strany podepíší.' },
-];
-
-const faq = [
-  {
-    q: 'Je kupní smlouva na auto opravdu zdarma?',
-    a: 'Ano. Vyplnění online i stažení v PDF a ve Wordu je zdarma a bez registrace. Nemusíte zadávat ani e-mail.',
-  },
-  {
-    q: 'Musí být smlouva o prodeji auta písemná?',
-    a: 'Zákon u prodeje auta mezi soukromými osobami písemnou formu nevyžaduje. Písemná smlouva je ale důkaz o tom, co jste si dohodli: cena, stav vozu, vady a datum předání. Proto ji doporučujeme vždy.',
-  },
-  {
-    q: 'Kolik výtisků smlouvy potřebuji?',
-    a: 'Dva stejnopisy. Každá strana si nechá jeden, oba podepsané prodávajícím i kupujícím.',
-  },
-  {
-    q: 'Můžu text smlouvy upravit?',
-    a: 'Ano. V průvodci můžete libovolný odstavec přepsat nebo smazat a přidat vlastní ustanovení. Vždy vycházíte z našeho základu a původní znění jde vrátit. Ve stažené verzi pro Word můžete upravit úplně všechno.',
-  },
-  {
-    q: 'Co když se po prodeji objeví vada?',
-    a: 'Odpovědnost za vady se řídí občanským zákoníkem. Do smlouvy proto pravdivě popište známé vady a stav tachometru. Na vady, o kterých kupující při koupi věděl, se reklamace nevztahuje.',
-  },
-  {
-    q: 'Ukládáte moje údaje?',
-    a: 'Ne. Smlouva se skládá přímo ve vašem prohlížeči a údaje se na server neodesílají. Rozpracovanou smlouvu si prohlížeč pamatuje jen u vás a můžete ji kdykoli smazat.',
-  },
-  {
-    q: 'Hodí se smlouva i pro prodej firmě nebo autobazaru?',
-    a: 'Vzor je určený pro prodej mezi dvěma soukromými osobami. Při prodeji firmě, autobazaru nebo vozu na leasing či úvěr použijte smlouvu druhé strany nebo se poraďte s advokátem.',
-  },
-];
-
-const schema = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: 'Kupní smlouva na auto – online průvodce',
-    url: `${SITE.url}${base}`,
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Any',
-    inLanguage: 'cs',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'CZK' },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Česko', item: `${SITE.url}/cz/` },
-      { '@type': 'ListItem', position: 2, name: 'Kupní smlouva na auto', item: `${SITE.url}${base}` },
-    ],
-  },
-];
 ---
 
-<Base
+<DokumentLanding
+  sablona={s}
+  base={base}
+  nazev="Kupní smlouva na auto"
+  nazevA="kupní smlouvu na auto"
   title={`Kupní smlouva na auto ${s.aktualizovano.slice(0, 4)} – vzor PDF zdarma`}
   description="Kupní smlouva na auto zdarma: vyplňte online za 3 minuty, nebo stáhněte prázdný vzor. PDF i Word, bez registrace, podle občanského zákoníku."
-  lang="cs"
->
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <Fragment slot="nav">
-    <a class="nav__odkaz" href="#jak-to-funguje">Jak to funguje</a>
-    <a class="btn btn--primarni btn--maly btn--sipka" href={`${base}vytvorit/`}>Vyplnit zdarma</a>
-  </Fragment>
-
-  <section class="hero hero--dokument">
-    <div class="hero__vlna" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="ram hero__obsah hero__mrizka">
-        <div>
-          <nav class="drobecky" aria-label="Drobečková navigace"><a href="/cz/">Česko</a> › Kupní smlouva na auto</nav>
-          <p class="horni-stitek">Zdarma · PDF i Word · <span>Aktualizováno {mesic}</span></p>
-          <h1>
-            Kupní smlouva na auto{' '}
-            <span>Vyplňte online za 3 minuty, nebo si stáhněte prázdný vzor. Pro prodej ojetého auta mezi soukromými osobami.</span>
-          </h1>
-          <div class="akce">
-            <a class="btn btn--primarni btn--sipka" href={`${base}vytvorit/`}>Vyplnit online zdarma</a>
-            <a class="btn btn--duch" href={vzorPdf} download>Stáhnout prázdný vzor (PDF)</a>
-          </div>
-          <Duvera class="duvera--hero" />
-        </div>
-        <figure class="nahled-vzoru">
-          <div class="papir papir--orez" set:html={nahled} />
-          <figcaption>Náhled vzoru · šablona {s.kod} v{s.verze}</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="sekce" id="jak-to-funguje" aria-labelledby="jak-nadpis">
-    <div class="wrap">
-      <div class="ram sekce__in">
-        <h2 id="jak-nadpis">Hotová smlouva za 3 minuty.{' '}<span>Zdarma, bez registrace a bez právnické hantýrky.</span></h2>
-        <ol class="kroky">
-          {
-            kroky.map((k) => (
-              <li>
-                <h3>{k.nazev}</h3>
-                <p>{k.popis}</p>
-              </li>
-            ))
-          }
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="sekce" aria-labelledby="obsah-nadpis">
-    <div class="wrap">
-      <div class="ram sekce__in">
-        <h2 id="obsah-nadpis">
-          Co smlouva obsahuje.{' '}<span>Šest článků podle § 2079 a násl. občanského zákoníku, bez zbytečných kliček.</span>
-        </h2>
-        <ul class="mrizka">
-          {
-            obsah.map((o, i) => (
-              <li>
-                <div class="karta">
-                  <span class="karta__cislo">Článek {['I', 'II', 'III', 'IV', 'V', 'VI'][i]}</span>
-                  <h3>{o.nazev}</h3>
-                  <p>{o.popis}</p>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="sekce" aria-labelledby="proc-nadpis">
-    <div class="wrap">
-      <div class="ram sekce__in">
-        <h2 id="proc-nadpis">Online, nebo na papír?{' '}<span>Obojí je zdarma. Vyberte, co vám vyhovuje.</span></h2>
-        <div class="dve-cesty">
-          <div class="cesta cesta--hlavni">
-            <h3>Vyplnit online</h3>
-            <ul class="fajfky">
-              <li>Částka slovy se dopočítá sama</li>
-              <li>Kontrola VIN, nic nezapomenete</li>
-              <li>Každý odstavec můžete upravit nebo smazat</li>
-              <li>Stažení v PDF k podpisu i ve Wordu</li>
-            </ul>
-            <a class="btn btn--primarni btn--sipka" href={`${base}vytvorit/`}>Vyplnit online zdarma</a>
-          </div>
-          <div class="cesta">
-            <h3>Prázdný vzor</h3>
-            <ul class="fajfky">
-              <li>Vytisknete a vyplníte rukou</li>
-              <li>Ve Wordu si upravíte cokoli</li>
-              <li>Stejný ověřený text jako online</li>
-            </ul>
-            <div class="akce akce--tesne">
-              <a class="btn btn--duch" href={vzorPdf} download>PDF</a>
-              <a class="btn btn--duch" href={vzorDocx} download>Word</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sekce" aria-labelledby="pouziti-nadpis">
-    <div class="wrap">
-      <div class="ram sekce__in">
-        <h2 id="pouziti-nadpis">Je to ta správná smlouva?{' '}<span>Pro koho je a pro koho ne.</span></h2>
-        <div class="dve-cesty">
-          <div class="cesta">
-            <h3>Hodí se, když</h3>
-            <ul class="fajfky">
-              <li>prodáváte nebo kupujete ojeté auto od soukromé osoby</li>
-              <li>vůz je ve vašem vlastnictví a není na leasing</li>
-              <li>chcete mít písemně cenu, stav vozu a datum předání</li>
-            </ul>
-          </div>
-          <div class="cesta cesta--tlumena">
-            <h3>Použijte jiný dokument, když</h3>
-            <ul class="krizky">
-              <li>prodáváte firmě nebo autobazaru (mívají vlastní smlouvu)</li>
-              <li>auto je na leasing nebo zastavené kvůli úvěru</li>
-              <li>auto darujete – připravujeme darovací smlouvu</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sekce" aria-labelledby="po-podpisu-nadpis">
-    <div class="wrap">
-      <div class="ram sekce__in">
-        <h2 id="po-podpisu-nadpis">Po podpisu.{' '}<span>Co udělat, aby byl prodej v pořádku.</span></h2>
-        <ol class="kroky">
-          <li><h3>Podepište dva stejnopisy</h3><p>Každá strana si nechá jeden podepsaný výtisk.</p></li>
-          <li><h3>Předejte vůz a doklady</h3><p>Klíče, osvědčení o registraci a další doklady podle smlouvy.</p></li>
-          <li><h3>Zajistěte přepis</h3><p>Žádost o změnu vlastníka v registru vozidel podejte v zákonné lhůtě. Kupující potřebuje povinné ručení od převzetí vozu.</p></li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="sekce" aria-labelledby="faq-nadpis">
-    <div class="wrap">
-      <div class="ram sekce__in">
-        <h2 id="faq-nadpis">Časté otázky</h2>
-        <div class="faq">
-          {
-            faq.map((f) => (
-              <details>
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
-              </details>
-            ))
-          }
-        </div>
-        <p class="poznamka">
-          Vzor vychází ze zákona č. 89/2012 Sb., občanský zákoník (§ 2079 a násl.) a zákona č. 56/2001 Sb., o podmínkách
-          provozu vozidel na pozemních komunikacích. Šablona {s.kod} verze {s.verze}, aktualizováno {aktualizovano}.
-          Dokuio poskytuje vzory k vyplnění, nejde o právní poradenství.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <StazeniBand
-    nadpis="Stáhněte si kupní smlouvu na auto zdarma."
-    vytvorit={`${base}vytvorit/`}
-    vzorPdf={vzorPdf}
-    vzorDocx={vzorDocx}
-  />
-  <Podpora />
-</Base>
+  perex="Vyplňte online za 3 minuty, nebo si stáhněte prázdný vzor. Pro prodej ojetého auta mezi soukromými osobami."
+  obsahPopis="Šest článků podle § 2079 a násl. občanského zákoníku, bez zbytečných kliček."
+  obsah={[
+    { nazev: 'Smluvní strany', popis: 'Jméno, datum narození a adresa prodávajícího i kupujícího.' },
+    { nazev: 'Vozidlo', popis: 'Značka a typ, VIN, SPZ, rok výroby, číslo osvědčení o registraci a technického průkazu.' },
+    { nazev: 'Stav vozidla', popis: 'Stav tachometru, známé vady a prohlášení o havárii.' },
+    { nazev: 'Cena a platba', popis: 'Kupní cena číslem i slovy, platba v hotovosti nebo převodem, okamžik přechodu vlastnictví.' },
+    { nazev: 'Předání a přepis', popis: 'Datum předání, klíče a doklady, kdo podá žádost o přepis v registru vozidel.' },
+    { nazev: 'Závěrečná ustanovení', popis: 'Dva stejnopisy, účinnost a podpisy obou stran.' },
+  ]}
+  kroky={[
+    { nazev: 'Odpovězte na otázky', popis: 'Průvodce se ptá jen na to podstatné. Co nevíte, přeskočte – zůstane linka k ručnímu doplnění.' },
+    { nazev: 'Upravte text, pokud chcete', popis: 'Každý odstavec můžete přepsat nebo smazat. Původní znění jde vždy vrátit jedním klikem.' },
+    { nazev: 'Stáhněte PDF nebo Word', popis: 'Zdarma a bez registrace. Vytiskněte dvakrát a obě strany podepíší.' },
+  ]}
+  online={[
+    'Částka slovy se dopočítá sama',
+    'Kontrola VIN, nic nezapomenete',
+    'Každý odstavec můžete upravit nebo smazat',
+    'Stažení v PDF k podpisu i ve Wordu',
+  ]}
+  hodiSe={[
+    'prodáváte nebo kupujete ojeté auto od soukromé osoby',
+    'vůz je ve vašem vlastnictví a není na leasing',
+    'chcete mít písemně cenu, stav vozu a datum předání',
+  ]}
+  nehodiSe={[
+    'prodáváte firmě nebo autobazaru (mívají vlastní smlouvu)',
+    'auto je na leasing nebo zastavené kvůli úvěru',
+    'auto darujete – připravujeme darovací smlouvu',
+  ]}
+  po={[
+    { nazev: 'Podepište dva stejnopisy', popis: 'Každá strana si nechá jeden podepsaný výtisk.' },
+    { nazev: 'Předejte vůz a doklady', popis: 'Klíče, osvědčení o registraci a další doklady podle smlouvy. Stav při předání zapište do předávacího protokolu.' },
+    { nazev: 'Zajistěte přepis', popis: 'Žádost o změnu vlastníka v registru vozidel podejte do 10 pracovních dnů. Kdo nepůjde osobně, dá druhému plnou moc s ověřeným podpisem. Kupující potřebuje povinné ručení od převzetí vozu.' },
+  ]}
+  faq={[
+    { q: 'Je kupní smlouva na auto opravdu zdarma?', a: 'Ano. Vyplnění online i stažení v PDF a ve Wordu je zdarma a bez registrace. Nemusíte zadávat ani e-mail.' },
+    { q: 'Musí být smlouva o prodeji auta písemná?', a: 'Zákon u prodeje auta mezi soukromými osobami písemnou formu nevyžaduje. Písemná smlouva je ale důkaz o tom, co jste si dohodli: cena, stav vozu, vady a datum předání. Proto ji doporučujeme vždy.' },
+    { q: 'Kolik výtisků smlouvy potřebuji?', a: 'Dva stejnopisy. Každá strana si nechá jeden, oba podepsané prodávajícím i kupujícím.' },
+    { q: 'Můžu text smlouvy upravit?', a: 'Ano. V průvodci můžete libovolný odstavec přepsat nebo smazat a přidat vlastní ustanovení. Vždy vycházíte z našeho základu a původní znění jde vrátit. Ve stažené verzi pro Word můžete upravit úplně všechno.' },
+    { q: 'Co když se po prodeji objeví vada?', a: 'Odpovědnost za vady se řídí občanským zákoníkem. Do smlouvy proto pravdivě popište známé vady a stav tachometru. Na vady, o kterých kupující při koupi věděl, se reklamace nevztahuje.' },
+    { q: 'Ukládáte moje údaje?', a: 'Ne. Smlouva se skládá přímo ve vašem prohlížeči a údaje se na server neodesílají. Rozpracovanou smlouvu si prohlížeč pamatuje jen u vás a můžete ji kdykoli smazat.' },
+    { q: 'Hodí se smlouva i pro prodej firmě nebo autobazaru?', a: 'Vzor je určený pro prodej mezi dvěma soukromými osobami. Při prodeji firmě, autobazaru nebo vozu na leasing či úvěr použijte smlouvu druhé strany nebo se poraďte s advokátem.' },
+  ]}
+  zakony="Vzor vychází ze zákona č. 89/2012 Sb., občanský zákoník (§ 2079 a násl.) a zákona č. 56/2001 Sb., o podmínkách provozu vozidel na pozemních komunikacích."
+  souvisejici={autoKrome(base)}
+/>

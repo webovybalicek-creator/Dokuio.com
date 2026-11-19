@@ -1145,6 +1145,42 @@ a.vypis__polozka:active {
   border: 1px solid var(--frost);
   color: var(--navy-soft);
 }
+/* převzetí údajů z jiné rozpracované šablony */
+.prevzit {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid var(--lavender);
+  border-radius: var(--r);
+  background: var(--wash);
+  color: var(--navy-soft);
+  display: grid;
+  gap: 10px;
+  animation: krok-vstup 220ms var(--ease-out);
+}
+.prevzit[hidden] {
+  display: none;
+}
+.prevzit strong {
+  color: var(--ink);
+}
+.prevzit__akce {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.podpis-poznamka {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--indigo);
+  background: var(--mist);
+  color: var(--navy-soft);
+  font-size: 0.9375rem;
+}
+.co-dal__dalsi {
+  margin-top: 12px;
+  font-size: 0.9375rem;
+}
+
 /* kontrola před stažením */
 .chybi {
   margin-top: 12px;

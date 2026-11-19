@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { predavaciProtokolVozidlo as s } from '../../../../sablony/cz/predavaci-protokol-vozidlo';
+import { autoKrome } from '../../../../lib/souvisejici';
+const base = '/cz/predavaci-protokol-vozidlo/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Předávací protokol k vozidlu"
+  nazevA="předávací protokol k vozidlu"
+  title="Vyplnit předávací protokol k autu online – PDF zdarma"
+  description="Průvodce předávacím protokolem k vozidlu: stav km, palivo, poškození, klíče a výbava. Stáhněte PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 2 minuty"
+  dalsi={autoKrome(base)}
+/>

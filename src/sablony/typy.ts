@@ -111,7 +111,29 @@ export interface Sablona {
   datumPodpisu: string;
   paticka: string;
   souborPdf: string;
+  /** Jak dokument nazývat v rozhraní (pády). Výchozí „smlouva“. */
+  slovo?: Slovo;
+  /** Nadpisy „Článek I · …“ (výchozí). U plné moci či protokolu stačí prosté nadpisy. */
+  cislovatClanky?: boolean;
+  /** Podpis na obrazovce v průvodci (výchozí ano). Ne u dokumentů, kde se podpis úředně ověřuje. */
+  podpisNaZarizeni?: boolean;
+  /** Proč podpis na zařízení není (zobrazí se místo podpisového pole) */
+  podpisPoznamka?: string;
+  /** Kroky „Hotovo. Co dál?“ po stažení */
+  coDal: string[];
+  /** Nabídnout předvyplnění z jiné rozpracované šablony (např. z kupní smlouvy) */
+  prevzit?: { kod: string; nazev: string; mapuj: (zdroj: Data) => Data };
 }
+
+/** Tvary slova pro texty rozhraní: 1. pád, 2. pád, 4. pád, 6. pád */
+export interface Slovo {
+  n: string;
+  g: string;
+  a: string;
+  l: string;
+}
+export const SMLOUVA: Slovo = { n: 'smlouva', g: 'smlouvy', a: 'smlouvu', l: 'smlouvě' };
+export const velke = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 
 export type Hodnota = string | string[] | undefined;
 export type Data = Record<string, Hodnota>;

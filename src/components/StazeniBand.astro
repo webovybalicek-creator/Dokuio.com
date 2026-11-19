@@ -1,4 +1,5 @@
 ---
+import { SMLOUVA, type Slovo } from '../sablony/typy';
 /**
  * Pás se stažením na konci každé stránky dokumentu (požadavek ze zadání):
  * vždy jde stáhnout vlastní (vyplněná/upravená) verze i obecný prázdný vzor, v PDF i ve Wordu.
@@ -10,8 +11,10 @@ interface Props {
   vzorDocx: string;
   vytvorit?: string;
   pruvodce?: boolean;
+  slovo?: Slovo;
 }
-const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false } = Astro.props;
+const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false, slovo: w = SMLOUVA } = Astro.props;
+const zensky = /a$|moc$/.test(w.n);
 ---
 
 <section class="sekce stazeni" id="stazeni" aria-labelledby="stazeni-nadpis">
@@ -20,12 +23,12 @@ const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false } = Astro.props;
       <h2 id="stazeni-nadpis">{nadpis}{' '}<span>Zdarma, bez registrace, v PDF i ve Wordu.</span></h2>
       <div class="dve-cesty">
         <div class="cesta cesta--hlavni">
-          <h3>{pruvodce ? 'Vaše smlouva' : 'Vyplněná smlouva'}</h3>
+          <h3>{pruvodce ? `${zensky ? 'Vaše' : 'Váš'} ${w.n}` : `${zensky ? 'Vyplněná' : 'Vyplněný'} ${w.n}`}</h3>
           <p>
             {
               pruvodce
-                ? 'Přesně tak, jak jste ji vyplnili a upravili. Co zůstalo prázdné, bude linka k ručnímu doplnění.'
-                : 'Vyplňte údaje online, upravte text podle sebe a stáhněte hotovou smlouvu.'
+                ? 'Přesně tak, jak jste ho vyplnili a upravili. Co zůstalo prázdné, bude linka k ručnímu doplnění.'.replace('ho ', zensky ? 'ji ' : 'ho ')
+                : `Vyplňte údaje online, upravte text podle sebe a stáhněte ${zensky ? 'hotovou' : 'hotový'} ${w.a}.`
             }
           </p>
           {

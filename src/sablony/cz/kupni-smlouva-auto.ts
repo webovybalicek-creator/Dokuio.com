@@ -20,6 +20,12 @@ export const kupniSmlouvaAuto: Sablona = {
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'prodávající', vpravo: 'kupující' },
+  coDal: [
+    'Vytiskněte smlouvu dvakrát, obě strany podepíší oba výtisky.',
+    'Doplňte rukou údaje, které zůstaly prázdné.',
+    'Předejte vůz, klíče a doklady – ideálně s předávacím protokolem (stav km, výbava, čas předání).',
+    'Podejte žádost o přepis v registru vozidel do 10 pracovních dnů. Kdo nepůjde osobně, potřebuje plnou moc s ověřeným podpisem.',
+  ],
 
   kroky: [
     {

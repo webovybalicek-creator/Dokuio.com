@@ -96,8 +96,11 @@ export function formatHodnota(pole: Pole | undefined, h: Hodnota): string {
       const m = pole.moznosti?.find((o) => o.hodnota === v);
       return m ? m.popis : v;
     }
-    default:
-      return pole.jednotka ? `${v}\u00a0${pole.jednotka}` : v;
+    default: {
+      // PSČ a obec držet pohromadě: „251 01 Říčany“ se nezalomí uprostřed
+      const t = v.replace(/\b(\d{3}) (\d{2}) (\S+)/g, '$1\u00a0$2\u00a0$3');
+      return pole.jednotka ? `${t}\u00a0${pole.jednotka}` : t;
+    }
   }
 }
 
@@ -247,7 +250,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     const platne = c.odstavce.filter((o) => o.stav !== 'smazano');
     let n = 0;
     return {
-      nadpis: `Článek ${RIMSKE[i]} · ${c.nadpis}`,
+      nadpis: s.cislovatClanky === false ? c.nadpis : `Článek ${RIMSKE[i]} · ${c.nadpis}`,
       vysvetleni: c.vysvetleni,
       odstavce: c.odstavce.map((o) =>
         o.stav === 'smazano' || platne.length < 2 ? o : { ...o, cislo: `${++n}.` },
