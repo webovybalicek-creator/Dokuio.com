@@ -3,12 +3,18 @@ import Base from '../../layouts/Base.astro';
 
 // Plánované dokumenty pro Česko – jednoduché smlouvy mezi soukromými osobami
 const dokumenty = [
-  { nazev: 'Kupní smlouva na auto', popis: 'Prodej ojetého vozidla mezi soukromými osobami' },
-  { nazev: 'Předávací protokol k vozidlu', popis: 'Stav vozu, klíče a doklady při předání' },
-  { nazev: 'Darovací smlouva', popis: 'Darování movité věci nebo peněz' },
-  { nazev: 'Smlouva o zápůjčce', popis: 'Půjčka peněz mezi známými se splátkami' },
-  { nazev: 'Plná moc', popis: 'Zmocnění k vyřízení věci za vás' },
-  { nazev: 'Potvrzení o převzetí peněz', popis: 'Doklad o předání hotovosti' },
+  { nazev: 'Kupní smlouva na auto', popis: 'Prodej ojetého vozidla mezi soukromými osobami.', prvni: true },
+  { nazev: 'Předávací protokol k vozidlu', popis: 'Stav vozu, klíče a doklady při předání.' },
+  { nazev: 'Darovací smlouva', popis: 'Darování movité věci nebo peněz.' },
+  { nazev: 'Smlouva o zápůjčce', popis: 'Půjčka peněz mezi známými, včetně splátek.' },
+  { nazev: 'Plná moc', popis: 'Zmocnění někoho, aby vyřídil věc za vás.' },
+  { nazev: 'Potvrzení o převzetí peněz', popis: 'Doklad o předání hotovosti.' },
+];
+
+const kroky = [
+  { nazev: 'Vyberte dokument', popis: 'Najděte smlouvu, kterou potřebujete, třeba kupní smlouvu na auto.' },
+  { nazev: 'Odpovězte na otázky', popis: 'Průvodce se ptá jen na to podstatné a u každé otázky vysvětlí, co znamená.' },
+  { nazev: 'Stáhněte PDF', popis: 'Hotová smlouva je připravená k tisku a podpisu, bez registrace.' },
 ];
 ---
 
@@ -17,21 +23,35 @@ const dokumenty = [
   description="Odpovězte na pár otázek a stáhněte si hotovou smlouvu v PDF podle českého práva."
   lang="cs"
 >
-  <section class="uvod wrap">
-    <span class="stitek">Připravujeme</span>
-    <h1>Smlouvy a dokumenty snadno.</h1>
-    <p>Odpovězte na pár jednoduchých otázek a stáhněte si hotovou smlouvu v PDF, připravenou k podpisu.</p>
+  <a slot="nav" class="btn btn--duch btn--maly" href="/" hreflang="en">Jiná země</a>
+
+  <section class="hero wrap">
+    <span class="stitek">Česko · připravujeme</span>
+    <h1>Smlouvy a dokumenty <span>snadno a rychle.</span></h1>
+    <p>
+      Odpovězte na pár jednoduchých otázek a stáhněte si hotovou smlouvu v PDF, připravenou k podpisu. Podle
+      českého práva.
+    </p>
+    <div class="akce">
+      <a class="btn btn--primarni" href="#dokumenty">Prohlédnout dokumenty</a>
+      <a class="btn btn--duch" href="#jak-to-funguje">Jak to funguje</a>
+    </div>
   </section>
 
-  <section class="sekce wrap" aria-labelledby="dokumenty">
-    <h2 id="dokumenty">Na čem pracujeme</h2>
+  <section class="sekce wrap" id="dokumenty" aria-labelledby="dokumenty-nadpis">
+    <div class="sekce__hlava">
+      <span class="stitek">Dokumenty</span>
+      <h2 id="dokumenty-nadpis">Na čem pracujeme</h2>
+      <p>Začínáme jednoduchými smlouvami, které lidé potřebují nejčastěji.</p>
+    </div>
     <ul class="mrizka">
       {
         dokumenty.map((d) => (
           <li>
             <div class="karta">
-              <strong>{d.nazev}</strong>
-              <span>{d.popis}</span>
+              {d.prvni && <span class="karta__znacka">Jako první</span>}
+              <h3>{d.nazev}</h3>
+              <p>{d.popis}</p>
             </div>
           </li>
         ))
@@ -39,5 +59,24 @@ const dokumenty = [
     </ul>
   </section>
 
-  <a slot="paticka" href="/">Jiná země</a>
+  <section class="sekce wrap" id="jak-to-funguje" aria-labelledby="jak-nadpis">
+    <div class="sekce__hlava">
+      <span class="stitek">Jak to funguje</span>
+      <h2 id="jak-nadpis">Tři kroky ke hotové smlouvě</h2>
+    </div>
+    <ol class="kroky">
+      {
+        kroky.map((k) => (
+          <li>
+            <h3>{k.nazev}</h3>
+            <p>{k.popis}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <p class="poznamka">
+      Dokuio poskytuje vzory dokumentů k vyplnění, nejde o právní poradenství. U složitějších situací
+      doporučujeme obrátit se na advokáta.
+    </p>
+  </section>
 </Base>

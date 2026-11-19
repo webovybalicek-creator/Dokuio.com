@@ -1,5 +1,5 @@
 ---
-import '@fontsource-variable/geist';
+import '@fontsource-variable/inter-tight';
 import '../styles/global.css';
 import { SITE } from '../lib/config';
 
@@ -34,15 +34,15 @@ const fullTitle = title.includes(SITE.nazev) ? title : `${title} | ${SITE.nazev}
     <meta property="og:url" content={canonical} />
   </head>
   <body>
-    <header class="hlavicka">
-      <div class="wrap hlavicka__in">
+    <header class="nav">
+      <div class="wrap nav__in">
         <a class="logo" href="/" aria-label="Dokuio">
-          <span class="logo__znak" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5M10 13h6M10 17h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </span>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 2.75h8.25L19 7.5v13.75H6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 2.75V7.5h5M9.5 12.5h6M9.5 16h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           Dokuio
         </a>
-        <slot name="hlavicka" />
+        <nav class="nav__odkazy">
+          <slot name="nav" />
+        </nav>
       </div>
     </header>
     <main>
