@@ -73,15 +73,15 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 | Stav | P | Kategorie / téma | Článek | Hlavní dotaz | Vzory |
 |---|---|---|---|---|---|
 | ✅ | P1 | auto / predaj-auta | Ako predať auto na Slovensku | predaj auta | kúpna zmluva auto, protokol, splnomocnenie |
-| ⬜ | P1 | auto / prepis-vozidla | Prepis auta: 30 dní, poplatky, elektronicky cez slovensko.sk | prepis auta | splnomocnenie na prepis |
+| ✅ | P1 | auto / prepis-vozidla | Prepis auta: 30 dní, poplatky, elektronicky cez slovensko.sk | prepis auta | splnomocnenie na prepis |
 | ⬜ | P2 | auto / kupa-auta | Kúpa jazdeného auta: overenie histórie a VIN | kúpa jazdeného auta | kúpna zmluva auto |
-| ⬜ | P1 | peniaze / pozicka | Pôžička medzi známymi: zmluva a splátky | zmluva o pôžičke | pôžička, potvrdenie |
-| ⬜ | P1 | peniaze / dlhy | Uznanie dlhu: písomne, 10 rokov premlčanie | uznanie dlhu | uznanie dlhu |
+| ✅ | P1 | peniaze / pozicka | Pôžička medzi známymi: zmluva a splátky | zmluva o pôžičke | pôžička, potvrdenie |
+| ✅ | P1 | peniaze / dlhy | Uznanie dlhu: písomne, 10 rokov premlčanie | uznanie dlhu | uznanie dlhu |
 | ⬜ | P2 | peniaze / dary | Darovacia zmluva: peniaze a hnuteľné veci | darovacia zmluva | darovacia zmluva |
 | ⬜ | P2 | peniaze / pozicka | Limit platieb v hotovosti 15 000 € | hotovosť limit | potvrdenie o prevzatí |
 | ✅ | P1 | nakupy / vratenie-tovaru | Vrátenie tovaru z e-shopu do 14 dní | odstúpenie od zmluvy | odstúpenie |
 | ✅ | P1 | nakupy / reklamacia | Reklamácia: 24 mesiacov, vybavenie do 30 dní | reklamácia | reklamácia |
-| ⬜ | P2 | urady / splnomocnenie | Splnomocnenie: kedy treba úradne overený podpis | splnomocnenie vzor | splnomocnenie |
+| ✅ | P2 | urady / splnomocnenie | Splnomocnenie: kedy treba úradne overený podpis | splnomocnenie vzor | splnomocnenie |
 
 ## 🇵🇱 Polska – /pl/poradnik/
 
@@ -89,15 +89,15 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 |---|---|---|---|---|---|
 | ✅ | P1 | samochody / sprzedaz-auta | Jak sprzedać samochód krok po kroku | sprzedaż samochodu | umowa kupna-sprzedaży auta, protokół |
 | ✅ | P1 | samochody / rejestracja | PCC-3 po zakupie auta: 2%, 14 dni, nowy próg 3000 zł | PCC-3 samochód | umowa kupna-sprzedaży auta |
-| ⬜ | P1 | samochody / rejestracja | Rejestracja auta w 30 dni i pełnomocnictwo (17 zł) | rejestracja samochodu | pełnomocnictwo do rejestracji |
+| ✅ | P1 | samochody / rejestracja | Rejestracja auta w 30 dni i pełnomocnictwo (17 zł) | rejestracja samochodu | pełnomocnictwo do rejestracji |
 | ⬜ | P2 | samochody / zakup-auta | Zakup używanego auta: Historia Pojazdu i VIN | zakup używanego auta | umowa, protokół |
-| ⬜ | P1 | pieniadze / pozyczka | Umowa pożyczki: forma dokumentowa powyżej 1000 zł, PCC | umowa pożyczki | pożyczka, pokwitowanie |
+| ✅ | P1 | pieniadze / pozyczka | Umowa pożyczki: forma dokumentowa powyżej 1000 zł, PCC | umowa pożyczki | pożyczka, pokwitowanie |
 | ⬜ | P1 | pieniadze / darowizny | Darowizna w rodzinie: SD-Z2 w 6 miesięcy i przelew | darowizna SD-Z2 | umowa darowizny |
-| ⬜ | P2 | pieniadze / dlugi | Uznanie długu i przedawnienie | uznanie długu | uznanie długu |
+| ✅ | P2 | pieniadze / dlugi | Uznanie długu i przedawnienie | uznanie długu | uznanie długu |
 | ✅ | P1 | zakupy / zwrot | Zwrot zakupu z internetu w 14 dni | odstąpienie od umowy | odstąpienie |
-| ⬜ | P1 | zakupy / reklamacja | Reklamacja: 2 lata, odpowiedź w 14 dni | reklamacja | reklamacja |
+| ✅ | P1 | zakupy / reklamacja | Reklamacja: 2 lata, odpowiedź w 14 dni | reklamacja | reklamacja |
 | ⬜ | P2 | zakupy / zwrot | Sprzedaż rzeczy na OLX: umowa i PCC | sprzedaż rzeczy umowa | umowa kupna-sprzedaży |
-| ⬜ | P2 | sprawy / pelnomocnictwo | Pełnomocnictwo: kiedy wystarczy zwykłe | pełnomocnictwo wzór | pełnomocnictwo |
+| ✅ | P2 | sprawy / pelnomocnictwo | Pełnomocnictwo: kiedy wystarczy zwykłe | pełnomocnictwo wzór | pełnomocnictwo |
 
 ## 🇩🇪 Deutschland – /de/ratgeber/
 
@@ -105,27 +105,27 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 |---|---|---|---|---|---|
 | ✅ | P1 | auto / auto-verkaufen | Auto privat verkaufen – Schritt für Schritt | Auto privat verkaufen | Kaufvertrag, Übergabeprotokoll, Vollmacht |
 | ⬜ | P1 | auto / auto-verkaufen | Gewährleistungsausschluss beim Privatverkauf richtig formulieren | Gewährleistungsausschluss privat | Kaufvertrag Gebrauchtwagen |
-| ⬜ | P1 | auto / zulassung | Auto ummelden mit Vollmacht: Unterlagen und SEPA-Mandat | Vollmacht Zulassungsstelle | Vollmacht Zulassung |
+| ✅ | P1 | auto / zulassung | Auto ummelden mit Vollmacht: Unterlagen und SEPA-Mandat | Vollmacht Zulassungsstelle | Vollmacht Zulassung |
 | ⬜ | P2 | auto / auto-kaufen | Gebrauchtwagen privat kaufen: Checkliste | Gebrauchtwagen kaufen | Kaufvertrag, Übergabeprotokoll |
-| ⬜ | P1 | geld / darlehen | Privatdarlehen unter Freunden: Vertrag, Zinsen, Kündigung | privater Darlehensvertrag | Darlehensvertrag, Quittung |
+| ✅ | P1 | geld / darlehen | Privatdarlehen unter Freunden: Vertrag, Zinsen, Kündigung | privater Darlehensvertrag | Darlehensvertrag, Quittung |
 | ⬜ | P1 | geld / schenkung | Schenkung: wann ein Notar nötig ist und welche Freibeträge gelten | Schenkungsvertrag | Schenkungsvertrag |
-| ⬜ | P2 | geld / schulden | Schuldanerkenntnis: Form und Verjährung | Schuldanerkenntnis | Schuldanerkenntnis |
+| ✅ | P2 | geld / schulden | Schuldanerkenntnis: Form und Verjährung | Schuldanerkenntnis | Schuldanerkenntnis |
 | ✅ | P1 | einkauf / widerruf | Widerrufsrecht: 14 Tage, Muster-Widerrufsformular | Widerruf | Widerruf |
-| ⬜ | P1 | einkauf / gewaehrleistung | Mängel reklamieren: 2 Jahre, Nacherfüllung, Frist setzen | Mängelanzeige | Mängelanzeige |
-| ⬜ | P2 | alltag / vollmacht | Vollmacht für Post und Behörden | Vollmacht Muster | Vollmacht |
+| ✅ | P1 | einkauf / gewaehrleistung | Mängel reklamieren: 2 Jahre, Nacherfüllung, Frist setzen | Mängelanzeige | Mängelanzeige |
+| ✅ | P2 | alltag / vollmacht | Vollmacht für Post und Behörden | Vollmacht Muster | Vollmacht |
 
 ## 🇦🇹 Österreich – /at/ratgeber/
 
 | Stav | P | Kategorie / téma | Článek | Hlavní dotaz | Vzory |
 |---|---|---|---|---|---|
 | ✅ | P1 | auto / auto-verkaufen | Auto privat verkaufen in Österreich | Auto verkaufen Österreich | Kaufvertrag, Übergabeprotokoll, Vollmacht |
-| ⬜ | P1 | auto / zulassung | Auto abmelden und anmelden: Unterlagen, Kosten | Auto abmelden | Vollmacht Zulassungsstelle |
+| ✅ | P1 | auto / zulassung | Auto abmelden und anmelden: Unterlagen, Kosten | Auto abmelden | Vollmacht Zulassungsstelle |
 | ⬜ | P2 | auto / auto-kaufen | Gebrauchtwagen kaufen: Pickerl, Typenschein, Kaufvertrag | Gebrauchtwagen kaufen Österreich | Kaufvertrag |
 | ⬜ | P1 | geld / schenkung | Schenkung in Österreich: Notariatsakt und Schenkungsmeldung | Schenkungsvertrag Österreich | Schenkungsvertrag |
-| ⬜ | P1 | geld / darlehen | Privatdarlehen in Österreich | Darlehensvertrag privat | Darlehensvertrag |
+| ✅ | P1 | geld / darlehen | Privatdarlehen in Österreich | Darlehensvertrag privat | Darlehensvertrag |
 | ✅ | P1 | einkauf / widerruf | Rücktritt vom Online-Kauf nach dem FAGG | Rücktrittsrecht Online | Rücktritt |
-| ⬜ | P1 | einkauf / gewaehrleistung | Gewährleistung nach dem VGG: Fristen und Rechte | Gewährleistung Österreich | Mängelrüge |
-| ⬜ | P2 | alltag / vollmacht | Vollmacht in Österreich | Vollmacht Muster Österreich | Vollmacht |
+| ✅ | P1 | einkauf / gewaehrleistung | Gewährleistung nach dem VGG: Fristen und Rechte | Gewährleistung Österreich | Mängelrüge |
+| ✅ | P2 | alltag / vollmacht | Vollmacht in Österreich | Vollmacht Muster Österreich | Vollmacht |
 
 ## 🇨🇭 Schweiz – /ch/ratgeber/
 
@@ -133,14 +133,14 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 |---|---|---|---|---|---|
 | ✅ | P1 | auto / auto-verkaufen | Auto privat verkaufen in der Schweiz | Auto verkaufen Schweiz | Kaufvertrag Auto, Protokoll, Quittung |
 | ✅ | P1 | geld / schulden | Schuldanerkennung und Betreibung | Schuldanerkennung | Schuldanerkennung |
-| ⬜ | P1 | einkauf / rueckgabe | Online-Kauf zurückgeben: Was in der Schweiz gilt (kein Widerrufsrecht) | Rückgaberecht Schweiz | Widerruf Haustürgeschäft |
-| ⬜ | P1 | einkauf / gewaehrleistung | Mängelrüge: sofort rügen, Wandelung, Minderung | Mängelrüge | Mängelrüge |
-| ⬜ | P1 | geld / darlehen | Privatdarlehen in der Schweiz | Darlehensvertrag privat | Darlehensvertrag |
-| ⬜ | P2 | auto / strassenverkehrsamt | Auto einlösen: Schilder, Versicherungsnachweis, MFK | Auto einlösen | Vollmacht Strassenverkehrsamt |
+| ✅ | P1 | einkauf / rueckgabe | Online-Kauf zurückgeben: Was in der Schweiz gilt (kein Widerrufsrecht) | Rückgaberecht Schweiz | Widerruf Haustürgeschäft |
+| ✅ | P1 | einkauf / gewaehrleistung | Mängelrüge: sofort rügen, Wandelung, Minderung | Mängelrüge | Mängelrüge |
+| ✅ | P1 | geld / darlehen | Privatdarlehen in der Schweiz | Darlehensvertrag privat | Darlehensvertrag |
+| ✅ | P2 | auto / strassenverkehrsamt | Auto einlösen: Schilder, Versicherungsnachweis, MFK | Auto einlösen | Vollmacht Strassenverkehrsamt |
 | ⬜ | P2 | geld / schenkung | Schenkung und kantonale Schenkungssteuer | Schenkungssteuer | Schenkungsvertrag |
 
 ## Plán publikace
 
-- Týden 1: všechny **P1** pro CZ (12 zbývá), pak P1 ostatních zemí.
+- Hotovo: jednotná sada 8 témat ve všech zemích (viz matice). Další: zbývající P1/P2 pro CZ, pak stejné téma do všech zemí najednou.
 - Týden 2–3: P2. P3 průběžně podle dotazů ze Search Console (záložka Výkon → Dotazy).
 - Každý měsíc: z Search Console vybrat dotazy s vysokými zobrazeními a nízkým CTR → nový článek nebo úprava titulku.
