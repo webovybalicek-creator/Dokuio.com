@@ -2,7 +2,7 @@
  * Vykreslení dokumentu do PDF (pdf-lib). Běží v prohlížeči i v Node při buildu (prázdný vzor).
  * Písmo se předává jako bajty TTF, aby šla použít česká diakritika.
  */
-import { PDFDocument, rgb, type PDFFont, type PDFPage } from 'pdf-lib';
+import { PDFDocument, PDFString, rgb, type PDFFont, type PDFPage } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import type { Dokument, Usek } from './dokument';
 
@@ -214,13 +214,36 @@ export async function dokumentPdf(
     strana.drawText(popis, { x: x + (sloupec - w) / 2, y: y - 13, size: 9, font: reg, color: SEDA });
   }
 
-  // Patička na každé straně
+  // Patička na každé straně: logo + odkaz dokuio.com, text šablony, číslo strany
   const datum = (meta.vytvoreno ?? new Date()).toLocaleDateString('cs-CZ');
+  const LOGO = [
+    { d: 'M14 6h16l-6 36H8z', c: rgb(83 / 255, 58 / 255, 253 / 255) },
+    { d: 'M24 6h12l-6 36H18z', c: rgb(155 / 255, 92 / 255, 255 / 255) },
+    { d: 'M34 6h8l-6 36h-8z', c: rgb(255 / 255, 95 / 255, 162 / 255) },
+  ];
+  const URL_WEBU = 'dokuio.com';
   strany.forEach((s, i) => {
+    s.drawLine({ start: { x: OKRAJ_X, y: 50 }, end: { x: A4[0] - OKRAJ_X, y: 50 }, thickness: 0.5, color: rgb(0.9, 0.93, 0.96) });
+    // logo 12 × 12 pt (SVG 48 × 48, osa y dolů od horního rohu)
+    const vel = 12;
+    for (const tvar of LOGO) s.drawSvgPath(tvar.d, { x: OKRAJ_X, y: 34 + vel - 2.5, scale: vel / 48, color: tvar.c });
+    const xUrl = OKRAJ_X + vel + 3;
+    s.drawText(URL_WEBU, { x: xUrl, y: 34, size: 8, font: semi, color: INK });
+    const wUrl = semi.widthOfTextAtSize(URL_WEBU, 8);
+    // klikací odkaz přes logo i adresu
+    const odkaz = pdf.context.register(
+      pdf.context.obj({
+        Type: 'Annot',
+        Subtype: 'Link',
+        Rect: [OKRAJ_X, 31, xUrl + wUrl, 34 + vel],
+        Border: [0, 0, 0],
+        A: { Type: 'Action', S: 'URI', URI: PDFString.of('https://dokuio.com') },
+      }),
+    );
+    s.node.addAnnot(odkaz);
     const text = t(`${d.paticka} · ${datum}`);
-    s.drawLine({ start: { x: OKRAJ_X, y: 46 }, end: { x: A4[0] - OKRAJ_X, y: 46 }, thickness: 0.5, color: rgb(0.9, 0.93, 0.96) });
-    s.drawText(text, { x: OKRAJ_X, y: 34, size: 7, font: reg, color: SEDA });
-    const cislo = `strana ${i + 1} / ${strany.length}`;
+    s.drawText(text, { x: xUrl + wUrl + 8, y: 34.5, size: 6.5, font: reg, color: SEDA });
+    const cislo = `${i + 1} / ${strany.length}`;
     s.drawText(cislo, { x: A4[0] - OKRAJ_X - reg.widthOfTextAtSize(cislo, 7), y: 34, size: 7, font: reg, color: SEDA });
   });
 

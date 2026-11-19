@@ -16,7 +16,8 @@ export async function vzorPdf(s: Sablona): Promise<Response> {
 }
 
 export async function vzorDocx(s: Sablona): Promise<Response> {
-  const bajty = await dokumentDocxBajty(sestavDokument(s, {}));
+  const logo = new Uint8Array(await readFile(join(process.cwd(), 'public/fonts/logo-znacka.png')));
+  const bajty = await dokumentDocxBajty(sestavDokument(s, {}), logo);
   return new Response(bajty, {
     headers: { 'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' },
   });

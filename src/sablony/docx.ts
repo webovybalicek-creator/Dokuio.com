@@ -11,6 +11,7 @@ import {
   TabStopType,
   TextRun,
   ImageRun,
+  ExternalHyperlink,
   type ParagraphChild,
 } from 'docx';
 import type { Dokument, Usek } from './dokument';
@@ -30,6 +31,7 @@ function behy(useky: Usek[]): ParagraphChild[] {
 export async function dokumentDocx(
   d: Dokument,
   podpisy: { vlevo?: Uint8Array; vpravo?: Uint8Array } = {},
+  logo?: Uint8Array,
 ): Promise<Blob> {
   const deti: Paragraph[] = [
     new Paragraph({
@@ -120,7 +122,19 @@ export async function dokumentDocx(
         properties: { page: { margin: { top: 1134, bottom: 1134, left: 1247, right: 1247 } } },
         footers: {
           default: new Footer({
-            children: [new Paragraph({ children: [new TextRun({ text: d.paticka, size: 14, color: '64748D' })] })],
+            children: [
+              new Paragraph({
+                children: [
+                  ...(logo ? [new ImageRun({ type: 'png', data: logo, transformation: { width: 12, height: 12 } })] : []),
+                  new TextRun({ text: ' ' }),
+                  new ExternalHyperlink({
+                    link: 'https://dokuio.com',
+                    children: [new TextRun({ text: 'dokuio.com', bold: true, size: 16, color: '061B31' })],
+                  }),
+                  new TextRun({ text: `  ·  ${d.paticka}`, size: 13, color: '64748D' }),
+                ],
+              }),
+            ],
           }),
         },
         children: deti,
@@ -131,7 +145,7 @@ export async function dokumentDocx(
 }
 
 /** Varianta pro build (Node) – vrací bajty */
-export async function dokumentDocxBajty(d: Dokument): Promise<Uint8Array> {
-  const blob = await dokumentDocx(d);
+export async function dokumentDocxBajty(d: Dokument, logo?: Uint8Array): Promise<Uint8Array> {
+  const blob = await dokumentDocx(d, {}, logo);
   return new Uint8Array(await blob.arrayBuffer());
 }

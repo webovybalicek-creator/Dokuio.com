@@ -348,8 +348,14 @@ export function spustPruvodce(s: Sablona) {
         const bajty = await dokumentPdf(d, { regular, semibold }, { podpisy });
         stahni(new Blob([bajty], { type: 'application/pdf' }), `${s.souborPdf}.pdf`);
       } else {
-        const { dokumentDocx } = await import('../sablony/docx');
-        stahni(await dokumentDocx(d, podpisy), `${s.souborPdf}.docx`);
+        const [{ dokumentDocx }, logo] = await Promise.all([
+          import('../sablony/docx'),
+          fetch('/fonts/logo-znacka.png')
+            .then((r) => r.arrayBuffer())
+            .then((b) => new Uint8Array(b))
+            .catch(() => undefined),
+        ]);
+        stahni(await dokumentDocx(d, podpisy, logo), `${s.souborPdf}.docx`);
       }
       koren.querySelector<HTMLElement>('[data-co-dal]')!.hidden = false;
     } catch (err) {
