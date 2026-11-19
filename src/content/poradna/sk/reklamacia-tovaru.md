@@ -22,6 +22,7 @@ faq:
     a: "Lehota je spravidla najviac 30 dní od uplatnenia. Ak ju predávajúci nedodrží, môžete požadovať výmenu tovaru alebo odstúpiť od zmluvy a obrátiť sa na SOI."
   - q: "Musím mať pokladničný doklad?"
     a: "Kúpu treba preukázať, no nemusí to byť len bloček – stačí aj výpis z účtu, potvrdenie objednávky alebo faktúra."
+foto: 'oprava'
 ---
 
 Reklamácia je uplatnenie **zodpovednosti predávajúceho za vady**. Pravidlá sú v **Občianskom zákonníku (§ 619 až § 627)** a v zákone o ochrane spotrebiteľa.
@@ -38,6 +39,9 @@ Vady môžete uplatniť **do 24 mesiacov od prevzatia** tovaru. Pri použitom to
 - Uveďte, aký spôsob vybavenia žiadate – **oprava** alebo **výmena**.
 
 Predávajúci vám musí vydať **potvrdenie o uplatnení reklamácie**.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1746006084492-24a8fd02710a?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1746006084492-24a8fd02710a?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1746006084492-24a8fd02710a?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1746006084492-24a8fd02710a?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Rozbitý displej telefónu" loading="lazy" /><figcaption>Foto: Fotografia Lui Vlad / Unsplash</figcaption></figure>
 
 ## 3. Vybavenie do 30 dní
 

@@ -80,7 +80,7 @@ export const zeme: Zeme = {
   },
   hub: {
     title: 'Wzory umów za darmo w PDF – wypełnij online',
-    description: 'Darmowe wzory umów według polskiego prawa: umowa kupna-sprzedaży samochodu, umowa pożyczki, darowizny, pełnomocnictwo, odstąpienie od umowy, reklamacja i inne. Wypełnij online, pobierz PDF lub Word.',
+    description: 'Darmowe wzory umów według polskiego prawa: sprzedaż samochodu, pożyczka, darowizna, pełnomocnictwo, odstąpienie, reklamacja. Online, PDF lub Word.',
     stitek: 'Polska',
     stitekSpan: 'umowy według polskiego prawa',
     h1: 'Wzory umów',

@@ -29,3 +29,22 @@ export const urlClanku = (c: Clanek) => `${urlPoradny(c.zeme)}${c.slug}/`;
 
 /** Odhad doby čtení z markdownu */
 export const minutCteni = (c: Clanek) => Math.max(2, Math.round((c.body ?? '').split(/\s+/).length / 200));
+
+/** Meta description výpisu: popis + názvy článků, max. ~160 znaků (unikátní a v jazyce země) */
+export function popisSeo(uvod: string, seznam: Clanek[]): string {
+  let out = uvod.trim();
+  for (const c of seznam) {
+    const n = c.data.nazev ?? c.data.title;
+    const dalsi = `${out}${out.endsWith(':') ? ' ' : out === uvod.trim() ? ' ' : ' · '}${n}`;
+    if (dalsi.length > 158) break;
+    out = dalsi;
+  }
+  // Příliš krátký popis doplnit úvodem prvního článku (zkrácen na celé slovo)
+  const prvni = seznam[0]?.data.description;
+  if (out.length < 90 && prvni) {
+    const zbyva = 158 - out.length - 3;
+    const kus = prvni.length <= zbyva ? prvni : `${prvni.slice(0, zbyva).replace(/\s+\S*$/, '')}…`;
+    out = `${out} – ${kus}`;
+  }
+  return out;
+}

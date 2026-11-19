@@ -1,5 +1,5 @@
 ---
-title: "Výpověď povinného ručení: 6 týdnů před výročím, po nehodě i po prodeji auta"
+title: "Výpověď povinného ručení: lhůty, výročí, nehoda i prodej auta"
 nazev: "Výpověď povinného ručení"
 description: "Kdy a jak vypovědět povinné ručení: k výročí 6 týdnů předem, do 2 měsíců od sjednání, po pojistné události, při zdražení a po prodeji auta. Zákon 30/2024 Sb."
 perex: "Povinné ručení se automaticky prodlužuje každý rok. Změnit pojišťovnu můžete jen v zákonem daných situacích – a skoro vždy rozhoduje, kdy výpověď pojišťovna dostane."
@@ -22,6 +22,7 @@ faq:
     a: "Pojištění zaniká změnou vlastníka, ale pojišťovně to musíte oznámit a doložit (kupní smlouvou nebo dokladem o přepisu). Teprve pak vám vrátí přeplatek."
   - q: "Můžu odejít, když pojišťovna zdraží?"
     a: "Ano. Se zvýšením pojistného můžete nesouhlasit, obvykle do 1 měsíce od doručení oznámení. Přesnou lhůtu najdete v pojistných podmínkách a v dopise o změně."
+foto: 'auto-jizda'
 ---
 
 Povinné ručení (zákonné pojištění odpovědnosti z provozu vozidla) se sjednává na dobu neurčitou a prodlužuje se každý rok. Od 1. dubna 2024 ho upravuje **zákon č. 30/2024 Sb.**, výpovědi se řídí hlavně **občanským zákoníkem**. Vypovědět ho můžete v těchto situacích.
@@ -35,6 +36,9 @@ Výpověď ke konci pojistného období nemusíte zdůvodňovat. Pojišťovna ji
 ## 2. Do 2 měsíců od sjednání
 
 Novou smlouvu můžete vypovědět **do dvou měsíců od uzavření** s **osmidenní výpovědní dobou** (§ 2805 písm. a) občanského zákoníku). Hodí se, když jste uzavřeli pojištění ve spěchu a pak našli výhodnější.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Psaní dokumentu" loading="lazy" /><figcaption>Foto: Scott Graham / Unsplash</figcaption></figure>
 
 ## 3. Po pojistné události
 

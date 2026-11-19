@@ -39,7 +39,7 @@ export const zeme: Zeme = {
       ilustrace: 'auto',
       dokumenty: ['kaufvertrag-gebrauchtwagen', 'uebergabeprotokoll-fahrzeug', 'vollmacht-zulassung', 'quittung'],
       title: 'Autoverkauf Österreich – alle Dokumente in einem PDF kostenlos',
-      description: 'Alles für den privaten Autoverkauf in Österreich: Kaufvertrag, Übergabeprotokoll, Vollmacht für die Zulassungsstelle und Quittung. Einmal ausfüllen, alles auf einmal laden.',
+      description: 'Alles für den privaten Autoverkauf in Österreich: Kaufvertrag, Übergabeprotokoll, Vollmacht für die Zulassungsstelle und Quittung – einmal ausfüllen.',
       perex: 'Füllen Sie den Kaufvertrag aus – die anderen Dokumente übernehmen die Angaben. Dann alles auf einmal als ein PDF laden.',
     },
     {
@@ -48,8 +48,8 @@ export const zeme: Zeme = {
       popis: 'Darlehensvertrag mit Tilgungsplan und Quittung.',
       ilustrace: 'pujcka',
       dokumenty: ['darlehensvertrag', 'quittung'],
-      title: 'Geld leihen – Darlehensvertrag und Quittung kostenlos',
-      description: 'Privates Darlehen schwarz auf weiß: Darlehensvertrag mit Tilgungsplan und Quittung über die Auszahlung.',
+      title: 'Geld leihen in Österreich – Darlehensvertrag und Quittung kostenlos',
+      description: 'Privates Darlehen in Österreich schriftlich festhalten: Darlehensvertrag nach ABGB mit Tilgungsplan und Quittung über die Auszahlung.',
       perex: 'Darlehensvertrag mit Tilgungsplan und eine Quittung über das übergebene Geld.',
     },
   ],
@@ -90,7 +90,7 @@ export const zeme: Zeme = {
   },
   hub: {
     title: 'Vertragsvorlagen Österreich kostenlos als PDF – online ausfüllen',
-    description: 'Kostenlose Vertragsvorlagen nach österreichischem Recht: Kfz-Kaufvertrag von privat, Darlehensvertrag, Schenkungsvertrag, Vollmacht, Rücktritt vom Online-Kauf und mehr. Online ausfüllen, PDF oder Word laden.',
+    description: 'Kostenlose Vorlagen nach österreichischem Recht: Kfz-Kaufvertrag, Darlehensvertrag, Schenkung, Vollmacht, Rücktritt vom Online-Kauf. PDF oder Word.',
     stitek: 'Österreich',
     stitekSpan: 'Verträge nach österreichischem Recht',
     h1: 'Vertragsvorlagen',

@@ -276,6 +276,7 @@ export const sk: Texty = {
     nic: 'Nič sme nenašli. Skúste iné slovo alebo prejdite kategórie.',
     vysledku: (n) => (n === 1 ? '1 výsledok' : n >= 2 && n <= 4 ? `${n} výsledky` : `${n} výsledkov`),
     cteni: (min) => `${min} min čítania`,
+    fotoAutor: 'Foto:',
     aktualizovano: 'Aktualizované',
     obsah: 'V článku',
     dokumentyNadpis: 'Vzory k tejto téme',

@@ -7,6 +7,7 @@ import { ogSlug } from '../lib/og';
 import { INFO_ODKAZY } from '../obsah/informace';
 import Souhlas from '../components/Souhlas.astro';
 import { PORADNY } from '../lib/poradna';
+import { ZEME } from '../obsah';
 
 interface Props {
   title: string;
@@ -15,15 +16,20 @@ interface Props {
   noindex?: boolean;
   /** Jazykové verze téže stránky (hreflang) – jen tam, kde jde opravdu o stejný obsah */
   alternates?: { hreflang: string; href: string }[];
+  /** Vlastní náhledový obrázek (absolutní URL), jinak vygenerovaný /og/… */
+  obrazek?: string;
 }
 
-const { title, description, lang = 'en', noindex = false, alternates = [] } = Astro.props;
+const { title, description, lang = 'en', noindex = false, alternates = [], obrazek } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const robots = !SITE.indexovat || noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1';
-const ogImage = new URL(`/og/${ogSlug(Astro.url.pathname)}.png`, SITE.url).href;
+const ogImage = obrazek ?? new URL(`/og/${ogSlug(Astro.url.pathname)}.png`, SITE.url).href;
 const P = TEXTY[lang as Jazyk]?.paticka;
-const ogLocale = P?.ogLocale ?? 'en_US';
 const zemeCesty = Astro.url.pathname.split('/').filter(Boolean)[0] ?? '';
+// Jazyk a locale podle země v cestě (de-AT, de-CH…), ne jen podle jazyka rozhraní
+const zemeStranky = ZEME.find((z) => z.kod === zemeCesty);
+const htmlLang = zemeStranky?.hreflang ?? lang;
+const ogLocale = zemeStranky ? zemeStranky.hreflang.replace('-', '_') : (P?.ogLocale ?? 'en_US');
 const zemeKodPaticky = INFO_ODKAZY[zemeCesty] ? zemeCesty : ({ sk: 'sk', pl: 'pl', de: 'de' } as Record<string, string>)[lang] ?? 'cz';
 const poradna = PORADNY[zemeKodPaticky];
 const odkazy = INFO_ODKAZY[zemeCesty] ?? INFO_ODKAZY[{ sk: 'sk', pl: 'pl', de: 'de' }[lang] ?? 'cz'];
@@ -32,7 +38,7 @@ const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${t
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

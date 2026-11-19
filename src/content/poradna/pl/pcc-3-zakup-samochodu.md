@@ -22,6 +22,7 @@ faq:
     a: "Od umów, w których wartość rynkowa auta przekracza 3000 zł (próg obowiązuje od 3 listopada 2026; wcześniej 1000 zł). Podatek wynosi 2% wartości rynkowej."
   - q: "Co jeśli zapłaciłem za auto mniej niż jest warte?"
     a: "Podatek liczy się od wartości rynkowej. Jeśli zaniżysz cenę, urząd skarbowy może ją określić sam i dopłacić podatek z odsetkami."
+foto: 'ucty'
 ---
 
 Przy zakupie używanego samochodu od osoby prywatnej **kupujący** płaci **podatek od czynności cywilnoprawnych (PCC)**. Sprzedający go nie płaci.
@@ -35,6 +36,9 @@ Przy zakupie używanego samochodu od osoby prywatnej **kupujący** płaci **poda
 ## Termin: 14 dni
 
 Deklarację **PCC-3** składasz i podatek wpłacasz **w ciągu 14 dni od podpisania umowy**. Najprościej przez **e-Urząd Skarbowy** lub serwis podatki.gov.pl – deklarację można wysłać online.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1671719367451-7bf05ae9549c?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Kluczyk w dłoni przed używanym autem" loading="lazy" /><figcaption>Fot. Swansway Motor Group / Unsplash</figcaption></figure>
 
 ## Jak wypełnić PCC-3
 

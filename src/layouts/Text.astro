@@ -2,6 +2,7 @@
 // Rozvržení textových stránek (podmínky, GDPR, o nás)
 import Base from './Base.astro';
 import { TEXTY, type Jazyk } from '../i18n';
+import { ZEME } from '../obsah';
 interface Props {
   title: string;
   description: string;
@@ -11,9 +12,12 @@ interface Props {
 }
 const { title, description, lang = 'cs', zeme = 'cz', aktualizovano } = Astro.props;
 const P = TEXTY[lang as Jazyk].paticka;
+// Titulek vždy se zemí – stejné stránky v DE/AT/CH nesmí mít shodný titulek
+const nazevZeme = ZEME.find((z) => z.kod === zeme)?.nazev;
+const plnyTitulek = !nazevZeme || title.includes(nazevZeme) ? title : title.includes('Dokuio') ? `${title} – ${nazevZeme}` : `${title} – Dokuio ${nazevZeme}`;
 ---
 
-<Base title={title} description={description} lang={lang}>
+<Base title={plnyTitulek} description={description} lang={lang}>
   <Fragment slot="nav">
     <a class="btn btn--duch btn--maly" href={`/${zeme}/`}>{P.vzory}</a>
   </Fragment>

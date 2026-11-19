@@ -22,6 +22,7 @@ faq:
     a: "Áno, na základe splnomocnenia s úradne overeným podpisom splnomocniteľa."
   - q: "Môžem auto predať za hotové?"
     a: "Medzi dvoma fyzickými osobami nepodnikateľmi je hotovostná platba zakázaná nad 15 000 €. Vyššie sumy posielajte prevodom."
+foto: 'auto-klice'
 ---
 
 Predaj auta medzi dvoma ľuďmi zvládnete sami, ak dodržíte poradie: **doklady a overenie kupujúceho, zmluva a peniaze, odovzdanie a zmena držby**.
@@ -33,6 +34,9 @@ Osvedčenie o evidencii časť I a II, servisnú knižku, protokol z poslednej t
 ## 2. Overte kupujúceho
 
 Mená, dátum narodenia a adresu prepíšte presne podľa občianskeho preukazu.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1498887960847-2a5e46312788?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Tachometer auta" loading="lazy" /><figcaption>Foto: CHUTTERSNAP / Unsplash</figcaption></figure>
 
 ## 3. Kúpna zmluva
 

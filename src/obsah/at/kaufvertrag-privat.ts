@@ -6,7 +6,8 @@ const stranka: StrankaDokumentu = {
   ...de,
   sablona,
   landing: { ...de.landing, ...{
-  "title": "Kaufvertrag privat Österreich {rok} – Vorlage kostenlos als PDF",
+  "description": "Kostenloser Kaufvertrag für gebrauchte Sachen unter Privaten nach ABGB – mit Gewährleistungsausschluss. Für Fahrrad, Handy, Möbel. PDF und Word.",
+    "title": "Kaufvertrag privat Österreich {rok} – Vorlage kostenlos als PDF",
   "nehodiSe": [
     "Autos – dafür gibt es den Kaufvertrag Gebrauchtwagen",
     "Verkäufe von Unternehmern an Verbraucher"

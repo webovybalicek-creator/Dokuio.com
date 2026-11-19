@@ -39,7 +39,7 @@ export const zeme: Zeme = {
       ilustrace: 'auto',
       dokumenty: ['kaufvertrag-gebrauchtwagen', 'uebergabeprotokoll-fahrzeug', 'vollmacht-zulassung', 'quittung'],
       title: 'Autoverkauf – alle Dokumente in einem PDF kostenlos',
-      description: 'Alles für den privaten Autoverkauf in Deutschland: Kaufvertrag, Übergabeprotokoll, Vollmacht für die Zulassungsstelle und Quittung. Einmal ausfüllen, alles auf einmal laden.',
+      description: 'Alles für den privaten Autoverkauf in Deutschland: Kaufvertrag, Übergabeprotokoll, Vollmacht für die Zulassungsstelle und Quittung – einmal ausfüllen.',
       perex: 'Füllen Sie den Kaufvertrag aus – die anderen Dokumente übernehmen die Angaben. Dann alles auf einmal als ein PDF laden.',
     },
     {
@@ -90,7 +90,7 @@ export const zeme: Zeme = {
   },
   hub: {
     title: 'Vertragsvorlagen kostenlos als PDF – online ausfüllen',
-    description: 'Kostenlose Vorlagen nach deutschem Recht: Kaufvertrag Gebrauchtwagen, Darlehensvertrag, Schenkungsvertrag, Vollmacht, Widerruf und mehr. Online ausfüllen, PDF oder Word laden.',
+    description: 'Kostenlose Vorlagen nach deutschem Recht: Kaufvertrag Gebrauchtwagen, Darlehensvertrag, Schenkung, Vollmacht, Widerruf. Online ausfüllen, PDF oder Word.',
     stitek: 'Deutschland',
     stitekSpan: 'Verträge nach deutschem Recht',
     h1: 'Vertragsvorlagen',

@@ -26,7 +26,7 @@ const SK: InfoStranka[] = [
   {
     typ: 'onas',
     slug: 'o-nas',
-    title: 'O Dokuio',
+    title: 'O Dokuio – vzory zmlúv zadarmo',
     description: 'Dokuio.com – vzory zmlúv zadarmo v PDF a Worde. Kto za webom stojí a ako vzory vznikajú.',
     html: `<p class="text-stranka__vytah">Dokuio vzniklo, aby si každý mohol jednoduchú zmluvu – napríklad pri predaji auta – pripraviť sám, rýchlo a zadarmo. Bez registrácie, bez platenia za stiahnutie a bez právnickej hantýrky.</p>
 <h2>Ako vzory vznikajú</h2>
@@ -69,7 +69,7 @@ const SK: InfoStranka[] = [
 <h2>3. Spätná väzba</h2><p>Text spätnej väzby ukladáme spolu s dátumom a adresou stránky, bez mena a e-mailu, najviac 2 roky.</p>
 <h2>4. Platby</h2><p>Platby kartou spracúva Stripe Payments Europe, Ltd.; údaje o karte nevidíme. Od Stripe dostávame e-mail platiteľa, sumu a dátum, ktoré uchovávame podľa účtovných predpisov.</p>
 <h2>5. Analytika a cookies</h2><p>Ak v lište súhlasíte, používame Google Analytics 4 (Google Ireland Ltd.) na anonymné meranie návštevnosti; IP adresy Google v EÚ neukladá. Bez súhlasu sa analytika nenačíta a nepoužívame žiadne cookies. Súhlas môžete kedykoľvek zmeniť odkazom „Nastavenie cookies“ v pätičke.</p>
-<h2>6. Hosting</h2><p>Web beží na serveroch Exon v Českej republike, ktoré krátko uchovávajú technické záznamy o prístupoch kvôli bezpečnosti.</p>
+<h2>6. Hosting</h2><p>Web beží na serveroch Exon v Českej republike, ktoré krátko uchovávajú technické záznamy o prístupoch kvôli bezpečnosti. Fotografie v poradni sa načítavajú zo služby Unsplash (images.unsplash.com), ktorá pritom vidí vašu IP adresu.</p>
 <h2>7. Vaše práva</h2><p>Máte právo na prístup, opravu, vymazanie, obmedzenie spracúvania a námietku. Napíšte nám na ${e}. Sťažnosť môžete podať Úradu na ochranu osobných údajov SR (<a href="https://dataprotection.gov.sk" rel="noopener">dataprotection.gov.sk</a>) alebo českému Úradu pre ochranu osobných údajov.</p>`,
   },
 ];
@@ -79,7 +79,7 @@ const PL: InfoStranka[] = [
   {
     typ: 'onas',
     slug: 'o-nas',
-    title: 'O Dokuio',
+    title: 'O Dokuio – darmowe wzory umów',
     description: 'Dokuio.com – darmowe wzory umów w PDF i Word. Kto stoi za serwisem i jak powstają wzory.',
     html: `<p class="text-stranka__vytah">Dokuio powstało, żeby każdy mógł sam, szybko i za darmo przygotować prostą umowę – na przykład przy sprzedaży auta. Bez rejestracji, bez opłat za pobranie i bez prawniczego żargonu.</p>
 <h2>Jak powstają wzory</h2>
@@ -95,7 +95,7 @@ const PL: InfoStranka[] = [
     typ: 'podminky',
     slug: 'regulamin',
     title: 'Regulamin',
-    description: 'Regulamin serwisu Dokuio.com – darmowe wzory umów w PDF i Word.',
+    description: 'Regulamin serwisu Dokuio.com – darmowe wzory umów w PDF i Word: zakres usługi, odpowiedzialność i zasady korzystania ze wzorów.',
     aktualizovano: AKT,
     html: `<h2>1. Usługodawca</h2><p>Serwis dokuio.com prowadzi ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Czechy („usługodawca”). Kontakt: ${e}.</p>
 <h2>2. Co oferuje Dokuio</h2><p>Wzory prostych umów i dokumentów, które użytkownik wypełnia w kreatorze online albo pobiera puste, w formacie PDF lub Word. Usługa jest <strong>bezpłatna</strong> i nie wymaga rejestracji.</p>
@@ -120,7 +120,7 @@ const PL: InfoStranka[] = [
 <h2>3. Opinie</h2><p>Treść opinii przechowujemy z datą i adresem strony, bez imienia i e-maila, maksymalnie 2 lata.</p>
 <h2>4. Płatności</h2><p>Płatności kartą obsługuje Stripe Payments Europe, Ltd.; nie widzimy danych karty. Od Stripe otrzymujemy e-mail płatnika, kwotę i datę, które przechowujemy zgodnie z przepisami rachunkowymi.</p>
 <h2>5. Analityka i pliki cookie</h2><p>Jeśli wyrazisz zgodę w pasku, korzystamy z Google Analytics 4 (Google Ireland Ltd.) do anonimowego pomiaru ruchu; Google nie zapisuje adresów IP w UE. Bez zgody analityka się nie ładuje i nie używamy żadnych plików cookie. Zgodę możesz zmienić w każdej chwili przez link „Ustawienia cookies” w stopce.</p>
-<h2>6. Hosting</h2><p>Serwis działa na serwerach Exon w Czechach, które krótko przechowują techniczne logi dostępu ze względów bezpieczeństwa.</p>
+<h2>6. Hosting</h2><p>Serwis działa na serwerach Exon w Czechach, które krótko przechowują techniczne logi dostępu ze względów bezpieczeństwa. Zdjęcia w poradniku są wczytywane z serwisu Unsplash (images.unsplash.com), który widzi przy tym Twój adres IP.</p>
 <h2>7. Twoje prawa</h2><p>Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania i sprzeciwu. Napisz na ${e}. Skargę możesz złożyć do Prezesa UODO (<a href="https://uodo.gov.pl" rel="noopener">uodo.gov.pl</a>) lub do czeskiego organu nadzorczego (ÚOOÚ).</p>`,
   },
 ];
@@ -178,13 +178,20 @@ const de = (zeme: 'de' | 'at' | 'ch'): InfoStranka[] => {
 <h2>3. Feedback</h2><p>Feedback-Texte speichern wir mit Datum und Seitenadresse, ohne Namen und E-Mail, höchstens 2 Jahre.</p>
 <h2>4. Zahlungen</h2><p>Kartenzahlungen wickelt Stripe Payments Europe, Ltd. ab; Kartendaten sehen wir nicht. Von Stripe erhalten wir E-Mail, Betrag und Datum, die wir nach den Buchhaltungsvorschriften aufbewahren.</p>
 <h2>5. Analyse und Cookies</h2><p>Wenn Sie im Hinweisbanner einwilligen, nutzen wir Google Analytics 4 (Google Ireland Ltd.) zur anonymen Reichweitenmessung (Art. 6 Abs. 1 lit. a DSGVO); Google speichert in der EU keine IP-Adressen. Ohne Einwilligung wird die Analyse nicht geladen und es werden keine Cookies gesetzt. Ihre Einwilligung können Sie jederzeit über „Cookie-Einstellungen“ in der Fußzeile ändern.</p>
-<h2>6. Hosting</h2><p>Die Website läuft auf Servern von Exon in Tschechien, die technische Zugriffsprotokolle aus Sicherheitsgründen kurz aufbewahren.</p>
+<h2>6. Hosting</h2><p>Die Website läuft auf Servern von Exon in Tschechien, die technische Zugriffsprotokolle aus Sicherheitsgründen kurz aufbewahren. Fotos im Ratgeber werden von Unsplash (images.unsplash.com) geladen; dabei sieht Unsplash Ihre IP-Adresse.</p>
 <h2>7. Ihre Rechte</h2><p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Widerspruch. Schreiben Sie an ${e}. Beschweren können Sie sich ${behoerde} oder bei der tschechischen Aufsichtsbehörde ÚOOÚ.</p>`,
     },
   ];
 };
 
-export const INFORMACE: Record<string, InfoStranka[]> = { sk: SK, pl: PL, de: de('de'), at: de('at'), ch: naSchweiz(de('ch')) };
+const sZemi = (s: InfoStranka[], zeme: string): InfoStranka[] => s.map((x) => ({ ...x, description: `${x.description} (${zeme})` }));
+export const INFORMACE: Record<string, InfoStranka[]> = {
+  sk: SK,
+  pl: PL,
+  de: sZemi(de('de'), 'Deutschland'),
+  at: sZemi(de('at'), 'Österreich'),
+  ch: naSchweiz(sZemi(de('ch'), 'Schweiz')),
+};
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */
 export const INFO_ODKAZY: Record<string, Record<TypInfo, string>> = {

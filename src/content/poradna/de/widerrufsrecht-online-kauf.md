@@ -24,6 +24,7 @@ faq:
     a: "Spätestens 14 Tage nach Eingang des Widerrufs. Der Händler darf warten, bis er die Ware zurückhat oder Sie die Absendung nachweisen."
   - q: "Wer trägt die Rücksendekosten?"
     a: "Sie, wenn der Händler Sie vorher darüber informiert hat. Ohne diese Information trägt der Händler die Kosten."
+foto: 'nakup-online'
 ---
 
 Bei Verträgen im **Fernabsatz** (Online-Shop, Telefon) mit einem Unternehmer haben Verbraucher ein **14-tägiges Widerrufsrecht** (§ 312g, § 355 BGB).
@@ -44,6 +45,9 @@ Eine eindeutige Erklärung reicht, eine Begründung ist nicht nötig. Nutzen Sie
 Senden Sie den Widerruf so, dass Sie den Zugang nachweisen können (E-Mail, Einschreiben, Formular im Kundenkonto).
 
 **Seit 19. Juni 2026:** Online-Shops müssen einen **Widerrufsbutton** anbieten (§ 356a BGB) – zweistufig, mit Bestätigung und sofortiger Eingangsbestätigung per E-Mail. Der Widerruf per E-Mail oder Brief bleibt trotzdem möglich.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Übergabe eines Pakets" loading="lazy" /><figcaption>Foto: RoseBox / Unsplash</figcaption></figure>
 
 ## 3. Ware zurücksenden
 

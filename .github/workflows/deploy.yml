@@ -31,6 +31,9 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      - name: Kontrola SEO (lokální metadata každé URL, viz SEO.md)
+        run: node scripts/kontrola-seo.mjs
+
       - name: Nastavení odesílání e-mailů (SMTP ze secretů)
         if: env.SMTP_PASSWORD != ''
         run: |

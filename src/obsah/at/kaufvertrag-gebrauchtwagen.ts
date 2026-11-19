@@ -9,7 +9,7 @@ const stranka: StrankaDokumentu = {
     ...de.landing,
     title: 'Kaufvertrag Gebrauchtwagen Österreich {rok} – Vorlage kostenlos als PDF',
     description:
-      'Kostenloser Kfz-Kaufvertrag von privat nach österreichischem Recht (ABGB): FIN, Kilometerstand, Unfallschäden, Gewährleistungsausschluss, Typenschein, Pickerl. PDF und Word.',
+      'Kostenloser Kfz-Kaufvertrag von privat nach ABGB: FIN, Kilometerstand, Unfallschäden, Gewährleistungsausschluss, Typenschein, Pickerl. PDF und Word.',
     perex: 'Privatverkauf eines gebrauchten Autos nach ABGB – mit Kilometerstand, Unfallschäden, Gewährleistungsausschluss und Hinweisen zu Ab- und Anmeldung.',
     obsahPopis: 'Sechs Paragrafen nach §§ 1053 ff. ABGB.',
     po: [

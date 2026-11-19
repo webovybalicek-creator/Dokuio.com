@@ -21,6 +21,8 @@ const poradna = defineCollection({
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     slova: z.array(z.string()).default([]),
     koncept: z.boolean().default(false),
+    /** Klíč titulní fotky z src/lib/fotky.ts */
+    foto: z.string().optional(),
   }),
 });
 

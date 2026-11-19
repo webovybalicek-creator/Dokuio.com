@@ -1,5 +1,7 @@
 # Jak přidat dokument nebo zemi
 
+> **SEO:** každá nová URL musí splnit pravidla v [SEO.md](SEO.md) (lokální title/description, lang, og:locale…). Build v CI spadne, pokud ne.
+
 Vše se sestaví samo: stránky, průvodce, prázdné vzory PDF/DOCX, katalog a vyhledávání,
 související dokumenty, OG obrázky, sitemap i hreflang.
 

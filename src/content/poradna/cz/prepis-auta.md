@@ -22,6 +22,7 @@ faq:
     a: "Správní poplatek je 800 Kč, při podání přes Portál dopravy 640 Kč. U starších aut s emisní třídou Euro 0 až 2 se navíc platí ekologický poplatek."
   - q: "Co když lhůtu 10 pracovních dnů nestihneme?"
     a: "Jde o přestupek, za který hrozí pokuta až 50 000 Kč. Hlavně ale prodávající zůstává v registru jako vlastník a mohou mu chodit pokuty a výzvy za auto, které už nemá."
+foto: 'auto-palubka'
 ---
 
 Prodej auta nekončí podpisem kupní smlouvy. Dokud se změna neobjeví v **registru silničních vozidel**, vede stát jako vlastníka pořád prodávajícího. Zákon č. 56/2001 Sb. proto ukládá oběma stranám podat žádost o zápis změny vlastníka **do 10 pracovních dnů** od převodu vlastnického práva, typicky ode dne podpisu smlouvy a předání auta.
@@ -37,6 +38,9 @@ Prodej auta nekončí podpisem kupní smlouvy. Dokud se změna neobjeví v **reg
 - občanské průkazy, u firem výpis z obchodního rejstříku,
 - doklad o povinném ručení nového vlastníka (zelenou kartu, často stačí číslo smlouvy),
 - případně protokol o evidenční kontrole – vyžaduje se u některých přepisů (např. dovezených aut).
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Dva lidé procházejí dokumenty" loading="lazy" /><figcaption>Foto: Olena Kholina / Unsplash</figcaption></figure>
 
 ## 3. Podejte žádost
 

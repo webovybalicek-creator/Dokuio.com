@@ -22,6 +22,7 @@ faq:
     a: "Binnen 14 Tagen ab Zugang des Rücktritts. Der Unternehmer darf warten, bis die Ware zurück ist oder Sie die Absendung nachweisen."
   - q: "Was gilt, wenn der Shop nicht über das Rücktrittsrecht informiert hat?"
     a: "Dann verlängert sich die Rücktrittsfrist um 12 Monate. Holt der Unternehmer die Information nach, beginnen ab dann 14 Tage."
+foto: 'balik'
 ---
 
 Für Verträge im Fernabsatz (Online-Shop, Telefon) und außerhalb von Geschäftsräumen gilt in Österreich das **Fern- und Auswärtsgeschäfte-Gesetz (FAGG)**. Verbraucher können binnen **14 Tagen** ohne Begründung zurücktreten (§ 11 FAGG).
@@ -40,6 +41,9 @@ Eine eindeutige Erklärung genügt – per E-Mail, Brief oder Formular des Shops
 - Konto für die Rückzahlung.
 
 **Neu für Verträge ab 1. Oktober 2026:** Webshops müssen eine Online-Rücktrittsfunktion („Widerrufsbutton“) bereitstellen (§ 13a FAGG, VerbRÄG 2026). Der Rücktritt per E-Mail oder Brief bleibt möglich.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Online-Einkauf mit Kreditkarte" loading="lazy" /><figcaption>Foto: rupixen / Unsplash</figcaption></figure>
 
 ## 3. Rücksendung
 

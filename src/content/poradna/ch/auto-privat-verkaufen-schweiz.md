@@ -22,6 +22,7 @@ faq:
     a: "Ja, unter Privaten ist das üblich. Der Ausschluss gilt aber nicht für Mängel, die Sie arglistig verschweigen (Art. 199 OR)."
   - q: "Wie lange hat der Käufer Zeit, Mängel zu melden?"
     a: "Er muss das Fahrzeug nach der Übergabe prüfen und Mängel sofort rügen (Art. 201 OR). Die Ansprüche verjähren zwei Jahre nach der Übergabe – sofern die Gewährleistung nicht wegbedungen wurde."
+foto: 'auto-ojetina'
 ---
 
 Ein Occasionsauto von privat zu verkaufen ist in der Schweiz einfach – wenn Sie drei Dinge richtig machen: einen schriftlichen **Kaufvertrag**, eine **sichere Zahlung** und die **Schilder** behalten.
@@ -46,6 +47,9 @@ Der Kaufvertrag richtet sich nach **Art. 184 ff. Obligationenrecht (OR)**. Hinei
 ### Gewährleistung wegbedingen
 
 Unter Privaten ist es üblich, die Gewährleistung auszuschliessen („wie besichtigt und Probe gefahren“). Das ist zulässig – aber **nicht für Mängel, die Sie arglistig verschweigen** (Art. 199 OR). Tragen Sie deshalb alles ehrlich ein, was Sie wissen.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1761014586544-53fe5e1f1e25?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1761014586544-53fe5e1f1e25?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1761014586544-53fe5e1f1e25?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1761014586544-53fe5e1f1e25?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Übergabe der Autoschlüssel" loading="lazy" /><figcaption>Foto: yahdi yasya / Unsplash</figcaption></figure>
 
 ## 3. Sicher bezahlen lassen
 

@@ -16,6 +16,7 @@ faq:
     a: "Ne. Jde o prohlášení dlužníka a bez jeho podpisu nemá účinky. Podpis věřitele se hodí jen tehdy, když spolu sjednáváte splátky."
   - q: "Jak dlouho mám po uznání na vymáhání?"
     a: "Uznáním začíná běžet nová promlčecí lhůta 10 let. Pokud dlužník v uznání určí termín splacení, běží od tohoto termínu."
+foto: 'psani'
 ---
 
 Když vám někdo dluží a nemá teď na zaplacení, nejjednodušší dohoda je **uznání dluhu**. Dlužník v něm písemně potvrdí, že dluží, z jakého důvodu a kolik. Upravuje ho § 2053 občanského zákoníku.
@@ -32,6 +33,9 @@ Chybí-li důvod nebo výše, uznání nemá zákonné účinky.
 
 1. **Důkaz** – u soudu se pak předpokládá, že dluh v uznaném rozsahu existoval.
 2. **Nová promlčecí lhůta 10 let** od uznání. Pokud dlužník v uznání určí termín splacení, běží deset let od tohoto termínu.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Bankovky v ruce" loading="lazy" /><figcaption>Foto: Omid Armin / Unsplash</figcaption></figure>
 
 ## Uznání se splátkami
 

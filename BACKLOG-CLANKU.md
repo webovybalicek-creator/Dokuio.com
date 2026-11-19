@@ -3,6 +3,7 @@
 Stav k 19. 11. 2026 (23 článků publikováno). Články se píšou do `src/content/poradna/<země>/<slug>.md` (struktura kategorií a témat v `src/obsah/<země>/_poradna.ts`).
 
 **Pravidla pro každý článek**
+- SEO metadata podle [SEO.md](SEO.md): title ≤ 70 znaků, description 70–170, v jazyce země, titulní fotka `foto:` + fotka v textu.
 - Fakta jen z úředních zdrojů (zákon v e-Sbírce / Slov-Lex / ISAP / gesetze-im-internet / RIS, úřední portály). Zdroje do `zdroje:`.
 - Odkaz na 1–4 vzory (`dokumenty:`), krátké FAQ (3 otázky) pro rich výsledky, `slova:` pro hledání.
 - Lhůty a částky ověřit k datu publikace; při změně zákona aktualizovat `aktualizovano:`.

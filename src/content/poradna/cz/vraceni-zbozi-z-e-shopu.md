@@ -25,6 +25,7 @@ faq:
     a: "Vy, ale jen pokud vás o tom obchod předem informoval. Obchod vám vrací i původní poštovné ve výši nejlevnější nabízené dopravy."
   - q: "Platí to i pro nákup v kamenném obchodě?"
     a: "Ne. Zákonné právo na vrácení do 14 dnů platí jen u nákupu na dálku (e-shop, telefon) nebo mimo provozovnu."
+foto: 'balik'
 ---
 
 Nákup na internetu má jednu velkou výhodu: zboží si nemůžete předem prohlédnout, a proto vám zákon dává **14 dnů na rozmyšlenou**. Během nich můžete od smlouvy odstoupit bez udání důvodu.
@@ -42,6 +43,9 @@ Pošlete obchodu jasné prohlášení – e-mailem, doporučeně nebo přes form
 **Od 1. 1. 2027** musí každý e-shop nabízet přímo na webu nebo v aplikaci tlačítko „Odstoupit od smlouvy“ s potvrzením a e-mailovým potvrzením přijetí (nový § 1830a občanského zákoníku, zákon č. 159/2026 Sb.). E-mail nebo dopis ale fungují dál.
 
 Zboží vraťte **nejpozději do 14 dnů od odstoupení**. Obal stačí přiměřený, nemusí být originální.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Nákup na internetu s platební kartou" loading="lazy" /><figcaption>Foto: rupixen / Unsplash</figcaption></figure>
 
 ## Kdy vám obchod vrátí peníze
 

@@ -11,7 +11,8 @@ import type { Zeme } from '../../../../obsah/typy';
 import { texty } from '../../../../i18n';
 import { SITE } from '../../../../lib/config';
 import { formatDatum } from '../../../../sablony/dokument';
-import { PORADNY, clanky, urlKategorie, urlTematu, urlPoradny, urlClanku, minutCteni, type Clanek } from '../../../../lib/poradna';
+import { urlFotky, srcsetFotky, autorFotky, altFotky } from '../../../../lib/fotky';
+import { popisSeo, PORADNY, clanky, urlKategorie, urlTematu, urlPoradny, urlClanku, minutCteni, type Clanek } from '../../../../lib/poradna';
 
 export async function getStaticPaths() {
   const out = [];
@@ -62,6 +63,7 @@ if (clanek) {
       datePublished: clanek.data.datum,
       dateModified: clanek.data.aktualizovano ?? clanek.data.datum,
       inLanguage: zeme.hreflang,
+      ...(clanek.data.foto ? { image: urlFotky(clanek.data.foto, 1200, 675) } : {}),
       mainEntityOfPage: url,
       author: { '@type': 'Organization', name: SITE.nazev, url: SITE.url },
       publisher: { '@type': 'Organization', name: SITE.nazev, url: SITE.url },
@@ -97,7 +99,7 @@ const h2 = obsah?.headings.filter((h) => h.depth === 2) ?? [];
 
 {
   clanek && obsah ? (
-    <Base title={clanek.data.title} description={clanek.data.description} lang={zeme.jazyk}>
+    <Base title={clanek.data.title} description={clanek.data.description} lang={zeme.jazyk} obrazek={clanek.data.foto ? urlFotky(clanek.data.foto, 1200, 630) : undefined}>
       {schema.map((s) => <script slot="head" type="application/ld+json" set:html={JSON.stringify(s)} />)}
       <Fragment slot="nav">
         <a class="nav__odkaz" href={urlPoradny(zeme.kod)}>{P.nazev}</a>
@@ -130,6 +132,20 @@ const h2 = obsah?.headings.filter((h) => h.depth === 2) ?? [];
           <div class="wrap">
             <div class="ram sekce__in clanek">
               <div class="clanek__text">
+                {clanek.data.foto && (
+                  <figure class="clanek__foto clanek__foto--titulni">
+                    <img
+                      src={urlFotky(clanek.data.foto, 1200, 675)}
+                      srcset={srcsetFotky(clanek.data.foto)}
+                      sizes="(max-width: 960px) 100vw, 720px"
+                      width="1200"
+                      height="675"
+                      alt={altFotky(clanek.data.foto, zeme.jazyk)}
+                      fetchpriority="high"
+                    />
+                    <figcaption>{T.fotoAutor} {autorFotky(clanek.data.foto)} / Unsplash</figcaption>
+                  </figure>
+                )}
                 <obsah.Content />
                 {clanek.data.faq.length > 0 && (
                   <>
@@ -216,7 +232,7 @@ const h2 = obsah?.headings.filter((h) => h.depth === 2) ?? [];
       )}
     </Base>
   ) : (
-    <Base title={`${K.nazev} – ${P.nazev}`} description={K.popis} lang={zeme.jazyk} noindex={vKategorii.length === 0}>
+    <Base title={`${K.nazev} – ${P.nazev} ${zeme.nazev}`} description={popisSeo(`${K.popis}`, vKategorii)} lang={zeme.jazyk} noindex={vKategorii.length === 0}>
       <Fragment slot="nav">
         <a class="btn btn--duch btn--maly" href={urlPoradny(zeme.kod)}>{P.nazev}</a>
       </Fragment>

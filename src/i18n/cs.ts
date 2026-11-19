@@ -280,6 +280,7 @@ export const cs = {
     nic: 'Nic jsme nenašli. Zkuste jiné slovo nebo projděte kategorie.',
     vysledku: (n: number) => (n === 1 ? '1 výsledek' : n >= 2 && n <= 4 ? `${n} výsledky` : `${n} výsledků`),
     cteni: (min: number) => `${min} min čtení`,
+    fotoAutor: 'Foto:',
     aktualizovano: 'Aktualizováno',
     obsah: 'V článku',
     dokumentyNadpis: 'Vzory k tomuto tématu',

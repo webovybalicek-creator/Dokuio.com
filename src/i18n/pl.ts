@@ -273,6 +273,7 @@ export const pl: Texty = {
     nic: 'Nic nie znaleźliśmy. Spróbuj innego słowa albo przejrzyj kategorie.',
     vysledku: (n) => (n === 1 ? '1 wynik' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? `${n} wyniki` : `${n} wyników`),
     cteni: (min) => `${min} min czytania`,
+    fotoAutor: 'Fot.',
     aktualizovano: 'Zaktualizowano',
     obsah: 'W artykule',
     dokumentyNadpis: 'Wzory do tego tematu',

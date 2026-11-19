@@ -20,6 +20,7 @@ faq:
     a: "Jen když se změní okolnosti, z nichž strany při uzavření smlouvy vycházely, natolik, že po něm nelze rozumně chtít, aby v nájmu pokračoval (§ 2287). Jednodušší je dohoda o skončení nájmu."
   - q: "Musí být výpověď písemná?"
     a: "Ano. Výpověď z nájmu bytu musí mít písemnou formu a musí být druhé straně doručena. Výpověď pronajímatele navíc musí obsahovat poučení o právu vznést námitky a navrhnout přezkum soudem."
+foto: 'stehovani'
 ---
 
 Nájem bytu chrání občanský zákoník víc než jiné smlouvy. Ujednání, která by zhoršila postavení nájemce, nemají účinky (§ 2235). Pro výpověď proto platí hlavně to, co stanoví zákon.
@@ -42,6 +43,9 @@ Pronajímatel může vypovědět **jen z důvodů v § 2288**, například:
 Výpovědní doba je **3 měsíce**. Výpověď musí obsahovat **důvod** a **poučení**, že nájemce může vznést **námitky** a do **2 měsíců** navrhnout soudu přezkoumání oprávněnosti výpovědi (§ 2286, § 2290). Bez poučení je výpověď neplatná.
 
 **Bez výpovědní doby** (§ 2291) může pronajímatel vypovědět jen při zvlášť závažném porušení povinností – například když nájemce nezaplatil nájemné a služby za **alespoň 3 měsíce** nebo byt poškozuje závažně a nenapravitelně. Nájemce pak musí byt vyklidit do 1 měsíce.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1737442886747-9fb768b96ed2?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1737442886747-9fb768b96ed2?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1737442886747-9fb768b96ed2?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1737442886747-9fb768b96ed2?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Klíč ve dveřích" loading="lazy" /><figcaption>Foto: Jakub Żerdzicki / Unsplash</figcaption></figure>
 
 ## Jak výpověď doručit
 

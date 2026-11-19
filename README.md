@@ -14,6 +14,10 @@ npm run build    # sestavení do složky dist/
 
 Vyžaduje Node.js 22.12+ (deploy běží na Node.js 24).
 
+## SEO
+
+Pravidla pro metadata každé URL podle jazyka a země: [SEO.md](SEO.md). Kontrola `node scripts/kontrola-seo.mjs` běží po buildu v CI a chyba zastaví nasazení.
+
 ## Deploy
 
 Každý push do větve `main` web sestaví a přes FTPS nahraje na hosting Exon (`.github/workflows/deploy.yml`). Nahrávají se jen změněné soubory (ZIP + jednorázový rozbalovač `deploy/deploy.php`).

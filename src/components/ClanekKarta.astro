@@ -1,5 +1,6 @@
 ---
 import { texty } from '../i18n';
+import { urlFotky, altFotky } from '../lib/fotky';
 import { urlClanku, minutCteni, PORADNY, type Clanek } from '../lib/poradna';
 interface Props {
   c: Clanek;
@@ -12,6 +13,9 @@ const kat = PORADNY[c.zeme].kategorie.find((k) => k.slug === c.data.kategorie);
 
 <li class="clanek-karta">
   <a href={urlClanku(c)}>
+    {c.data.foto && (
+      <img class="clanek-karta__foto" src={urlFotky(c.data.foto, 640, 360)} width="640" height="360" alt={altFotky(c.data.foto, jazyk)} loading="lazy" />
+    )}
     <span class="clanek-karta__meta">{kat?.nazev} · {T.cteni(minutCteni(c))}</span>
     <strong>{c.data.nazev ?? c.data.title}</strong>
     <span class="clanek-karta__perex">{c.data.perex}</span>

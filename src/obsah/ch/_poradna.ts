@@ -3,7 +3,7 @@ import type { Poradna } from '../typy';
 export const poradna: Poradna = {
   slug: 'ratgeber',
   nazev: 'Ratgeber',
-  title: 'Ratgeber – Autoverkauf, Darlehen, Betreibung und Mängelrüge verständlich (Schweiz)',
+  title: 'Ratgeber Schweiz – Autoverkauf, Darlehen, Betreibung, Mängelrüge',
   description: 'Praktische Anleitungen nach Schweizer Recht: Auto privat verkaufen, Geld verleihen, Schulden eintreiben, Mängel rügen. Mit kostenlosen Vorlagen.',
   h1: 'Ratgeber',
   h1Span: 'Anleitungen Schritt für Schritt für typische Alltagssituationen. Ohne Juristendeutsch, nach Schweizer Recht.',

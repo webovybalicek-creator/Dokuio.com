@@ -3,8 +3,8 @@ import type { Poradna } from '../typy';
 export const poradna: Poradna = {
   slug: 'ratgeber',
   nazev: 'Ratgeber',
-  title: 'Ratgeber – Verträge, Autoverkauf, Darlehen und Reklamation verständlich (Österreich)',
-  description: 'Praktische Anleitungen Schritt für Schritt: Auto privat verkaufen, Geld verleihen, Online-Kauf widerrufen, Mängel reklamieren. Nach geltendem Recht, mit kostenlosen Vorlagen.',
+  title: 'Ratgeber Österreich – Autoverkauf, Darlehen, Rücktritt, Gewährleistung',
+  description: 'Anleitungen nach österreichischem Recht (ABGB, FAGG, VGG): Auto privat verkaufen, Geld verleihen, Rücktritt vom Online-Kauf, Gewährleistung – mit Vorlagen.',
   h1: 'Ratgeber',
   h1Span: 'Anleitungen Schritt für Schritt für typische Alltagssituationen. Ohne Juristendeutsch, nach geltendem Recht.',
   kategorie: [

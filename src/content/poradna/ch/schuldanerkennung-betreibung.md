@@ -1,5 +1,5 @@
 ---
-title: "Schuldanerkennung und Betreibung: So kommen Sie in der Schweiz zu Ihrem Geld"
+title: "Schuldanerkennung und Betreibung: So kommen Sie zu Ihrem Geld"
 nazev: "Schuldanerkennung und Betreibung"
 description: "Warum eine unterschriebene Schuldanerkennung so wertvoll ist: Rechtsvorschlag, provisorische Rechtsöffnung nach Art. 82 SchKG, Verjährung und Raten."
 perex: "Wer privat Geld verleiht, sollte sich die Schuld unterschreiben lassen. Mit einer Schuldanerkennung lässt sich ein Rechtsvorschlag in der Betreibung rasch beseitigen."
@@ -20,6 +20,7 @@ faq:
     a: "Die meisten Forderungen, auch Darlehen, verjähren nach zehn Jahren (Art. 127 OR). Eine Schuldanerkennung oder eine Betreibung unterbricht die Verjährung, sie beginnt dann neu."
   - q: "Muss der Gläubiger die Schuldanerkennung auch unterschreiben?"
     a: "Nein, entscheidend ist die Unterschrift des Schuldners. Werden Raten vereinbart, ist die Unterschrift beider Seiten sinnvoll."
+foto: 'psani'
 ---
 
 Eine **Schuldanerkennung** ist ein kurzes Dokument, in dem der Schuldner bestätigt, wem er wie viel schuldet und wann er zahlt (Art. 17 OR). In der Schweiz hat sie einen besonderen Wert: Sie ist ein **Rechtsöffnungstitel** in der Betreibung.
@@ -41,6 +42,9 @@ Je klarer Betrag und Fälligkeit, desto besser. Ein Gericht prüft bei der Recht
 3. Er kann innert **10 Tagen Rechtsvorschlag** erheben (Art. 74 SchKG) – ohne Begründung.
 4. Jetzt zeigt sich der Wert der Schuldanerkennung: Mit ihr verlangt der Gläubiger beim Gericht die **provisorische Rechtsöffnung** (Art. 82 SchKG). Ohne sie bleibt oft nur eine ordentliche Klage.
 5. Der Schuldner kann innert **20 Tagen** auf Aberkennung klagen (Art. 83 SchKG); tut er das nicht, wird die Rechtsöffnung definitiv und die Betreibung geht weiter.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1626266061368-46a8f578ddd6?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1626266061368-46a8f578ddd6?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1626266061368-46a8f578ddd6?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1626266061368-46a8f578ddd6?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Rechnen mit dem Taschenrechner" loading="lazy" /><figcaption>Foto: Towfiqu barbhuiya / Unsplash</figcaption></figure>
 
 ## Verjährung im Blick
 

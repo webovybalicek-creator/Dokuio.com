@@ -1,4 +1,5 @@
 ---
+import { popisSeo } from '../../../../../lib/poradna';
 /** Téma poradny – jen témata, která mají aspoň jeden článek. */
 import Base from '../../../../../layouts/Base.astro';
 import ClanekKarta from '../../../../../components/ClanekKarta.astro';
@@ -30,7 +31,7 @@ const P = PORADNY[zeme.kod];
 const TX = texty(zeme.jazyk);
 ---
 
-<Base title={`${t.nazev} – ${P.nazev}`} description={`${t.popis} ${TX.poradna.clanku(c.length)}.`} lang={zeme.jazyk}>
+<Base title={`${t.nazev} – ${P.nazev} ${zeme.nazev}`} description={popisSeo(`${t.popis} ${TX.poradna.clanku(c.length)}:`, c)} lang={zeme.jazyk}>
   <Fragment slot="nav">
     <a class="btn btn--duch btn--maly" href={urlPoradny(zeme.kod)}>{P.nazev}</a>
   </Fragment>

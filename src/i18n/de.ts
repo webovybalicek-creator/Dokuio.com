@@ -159,7 +159,7 @@ export const de: Texty = {
     seznam: [
       '<strong>Zulassungsbescheinigung Teil I</strong> (Fahrzeugschein) – Feld <strong>E</strong>.',
       '<strong>Am Fahrzeug</strong> – beim Auto hinter der Windschutzscheibe auf der Fahrerseite oder am Typenschild, beim Motorrad am Rahmen am Lenkkopf.',
-      '<strong>Zulassungsbescheinigung Teil II</strong> (Fahrzeugbrief) oder Serviceheft.',
+      'Weitere Fahrzeugpapiere (in Deutschland Zulassungsbescheinigung Teil II, in Österreich Typenschein) oder Serviceheft.',
     ],
     tip: 'Die FIN in den Papieren und am Fahrzeug muss übereinstimmen. Wenn nicht – lieber nicht kaufen.',
   },
@@ -270,6 +270,7 @@ export const de: Texty = {
     nic: 'Nichts gefunden. Versuchen Sie ein anderes Wort oder stöbern Sie in den Kategorien.',
     vysledku: (n) => (n === 1 ? '1 Ergebnis' : `${n} Ergebnisse`),
     cteni: (min) => `${min} Min. Lesezeit`,
+    fotoAutor: 'Foto:',
     aktualizovano: 'Aktualisiert',
     obsah: 'Inhalt',
     dokumentyNadpis: 'Vorlagen zum Thema',

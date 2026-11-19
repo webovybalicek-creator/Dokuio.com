@@ -18,6 +18,7 @@ faq:
     a: "Ne. Promlčení zastaví hlavně podání žaloby nebo návrhu na vydání platebního rozkazu. Pomůže také písemné uznání dluhu dlužníkem."
   - q: "Co když dlužník zaplatí dluh, který už je promlčený?"
     a: "Platba je platná a dlužník ji nemůže požadovat zpět. Promlčení jen umožňuje dlužníkovi odmítnout plnit, pokud se ho dovolá."
+foto: 'kalkulacka'
 ---
 
 Promlčení řeší občanský zákoník v § 609 a násl. Neznamená, že dluh zmizí. Pokud ale věřitel podá žalobu pozdě a dlužník **namítne promlčení**, soud mu dluh nepřizná.
@@ -41,6 +42,9 @@ Nejlevnější cesta. Dlužník písemně potvrdí **důvod a výši dluhu** a p
 ### Co nepomůže
 
 Telefonáty, SMS, e-maily a ani doporučená **upomínka** promlčecí lhůtu nezastaví. Jako důkaz komunikace se ale hodí.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Doklady a kalkulačka na stole" loading="lazy" /><figcaption>Foto: Kelly Sikkema / Unsplash</figcaption></figure>
 
 ## Praktický postup pro věřitele
 

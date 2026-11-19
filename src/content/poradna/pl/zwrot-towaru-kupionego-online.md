@@ -20,6 +20,7 @@ faq:
     a: "Niezwłocznie, najpóźniej w 14 dni od otrzymania oświadczenia. Sklep może wstrzymać zwrot do czasu otrzymania towaru lub dowodu jego odesłania."
   - q: "Kto płaci za odesłanie towaru?"
     a: "Konsument, chyba że sklep zgodził się je ponosić albo nie poinformował o tym obowiązku przed zakupem."
+foto: 'balik'
 ---
 
 Przy zakupie na odległość (sklep internetowy, telefon) od przedsiębiorcy masz **prawo odstąpić od umowy w ciągu 14 dni bez podawania przyczyny**. Reguluje to **ustawa o prawach konsumenta (art. 27 i nast.)**.
@@ -38,6 +39,9 @@ Możesz użyć formularza ze sklepu albo napisać własne oświadczenie – e-ma
 - numer konta do zwrotu.
 
 **Przycisk „odstąp od umowy tutaj”:** unijna dyrektywa 2023/2673 wymaga od sklepów internetowych funkcji odstąpienia w serwisie. W Polsce nowelizacja ustawy o prawach konsumenta jest jeszcze w przygotowaniu – do jej wejścia w życie odstępujesz e-mailem, listem lub formularzem sklepu.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Zakupy online z kartą płatniczą" loading="lazy" /><figcaption>Fot. rupixen / Unsplash</figcaption></figure>
 
 ## 3. Odesłanie towaru
 

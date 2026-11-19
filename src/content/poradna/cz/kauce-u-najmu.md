@@ -1,5 +1,5 @@
 ---
-title: "Kauce u nájmu bytu: kolik smí být, kdy se vrací a co si může pronajímatel odečíst"
+title: "Kauce u nájmu bytu: kolik smí být a kdy se vrací"
 nazev: "Kauce (jistota) u nájmu"
 description: "Jistota u nájmu bytu podle § 2254 občanského zákoníku: nejvýš trojnásobek nájemného, vrací se s úroky po skončení nájmu. Co lze započíst a jak kauci doložit."
 perex: "Kauci zákon nazývá jistota. Smí být nejvýš trojnásobkem měsíčního nájemného a po skončení nájmu ji pronajímatel vrací i s úroky."
@@ -20,6 +20,7 @@ faq:
     a: "Ano. Při skončení nájmu vrací pronajímatel jistotu i s úroky. Výši úroku lze sjednat, nesmí ale být nižší, než stanoví zákon."
   - q: "Co si pronajímatel může z kauce odečíst?"
     a: "Dlužné nájemné, nedoplatky za služby a náhradu škody na bytě nad rámec běžného opotřebení. Odečtené položky by měl vyčíslit a doložit."
+foto: 'klice-byt'
 ---
 
 Kauce chrání pronajímatele pro případ, že nájemce nezaplatí nebo byt poškodí. Zákon ji nazývá **jistota** a upravuje ji **§ 2254 občanského zákoníku**.
@@ -35,6 +36,9 @@ Ujednání o vyšší kauci je v rozsahu přesahu **bez účinků** – nájemce
 - Ideálně **převodem na účet**, platba sama je doklad.
 - Při hotovosti si nechte vystavit **potvrzení o převzetí peněz**.
 - Do nájemní smlouvy napište výši jistoty, datum zaplacení a účet pro vrácení.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Pokoj plný krabic" loading="lazy" /><figcaption>Foto: Dina Badamshina / Unsplash</figcaption></figure>
 
 ## Kdy a jak se kauce vrací
 

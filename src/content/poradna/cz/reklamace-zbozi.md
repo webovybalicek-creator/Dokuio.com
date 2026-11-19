@@ -22,6 +22,7 @@ faq:
     a: "Do 30 dnů od uplatnění, pokud se s vámi nedohodne na delší lhůtě."
   - q: "Musím mít účtenku?"
     a: "Stačí jakýkoli doklad o koupi – výpis z účtu nebo potvrzení objednávky."
+foto: 'rozbity-telefon'
 ---
 
 Když se zboží rozbije nebo nefunguje, jak má, máte vůči obchodu **práva z vadného plnění**. Lidově se jim říká reklamace. Platí jen při nákupu od podnikatele; mezi soukromými lidmi se řídíte kupní smlouvou.
@@ -40,6 +41,9 @@ Když se zboží rozbije nebo nefunguje, jak má, máte vůči obchodu **práva 
 2. **Přineste zboží a doklad o koupi** do obchodu, nebo ho pošlete e-shopu podle jeho reklamačního řádu.
 3. **Řekněte, co chcete** – opravu, výměnu, slevu, nebo odstoupení.
 4. **Chtějte písemné potvrzení** s datem, popisem vady a požadovaným vyřízením. Máte na něj nárok.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Oprava mobilního telefonu" loading="lazy" /><figcaption>Foto: Clint Bustrillos / Unsplash</figcaption></figure>
 
 ## Oprava, výměna, sleva, nebo peníze zpět?
 

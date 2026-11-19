@@ -18,6 +18,7 @@ faq:
     a: "Bez sjednaného termínu se zápůjčka vrací až po výpovědi. Proto termín vrácení nebo splátky do smlouvy vždy napište."
   - q: "Co když dlužník přestane platit?"
     a: "Nepromeškejte promlčecí lhůtu (obecně 3 roky). Pomůže písemné uznání dluhu – od něj běží nová lhůta 10 let."
+foto: 'penize'
 ---
 
 Půjčit peníze kamarádovi nebo členovi rodiny je běžné. Problém nastane, když se po roce nikdo nepamatuje, kolik to bylo, kdy se mělo vracet a jestli to vlastně nebyl dárek. Občanský zákoník takovou půjčku nazývá **zápůjčka** a pár řádků na papíře vás ochrání.
@@ -35,6 +36,9 @@ Půjčit peníze kamarádovi nebo členovi rodiny je běžné. Problém nastane,
 ## Převod je lepší než hotovost
 
 Výpis z účtu je nejsilnější důkaz, že jste peníze opravdu půjčili. Pokud předáváte hotovost, napište do smlouvy, že ji dlužník při podpisu převzal, nebo si nechte podepsat **potvrzení o převzetí peněz**. Pamatujte na limit: platby v hotovosti nad 270 000 Kč jsou zakázané.
+
+
+<figure class="clanek__foto"><img src="https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=1200&h=675" srcset="https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=480&h=270 480w, https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=800&h=450 800w, https://images.unsplash.com/photo-1681505531034-8d67054e07f6?auto=format&fit=crop&q=70&w=1200&h=675 1200w" sizes="(max-width: 960px) 100vw, 720px" width="1200" height="675" alt="Podání ruky nad smlouvou" loading="lazy" /><figcaption>Foto: Amina Atar / Unsplash</figcaption></figure>
 
 ## Splátky a potvrzení
 

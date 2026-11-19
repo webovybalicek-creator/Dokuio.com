@@ -2959,3 +2959,62 @@ h2 {
 .clanek__vzory-tl {
   width: 100%;
 }
+
+/* Článek poradny: hlavička a text těsně za sebou (bez dvojitého odsazení sekcí) */
+.hero--clanek .hero__obsah {
+  padding-block: clamp(40px, 6vw, 72px) clamp(24px, 3vw, 32px);
+}
+.hero--clanek + .sekce .sekce__in {
+  padding-top: clamp(8px, 2vw, 16px);
+}
+
+/* Fotky poradny */
+.clanek-karta a {
+  align-content: start;
+  overflow: hidden;
+}
+.clanek-karta__foto {
+  display: block;
+  width: calc(100% + 40px);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin: -20px -20px 10px;
+  background: var(--frost);
+}
+.clanek__foto {
+  margin: 0 0 32px;
+}
+.clanek__foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 16px;
+  background: var(--frost);
+}
+.clanek__foto figcaption {
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  color: var(--slate);
+}
+.clanek__text .clanek__foto {
+  margin-block: 32px;
+}
+.clanek__text .clanek__foto--titulni {
+  margin-top: 0;
+}
+/* Barevná stuha v hlavičce článku plynule doběhne do bílé místo ostrého řezu */
+.hero--clanek::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 160px;
+  background: linear-gradient(to bottom, rgb(255 255 255 / 0), var(--white, #fff));
+  pointer-events: none;
+}
+.hero--clanek .hero__obsah {
+  z-index: 1;
+}
