@@ -1,4 +1,5 @@
 ---
+import { TEXTY, type Jazyk } from '../i18n';
 import '@fontsource-variable/inter-tight';
 import '../styles/global.css';
 import { SITE } from '../lib/config';
@@ -17,7 +18,8 @@ const { title, description, lang = 'en', noindex = false, alternates = [] } = As
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const robots = !SITE.indexovat || noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1';
 const ogImage = new URL(`/og/${ogSlug(Astro.url.pathname)}.png`, SITE.url).href;
-const ogLocale = lang === 'sk' ? 'sk_SK' : lang === 'en' ? 'en_US' : 'cs_CZ';
+const P = TEXTY[lang as Jazyk]?.paticka;
+const ogLocale = P?.ogLocale ?? 'en_US';
 // Značku přidat jen tam, kde se titulek vejde do ~60 znaků (Google delší ořízne)
 const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${title} | ${SITE.nazev}`;
 ---
@@ -94,25 +96,15 @@ const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${t
       <div class="wrap paticka__in">
         <span>
           © {new Date().getFullYear()} {SITE.nazev} ·{' '}
-          {lang === 'cs'
-            ? 'Všechny vzory zdarma ve formátu PDF i Word, bez registrace.'
-            : lang === 'sk'
-              ? 'Všetky vzory zadarmo vo formáte PDF aj Word, bez registrácie.'
-              : 'All templates free as PDF and Word, no sign-up.'}
+          {P?.vse ?? 'All templates free as PDF and Word, no sign-up.'}
         </span>
         <p class="paticka__disclaimer">
-          {
-            lang === 'cs'
-              ? 'Vzory poskytujeme zdarma a v dobré víře jako službu pro veřejnost. Nejde o právní poradenství. Za obsah, úpravy a použití smlouvy odpovídá výhradně uživatel – před podpisem si ji pečlivě přečtěte a u složitějších situací se poraďte s advokátem.'
-              : lang === 'sk'
-                ? 'Vzory poskytujeme zadarmo a v dobrej viere ako službu pre verejnosť. Nejde o právne poradenstvo. Za obsah, úpravy a použitie zmluvy zodpovedá výlučne používateľ – pred podpisom si ju pozorne prečítajte a pri zložitejších situáciách sa poraďte s advokátom.'
-                : 'We provide templates free of charge and in good faith as a public service. This is not legal advice. You are solely responsible for the content, changes and use of any contract – read it carefully before signing and consult a lawyer in complex situations.'
-          }
+          {P?.disclaimer ?? 'We provide templates free of charge and in good faith as a public service. This is not legal advice. You are solely responsible for the content, changes and use of any contract – read it carefully before signing and consult a lawyer in complex situations.'}
         </p>
         <nav class="paticka__odkazy" aria-label="Informace">
-          <a href="/cz/o-nas/">{lang === 'sk' ? 'O nás' : lang === 'en' ? 'About' : 'O nás'}</a>
-          <a href="/cz/podminky-uziti/">{lang === 'sk' ? 'Podmienky' : lang === 'en' ? 'Terms' : 'Podmínky užití'}</a>
-          <a href="/cz/ochrana-osobnich-udaju/">{lang === 'sk' ? 'Ochrana údajov' : lang === 'en' ? 'Privacy' : 'Ochrana osobních údajů'}</a>
+          <a href="/cz/o-nas/">{P?.oNas ?? 'About'}</a>
+          <a href="/cz/podminky-uziti/">{P?.podminky ?? 'Terms'}</a>
+          <a href="/cz/ochrana-osobnich-udaju/">{P?.ochrana ?? 'Privacy'}</a>
           <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
         </nav>
         <slot name="paticka" />

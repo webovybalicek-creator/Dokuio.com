@@ -27,3 +27,12 @@ const { kod } = Astro.props;
     </svg>
   )
 }
+{
+  kod === 'pl' && (
+    <svg class="vlajka" viewBox="0 0 27 18" aria-hidden="true">
+      <rect width="27" height="9" fill="#fff" />
+      <rect y="9" width="27" height="9" fill="#dc143c" />
+      <rect width="27" height="18" fill="none" stroke="#e5edf5" stroke-width=".6" />
+    </svg>
+  )
+}

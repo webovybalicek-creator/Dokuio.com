@@ -318,7 +318,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     let n = 0;
     return {
       nadpis:
-        (s.cislovatClanky === false ? c.nadpis : `${T.clanek(RIMSKE[i])} · ${c.nadpis}`) +
+        (s.cislovatClanky === false ? c.nadpis : `${T.clanek(RIMSKE[i], i + 1)} · ${c.nadpis}`) +
         (P && P.clanky[i] ? ` / ${s.cislovatClanky === false ? '' : `${P.clanek} ${RIMSKE[i]} · `}${P.clanky[i].nadpis}` : ''),
       vysvetleni: c.vysvetleni,
       odstavce: c.odstavce.map((o) =>

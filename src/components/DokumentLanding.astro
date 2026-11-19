@@ -41,7 +41,7 @@ const aktualizovano = formatDatum(s.aktualizovano);
 const mesic = s.aktualizovano.slice(5, 7).replace(/^0/, '') + '/' + s.aktualizovano.slice(0, 4);
 const nahled = dokumentHtml(sestavDokument(s, {}));
 const RIMSKE = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
-const stitek = (i: number) => (s.cislovatClanky === false ? `${i + 1}.` : T.clanek(RIMSKE[i]));
+const stitek = (i: number) => (s.cislovatClanky === false ? `${i + 1}.` : T.clanek(RIMSKE[i], i + 1));
 const schema = [
   {
     '@context': 'https://schema.org',

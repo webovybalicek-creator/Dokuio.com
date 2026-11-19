@@ -1,8 +1,9 @@
 /** Texty rozhraní po jazycích. Jazyk dokumentu a stránky = jazyk země (Zeme.jazyk, Sablona.jazyk). */
 import { cs, type Texty } from './cs';
 import { sk } from './sk';
+import { pl } from './pl';
 
-export const TEXTY = { cs, sk } satisfies Record<string, Texty>;
+export const TEXTY = { cs, sk, pl } satisfies Record<string, Texty>;
 export type Jazyk = keyof typeof TEXTY;
 export type { Texty };
 

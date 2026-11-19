@@ -247,6 +247,14 @@ export const sk: Texty = {
     ],
     vBalicku: (nazev) => `Patrí do balíka ${nazev}`,
   },
+  paticka: {
+    vse: 'Všetky vzory zadarmo vo formáte PDF aj Word, bez registrácie.',
+    disclaimer: 'Vzory poskytujeme zadarmo a v dobrej viere ako službu pre verejnosť. Nejde o právne poradenstvo. Za obsah, úpravy a použitie zmluvy zodpovedá výlučne používateľ – pred podpisom si ju pozorne prečítajte a pri zložitejších situáciách sa poraďte s advokátom.',
+    oNas: 'O nás',
+    podminky: 'Podmienky',
+    ochrana: 'Ochrana údajov',
+    ogLocale: 'sk_SK',
+  },
   dokument: {
     v: 'V',
     dne: 'dňa',

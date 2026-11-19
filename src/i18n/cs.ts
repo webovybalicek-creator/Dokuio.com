@@ -47,7 +47,7 @@ export const cs = {
     krokyNadpis: 'Hotovo za pár minut.',
     krokySpan: 'Zdarma, bez registrace a bez právnické hantýrky.',
     obsahNadpis: 'Co obsahuje.',
-    clanek: (rimske: string) => `Článek ${rimske}`,
+    clanek: (rimske: string, _cislo?: number) => `Článek ${rimske}`,
     cestyNadpis: 'Online, nebo na papír?',
     cestySpan: 'Obojí je zdarma. Vyberte, co vám vyhovuje.',
     online: 'Vyplnit online',
@@ -251,6 +251,14 @@ export const cs = {
     ],
     vBalicku: (nazev: string) => `Patří do balíčku ${nazev}`,
   },
+  paticka: {
+    vse: 'Všechny vzory zdarma ve formátu PDF i Word, bez registrace.',
+    disclaimer: 'Vzory poskytujeme zdarma a v dobré víře jako službu pro veřejnost. Nejde o právní poradenství. Za obsah, úpravy a použití smlouvy odpovídá výhradně uživatel – před podpisem si ji pečlivě přečtěte a u složitějších situací se poraďte s advokátem.',
+    oNas: 'O nás',
+    podminky: 'Podmínky užití',
+    ochrana: 'Ochrana osobních údajů',
+    ogLocale: 'cs_CZ',
+  },
   dokument: {
     v: 'V',
     dne: 'dne',
@@ -268,7 +276,7 @@ export const cs = {
     zaskrtnete: 'Zaškrtněte jednu možnost:',
     dalsiUjednani: 'Další ujednání',
     dalsiUjednaniVysvetleni: 'Vaše vlastní ustanovení. Tento text není součástí našeho ověřeného vzoru.',
-    clanek: (rimske: string) => `Článek ${rimske}`,
+    clanek: (rimske: string, _cislo?: number) => `Článek ${rimske}`,
     upravenoUzivatelem: 'text upraven uživatelem',
   },
 };
