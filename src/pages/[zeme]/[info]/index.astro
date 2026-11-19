@@ -2,10 +2,10 @@
 /** Textové stránky zemí mimo CZ (O nás, podmínky, ochrana údajů) – obsah v src/obsah/informace.ts */
 import Text from '../../../layouts/Text.astro';
 import { INFORMACE, type InfoStranka } from '../../../obsah/informace';
-import { ZEME } from '../../../obsah';
+import { ZEME, AKTIVNI_ZEME } from '../../../obsah';
 
 export function getStaticPaths() {
-  return Object.entries(INFORMACE).flatMap(([zeme, stranky]) =>
+  return Object.entries(INFORMACE).filter(([zeme]) => AKTIVNI_ZEME.some((z) => z.kod === zeme)).flatMap(([zeme, stranky]) =>
     stranky.map((s) => ({ params: { zeme, info: s.slug }, props: { s, jazyk: ZEME.find((z) => z.kod === zeme)!.jazyk, zeme } })),
   );
 }

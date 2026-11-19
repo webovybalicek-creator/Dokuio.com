@@ -80,9 +80,10 @@ export function prazdne(h: Hodnota): boolean {
 }
 
 /** 2026-11-19 → 19. 11. 2026 */
-export function formatDatum(iso: string): string {
+export function formatDatum(iso: string, jazyk?: string): string {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso.trim());
   if (!m) return iso;
+  if (jazyk === 'hu') return `${m[1]}. ${m[2]}. ${m[3]}.`;
   return `${Number(m[3])}. ${Number(m[2])}. ${m[1]}`;
 }
 
@@ -99,7 +100,7 @@ export function formatHodnota(pole: Pole | undefined, h: Hodnota, jazyk?: string
   if (!pole) return v;
   switch (pole.typ) {
     case 'datum':
-      return formatDatum(v);
+      return formatDatum(v, jazyk);
     case 'castka':
       return `${formatCislo(v)}\u00a0${textyJazyka(jazyk).mena.znak}`;
     case 'cislo':

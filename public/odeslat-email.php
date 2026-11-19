@@ -48,7 +48,7 @@ if (!in_array($puvod, $povolene, true)) odpoved(403, 'puvod');
 if (trim((string)($_POST['web'] ?? '')) !== '') odpoved(200, 'odeslano'); // past na roboty: tvářit se, že OK
 $email = trim((string)($_POST['email'] ?? ''));
 if ($email === '' || strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) odpoved(400, 'email');
-$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de'], true) ? (string)$_POST['jazyk'] : 'cs';
+$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu'], true) ? (string)$_POST['jazyk'] : 'cs';
 $nazev = mb_substr(trim(strip_tags((string)($_POST['nazev'] ?? ''))), 0, 120) ?: 'Dokument';
 $soubor = substr(preg_replace('~[^a-z0-9-]~', '', strtolower((string)($_POST['soubor'] ?? ''))) ?: 'dokument', 0, 80);
 $zeme = preg_replace('~[^a-z]~', '', (string)($_POST['zeme'] ?? '')) ?: 'cz';
@@ -128,6 +128,17 @@ $T = [
         'podporaText' => 'Dokuio ist kostenlos, ohne Werbung und ohne Anmeldung. Server, die Prüfung der Vorlagen und neue Dokumente finanzieren wir mit kleinen Beiträgen von Menschen, denen wir geholfen haben.',
         'podporaTl' => 'Einen Kaffee spendieren (ca. 1,25 €)',
         'pata' => 'Diese E-Mail haben Sie über dokuio.com angefordert. Bitte nicht antworten.',
+    ],
+    'hu' => [
+        'predmet' => 'Az Ön dokumentuma PDF-ben: %s (Dokuio)',
+        'nadpis' => 'Dokumentumát csatolva küldjük',
+        'text' => 'Csatolva küldjük a(z) <strong>%s</strong> dokumentumot PDF formátumban. Aláírás előtt figyelmesen olvassa el, és ellenőrizze az összes adatot.',
+        'pravni' => 'A mintát ingyenesen és jóhiszeműen biztosítjuk, nem minősül jogi tanácsadásnak. A dokumentum tartalmáért és felhasználásáért Ön felel; bonyolultabb ügyben javasoljuk ügyvéd bevonását.',
+        'soukromi' => 'A dokumentumot csak az Ön kérésére küldtük el, és sehol nem tároljuk.',
+        'podporaNadpis' => 'Időt spóroltunk Önnek?',
+        'podporaText' => 'A Dokuio ingyenes, reklámok és regisztráció nélkül. A szervereket, a minták jogi ellenőrzését és az új dokumentumokat azok kis támogatásaiból fizetjük, akiknek segítettünk.',
+        'podporaTl' => 'Meghívjon minket egy kávéra (kb. 500 Ft)',
+        'pata' => 'Ezt az e-mailt a dokuio.com oldalon kérte. Kérjük, ne válaszoljon rá.',
     ],
 ][$jazyk];
 

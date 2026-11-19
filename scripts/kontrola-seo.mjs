@@ -6,7 +6,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const DIST = 'dist';
-const ZEME = { cz: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', at: 'de-AT', ch: 'de-CH' };
+const ZEME = { cz: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', at: 'de-AT', ch: 'de-CH', hu: 'hu-HU' };
 const soubory = [];
 const projdi = (d) => {
   for (const f of readdirSync(d)) {

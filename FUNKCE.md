@@ -26,6 +26,12 @@ Jednotná sada 11 dokumentů v každé zemi (podle práva a úředních zdrojů 
 Česko má navíc: kupní smlouvu na motorku, nájemní a podnájemní smlouvu (i dvojjazyčně CZ/EN), předávací protokol k bytu,
 výpověď a dohodu o skončení nájmu, výpověď povinného ručení, souhlas s trvalým pobytem a s vycestováním dítěte.
 
+🇭🇺 **Maďarsko (rozpracované, skryté):** `src/obsah/hu/`, `src/sablony/hu/` – 14 vzorů (adásvétel autó s tanúk, jegyzőkönyv,
+meghatalmazás k átírás i obecná, kölcsön, elismervény, ajándékozás, tartozáselismerés, elállás, kellékszavatosság,
+lakásbérlet + jegyzőkönyv + felmondás, adásvétel věci), maďarské rozhraní `src/i18n/hu.ts`, částky slovy `sablony/hu/szamok.ts`,
+info stránky, e-mail. `aktivni: false` – neaktivní země se vůbec negeneruje (ani stránky, ani sitemap). Před zapnutím:
+ověřit paragrafy a lhůty proti njt.jog.gov.hu, kontrola rodilým mluvčím / ügyvéd, napsat články poradny.
+
 Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 
 ## Pro uživatele
@@ -67,5 +73,6 @@ Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 ## Otevřené
 
 - Kontrola šablon místním advokátem (hlavně nájem/podnájem a zahraniční šablony).
-- Další země (Maďarsko, Slovinsko, Chorvatsko…), CH ve francouzštině/italštině.
+- 🇭🇺 Maďarsko: ověřit proti njt.jog.gov.hu, jazyková a právní kontrola, články poradny → `aktivni: true`.
+- Další země (Slovinsko, Chorvatsko…), CH ve francouzštině/italštině.
 - PL: tlačítko pro odstoupení – sledovat novelu zákona o právech spotřebitele.

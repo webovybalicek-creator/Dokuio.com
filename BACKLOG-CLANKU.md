@@ -33,6 +33,8 @@ Nová země = napsat všech 8 základních témat. Nové téma = napsat ho pro v
 
 Jen pro CZ: vypoved-povinneho-ruceni, cestovani-s-ditetem-bez-rodice, trvaly-pobyt-v-cizim-byte, limit-platby-v-hotovosti (vzory/instituty jsou specificky české).
 
+**🇭🇺 Maďarsko:** země je připravená, ale skrytá – až budou vzory ověřené, napsat všech 12 témat (poradna `/hu/tanacsadas/` + `_poradna.ts`).
+
 **SK pozor:** od 1. 7. 2027 platí nový Občiansky zákonník (zákon č. 260/2026 Z. z.) – před tímto datem projít všechny SK vzory a články (nájem, premlčanie, pôžička, darovanie…).
 
 **Místní odlišnosti, které musí článek zachytit** (příklady): SK prepis do 30 dní na jednom inšpektoráte; PL rejestracja 30 dní + PCC; AT tabulky patří majiteli (Abmeldung); CH tabulky u držitele, Code 178, žádné zákonné právo vrátit zboží z e-shopu; promlčení CZ 3 r., SK 3 r., PL 6 r. ke konci roku, DE 3 r. ke konci roku, AT 3/30 let, CH 10/5 let.

@@ -6,6 +6,7 @@ import { PDFDocument, PDFString, rgb, type PDFFont, type PDFPage, type RGB } fro
 import qrcode from 'qrcode-generator';
 import fontkit from '@pdf-lib/fontkit';
 import type { Dokument, Usek } from './dokument';
+import { formatDatum } from './dokument';
 
 export interface Pisma {
   regular: ArrayBuffer | Uint8Array;
@@ -57,7 +58,7 @@ export async function dokumentPdf(
   pdf.setSubject(d.podnadpis);
   pdf.setCreator('Dokuio.com');
   pdf.setProducer('Dokuio.com');
-  pdf.setLanguage('cs-CZ');
+  pdf.setLanguage(({ cs: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', hu: 'hu-HU' } as Record<string, string>)[d.jazyk] ?? 'cs-CZ');
   pdf.setCreationDate(meta.vytvoreno ?? new Date());
 
   const strany: PDFPage[] = [];
@@ -249,7 +250,8 @@ export async function dokumentPdf(
   }
 
   // Patička na každé straně: logo + odkaz dokuio.com, text šablony, číslo strany
-  const datum = (meta.vytvoreno ?? new Date()).toLocaleDateString('cs-CZ');
+  const vyt = meta.vytvoreno ?? new Date();
+  const datum = formatDatum(`${vyt.getFullYear()}-${String(vyt.getMonth() + 1).padStart(2, '0')}-${String(vyt.getDate()).padStart(2, '0')}`, d.jazyk);
   const LOGO = [
     { d: 'M14 6h16l-6 36H8z', c: rgb(83 / 255, 58 / 255, 253 / 255) },
     { d: 'M24 6h12l-6 36H18z', c: rgb(155 / 255, 92 / 255, 255 / 255) },

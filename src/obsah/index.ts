@@ -29,6 +29,7 @@ for (const [cesta, m] of Object.entries(strankySoubory)) {
   const s = m.default;
   const zemeSlozky = cesta.split('/')[1];
   if (s.sablona.zeme !== zemeSlozky) throw new Error(`${cesta}: šablona patří zemi ${s.sablona.zeme}`);
+  if (!AKTIVNI_ZEME.some((z) => z.kod === zemeSlozky)) continue; // neaktivní země (rozpracovaná) se negeneruje
   (STRANKY[zemeSlozky] ??= []).push(s);
 }
 

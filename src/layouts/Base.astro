@@ -30,9 +30,9 @@ const zemeCesty = Astro.url.pathname.split('/').filter(Boolean)[0] ?? '';
 const zemeStranky = ZEME.find((z) => z.kod === zemeCesty);
 const htmlLang = zemeStranky?.hreflang ?? lang;
 const ogLocale = zemeStranky ? zemeStranky.hreflang.replace('-', '_') : (P?.ogLocale ?? 'en_US');
-const zemeKodPaticky = INFO_ODKAZY[zemeCesty] ? zemeCesty : ({ sk: 'sk', pl: 'pl', de: 'de' } as Record<string, string>)[lang] ?? 'cz';
+const zemeKodPaticky = INFO_ODKAZY[zemeCesty] ? zemeCesty : ({ sk: 'sk', pl: 'pl', de: 'de', hu: 'hu' } as Record<string, string>)[lang] ?? 'cz';
 const poradna = PORADNY[zemeKodPaticky];
-const odkazy = INFO_ODKAZY[zemeCesty] ?? INFO_ODKAZY[{ sk: 'sk', pl: 'pl', de: 'de' }[lang] ?? 'cz'];
+const odkazy = INFO_ODKAZY[zemeCesty] ?? INFO_ODKAZY[({ sk: 'sk', pl: 'pl', de: 'de', hu: 'hu' } as Record<string, string>)[lang] ?? 'cz'];
 // Značku přidat jen tam, kde se titulek vejde do ~60 znaků (Google delší ořízne)
 const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${title} | ${SITE.nazev}`;
 ---

@@ -125,6 +125,57 @@ const PL: InfoStranka[] = [
   },
 ];
 
+/* ------------------------------------------------------------------ maďarsky */
+const HU: InfoStranka[] = [
+  {
+    typ: 'onas',
+    slug: 'rolunk',
+    title: 'A Dokuióról – ingyenes szerződésminták',
+    description: 'Dokuio.com – ingyenes szerződésminták PDF-ben és Wordben. Ki áll az oldal mögött, és hogyan készülnek a minták (Magyarország).',
+    html: `<p class="text-stranka__vytah">A Dokuio azért jött létre, hogy bárki gyorsan és ingyen elkészíthessen egy egyszerű szerződést – például autó eladásakor. Regisztráció, letöltési díj és jogi zsargon nélkül.</p>
+<h2>Hogyan készülnek a minták</h2>
+<ul><li>A szerződések szövegét a hatályos magyar jogszabályokra és hivatalos forrásokra (Nemzeti Jogszabálytár, NAV, kormany.hu) alapozzuk, nem mesterséges intelligenciára.</li>
+<li>Minden mintának van verziószáma és frissítési dátuma – ez látszik az oldalon és a PDF láblécében. A PDF-ben lévő QR-kód a verzió ellenőrzéséhez vezet.</li>
+<li>Minden mezőhöz súgót, minden dokumentumhoz „Aláírás előtt ellenőrizze” tippeket adunk.</li>
+<li>Szándékosan nem teszünk bele bonyolult kikötéseket. Az egyszerű, kiegyensúlyozott szöveg a szokásos helyzetekben biztonságosabb.</li></ul>
+<h2>Miért ingyenes</h2><p>Szeretnénk, ha az alapvető szerződések mindenki számára elérhetők lennének. Az üzemeltetést magunk és a felhasználók önkéntes támogatásaiból finanszírozzuk.</p>
+<h2>Kapcsolat</h2><p>${p.nazev}<br />IČO (csehországi azonosító) ${p.ico}<br />${p.sidlo}, Csehország<br />E-mail: ${e}</p>
+<p>Hibát talált egy mintában, vagy hiányzik egy szerződés? Írjon nekünk – minden üzenetet elolvasunk.</p>`,
+  },
+  {
+    typ: 'podminky',
+    slug: 'felhasznalasi-feltetelek',
+    title: 'Felhasználási feltételek',
+    description: 'A Dokuio.com felhasználási feltételei – ingyenes szerződésminták PDF-ben és Wordben: a szolgáltatás köre, felelősség és a minták használata.',
+    aktualizovano: AKT,
+    html: `<h2>1. Szolgáltató</h2><p>A dokuio.com oldalt ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Csehország üzemelteti („szolgáltató”). Kapcsolat: ${e}.</p>
+<h2>2. Mit kínál a Dokuio</h2><p>Egyszerű szerződések és dokumentumok mintáit, amelyeket a felhasználó online varázslóban tölt ki, vagy üresen tölt le PDF vagy Word formátumban. A szolgáltatás <strong>ingyenes</strong>, és nem igényel regisztrációt.</p>
+<h2>3. Ez nem jogi tanácsadás</h2><p>A mintákat jóhiszeműen, közszolgálatként biztosítjuk. A hatályos jogszabályok alapján készülnek, de <strong>nem minősülnek jogi tanácsadásnak</strong>, és nem minden helyzetre alkalmasak. A szolgáltató nem ügyvéd, és nem fél a felhasználók által kötött szerződésekben.</p>
+<h2>4. A felhasználó felelőssége</h2><p>A szerződés tartalmáért, módosításáért, kitöltéséért és felhasználásáért kizárólag a felhasználó felel. Aláírás előtt figyelmesen olvassa el; bonyolult vagy nagy értékű ügyben forduljon ügyvédhez. A felhasználó által módosított szöveg nem része a mintánknak – ezt a PDF jelöli.</p>
+<h2>5. A felelősség korlátozása</h2><p>A szolgáltató a jogszabályok által megengedett mértékben nem felel a minták használatából, hibás kitöltéséből vagy nem rendeltetésszerű használatából eredő károkért. Ez nem érinti a fogyasztó nem korlátozható jogait.</p>
+<h2>6. Önkéntes támogatás</h2><p>Az oldal önkéntesen támogatható Stripe-on keresztül. A támogatás nem feltétele a szolgáltatás használatának, és nem jogosít további szolgáltatásokra. Ha tévedésből fizetett, 14 napon belül írjon nekünk – visszautaljuk.</p>
+<h2>7. A minták használata</h2><p>A mintákat saját célra használhatja, módosíthatja, és a kitöltött szerződést megoszthatja a másik féllel. A minták tömeges másolása, saját gyűjteményként való terjesztése vagy értékesítése a szolgáltató engedélye nélkül tilos.</p>
+<h2>8. Záró rendelkezések</h2><p>A feltételekre a cseh jog irányadó; ez nem érinti a fogyasztó lakóhelye szerinti ország kötelező fogyasztóvédelmi szabályait. Az adatkezelést az <a href="/hu/adatvedelem/">Adatvédelmi tájékoztató</a> írja le.</p>`,
+  },
+  {
+    typ: 'ochrana',
+    slug: 'adatvedelem',
+    title: 'Adatvédelmi tájékoztató',
+    description: 'Hogyan kezeli a Dokuio.com a személyes adatokat. A szerződések adatai a böngészőjében maradnak, analitika csak hozzájárulással.',
+    aktualizovano: AKT,
+    html: `<p class="text-stranka__vytah"><strong>Röviden:</strong> a szerződésbe beírt adatokat sehová nem küldjük. A szerződés közvetlenül az Ön böngészőjében készül. Analitikai sütiket csak az Ön hozzájárulásával használunk.</p>
+<h2>1. Adatkezelő</h2><p>Az adatkezelő ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Csehország, e-mail ${e}.</p>
+<h2>2. A szerződések adatai</h2><p>A neveket, címeket, járműadatokat és a varázsló többi adatát csak az Ön böngészője dolgozza fel; <strong>nem kerülnek a szerverünkre, és nem tároljuk őket</strong>. A megkezdett dokumentumot a böngésző helyi tárhelyen (localStorage) menti, csak az Ön eszközén; a varázslóban vagy a böngészőadatok törlésével törölheti. A képernyőn rajzolt aláírásokat nem mentjük.</p>
+<p><strong>Link a másik félnek:</strong> a beírt adatok magában a linkben vannak kódolva (a # jel után, amelyet a böngésző nem küld a szervernek). Csak a szerződő félnek küldje el.</p>
+<p><strong>PDF küldése e-mailben:</strong> a böngésző a kész PDF-et és a megadott címet elküldi a szerverünknek, amely egyszer elküldi az üzenetet, és semmit nem ment. A visszaélések elleni védelem miatt a szerver 24 órán át csak az IP-cím és az e-mail visszafejthetetlen lenyomatát és a küldés idejét őrzi.</p>
+<h2>3. Visszajelzések</h2><p>A visszajelzés szövegét dátummal és az oldal címével tároljuk, név és e-mail nélkül, legfeljebb 2 évig.</p>
+<h2>4. Fizetések</h2><p>A kártyás fizetéseket a Stripe Payments Europe, Ltd. kezeli; a kártyaadatokat nem látjuk. A Stripe-tól a fizető e-mail-címét, az összeget és a dátumot kapjuk meg, amelyeket a számviteli szabályok szerint őrzünk.</p>
+<h2>5. Analitika és sütik</h2><p>Ha a sávban hozzájárul, a Google Analytics 4-et (Google Ireland Ltd.) használjuk a forgalom névtelen mérésére; a Google az EU-ban nem tárolja az IP-címeket. Hozzájárulás nélkül az analitika nem töltődik be, és semmilyen sütit nem használunk. A hozzájárulást bármikor módosíthatja a lábléc „Cookie-beállítások” linkjével.</p>
+<h2>6. Tárhely</h2><p>Az oldal az Exon csehországi szerverein fut, amelyek biztonsági okból rövid ideig technikai hozzáférési naplókat őriznek. A tanácsadó fotói az Unsplash szolgáltatásból (images.unsplash.com) töltődnek be, amely ennek során látja az Ön IP-címét.</p>
+<h2>7. Az Ön jogai</h2><p>Joga van hozzáférni az adataihoz, kérni azok helyesbítését, törlését, a kezelés korlátozását, és tiltakozni. Írjon a ${e} címre. Panaszt a Nemzeti Adatvédelmi és Információszabadság Hatóságnál (<a href="https://naih.hu" rel="noopener">naih.hu</a>) vagy a cseh felügyeleti hatóságnál (ÚOOÚ) tehet.</p>`,
+  },
+];
+
 /* ------------------------------------------------------------------ německy (DE i AT) */
 const de = (zeme: 'de' | 'at' | 'ch'): InfoStranka[] => {
   const behoerde =
@@ -191,6 +242,7 @@ export const INFORMACE: Record<string, InfoStranka[]> = {
   de: sZemi(de('de'), 'Deutschland'),
   at: sZemi(de('at'), 'Österreich'),
   ch: naSchweiz(sZemi(de('ch'), 'Schweiz')),
+  hu: HU,
 };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */
