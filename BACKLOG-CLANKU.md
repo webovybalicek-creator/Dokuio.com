@@ -1,6 +1,6 @@
 # 📝 Dokuio – backlog článků poradny
 
-Stav k 19. 11. 2026 (21 článků publikováno). Články se píšou do `src/content/poradna/<země>/<slug>.md` (struktura kategorií a témat v `src/obsah/<země>/_poradna.ts`).
+Stav k 19. 11. 2026 (23 článků publikováno). Články se píšou do `src/content/poradna/<země>/<slug>.md` (struktura kategorií a témat v `src/obsah/<země>/_poradna.ts`).
 
 **Pravidla pro každý článek**
 - Fakta jen z úředních zdrojů (zákon v e-Sbírce / Slov-Lex / ISAP / gesetze-im-internet / RIS, úřední portály). Zdroje do `zdroje:`.
