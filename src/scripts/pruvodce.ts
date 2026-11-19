@@ -260,6 +260,63 @@ export function spustPruvodce(s: Sablona) {
     }
   });
 
+  /* ---------------------------------------------------------- podpis na zařízení */
+  // Podpisy drží jen paměť stránky (ne localStorage) – jsou to osobní údaje.
+  const podpisy: { vlevo?: Uint8Array; vpravo?: Uint8Array } = {};
+  koren.querySelectorAll<HTMLCanvasElement>('canvas[data-podpis]').forEach((cv) => {
+    const strana = cv.dataset.podpis as 'vlevo' | 'vpravo';
+    const ctx = cv.getContext('2d')!;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = '#0b1f5c';
+    let kreslim = false;
+    let posledni: { x: number; y: number; w: number } | null = null;
+    const bod = (e: PointerEvent) => {
+      const r = cv.getBoundingClientRect();
+      return { x: ((e.clientX - r.left) / r.width) * cv.width, y: ((e.clientY - r.top) / r.height) * cv.height };
+    };
+    const ulozPodpis = () =>
+      cv.toBlob(async (b) => {
+        if (b) podpisy[strana] = new Uint8Array(await b.arrayBuffer());
+      }, 'image/png');
+    cv.addEventListener('pointerdown', (e) => {
+      kreslim = true;
+      cv.setPointerCapture(e.pointerId);
+      const p = bod(e);
+      posledni = { ...p, w: 4 };
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
+      ctx.fillStyle = ctx.strokeStyle;
+      ctx.fill();
+    });
+    cv.addEventListener('pointermove', (e) => {
+      if (!kreslim || !posledni) return;
+      const p = bod(e);
+      const vzd = Math.hypot(p.x - posledni.x, p.y - posledni.y);
+      // rychlejší tah = tenčí čára, jako u pera
+      const tlak = e.pressure && e.pointerType === 'pen' ? e.pressure : 0.5;
+      const w = Math.max(1.6, Math.min(5, 6 - vzd / 6) * (0.6 + tlak * 0.8));
+      ctx.lineWidth = (posledni.w + w) / 2;
+      ctx.beginPath();
+      ctx.moveTo(posledni.x, posledni.y);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+      posledni = { ...p, w };
+    });
+    const konec = () => {
+      if (!kreslim) return;
+      kreslim = false;
+      posledni = null;
+      ulozPodpis();
+    };
+    cv.addEventListener('pointerup', konec);
+    cv.addEventListener('pointercancel', konec);
+    koren.querySelector(`[data-podpis-smazat="${strana}"]`)?.addEventListener('click', () => {
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      delete podpisy[strana];
+    });
+  });
+
   /* ---------------------------------------------------------- stažení */
   const stahni = (blob: Blob, nazev: string) => {
     const url = URL.createObjectURL(blob);
@@ -285,11 +342,11 @@ export function spustPruvodce(s: Sablona) {
           fetch('/fonts/InterTight-Regular.ttf').then((r) => r.arrayBuffer()),
           fetch('/fonts/InterTight-SemiBold.ttf').then((r) => r.arrayBuffer()),
         ]);
-        const bajty = await dokumentPdf(d, { regular, semibold });
+        const bajty = await dokumentPdf(d, { regular, semibold }, { podpisy });
         stahni(new Blob([bajty], { type: 'application/pdf' }), `${s.souborPdf}.pdf`);
       } else {
         const { dokumentDocx } = await import('../sablony/docx');
-        stahni(await dokumentDocx(d), `${s.souborPdf}.docx`);
+        stahni(await dokumentDocx(d, podpisy), `${s.souborPdf}.docx`);
       }
       koren.querySelector<HTMLElement>('[data-co-dal]')!.hidden = false;
     } catch (err) {

@@ -10,6 +10,7 @@ import {
   Paragraph,
   TabStopType,
   TextRun,
+  ImageRun,
   type ParagraphChild,
 } from 'docx';
 import type { Dokument, Usek } from './dokument';
@@ -26,7 +27,10 @@ function behy(useky: Usek[]): ParagraphChild[] {
   });
 }
 
-export async function dokumentDocx(d: Dokument): Promise<Blob> {
+export async function dokumentDocx(
+  d: Dokument,
+  podpisy: { vlevo?: Uint8Array; vpravo?: Uint8Array } = {},
+): Promise<Blob> {
   const deti: Paragraph[] = [
     new Paragraph({
       alignment: AlignmentType.CENTER,
@@ -77,9 +81,25 @@ export async function dokumentDocx(d: Dokument): Promise<Blob> {
 
   deti.push(
     new Paragraph({
-      spacing: { before: 480, after: 960 },
+      spacing: { before: 480, after: podpisy.vlevo || podpisy.vpravo ? 240 : 960 },
       children: [new TextRun('V '), ...behy(d.misto), new TextRun(' dne '), ...behy(d.datum)],
     }),
+    ...(podpisy.vlevo || podpisy.vpravo
+      ? [
+          new Paragraph({
+            tabStops: [{ type: TabStopType.LEFT, position: 6000 }],
+            children: [
+              ...(podpisy.vlevo
+                ? [new ImageRun({ type: 'png', data: podpisy.vlevo, transformation: { width: 180, height: 60 } })]
+                : []),
+              new TextRun('\t'),
+              ...(podpisy.vpravo
+                ? [new ImageRun({ type: 'png', data: podpisy.vpravo, transformation: { width: 180, height: 60 } })]
+                : []),
+            ],
+          }),
+        ]
+      : []),
     new Paragraph({
       tabStops: [{ type: TabStopType.RIGHT, position: 9000 }],
       children: [new TextRun('………………………………………\t………………………………………')],

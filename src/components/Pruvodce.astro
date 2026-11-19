@@ -109,6 +109,30 @@ const pocet = s.kroky.length + 1;
           přidat vlastní ustanovení. Původní ověřené znění jde vždy vrátit.
         </p>
         <p class="souhrn" data-souhrn></p>
+        <details class="podpis">
+          <summary>Podepsat rovnou tady <span>volitelné</span></summary>
+          <p class="podpis__popis">
+            Podepište se myší, prstem nebo perem – hodí se, když jste s druhou stranou u jednoho počítače, tabletu
+            nebo telefonu. Podpisy se nikam neukládají, vloží se jen do staženého souboru. Můžete také vytisknout a
+            podepsat ručně.
+          </p>
+          <div class="podpis__pole">
+            {
+              [
+                ['vlevo', s.podpisy.vlevo],
+                ['vpravo', s.podpisy.vpravo],
+              ].map(([strana, popis]) => (
+                <div class="podpis__blok">
+                  <canvas data-podpis={strana} width="600" height="200" aria-label={`Podpis: ${popis}`} />
+                  <div class="podpis__pata">
+                    <span>{popis}</span>
+                    <button type="button" class="odkaz-tl" data-podpis-smazat={strana}>Smazat</button>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </details>
         <div class="akce akce--tesne">
           <button type="button" class="btn btn--primarni" data-stahnout="pdf">Stáhnout PDF zdarma</button>
           <button type="button" class="btn btn--duch" data-stahnout="docx">Stáhnout Word</button>

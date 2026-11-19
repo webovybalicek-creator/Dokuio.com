@@ -102,9 +102,9 @@ p {
   align-items: center;
   gap: 8px;
   color: var(--ink);
-  font-weight: 650;
-  font-size: 1.375rem;
-  letter-spacing: -0.035em;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.045em;
   text-decoration: none;
 }
 .logo svg {
@@ -1000,6 +1000,53 @@ a.vypis__polozka:active {
   color: var(--navy-soft);
   display: grid;
   gap: 4px;
+}
+
+/* podpis na zařízení */
+.podpis {
+  margin-top: 16px;
+  border: 1px solid var(--frost);
+  border-radius: var(--r);
+  padding: 0 16px;
+}
+.podpis summary {
+  cursor: pointer;
+  padding: 14px 0;
+  font-weight: 500;
+}
+.podpis summary span {
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: var(--slate);
+  margin-left: 6px;
+}
+.podpis__popis {
+  font-size: 0.875rem;
+  color: var(--navy-soft);
+  margin-bottom: 12px;
+}
+.podpis__pole {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+  padding-bottom: 16px;
+}
+.podpis__blok canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  border: 1px dashed #b4c0d0;
+  border-radius: var(--r);
+  background: linear-gradient(transparent calc(100% - 28px), #e5edf5 calc(100% - 28px), #e5edf5 calc(100% - 27px), transparent calc(100% - 27px)), var(--white);
+  touch-action: none;
+  cursor: crosshair;
+}
+.podpis__pata {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 0.8125rem;
+  color: var(--slate);
 }
 
 /* odstavce v náhledu s úpravami */

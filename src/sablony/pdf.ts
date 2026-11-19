@@ -40,7 +40,12 @@ type Polozka =
 export async function dokumentPdf(
   d: Dokument,
   pisma: Pisma,
-  meta: { nazevSouboru?: string; vytvoreno?: Date } = {},
+  meta: {
+    nazevSouboru?: string;
+    vytvoreno?: Date;
+    /** Podpisy nakreslené na zařízení (PNG) – vloží se nad podpisové linky */
+    podpisy?: { vlevo?: Uint8Array | ArrayBuffer; vpravo?: Uint8Array | ArrayBuffer };
+  } = {},
 ): Promise<Uint8Array> {
   const pdf = await PDFDocument.create();
   pdf.registerFontkit(fontkit);
@@ -194,10 +199,16 @@ export async function dokumentPdf(
   y -= 58;
   const sloupec = 190;
   const x2 = OKRAJ_X + SIRKA - sloupec;
-  for (const [x, popis] of [
-    [OKRAJ_X, d.podpisy.vlevo],
-    [x2, d.podpisy.vpravo],
+  for (const [x, popis, obrazek] of [
+    [OKRAJ_X, d.podpisy.vlevo, meta.podpisy?.vlevo],
+    [x2, d.podpisy.vpravo, meta.podpisy?.vpravo],
   ] as const) {
+    if (obrazek) {
+      const img = await pdf.embedPng(obrazek);
+      const vyska = 46;
+      const sirka = Math.min(sloupec, (img.width / img.height) * vyska);
+      strana.drawImage(img, { x: x + (sloupec - sirka) / 2, y: y + 2, width: sirka, height: vyska });
+    }
     strana.drawLine({ start: { x, y }, end: { x: x + sloupec, y }, thickness: 0.7, color: INK });
     const w = reg.widthOfTextAtSize(popis, 9);
     strana.drawText(popis, { x: x + (sloupec - w) / 2, y: y - 13, size: 9, font: reg, color: SEDA });
