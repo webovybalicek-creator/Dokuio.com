@@ -28,20 +28,57 @@ const T = texty(Astro.props.jazyk).podpora;
     </div>
   </div>
 
-  <div class="podpora__krok" data-krok="podpora" hidden>
+  <div class="podpora__krok podpora__krok--podpora" data-krok="podpora" hidden>
+    <div class="podpora__srdce" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="24" fill="#e8e9ff" /><path d="M24 34.5s-9.5-5.6-9.5-12.2a5.3 5.3 0 0 1 9.5-3.2 5.3 5.3 0 0 1 9.5 3.2c0 6.6-9.5 12.2-9.5 12.2z" fill="#533afd" /></svg>
+    </div>
     <h2>{T.dik}</h2>
-    <p set:html={T.prispevek} />
+    <p>{T.prispevek}</p>
+
+    <div class="podpora__srovnani">
+      {
+        T.srovnani.map((r, i) => (
+          <div class:list={['podpora__radek', { 'podpora__radek--my': i === T.srovnani.length - 1 }]}>
+            <span>{r.kde}</span>
+            <strong>{r.cena}</strong>
+          </div>
+        ))
+      }
+      <p class="podpora__srovnani-pata">{T.srovnaniPata}</p>
+    </div>
+
+    <p class="podpora__nadpis-ucel">{T.naCo}</p>
+    <ul class="podpora__ucel">
+      {
+        T.ucel.map((u, i) => (
+          <li>
+            <span class="podpora__ikona" aria-hidden="true">
+              {i === 0 && <svg viewBox="0 0 20 20" width="18" height="18"><rect x="3" y="3.5" width="14" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="11.5" width="14" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6.5" cy="6" r=".9" fill="currentColor"/><circle cx="6.5" cy="14" r=".9" fill="currentColor"/></svg>}
+              {i === 1 && <svg viewBox="0 0 20 20" width="18" height="18"><path d="M10 2.5 3.5 5v4.6c0 4 2.8 7 6.5 8 3.7-1 6.5-4 6.5-8V5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7 10 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>}
+              {i === 2 && <svg viewBox="0 0 20 20" width="18" height="18"><path d="M10 3.5v13M3.5 10h13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>}
+            </span>
+            <span><strong>{u.nazev}</strong> {u.popis}</span>
+          </li>
+        ))
+      }
+    </ul>
+
     <a class="btn btn--primarni btn--plna podpora__stripe" data-podpora-stripe href={PODPORA.stripe} target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 9h9v5a4 4 0 0 1-4 4h-1a4 4 0 0 1-4-4zM16 10h1.5a2 2 0 0 1 0 4H16M9 4.5c0 1 1 1 1 2M12 4.5c0 1 1 1 1 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
       {T.kafe}
+      <span class="podpora__cena">{T.cena}</span>
     </a>
-    <p class="podpora__metody">{T.metody}</p>
+    <p class="podpora__metody">{T.kafeVic}</p>
+    <p class="podpora__metody podpora__metody--zamek">
+      <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      {T.metody}
+    </p>
     <div class="podpora__qr" data-podpora-qr hidden>
       <p class="podpora__qr-titulek">{T.qr}</p>
       <div class="podpora__qr-obr" data-podpora-qr-obr></div>
       <p class="podpora__metody">{T.qrPopis}</p>
     </div>
-    <button type="button" class="odkaz-tl" data-podpora-zavrit>{T.tedNe}</button>
+    <button type="button" class="odkaz-tl podpora__pozdeji" data-podpora-zavrit>{T.tedNe}</button>
   </div>
 
   <div class="podpora__krok" data-krok="vazba" hidden>
