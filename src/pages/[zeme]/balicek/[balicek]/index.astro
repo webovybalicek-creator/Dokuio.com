@@ -8,6 +8,7 @@ import Duvera from '../../../../components/Duvera.astro';
 import Ilustrace from '../../../../components/Ilustrace.astro';
 import Upozorneni from '../../../../components/Upozorneni.astro';
 import Podpora from '../../../../components/Podpora.astro';
+import EmailPdf from '../../../../components/EmailPdf.astro';
 import { AKTIVNI_ZEME, strankaPodleSlugu, urlStranky } from '../../../../obsah';
 import type { Balicek, Zeme } from '../../../../obsah/typy';
 import { SOUBORY } from '../../../../sablony/registr';
@@ -76,8 +77,21 @@ const dokumenty = balicek.dokumenty.flatMap((slug) => {
           }
         </ol>
         <div class="balicek__stahnout" id="stahnout">
-          <button type="button" class="btn btn--primarni btn--sipka" data-stahnout-vse data-text={T.stahnoutVse}>{T.stahnoutVse}</button>
+          <button
+            type="button"
+            class="btn btn--primarni btn--sipka"
+            data-stahnout-vse
+            data-text={T.stahnoutVse}
+            data-hotovo={T.stavHotovo}
+            data-prevzato={T.stavPrevzato}
+            data-upravit={T.upravit}
+            data-pripravuji={TX.pruvodce.pripravuji}
+            data-jazyk={zeme.jazyk}
+            data-zeme={zeme.kod}
+            data-nazev={balicek.nazev}
+            data-soubor={balicek.slug}>{T.stahnoutVse}</button>
           <p class="poznamka">{T.stahnoutPopis}</p>
+          <EmailPdf jazyk={zeme.jazyk} />
           <Upozorneni jazyk={zeme.jazyk} />
         </div>
       </div>
@@ -106,10 +120,10 @@ const dokumenty = balicek.dokumenty.flatMap((slug) => {
 
 <script>
   import type { Data } from '../../../../sablony/typy';
+  import { napojEmail } from '../../../../scripts/email-pdf';
 
   const polozky = [...document.querySelectorAll<HTMLElement>('.balicek__polozka')];
   const texty = document.querySelector<HTMLElement>('[data-stahnout-vse]')!;
-  const lang = document.documentElement.lang;
 
   /** Poslední uložený stav šablony v tomto prohlížeči */
   const ulozeno = (kod: string): { data: Data; upravy?: Record<string, unknown> } | null => {
@@ -126,9 +140,11 @@ const dokumenty = balicek.dokumenty.flatMap((slug) => {
   const vyplneno = (d?: Data) => !!d && Object.values(d).some((v) => (Array.isArray(v) ? v.length : String(v ?? '').trim()));
 
   const STAV = {
-    cs: { hotovo: 'Rozpracováno – stáhne se s vašimi údaji', prevzato: 'Předvyplní se z předchozího dokumentu', upravit: 'Upravit', pripravuji: 'Připravuji…' },
-    sk: { hotovo: 'Rozpracované – stiahne sa s vašimi údajmi', prevzato: 'Predvyplní sa z predchádzajúceho dokumentu', upravit: 'Upraviť', pripravuji: 'Pripravujem…' },
-  }[lang === 'sk' ? 'sk' : 'cs'];
+    hotovo: texty.dataset.hotovo!,
+    prevzato: texty.dataset.prevzato!,
+    upravit: texty.dataset.upravit!,
+    pripravuji: texty.dataset.pripravuji!,
+  };
 
   for (const li of polozky) {
     const vlastni = ulozeno(li.dataset.kod!);
@@ -144,36 +160,40 @@ const dokumenty = balicek.dokumenty.flatMap((slug) => {
     }
   }
 
+  const sestavBalicek = async () => {
+    const [{ nactiSablonu }, { sestavDokument }, { dokumentPdf }, { PDFDocument }, regular, semibold] = await Promise.all([
+      import('../../../../sablony/nacti'),
+      import('../../../../sablony/dokument'),
+      import('../../../../sablony/pdf'),
+      import('pdf-lib'),
+      fetch('/fonts/InterTight-Regular.ttf').then((r) => r.arrayBuffer()),
+      fetch('/fonts/InterTight-SemiBold.ttf').then((r) => r.arrayBuffer()),
+    ]);
+    const vysledek = await PDFDocument.create();
+    for (const li of polozky) {
+      const s = await nactiSablonu(li.dataset.soubor!, li.dataset.kod!);
+      if (!s) continue;
+      const vlastni = ulozeno(s.kod);
+      let data: Data = vlastni?.data ?? {};
+      if (!vyplneno(data) && s.prevzit) {
+        const zdroj = ulozeno(s.prevzit.kod);
+        if (zdroj?.data) data = s.prevzit.mapuj(zdroj.data);
+      }
+      const bajty = await dokumentPdf(sestavDokument(s, data, (vlastni?.upravy as never) ?? {}), { regular, semibold });
+      const doc = await PDFDocument.load(bajty);
+      const strany = await vysledek.copyPages(doc, doc.getPageIndices());
+      strany.forEach((p) => vysledek.addPage(p));
+    }
+    return new Blob([await vysledek.save()], { type: 'application/pdf' });
+  };
+
   texty.addEventListener('click', async () => {
     texty.disabled = true;
     texty.textContent = STAV.pripravuji;
     try {
-      const [{ nactiSablonu }, { sestavDokument }, { dokumentPdf }, { PDFDocument }, regular, semibold] = await Promise.all([
-        import('../../../../sablony/nacti'),
-        import('../../../../sablony/dokument'),
-        import('../../../../sablony/pdf'),
-        import('pdf-lib'),
-        fetch('/fonts/InterTight-Regular.ttf').then((r) => r.arrayBuffer()),
-        fetch('/fonts/InterTight-SemiBold.ttf').then((r) => r.arrayBuffer()),
-      ]);
-      const vysledek = await PDFDocument.create();
-      for (const li of polozky) {
-        const s = await nactiSablonu(li.dataset.soubor!, li.dataset.kod!);
-        if (!s) continue;
-        const vlastni = ulozeno(s.kod);
-        let data: Data = vlastni?.data ?? {};
-        if (!vyplneno(data) && s.prevzit) {
-          const zdroj = ulozeno(s.prevzit.kod);
-          if (zdroj?.data) data = s.prevzit.mapuj(zdroj.data);
-        }
-        const bajty = await dokumentPdf(sestavDokument(s, data, (vlastni?.upravy as never) ?? {}), { regular, semibold });
-        const doc = await PDFDocument.load(bajty);
-        const strany = await vysledek.copyPages(doc, doc.getPageIndices());
-        strany.forEach((p) => vysledek.addPage(p));
-      }
-      const blob = new Blob([await vysledek.save()], { type: 'application/pdf' });
+      const blob = await sestavBalicek();
       const url = URL.createObjectURL(blob);
-      const a = Object.assign(document.createElement('a'), { href: url, download: `${location.pathname.split('/').filter(Boolean).pop()}.pdf` });
+      const a = Object.assign(document.createElement('a'), { href: url, download: `${texty.dataset.soubor}.pdf` });
       document.body.append(a);
       a.click();
       a.remove();
@@ -186,4 +206,13 @@ const dokumenty = balicek.dokumenty.flatMap((slug) => {
       texty.textContent = texty.dataset.text ?? '';
     }
   });
+
+  const emailBox = document.querySelector<HTMLElement>('[data-email-pdf]');
+  if (emailBox)
+    napojEmail(emailBox, sestavBalicek, {
+      jazyk: texty.dataset.jazyk!,
+      zeme: texty.dataset.zeme!,
+      nazev: texty.dataset.nazev!,
+      soubor: texty.dataset.soubor!,
+    });
 </script>

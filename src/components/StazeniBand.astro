@@ -7,6 +7,7 @@
 import type { Slovo } from '../sablony/typy';
 import { texty } from '../i18n';
 import Upozorneni from './Upozorneni.astro';
+import EmailPdf from './EmailPdf.astro';
 
 interface Props {
   nadpis: string;
@@ -16,8 +17,10 @@ interface Props {
   pruvodce?: boolean;
   slovo?: Slovo;
   jazyk?: string;
+  /** Název dokumentu do e-mailu */
+  nazev?: string;
 }
-const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false, slovo, jazyk } = Astro.props;
+const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false, slovo, jazyk, nazev } = Astro.props;
 const TX = texty(jazyk);
 const T = TX.stazeni;
 const w = slovo ?? TX.slovo;
@@ -51,9 +54,27 @@ const w = slovo ?? TX.slovo;
             <a class="btn btn--duch" href={vzorPdf} download>{T.vzorPdf}</a>
             <a class="btn btn--duch" href={vzorDocx} download>{T.vzorWord}</a>
           </div>
+          <div class="stazeni__email" data-email-vzor={vzorPdf} data-nadpis={nazev ?? nadpis}>
+            <EmailPdf jazyk={jazyk ?? 'cs'} />
+          </div>
         </div>
       </div>
       <Upozorneni jazyk={jazyk} />
     </div>
   </div>
 </section>
+
+<script>
+  import { napojEmail } from '../scripts/email-pdf';
+  document.querySelectorAll<HTMLElement>('[data-email-vzor]').forEach((el) => {
+    const url = el.dataset.emailVzor!;
+    const soubor = url.split('/').pop()!.replace(/\.pdf$/, '');
+    const zeme = location.pathname.split('/').filter(Boolean)[0] ?? 'cz';
+    napojEmail(el.querySelector<HTMLElement>('[data-email-pdf]')!, () => fetch(url).then((r) => r.blob()), {
+      jazyk: document.documentElement.lang,
+      zeme,
+      nazev: el.dataset.nadpis ?? soubor,
+      soubor,
+    });
+  });
+</script>

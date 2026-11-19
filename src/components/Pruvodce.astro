@@ -8,6 +8,7 @@ import type { Sablona } from '../sablony/typy';
 import { texty } from '../i18n';
 import Duvera from './Duvera.astro';
 import Kontrola from './Kontrola.astro';
+import EmailPdf from './EmailPdf.astro';
 import Upozorneni from './Upozorneni.astro';
 import '../styles/dokument.css';
 
@@ -200,6 +201,7 @@ const pocet = s.kroky.length + 1;
           <button type="button" class="btn btn--primarni" data-stahnout="pdf">{T.stahnoutPdf}</button>
           <button type="button" class="btn btn--duch" data-stahnout="docx">{T.stahnoutWord}</button>
         </div>
+        <EmailPdf jazyk={s.jazyk} />
         <div class="sdilet">
           <button type="button" class="odkaz-tl sdilet__tl" data-sdilet>
             <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M8 12l4-4M7 9.5 5 11.5a2.8 2.8 0 0 0 4 4l2-2M13 10.5l2-2a2.8 2.8 0 0 0-4-4l-2 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>

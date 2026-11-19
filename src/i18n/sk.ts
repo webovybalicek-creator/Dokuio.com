@@ -207,6 +207,17 @@ export const sk: Texty = {
     dikVazba: 'Ďakujeme za spätnú väzbu.',
     dikVazbaPopis: 'Každú odpoveď čítame a podľa nich web vylepšujeme.',
   },
+  email: {
+    nadpis: 'Poslať PDF na e-mail',
+    placeholder: 'vas@email.sk',
+    odeslat: 'Poslať',
+    odesilam: 'Odosielam…',
+    popis: 'Pošleme ho len raz na zadanú adresu a nikde ho neukladáme.',
+    hotovo: (e) => `Odoslané na ${e}. Ak e-mail nevidíte, pozrite sa do spamu.`,
+    neplatny: 'Skontrolujte e-mailovú adresu.',
+    limit: 'Príliš veľa odoslaní za krátky čas. Skúste to neskôr alebo si PDF stiahnite.',
+    chyba: 'E-mail sa nepodarilo odoslať. Stiahnite si, prosím, PDF.',
+  },
   overeni: {
     title: 'Overenie šablóny',
     nadpis: 'Overenie vzoru',

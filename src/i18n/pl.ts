@@ -204,6 +204,17 @@ export const pl: Texty = {
     dikVazba: 'Dziękujemy za opinię.',
     dikVazbaPopis: 'Czytamy każdą odpowiedź i na jej podstawie ulepszamy stronę.',
   },
+  email: {
+    nadpis: 'Wyślij PDF e-mailem',
+    placeholder: 'twoj@email.pl',
+    odeslat: 'Wyślij',
+    odesilam: 'Wysyłam…',
+    popis: 'Wyślemy go tylko raz na podany adres i nigdzie go nie przechowujemy.',
+    hotovo: (e) => `Wysłano na ${e}. Jeśli nie widzisz wiadomości, sprawdź spam.`,
+    neplatny: 'Sprawdź adres e-mail.',
+    limit: 'Zbyt wiele wysyłek w krótkim czasie. Spróbuj później lub pobierz PDF.',
+    chyba: 'Nie udało się wysłać e-maila. Pobierz PDF.',
+  },
   overeni: {
     title: 'Weryfikacja szablonu',
     nadpis: 'Weryfikacja wzoru',

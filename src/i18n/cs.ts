@@ -211,6 +211,17 @@ export const cs = {
     dikVazba: 'Děkujeme za zpětnou vazbu.',
     dikVazbaPopis: 'Každou odpověď čteme a podle nich web vylepšujeme.',
   },
+  email: {
+    nadpis: 'Poslat PDF na e-mail',
+    placeholder: 'vas@email.cz',
+    odeslat: 'Poslat',
+    odesilam: 'Odesílám…',
+    popis: 'Pošleme ho jen jednou na zadanou adresu a nikde ho neukládáme.',
+    hotovo: (e: string) => `Odesláno na ${e}. Když e-mail nevidíte, mrkněte do spamu.`,
+    neplatny: 'Zkontrolujte e-mailovou adresu.',
+    limit: 'Moc odeslání za krátkou dobu. Zkuste to později, nebo si PDF stáhněte.',
+    chyba: 'E-mail se nepodařilo odeslat. Stáhněte si prosím PDF.',
+  },
   overeni: {
     title: 'Ověření šablony',
     nadpis: 'Ověření vzoru',

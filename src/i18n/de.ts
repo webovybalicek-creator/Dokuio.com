@@ -201,6 +201,17 @@ export const de: Texty = {
     dikVazba: 'Danke für Ihr Feedback.',
     dikVazbaPopis: 'Wir lesen jede Antwort und verbessern die Seite danach.',
   },
+  email: {
+    nadpis: 'PDF per E-Mail senden',
+    placeholder: 'ihre@email.de',
+    odeslat: 'Senden',
+    odesilam: 'Wird gesendet…',
+    popis: 'Wir senden es einmal an diese Adresse und speichern es nicht.',
+    hotovo: (e) => `An ${e} gesendet. Falls nichts ankommt, bitte im Spam nachsehen.`,
+    neplatny: 'Bitte E-Mail-Adresse prüfen.',
+    limit: 'Zu viele Sendungen in kurzer Zeit. Bitte später erneut versuchen oder das PDF laden.',
+    chyba: 'Die E-Mail konnte nicht gesendet werden. Bitte laden Sie das PDF herunter.',
+  },
   overeni: {
     title: 'Vorlage prüfen',
     nadpis: 'Vorlage prüfen',

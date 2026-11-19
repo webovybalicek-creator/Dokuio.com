@@ -2,6 +2,7 @@
  * Klientská logika průvodce. Vše běží v prohlížeči: údaje se nikam neodesílají,
  * rozpracovaná smlouva se pamatuje jen v localStorage tohoto prohlížeče.
  */
+import { napojEmail } from './email-pdf';
 import type { Data, Sablona } from '../sablony/typy';
 import { texty } from '../i18n';
 import {
@@ -466,6 +467,24 @@ export function spustPruvodce(s: Sablona) {
     setTimeout(() => URL.revokeObjectURL(url), 10_000);
   };
 
+  const vytvorPdf = async (d: ReturnType<typeof sestavDokument>) => {
+    const [{ dokumentPdf }, regular, semibold] = await Promise.all([
+      import('../sablony/pdf'),
+      fetch('/fonts/InterTight-Regular.ttf').then((r) => r.arrayBuffer()),
+      fetch('/fonts/InterTight-SemiBold.ttf').then((r) => r.arrayBuffer()),
+    ]);
+    const bajty = await dokumentPdf(d, { regular, semibold }, { podpisy });
+    return new Blob([bajty], { type: 'application/pdf' });
+  };
+
+  /* ---------------------------------------------------------- odeslání PDF na e-mail */
+  const emailBox = koren.querySelector<HTMLElement>('[data-email-pdf]');
+  if (emailBox)
+    napojEmail(emailBox, () => vytvorPdf(sestavDokument(s, stav.data, stav.upravy)), { jazyk: s.jazyk, zeme: s.zeme, nazev: s.nazev, soubor: s.souborPdf }, () => {
+      koren.querySelector<HTMLElement>('[data-co-dal]')!.hidden = false;
+      vykresliPripominky();
+    });
+
   document.addEventListener('click', async (e) => {
     const tl = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-stahnout]');
     if (!tl || tl.disabled) return;
@@ -476,13 +495,7 @@ export function spustPruvodce(s: Sablona) {
     try {
       const d = sestavDokument(s, stav.data, stav.upravy);
       if (typ === 'pdf') {
-        const [{ dokumentPdf }, regular, semibold] = await Promise.all([
-          import('../sablony/pdf'),
-          fetch('/fonts/InterTight-Regular.ttf').then((r) => r.arrayBuffer()),
-          fetch('/fonts/InterTight-SemiBold.ttf').then((r) => r.arrayBuffer()),
-        ]);
-        const bajty = await dokumentPdf(d, { regular, semibold }, { podpisy });
-        stahni(new Blob([bajty], { type: 'application/pdf' }), `${s.souborPdf}.pdf`);
+        stahni(await vytvorPdf(d), `${s.souborPdf}.pdf`);
       } else {
         const [{ dokumentDocx }, logo] = await Promise.all([
           import('../sablony/docx'),
