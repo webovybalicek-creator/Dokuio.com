@@ -28,6 +28,7 @@ export interface OdstavecDok {
 
 export interface Blok {
   nadpis: string;
+  vysvetleni?: string;
   odstavce: OdstavecDok[];
 }
 
@@ -214,8 +215,9 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
   const texty = upravy.text ?? {};
   let upraveno = false;
 
-  const clanky: { nadpis: string; odstavce: OdstavecDok[] }[] = s.clanky.map((c, i) => ({
+  const clanky: { nadpis: string; vysvetleni?: string; odstavce: OdstavecDok[] }[] = s.clanky.map((c, i) => ({
     nadpis: c.nadpis,
+    vysvetleni: c.vysvetleni,
     odstavce: c.odstavce.map((o, j) => {
       const id = `${i + 1}.${j + 1}`;
       if (smazane.has(id)) {
@@ -235,6 +237,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     upraveno = true;
     clanky.splice(Math.max(clanky.length - 1, 0), 0, {
       nadpis: 'Další ujednání',
+      vysvetleni: 'Vaše vlastní ustanovení. Tento text není součástí našeho ověřeného vzoru.',
       odstavce: vlastni.map((t, k) => ({ id: `v${k}`, stav: 'vlastni', radky: textNaRadky(t) })),
     });
   }
@@ -244,6 +247,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     let n = 0;
     return {
       nadpis: `Článek ${RIMSKE[i]} · ${c.nadpis}`,
+      vysvetleni: c.vysvetleni,
       odstavce: c.odstavce.map((o) =>
         o.stav === 'smazano' || platne.length < 2 ? o : { ...o, cislo: `${++n}.` },
       ),

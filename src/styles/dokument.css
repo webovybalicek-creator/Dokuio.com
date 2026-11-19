@@ -96,3 +96,22 @@
   border-top: 1px solid var(--ink);
   margin-bottom: 4px;
 }
+
+.dok__vysvetleni {
+  margin: -2px 0 8px;
+  font-size: 0.75rem;
+  color: var(--steel);
+}
+.dok__vysvetleni summary {
+  cursor: pointer;
+  color: var(--indigo);
+  font-weight: 500;
+  width: fit-content;
+}
+.dok__vysvetleni p {
+  margin-top: 4px;
+  padding: 8px 10px;
+  border-radius: var(--r);
+  background: var(--wash);
+  color: var(--navy-soft);
+}

@@ -78,6 +78,8 @@ export type Odstavec =
 
 export interface Clanek {
   nadpis: string;
+  /** „Co to znamená?“ – jedna srozumitelná věta pro laika, zobrazí se v náhledu (ne v PDF) */
+  vysvetleni?: string;
   odstavce: Odstavec[];
 }
 

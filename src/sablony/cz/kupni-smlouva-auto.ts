@@ -27,12 +27,12 @@ export const kupniSmlouvaAuto: Sablona = {
       nazev: 'Prodávající a kupující',
       popis: 'Údaje kupujícího často ještě neznáte. Nechte je prázdné, ve smlouvě z nich budou linky k ručnímu doplnění.',
       pole: [
-        { id: 'p_jmeno', typ: 'text', popis: 'Prodávající – jméno a příjmení', sirka: 34, autocomplete: 'name' },
-        { id: 'p_narozeni', typ: 'datum', popis: 'Datum narození', sirka: 14, polovina: true },
-        { id: 'p_adresa', typ: 'text', popis: 'Adresa trvalého bydliště', sirka: 46, placeholder: 'Ulice a číslo, PSČ obec' },
-        { id: 'k_jmeno', typ: 'text', popis: 'Kupující – jméno a příjmení', sirka: 34 },
-        { id: 'k_narozeni', typ: 'datum', popis: 'Datum narození', sirka: 14, polovina: true },
-        { id: 'k_adresa', typ: 'text', popis: 'Adresa trvalého bydliště', sirka: 46, placeholder: 'Ulice a číslo, PSČ obec' },
+        { id: 'p_jmeno', typ: 'text', popis: 'Prodávající – jméno a příjmení', napoveda: 'Ten, kdo auto prodává a je zapsaný jako vlastník v osvědčení o registraci. Napište celé jméno jako v občanském průkazu.', placeholder: 'např. Jan Novák', sirka: 34, autocomplete: 'name' },
+        { id: 'p_narozeni', typ: 'datum', popis: 'Datum narození', napoveda: 'Stačí datum narození, rodné číslo do smlouvy psát nemusíte.', sirka: 14, polovina: true },
+        { id: 'p_adresa', typ: 'text', popis: 'Adresa trvalého bydliště', napoveda: 'Adresa z občanského průkazu.', sirka: 46, placeholder: 'např. Nerudova 12, 251 01 Říčany' },
+        { id: 'k_jmeno', typ: 'text', popis: 'Kupující – jméno a příjmení', napoveda: 'Ten, kdo auto kupuje. Pokud ho ještě neznáte, nechte prázdné a doplníte rukou při podpisu.', placeholder: 'např. Petra Svobodová', sirka: 34 },
+        { id: 'k_narozeni', typ: 'datum', popis: 'Datum narození', napoveda: 'Podle občanského průkazu kupujícího.', sirka: 14, polovina: true },
+        { id: 'k_adresa', typ: 'text', popis: 'Adresa trvalého bydliště', napoveda: 'Adresa z občanského průkazu kupujícího.', sirka: 46, placeholder: 'např. Masarykova 5, 602 00 Brno' },
       ],
     },
     {
@@ -40,7 +40,7 @@ export const kupniSmlouvaAuto: Sablona = {
       nazev: 'Vozidlo',
       popis: 'Údaje opište z osvědčení o registraci vozidla (malého technického průkazu).',
       pole: [
-        { id: 'znacka', typ: 'text', popis: 'Tovární značka a typ', placeholder: 'např. Škoda Octavia Combi', sirka: 32 },
+        { id: 'znacka', typ: 'text', popis: 'Tovární značka a typ', napoveda: 'Výrobce a model, jak jsou v osvědčení o registraci (kolonky D.1 a D.3).', placeholder: 'např. Škoda Octavia Combi', sirka: 32 },
         {
           id: 'vin',
           typ: 'vin',
@@ -48,9 +48,9 @@ export const kupniSmlouvaAuto: Sablona = {
           napoveda: '17 znaků bez písmen I, O a Q. V osvědčení o registraci je v kolonce E.',
           sirka: 24,
         },
-        { id: 'spz', typ: 'text', popis: 'Registrační značka (SPZ)', sirka: 12, polovina: true },
-        { id: 'rok', typ: 'text', popis: 'Rok výroby', sirka: 8, polovina: true },
-        { id: 'orv', typ: 'text', popis: 'Číslo osvědčení o registraci', sirka: 14, polovina: true },
+        { id: 'spz', typ: 'text', popis: 'Registrační značka (SPZ)', napoveda: 'Značka na tabulce auta, v osvědčení kolonka A.', placeholder: 'např. 1AB 2345', sirka: 12, polovina: true },
+        { id: 'rok', typ: 'text', popis: 'Rok výroby', napoveda: 'Najdete v osvědčení o registraci nebo v technickém průkazu.', placeholder: 'např. 2018', sirka: 8, polovina: true },
+        { id: 'orv', typ: 'text', popis: 'Číslo osvědčení o registraci', napoveda: 'Malý technický průkaz (kartička). Číslo je vytištěné na dokladu, obvykle tři písmena a šest číslic.', placeholder: 'např. UAA123456', sirka: 14, polovina: true },
         {
           id: 'tp',
           typ: 'text',
@@ -59,8 +59,8 @@ export const kupniSmlouvaAuto: Sablona = {
           sirka: 14,
           polovina: true,
         },
-        { id: 'barva', typ: 'text', popis: 'Barva', sirka: 14, polovina: true },
-        { id: 'km', typ: 'cislo', popis: 'Stav tachometru', jednotka: 'km', sirka: 12, polovina: true },
+        { id: 'barva', typ: 'text', popis: 'Barva', napoveda: 'Stačí běžný popis, pomáhá vůz jednoznačně určit.', placeholder: 'např. šedá metalíza', sirka: 14, polovina: true },
+        { id: 'km', typ: 'cislo', popis: 'Stav tachometru', napoveda: 'Opište v den podpisu z palubní desky. Chrání obě strany před sporem o stočený tachometr.', placeholder: 'např. 154320', jednotka: 'km', sirka: 12, polovina: true },
       ],
     },
     {
@@ -72,6 +72,7 @@ export const kupniSmlouvaAuto: Sablona = {
           id: 'vady',
           typ: 'volba',
           popis: 'Vady vozidla',
+          napoveda: 'Vada je cokoli, co nefunguje nebo je poškozené (škrábance, nefunkční klimatizace, prasklé sklo). Co do smlouvy napíšete, to kupující nemůže později reklamovat.',
           moznosti: [
             { hodnota: 'bez', popis: 'Prodávajícímu nejsou známy žádné vady' },
             { hodnota: 's', popis: 'Vozidlo má vady, o kterých prodávající ví' },
@@ -89,17 +90,19 @@ export const kupniSmlouvaAuto: Sablona = {
           id: 'havarie',
           typ: 'volba',
           popis: 'Bylo vozidlo havarované?',
+          napoveda: 'Pokud nevíte jistě (např. jste auto koupili ojeté), zvolte „Prodávající neví“. Nepravdivé prohlášení může vést ke sporu.',
           moznosti: [
             { hodnota: 'ne', popis: 'Ne, podle prodávajícího nebylo' },
             { hodnota: 'ano', popis: 'Ano, bylo' },
             { hodnota: 'nevi', popis: 'Prodávající neví' },
           ],
         },
-        { id: 'klice', typ: 'cislo', popis: 'Počet předávaných klíčů', sirka: 4, polovina: true },
+        { id: 'klice', typ: 'cislo', popis: 'Počet předávaných klíčů', napoveda: 'Včetně náhradního klíče.', placeholder: 'např. 2', sirka: 4, polovina: true },
         {
           id: 'doklady',
           typ: 'vice',
           popis: 'Předávané doklady',
+          napoveda: 'Zaškrtněte, co kupující dostane. Osvědčení o registraci potřebuje k přepisu vždy.',
           moznosti: [
             { hodnota: 'orv', popis: 'Osvědčení o registraci (malý TP)' },
             { hodnota: 'tp', popis: 'Technický průkaz (velký TP)' },
@@ -121,11 +124,12 @@ export const kupniSmlouvaAuto: Sablona = {
       id: 'cena',
       nazev: 'Cena a platba',
       pole: [
-        { id: 'cena', typ: 'castka', popis: 'Kupní cena (Kč)', sirka: 14, polovina: true },
+        { id: 'cena', typ: 'castka', popis: 'Kupní cena (Kč)', napoveda: 'Celá dohodnutá cena. Částku slovy doplníme do smlouvy sami.', placeholder: 'např. 215000', sirka: 14, polovina: true },
         {
           id: 'platba',
           typ: 'volba',
           popis: 'Jak a kdy kupující zaplatí',
+          napoveda: 'Vlastnictví přejde na kupujícího, až zaplatí celou cenu. Při platbě hotově podpisem smlouvy potvrdíte, že jste peníze převzali – podepisujte až s penězi v ruce.',
           moznosti: [
             { hodnota: 'hotove', popis: 'V hotovosti při podpisu smlouvy' },
             { hodnota: 'prevod', popis: 'Převodem na účet do určitého data' },
@@ -136,6 +140,7 @@ export const kupniSmlouvaAuto: Sablona = {
           id: 'ucet',
           typ: 'text',
           popis: 'Číslo účtu prodávajícího',
+          napoveda: 'Účet, na který mají přijít peníze.',
           placeholder: '123456789/0100',
           sirka: 24,
           zobrazitKdyz: { pole: 'platba', je: 'prevod' },
@@ -144,6 +149,7 @@ export const kupniSmlouvaAuto: Sablona = {
           id: 'splatnost',
           typ: 'datum',
           popis: 'Zaplatit nejpozději do',
+          napoveda: 'Poslední den, kdy musí kupující zaplatit.',
           sirka: 14,
           polovina: true,
           zobrazitKdyz: { pole: 'platba', je: ['prevod', 'hotove_pozdeji'] },
@@ -154,19 +160,20 @@ export const kupniSmlouvaAuto: Sablona = {
       id: 'predani',
       nazev: 'Předání a přepis',
       pole: [
-        { id: 'predani_datum', typ: 'datum', popis: 'Datum předání vozidla', sirka: 14, polovina: true },
+        { id: 'predani_datum', typ: 'datum', popis: 'Datum předání vozidla', napoveda: 'Den, kdy kupující převezme auto a klíče. Od té doby nese riziko poškození a musí mít povinné ručení.', sirka: 14, polovina: true },
         {
           id: 'prepis',
           typ: 'volba',
           popis: 'Kdo podá žádost o přepis v registru vozidel',
+          napoveda: 'Přepis se vyřizuje na registru vozidel obecního úřadu obce s rozšířenou působností. Kdo nepůjde osobně, dá druhému plnou moc.',
           moznosti: [
             { hodnota: 'kupujici', popis: 'Kupující' },
             { hodnota: 'prodavajici', popis: 'Prodávající' },
             { hodnota: 'spolecne', popis: 'Oba společně' },
           ],
         },
-        { id: 'misto', typ: 'text', popis: 'Místo podpisu (obec)', sirka: 18, polovina: true },
-        { id: 'datum_podpisu', typ: 'datum', popis: 'Datum podpisu', sirka: 14, polovina: true },
+        { id: 'misto', typ: 'text', popis: 'Místo podpisu (obec)', napoveda: 'Obec, kde smlouvu podepisujete.', placeholder: 'např. Říčany', sirka: 18, polovina: true },
+        { id: 'datum_podpisu', typ: 'datum', popis: 'Datum podpisu', napoveda: 'Den, kdy obě strany smlouvu podepíšou.', sirka: 14, polovina: true },
       ],
     },
   ],
@@ -178,6 +185,7 @@ export const kupniSmlouvaAuto: Sablona = {
   clanky: [
     {
       nadpis: 'Smluvní strany',
+      vysvetleni: 'Kdo smlouvu uzavírá. Údaje musí sedět s občanskými průkazy, aby bylo jasné, kdo prodal a kdo koupil.',
       odstavce: [
         '**Prodávající:** {{p_jmeno}}, datum narození {{p_narozeni}}, trvale bytem {{p_adresa}} (dále jen „prodávající“)',
         '**Kupující:** {{k_jmeno}}, datum narození {{k_narozeni}}, trvale bytem {{k_adresa}} (dále jen „kupující“)',
@@ -185,6 +193,7 @@ export const kupniSmlouvaAuto: Sablona = {
     },
     {
       nadpis: 'Předmět koupě',
+      vysvetleni: 'Přesně které auto se prodává. Nejdůležitější je VIN – je jen jedno na světě a podle něj se vůz dohledá i v registru.',
       odstavce: [
         'Prodávající prohlašuje, že je výlučným vlastníkem tohoto vozidla: tovární značka a typ {{znacka}}, VIN {{vin}}, registrační značka {{spz}}, rok výroby {{rok}}, barva {{barva}}, číslo osvědčení o registraci vozidla {{orv}}, číslo technického průkazu {{tp}} (dále jen „vozidlo“).',
         'Prodávající prohlašuje, že na vozidle nevázne zástavní právo ani jiné právo třetí osoby a že vozidlo není předmětem leasingu.',
@@ -193,6 +202,7 @@ export const kupniSmlouvaAuto: Sablona = {
     },
     {
       nadpis: 'Stav vozidla',
+      vysvetleni: 'Co prodávající o autě ví. Vady uvedené tady kupující později reklamovat nemůže, proto je popište pravdivě.',
       odstavce: [
         'Stav tachometru ke dni podpisu této smlouvy je {{km}}. Prodávající prohlašuje, že podle jeho vědomí nebylo se stavem tachometru manipulováno.',
         {
@@ -217,6 +227,7 @@ export const kupniSmlouvaAuto: Sablona = {
     },
     {
       nadpis: 'Kupní cena a platba',
+      vysvetleni: 'Kolik, jak a kdy se platí. Auto patří kupujícímu až po zaplacení celé ceny, což chrání prodávajícího.',
       odstavce: [
         'Kupní cena vozidla činí {{cena}} (slovy: {{cena_slovy}}).',
         {
@@ -236,6 +247,7 @@ export const kupniSmlouvaAuto: Sablona = {
     },
     {
       nadpis: 'Předání vozidla a přepis',
+      vysvetleni: 'Kdy kupující auto převezme, co s ním dostane a kdo zařídí přepis v registru. Od převzetí odpovídá za auto kupující.',
       odstavce: [
         'Prodávající předá kupujícímu vozidlo dne {{predani_datum}}. Spolu s vozidlem předá tento počet klíčů: {{klice}}.',
         {
@@ -264,6 +276,7 @@ export const kupniSmlouvaAuto: Sablona = {
     },
     {
       nadpis: 'Závěrečná ustanovení',
+      vysvetleni: 'Běžné formální body: kolik výtisků, odkdy smlouva platí a že ji obě strany přečetly.',
       odstavce: [
         'Práva a povinnosti smluvních stran neupravené touto smlouvou se řídí zákonem č. 89/2012 Sb., občanský zákoník.',
         'Smlouva je vyhotovena ve dvou stejnopisech, z nichž každá smluvní strana obdrží jeden.',

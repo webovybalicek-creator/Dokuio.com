@@ -99,7 +99,10 @@ export function spustPruvodce(s: Sablona) {
 
   const vykresli = () => {
     dok = sestavDokument(s, stav.data, stav.upravy);
+    // „Co to znamená?“ nechat otevřené i po překreslení
+    const otevrene = [...nahled.querySelectorAll('details.dok__vysvetleni')].map((d) => (d as HTMLDetailsElement).open);
     nahled.innerHTML = dokumentHtml(dok, true);
+    nahled.querySelectorAll<HTMLDetailsElement>('details.dok__vysvetleni').forEach((d, i) => (d.open = !!otevrene[i]));
     stavEl.textContent = `Vyplněno ${dok.vyplneno} z ${dok.celkem} údajů${dok.upraveno ? ' · text upraven' : ''}`;
     const souhrn = koren.querySelector<HTMLElement>('[data-souhrn]');
     if (souhrn) {

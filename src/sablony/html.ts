@@ -53,7 +53,11 @@ export function dokumentHtml(d: Dokument, moznostiUprav = false): string {
     d.uvod.length ? `<p class="dok__uvod">${useky(d.uvod)}</p>` : '',
     ...d.bloky.map((b) => {
       const sCisly = b.odstavce.some((o) => o.cislo);
-      return `<section class="dok__clanek"><h3>${esc(b.nadpis)}</h3>${b.odstavce
+      const vysv =
+        moznostiUprav && b.vysvetleni
+          ? `<details class="dok__vysvetleni"><summary>Co to znamená?</summary><p>${esc(b.vysvetleni)}</p></details>`
+          : '';
+      return `<section class="dok__clanek"><h3>${esc(b.nadpis)}</h3>${vysv}${b.odstavce
         .map((o) => odstavec(o, moznostiUprav, sCisly))
         .join('')}</section>`;
     }),
