@@ -21,6 +21,7 @@ export const potvrzeniPrevzetiPenez: Sablona = {
   podpisy: { vlevo: 'příjemce (převzal)', vpravo: 'plátce (předal)' },
   slovo: { n: 'potvrzení', g: 'potvrzení', a: 'potvrzení', l: 'potvrzení' },
   cislovatClanky: false,
+  cislovatOdstavce: false,
   coDal: [
     'Vytiskněte potvrzení a nechte ho podepsat příjemce peněz – jeho podpis je nejdůležitější.',
     'Peníze přepočítejte před podpisem.',

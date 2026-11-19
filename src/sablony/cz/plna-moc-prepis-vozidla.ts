@@ -22,6 +22,7 @@ export const plnaMocPrepisVozidla: Sablona = {
   podpisy: { vlevo: 'zmocnitel (úředně ověřený podpis)', vpravo: 'zmocněnec – zmocnění přijímám' },
   slovo: { n: 'plná moc', g: 'plné moci', a: 'plnou moc', l: 'plné moci' },
   cislovatClanky: false,
+  cislovatOdstavce: false,
   podpisNaZarizeni: false,
   podpisPoznamka:
     'Podpis zmocnitele musí být úředně ověřený (Czech POINT, obecní úřad nebo notář), jinak plnou moc registr vozidel nepřijme. Proto ji podepište rukou – buď přímo před úředníkem, nebo ji podepište předem a podpis tam uznáte za vlastní.',

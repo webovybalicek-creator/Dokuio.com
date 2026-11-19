@@ -117,6 +117,8 @@ export interface Sablona {
   slovo?: Slovo;
   /** Nadpisy „Článek I · …“ (výchozí). U plné moci či protokolu stačí prosté nadpisy. */
   cislovatClanky?: boolean;
+  /** Číslovat odstavce 1., 2. … (výchozí ano). U dopisů a souhlasů plynulý text bez čísel. */
+  cislovatOdstavce?: boolean;
   /** Podpis na obrazovce v průvodci (výchozí ano). Ne u dokumentů, kde se podpis úředně ověřuje. */
   podpisNaZarizeni?: boolean;
   /** Proč podpis na zařízení není (zobrazí se místo podpisového pole) */

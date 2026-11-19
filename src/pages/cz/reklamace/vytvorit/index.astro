@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { reklamace as s } from '../../../../sablony/cz/reklamace';
+import { bezneKrome } from '../../../../lib/souvisejici';
+const base = '/cz/reklamace/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Reklamace zboží"
+  nazevA="reklamaci zboží"
+  title="Vyplnit reklamaci zboží online – PDF zdarma"
+  description="Průvodce reklamací vadného zboží: oprava, výměna, sleva, vrácení peněz. PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 3 minuty"
+  dalsi={bezneKrome(base)}
+/>

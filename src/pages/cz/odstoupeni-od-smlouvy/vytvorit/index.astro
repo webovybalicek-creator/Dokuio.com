@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { odstoupeniOdSmlouvy as s } from '../../../../sablony/cz/odstoupeni-od-smlouvy';
+import { bezneKrome } from '../../../../lib/souvisejici';
+const base = '/cz/odstoupeni-od-smlouvy/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Odstoupení od smlouvy"
+  nazevA="odstoupení od smlouvy"
+  title="Vyplnit odstoupení od smlouvy do 14 dnů online – PDF zdarma"
+  description="Průvodce odstoupením od nákupu z e-shopu do 14 dnů podle vzorového formuláře. PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 2 minuty"
+  dalsi={bezneKrome(base)}
+/>

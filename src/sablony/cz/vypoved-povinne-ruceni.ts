@@ -22,6 +22,7 @@ export const vypovedPovinneRuceni: Sablona = {
   podpisy: { vlevo: 'pojistník', vpravo: 'převzal za pojistitele (při osobním podání)' },
   slovo: { n: 'výpověď', g: 'výpovědi', a: 'výpověď', l: 'výpovědi' },
   cislovatClanky: false,
+  cislovatOdstavce: false,
   coDal: [
     'Podepište výpověď a pošlete ji doporučeně s dodejkou, nebo ji podejte na pobočce a nechte si potvrdit převzetí.',
     'Lhůta se počítá ode dne, kdy pojišťovna výpověď dostane – ne od odeslání. Neposílejte na poslední chvíli.',

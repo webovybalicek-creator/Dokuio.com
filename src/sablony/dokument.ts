@@ -258,7 +258,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
       nadpis: s.cislovatClanky === false ? c.nadpis : `Článek ${RIMSKE[i]} · ${c.nadpis}`,
       vysvetleni: c.vysvetleni,
       odstavce: c.odstavce.map((o) =>
-        o.stav === 'smazano' || platne.length < 2 ? o : { ...o, cislo: `${++n}.` },
+        o.stav === 'smazano' || platne.length < 2 || s.cislovatOdstavce === false ? o : { ...o, cislo: `${++n}.` },
       ),
     };
   });

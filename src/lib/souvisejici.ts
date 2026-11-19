@@ -22,3 +22,14 @@ export const PENIZE: { nazev: string; popis: string; url: string; ilustrace: Ilu
 ];
 
 export const penizeKrome = (url: string) => PENIZE.filter((d) => d.url !== url);
+
+/** Nákupy, souhlasy a úřady */
+export const BEZNE: { nazev: string; popis: string; url: string; ilustrace: Ilustrace }[] = [
+  { nazev: 'Odstoupení od smlouvy do 14 dnů', popis: 'Vrácení zboží z e-shopu.', url: '/cz/odstoupeni-od-smlouvy/', ilustrace: 'protokol' },
+  { nazev: 'Reklamace zboží', popis: 'Oprava, výměna, sleva nebo vrácení peněz.', url: '/cz/reklamace/', ilustrace: 'protokol' },
+  { nazev: 'Souhlas s trvalým pobytem', popis: 'Přihlášení na adresu.', url: '/cz/souhlas-s-trvalym-pobytem/', ilustrace: 'plnamoc' },
+  { nazev: 'Souhlas s vycestováním dítěte', popis: 'Cesta dítěte do zahraničí.', url: '/cz/souhlas-s-vycestovanim-ditete/', ilustrace: 'plnamoc' },
+  { nazev: 'Plná moc', popis: 'Aby za vás někdo něco vyřídil.', url: '/cz/plna-moc/', ilustrace: 'plnamoc' },
+];
+
+export const bezneKrome = (url: string) => BEZNE.filter((d) => d.url !== url);

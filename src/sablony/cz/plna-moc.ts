@@ -22,6 +22,7 @@ export const plnaMoc: Sablona = {
   podpisy: { vlevo: 'zmocnitel', vpravo: 'zmocněnec – zmocnění přijímám' },
   slovo: { n: 'plná moc', g: 'plné moci', a: 'plnou moc', l: 'plné moci' },
   cislovatClanky: false,
+  cislovatOdstavce: false,
   coDal: [
     'Zjistěte, jestli instituce nevyžaduje úředně ověřený podpis nebo vlastní formulář – pak podpis ověřte (Czech POINT, obecní úřad, notář).',
     'Zmocnitel podepíše vlastní rukou, zmocněnec může připsat „zmocnění přijímám“.',

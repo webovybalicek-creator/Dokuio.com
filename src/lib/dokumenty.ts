@@ -15,7 +15,15 @@ export interface Dokument {
 }
 
 export const KATEGORIE: Record<string, Record<string, string>> = {
-  cz: { auto: 'Auto a vozidla', penize: 'Peníze a dary', veci: 'Prodej věcí', zastoupeni: 'Plné moci' },
+  cz: {
+    auto: 'Auto a vozidla',
+    penize: 'Peníze a dary',
+    nakupy: 'Nákupy a reklamace',
+    veci: 'Prodej věcí',
+    bydleni: 'Bydlení',
+    rodina: 'Rodina a cestování',
+    zastoupeni: 'Plné moci',
+  },
   sk: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', zastoupeni: 'Splnomocnenia' },
 };
 
@@ -107,6 +115,38 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       ilustrace: 'penize',
       url: '/cz/kupni-smlouva-vec/',
       slova: ['kupní smlouva', 'prodej', 'bazar', 'kolo', 'telefon', 'mobil', 'nábytek', 'movitá věc', 'obecná'],
+    },
+    {
+      nazev: 'Odstoupení od smlouvy do 14 dnů',
+      popis: 'Vrácení zboží z e-shopu bez udání důvodu.',
+      kategorie: 'nakupy',
+      ilustrace: 'protokol',
+      url: '/cz/odstoupeni-od-smlouvy/',
+      slova: ['vrácení zboží', 'e-shop', 'eshop', '14 dní', 'odstoupení', 'internet', 'vrátit peníze'],
+    },
+    {
+      nazev: 'Reklamace zboží',
+      popis: 'Vadné zboží: oprava, výměna, sleva nebo vrácení peněz.',
+      kategorie: 'nakupy',
+      ilustrace: 'protokol',
+      url: '/cz/reklamace/',
+      slova: ['reklamace', 'vada', 'záruka', 'reklamační protokol', 'oprava', 'výměna', 'obchod'],
+    },
+    {
+      nazev: 'Souhlas s trvalým pobytem',
+      popis: 'Souhlas vlastníka nebo nájemce s přihlášením na adresu.',
+      kategorie: 'bydleni',
+      ilustrace: 'plnamoc',
+      url: '/cz/souhlas-s-trvalym-pobytem/',
+      slova: ['trvalý pobyt', 'trvalé bydliště', 'přihlášení', 'souhlas vlastníka', 'ohlašovna', 'byt'],
+    },
+    {
+      nazev: 'Souhlas s vycestováním dítěte',
+      popis: 'Cesta dítěte do zahraničí bez rodičů nebo s jedním z nich.',
+      kategorie: 'rodina',
+      ilustrace: 'plnamoc',
+      url: '/cz/souhlas-s-vycestovanim-ditete/',
+      slova: ['dítě', 'cesta', 'zahraničí', 'dovolená', 'tábor', 'souhlas rodičů', 'vycestování', 'nezletilý'],
     },
     {
       nazev: 'Uznání dluhu',
