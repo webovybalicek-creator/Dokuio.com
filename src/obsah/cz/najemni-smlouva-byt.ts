@@ -32,7 +32,7 @@ const stranka: StrankaDokumentu = {
       { nazev: 'Zkontrolujte vlastníka', popis: 'Nahlížení do katastru nemovitostí je zdarma.' },
       { nazev: 'Podepište a předejte byt', popis: 'Dva výtisky a předávací protokol s měřiči.' },
     ],
-    online: ['Kauce a drobné opravy v zákonných mezích', 'Správně formulovaná inflační doložka', 'Navazující předávací protokol předvyplníme', 'Stažení v PDF i ve Wordu'],
+    online: ['Volitelně dvojjazyčně: česky + anglicky', 'Kauce a drobné opravy v zákonných mezích', 'Správně formulovaná inflační doložka', 'Navazující předávací protokol předvyplníme', 'Stažení v PDF i ve Wordu'],
     hodiSe: ['pronajímáte vlastní byt k bydlení', 'najímáte si byt od soukromého majitele', 'chcete férovou smlouvu bez neplatných ujednání'],
     nehodiSe: ['podnájem (nájemce dává byt dál) – připravujeme podnájemní smlouvu', 'nebytový prostor, kancelář nebo garáž – jiná pravidla', 'krátkodobé ubytování (Airbnb) – nejde o nájem bytu'],
     poNadpis: "Po podpisu.",

@@ -31,7 +31,7 @@ const stranka: StrankaDokumentu = {
       { nazev: 'Vyplňte podmínky', popis: 'Pokoj nebo byt, doba, podnájemné, kauce.' },
       { nazev: 'Podepište', popis: 'Oba, dva výtisky, souhlas jako příloha.' },
     ],
-    online: ['Pokoj i celý byt', 'Hlídá souhlas pronajímatele', 'Částka slovy automaticky', 'Stažení v PDF i ve Wordu'],
+    online: ['Volitelně dvojjazyčně: česky + anglicky', 'Pokoj i celý byt', 'Hlídá souhlas pronajímatele', 'Částka slovy automaticky', 'Stažení v PDF i ve Wordu'],
     hodiSe: [
       'podnajímáte pokoj v bytě, kde sami bydlíte',
       'podnajímáte celý byt a máte písemný souhlas pronajímatele',

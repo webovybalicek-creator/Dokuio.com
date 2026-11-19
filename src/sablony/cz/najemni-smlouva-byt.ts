@@ -9,12 +9,14 @@ import type { Sablona } from '../typy';
 import { castkaSlovy } from '../dokument';
 import { OZ, NV_DROBNE_OPRAVY, ZAKON_SLUZBY, OCHRANCE_NAJEM, IURE_PRIRUCKA, TIP_TOTOZNOST } from './zdroje';
 import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
+import { NAJEM_BYT_EN } from './preklady-en';
 
 export const najemniSmlouvaByt: Sablona = {
   kod: 'CZ-NAJEM-BYT',
   verze: '1.0',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
+  preklad: NAJEM_BYT_EN,
   pripominky: (d) => {
     const out: { nazev: string; datum: string; popis?: string; mesicne?: number }[] = [];
     const od = naDatum(d.od);

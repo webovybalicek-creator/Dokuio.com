@@ -8,12 +8,14 @@ import type { Sablona } from '../typy';
 import { castkaSlovy } from '../dokument';
 import { OZ, OCHRANCE_NAJEM, TIP_TOTOZNOST } from './zdroje';
 import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
+import { PODNAJEM_EN } from './preklady-en';
 
 export const podnajemniSmlouva: Sablona = {
   kod: 'CZ-PODNAJEM',
   verze: '1.0',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
+  preklad: PODNAJEM_EN,
   pripominky: (d) => {
     const out: { nazev: string; datum: string; popis?: string; mesicne?: number }[] = [];
     const od = naDatum(d.od);
