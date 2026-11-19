@@ -1,22 +1,22 @@
 /**
  * Výpověď povinného ručení (pojištění odpovědnosti z provozu vozidla) – Česko.
- * Důvody a lhůty podle § 2805 a násl. OZ a § 12 zák. č. 168/1999 Sb. Text je záměrně dopis pojišťovně.
+ * Důvody a lhůty podle § 2805 a násl. OZ a zák. č. 30/2024 Sb. (od 1. 4. 2024 nahradil zák. č. 168/1999 Sb.) Text je záměrně dopis pojišťovně.
  * Při každé změně textu zvýšit `verze` a `aktualizovano`.
  */
 import type { Sablona } from '../typy';
-import { OZ, ZAKON_POV } from './zdroje';
+import { OZ, ZAKON_POV, MF_POV } from './zdroje';
 
 export const vypovedPovinneRuceni: Sablona = {
   kod: 'CZ-VYPOVED-POV',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
   zeme: 'cz',
   jazyk: 'cs',
   nazev: 'Výpověď pojištění odpovědnosti z provozu vozidla',
-  podnadpis: 'výpověď povinného ručení podle občanského zákoníku a zákona č. 168/1999 Sb.',
+  podnadpis: 'výpověď povinného ručení podle občanského zákoníku a zákona č. 30/2024 Sb., o pojištění odpovědnosti z provozu vozidla',
   souborPdf: 'vypoved-povinneho-ruceni',
-  paticka: 'Vytvořeno zdarma · šablona CZ-VYPOVED-POV v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
+  paticka: 'Vytvořeno zdarma · šablona CZ-VYPOVED-POV v1.1 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'pojistník', vpravo: 'převzal za pojistitele (při osobním podání)' },
@@ -38,7 +38,7 @@ export const vypovedPovinneRuceni: Sablona = {
     'Nesouhlas se zvýšením pojistného pošlete do 1 měsíce od doručení oznámení o změně (lhůtu ověřte v pojistných podmínkách).',
     'Podmínky vaší pojišťovny mohou dávat další možnosti (např. online výpověď) – mrkněte do pojistných podmínek.',
   ],
-  zdroje: [OZ, ZAKON_POV],
+  zdroje: [OZ, ZAKON_POV, MF_POV],
 
   kroky: [
     {
@@ -123,7 +123,7 @@ export const vypovedPovinneRuceni: Sablona = {
             vyroci: 'Pojištění vypovídám ke konci pojistného období podle občanského zákoníku.',
             dva_mesice: 'Pojištění vypovídám do dvou měsíců ode dne uzavření smlouvy s osmidenní výpovědní dobou podle § 2805 písm. a) občanského zákoníku.',
             udalost: 'Pojištění vypovídám do tří měsíců ode dne oznámení pojistné události (č. {{udalost_cislo}}) s měsíční výpovědní dobou podle § 2805 písm. b) občanského zákoníku.',
-            prodej: 'Oznamuji změnu vlastníka vozidla ke dni {{prodej_datum}}; pojištění tím podle zákona č. 168/1999 Sb. zaniká. Přikládám kopii kupní smlouvy.',
+            prodej: 'Oznamuji změnu vlastníka vozidla ke dni {{prodej_datum}}; pojištění tím podle zákona o pojištění odpovědnosti z provozu vozidla zaniká. Přikládám kopii kupní smlouvy.',
             cena: 'Nesouhlasím se změnou výše pojistného, kterou jste mi oznámili. Žádám o ukončení pojištění ke konci běžného pojistného období.',
           },
         },

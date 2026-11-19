@@ -4,6 +4,9 @@ import '@fontsource-variable/inter-tight';
 import '../styles/global.css';
 import { SITE } from '../lib/config';
 import { ogSlug } from '../lib/og';
+import { INFO_ODKAZY } from '../obsah/informace';
+import Souhlas from '../components/Souhlas.astro';
+import { PORADNY } from '../lib/poradna';
 
 interface Props {
   title: string;
@@ -20,6 +23,10 @@ const robots = !SITE.indexovat || noindex ? 'noindex, follow' : 'index, follow, 
 const ogImage = new URL(`/og/${ogSlug(Astro.url.pathname)}.png`, SITE.url).href;
 const P = TEXTY[lang as Jazyk]?.paticka;
 const ogLocale = P?.ogLocale ?? 'en_US';
+const zemeCesty = Astro.url.pathname.split('/').filter(Boolean)[0] ?? '';
+const zemeKodPaticky = INFO_ODKAZY[zemeCesty] ? zemeCesty : ({ sk: 'sk', pl: 'pl', de: 'de' } as Record<string, string>)[lang] ?? 'cz';
+const poradna = PORADNY[zemeKodPaticky];
+const odkazy = INFO_ODKAZY[zemeCesty] ?? INFO_ODKAZY[{ sk: 'sk', pl: 'pl', de: 'de' }[lang] ?? 'cz'];
 // Značku přidat jen tam, kde se titulek vejde do ~60 znaků (Google delší ořízne)
 const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${title} | ${SITE.nazev}`;
 ---
@@ -102,13 +109,16 @@ const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${t
           {P?.disclaimer ?? 'We provide templates free of charge and in good faith as a public service. This is not legal advice. You are solely responsible for the content, changes and use of any contract – read it carefully before signing and consult a lawyer in complex situations.'}
         </p>
         <nav class="paticka__odkazy" aria-label="Informace">
-          <a href="/cz/o-nas/">{P?.oNas ?? 'About'}</a>
-          <a href="/cz/podminky-uziti/">{P?.podminky ?? 'Terms'}</a>
-          <a href="/cz/ochrana-osobnich-udaju/">{P?.ochrana ?? 'Privacy'}</a>
+          {poradna && <a href={`/${zemeKodPaticky}/${poradna.slug}/`}>{poradna.nazev}</a>}
+          <a href={odkazy.onas}>{P?.oNas ?? 'About'}</a>
+          <a href={odkazy.podminky}>{P?.podminky ?? 'Terms'}</a>
+          <a href={odkazy.ochrana}>{P?.ochrana ?? 'Privacy'}</a>
+          {SITE.ga && <a href="#" data-cookies>{P?.cookies ?? 'Cookies'}</a>}
           <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
         </nav>
         <slot name="paticka" />
       </div>
     </footer>
+    <Souhlas lang={lang} ochrana={odkazy.ochrana} />
   </body>
 </html>

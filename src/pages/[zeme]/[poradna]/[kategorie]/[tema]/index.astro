@@ -1,0 +1,55 @@
+---
+/** Téma poradny – jen témata, která mají aspoň jeden článek. */
+import Base from '../../../../../layouts/Base.astro';
+import ClanekKarta from '../../../../../components/ClanekKarta.astro';
+import { AKTIVNI_ZEME } from '../../../../../obsah';
+import type { Zeme } from '../../../../../obsah/typy';
+import { texty } from '../../../../../i18n';
+import { PORADNY, clanky, urlKategorie, urlPoradny, type Clanek } from '../../../../../lib/poradna';
+
+export async function getStaticPaths() {
+  const out = [];
+  for (const zeme of AKTIVNI_ZEME.filter((z) => PORADNY[z.kod])) {
+    const P = PORADNY[zeme.kod];
+    const vse = await clanky(zeme.kod);
+    for (const k of P.kategorie)
+      for (const t of k.temata) {
+        const c = vse.filter((x) => x.data.kategorie === k.slug && x.data.tema === t.slug);
+        if (c.length) out.push({ params: { zeme: zeme.kod, poradna: P.slug, kategorie: k.slug, tema: t.slug }, props: { zeme, k, t, c } });
+      }
+  }
+  return out;
+}
+const { zeme, k, t, c } = Astro.props as {
+  zeme: Zeme;
+  k: (typeof PORADNY)[string]['kategorie'][number];
+  t: { slug: string; nazev: string; popis: string };
+  c: Clanek[];
+};
+const P = PORADNY[zeme.kod];
+const TX = texty(zeme.jazyk);
+---
+
+<Base title={`${t.nazev} – ${P.nazev}`} description={`${t.popis} ${TX.poradna.clanku(c.length)}.`} lang={zeme.jazyk}>
+  <Fragment slot="nav">
+    <a class="btn btn--duch btn--maly" href={urlPoradny(zeme.kod)}>{P.nazev}</a>
+  </Fragment>
+  <section class="hero hero--dokument">
+    <div class="hero__vlna" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="ram hero__obsah">
+        <nav class="drobecky" aria-label={TX.drobecky}>
+          <a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › <a href={urlPoradny(zeme.kod)}>{P.nazev}</a> › <a href={urlKategorie(zeme.kod, k.slug)}>{k.nazev}</a> › {t.nazev}
+        </nav>
+        <h1>{t.nazev} <span>{t.popis}</span></h1>
+      </div>
+    </div>
+  </section>
+  <section class="sekce">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <ul class="clanky-mrizka">{c.map((x) => <ClanekKarta c={x} jazyk={zeme.jazyk} />)}</ul>
+      </div>
+    </div>
+  </section>
+</Base>

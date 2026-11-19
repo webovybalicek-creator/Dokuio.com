@@ -1,8 +1,12 @@
 /** Oficiální zdroje sdílené šablonami (zákony v e-Sbírce, úřední weby) */
 export const OZ = { nazev: 'Občanský zákoník č. 89/2012 Sb. (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2012/89' };
 export const ZAKON_POV = {
-  nazev: 'Zákon č. 168/1999 Sb., o pojištění odpovědnosti z provozu vozidla (e-Sbírka)',
-  url: 'https://www.e-sbirka.cz/sb/1999/168',
+  nazev: 'Zákon č. 30/2024 Sb., o pojištění odpovědnosti z provozu vozidla (e-Sbírka)',
+  url: 'https://www.e-sbirka.cz/sb/2024/30',
+};
+export const MF_POV = {
+  nazev: 'Ministerstvo financí – praktické informace k povinnému ručení',
+  url: 'https://mf.gov.cz/cs/financni-trh/pojistovnictvi/pojisteni-odpovednosti-z-provozu-vozidla/2024/prakticke-informace-k-pojisteni-odpovednosti-z-pro-55458',
 };
 export const ZAKON_HOTOVOST = { nazev: 'Zákon č. 254/2004 Sb., o omezení plateb v hotovosti (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2004/254' };
 export const NEPLATNE_DOKLADY = { nazev: 'Neplatné doklady (Ministerstvo vnitra)', url: 'https://mv.gov.cz/aplikace-neplatne-doklady.aspx' };

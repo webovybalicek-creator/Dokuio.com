@@ -5,6 +5,7 @@ import Duvera from '../../components/Duvera.astro';
 import Hledani from '../../components/Hledani.astro';
 import Rozcestnik from '../../components/Rozcestnik.astro';
 import Rozpracovane from '../../components/Rozpracovane.astro';
+import { PORADNY } from '../../lib/poradna';
 import Ilustrace from '../../components/Ilustrace.astro';
 import { urlBalicku } from '../../obsah';
 import { AKTIVNI_ZEME, HREFLANG_HUBY } from '../../obsah';
@@ -23,6 +24,7 @@ const h = zeme.hub;
 <Base alternates={HREFLANG_HUBY} title={h.title} description={h.description} lang={zeme.jazyk}>
   <Fragment slot="nav">
     <a class="nav__odkaz" href={`#${T.kotva}`}>{T.jakToFunguje}</a>
+    {PORADNY[zeme.kod] && <a class="nav__odkaz" href={`/${zeme.kod}/${PORADNY[zeme.kod].slug}/`}>{PORADNY[zeme.kod].nazev}</a>}
     <a class="btn btn--duch btn--maly" href="/?zeme=vyber" hreflang="en">{TX.jinaZeme}</a>
   </Fragment>
 

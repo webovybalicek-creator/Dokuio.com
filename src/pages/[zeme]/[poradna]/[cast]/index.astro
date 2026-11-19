@@ -1,0 +1,275 @@
+---
+/**
+ * /<země>/<poradna>/<cast>/ – buď kategorie poradny, nebo článek (slug článku nesmí kolidovat s kategorií).
+ */
+import { render } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import Ilustrace from '../../../../components/Ilustrace.astro';
+import ClanekKarta from '../../../../components/ClanekKarta.astro';
+import { AKTIVNI_ZEME, strankaPodleSlugu, urlStranky } from '../../../../obsah';
+import type { Zeme } from '../../../../obsah/typy';
+import { texty } from '../../../../i18n';
+import { SITE } from '../../../../lib/config';
+import { formatDatum } from '../../../../sablony/dokument';
+import { PORADNY, clanky, urlKategorie, urlTematu, urlPoradny, urlClanku, minutCteni, type Clanek } from '../../../../lib/poradna';
+
+export async function getStaticPaths() {
+  const out = [];
+  for (const zeme of AKTIVNI_ZEME.filter((z) => PORADNY[z.kod])) {
+    const P = PORADNY[zeme.kod];
+    const vse = await clanky(zeme.kod);
+    for (const k of P.kategorie) out.push({ params: { zeme: zeme.kod, poradna: P.slug, cast: k.slug }, props: { zeme, typ: 'kategorie' as const, kat: k.slug } });
+    for (const c of vse) {
+      if (P.kategorie.some((k) => k.slug === c.slug)) throw new Error(`Článek ${c.id}: slug koliduje s kategorií`);
+      const k = P.kategorie.find((x) => x.slug === c.data.kategorie);
+      if (!k || !k.temata.some((t) => t.slug === c.data.tema)) throw new Error(`Článek ${c.id}: neznámá kategorie/téma ${c.data.kategorie}/${c.data.tema}`);
+      for (const d of c.data.dokumenty) if (!strankaPodleSlugu(zeme.kod, d)) throw new Error(`Článek ${c.id}: neznámý dokument ${d}`);
+      out.push({ params: { zeme: zeme.kod, poradna: P.slug, cast: c.slug }, props: { zeme, typ: 'clanek' as const, kat: c.data.kategorie, clanek: c } });
+    }
+  }
+  return out;
+}
+
+const { zeme, typ, kat, clanek } = Astro.props as { zeme: Zeme; typ: 'kategorie' | 'clanek'; kat: string; clanek?: Clanek };
+const P = PORADNY[zeme.kod];
+const TX = texty(zeme.jazyk);
+const T = TX.poradna;
+const K = P.kategorie.find((k) => k.slug === kat)!;
+const vse = await clanky(zeme.kod);
+const vKategorii = vse.filter((c) => c.data.kategorie === kat);
+
+// ---------- článek
+let obsah: Awaited<ReturnType<typeof render>> | undefined;
+let tema: (typeof K.temata)[number] | undefined;
+let dokumenty: { nazev: string; popis: string; url: string; ilustrace: Parameters<typeof Ilustrace>[0]['typ'] }[] = [];
+let dalsi: Clanek[] = [];
+let schema: unknown[] = [];
+if (clanek) {
+  obsah = await render(clanek);
+  tema = K.temata.find((t) => t.slug === clanek.data.tema);
+  dokumenty = clanek.data.dokumenty.flatMap((slug) => {
+    const st = strankaPodleSlugu(zeme.kod, slug);
+    return st ? [{ nazev: st.nazev, popis: st.katalog.popis, url: urlStranky(st), ilustrace: st.katalog.ilustrace }] : [];
+  });
+  dalsi = [...vKategorii.filter((c) => c.slug !== clanek.slug && c.data.tema === clanek.data.tema), ...vKategorii.filter((c) => c.data.tema !== clanek.data.tema), ...vse.filter((c) => c.data.kategorie !== kat)].slice(0, 3);
+  const url = `${SITE.url}${urlClanku(clanek)}`;
+  schema = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: clanek.data.title,
+      description: clanek.data.description,
+      datePublished: clanek.data.datum,
+      dateModified: clanek.data.aktualizovano ?? clanek.data.datum,
+      inLanguage: zeme.hreflang,
+      mainEntityOfPage: url,
+      author: { '@type': 'Organization', name: SITE.nazev, url: SITE.url },
+      publisher: { '@type': 'Organization', name: SITE.nazev, url: SITE.url },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: zeme.nazev, item: `${SITE.url}/${zeme.kod}/` },
+        { '@type': 'ListItem', position: 2, name: P.nazev, item: `${SITE.url}${urlPoradny(zeme.kod)}` },
+        { '@type': 'ListItem', position: 3, name: K.nazev, item: `${SITE.url}${urlKategorie(zeme.kod, kat)}` },
+        { '@type': 'ListItem', position: 4, name: clanek.data.nazev ?? clanek.data.title, item: url },
+      ],
+    },
+    ...(clanek.data.faq.length
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: clanek.data.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+          },
+        ]
+      : []),
+  ];
+}
+// ---------- kategorie: související vzory = vzory z článků kategorie
+const vzoryKategorie = [...new Set(vKategorii.flatMap((c) => c.data.dokumenty))].flatMap((slug) => {
+  const st = strankaPodleSlugu(zeme.kod, slug);
+  return st ? [{ nazev: st.nazev, url: urlStranky(st) }] : [];
+});
+const h2 = obsah?.headings.filter((h) => h.depth === 2) ?? [];
+---
+
+{
+  clanek && obsah ? (
+    <Base title={clanek.data.title} description={clanek.data.description} lang={zeme.jazyk}>
+      {schema.map((s) => <script slot="head" type="application/ld+json" set:html={JSON.stringify(s)} />)}
+      <Fragment slot="nav">
+        <a class="nav__odkaz" href={urlPoradny(zeme.kod)}>{P.nazev}</a>
+        {dokumenty[0] && <a class="btn btn--primarni btn--maly btn--sipka" href={`${dokumenty[0].url}vytvorit/`}>{T.vyplnit}</a>}
+      </Fragment>
+      <article>
+        <section class="hero hero--dokument hero--clanek">
+          <div class="hero__vlna" aria-hidden="true" />
+          <div class="wrap">
+            <div class="ram hero__obsah">
+              <nav class="drobecky" aria-label={TX.drobecky}>
+                <a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › <a href={urlPoradny(zeme.kod)}>{P.nazev}</a> ›{' '}
+                <a href={urlKategorie(zeme.kod, kat)}>{K.nazev}</a>
+                {tema && (
+                  <>
+                    {' '}
+                    › <a href={urlTematu(zeme.kod, kat, tema.slug)}>{tema.nazev}</a>
+                  </>
+                )}
+              </nav>
+              <h1 class="clanek__nadpis">{clanek.data.title}</h1>
+              <p class="clanek__perex">{clanek.data.perex}</p>
+              <p class="clanek__meta">
+                {T.aktualizovano} {formatDatum(clanek.data.aktualizovano ?? clanek.data.datum)} · {T.cteni(minutCteni(clanek))}
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="sekce sekce--bez-cary">
+          <div class="wrap">
+            <div class="ram sekce__in clanek">
+              <div class="clanek__text">
+                <obsah.Content />
+                {clanek.data.faq.length > 0 && (
+                  <>
+                    <h2 id="faq">{T.faq}</h2>
+                    <div class="faq">
+                      {clanek.data.faq.map((f) => (
+                        <details class="faq__polozka">
+                          <summary>{f.q}</summary>
+                          <p>{f.a}</p>
+                        </details>
+                      ))}
+                    </div>
+                  </>
+                )}
+                <p class="clanek__upozorneni">{T.upozorneni}</p>
+                {clanek.data.zdroje.length > 0 && (
+                  <div class="clanek__zdroje">
+                    <h2>{T.zdroje}</h2>
+                    <ul>
+                      {clanek.data.zdroje.map((z) => (
+                        <li>
+                          <a href={z.url} rel="noopener" target="_blank">
+                            {z.nazev}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <aside class="clanek__bok">
+                {h2.length > 2 && (
+                  <nav class="clanek__toc" aria-label={T.obsah}>
+                    <p>{T.obsah}</p>
+                    <ul>
+                      {h2.map((h) => (
+                        <li>
+                          <a href={`#${h.slug}`}>{h.text}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                )}
+                {dokumenty.length > 0 && (
+                  <div class="clanek__vzory">
+                    <p class="clanek__vzory-nadpis">{T.dokumentyNadpis}</p>
+                    <p class="clanek__vzory-popis">{T.dokumentyPopis}</p>
+                    <ul>
+                      {dokumenty.map((d) => (
+                        <li>
+                          <a href={d.url}>
+                            <Ilustrace typ={d.ilustrace} />
+                            <span>
+                              <strong>{d.nazev}</strong>
+                              <small>{d.popis}</small>
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    <a class="btn btn--primarni btn--sipka clanek__vzory-tl" href={`${dokumenty[0].url}vytvorit/`}>
+                      {T.vyplnit}
+                    </a>
+                  </div>
+                )}
+              </aside>
+            </div>
+          </div>
+        </section>
+      </article>
+      {dalsi.length > 0 && (
+        <section class="sekce" aria-labelledby="p-dalsi">
+          <div class="wrap">
+            <div class="ram sekce__in">
+              <h2 id="p-dalsi">{T.dalsi}.</h2>
+              <ul class="clanky-mrizka">
+                {dalsi.map((c) => (
+                  <ClanekKarta c={c} jazyk={zeme.jazyk} />
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+    </Base>
+  ) : (
+    <Base title={`${K.nazev} – ${P.nazev}`} description={K.popis} lang={zeme.jazyk} noindex={vKategorii.length === 0}>
+      <Fragment slot="nav">
+        <a class="btn btn--duch btn--maly" href={urlPoradny(zeme.kod)}>{P.nazev}</a>
+      </Fragment>
+      <section class="hero hero--dokument">
+        <div class="hero__vlna" aria-hidden="true" />
+        <div class="wrap">
+          <div class="ram hero__obsah">
+            <nav class="drobecky" aria-label={TX.drobecky}>
+              <a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › <a href={urlPoradny(zeme.kod)}>{P.nazev}</a> › {K.nazev}
+            </nav>
+            <h1>
+              {K.nazev} <span>{K.popis}</span>
+            </h1>
+            <ul class="p-temata">
+              {K.temata.map((t) =>
+                vKategorii.some((c) => c.data.tema === t.slug) ? (
+                  <li>
+                    <a href={urlTematu(zeme.kod, kat, t.slug)}>{t.nazev}</a>
+                  </li>
+                ) : (
+                  <li class="p-temata__brzy">{t.nazev}</li>
+                ),
+              )}
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="sekce">
+        <div class="wrap">
+          <div class="ram sekce__in">
+            {vKategorii.length > 0 ? (
+              <ul class="clanky-mrizka">
+                {vKategorii.map((c) => (
+                  <ClanekKarta c={c} jazyk={zeme.jazyk} />
+                ))}
+              </ul>
+            ) : (
+              <p class="text-stranka__vytah">{T.pripravujeme}.</p>
+            )}
+            {vzoryKategorie.length > 0 && (
+              <p class="p-vzory">
+                <strong>{T.dokumentyNadpis}:</strong>{' '}
+                {vzoryKategorie.map((v, i) => (
+                  <>
+                    {i > 0 && ' · '}
+                    <a href={v.url}>{v.nazev}</a>
+                  </>
+                ))}
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
+    </Base>
+  )
+}

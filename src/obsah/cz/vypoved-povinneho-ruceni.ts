@@ -44,7 +44,7 @@ const stranka: StrankaDokumentu = {
       { q: 'Co je potvrzení o škodním průběhu?', a: 'Přehled, zda jste měli nehody. Nová pojišťovna podle něj dává bonus; stará vám ho musí vystavit.' },
       { q: 'Ukládáte moje údaje?', a: 'Ne. Výpověď se skládá přímo ve vašem prohlížeči.' },
     ],
-    zakony: "Vzor vychází z § 2805 a násl. zákona č. 89/2012 Sb., občanský zákoník, a zákona č. 168/1999 Sb., o pojištění odpovědnosti z provozu vozidla. Konkrétní pojistné podmínky mohou dávat další možnosti.",
+    zakony: "Vzor vychází z § 2805 a násl. zákona č. 89/2012 Sb., občanský zákoník, a zákona č. 30/2024 Sb., o pojištění odpovědnosti z provozu vozidla. Konkrétní pojistné podmínky mohou dávat další možnosti.",
   },
   vytvorit: {
     title: "Vyplnit výpověď povinného ručení online – PDF zdarma",

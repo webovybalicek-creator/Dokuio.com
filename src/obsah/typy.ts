@@ -126,3 +126,21 @@ export interface Situace {
   ilustrace: Ilustrace;
   moznosti: { text: string; dokumenty: string[]; balicek?: string; tip?: string }[];
 }
+
+/** Struktura poradny (blogu) země: kategorie → témata → články (src/content/poradna/<země>/) */
+export interface Poradna {
+  /** Segment URL: /<země>/<slug>/ */
+  slug: string;
+  nazev: string;
+  title: string;
+  description: string;
+  h1: string;
+  h1Span: string;
+  kategorie: {
+    slug: string;
+    nazev: string;
+    popis: string;
+    ilustrace: Ilustrace;
+    temata: { slug: string; nazev: string; popis: string }[];
+  }[];
+}

@@ -69,7 +69,7 @@ const vychozi = PODPORA.castky.find((c) => 'doporucene' in c && c.doporucene) ??
       {
         PODPORA.castky.map((c) => (
           <label class="castka">
-            <input type="radio" name="castka" value={c.url} data-cena={T.cena(c.kusy)} checked={c.kusy === vychozi.kusy} />
+            <input type="radio" name="castka" value={c.url} data-kusy={c.kusy} data-cena={T.cena(c.kusy)} checked={c.kusy === vychozi.kusy} />
             {c.doporucene && <span class="castka__stitek">{T.doporucene}</span>}
             <strong>{T.cena(c.kusy)}</strong>
             <span>{T.kafeKusy(c.kusy)}</span>
@@ -145,17 +145,20 @@ const vychozi = PODPORA.castky.find((c) => 'doporucene' in c && c.doporucene) ??
       }
     };
 
-    // QR platba (SPAYD) jen když je vyplněný IBAN
+    // QR platba (SPAYD – český standard, proto jen v češtině), částka podle zvolené volby
     const iban = (dlg.dataset.iban ?? '').replace(/\s/g, '').toUpperCase();
-    if (iban) {
+    const kresliQr = (kusy = 3) => {
+      if (!iban || document.documentElement.lang !== 'cs') return;
       const zprava = 'PODPORA DOKUIO';
-      const spayd = `SPD*1.0*ACC:${iban}*AM:${Number(dlg.dataset.castka ?? 30).toFixed(2)}*CC:CZK*RN:${(dlg.dataset.prijemce ?? '').toUpperCase()}*MSG:${zprava}`;
+      const castka = kusy * Number(dlg.dataset.castka ?? 30);
+      const spayd = `SPD*1.0*ACC:${iban}*AM:${castka.toFixed(2)}*CC:CZK*RN:${(dlg.dataset.prijemce ?? '').toUpperCase()}*MSG:${zprava}`;
       const qr = qrcode(0, 'M');
       qr.addData(spayd);
       qr.make();
       dlg.querySelector<HTMLElement>('[data-podpora-qr-obr]')!.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true });
       dlg.querySelector<HTMLElement>('[data-podpora-qr]')!.hidden = false;
-    }
+    };
+    kresliQr(Number(dlg.querySelector<HTMLInputElement>('[data-castky] input:checked')?.dataset.kusy ?? 3));
 
     // Volba částky přepíná odkaz hlavního tlačítka
     const cta = dlg.querySelector<HTMLAnchorElement>('a.podpora__stripe');
@@ -164,6 +167,7 @@ const vychozi = PODPORA.castky.find((c) => 'doporucene' in c && c.doporucene) ??
       const r = e.target as HTMLInputElement;
       if (!cta || !ctaText) return;
       cta.href = r.value;
+      kresliQr(Number(r.dataset.kusy ?? 3));
       ctaText.textContent = (dlg.dataset.prispet ?? '{cena}').replace('{cena}', r.dataset.cena ?? '');
     });
 

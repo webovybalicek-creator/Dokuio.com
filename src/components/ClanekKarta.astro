@@ -1,0 +1,19 @@
+---
+import { texty } from '../i18n';
+import { urlClanku, minutCteni, PORADNY, type Clanek } from '../lib/poradna';
+interface Props {
+  c: Clanek;
+  jazyk: string;
+}
+const { c, jazyk } = Astro.props;
+const T = texty(jazyk).poradna;
+const kat = PORADNY[c.zeme].kategorie.find((k) => k.slug === c.data.kategorie);
+---
+
+<li class="clanek-karta">
+  <a href={urlClanku(c)}>
+    <span class="clanek-karta__meta">{kat?.nazev} · {T.cteni(minutCteni(c))}</span>
+    <strong>{c.data.nazev ?? c.data.title}</strong>
+    <span class="clanek-karta__perex">{c.data.perex}</span>
+  </a>
+</li>

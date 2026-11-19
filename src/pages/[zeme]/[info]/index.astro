@@ -1,0 +1,17 @@
+---
+/** Textové stránky zemí mimo CZ (O nás, podmínky, ochrana údajů) – obsah v src/obsah/informace.ts */
+import Text from '../../../layouts/Text.astro';
+import { INFORMACE, type InfoStranka } from '../../../obsah/informace';
+import { ZEME } from '../../../obsah';
+
+export function getStaticPaths() {
+  return Object.entries(INFORMACE).flatMap(([zeme, stranky]) =>
+    stranky.map((s) => ({ params: { zeme, info: s.slug }, props: { s, jazyk: ZEME.find((z) => z.kod === zeme)!.jazyk, zeme } })),
+  );
+}
+const { s, jazyk, zeme } = Astro.props as { s: InfoStranka; jazyk: string; zeme: string };
+---
+
+<Text title={s.title} description={s.description} lang={jazyk} zeme={zeme} aktualizovano={s.aktualizovano}>
+  <Fragment set:html={s.html} />
+</Text>

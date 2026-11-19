@@ -1,0 +1,101 @@
+---
+/** Rozcestník poradny země: hledání, kategorie s tématy, nejnovější články. */
+import Base from '../../../layouts/Base.astro';
+import Ilustrace from '../../../components/Ilustrace.astro';
+import PoradnaHledani from '../../../components/PoradnaHledani.astro';
+import ClanekKarta from '../../../components/ClanekKarta.astro';
+import { AKTIVNI_ZEME } from '../../../obsah';
+import type { Zeme } from '../../../obsah/typy';
+import { texty } from '../../../i18n';
+import { PORADNY, clanky, urlKategorie, urlTematu, urlPoradny } from '../../../lib/poradna';
+
+export function getStaticPaths() {
+  return AKTIVNI_ZEME.filter((z) => PORADNY[z.kod]).map((zeme) => ({ params: { zeme: zeme.kod, poradna: PORADNY[zeme.kod].slug }, props: { zeme } }));
+}
+const { zeme } = Astro.props as { zeme: Zeme };
+const P = PORADNY[zeme.kod];
+const TX = texty(zeme.jazyk);
+const T = TX.poradna;
+const vse = await clanky(zeme.kod);
+const pocet = (kat: string, tema?: string) => vse.filter((c) => c.data.kategorie === kat && (!tema || c.data.tema === tema)).length;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: P.title,
+  description: P.description,
+  url: `https://dokuio.com${urlPoradny(zeme.kod)}`,
+  inLanguage: zeme.hreflang,
+};
+---
+
+<Base title={P.title} description={P.description} lang={zeme.jazyk} noindex={vse.length === 0}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <Fragment slot="nav">
+    <a class="btn btn--duch btn--maly" href={`/${zeme.kod}/`}>{TX.paticka.vzory}</a>
+  </Fragment>
+
+  <section class="hero hero--dokument">
+    <div class="hero__vlna" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="ram hero__obsah hero__obsah--hledani">
+        <nav class="drobecky" aria-label={TX.drobecky}><a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › {P.nazev}</nav>
+        <h1>{P.h1}{' '}<span>{P.h1Span}</span></h1>
+        <PoradnaHledani zeme={zeme.kod} jazyk={zeme.jazyk} clanky={vse} />
+      </div>
+    </div>
+  </section>
+
+  <div data-p-obsah>
+    <section class="sekce" aria-labelledby="p-kat">
+      <div class="wrap">
+        <div class="ram sekce__in">
+          <h2 id="p-kat">{T.temata}.</h2>
+          <ul class="p-kategorie">
+            {
+              P.kategorie.map((k) => (
+                <li class="p-kategorie__karta">
+                  <a class="p-kategorie__hlava" href={urlKategorie(zeme.kod, k.slug)}>
+                    <Ilustrace typ={k.ilustrace} />
+                    <span>
+                      <strong>{k.nazev}</strong>
+                      <small>{pocet(k.slug) ? T.clanku(pocet(k.slug)) : T.pripravujeme}</small>
+                    </span>
+                  </a>
+                  <p>{k.popis}</p>
+                  <ul class="p-kategorie__temata">
+                    {k.temata.map((t) =>
+                      pocet(k.slug, t.slug) ? (
+                        <li>
+                          <a href={urlTematu(zeme.kod, k.slug, t.slug)}>{t.nazev}</a> <small>{pocet(k.slug, t.slug)}</small>
+                        </li>
+                      ) : (
+                        <li class="p-kategorie__brzy">{t.nazev}</li>
+                      ),
+                    )}
+                  </ul>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {
+      vse.length > 0 && (
+        <section class="sekce" aria-labelledby="p-nove">
+          <div class="wrap">
+            <div class="ram sekce__in">
+              <h2 id="p-nove">{T.nejnovejsi}.</h2>
+              <ul class="clanky-mrizka">
+                {vse.slice(0, 9).map((c) => (
+                  <ClanekKarta c={c} jazyk={zeme.jazyk} />
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )
+    }
+  </div>
+</Base>

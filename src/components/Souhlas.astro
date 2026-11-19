@@ -1,0 +1,90 @@
+---
+/**
+ * Cookie lišta + Google Analytics 4. GA se načte AŽ po souhlasu (bez souhlasu žádné cookies).
+ * Rozhodnutí se pamatuje v localStorage (dokuio:souhlas = ano/ne), změnit jde odkazem v patičce [data-cookies].
+ */
+import { SITE } from '../lib/config';
+import { TEXTY, type Jazyk } from '../i18n';
+interface Props {
+  lang: string;
+  ochrana: string;
+}
+const { lang, ochrana } = Astro.props;
+const T = (TEXTY[lang as Jazyk] ?? TEXTY.cs).souhlas;
+---
+
+{
+  SITE.ga && (
+    <div class="souhlas" data-souhlas data-ga={SITE.ga} role="region" aria-label="Cookies" hidden>
+      <p class="souhlas__text">
+        {T.text} <a href={ochrana}>{T.vice}</a>
+      </p>
+      <div class="souhlas__akce">
+        <button type="button" class="btn btn--duch btn--maly" data-souhlas-ne>{T.odmitnout}</button>
+        <button type="button" class="btn btn--primarni btn--maly" data-souhlas-ano>{T.povolit}</button>
+      </div>
+    </div>
+  )
+}
+
+<script>
+  const el = document.querySelector<HTMLElement>('[data-souhlas]');
+  if (el) {
+    const id = el.dataset.ga!;
+    const KLIC = 'dokuio:souhlas';
+    const cti = () => {
+      try {
+        return localStorage.getItem(KLIC);
+      } catch {
+        return null;
+      }
+    };
+    const zapis = (v: string) => {
+      try {
+        localStorage.setItem(KLIC, v);
+      } catch {}
+    };
+    let nacteno = false;
+    const nactiGa = () => {
+      if (nacteno) return;
+      nacteno = true;
+      const w = window as unknown as { dataLayer: unknown[]; gtag: (...a: unknown[]) => void };
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = function () {
+        // eslint-disable-next-line prefer-rest-params
+        w.dataLayer.push(arguments);
+      };
+      w.gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+      w.gtag('js', new Date());
+      w.gtag('config', id);
+      const s = Object.assign(document.createElement('script'), { async: true, src: `https://www.googletagmanager.com/gtag/js?id=${id}` });
+      document.head.append(s);
+      window.addEventListener('dokuio:stazeno', (e) => w.gtag('event', 'stazeni_dokumentu', { typ: (e as CustomEvent).detail?.typ ?? '', stranka: location.pathname }));
+    };
+    const smazCookies = () => {
+      document.cookie.split(';').forEach((c) => {
+        const n = c.split('=')[0].trim();
+        if (n.startsWith('_ga')) document.cookie = `${n}=; Max-Age=0; path=/; domain=.${location.hostname.replace(/^www\./, '')}`;
+      });
+    };
+    const rozhodnuti = cti();
+    if (rozhodnuti === 'ano') nactiGa();
+    else if (rozhodnuti !== 'ne') el.hidden = false;
+    el.querySelector('[data-souhlas-ano]')!.addEventListener('click', () => {
+      zapis('ano');
+      el.hidden = true;
+      nactiGa();
+    });
+    el.querySelector('[data-souhlas-ne]')!.addEventListener('click', () => {
+      zapis('ne');
+      el.hidden = true;
+      smazCookies();
+    });
+    document.querySelectorAll('[data-cookies]').forEach((a) =>
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        el.hidden = false;
+      }),
+    );
+  }
+</script>

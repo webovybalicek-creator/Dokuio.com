@@ -7,7 +7,9 @@ export const SITE = {
    * Dokud je false, všechny stránky mají noindex a robots.txt blokuje roboty.
    * Přepnout na true při spuštění webu.
    */
-  indexovat: false,
+  indexovat: true,
+  /** Google Analytics 4 – ID měření (G-XXXXXXX). Prázdné = žádná analytika ani cookie lišta. Načte se jen po souhlasu. */
+  ga: '',
   /** Provozovatel webu */
   provozovatel: {
     nazev: 'Vladimír Fischer',
@@ -32,7 +34,7 @@ export const PODPORA = {
     { kusy: 5, url: 'https://buy.stripe.com/eVq8wI52F8EL3Uv7XD48002' },
     { kusy: 10, url: 'https://buy.stripe.com/14A28k1Qtf39fDdgu948003' },
   ],
-  iban: '',
+  iban: 'CZ6220100000002401876889',
   prijemce: 'Dokuio',
   castkaKc: 30,
   /** Kolik dní po zavření okno znovu neukazovat */

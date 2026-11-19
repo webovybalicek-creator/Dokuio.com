@@ -1,24 +1,27 @@
 ---
 // Rozvržení textových stránek (podmínky, GDPR, o nás)
 import Base from './Base.astro';
+import { TEXTY, type Jazyk } from '../i18n';
 interface Props {
   title: string;
   description: string;
   lang?: string;
+  zeme?: string;
   aktualizovano?: string;
 }
-const { title, description, lang = 'cs', aktualizovano } = Astro.props;
+const { title, description, lang = 'cs', zeme = 'cz', aktualizovano } = Astro.props;
+const P = TEXTY[lang as Jazyk].paticka;
 ---
 
 <Base title={title} description={description} lang={lang}>
   <Fragment slot="nav">
-    <a class="btn btn--duch btn--maly" href="/cz/">Smlouvy</a>
+    <a class="btn btn--duch btn--maly" href={`/${zeme}/`}>{P.vzory}</a>
   </Fragment>
   <section class="sekce sekce--bez-cary">
     <div class="wrap">
       <div class="ram sekce__in text-stranka">
         <h1>{title}</h1>
-        {aktualizovano && <p class="text-stranka__datum">Platné od {aktualizovano}</p>}
+        {aktualizovano && <p class="text-stranka__datum">{P.platneOd} {aktualizovano}</p>}
         <slot />
       </div>
     </div>

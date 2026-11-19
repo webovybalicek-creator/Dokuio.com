@@ -1,0 +1,89 @@
+---
+/** Hledání v poradně: články, témata a vzory země. Filtruje se v prohlížeči, bez JS je vidět běžný výpis. */
+import { katalog } from '../obsah';
+import { texty } from '../i18n';
+import { PORADNY, urlClanku, urlTematu, type Clanek } from '../lib/poradna';
+interface Props {
+  zeme: string;
+  jazyk: string;
+  clanky: Clanek[];
+}
+const { zeme, jazyk, clanky } = Astro.props;
+const T = texty(jazyk).poradna;
+const P = PORADNY[zeme];
+const nazevKat = Object.fromEntries(P.kategorie.map((k) => [k.slug, k]));
+const polozky = [
+  ...clanky.map((c) => {
+    const kat = nazevKat[c.data.kategorie];
+    const tema = kat?.temata.find((t) => t.slug === c.data.tema);
+    return { typ: T.clanek, nazev: c.data.nazev ?? c.data.title, popis: c.data.perex, url: urlClanku(c), text: [c.data.title, c.data.perex, ...c.data.slova, kat?.nazev, tema?.nazev].join(' ') };
+  }),
+  ...P.kategorie.flatMap((k) =>
+    k.temata
+      .filter((t) => clanky.some((c) => c.data.kategorie === k.slug && c.data.tema === t.slug))
+      .map((t) => ({ typ: k.nazev, nazev: t.nazev, popis: t.popis, url: urlTematu(zeme, k.slug, t.slug), text: [t.nazev, t.popis, k.nazev].join(' ') })),
+  ),
+  ...katalog(zeme)
+    .filter((d) => d.url)
+    .map((d) => ({ typ: T.dokument, nazev: d.nazev, popis: d.popis, url: d.url!, text: [d.nazev, d.popis, ...d.slova].join(' ') })),
+];
+---
+
+<div class="p-hledani" data-p-hledani data-nic={T.nic} data-tvary={JSON.stringify(Array.from({ length: polozky.length + 1 }, (_, i) => T.vysledku(i)))}>
+  <label class="hledani__pole">
+    <span class="sr-only">{T.hledatPopisek}</span>
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+    <input type="search" placeholder={T.hledat} autocomplete="off" enterkeyhint="search" data-p-vstup />
+  </label>
+  <p class="hledani__pocet" aria-live="polite" data-p-pocet></p>
+  <ul class="p-hledani__vysledky" data-p-vysledky hidden>
+    {
+      polozky.map((x) => (
+        <li data-text={x.text} hidden>
+          <a href={x.url}>
+            <span class="p-hledani__typ">{x.typ}</span>
+            <strong>{x.nazev}</strong>
+            <span>{x.popis}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  const norm = (s: string) =>
+    s
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .replace(/ß/g, 'ss')
+      .replace(/ł/g, 'l');
+  document.querySelectorAll<HTMLElement>('[data-p-hledani]').forEach((box) => {
+    const vstup = box.querySelector<HTMLInputElement>('[data-p-vstup]')!;
+    const seznam = box.querySelector<HTMLElement>('[data-p-vysledky]')!;
+    const pocet = box.querySelector<HTMLElement>('[data-p-pocet]')!;
+    const li = [...seznam.querySelectorAll<HTMLElement>('li')].map((el) => ({ el, t: norm(el.dataset.text ?? '') }));
+    const tvary = JSON.parse(box.dataset.tvary!) as string[];
+    const obsah = document.querySelectorAll<HTMLElement>('[data-p-obsah]');
+    const filtruj = () => {
+      const slova = norm(vstup.value).split(/\s+/).filter((w) => w.length > 1);
+      const aktivni = slova.length > 0;
+      let n = 0;
+      for (const x of li) {
+        const ok = aktivni && slova.every((w) => x.t.includes(w) || x.t.split(/\s+/).some((s) => s.startsWith(w.slice(0, Math.max(4, w.length - 2)))));
+        x.el.hidden = !ok;
+        if (ok) n++;
+      }
+      seznam.hidden = !aktivni;
+      obsah.forEach((o) => (o.hidden = aktivni));
+      pocet.textContent = !aktivni ? '' : n === 0 ? box.dataset.nic! : tvary[n];
+    };
+    vstup.addEventListener('input', filtruj);
+    const q = new URLSearchParams(location.search).get('q');
+    if (q) {
+      vstup.value = q;
+      filtruj();
+    }
+  });
+</script>
