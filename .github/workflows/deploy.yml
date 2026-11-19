@@ -121,3 +121,8 @@ jobs:
           done
           echo "::error::Rozbalení na serveru selhalo"
           exit 1
+
+      - name: Ohlášení změn vyhledávačům (IndexNow – Bing, Seznam)
+        if: env.FTP_PASSWORD != ''
+        continue-on-error: true
+        run: python3 deploy/indexnow.py zmenene.txt

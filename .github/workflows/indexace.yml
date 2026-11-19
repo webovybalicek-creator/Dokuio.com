@@ -1,0 +1,18 @@
+name: Týdenní ohlášení stránek vyhledávačům
+
+# Google si sitemapu čte sám (Search Console). Bingu a Seznamu jednou týdně
+# pošleme všechny adresy ze sitemapy přes IndexNow, aby nic nepropadlo.
+on:
+  schedule:
+    - cron: '17 4 * * 1'   # pondělí 5:17 SEČ
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SITE_HOST: dokuio.com
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 deploy/indexnow.py --sitemap
