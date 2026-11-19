@@ -207,6 +207,18 @@ export const sk: Texty = {
     dikVazba: 'Ďakujeme za spätnú väzbu.',
     dikVazbaPopis: 'Každú odpoveď čítame a podľa nich web vylepšujeme.',
   },
+  koncept: {
+    obnoveno: (kdy) => `Pokračujete v rozpracovanom dokumente z ${kdy}.`,
+    zacitZnovu: 'Začať odznova',
+    ulozeno: 'Priebežne sa ukladá len v tomto prehliadači',
+    ulozenoPrave: 'Uložené v tomto prehliadači',
+    info: 'Vyplnené údaje si pamätá len váš prehliadač – k nám sa nedostanú a nepotrebujete účet. Na inom zariadení pokračujte cez „Poslať druhej strane“ (odkaz si pošlite sami sebe).',
+    rozpracovaneNadpis: 'Rozpracované v tomto prehliadači',
+    rozpracovaneSpan: 'Pokračujte tam, kde ste skončili.',
+    pokracovat: 'Pokračovať',
+    smazat: 'Zmazať',
+    upraveno: (kdy) => `upravené ${kdy}`,
+  },
   email: {
     nadpis: 'Poslať PDF na e-mail',
     placeholder: 'vas@email.sk',

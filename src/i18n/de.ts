@@ -201,6 +201,18 @@ export const de: Texty = {
     dikVazba: 'Danke für Ihr Feedback.',
     dikVazbaPopis: 'Wir lesen jede Antwort und verbessern die Seite danach.',
   },
+  koncept: {
+    obnoveno: (kdy) => `Sie setzen Ihr Dokument vom ${kdy} fort.`,
+    zacitZnovu: 'Neu beginnen',
+    ulozeno: 'Wird laufend nur in diesem Browser gespeichert',
+    ulozenoPrave: 'In diesem Browser gespeichert',
+    info: 'Ihre Angaben merkt sich nur Ihr Browser – sie gelangen nicht zu uns und Sie brauchen kein Konto. Auf einem anderen Gerät weiter über „An die andere Seite senden“ (Link an sich selbst schicken).',
+    rozpracovaneNadpis: 'Begonnen in diesem Browser',
+    rozpracovaneSpan: 'Machen Sie dort weiter, wo Sie aufgehört haben.',
+    pokracovat: 'Weiter',
+    smazat: 'Löschen',
+    upraveno: (kdy) => `bearbeitet ${kdy}`,
+  },
   email: {
     nadpis: 'PDF per E-Mail senden',
     placeholder: 'ihre@email.de',

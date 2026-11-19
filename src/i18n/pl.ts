@@ -204,6 +204,18 @@ export const pl: Texty = {
     dikVazba: 'Dziękujemy za opinię.',
     dikVazbaPopis: 'Czytamy każdą odpowiedź i na jej podstawie ulepszamy stronę.',
   },
+  koncept: {
+    obnoveno: (kdy) => `Kontynuujesz dokument rozpoczęty ${kdy}.`,
+    zacitZnovu: 'Zacznij od nowa',
+    ulozeno: 'Zapisuje się na bieżąco tylko w tej przeglądarce',
+    ulozenoPrave: 'Zapisano w tej przeglądarce',
+    info: 'Wpisane dane pamięta tylko Twoja przeglądarka – nie trafiają do nas i nie potrzebujesz konta. Na innym urządzeniu kontynuuj przez „Wyślij drugiej stronie” (link wyślij sobie).',
+    rozpracovaneNadpis: 'Rozpoczęte w tej przeglądarce',
+    rozpracovaneSpan: 'Kontynuuj tam, gdzie skończyłeś.',
+    pokracovat: 'Kontynuuj',
+    smazat: 'Usuń',
+    upraveno: (kdy) => `zmieniono ${kdy}`,
+  },
   email: {
     nadpis: 'Wyślij PDF e-mailem',
     placeholder: 'twoj@email.pl',

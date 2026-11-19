@@ -18,6 +18,8 @@ jobs:
       FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
       FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
       SITE_HOST: dokuio.com
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      SMTP_USER: ${{ secrets.SMTP_USER }}
     steps:
       - uses: actions/checkout@v4
 
@@ -28,6 +30,27 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+
+      - name: Nastavení odesílání e-mailů (SMTP ze secretů)
+        if: env.SMTP_PASSWORD != ''
+        run: |
+          python3 - <<'PY'
+          import base64, json, os, secrets
+          uzivatel = os.environ.get('SMTP_USER') or 'info@dokuio.com'
+          cfg = {
+              'host': 'mail.next01.exon.io',
+              'port': 465,
+              'sifrovani': 'ssl',
+              'uzivatel': uzivatel,
+              'heslo': os.environ['SMTP_PASSWORD'],
+              'od': uzivatel,
+              'denni_limit': 300,
+              'sul': secrets.token_hex(16),
+          }
+          b = base64.b64encode(json.dumps(cfg).encode()).decode()
+          with open('dist/smtp-config.php', 'w') as f:
+              f.write("<?php // generováno při deployi ze secretů GitHubu – necommitovat\nreturn json_decode(base64_decode('" + b + "'), true);\n")
+          PY
 
       - name: Kontrola přístupových údajů
         if: env.FTP_PASSWORD == ''

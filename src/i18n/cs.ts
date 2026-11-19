@@ -211,6 +211,18 @@ export const cs = {
     dikVazba: 'Děkujeme za zpětnou vazbu.',
     dikVazbaPopis: 'Každou odpověď čteme a podle nich web vylepšujeme.',
   },
+  koncept: {
+    obnoveno: (kdy: string) => `Pokračujete v rozpracovaném dokumentu z ${kdy}.`,
+    zacitZnovu: 'Začít znovu',
+    ulozeno: 'Ukládá se průběžně jen v tomto prohlížeči',
+    ulozenoPrave: 'Uloženo v tomto prohlížeči',
+    info: 'Vyplněné údaje si pamatuje jen váš prohlížeč – k nám se nedostanou a nepotřebujete účet. Na jiném zařízení pokračujte přes „Poslat druhé straně“ (odkaz si pošlete sami sobě).',
+    rozpracovaneNadpis: 'Rozpracované v tomto prohlížeči',
+    rozpracovaneSpan: 'Pokračujte tam, kde jste skončili.',
+    pokracovat: 'Pokračovat',
+    smazat: 'Smazat',
+    upraveno: (kdy: string) => `upraveno ${kdy}`,
+  },
   email: {
     nadpis: 'Poslat PDF na e-mail',
     placeholder: 'vas@email.cz',

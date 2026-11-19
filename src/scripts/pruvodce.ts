@@ -21,6 +21,8 @@ interface Stav {
   data: Data;
   upravy: Upravy;
   krok: number;
+  /** Kdy se naposledy uložilo (ISO) */
+  ulozeno?: string;
   /** Pole, která uživatel sám změnil – těm už nepřepisujeme výchozí hodnotu */
   rucne?: string[];
 }
@@ -64,19 +66,68 @@ export function spustPruvodce(s: Sablona) {
   const w = s.slovo ?? TX.slovo;
 
   let stav: Stav = { data: {}, upravy: {}, krok: 0 };
+  let obnoveno = false;
   try {
-    const ulozeno = localStorage.getItem(klic);
-    if (ulozeno) stav = { ...stav, ...JSON.parse(ulozeno) };
+    let ulozeno = localStorage.getItem(klic);
+    if (!ulozeno) {
+      // starší verze šablony: údaje převezmeme (úpravy textu ne – text se mohl změnit)
+      const stare = Object.keys(localStorage)
+        .filter((k) => k.startsWith(`dokuio:${s.kod}:`) && k !== klic)
+        .sort()
+        .pop();
+      if (stare) {
+        const st = JSON.parse(localStorage.getItem(stare)!);
+        ulozeno = JSON.stringify({ data: st.data ?? {}, upravy: {}, krok: 0, ulozeno: st.ulozeno });
+        localStorage.setItem(klic, ulozeno);
+        localStorage.removeItem(stare);
+      }
+    }
+    if (ulozeno) {
+      stav = { ...stav, ...JSON.parse(ulozeno) };
+      obnoveno = Object.values(stav.data).some((v) => (Array.isArray(v) ? v.length : String(v ?? '').trim()));
+    }
   } catch {
     /* prohlížeč bez úložiště – průvodce funguje i tak */
   }
+  const stavText = koren.querySelector<HTMLElement>('[data-koncept-stav-text]');
+  let stavTimer: ReturnType<typeof setTimeout> | undefined;
   const uloz = () => {
     try {
+      stav.ulozeno = new Date().toISOString();
       localStorage.setItem(klic, JSON.stringify(stav));
+      if (stavText) {
+        stavText.textContent = TX.koncept.ulozenoPrave;
+        stavText.parentElement!.dataset.cerstve = '';
+        clearTimeout(stavTimer);
+        stavTimer = setTimeout(() => {
+          stavText.textContent = TX.koncept.ulozeno;
+          delete stavText.parentElement!.dataset.cerstve;
+        }, 1800);
+      }
     } catch {
       /* ignorovat */
     }
   };
+  {
+    const box = koren.querySelector<HTMLElement>('[data-koncept]');
+    const kdy = stav.ulozeno;
+    if (box && obnoveno && !location.hash.startsWith('#s=')) {
+      const d = kdy ? new Date(kdy) : null;
+      const popis = d
+        ? d.toLocaleString(s.jazyk === 'cs' ? 'cs-CZ' : s.jazyk, { day: 'numeric', month: 'numeric', hour: '2-digit', minute: '2-digit' })
+        : '';
+      box.querySelector<HTMLElement>('[data-koncept-text]')!.textContent = TX.koncept.obnoveno(popis);
+      box.hidden = false;
+      box.querySelector('[data-koncept-znovu]')!.addEventListener('click', () => {
+        koren.querySelector<HTMLElement>('[data-smazat]')?.click();
+        box.hidden = true;
+      });
+    }
+    koren.querySelector('[data-koncept-info]')?.addEventListener('click', () => {
+      const i = koren.querySelector<HTMLElement>('[data-koncept-info-text]')!;
+      i.hidden = !i.hidden;
+    });
+  }
 
   /* ---------------------------------------------------------- formulář ↔ data */
   const naplnFormular = () => {

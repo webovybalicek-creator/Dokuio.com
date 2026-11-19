@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Duvera from '../../components/Duvera.astro';
 import Hledani from '../../components/Hledani.astro';
 import Rozcestnik from '../../components/Rozcestnik.astro';
+import Rozpracovane from '../../components/Rozpracovane.astro';
 import Ilustrace from '../../components/Ilustrace.astro';
 import { urlBalicku } from '../../obsah';
 import { AKTIVNI_ZEME, HREFLANG_HUBY } from '../../obsah';
@@ -43,6 +44,7 @@ const h = zeme.hub;
     <div class="wrap">
       <div class="ram sekce__in sekce__in--tesne">
         <h2 id="smlouvy-nadpis">{h.hledaniNadpis}{' '}<span>{h.hledaniSpan}</span></h2>
+        <Rozpracovane zeme={zeme.kod} jazyk={zeme.jazyk} />
         <Hledani zeme={zeme.kod} />
       </div>
     </div>

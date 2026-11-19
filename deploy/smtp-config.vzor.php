@@ -6,9 +6,9 @@ return [
     'host' => 'mail.next01.exon.io',
     'port' => 465,            // 465 = SSL, 587 = STARTTLS
     'sifrovani' => 'ssl',     // 'ssl' nebo 'tls'
-    'uzivatel' => 'noreply@dokuio.com',
+    'uzivatel' => 'info@dokuio.com',
     'heslo' => '',            // ← doplnit na serveru
-    'od' => 'noreply@dokuio.com',
+    'od' => 'info@dokuio.com',
     'denni_limit' => 300,     // max. e-mailů za 24 h celkem
     'sul' => '',              // libovolný náhodný řetězec (anonymizace IP v limitech)
     // 'povolene_puvody' => ['https://dokuio.com', 'https://www.dokuio.com'],

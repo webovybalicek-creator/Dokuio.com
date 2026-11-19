@@ -10,3 +10,10 @@ export const PCC_POZYCZKA_RODZINA = {
 };
 export const TIP_TOZSAMOSC = 'Sprawdź tożsamość drugiej strony z dowodem osobistym i przepisz imię i nazwisko dokładnie tak, jak w dowodzie.';
 export const TIP_GOTOWKA = 'Gotówkę przelicz dopiero przy podpisaniu; większe kwoty lepiej przelewem – potwierdzenie przelewu to najlepszy dowód zapłaty.';
+export const UPK = { nazev: 'Ustawa o prawach konsumenta (Dz.U. 2014 poz. 827, ELI)', url: 'https://eli.gov.pl/eli/DU/2014/827/ogl' };
+export const UOKIK = { nazev: 'Prawa konsumenta – formularze i poradniki (UOKiK)', url: 'https://prawakonsumenta.uokik.gov.pl/' };
+export const SD_ZWOLNIENIE = {
+  nazev: 'Darowizna w najbliższej rodzinie – zwolnienie, SD-Z2 (podatki.gov.pl)',
+  url: 'https://www.podatki.gov.pl/poradniki-i-informatory/nabycie-spadku-lub-darowizny-w-najblizszej-rodzinie-zwolnienie-od-podatku-sd',
+};
+export const OPLATA_PELNOMOCNICTWO = 'Złożenie pełnomocnictwa w urzędzie kosztuje 17 zł opłaty skarbowej; pełnomocnictwo dla małżonka, rodziców, dziadków, dzieci, wnuków lub rodzeństwa jest zwolnione.';
