@@ -37,6 +37,7 @@ export const odstoupeniOdSmlouvy: Sablona = {
   ],
   kontrola: [
     'Lhůta je 14 dnů od převzetí zboží (u služeb od uzavření smlouvy). Rozhoduje datum odeslání odstoupení, ne doručení.',
+    'Od 1. 1. 2027 musí mít e-shopy tlačítko „Odstoupit od smlouvy“ přímo v online rozhraní (§ 1830a občanského zákoníku podle zákona č. 159/2026 Sb.). Odstoupit můžete i tímto dopisem nebo e-mailem.',
     'Platí jen pro nákup na dálku (e-shop, telefon) nebo mimo provozovnu od podnikatele. V kamenném obchodě a mezi soukromými lidmi zákonné právo na vrácení není.',
     'Výjimky: zboží na míru, rychle se kazící, rozbalené hygienické zboží, otevřené nosiče a software, ubytování a doprava na konkrétní termín.',
     'Náklady na vrácení zboží nesete vy jen tehdy, když vás o tom obchod předem informoval – zkontrolujte obchodní podmínky.',

@@ -35,6 +35,7 @@ export const odstapienieOdUmowy: Sablona = {
   ],
   kontrola: [
     'Termin wynosi 14 dni od otrzymania towaru (przy usługach od zawarcia umowy). Wystarczy wysłać oświadczenie przed jego upływem.',
+    'Dyrektywa UE 2023/2673 wprowadza w sklepach internetowych przycisk „odstąp od umowy tutaj”; polska nowelizacja ustawy o prawach konsumenta jest w przygotowaniu. To pismo lub e-mail pozostaje skutecznym sposobem odstąpienia.',
     'Prawo przysługuje przy zakupie od przedsiębiorcy na odległość (sklep internetowy, telefon) lub poza lokalem – nie w sklepie stacjonarnym i nie między osobami prywatnymi.',
     'Wyjątki: m.in. towar na zamówienie, szybko psujący się, rozpakowane artykuły higieniczne, rozpakowane nagrania i programy, usługi z określoną datą.',
     'Koszt odesłania ponosisz tylko, jeśli sprzedawca wcześniej o tym poinformował.',

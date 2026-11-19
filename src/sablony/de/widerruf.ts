@@ -34,6 +34,7 @@ export const widerruf: Sablona = {
   ],
   kontrola: [
     'Die Frist beträgt 14 Tage ab Erhalt der Ware (bei Dienstleistungen ab Vertragsschluss). Es genügt, den Widerruf rechtzeitig abzusenden.',
+    'Seit 19. Juni 2026 müssen Online-Shops einen Widerrufsbutton anbieten ([§ 356a BGB](https://www.gesetze-im-internet.de/bgb/__356a.html)). Ein Widerruf per Brief oder E-Mail mit diesem Formular bleibt wirksam.',
     'Das Widerrufsrecht gilt nur bei Käufen von Unternehmen im Fernabsatz (Online-Shop, Telefon) oder außerhalb von Geschäftsräumen – nicht im Laden und nicht zwischen Privatpersonen.',
     'Ausnahmen: z. B. maßgefertigte Waren, schnell verderbliche Waren, entsiegelte Hygieneartikel, entsiegelte Datenträger, Reisen und Veranstaltungen mit festem Termin.',
     'Rücksendekosten tragen Sie nur, wenn der Händler Sie vorher darüber informiert hat.',

@@ -7,8 +7,11 @@ kategorie: nakupy
 tema: vraceni-zbozi
 dokumenty: [odstoupeni-od-smlouvy, reklamace]
 datum: '2026-11-19'
+aktualizovano: '2026-11-19'
 slova: [vrácení zboží, odstoupení od smlouvy, e-shop, 14 dní, formulář, vrácení peněz]
 zdroje:
+  - nazev: "Zákon č. 159/2026 Sb. – tlačítko pro odstoupení od smlouvy (e-Sbírka)"
+    url: https://www.e-sbirka.cz/sb/2026/159
   - nazev: "Občanský zákoník č. 89/2012 Sb., § 1829 (e-Sbírka)"
     url: https://www.e-sbirka.cz/sb/2012/89
   - nazev: "Nařízení vlády č. 29/2023 Sb., vzorový formulář pro odstoupení (e-Sbírka)"
@@ -35,6 +38,8 @@ Nákup na internetu má jednu velkou výhodu: zboží si nemůžete předem proh
 ## Jak odstoupit
 
 Pošlete obchodu jasné prohlášení – e-mailem, doporučeně nebo přes formulář či tlačítko pro odstoupení na jeho webu. Můžete použít vzorový formulář podle nařízení vlády. Doklad o odeslání si schovejte.
+
+**Od 1. 1. 2027** musí každý e-shop nabízet přímo na webu nebo v aplikaci tlačítko „Odstoupit od smlouvy“ s potvrzením a e-mailovým potvrzením přijetí (nový § 1830a občanského zákoníku, zákon č. 159/2026 Sb.). E-mail nebo dopis ale fungují dál.
 
 Zboží vraťte **nejpozději do 14 dnů od odstoupení**. Obal stačí přiměřený, nemusí být originální.
 

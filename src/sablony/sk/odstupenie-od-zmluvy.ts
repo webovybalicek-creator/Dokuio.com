@@ -35,6 +35,7 @@ export const odstupenieOdZmluvy: Sablona = {
   ],
   kontrola: [
     'Lehota je 14 dní od prevzatia tovaru (pri službách od uzavretia zmluvy). Stačí odstúpenie v lehote odoslať.',
+    'Od 19. 6. 2026 musí e-shop ponúkať online funkciu „odstúpiť od zmluvy tu“ (§ 20a zákona č. 108/2024 Z. z.). Tento list alebo e-mail je stále platný spôsob odstúpenia.',
     'Platí len pri kúpe na diaľku (e-shop, telefón) alebo mimo prevádzkových priestorov od podnikateľa. V kamennom obchode a medzi súkromnými osobami zákonné právo nie je.',
     'Výnimky: tovar na mieru, rýchlo sa kaziaci, rozbalený hygienický tovar, rozbalené nosiče a softvér, ubytovanie a doprava na konkrétny termín.',
     'Náklady na vrátenie tovaru znášate len vtedy, ak vás o tom predávajúci vopred informoval.',
