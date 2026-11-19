@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Bratislava',
   aktivni: true,
   poradi: 2,
-  kategorie: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', zastoupeni: 'Splnomocnenia' },
+  kategorie: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', zastoupeni: 'Splnomocnenia', bezne: 'Nákupy a bežný život' },
   skupiny: {
     auto: [
       { slug: 'kupna-zmluva-auto', popis: 'Predaj jazdeného auta medzi súkromnými osobami.' },
@@ -20,6 +20,13 @@ export const zeme: Zeme = {
       { slug: 'zmluva-o-pozicke', popis: 'Pôžička medzi známymi, aj na splátky.' },
       { slug: 'potvrdenie-o-prevzati-penazi', popis: 'Doklad o odovzdaní hotovosti.' },
       { slug: 'darovacia-zmluva', popis: 'Darovanie peňazí alebo hnuteľnej veci.' },
+      { slug: 'uznanie-dlhu', popis: 'Dlh písomne, aj so splátkami.' },
+      { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
+    ],
+    bezne: [
+      { slug: 'kupna-zmluva', popis: 'Predaj použitých vecí medzi ľuďmi.' },
+      { slug: 'odstupenie-od-zmluvy', popis: 'Vrátenie tovaru z e-shopu do 14 dní.' },
+      { slug: 'reklamacia', popis: 'Chybný tovar u predávajúceho.' },
       { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
     ],
   },
@@ -66,6 +73,16 @@ export const zeme: Zeme = {
           { text: 'Požičiavam niekomu peniaze', dokumenty: ['zmluva-o-pozicke', 'potvrdenie-o-prevzati-penazi'], balicek: 'pozicka-penazi' },
           { text: 'Darujem peniaze alebo vec', dokumenty: ['darovacia-zmluva'] },
           { text: 'Odovzdávam alebo preberám hotovosť', dokumenty: ['potvrdenie-o-prevzati-penazi'] },
+          { text: 'Niekto mi dlhuje a chce splácať', dokumenty: ['uznanie-dlhu'] },
+        ],
+      },
+      {
+        nazev: 'Nákupy',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Chcem vrátiť tovar z e-shopu', dokumenty: ['odstupenie-od-zmluvy'], tip: '14 dní od prevzatia tovaru.' },
+          { text: 'Kúpený tovar je chybný', dokumenty: ['reklamacia'] },
+          { text: 'Predávam použitú vec', dokumenty: ['kupna-zmluva'] },
         ],
       },
       {
