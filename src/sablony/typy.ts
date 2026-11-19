@@ -43,6 +43,11 @@ export interface Pole {
   /** Polovina šířky formuláře (dvě pole vedle sebe) */
   polovina?: boolean;
   autocomplete?: string;
+  /**
+   * Chytrá výchozí hodnota v průvodci (dokud pole uživatel sám nezmění):
+   * 'dnes' = dnešní datum, { obecZ: 'p_adresa' } = obec z adresy v jiném poli
+   */
+  vychozi?: 'dnes' | { obecZ: string };
 }
 
 export interface Krok {

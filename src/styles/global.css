@@ -943,10 +943,6 @@ a.vypis__polozka:active {
   .pruvodce {
     grid-template-columns: 1fr;
   }
-  .pruvodce__nahled {
-    position: static;
-    max-height: none;
-  }
 }
 
 .kroky-nav {
@@ -1149,6 +1145,258 @@ a.vypis__polozka:active {
   border: 1px solid var(--frost);
   color: var(--navy-soft);
 }
+/* kontrola před stažením */
+.chybi {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid var(--frost);
+  border-radius: var(--r);
+}
+.chybi__nadpis {
+  font-weight: 600;
+  color: var(--ink);
+}
+.chybi__popis {
+  margin-top: 4px;
+  font-size: 0.8125rem;
+  color: var(--slate);
+}
+.chybi__skupina {
+  margin-top: 12px;
+}
+.chybi__krok {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.chybi ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chybi__tl {
+  font: inherit;
+  font-size: 0.8125rem;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px dashed #b4bfcd;
+  border-radius: var(--r);
+  background: var(--white);
+  color: var(--navy-soft);
+  cursor: pointer;
+  transition: border-color 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.chybi__tl:active {
+  transform: scale(0.97);
+}
+.chybi__tl--chyba {
+  border-style: solid;
+  border-color: #e0b36a;
+  color: #9a5b00;
+}
+@media (hover: hover) and (pointer: fine) {
+  .chybi__tl:hover {
+    border-color: var(--indigo);
+    color: var(--indigo);
+  }
+}
+
+/* zvýraznění pole po skoku z náhledu / kontroly */
+.pole--zvyraznit {
+  animation: pole-zvyraznit 1200ms var(--ease-out);
+  border-radius: var(--r);
+}
+@keyframes pole-zvyraznit {
+  0%,
+  35% {
+    box-shadow: 0 0 0 6px var(--wash);
+    background: var(--wash);
+  }
+  100% {
+    box-shadow: 0 0 0 6px transparent;
+    background: transparent;
+  }
+}
+
+/* Kde VIN najdu? */
+.pole__kde summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--indigo);
+  cursor: pointer;
+  list-style: none;
+}
+.pole__kde summary::-webkit-details-marker {
+  display: none;
+}
+.pole__kde summary::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 200ms var(--ease-out);
+}
+.pole__kde[open] summary::after {
+  transform: translateY(1px) rotate(-135deg);
+}
+.kde {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: var(--r);
+  background: var(--mist);
+  border: 1px solid var(--frost);
+  display: grid;
+  gap: 10px;
+  animation: krok-vstup 220ms var(--ease-out);
+}
+.kde__karta {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+.kde__seznam {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 4px;
+  font-size: 0.8125rem;
+  color: var(--navy-soft);
+}
+.kde__tip {
+  font-size: 0.8125rem;
+  color: var(--slate);
+}
+
+/* náhled ↔ otázky */
+.nahled__tip {
+  margin: -2px 0 8px;
+  font-size: 0.75rem;
+  color: var(--slate);
+}
+.pruvodce__nahled [data-jdi] {
+  cursor: pointer;
+}
+@media (hover: hover) and (pointer: fine) {
+  .pruvodce__nahled .dok__linka[data-jdi]:hover {
+    border-bottom-color: var(--indigo);
+    background: color-mix(in srgb, var(--wash) 60%, transparent);
+  }
+  .pruvodce__nahled .dok__hodnota[data-jdi]:hover {
+    box-shadow: 0 0 0 1px var(--lavender);
+  }
+}
+.nahled__zavrit,
+.nahled-lista {
+  display: none;
+}
+
+/* mobil: náhled jako spodní panel */
+@media (max-width: 960px) {
+  .pruvodce__nahled {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    max-height: none;
+    padding: 12px var(--gutter) 0;
+    background: var(--mist);
+    transform: translateY(100%);
+    visibility: hidden;
+    transition:
+      transform 360ms cubic-bezier(0.32, 0.72, 0, 1),
+      visibility 0s linear 360ms;
+  }
+  .pruvodce--nahled .pruvodce__nahled {
+    transform: none;
+    visibility: visible;
+    transition: transform 360ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .pruvodce__nahled .papir {
+    flex: 1;
+    padding-bottom: 32px;
+  }
+  .nahled__hlava {
+    align-items: center;
+  }
+  .nahled__zavrit {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid #cdd7e3;
+    border-radius: 999px;
+    background: var(--white);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    margin-left: auto;
+  }
+  .nahled__stav {
+    display: none;
+  }
+  .nahled-lista {
+    position: fixed;
+    left: 50%;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--white);
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 12px);
+    transition:
+      opacity 200ms var(--ease-out),
+      transform 200ms var(--ease-out);
+  }
+  .nahled-lista--videt {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+  .nahled-lista:active {
+    transform: translate(-50%, 0) scale(0.97);
+  }
+  .nahled-lista__stav {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.16);
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .pruvodce--nahled .nahled-lista {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .pruvodce__formular {
+    padding-bottom: 72px;
+  }
+}
+html.bez-posunu {
+  overflow: hidden;
+}
+
 .co-dal {
   margin-top: 24px;
   padding: 20px;

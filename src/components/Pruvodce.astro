@@ -83,6 +83,35 @@ const pocet = s.kroky.length + 1;
                     </label>
                   )}
                   {p.napoveda && <p class="pole__napoveda">{p.napoveda}</p>}
+                  {p.typ === 'vin' && (
+                    <details class="pole__kde">
+                      <summary>Kde VIN najdu?</summary>
+                      <div class="kde">
+                        <svg class="kde__karta" viewBox="0 0 320 196" role="img" aria-label="Osvědčení o registraci vozidla – VIN je v kolonce E">
+                          <rect x="1" y="1" width="318" height="194" rx="12" fill="#f6f9fc" stroke="#d6dbe6" />
+                          <rect x="1" y="1" width="318" height="34" rx="12" fill="#e8edf7" />
+                          <rect x="1" y="22" width="318" height="13" fill="#e8edf7" />
+                          <text x="16" y="23" font-size="10" font-weight="600" fill="#425466" letter-spacing=".06em">OSVĚDČENÍ O REGISTRACI VOZIDLA</text>
+                          <g font-size="11" fill="#425466">
+                            <text x="16" y="60" font-weight="600">A</text><text x="48" y="60">1AB 2345</text>
+                            <text x="16" y="82" font-weight="600">B</text><text x="48" y="82">15.03.2018</text>
+                            <text x="16" y="104" font-weight="600">D.1</text><text x="48" y="104">ŠKODA</text>
+                            <text x="16" y="126" font-weight="600">D.3</text><text x="48" y="126">OCTAVIA COMBI</text>
+                          </g>
+                          <rect x="8" y="138" width="304" height="28" rx="7" fill="#533afd" fill-opacity=".1" stroke="#533afd" />
+                          <text x="16" y="157" font-size="11" font-weight="700" fill="#533afd">E</text>
+                          <text x="48" y="157" font-size="12" font-weight="600" fill="#0a2540" letter-spacing=".08em">TMBJJ7NE8J0123456</text>
+                          <text x="16" y="185" font-size="9" fill="#8792a2">Ilustrace, skutečný doklad vypadá trochu jinak.</text>
+                        </svg>
+                        <ul class="kde__seznam">
+                          <li><strong>Osvědčení o registraci</strong> (malý technický průkaz) – kolonka <strong>E</strong>.</li>
+                          <li><strong>Na autě</strong> – za čelním sklem v rohu u řidiče nebo na štítku ve dveřích řidiče.</li>
+                          <li><strong>Velký technický průkaz</strong> nebo servisní knížka.</li>
+                        </ul>
+                        <p class="kde__tip">VIN na dokladu a na autě se musí shodovat. Pokud ne, auto raději nekupujte.</p>
+                      </div>
+                    </details>
+                  )}
                   <p class="pole__varovani" hidden />
                 </div>
               ))}
@@ -109,6 +138,7 @@ const pocet = s.kroky.length + 1;
           přidat vlastní ustanovení. Původní ověřené znění jde vždy vrátit.
         </p>
         <p class="souhrn" data-souhrn></p>
+        <div class="chybi" data-chybi hidden></div>
         <details class="podpis">
           <summary>Podepsat rovnou tady <span>volitelné</span></summary>
           <p class="podpis__popis">
@@ -155,11 +185,21 @@ const pocet = s.kroky.length + 1;
     <Duvera class="duvera--pruvodce" />
   </div>
 
-  <aside class="pruvodce__nahled" aria-label="Náhled smlouvy">
+  <aside class="pruvodce__nahled" id="nahled-smlouvy" aria-label="Náhled smlouvy">
     <div class="nahled__hlava">
       <span>Náhled smlouvy</span>
       <span class="nahled__stav" data-stav></span>
+      <button type="button" class="nahled__zavrit" data-nahled-zavrit aria-label="Zavřít náhled">Zpět k otázkám</button>
     </div>
+    <p class="nahled__tip">Klikněte na údaj nebo linku ve smlouvě a skočíte k otázce.</p>
     <div class="papir" data-nahled></div>
   </aside>
+
+  <button type="button" class="nahled-lista" data-nahled-otevrit aria-controls="nahled-smlouvy" aria-expanded="false">
+    <span class="nahled-lista__ikona" aria-hidden="true">
+      <svg viewBox="0 0 20 20" width="18" height="18"><path d="M5 2.5h7l3.5 3.5v11.5H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 10h5M8 13h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </span>
+    Zobrazit smlouvu
+    <span class="nahled-lista__stav" data-lista-stav></span>
+  </button>
 </div>

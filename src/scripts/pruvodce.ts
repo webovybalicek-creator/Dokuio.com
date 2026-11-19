@@ -18,9 +18,33 @@ interface Stav {
   data: Data;
   upravy: Upravy;
   krok: number;
+  /** Pole, která uživatel sám změnil – těm už nepřepisujeme výchozí hodnotu */
+  rucne?: string[];
 }
 
 const VIN = /^[A-HJ-NPR-Z0-9]{17}$/i;
+
+const dnes = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+
+/** „Nerudova 12, 251 01 Říčany“ → „Říčany“; „Praha 4 – Chodov“ → „Praha 4“ */
+export function obecZAdresy(adresa: string): string {
+  const a = adresa.trim().replace(/\s+/g, ' ');
+  if (!a) return '';
+  const psc = /\d{3} ?\d{2},? ([^,\d][^,]*)/.exec(a);
+  let obec = psc?.[1] ?? '';
+  if (!obec) {
+    // bez PSČ: poslední část bez čísla („Hlavní 5, Říčany“), výjimkou jsou pražské obvody
+    const casti = a.split(',').map((x) => x.trim());
+    if (casti.length < 2) return '';
+    obec = casti.filter((x) => !/\d/.test(x) || /^Praha \d{1,2}$/.test(x)).pop() ?? '';
+  }
+  return obec.split(/ [-–] /)[0].trim();
+}
+
+const omezitPohyb = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function spustPruvodce(s: Sablona) {
   const koren = document.querySelector<HTMLElement>('[data-pruvodce]');
@@ -104,6 +128,8 @@ export function spustPruvodce(s: Sablona) {
     nahled.innerHTML = dokumentHtml(dok, true);
     nahled.querySelectorAll<HTMLDetailsElement>('details.dok__vysvetleni').forEach((d, i) => (d.open = !!otevrene[i]));
     stavEl.textContent = `Vyplněno ${dok.vyplneno} z ${dok.celkem} údajů${dok.upraveno ? ' · text upraven' : ''}`;
+    if (listaStav) listaStav.textContent = `${dok.vyplneno}/${dok.celkem}`;
+    vykresliChybi();
     const souhrn = koren.querySelector<HTMLElement>('[data-souhrn]');
     if (souhrn) {
       const zbyva = dok.celkem - dok.vyplneno;
@@ -115,6 +141,90 @@ export function spustPruvodce(s: Sablona) {
     if (otevrenyEditor) otevriEditor(otevrenyEditor);
   };
 
+  /* ---------------------------------------------------------- kontrola před stažením */
+  const chybiEl = koren.querySelector<HTMLElement>('[data-chybi]');
+  const listaStav = koren.querySelector<HTMLElement>('[data-lista-stav]');
+  const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+  function vykresliChybi() {
+    if (!chybiEl) return;
+    let pocet = 0;
+    const skupiny = s.kroky
+      .map((k, i) => {
+        const polozky = k.pole
+          .filter((p) => poleAktivni(p, stav.data))
+          .flatMap((p) => {
+            const v = stav.data[p.id];
+            if (prazdne(v)) return [{ p, text: p.popis }];
+            if (p.typ === 'vin' && !VIN.test(String(v).replace(/\s/g, ''))) return [{ p, text: `${p.popis} – zkontrolujte`, chyba: true }];
+            return [];
+          });
+        pocet += polozky.length;
+        if (!polozky.length) return '';
+        const tl = polozky
+          .map(
+            (x) =>
+              `<li><button type="button" class="chybi__tl${'chyba' in x ? ' chybi__tl--chyba' : ''}" data-jdi="${x.p.id}">${esc(x.text)}</button></li>`,
+          )
+          .join('');
+        return `<div class="chybi__skupina"><p class="chybi__krok">${i + 1}. ${esc(k.nazev)}</p><ul>${tl}</ul></div>`;
+      })
+      .join('');
+    chybiEl.hidden = pocet === 0;
+    chybiEl.innerHTML = pocet
+      ? `<p class="chybi__nadpis">Před stažením zkontrolujte (${pocet})</p>
+         <p class="chybi__popis">Nevyplněné údaje můžete klidně nechat – ve smlouvě zůstane linka a doplníte je rukou. Kliknutím skočíte k otázce.</p>
+         ${skupiny}`
+      : '';
+  }
+
+  /** Přejde na krok s daným polem, posune se k němu a krátce ho zvýrazní */
+  function jdiNaPole(id: string) {
+    let p = pole.get(id);
+    // skryté podmíněné pole → přejít na otázku, která ho zobrazuje
+    if (p && !poleAktivni(p, stav.data) && p.zobrazitKdyz) p = pole.get(p.zobrazitKdyz.pole) ?? p;
+    if (!p) return;
+    const i = s.kroky.findIndex((k) => k.pole.some((x) => x.id === p!.id));
+    if (i < 0) return;
+    zavriNahled(false);
+    ukazKrok(i, false);
+    const el = koren.querySelector<HTMLElement>(`.pole[data-pole="${p.id}"]`);
+    if (!el) return;
+    el.scrollIntoView({ block: 'center', behavior: omezitPohyb() ? 'auto' : 'smooth' });
+    el.querySelector<HTMLElement>('input, textarea')?.focus({ preventScroll: true });
+    el.classList.remove('pole--zvyraznit');
+    void el.offsetWidth;
+    el.classList.add('pole--zvyraznit');
+  }
+
+  /* ---------------------------------------------------------- náhled na mobilu (spodní panel) */
+  const listaTl = koren.querySelector<HTMLButtonElement>('[data-nahled-otevrit]');
+  const zavritTl = koren.querySelector<HTMLButtonElement>('[data-nahled-zavrit]');
+  function otevriNahled() {
+    koren.classList.add('pruvodce--nahled');
+    document.documentElement.classList.add('bez-posunu');
+    listaTl?.setAttribute('aria-expanded', 'true');
+    zavritTl?.focus({ preventScroll: true });
+  }
+  function zavriNahled(vratitFokus = true) {
+    if (!koren.classList.contains('pruvodce--nahled')) return;
+    koren.classList.remove('pruvodce--nahled');
+    document.documentElement.classList.remove('bez-posunu');
+    listaTl?.setAttribute('aria-expanded', 'false');
+    if (vratitFokus) listaTl?.focus({ preventScroll: true });
+  }
+  listaTl?.addEventListener('click', otevriNahled);
+  zavritTl?.addEventListener('click', () => zavriNahled());
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') zavriNahled();
+  });
+  // Lišta jen když je průvodce na obrazovce
+  if (listaTl && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([z]) => listaTl.classList.toggle('nahled-lista--videt', z.isIntersecting), {
+      rootMargin: '0px 0px -40% 0px',
+    }).observe(koren.querySelector('.pruvodce__formular')!);
+  }
+
   let naplanovano = false;
   const prekresli = () => {
     if (naplanovano) return;
@@ -125,8 +235,24 @@ export function spustPruvodce(s: Sablona) {
     });
   };
 
-  form.addEventListener('input', () => {
+  /* ---------------------------------------------------------- chytré výchozí hodnoty */
+  const aplikujVychozi = () => {
+    const rucne = new Set(stav.rucne ?? []);
+    for (const p of pole.values()) {
+      if (!p.vychozi || rucne.has(p.id)) continue;
+      const v = p.vychozi === 'dnes' ? dnes() : obecZAdresy(String(stav.data[p.vychozi.obecZ] ?? ''));
+      if (stav.data[p.id] === v) continue;
+      stav.data[p.id] = v;
+      const el = form.querySelector<HTMLInputElement>(`[name="${p.id}"]`);
+      if (el) el.value = v;
+    }
+  };
+
+  form.addEventListener('input', (e) => {
+    const jmeno = (e.target as HTMLInputElement).name;
+    if (jmeno && pole.get(jmeno)?.vychozi && !stav.rucne?.includes(jmeno)) stav.rucne = [...(stav.rucne ?? []), jmeno];
     nactiFormular();
+    aplikujVychozi();
     podminenaPole();
     uloz();
     prekresli();
@@ -245,13 +371,16 @@ export function spustPruvodce(s: Sablona) {
 
   koren.addEventListener('click', (e) => {
     const t = e.target as HTMLElement;
-    if (t.closest('[data-dal]')) ukazKrok(stav.krok + 1);
+    const jdi = t.closest<HTMLElement>('[data-jdi]');
+    if (jdi && !t.closest('.editor')) jdiNaPole(jdi.dataset.jdi!);
+    else if (t.closest('[data-dal]')) ukazKrok(stav.krok + 1);
     else if (t.closest('[data-zpet]')) ukazKrok(stav.krok - 1);
     else if (t.closest('[data-skok]')) ukazKrok(Number(t.closest<HTMLElement>('[data-skok]')!.dataset.skok));
     else if (t.closest('[data-smazat]')) {
       if (!confirm('Opravdu smazat všechny vyplněné údaje a úpravy textu?')) return;
       stav = { data: {}, upravy: {}, krok: 0 };
       form.reset();
+      aplikujVychozi();
       try {
         localStorage.removeItem(klic);
       } catch {
@@ -371,6 +500,8 @@ export function spustPruvodce(s: Sablona) {
   /* ---------------------------------------------------------- start */
   naplnFormular();
   nactiFormular();
+  aplikujVychozi();
+  uloz();
   podminenaPole();
   kontrolaVin();
   vykresli();

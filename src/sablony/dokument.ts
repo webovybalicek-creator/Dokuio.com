@@ -5,9 +5,9 @@
 import type { Data, Hodnota, Odstavec, Pole, Sablona } from './typy';
 
 export type Usek =
-  | { t: 'text'; text: string; tucne?: boolean; vyplneno?: boolean }
-  | { t: 'linka'; sirka: number }
-  | { t: 'ctverec'; zaskrtnuto: boolean };
+  | { t: 'text'; text: string; tucne?: boolean; vyplneno?: boolean; pole?: string }
+  | { t: 'linka'; sirka: number; pole?: string }
+  | { t: 'ctverec'; zaskrtnuto: boolean; pole?: string };
 
 export interface Radek {
   /** Úroveň odsazení: 0 = běžný řádek, 1 = položka výčtu */
@@ -158,10 +158,11 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
   const hodnotaUseku = (id: string): Usek => {
     const p = pole.get(id);
     const odvoz = s.odvozene?.[id];
-    if (p && !poleAktivni(p, data)) return { t: 'linka', sirka: p.sirka ?? 24 };
+    const ref = p ? { pole: id } : {};
+    if (p && !poleAktivni(p, data)) return { t: 'linka', sirka: p.sirka ?? 24, ...ref };
     const text = odvoz ? odvoz(data) : formatHodnota(p, data[id]);
-    if (text) return { t: 'text', text, vyplneno: true };
-    return { t: 'linka', sirka: p?.sirka ?? 30 };
+    if (text) return { t: 'text', text, vyplneno: true, ...ref };
+    return { t: 'linka', sirka: p?.sirka ?? 30, ...ref };
   };
 
   /** „Text {{pole}} a **tučně**“ → úseky */
@@ -192,7 +193,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
         { uroven: 0, useky: rozloz(o.uvodVzor ?? o.uvod ?? 'Zaškrtněte jednu možnost:') },
         ...Object.values(o.moznosti).map((text) => ({
           uroven: 1 as const,
-          useky: [{ t: 'ctverec', zaskrtnuto: false } as Usek, ...rozloz(text)],
+          useky: [{ t: 'ctverec', zaskrtnuto: false, pole: o.volba } as Usek, ...rozloz(text)],
         })),
       ];
     }
@@ -201,7 +202,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     const radky: Radek[] = [{ uroven: 0, useky: rozloz(o.uvod) }];
     const polozky = vybrane.length ? vybrane.map((x) => o.moznosti[x]) : Object.values(o.moznosti);
     for (const text of polozky) {
-      radky.push({ uroven: 1, useky: [{ t: 'ctverec', zaskrtnuto: vybrane.length > 0 }, ...rozloz(text)] });
+      radky.push({ uroven: 1, useky: [{ t: 'ctverec', zaskrtnuto: vybrane.length > 0, pole: o.vice }, ...rozloz(text)] });
     }
     if (o.dalsi) {
       const useky = rozloz(o.dalsi);

@@ -7,11 +7,12 @@ const esc = (s: string) =>
 function useky(u: Usek[]): string {
   return u
     .map((x) => {
-      if (x.t === 'linka') return `<span class="dok__linka" style="--w:${x.sirka}ch" aria-label="k doplnění"></span>`;
+      const ref = x.pole ? ` data-jdi="${x.pole}"` : '';
+      if (x.t === 'linka') return `<span class="dok__linka" style="--w:${x.sirka}ch" aria-label="k doplnění"${ref}></span>`;
       if (x.t === 'ctverec')
-        return `<span class="dok__ctverec${x.zaskrtnuto ? ' dok__ctverec--ano' : ''}" aria-hidden="true"></span>`;
+        return `<span class="dok__ctverec${x.zaskrtnuto ? ' dok__ctverec--ano' : ''}" aria-hidden="true"${ref}></span>`;
       const t = esc(x.text);
-      if (x.vyplneno) return `<mark class="dok__hodnota">${t}</mark>`;
+      if (x.vyplneno) return `<mark class="dok__hodnota"${ref}>${t}</mark>`;
       return x.tucne ? `<strong>${t}</strong>` : t;
     })
     .join('');
