@@ -8,6 +8,7 @@ import Duvera from './Duvera.astro';
 import StazeniBand from './StazeniBand.astro';
 import Podpora from './Podpora.astro';
 import Ilustrace from './Ilustrace.astro';
+import Kontrola from './Kontrola.astro';
 import type { Sablona } from '../sablony/typy';
 import { sestavDokument, formatDatum } from '../sablony/dokument';
 import { dokumentHtml } from '../sablony/html';
@@ -192,6 +193,15 @@ const schema = [
             <ul class="krizky">{p.nehodiSe.map((t) => <li>{t}</li>)}</ul>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" aria-labelledby="kontrola-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="kontrola-nadpis">Ať jste v bezpečí.{' '}<span>Co si ověřit, než podepíšete.</span></h2>
+        <Kontrola sablona={s} />
       </div>
     </div>
   </section>

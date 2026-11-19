@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { plnaMoc as s } from '../../../../sablony/cz/plna-moc';
+import { penizeKrome } from '../../../../lib/souvisejici';
+const base = '/cz/plna-moc/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Plná moc"
+  nazevA="plnou moc"
+  title="Vyplnit plnou moc online – PDF zdarma"
+  description="Průvodce plnou mocí: pošta, úřad, smlouva. Stáhněte PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 2 minuty"
+  dalsi={penizeKrome(base)}
+/>

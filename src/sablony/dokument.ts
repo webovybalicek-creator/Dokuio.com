@@ -222,7 +222,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
   const clanky: { nadpis: string; vysvetleni?: string; odstavce: OdstavecDok[] }[] = s.clanky.map((c, i) => ({
     nadpis: c.nadpis,
     vysvetleni: c.vysvetleni,
-    odstavce: c.odstavce.flatMap((o, j) => {
+    odstavce: c.odstavce.flatMap((o, j): OdstavecDok[] => {
       const id = `${i + 1}.${j + 1}`;
       if (typeof o === 'object' && 'kdyz' in o && o.kdyz) {
         const v = data[o.kdyz.pole];

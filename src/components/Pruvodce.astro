@@ -6,6 +6,7 @@
  */
 import { SMLOUVA, velke, type Sablona } from '../sablony/typy';
 import Duvera from './Duvera.astro';
+import Kontrola from './Kontrola.astro';
 import '../styles/dokument.css';
 
 interface Props {
@@ -121,10 +122,10 @@ const pocet = s.kroky.length + 1;
                         </svg>
                         <ul class="kde__seznam">
                           <li><strong>Osvědčení o registraci</strong> (malý technický průkaz) – kolonka <strong>E</strong>.</li>
-                          <li><strong>Na autě</strong> – za čelním sklem v rohu u řidiče nebo na štítku ve dveřích řidiče.</li>
+                          <li><strong>Na vozidle</strong> – u auta za čelním sklem v rohu u řidiče nebo na štítku ve dveřích, u motorky vyražený na rámu u hlavy řízení.</li>
                           <li><strong>Velký technický průkaz</strong> nebo servisní knížka.</li>
                         </ul>
-                        <p class="kde__tip">VIN na dokladu a na autě se musí shodovat. Pokud ne, auto raději nekupujte.</p>
+                        <p class="kde__tip">VIN na dokladu a na vozidle se musí shodovat. Pokud ne, raději nekupujte.</p>
                       </div>
                     </details>
                   )}
@@ -155,6 +156,7 @@ const pocet = s.kroky.length + 1;
         </p>
         <p class="souhrn" data-souhrn></p>
         <div class="chybi" data-chybi hidden></div>
+        <Kontrola sablona={s} kompakt />
         {s.podpisNaZarizeni === false ? (
           s.podpisPoznamka && <p class="podpis-poznamka">{s.podpisPoznamka}</p>
         ) : (

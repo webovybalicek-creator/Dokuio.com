@@ -123,6 +123,15 @@ export interface Sablona {
   podpisPoznamka?: string;
   /** Kroky „Hotovo. Co dál?“ po stažení */
   coDal: string[];
+  /**
+   * Tipy „Před podpisem zkontrolujte“ (povinné u každé šablony). Odkaz ve tvaru [text](https://…).
+   * Zobrazují se v průvodci před stažením i na landing page.
+   */
+  kontrola: string[];
+  /** Oficiální zdroje, podle kterých je šablona sestavená a ověřená (zákony, úřady) */
+  zdroje: { nazev: string; url: string }[];
+  /** Kdy jsme naposledy prošli oficiální zdroje (YYYY-MM-DD) */
+  overeno: string;
   /** Nabídnout předvyplnění z jiné rozpracované šablony (např. z kupní smlouvy) */
   prevzit?: { kod: string; nazev: string; mapuj: (zdroj: Data) => Data };
 }

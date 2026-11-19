@@ -50,6 +50,25 @@ export const predavaciProtokolVozidlo: Sablona = {
     }),
   },
 
+  overeno: '2026-11-19',
+  kontrola: [
+      "Stav tachometru a paliva odpovídá tomu, co vidíte na palubní desce – vyfoťte ji.",
+      "Obejděte auto spolu a zapište každé poškození včetně místa; ideálně za denního světla.",
+      "Počet klíčů a dálkových ovladačů vyzkoušejte, že fungují.",
+      "Předávané doklady (osvědčení o registraci, servisní knížka) jsou ty od tohoto auta – porovnejte VIN.",
+      "Datum a čas předání – podle nich se později řeší pokuty, nehody a odpovědnost za auto."
+  ],
+  zdroje: [
+      {
+          "nazev": "Občanský zákoník č. 89/2012 Sb. (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/2012/89"
+      },
+      {
+          "nazev": "Zákon č. 56/2001 Sb., o podmínkách provozu vozidel (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/2001/56"
+      }
+  ],
+
   kroky: [
     {
       id: 'strany',

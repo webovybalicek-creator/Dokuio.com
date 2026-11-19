@@ -27,6 +27,39 @@ export const kupniSmlouvaAuto: Sablona = {
     'Podejte žádost o přepis v registru vozidel do 10 pracovních dnů. Kdo nepůjde osobně, potřebuje plnou moc s ověřeným podpisem.',
   ],
 
+  overeno: '2026-11-19',
+  kontrola: [
+      "Prodávající je zapsaný jako vlastník v osvědčení o registraci (malém technickém průkazu). Pokud ne, nechte si ukázat, jak auto nabyl.",
+      "VIN v dokladech souhlasí s VIN na autě (za čelním sklem a na štítku ve dveřích).",
+      "Historii kilometrů a technických kontrol podle VIN na [kontrolatachometru.cz](https://www.kontrolatachometru.cz/) (Ministerstvo dopravy, zdarma). Rozdíl proti tachometru = varování.",
+      "Že auto není na leasing nebo úvěr – u leasingu je vlastníkem leasingová firma a prodat ho nelze.",
+      "Totožnost druhé strany podle občanského průkazu. Číslo průkazu si můžete ověřit v databázi [Neplatné doklady Ministerstva vnitra](https://mv.gov.cz/aplikace-neplatne-doklady.aspx).",
+      "Hotovost převzít a přepočítat až při podpisu; vyšší částky raději převodem. Nad 270 000 Kč zákon platbu v hotovosti zakazuje.",
+      "Po prodeji si na [Portálu dopravy](https://portaldopravy.cz/) ověřte, že auto už není vedené na vás (přepis do 10 pracovních dnů)."
+  ],
+  zdroje: [
+      {
+          "nazev": "Občanský zákoník č. 89/2012 Sb. (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/2012/89"
+      },
+      {
+          "nazev": "Zákon č. 56/2001 Sb., o podmínkách provozu vozidel (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/2001/56"
+      },
+      {
+          "nazev": "Kontrola tachometru (Ministerstvo dopravy)",
+          "url": "https://www.kontrolatachometru.cz/"
+      },
+      {
+          "nazev": "Portál dopravy (Ministerstvo dopravy)",
+          "url": "https://portaldopravy.cz/"
+      },
+      {
+          "nazev": "Neplatné doklady (Ministerstvo vnitra)",
+          "url": "https://mv.gov.cz/aplikace-neplatne-doklady.aspx"
+      }
+  ],
+
   kroky: [
     {
       id: 'strany',

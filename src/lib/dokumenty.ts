@@ -15,7 +15,7 @@ export interface Dokument {
 }
 
 export const KATEGORIE: Record<string, Record<string, string>> = {
-  cz: { auto: 'Auto a vozidla', penize: 'Peníze a dary', zastoupeni: 'Plné moci' },
+  cz: { auto: 'Auto a vozidla', penize: 'Peníze a dary', veci: 'Prodej věcí', zastoupeni: 'Plné moci' },
   sk: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', zastoupeni: 'Splnomocnenia' },
 };
 
@@ -34,7 +34,16 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       popis: 'Prodej motocyklu, skútru nebo čtyřkolky.',
       kategorie: 'auto',
       ilustrace: 'motorka',
+      url: '/cz/kupni-smlouva-motorka/',
       slova: ['motocykl', 'skútr', 'moped', 'čtyřkolka', 'prodej motorky'],
+    },
+    {
+      nazev: 'Výpověď povinného ručení',
+      popis: 'Výpověď pojištění auta: výročí, prodej, zdražení.',
+      kategorie: 'auto',
+      ilustrace: 'protokol',
+      url: '/cz/vypoved-povinneho-ruceni/',
+      slova: ['auto', 'povinné ručení', 'pojištění', 'výpověď', 'pojišťovna', 'zrušení pojištění', 'změna pojišťovny'],
     },
     {
       nazev: 'Předávací protokol k vozidlu',
@@ -64,6 +73,7 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       popis: 'Zmocnění někoho, aby za vás něco vyřídil.',
       kategorie: 'zastoupeni',
       ilustrace: 'plnamoc',
+      url: '/cz/plna-moc/',
       slova: ['zmocnění', 'zastoupení', 'úřad', 'pošta', 'power of attorney'],
     },
     {
@@ -91,10 +101,19 @@ export const DOKUMENTY: Record<string, Dokument[]> = {
       slova: ['příjmový doklad', 'potvrzení', 'hotovost', 'převzetí', 'stvrzenka', 'receipt'],
     },
     {
+      nazev: 'Kupní smlouva na věc',
+      popis: 'Prodej kola, telefonu, nábytku a dalších věcí.',
+      kategorie: 'veci',
+      ilustrace: 'penize',
+      url: '/cz/kupni-smlouva-vec/',
+      slova: ['kupní smlouva', 'prodej', 'bazar', 'kolo', 'telefon', 'mobil', 'nábytek', 'movitá věc', 'obecná'],
+    },
+    {
       nazev: 'Uznání dluhu',
       popis: 'Dlužník písemně uzná, kolik a do kdy vrátí.',
       kategorie: 'penize',
       ilustrace: 'dluh',
+      url: '/cz/uznani-dluhu/',
       slova: ['dluh', 'dlužník', 'splátkový kalendář', 'uznání'],
     },
   ],

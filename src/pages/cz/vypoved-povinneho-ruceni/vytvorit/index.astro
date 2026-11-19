@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { vypovedPovinneRuceni as s } from '../../../../sablony/cz/vypoved-povinne-ruceni';
+import { autoKrome } from '../../../../lib/souvisejici';
+const base = '/cz/vypoved-povinneho-ruceni/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Výpověď povinného ručení"
+  nazevA="výpověď povinného ručení"
+  title="Vyplnit výpověď povinného ručení online – PDF zdarma"
+  description="Průvodce výpovědí povinného ručení: výročí, prodej auta, zdražení. Stáhněte PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 2 minuty"
+  dalsi={autoKrome(base)}
+/>

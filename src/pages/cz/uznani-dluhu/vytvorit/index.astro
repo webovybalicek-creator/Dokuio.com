@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { uznaniDluhu as s } from '../../../../sablony/cz/uznani-dluhu';
+import { penizeKrome } from '../../../../lib/souvisejici';
+const base = '/cz/uznani-dluhu/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Uznání dluhu"
+  nazevA="uznání dluhu"
+  title="Vyplnit uznání dluhu online – PDF zdarma"
+  description="Průvodce uznáním dluhu se splátkami. Stáhněte PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 2 minuty"
+  dalsi={penizeKrome(base)}
+/>

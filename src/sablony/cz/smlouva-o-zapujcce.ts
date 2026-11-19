@@ -27,6 +27,22 @@ export const smlouvaOZapujcce: Sablona = {
     'Smlouvu si schovejte, dokud nebude vše splaceno.',
   ],
 
+  overeno: '2026-11-19',
+  kontrola: [
+      "Totožnost druhé strany podle občanského průkazu. Číslo průkazu si můžete ověřit v databázi [Neplatné doklady Ministerstva vnitra](https://mv.gov.cz/aplikace-neplatne-doklady.aspx).",
+      "Peníze raději převodem – výpis z účtu je nejsilnější důkaz, že jste je půjčili.",
+      "Termín vrácení napsaný ve smlouvě – bez něj se zápůjčka vrací až po výpovědi.",
+      "Úrok přiměřený; lichevní úrok je neplatný. Přijaté úroky jsou zdanitelný příjem zapůjčitele.",
+      "Každou splátku v hotovosti si nechte písemně potvrdit (potvrzení o převzetí peněz).",
+      "Neplatí-li dlužník, nepromeškejte promlčení (obecně 3 roky) – pomůže písemné uznání dluhu."
+  ],
+  zdroje: [
+      {
+          "nazev": "Občanský zákoník č. 89/2012 Sb. (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/2012/89"
+      }
+  ],
+
   kroky: [
     {
       id: 'strany',

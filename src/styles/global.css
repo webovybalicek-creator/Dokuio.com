@@ -1185,6 +1185,67 @@ a.vypis__polozka:active {
   font-size: 0.9375rem;
 }
 
+/* Před podpisem zkontrolujte + oficiální zdroje */
+.kontrola {
+  margin-top: 16px;
+  padding: 20px 22px;
+  border: 1px solid var(--frost);
+  border-left: 3px solid #12b886;
+  border-radius: var(--r);
+  background: var(--white);
+  max-width: 52rem;
+}
+.kontrola__nadpis {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.kontrola__nadpis svg {
+  color: #0c8f69;
+  flex: none;
+}
+.kontrola__seznam {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.kontrola__seznam li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--navy-soft);
+  line-height: 1.55;
+}
+.kontrola__seznam li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.3em;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #9aa6b8;
+  border-radius: 3px;
+}
+.kontrola__zdroje {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--frost);
+  font-size: 0.8125rem;
+  color: var(--slate);
+}
+.kontrola a {
+  color: var(--indigo);
+}
+.kontrola--kompakt {
+  padding: 16px 18px;
+}
+.kontrola--kompakt .kontrola__seznam li {
+  font-size: 0.9375rem;
+}
+
 /* kontrola před stažením */
 .chybi {
   margin-top: 12px;

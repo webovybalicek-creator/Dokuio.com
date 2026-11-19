@@ -27,6 +27,26 @@ export const darovaciSmlouva: Sablona = {
     'Dar nad 5 milionů Kč, i když je od daně osvobozený, je potřeba oznámit finančnímu úřadu.',
   ],
 
+  overeno: '2026-11-19',
+  kontrola: [
+      "Dárce je skutečný vlastník daru (u auta zapsaný v osvědčení o registraci).",
+      "Peníze převodem: v poznámce platby uveďte „dar podle darovací smlouvy ze dne …“.",
+      "Dar od osoby, která není blízký příbuzný, je osvobozený od daně jen do 50 000 Kč za rok – nad limit se daní.",
+      "Osvobozený dar nad 5 milionů Kč je potřeba oznámit finančnímu úřadu (i mezi příbuznými).",
+      "U nezletilého obdarovaného podepisuje rodič; u velkých darů může být potřeba souhlas soudu.",
+      "Darujete auto? Po darování podejte přepis v registru vozidel do 10 pracovních dnů."
+  ],
+  zdroje: [
+      {
+          "nazev": "Občanský zákoník č. 89/2012 Sb. (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/2012/89"
+      },
+      {
+          "nazev": "Zákon č. 586/1992 Sb., o daních z příjmů (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/1992/586"
+      }
+  ],
+
   kroky: [
     {
       id: 'strany',

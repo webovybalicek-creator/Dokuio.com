@@ -57,6 +57,30 @@ export const plnaMocPrepisVozidla: Sablona = {
     },
   },
 
+  overeno: '2026-11-19',
+  kontrola: [
+      "Podpis zmocnitele nechte úředně ověřit (Czech POINT, obecní úřad, notář) – jinak registr plnou moc nepřijme.",
+      "Údaje vozidla (VIN, SPZ, číslo osvědčení) přesně podle dokladů; chyba = úřad přepis odmítne.",
+      "Rozsah plné moci je jen na přepis tohoto auta. Nepodepisujte obecnou plnou moc „na všechno“.",
+      "Jméno a datum narození zmocněnce podle jeho občanského průkazu.",
+      "Přepis musí proběhnout do 10 pracovních dnů od převodu auta – plnou moc vyřiďte hned.",
+      "Alternativa bez papíru: zmocnění zapsané v Registru zastupování."
+  ],
+  zdroje: [
+      {
+          "nazev": "Občanský zákoník č. 89/2012 Sb. (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/2012/89"
+      },
+      {
+          "nazev": "Zákon č. 56/2001 Sb., o podmínkách provozu vozidel (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/2001/56"
+      },
+      {
+          "nazev": "Portál dopravy (Ministerstvo dopravy)",
+          "url": "https://portaldopravy.cz/"
+      }
+  ],
+
   kroky: [
     {
       id: 'zmocnitel',

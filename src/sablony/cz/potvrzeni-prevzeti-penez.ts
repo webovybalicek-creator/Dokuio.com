@@ -28,6 +28,21 @@ export const potvrzeniPrevzetiPenez: Sablona = {
     'Při více platbách vystavte potvrzení ke každé zvlášť.',
   ],
 
+  overeno: '2026-11-19',
+  kontrola: [
+      "Peníze přepočítejte před podpisem, ideálně oba společně.",
+      "Částka číslem i slovy se shoduje.",
+      "Účel platby je konkrétní (smlouva, datum, auto) – aby nešlo tvrdit, že šlo o něco jiného.",
+      "Podpis příjemce – bez něj potvrzení nic nedokazuje.",
+      "Platba v hotovosti nad 270 000 Kč je zakázaná; vyšší částky převodem."
+  ],
+  zdroje: [
+      {
+          "nazev": "Občanský zákoník č. 89/2012 Sb. (e-Sbírka)",
+          "url": "https://www.e-sbirka.cz/sb/2012/89"
+      }
+  ],
+
   kroky: [
     {
       id: 'strany',

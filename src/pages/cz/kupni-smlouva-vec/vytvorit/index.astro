@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { kupniSmlouvaVec as s } from '../../../../sablony/cz/kupni-smlouva-vec';
+import { penizeKrome } from '../../../../lib/souvisejici';
+const base = '/cz/kupni-smlouva-vec/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Kupní smlouva na věc"
+  nazevA="kupní smlouvu na věc"
+  title="Vyplnit kupní smlouvu na věc online – PDF zdarma"
+  description="Průvodce kupní smlouvou na movitou věc: kolo, telefon, nábytek. Stáhněte PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 3 minuty"
+  dalsi={penizeKrome(base)}
+/>
