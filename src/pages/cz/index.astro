@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Plánované dokumenty pro Česko – jednoduché smlouvy mezi soukromými osobami
+const dokumenty = [
+  { nazev: 'Kupní smlouva na auto', popis: 'Prodej ojetého vozidla mezi soukromými osobami' },
+  { nazev: 'Předávací protokol k vozidlu', popis: 'Stav vozu, klíče a doklady při předání' },
+  { nazev: 'Darovací smlouva', popis: 'Darování movité věci nebo peněz' },
+  { nazev: 'Smlouva o zápůjčce', popis: 'Půjčka peněz mezi známými se splátkami' },
+  { nazev: 'Plná moc', popis: 'Zmocnění k vyřízení věci za vás' },
+  { nazev: 'Potvrzení o převzetí peněz', popis: 'Doklad o předání hotovosti' },
+];
+---
+
+<Base
+  title="Smlouvy a dokumenty snadno"
+  description="Odpovězte na pár otázek a stáhněte si hotovou smlouvu v PDF podle českého práva."
+  lang="cs"
+>
+  <section class="uvod wrap">
+    <span class="stitek">Připravujeme</span>
+    <h1>Smlouvy a dokumenty snadno.</h1>
+    <p>Odpovězte na pár jednoduchých otázek a stáhněte si hotovou smlouvu v PDF, připravenou k podpisu.</p>
+  </section>
+
+  <section class="sekce wrap" aria-labelledby="dokumenty">
+    <h2 id="dokumenty">Na čem pracujeme</h2>
+    <ul class="mrizka">
+      {
+        dokumenty.map((d) => (
+          <li>
+            <div class="karta">
+              <strong>{d.nazev}</strong>
+              <span>{d.popis}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <a slot="paticka" href="/">Jiná země</a>
+</Base>

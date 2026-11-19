@@ -1,0 +1,205 @@
+:root {
+  --paper: #ffffff;
+  --canvas: #f6f7f9;
+  --ink: #16181d;
+  --ink-soft: #5d6370;
+  --line: #e8eaee;
+  --accent: #2f5bea;
+  --accent-ink: #ffffff;
+  --accent-soft: #eef2fe;
+
+  --f-text: 'Geist Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --wrap: 72rem;
+  --gutter: clamp(16px, 4vw, 40px);
+  --radius: 14px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------------------------------------------------------------- hlavička */
+.hlavicka {
+  border-bottom: 1px solid var(--line);
+}
+.hlavicka__in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 650;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.logo__znak {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* ---------------------------------------------------------------- úvod */
+.uvod {
+  padding-block: clamp(56px, 10vw, 120px) clamp(40px, 6vw, 72px);
+}
+.stitek {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 550;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 20px;
+}
+.uvod h1 {
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-weight: 650;
+  max-width: 16ch;
+}
+.uvod p {
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  color: var(--ink-soft);
+  max-width: 40rem;
+  margin: 20px 0 0;
+}
+
+/* ---------------------------------------------------------------- mřížka karet */
+.sekce {
+  padding-block: 0 clamp(56px, 8vw, 96px);
+}
+.sekce h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.mrizka {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.karta {
+  display: block;
+  height: 100%;
+  background: var(--canvas);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 22px;
+  text-decoration: none;
+  transition:
+    border-color 160ms var(--ease-out),
+    background-color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+a.karta:hover {
+  background: var(--paper);
+  border-color: var(--line);
+}
+a.karta:active {
+  transform: scale(0.98);
+}
+.karta strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.karta span {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+.karta__vlajka {
+  font-size: 1.75rem;
+  line-height: 1;
+  display: block;
+  margin-bottom: 12px;
+}
+.karta--brzy {
+  opacity: 0.7;
+}
+
+/* ---------------------------------------------------------------- patička */
+.paticka {
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+.paticka__in {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+  padding-block: 24px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

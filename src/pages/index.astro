@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import { ZEME } from '../lib/config';
+---
+
+<Base
+  title="Dokuio – contracts and documents made easy"
+  description="Fill in a few questions and download a ready-to-sign contract as a PDF. Templates follow the law of your country."
+>
+  <section class="uvod wrap">
+    <span class="stitek">Coming soon</span>
+    <h1>Contracts and documents, made easy.</h1>
+    <p>
+      Answer a few simple questions and download a ready-to-sign PDF. Every template follows the law of
+      your country.
+    </p>
+  </section>
+
+  <section class="sekce wrap" aria-labelledby="zeme">
+    <h2 id="zeme">Choose your country</h2>
+    <ul class="mrizka">
+      {
+        ZEME.map((z) => (
+          <li>
+            <a class="karta" href={`/${z.kod}/`} hreflang={z.jazyk}>
+              <span class="karta__vlajka" aria-hidden="true">{z.vlajka}</span>
+              <strong>{z.nazev}</strong>
+              <span>{z.nazevEn}</span>
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <div class="karta karta--brzy">
+          <span class="karta__vlajka" aria-hidden="true">🌍</span>
+          <strong>More countries</strong>
+          <span>On the way</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+</Base>
