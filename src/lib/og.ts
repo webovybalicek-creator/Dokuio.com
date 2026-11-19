@@ -35,6 +35,15 @@ export const OG_STRANKY: OgStranka[] = [
     popis: st.katalog.popis,
     papir: st.nazev,
   })),
+  ...AKTIVNI_ZEME.flatMap((z) =>
+    (z.balicky ?? []).map((b) => ({
+      slug: `${z.kod}-balicek-${b.slug}`,
+      stitek: zdarma(z.jazyk),
+      nadpis: b.nazev,
+      popis: b.popis,
+      papir: b.nazev,
+    })),
+  ),
   { slug: 'cz-o-nas', stitek: 'Dokuio', nadpis: 'O Dokuio', popis: 'Vzory smluv zdarma pro každého.' },
   { slug: 'cz-podminky-uziti', stitek: 'Dokuio', nadpis: 'Podmínky užití', popis: 'Vzory zdarma, nejde o právní poradenství.' },
   { slug: 'cz-ochrana-osobnich-udaju', stitek: 'Dokuio', nadpis: 'Ochrana osobních údajů', popis: 'Údaje ze smluv zůstávají ve vašem prohlížeči.' },

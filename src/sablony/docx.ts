@@ -10,21 +10,29 @@ import {
   Paragraph,
   TabStopType,
   TextRun,
+  Table,
+  TableRow,
+  TableCell,
+  WidthType,
+  BorderStyle,
+  PageBreak,
   ImageRun,
   ExternalHyperlink,
   type ParagraphChild,
 } from 'docx';
 import type { Dokument, Usek } from './dokument';
+import { texty } from '../i18n';
 
 const PISMO = 'Calibri';
 const VEL = 21; // půlbody → 10,5 pt
 const ODSAZENI = 360; // twipy (0,25")
 
-function behy(useky: Usek[]): ParagraphChild[] {
+function behy(useky: Usek[], preklad = false): ParagraphChild[] {
+  const styl = preklad ? { italics: true, color: '64748D' } : {};
   return useky.map((u) => {
     if (u.t === 'linka') return new TextRun({ text: '.'.repeat(Math.max(8, Math.round(u.sirka * 1.6))), color: '8A96A8' });
     if (u.t === 'ctverec') return new TextRun({ text: u.zaskrtnuto ? '☒ ' : '☐ ' });
-    return new TextRun({ text: u.text, bold: u.tucne });
+    return new TextRun({ text: u.text, bold: u.tucne, ...styl });
   });
 }
 
@@ -39,10 +47,19 @@ export async function dokumentDocx(
       spacing: { after: 60 },
       children: [new TextRun({ text: d.nazev.toUpperCase(), bold: true, size: 32 })],
     }),
+    ...(d.nazev2
+      ? [
+          new Paragraph({
+            alignment: AlignmentType.CENTER,
+            spacing: { after: 60 },
+            children: [new TextRun({ text: d.nazev2.toUpperCase(), size: 22, color: '64748D', italics: true })],
+          }),
+        ]
+      : []),
     new Paragraph({
       alignment: AlignmentType.CENTER,
       spacing: { after: 360 },
-      children: [new TextRun({ text: d.podnadpis, size: 17, color: '64748D' })],
+      children: [new TextRun({ text: d.podnadpis2 ? `${d.podnadpis} / ${d.podnadpis2}` : d.podnadpis, size: 17, color: '64748D' })],
     }),
   ];
 
@@ -73,7 +90,7 @@ export async function dokumentDocx(
             tabStops: sCisly && !vycet ? [{ type: TabStopType.LEFT, position: ODSAZENI }] : undefined,
             children: [
               ...(sCisly && !vycet ? [new TextRun({ text: `${cislo}\t`, color: '64748D' })] : []),
-              ...behy(r.useky),
+              ...behy(r.useky, r.preklad),
             ],
           }),
         );
@@ -112,6 +129,42 @@ export async function dokumentDocx(
     }),
   );
 
+  const bezOkraju = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
+  const prilohy: (Paragraph | Table)[] = d.prilohy.flatMap((tab) => [
+    new Paragraph({ children: [new PageBreak()] }),
+    new Paragraph({ spacing: { after: 120 }, children: [new TextRun({ text: tab.nadpis, bold: true, size: 26 })] }),
+    ...(tab.popis ? [new Paragraph({ spacing: { after: 160 }, children: [new TextRun({ text: tab.popis, color: '64748D' })] })] : []),
+    new Table({
+      width: { size: 100, type: WidthType.PERCENTAGE },
+      rows: [tab.hlavicka, ...tab.radky].map(
+        (r, ri) =>
+          new TableRow({
+            tableHeader: ri === 0,
+            children: r.map(
+              (c, i) =>
+                new TableCell({
+                  borders: { top: bezOkraju, left: bezOkraju, right: bezOkraju, bottom: { style: BorderStyle.SINGLE, size: 4, color: 'E5EDF5' } },
+                  children: [
+                    new Paragraph({
+                      alignment: tab.vpravo?.includes(i) ? AlignmentType.RIGHT : AlignmentType.LEFT,
+                      children: [new TextRun({ text: c, bold: ri === 0, color: ri === 0 ? '64748D' : undefined, size: 19 })],
+                    }),
+                  ],
+                }),
+            ),
+          }),
+      ),
+    }),
+    ...(tab.poznamka ? [new Paragraph({ spacing: { before: 160 }, children: [new TextRun({ text: tab.poznamka, color: '64748D', size: 18 })] })] : []),
+  ]);
+  const overeni = new Paragraph({
+    spacing: { before: 480 },
+    children: [
+      new TextRun({ text: texty(d.jazyk).dokument.overeniSablony, size: 16, color: '64748D' }),
+      new ExternalHyperlink({ link: d.overeni, children: [new TextRun({ text: d.overeni.replace(/^https:\/\//, ''), size: 16, color: '533AFD' })] }),
+    ],
+  });
+
   const doc = new Document({
     creator: 'Dokuio.com',
     title: d.nazev,
@@ -137,7 +190,7 @@ export async function dokumentDocx(
             ],
           }),
         },
-        children: deti,
+        children: [...deti, overeni, ...prilohy],
       },
     ],
   });

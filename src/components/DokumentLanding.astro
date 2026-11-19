@@ -10,7 +10,7 @@ import Podpora from './Podpora.astro';
 import Ilustrace from './Ilustrace.astro';
 import Kontrola from './Kontrola.astro';
 import type { StrankaDokumentu } from '../obsah/typy';
-import { souvisejici as najdiSouvisejici, urlStranky, zemeKod } from '../obsah';
+import { balickyDokumentu, slugStranky, souvisejici as najdiSouvisejici, urlBalicku, urlStranky, zemeKod } from '../obsah';
 import { sestavDokument, formatDatum } from '../sablony/dokument';
 import { dokumentHtml } from '../sablony/html';
 import { SITE } from '../lib/config';
@@ -33,6 +33,7 @@ const p = {
   title: stranka.landing.title.replace('{rok}', s.aktualizovano.slice(0, 4)),
   souvisejici: najdiSouvisejici(s.zeme, stranka.souvisejici, base),
 };
+const balicky = balickyDokumentu(s.zeme, slugStranky(stranka));
 const vzorPdf = `${base}${s.souborPdf}-vzor.pdf`;
 const vzorDocx = `${base}${s.souborPdf}-vzor.docx`;
 const vytvorit = `${base}vytvorit/`;
@@ -87,6 +88,11 @@ const schema = [
             <a class="btn btn--primarni btn--sipka" href={vytvorit}>{T.vyplnitOnlineZdarma}</a>
             <a class="btn btn--duch" href={vzorPdf} download>{T.stahnoutPrazdny}</a>
           </div>
+          {balicky.map((b) => (
+            <a class="hero__balicek" href={urlBalicku(s.zeme, b.slug)}>
+              {TX.balicek.stitek}: <strong>{b.nazev}</strong> · {TX.balicek.dokumentu(b.dokumenty.length)} →
+            </a>
+          ))}
           <Duvera class="duvera--hero" lang={s.jazyk} />
         </div>
         <figure class="nahled-vzoru">

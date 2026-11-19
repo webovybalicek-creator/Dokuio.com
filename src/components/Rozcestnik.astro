@@ -1,0 +1,74 @@
+---
+/** „Nevíte, jaký dokument?“ – situace → konkrétní možnost → doporučené dokumenty (a balíček). */
+import Ilustrace from './Ilustrace.astro';
+import { strankaPodleSlugu, urlBalicku, urlStranky } from '../obsah';
+import type { Zeme } from '../obsah/typy';
+import { texty } from '../i18n';
+
+interface Props {
+  zeme: Zeme;
+}
+const { zeme } = Astro.props;
+const r = zeme.rozcestnik!;
+const T = texty(zeme.jazyk).balicek;
+const balicek = (slug?: string) => zeme.balicky?.find((b) => b.slug === slug);
+---
+
+<div class="rozcestnik" data-rozcestnik>
+  <div class="rozcestnik__situace" role="tablist">
+    {
+      r.situace.map((s, i) => (
+        <button type="button" role="tab" class="rozcestnik__chip" aria-selected={i === 0 ? 'true' : 'false'} data-situace={i}>
+          <Ilustrace typ={s.ilustrace} />
+          {s.nazev}
+        </button>
+      ))
+    }
+  </div>
+  {
+    r.situace.map((s, i) => (
+      <div class="rozcestnik__panel" data-panel={i} hidden={i !== 0} role="tabpanel">
+        {s.moznosti.map((m) => {
+          const b = balicek(m.balicek);
+          return (
+            <details class="rozcestnik__moznost">
+              <summary>{m.text}</summary>
+              <div class="rozcestnik__vysledek">
+                <p class="rozcestnik__budete">{T.budete}</p>
+                <ul>
+                  {m.dokumenty.map((slug) => {
+                    const st = strankaPodleSlugu(zeme.kod, slug);
+                    return st && (
+                      <li>
+                        <a href={urlStranky(st)}>{st.nazev}</a> <span>– {st.katalog.popis}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+                {m.tip && <p class="rozcestnik__tip">{m.tip}</p>}
+                {b && (
+                  <a class="btn btn--primarni btn--maly btn--sipka" href={urlBalicku(zeme.kod, b.slug)}>
+                    {T.celyBalicek}: {b.nazev}
+                  </a>
+                )}
+              </div>
+            </details>
+          );
+        })}
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-rozcestnik]').forEach((r) => {
+    const chipy = [...r.querySelectorAll<HTMLButtonElement>('[data-situace]')];
+    const panely = [...r.querySelectorAll<HTMLElement>('[data-panel]')];
+    chipy.forEach((c) =>
+      c.addEventListener('click', () => {
+        chipy.forEach((x) => x.setAttribute('aria-selected', String(x === c)));
+        panely.forEach((p) => (p.hidden = p.dataset.panel !== c.dataset.situace));
+      }),
+    );
+  });
+</script>

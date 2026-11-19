@@ -2,7 +2,7 @@
  * Převod šablony + dat na strukturovaný dokument, ze kterého kreslí HTML náhled i PDF.
  * Nevyplněná pole se mění na linky, nevybrané volby na zaškrtávací výčet.
  */
-import type { Data, Hodnota, Odstavec, Pole, Sablona } from './typy';
+import type { Data, Hodnota, Odstavec, OdstavecPrekladu, Pole, Sablona, Tabulka } from './typy';
 import { texty as textyJazyka } from '../i18n';
 
 export type Usek =
@@ -14,6 +14,8 @@ export interface Radek {
   /** Úroveň odsazení: 0 = běžný řádek, 1 = položka výčtu */
   uroven: 0 | 1;
   useky: Usek[];
+  /** Řádek překladu (dvojjazyčná verze) – kreslí se šedě/kurzívou */
+  preklad?: boolean;
 }
 
 export type StavOdstavce = 'puvodni' | 'upraveno' | 'vlastni' | 'smazano';
@@ -36,6 +38,14 @@ export interface Blok {
 export interface Dokument {
   nazev: string;
   podnadpis: string;
+  /** Název a podnadpis v překladu (dvojjazyčná verze) */
+  nazev2?: string;
+  podnadpis2?: string;
+  /** Přílohy (tabulky) za podpisy */
+  prilohy: Tabulka[];
+  /** Adresa ověření šablony (QR kód v PDF) */
+  overeni: string;
+  kod: string;
   uvod: Usek[];
   bloky: Blok[];
   misto: Usek[];
@@ -220,6 +230,52 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     return radky;
   };
 
+  /** Dvojjazyčná verze: data._preklad = jazyk překladu */
+  const P = s.preklad && data._preklad === s.preklad.jazyk ? s.preklad : undefined;
+  const prelozVolbu = (id: string, v: string) => P?.volby?.[id]?.[v];
+  const radkyPrekladu = (o: Odstavec, op: OdstavecPrekladu | undefined): Radek[] => {
+    if (!op) return [];
+    const r = (text: string) => rozlozP(text);
+    let radky: Radek[];
+    if (typeof op === 'string') radky = [{ uroven: 0, useky: r(op) }];
+    else if (typeof o === 'object' && 'volba' in o) {
+      const v = data[o.volba];
+      const vybrana = typeof v === 'string' ? op.moznosti[v] : undefined;
+      radky = vybrana
+        ? [{ uroven: 0, useky: r(op.uvod ? `${op.uvod} ${vybrana}` : vybrana) }]
+        : [
+            { uroven: 0, useky: r(op.uvodVzor ?? op.uvod ?? '') },
+            ...Object.keys(o.moznosti).map((k) => ({
+              uroven: 1 as const,
+              useky: [{ t: 'ctverec', zaskrtnuto: false, pole: o.volba } as Usek, ...r(op.moznosti[k] ?? '')],
+            })),
+          ];
+    } else if (typeof o === 'object' && 'vice' in o) {
+      const v = data[o.vice];
+      const vybrane = Array.isArray(v) ? v.filter((x) => o.moznosti[x]) : [];
+      const klice = vybrane.length ? vybrane : Object.keys(o.moznosti);
+      radky = [
+        { uroven: 0, useky: r(op.uvod ?? '') },
+        ...klice.map((k) => ({
+          uroven: 1 as const,
+          useky: [{ t: 'ctverec', zaskrtnuto: vybrane.length > 0, pole: o.vice } as Usek, ...r(op.moznosti[k] ?? '')],
+        })),
+      ];
+      if (op.dalsi) radky.push({ uroven: 1, useky: r(op.dalsi) });
+    } else radky = [];
+    return radky.map((x) => ({ ...x, preklad: true }));
+  };
+  /** Rozklad textu překladu: hodnoty voleb se překládají, ostatní hodnoty zůstávají */
+  const rozlozP = (text: string): Usek[] =>
+    rozloz(text).map((u) => {
+      if (u.t === 'text' && u.vyplneno && u.pole) {
+        const v = data[u.pole];
+        const pr = typeof v === 'string' ? prelozVolbu(u.pole, v) : undefined;
+        if (pr) return { ...u, text: pr };
+      }
+      return u;
+    });
+
   const smazane = new Set(upravy.smazane ?? []);
   const texty = upravy.text ?? {};
   let upraveno = false;
@@ -242,7 +298,8 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
         upraveno = true;
         return [{ id, stav: 'upraveno' as const, radky: textNaRadky(texty[id]) }];
       }
-      return [{ id, stav: 'puvodni' as const, radky: radkyOdstavce(o) }];
+      const op = P?.clanky[i]?.odstavce[j];
+      return [{ id, stav: 'puvodni' as const, radky: [...radkyOdstavce(o), ...radkyPrekladu(o, op)] }];
     }),
   }));
 
@@ -260,7 +317,9 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     const platne = c.odstavce.filter((o) => o.stav !== 'smazano');
     let n = 0;
     return {
-      nadpis: s.cislovatClanky === false ? c.nadpis : `${T.clanek(RIMSKE[i])} · ${c.nadpis}`,
+      nadpis:
+        (s.cislovatClanky === false ? c.nadpis : `${T.clanek(RIMSKE[i])} · ${c.nadpis}`) +
+        (P && P.clanky[i] ? ` / ${s.cislovatClanky === false ? '' : `${P.clanek} ${RIMSKE[i]} · `}${P.clanky[i].nadpis}` : ''),
       vysvetleni: c.vysvetleni,
       odstavce: c.odstavce.map((o) =>
         o.stav === 'smazano' || platne.length < 2 || s.cislovatOdstavce === false ? o : { ...o, cislo: `${++n}.` },
@@ -276,16 +335,24 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     if (!prazdne(data[p.id])) vyplneno++;
   }
 
+  const zakladPaticky = P ? `${s.paticka} · ${P.prednost}` : s.paticka;
   return {
     nazev: s.nazev,
     podnadpis: s.podnadpis,
+    nazev2: P?.nazev,
+    podnadpis2: P?.podnadpis,
+    prilohy: s.prilohy?.(data) ?? [],
+    overeni: `https://dokuio.com/overeni/?k=${encodeURIComponent(s.kod)}&v=${encodeURIComponent(s.verze)}`,
+    kod: s.kod,
     uvod: s.uvod ? rozloz(s.uvod) : [],
     bloky,
     misto: [hodnotaUseku(s.mistoPodpisu)],
     datum: [hodnotaUseku(s.datumPodpisu)],
-    podpisy: s.podpisy,
-    paticka: upraveno ? `${s.paticka} · ${T.upravenoUzivatelem}` : s.paticka,
-    mistoDne: [T.v, T.dne],
+    podpisy: P
+      ? { vlevo: `${s.podpisy.vlevo} / ${P.podpisy.vlevo}`, vpravo: `${s.podpisy.vpravo} / ${P.podpisy.vpravo}` }
+      : s.podpisy,
+    paticka: upraveno ? `${zakladPaticky} · ${T.upravenoUzivatelem}` : zakladPaticky,
+    mistoDne: P ? [`${T.v} / ${P.mistoDne[0]}`, `${T.dne} / ${P.mistoDne[1]}`] : [T.v, T.dne],
     jazyk: s.jazyk,
     upraveno,
     vyplneno,

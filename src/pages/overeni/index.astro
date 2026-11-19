@@ -1,0 +1,95 @@
+---
+/**
+ * Ověření šablony z QR kódu v PDF: /overeni/?k=<kód>&v=<verze>.
+ * Stránka je statická, přehled všech šablon je vložený jako JSON a vybírá se v prohlížeči.
+ */
+import Base from '../../layouts/Base.astro';
+import { VSECHNY_STRANKY, urlStranky } from '../../obsah';
+import { texty } from '../../i18n';
+import { formatDatum } from '../../sablony/dokument';
+
+const sablony = Object.fromEntries(
+  VSECHNY_STRANKY.map((st) => {
+    const s = st.sablona;
+    const T = texty(s.jazyk).overeni;
+    return [
+      s.kod,
+      {
+        nazev: st.nazev,
+        url: urlStranky(st),
+        verze: s.verze,
+        aktualizovano: formatDatum(s.aktualizovano),
+        overeno: formatDatum(s.overeno),
+        zdroje: s.zdroje,
+        jazyk: s.jazyk,
+        T: { ...T, starsi: T.starsi('{v}', '{nova}') },
+      },
+    ];
+  }),
+);
+const T = texty('cs').overeni;
+---
+
+<Base title={T.title} description={T.span} lang="cs" noindex>
+  <section class="sekce sekce--bez-cary">
+    <div class="wrap">
+      <div class="ram sekce__in text-stranka overeni" data-overeni data-sablony={JSON.stringify(sablony)}>
+        <h1 data-o="nadpis">{T.nadpis}</h1>
+        <p class="text-stranka__datum" data-o="span">{T.span}</p>
+        <div class="overeni__karta" data-o-karta hidden>
+          <p class="overeni__stav" data-o-stav></p>
+          <dl class="overeni__udaje">
+            <dt data-o="sablona">{T.sablona}</dt><dd data-o-nazev></dd>
+            <dt data-o="verze">{T.verze}</dt><dd data-o-verze></dd>
+            <dt data-o="aktualizovano">{T.aktualizovano}</dt><dd data-o-aktualizovano></dd>
+            <dt data-o="overeno">{T.overeno}</dt><dd data-o-overeno></dd>
+          </dl>
+          <p class="overeni__zdroje"><strong data-o="zdroje">{T.zdroje}</strong>: <span data-o-zdroje></span></p>
+          <a class="btn btn--primarni btn--sipka" data-o-otevrit href="/">{T.otevrit}</a>
+          <p class="poznamka" data-o="pozn">{T.pozn}</p>
+        </div>
+        <p class="text-stranka__vytah" data-o-nenalezeno hidden>{T.nenalezeno}</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  type Zaznam = {
+    nazev: string;
+    url: string;
+    verze: string;
+    aktualizovano: string;
+    overeno: string;
+    zdroje: { nazev: string; url: string }[];
+    jazyk: string;
+    T: Record<string, string>;
+  };
+  const el = document.querySelector<HTMLElement>('[data-overeni]')!;
+  const vse = JSON.parse(el.dataset.sablony!) as Record<string, Zaznam>;
+  const q = new URLSearchParams(location.search);
+  const z = vse[q.get('k') ?? ''];
+  const v = q.get('v') ?? '';
+  if (!z) el.querySelector<HTMLElement>('[data-o-nenalezeno]')!.hidden = false;
+  else {
+    document.documentElement.lang = z.jazyk;
+    el.querySelectorAll<HTMLElement>('[data-o]').forEach((n) => (n.textContent = z.T[n.dataset.o!] ?? n.textContent));
+    const set = (s: string, t: string) => (el.querySelector<HTMLElement>(s)!.textContent = t);
+    set('[data-o-nazev]', `${z.nazev} (${q.get('k')})`);
+    set('[data-o-verze]', v || z.verze);
+    set('[data-o-aktualizovano]', z.aktualizovano);
+    set('[data-o-overeno]', z.overeno);
+    const zdroje = el.querySelector<HTMLElement>('[data-o-zdroje]')!;
+    z.zdroje.forEach((x, i) => {
+      if (i) zdroje.append(' · ');
+      const a = Object.assign(document.createElement('a'), { href: x.url, textContent: x.nazev, rel: 'noopener', target: '_blank' });
+      zdroje.append(a);
+    });
+    const stav = el.querySelector<HTMLElement>('[data-o-stav]')!;
+    const aktualni = !v || v === z.verze;
+    stav.textContent = aktualni ? z.T.aktualni : z.T.starsi.replace('{v}', v).replace('{nova}', z.verze);
+    stav.classList.add(aktualni ? 'overeni__stav--ok' : 'overeni__stav--pozor');
+    el.querySelector<HTMLAnchorElement>('[data-o-otevrit]')!.href = z.url;
+    el.querySelector<HTMLElement>('[data-o-karta]')!.hidden = false;
+  }
+</script>

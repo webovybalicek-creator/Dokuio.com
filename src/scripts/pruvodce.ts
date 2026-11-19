@@ -5,6 +5,7 @@
 import type { Data, Sablona } from '../sablony/typy';
 import { texty } from '../i18n';
 import {
+  formatDatum,
   poleAktivni,
   prazdne,
   radkyNaText,
@@ -99,6 +100,8 @@ export function spustPruvodce(s: Sablona) {
         data[p.id] = form.querySelector<HTMLInputElement>(`[name="${p.id}"]`)?.value ?? '';
       }
     }
+    const preklad = form.querySelector<HTMLInputElement>('[name="_preklad"]');
+    if (preklad) data._preklad = preklad.checked ? preklad.value : '';
     stav.data = data;
   };
 
@@ -491,6 +494,7 @@ export function spustPruvodce(s: Sablona) {
         stahni(await dokumentDocx(d, podpisy, logo), `${s.souborPdf}.docx`);
       }
       koren.querySelector<HTMLElement>('[data-co-dal]')!.hidden = false;
+      vykresliPripominky();
       window.dispatchEvent(new CustomEvent('dokuio:stazeno', { detail: { typ } }));
     } catch (err) {
       console.error(err);
@@ -551,6 +555,121 @@ export function spustPruvodce(s: Sablona) {
     }
   }
 
+  /* ---------------------------------------------------------- připomínky do kalendáře (.ics) */
+  const kalendarEl = koren.querySelector<HTMLElement>('[data-kalendar]');
+  const budouci = () => {
+    const dnesIso = dnes();
+    return (s.pripominky?.(stav.data) ?? []).filter((p) => p.datum >= dnesIso || (p.mesicne ?? 0) > 1);
+  };
+  function vykresliPripominky() {
+    if (!kalendarEl) return;
+    const seznam = budouci();
+    kalendarEl.hidden = seznam.length === 0;
+    const ul = kalendarEl.querySelector('ul');
+    if (ul)
+      ul.innerHTML = seznam
+        .map(
+          (p) =>
+            `<li><strong>${esc(formatDatum(p.datum))}</strong> ${esc(p.nazev)}${p.mesicne && p.mesicne > 1 ? ` <span>(${esc(T.mesicne(p.mesicne))})</span>` : ''}</li>`,
+        )
+        .join('');
+  }
+  kalendarEl?.querySelector('[data-kalendar-stahnout]')?.addEventListener('click', async () => {
+    const { pripominkyIcs } = await import('./kalendar');
+    const ics = pripominkyIcs(budouci(), { nazevDokumentu: s.nazev, url: location.origin + location.pathname.replace(/vytvorit\/$/, '') });
+    stahni(new Blob([ics], { type: 'text/calendar;charset=utf-8' }), `${s.souborPdf}-pripominky.ics`);
+  });
+
+  /* ---------------------------------------------------------- ARES (IČO → název a sídlo) */
+  koren.querySelectorAll<HTMLButtonElement>('[data-ares]').forEach((tl) => {
+    tl.addEventListener('click', async () => {
+      const [icoPole, nazevPole, adresaPole] = tl.dataset.ares!.split(',');
+      const vstup = form.querySelector<HTMLInputElement>(`[name="${icoPole}"]`)!;
+      const zprava = tl.closest('.pole')!.querySelector<HTMLElement>('.pole__varovani')!;
+      const ico = vstup.value.replace(/\s/g, '');
+      const ukaz = (t: string) => {
+        zprava.hidden = !t;
+        zprava.textContent = t;
+      };
+      if (!/^\d{8}$/.test(ico)) return ukaz(T.aresSpatne);
+      const puvodni = tl.textContent;
+      tl.disabled = true;
+      tl.textContent = T.pripravuji;
+      try {
+        const r = await fetch(`https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/${ico}`, {
+          headers: { Accept: 'application/json' },
+        });
+        if (!r.ok) throw new Error(String(r.status));
+        const j = await r.json();
+        const adresa = String(j.sidlo?.textovaAdresa ?? '').replace(/\b(\d{3})(\d{2})\b/, '$1 $2');
+        const nastav = (id: string, v: string) => {
+          const el = form.querySelector<HTMLInputElement | HTMLTextAreaElement>(`[name="${id}"]`);
+          if (el && v) el.value = v;
+        };
+        nastav(nazevPole, String(j.obchodniJmeno ?? ''));
+        nastav(adresaPole, adresa);
+        ukaz('');
+        nactiFormular();
+        uloz();
+        vykresli();
+      } catch {
+        ukaz(T.aresNenalezeno);
+      } finally {
+        tl.disabled = false;
+        tl.textContent = puvodni;
+      }
+    });
+  });
+
+  /* ---------------------------------------------------------- odkaz pro druhou stranu */
+  const sdiletEl = koren.querySelector<HTMLElement>('[data-sdilet-zprava]');
+  koren.querySelectorAll<HTMLButtonElement>('[data-sdilet]').forEach((tl) =>
+    tl.addEventListener('click', async () => {
+      const { zabal } = await import('./sdileni');
+      const url = `${location.origin}${location.pathname}#s=${await zabal({ d: stav.data, u: stav.upravy, v: s.verze })}`;
+      try {
+        if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+          await navigator.share({ title: s.nazev, text: T.sdiletText(w), url });
+          return;
+        }
+        await navigator.clipboard.writeText(url);
+        if (sdiletEl) {
+          sdiletEl.hidden = false;
+          sdiletEl.textContent = T.sdiletZkopirovano;
+        }
+      } catch {
+        if (sdiletEl) {
+          sdiletEl.hidden = false;
+          sdiletEl.innerHTML = `${esc(T.sdiletRucne)} <input readonly value="${esc(url)}" onfocus="this.select()">`;
+        }
+      }
+    }),
+  );
+  const prijmiSdileni = async () => {
+    const m = /^#s=([A-Za-z0-9_-]+)$/.exec(location.hash);
+    if (!m) return;
+    history.replaceState(null, '', location.pathname + location.search);
+    try {
+      const { rozbal } = await import('./sdileni');
+      const balik = (await rozbal(m[1])) as { d?: Data; u?: Upravy; v?: string };
+      if (!balik?.d) return;
+      const maVlastni = Object.entries(stav.data).some(([k, v]) => !pole.get(k)?.vychozi && !prazdne(v));
+      if (maVlastni && !confirm(T.sdiletPrepsat)) return;
+      stav.data = balik.d;
+      stav.upravy = balik.u ?? {};
+      stav.rucne = Object.keys(balik.d);
+      naplnFormular();
+      podminenaPole();
+      kontrolaVin();
+      uloz();
+      vykresli();
+      const info = koren.querySelector<HTMLElement>('[data-sdileno]');
+      if (info) info.hidden = false;
+    } catch {
+      /* poškozený odkaz – ignorovat */
+    }
+  };
+
   /* ---------------------------------------------------------- start */
   naplnFormular();
   nactiFormular();
@@ -560,6 +679,7 @@ export function spustPruvodce(s: Sablona) {
   kontrolaVin();
   vykresli();
   ukazKrok(stav.krok ?? 0, false);
+  void prijmiSdileni();
   // Bez dat na startu nic nevyplněného nehlásit jako chybu
   if (Object.values(stav.data).every(prazdne)) stav.krok = 0;
 }

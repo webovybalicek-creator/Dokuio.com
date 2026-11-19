@@ -3,6 +3,9 @@
 import Base from '../../layouts/Base.astro';
 import Duvera from '../../components/Duvera.astro';
 import Hledani from '../../components/Hledani.astro';
+import Rozcestnik from '../../components/Rozcestnik.astro';
+import Ilustrace from '../../components/Ilustrace.astro';
+import { urlBalicku } from '../../obsah';
 import { AKTIVNI_ZEME, HREFLANG_HUBY } from '../../obsah';
 import type { Zeme } from '../../obsah/typy';
 import { texty } from '../../i18n';
@@ -44,6 +47,45 @@ const h = zeme.hub;
       </div>
     </div>
   </section>
+
+  {
+    zeme.rozcestnik && (
+      <section class="sekce" id="rozcestnik" aria-labelledby="rozcestnik-nadpis">
+        <div class="wrap">
+          <div class="ram sekce__in">
+            <h2 id="rozcestnik-nadpis">{zeme.rozcestnik.nadpis}{' '}<span>{zeme.rozcestnik.span}</span></h2>
+            <Rozcestnik zeme={zeme} />
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    zeme.balicky && zeme.balicky.length > 0 && (
+      <section class="sekce" id="balicky" aria-labelledby="balicky-nadpis">
+        <div class="wrap">
+          <div class="ram sekce__in">
+            <h2 id="balicky-nadpis">{TX.balicek.balickyNadpis}{' '}<span>{TX.balicek.balickySpan}</span></h2>
+            <ul class="vypis souvisejici">
+              {zeme.balicky.map((b) => (
+                <li>
+                  <a class="vypis__polozka" href={urlBalicku(zeme.kod, b.slug)}>
+                    <Ilustrace typ={b.ilustrace} />
+                    <span class="vypis__text">
+                      <strong>{b.nazev}</strong>
+                      <span>{b.popis}</span>
+                    </span>
+                    <span class="vypis__stitek">{TX.balicek.dokumentu(b.dokumenty.length)}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   <section class="sekce" id={T.kotva} aria-labelledby="jak-nadpis">
     <div class="wrap">

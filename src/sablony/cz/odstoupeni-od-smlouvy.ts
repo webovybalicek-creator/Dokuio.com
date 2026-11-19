@@ -5,12 +5,18 @@
  */
 import type { Sablona } from '../typy';
 import { OZ, NV_ODSTOUPENI, COI } from './zdroje';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const odstoupeniOdSmlouvy: Sablona = {
   kod: 'CZ-ODSTOUPENI-14',
   verze: '1.0',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
+  pripominky: (d) => {
+    const odeslano = naDatum(d.datum);
+    if (!odeslano) return [];
+    return [{ nazev: 'Prodávající má vrátit peníze (orientačně)', datum: isoDatum(pridejDny(odeslano, 14)), popis: 'Do 14 dnů od doručení odstoupení. Počítáno od data odstoupení – při pozdějším doručení se lhůta posune.' }];
+  },
   zeme: 'cz',
   jazyk: 'cs',
   nazev: 'Odstoupení od smlouvy',
@@ -46,7 +52,7 @@ export const odstoupeniOdSmlouvy: Sablona = {
       popis: 'Údaje najdete v obchodních podmínkách nebo v patičce e-shopu.',
       pole: [
         { id: 'pr_nazev', typ: 'text', popis: 'Prodávající (název firmy)', napoveda: 'Název podle obchodních podmínek nebo faktury, ne jen název webu.', placeholder: 'např. Alza.cz a.s.', sirka: 34 },
-        { id: 'pr_ico', typ: 'text', popis: 'IČO (nepovinné)', napoveda: 'Najdete na faktuře nebo v obchodních podmínkách.', placeholder: 'např. 27082440', sirka: 12, polovina: true },
+        { id: 'pr_ico', typ: 'text', popis: 'IČO (nepovinné)', napoveda: 'Najdete na faktuře nebo v obchodních podmínkách.', placeholder: 'např. 27082440', sirka: 12, polovina: true, ares: { nazev: 'pr_nazev', adresa: 'pr_adresa' } },
         { id: 'pr_adresa', typ: 'text', popis: 'Adresa pro odstoupení', napoveda: 'Adresa nebo e-mail uvedený v obchodních podmínkách pro odstoupení a vrácení zboží.', placeholder: 'např. Jankovcova 1522/53, 170 00 Praha 7', sirka: 46 },
       ],
     },

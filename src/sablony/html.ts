@@ -22,7 +22,7 @@ function useky(u: Usek[], T: TD): string {
 }
 
 function radek(r: Radek, T: TD, cislo?: string): string {
-  const cls = r.uroven ? 'dok__radek dok__radek--vycet' : 'dok__radek';
+  const cls = (r.uroven ? 'dok__radek dok__radek--vycet' : 'dok__radek') + (r.preklad ? ' dok__radek--preklad' : '');
   const c = cislo !== undefined ? `<span class="dok__cislo">${cislo}</span>` : '';
   return `<p class="${cls}">${c}<span>${useky(r.useky, T)}</span></p>`;
 }
@@ -50,7 +50,7 @@ function odstavec(o: OdstavecDok, sOvladanim: boolean, sCisly: boolean, T: TD): 
 export function dokumentHtml(d: Dokument, moznostiUprav = false): string {
   const T = texty(d.jazyk).dokument;
   return [
-    `<div class="dok__hlava"><h2 class="dok__nazev">${esc(d.nazev)}</h2><p class="dok__pod">${esc(d.podnadpis)}</p></div>`,
+    `<div class="dok__hlava"><h2 class="dok__nazev">${esc(d.nazev)}</h2>${d.nazev2 ? `<p class="dok__nazev2">${esc(d.nazev2)}</p>` : ''}<p class="dok__pod">${esc(d.podnadpis)}</p>${d.podnadpis2 ? `<p class="dok__pod dok__pod--preklad">${esc(d.podnadpis2)}</p>` : ''}</div>`,
     d.uvod.length ? `<p class="dok__uvod">${useky(d.uvod, T)}</p>` : '',
     ...d.bloky.map((b) => {
       const sCisly = b.odstavce.some((o) => o.cislo);
@@ -67,5 +67,13 @@ export function dokumentHtml(d: Dokument, moznostiUprav = false): string {
       : '',
     `<p class="dok__misto">${d.mistoDne[0]} ${useky(d.misto, T)} ${d.mistoDne[1]} ${useky(d.datum, T)}</p>`,
     `<div class="dok__podpisy"><div><span></span>${esc(d.podpisy.vlevo)}</div><div><span></span>${esc(d.podpisy.vpravo)}</div></div>`,
+    ...d.prilohy.map(
+      (t) =>
+        `<section class="dok__priloha"><h3>${esc(t.nadpis)}</h3>${t.popis ? `<p class="dok__priloha-popis">${esc(t.popis)}</p>` : ''}<table class="dok__tabulka"><thead><tr>${t.hlavicka
+          .map((h, i) => `<th${t.vpravo?.includes(i) ? ' class="vpravo"' : ''}>${esc(h)}</th>`)
+          .join('')}</tr></thead><tbody>${t.radky
+          .map((r) => `<tr>${r.map((c, i) => `<td${t.vpravo?.includes(i) ? ' class="vpravo"' : ''}>${esc(c)}</td>`).join('')}</tr>`)
+          .join('')}</tbody></table>${t.poznamka ? `<p class="dok__priloha-popis">${esc(t.poznamka)}</p>` : ''}</section>`,
+    ),
   ].join('');
 }

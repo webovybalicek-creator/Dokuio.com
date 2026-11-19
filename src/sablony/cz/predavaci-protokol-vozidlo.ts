@@ -4,6 +4,7 @@
  * Při každé změně textu zvýšit `verze` a `aktualizovano`.
  */
 import type { Sablona } from '../typy';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const predavaciProtokolVozidlo: Sablona = {
   kod: 'CZ-PROTOKOL-AUTO',
@@ -51,6 +52,11 @@ export const predavaciProtokolVozidlo: Sablona = {
   },
 
   overeno: '2026-11-19',
+  pripominky: (d) => {
+    const od = naDatum(d.predani_datum);
+    if (!od) return [];
+    return [{ nazev: 'Přepis vozidla v registru – poslední den', datum: isoDatum(pridejPracovniDny(od, 10)), popis: 'Změnu vlastníka je třeba zapsat do 10 pracovních dnů (orientačně od předání).' }];
+  },
   kontrola: [
       "Stav tachometru a paliva odpovídá tomu, co vidíte na palubní desce – vyfoťte ji.",
       "Obejděte auto spolu a zapište každé poškození včetně místa; ideálně za denního světla.",

@@ -7,12 +7,29 @@
 import type { Sablona } from '../typy';
 import { castkaSlovy } from '../dokument';
 import { OZ, OCHRANCE_NAJEM, TIP_TOTOZNOST } from './zdroje';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const podnajemniSmlouva: Sablona = {
   kod: 'CZ-PODNAJEM',
   verze: '1.0',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
+  pripominky: (d) => {
+    const out: { nazev: string; datum: string; popis?: string; mesicne?: number }[] = [];
+    const od = naDatum(d.od);
+    const konec = naDatum(d.do);
+    const den = Math.round(cislo(d.splatnost));
+    if (od && den >= 1 && den <= 31) {
+      const prvni = pridejMesice(od, od.getDate() > den ? 1 : 0, den);
+      const pocet = konec ? Math.max(1, (konec.getFullYear() - prvni.getFullYear()) * 12 + konec.getMonth() - prvni.getMonth() + 1) : 12;
+      out.push({ nazev: 'Podnájemné', datum: isoDatum(prvni), mesicne: pocet });
+    }
+    if (konec) {
+      out.push({ nazev: 'Domluvit prodloužení nebo konec podnájmu', datum: isoDatum(pridejMesice(konec, -1)) });
+      out.push({ nazev: 'Konec podnájmu', datum: isoDatum(konec) });
+    }
+    return out;
+  },
   zeme: 'cz',
   jazyk: 'cs',
   nazev: 'Smlouva o podnájmu bytu',

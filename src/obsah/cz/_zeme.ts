@@ -60,6 +60,102 @@ export const zeme: Zeme = {
       slova: ['darování auta', 'dar', 'darovat auto', 'rodina'],
     },
   ],
+  balicky: [
+    {
+      slug: 'prodej-auta',
+      nazev: 'Prodej auta',
+      popis: 'Kupní smlouva, předávací protokol, plná moc k přepisu a výpověď povinného ručení.',
+      ilustrace: 'auto',
+      dokumenty: ['kupni-smlouva-auto', 'predavaci-protokol-vozidlo', 'plna-moc-prepis-vozidla', 'vypoved-povinneho-ruceni'],
+      title: 'Prodej auta – všechny dokumenty v jednom PDF zdarma',
+      description: 'Vše k prodeji ojetého auta: kupní smlouva, předávací protokol, plná moc k přepisu, výpověď povinného ručení. Vyplníte jednou, stáhnete najednou.',
+      perex: 'Vyplňte kupní smlouvu a ostatní dokumenty se předvyplní z ní. Pak si stáhněte všechno najednou v jednom PDF.',
+    },
+    {
+      slug: 'pronajem-bytu',
+      nazev: 'Pronájem bytu',
+      popis: 'Nájemní smlouva, předávací protokol, potvrzení o převzetí kauce a souhlas s trvalým pobytem.',
+      ilustrace: 'protokol',
+      dokumenty: ['najemni-smlouva-byt', 'predavaci-protokol-byt', 'potvrzeni-o-prevzeti-penez', 'souhlas-s-trvalym-pobytem'],
+      title: 'Pronájem bytu – všechny dokumenty v jednom PDF zdarma',
+      description: 'Vše k pronájmu bytu: nájemní smlouva, předávací protokol, potvrzení o převzetí kauce, souhlas s trvalým pobytem. Zdarma, PDF i Word.',
+      perex: 'Od nájemní smlouvy po potvrzení o kauci. Předávací protokol se předvyplní z nájemní smlouvy.',
+    },
+    {
+      slug: 'konec-najmu',
+      nazev: 'Konec nájmu',
+      popis: 'Dohoda o skončení nájmu, předávací protokol a potvrzení o vrácení kauce.',
+      ilustrace: 'protokol',
+      dokumenty: ['dohoda-o-skonceni-najmu', 'vypoved-z-najmu', 'predavaci-protokol-byt', 'potvrzeni-o-prevzeti-penez'],
+      title: 'Konec nájmu bytu – dohoda, výpověď, protokol a kauce',
+      description: 'Ukončení nájmu bez starostí: dohoda o skončení nebo výpověď, předávací protokol při odevzdání bytu a potvrzení o vrácení kauce.',
+      perex: 'Dohodou, nebo výpovědí – a pak předání bytu a vrácení kauce. Vyberte, co potřebujete.',
+    },
+    {
+      slug: 'pujcka-penez',
+      nazev: 'Půjčka peněz',
+      popis: 'Smlouva o zápůjčce se splátkovým kalendářem a potvrzení o převzetí peněz.',
+      ilustrace: 'pujcka',
+      dokumenty: ['smlouva-o-zapujcce', 'potvrzeni-o-prevzeti-penez', 'uznani-dluhu'],
+      title: 'Půjčka peněz – smlouva, potvrzení a uznání dluhu zdarma',
+      description: 'Půjčka mezi známými černé na bílém: smlouva o zápůjčce se splátkovým kalendářem, potvrzení o převzetí peněz, uznání dluhu.',
+      perex: 'Smlouva o zápůjčce se splátkovým kalendářem a doklad o předání peněz. Uznání dluhu se hodí, když už peníze půjčené jsou.',
+    },
+  ],
+  rozcestnik: {
+    nadpis: 'Nevíte, jaký dokument?',
+    span: 'Vyberte, co řešíte. Poradíme, co budete potřebovat.',
+    situace: [
+      {
+        nazev: 'Auto a motorka',
+        ilustrace: 'auto',
+        moznosti: [
+          { text: 'Prodávám nebo kupuji ojeté auto', dokumenty: ['kupni-smlouva-auto', 'predavaci-protokol-vozidlo', 'plna-moc-prepis-vozidla'], balicek: 'prodej-auta', tip: 'Přepis v registru vozidel do 10 pracovních dnů.' },
+          { text: 'Prodávám motorku, skútr nebo čtyřkolku', dokumenty: ['kupni-smlouva-motorka', 'predavaci-protokol-vozidlo', 'plna-moc-prepis-vozidla'] },
+          { text: 'Ruším povinné ručení', dokumenty: ['vypoved-povinneho-ruceni'] },
+          { text: 'Přepis za mě vyřídí někdo jiný', dokumenty: ['plna-moc-prepis-vozidla'], tip: 'Podpis na plné moci musí být úředně ověřený.' },
+        ],
+      },
+      {
+        nazev: 'Peníze',
+        ilustrace: 'penize',
+        moznosti: [
+          { text: 'Půjčuji někomu peníze', dokumenty: ['smlouva-o-zapujcce', 'potvrzeni-o-prevzeti-penez'], balicek: 'pujcka-penez' },
+          { text: 'Někdo mi dluží a chci to mít písemně', dokumenty: ['uznani-dluhu'], tip: 'Písemné uznání prodlouží promlčení až na 10 let.' },
+          { text: 'Daruji peníze nebo věc', dokumenty: ['darovaci-smlouva'] },
+          { text: 'Předávám nebo přebírám hotovost', dokumenty: ['potvrzeni-o-prevzeti-penez'] },
+        ],
+      },
+      {
+        nazev: 'Bydlení',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Pronajímám byt', dokumenty: ['najemni-smlouva-byt', 'predavaci-protokol-byt', 'potvrzeni-o-prevzeti-penez'], balicek: 'pronajem-bytu' },
+          { text: 'Podnajímám pokoj nebo byt', dokumenty: ['podnajemni-smlouva', 'predavaci-protokol-byt'] },
+          { text: 'Chci se odstěhovat (jsem nájemce)', dokumenty: ['vypoved-z-najmu', 'dohoda-o-skonceni-najmu'], tip: 'Dohodou můžete skončit kdykoli, výpovědní doba jsou 3 měsíce.' },
+          { text: 'Končíme nájem a vracím kauci', dokumenty: ['dohoda-o-skonceni-najmu', 'predavaci-protokol-byt', 'potvrzeni-o-prevzeti-penez'], balicek: 'konec-najmu' },
+          { text: 'Potřebuji se přihlásit k trvalému pobytu', dokumenty: ['souhlas-s-trvalym-pobytem'] },
+        ],
+      },
+      {
+        nazev: 'Nákupy a prodej věcí',
+        ilustrace: 'penize',
+        moznosti: [
+          { text: 'Chci vrátit zboží z e-shopu', dokumenty: ['odstoupeni-od-smlouvy'], tip: 'Bez udání důvodu do 14 dnů od převzetí.' },
+          { text: 'Zboží je vadné', dokumenty: ['reklamace'] },
+          { text: 'Prodávám kolo, telefon nebo nábytek', dokumenty: ['kupni-smlouva-vec', 'potvrzeni-o-prevzeti-penez'] },
+        ],
+      },
+      {
+        nazev: 'Rodina a úřady',
+        ilustrace: 'plnamoc',
+        moznosti: [
+          { text: 'Dítě cestuje do zahraničí bez rodiče', dokumenty: ['souhlas-s-vycestovanim-ditete'], tip: 'Podmínky cílové země ověřte na webu MZV.' },
+          { text: 'Někdo za mě něco vyřídí (pošta, úřad)', dokumenty: ['plna-moc'] },
+        ],
+      },
+    ],
+  },
   hub: {
     title: 'Vzory smluv zdarma v PDF – vyplňte online',
     description:

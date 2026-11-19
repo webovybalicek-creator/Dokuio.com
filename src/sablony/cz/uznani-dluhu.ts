@@ -6,12 +6,18 @@
 import type { Sablona } from '../typy';
 import { castkaSlovy } from '../dokument';
 import { OZ, NEPLATNE_DOKLADY, TIP_TOTOZNOST } from './zdroje';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const uznaniDluhu: Sablona = {
   kod: 'CZ-UZNANI-DLUHU',
   verze: '1.0',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
+  prilohy: (d) => (d.splaceni === 'splatky' ? splatkovyKalendar(d) : []),
+  pripominky: (d) => [
+    ...(d.splaceni === 'splatky' ? pripominkySplatek(d, 'Splátka dluhu') : []),
+    ...(d.splaceni === 'naraz' && typeof d.zaplatit_do === 'string' && d.zaplatit_do ? [{ nazev: 'Splatnost dluhu', datum: d.zaplatit_do }] : []),
+  ],
   zeme: 'cz',
   jazyk: 'cs',
   nazev: 'Uznání dluhu',

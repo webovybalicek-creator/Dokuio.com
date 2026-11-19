@@ -115,3 +115,57 @@
   background: var(--wash);
   color: var(--navy-soft);
 }
+
+/* dvojjazyčná verze */
+.dok__nazev2 {
+  margin-top: 2px;
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--slate);
+}
+.dok__pod--preklad {
+  margin-top: 0;
+  font-style: italic;
+}
+.dok__radek--preklad {
+  font-style: italic;
+  color: var(--slate);
+}
+.dok__radek:not(.dok__radek--preklad) + .dok__radek--preklad {
+  margin-top: 2px;
+}
+
+/* přílohy (splátkový kalendář) */
+.dok__priloha {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px dashed #d6dfea;
+}
+.dok__priloha h3 {
+  font-size: 0.8125rem;
+  margin-bottom: 4px;
+}
+.dok__priloha-popis {
+  font-size: 0.75rem;
+  color: var(--slate);
+  margin: 4px 0;
+}
+.dok__tabulka {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+.dok__tabulka th,
+.dok__tabulka td {
+  padding: 3px 6px;
+  border-bottom: 1px solid #e5edf5;
+  text-align: left;
+}
+.dok__tabulka th {
+  font-weight: 600;
+  color: var(--slate);
+}
+.dok__tabulka .vpravo {
+  text-align: right;
+}

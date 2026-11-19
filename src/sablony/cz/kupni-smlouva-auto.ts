@@ -6,6 +6,7 @@
  */
 import type { Sablona } from '../typy';
 import { castkaSlovy } from '../dokument';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const kupniSmlouvaAuto: Sablona = {
   kod: 'CZ-KUPNI-AUTO',
@@ -28,6 +29,17 @@ export const kupniSmlouvaAuto: Sablona = {
   ],
 
   overeno: '2026-11-19',
+  pripominky: (d) => {
+    const od = naDatum(d.predani_datum) ?? naDatum(d.datum_podpisu);
+    if (!od) return [];
+    return [
+      {
+        nazev: 'Přepis vozidla v registru – poslední den',
+        datum: isoDatum(pridejPracovniDny(od, 10)),
+        popis: 'Změnu vlastníka je třeba zapsat do 10 pracovních dnů (orientačně počítáno od předání vozidla). Pojištění: nový vlastník sjednává povinné ručení, prodávající oznámí prodej své pojišťovně.',
+      },
+    ];
+  },
   kontrola: [
       "Prodávající je zapsaný jako vlastník v osvědčení o registraci (malém technickém průkazu). Pokud ne, nechte si ukázat, jak auto nabyl.",
       "VIN v dokladech souhlasí s VIN na autě (za čelním sklem a na štítku ve dveřích).",

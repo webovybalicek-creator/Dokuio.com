@@ -5,12 +5,18 @@
  */
 import type { Sablona } from '../typy';
 import { OZ, COI, PORTAL_REKLAMACE } from './zdroje';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const reklamace: Sablona = {
   kod: 'CZ-REKLAMACE',
   verze: '1.0',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
+  pripominky: (d) => {
+    const uplatneno = naDatum(d.datum);
+    if (!uplatneno) return [];
+    return [{ nazev: 'Prodávající má vyřídit reklamaci (orientačně)', datum: isoDatum(pridejDny(uplatneno, 30)), popis: 'Do 30 dnů od uplatnění reklamace, pokud jste se nedohodli na delší lhůtě.' }];
+  },
   zeme: 'cz',
   jazyk: 'cs',
   nazev: 'Reklamace zboží',
@@ -45,7 +51,7 @@ export const reklamace: Sablona = {
       nazev: 'Obchod',
       pole: [
         { id: 'pr_nazev', typ: 'text', popis: 'Prodávající (název firmy)', napoveda: 'Podle dokladu o koupi nebo obchodních podmínek.', placeholder: 'např. Datart International, a.s.', sirka: 34 },
-        { id: 'pr_ico', typ: 'text', popis: 'IČO (nepovinné)', napoveda: 'Najdete na účtence nebo faktuře.', placeholder: 'např. 63080249', sirka: 12, polovina: true },
+        { id: 'pr_ico', typ: 'text', popis: 'IČO (nepovinné)', napoveda: 'Najdete na účtence nebo faktuře.', placeholder: 'např. 63080249', sirka: 12, polovina: true, ares: { nazev: 'pr_nazev', adresa: 'pr_adresa' } },
         { id: 'pr_adresa', typ: 'text', popis: 'Adresa provozovny nebo pro reklamace', napoveda: 'Kde reklamujete – obchod, kde jste koupili, nebo adresa z reklamačního řádu e-shopu.', placeholder: 'např. Nákupní 1, 251 01 Říčany', sirka: 46 },
       ],
     },

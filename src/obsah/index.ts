@@ -59,3 +59,12 @@ export const HREFLANG_HUBY = [
   { hreflang: 'en', href: '/' },
   ...AKTIVNI_ZEME.map((z) => ({ hreflang: z.hreflang, href: `/${z.kod}/` })),
 ];
+
+/** Stránka dokumentu podle země a slugu */
+export const strankaPodleSlugu = (kod: string, slug: string) => (STRANKY[kod] ?? []).find((s) => slugStranky(s) === slug);
+
+/** Balíčky, do kterých dokument patří */
+export const balickyDokumentu = (kod: string, slug: string) =>
+  (zemeKod(kod).balicky ?? []).filter((b) => b.dokumenty.includes(slug));
+
+export const urlBalicku = (kod: string, slug: string) => `/${kod}/balicek/${slug}/`;

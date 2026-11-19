@@ -1,0 +1,189 @@
+---
+/**
+ * Balíček dokumentů podle situace: přehled, stav vyplnění (z prohlížeče) a stažení všeho v jednom PDF.
+ * Dokumenty bez vlastních údajů se předvyplní z navazujícího dokumentu (Sablona.prevzit), jinak jsou prázdný vzor.
+ */
+import Base from '../../../../layouts/Base.astro';
+import Duvera from '../../../../components/Duvera.astro';
+import Ilustrace from '../../../../components/Ilustrace.astro';
+import Upozorneni from '../../../../components/Upozorneni.astro';
+import Podpora from '../../../../components/Podpora.astro';
+import { AKTIVNI_ZEME, strankaPodleSlugu, urlStranky } from '../../../../obsah';
+import type { Balicek, Zeme } from '../../../../obsah/typy';
+import { SOUBORY } from '../../../../sablony/registr';
+import { texty } from '../../../../i18n';
+
+export function getStaticPaths() {
+  return AKTIVNI_ZEME.flatMap((zeme) =>
+    (zeme.balicky ?? []).map((balicek) => ({ params: { zeme: zeme.kod, balicek: balicek.slug }, props: { zeme, balicek } })),
+  );
+}
+const { zeme, balicek } = Astro.props as { zeme: Zeme; balicek: Balicek };
+const TX = texty(zeme.jazyk);
+const T = TX.balicek;
+const dokumenty = balicek.dokumenty.flatMap((slug) => {
+  const st = strankaPodleSlugu(zeme.kod, slug);
+  return st ? [st] : [];
+});
+---
+
+<Base title={balicek.title} description={balicek.description} lang={zeme.jazyk}>
+  <Fragment slot="nav">
+    <a class="btn btn--primarni btn--maly" href="#stahnout">{T.stahnoutVse}</a>
+  </Fragment>
+
+  <section class="hero hero--dokument">
+    <div class="hero__vlna" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="ram hero__obsah">
+        <nav class="drobecky" aria-label={TX.drobecky}><a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › {T.stitek}</nav>
+        <p class="horni-stitek">{T.stitek} · <span>{T.dokumentu(dokumenty.length)}</span></p>
+        <h1>{balicek.nazev}{' '}<span>{balicek.perex}</span></h1>
+        <Duvera class="duvera--hero" lang={zeme.jazyk} />
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" aria-labelledby="balicek-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="balicek-nadpis">{T.kroky}.{' '}<span>{T.jakSpan}</span></h2>
+        <ol class="balicek" data-balicek>
+          {
+            dokumenty.map((st, i) => (
+              <li
+                class="balicek__polozka"
+                data-kod={st.sablona.kod}
+                data-soubor={SOUBORY[st.sablona.kod]}
+                data-prevzit={st.sablona.prevzit?.kod}
+              >
+                <span class="balicek__cislo">{i + 1}</span>
+                <Ilustrace typ={st.katalog.ilustrace} />
+                <span class="balicek__text">
+                  <strong>
+                    <a href={urlStranky(st)}>{st.nazev}</a>
+                  </strong>
+                  <span>{st.katalog.popis}</span>
+                  <span class="balicek__stav" data-stav>
+                    {T.stavPrazdny}
+                  </span>
+                </span>
+                <a class="btn btn--duch btn--maly" href={`${urlStranky(st)}vytvorit/`} data-vyplnit>
+                  {T.vyplnit}
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+        <div class="balicek__stahnout" id="stahnout">
+          <button type="button" class="btn btn--primarni btn--sipka" data-stahnout-vse data-text={T.stahnoutVse}>{T.stahnoutVse}</button>
+          <p class="poznamka">{T.stahnoutPopis}</p>
+          <Upozorneni jazyk={zeme.jazyk} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" aria-labelledby="jak-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="jak-nadpis">{T.jakNadpis}{' '}<span>{T.jakSpan}</span></h2>
+        <ol class="kroky">
+          {
+            T.jak.map((k) => (
+              <li>
+                <h3>{k.nazev}</h3>
+                <p>{k.popis}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+  <Podpora jazyk={zeme.jazyk} />
+</Base>
+
+<script>
+  import type { Data } from '../../../../sablony/typy';
+
+  const polozky = [...document.querySelectorAll<HTMLElement>('.balicek__polozka')];
+  const texty = document.querySelector<HTMLElement>('[data-stahnout-vse]')!;
+  const lang = document.documentElement.lang;
+
+  /** Poslední uložený stav šablony v tomto prohlížeči */
+  const ulozeno = (kod: string): { data: Data; upravy?: Record<string, unknown> } | null => {
+    try {
+      const klic = Object.keys(localStorage)
+        .filter((k) => k.startsWith(`dokuio:${kod}:`))
+        .sort()
+        .pop();
+      return klic ? JSON.parse(localStorage.getItem(klic)!) : null;
+    } catch {
+      return null;
+    }
+  };
+  const vyplneno = (d?: Data) => !!d && Object.values(d).some((v) => (Array.isArray(v) ? v.length : String(v ?? '').trim()));
+
+  const STAV = {
+    cs: { hotovo: 'Rozpracováno – stáhne se s vašimi údaji', prevzato: 'Předvyplní se z předchozího dokumentu', upravit: 'Upravit', pripravuji: 'Připravuji…' },
+    sk: { hotovo: 'Rozpracované – stiahne sa s vašimi údajmi', prevzato: 'Predvyplní sa z predchádzajúceho dokumentu', upravit: 'Upraviť', pripravuji: 'Pripravujem…' },
+  }[lang === 'sk' ? 'sk' : 'cs'];
+
+  for (const li of polozky) {
+    const vlastni = ulozeno(li.dataset.kod!);
+    const zdroj = li.dataset.prevzit ? ulozeno(li.dataset.prevzit) : null;
+    const stav = li.querySelector<HTMLElement>('[data-stav]')!;
+    if (vyplneno(vlastni?.data)) {
+      stav.textContent = STAV.hotovo;
+      stav.classList.add('balicek__stav--ok');
+      li.querySelector('[data-vyplnit]')!.textContent = STAV.upravit;
+    } else if (vyplneno(zdroj?.data)) {
+      stav.textContent = STAV.prevzato;
+      stav.classList.add('balicek__stav--prevzato');
+    }
+  }
+
+  texty.addEventListener('click', async () => {
+    texty.disabled = true;
+    texty.textContent = STAV.pripravuji;
+    try {
+      const [{ nactiSablonu }, { sestavDokument }, { dokumentPdf }, { PDFDocument }, regular, semibold] = await Promise.all([
+        import('../../../../sablony/nacti'),
+        import('../../../../sablony/dokument'),
+        import('../../../../sablony/pdf'),
+        import('pdf-lib'),
+        fetch('/fonts/InterTight-Regular.ttf').then((r) => r.arrayBuffer()),
+        fetch('/fonts/InterTight-SemiBold.ttf').then((r) => r.arrayBuffer()),
+      ]);
+      const vysledek = await PDFDocument.create();
+      for (const li of polozky) {
+        const s = await nactiSablonu(li.dataset.soubor!, li.dataset.kod!);
+        if (!s) continue;
+        const vlastni = ulozeno(s.kod);
+        let data: Data = vlastni?.data ?? {};
+        if (!vyplneno(data) && s.prevzit) {
+          const zdroj = ulozeno(s.prevzit.kod);
+          if (zdroj?.data) data = s.prevzit.mapuj(zdroj.data);
+        }
+        const bajty = await dokumentPdf(sestavDokument(s, data, (vlastni?.upravy as never) ?? {}), { regular, semibold });
+        const doc = await PDFDocument.load(bajty);
+        const strany = await vysledek.copyPages(doc, doc.getPageIndices());
+        strany.forEach((p) => vysledek.addPage(p));
+      }
+      const blob = new Blob([await vysledek.save()], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      const a = Object.assign(document.createElement('a'), { href: url, download: `${location.pathname.split('/').filter(Boolean).pop()}.pdf` });
+      document.body.append(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 10_000);
+      window.dispatchEvent(new CustomEvent('dokuio:stazeno', { detail: { typ: 'balicek' } }));
+    } catch (e) {
+      console.error(e);
+    } finally {
+      texty.disabled = false;
+      texty.textContent = texty.dataset.text ?? '';
+    }
+  });
+</script>

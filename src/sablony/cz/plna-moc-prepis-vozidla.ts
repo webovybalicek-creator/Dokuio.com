@@ -6,6 +6,7 @@
  * Při každé změně textu zvýšit `verze` a `aktualizovano`.
  */
 import type { Sablona } from '../typy';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const plnaMocPrepisVozidla: Sablona = {
   kod: 'CZ-PLNAMOC-PREPIS',
@@ -59,6 +60,7 @@ export const plnaMocPrepisVozidla: Sablona = {
   },
 
   overeno: '2026-11-19',
+  pripominky: (d) => (typeof d.platnost_do === 'string' && d.platnost_do ? [{ nazev: 'Končí platnost plné moci k přepisu', datum: d.platnost_do }] : []),
   kontrola: [
       "Podpis zmocnitele nechte úředně ověřit (Czech POINT, obecní úřad, notář) – jinak registr plnou moc nepřijme.",
       "Údaje vozidla (VIN, SPZ, číslo osvědčení) přesně podle dokladů; chyba = úřad přepis odmítne.",

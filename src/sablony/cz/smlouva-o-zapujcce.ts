@@ -6,6 +6,7 @@
  */
 import type { Sablona } from '../typy';
 import { castkaSlovy } from '../dokument';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const smlouvaOZapujcce: Sablona = {
   kod: 'CZ-ZAPUJCKA',
@@ -28,6 +29,12 @@ export const smlouvaOZapujcce: Sablona = {
   ],
 
   overeno: '2026-11-19',
+  prilohy: (d) => (d.splaceni === 'splatky' ? splatkovyKalendar(d, d.urok === 'ano' ? 'Tabulka uvádí jen jistinu. Úrok se platí podle článku o úroku.' : undefined) : []),
+  pripominky: (d) => [
+    ...(typeof d.predani_do === 'string' && d.predani_do ? [{ nazev: 'Předat zapůjčené peníze', datum: d.predani_do }] : []),
+    ...(d.splaceni === 'splatky' ? pripominkySplatek(d, 'Splátka zápůjčky') : []),
+    ...(d.splaceni !== 'splatky' && typeof d.vratit_do === 'string' && d.vratit_do ? [{ nazev: 'Vrátit zápůjčku', datum: d.vratit_do }] : []),
+  ],
   kontrola: [
       "Totožnost druhé strany podle občanského průkazu. Číslo průkazu si můžete ověřit v databázi [Neplatné doklady Ministerstva vnitra](https://mv.gov.cz/aplikace-neplatne-doklady.aspx).",
       "Peníze raději převodem – výpis z účtu je nejsilnější důkaz, že jste je půjčili.",

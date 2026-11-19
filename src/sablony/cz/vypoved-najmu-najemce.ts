@@ -5,12 +5,23 @@
  */
 import type { Sablona } from '../typy';
 import { OZ, OCHRANCE_NAJEM } from './zdroje';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const vypovedNajmuNajemce: Sablona = {
   kod: 'CZ-VYPOVED-NAJEM',
   verze: '1.0',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
+  pripominky: (d) => {
+    const doruceni = naDatum(d.datum);
+    if (!doruceni) return [];
+    // výpovědní doba 3 měsíce od prvního dne měsíce po doručení (orientačně: doručení v den podpisu)
+    const konec = new Date(doruceni.getFullYear(), doruceni.getMonth() + 4, 0);
+    return [
+      { nazev: 'Konec nájmu po výpovědi (orientačně)', datum: isoDatum(konec), popis: 'Počítáno s doručením výpovědi v den podpisu. Při pozdějším doručení se konec posune.' },
+      { nazev: 'Domluvit předání bytu a protokol', datum: isoDatum(pridejDny(konec, -14)) },
+    ];
+  },
   zeme: 'cz',
   jazyk: 'cs',
   nazev: 'Výpověď z nájmu bytu',

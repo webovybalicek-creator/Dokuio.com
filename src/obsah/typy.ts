@@ -99,6 +99,30 @@ export interface Zeme {
     /** Popis do OG obrázku */
     ogPopis: string;
   };
+  /** Balíčky dokumentů podle životní situace (/<kod>/balicek/<slug>/) */
+  balicky?: Balicek[];
+  /** Rozcestník „Nevíte, jaký dokument?“ na stránce země */
+  rozcestnik?: { nadpis: string; span: string; situace: Situace[] };
   /** Textové stránky dostupné v této zemi (cesty), pro patičku a sitemap */
   informace?: string[];
+}
+
+export interface Balicek {
+  slug: string;
+  nazev: string;
+  /** Krátký popis do karty */
+  popis: string;
+  ilustrace: Ilustrace;
+  /** Slugy dokumentů v pořadí, jak jdou po sobě */
+  dokumenty: string[];
+  title: string;
+  description: string;
+  /** Text pod nadpisem stránky balíčku */
+  perex: string;
+}
+
+export interface Situace {
+  nazev: string;
+  ilustrace: Ilustrace;
+  moznosti: { text: string; dokumenty: string[]; balicek?: string; tip?: string }[];
 }

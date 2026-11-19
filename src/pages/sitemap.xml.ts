@@ -9,7 +9,7 @@ export const GET: APIRoute = () => {
     VSECHNY_STRANKY.map((s) => [urlStranky(s), s.sablona.aktualizovano]),
   );
   const dokumenty = VSECHNY_STRANKY.map(urlStranky);
-  const informace = AKTIVNI_ZEME.flatMap((z) => z.informace ?? []);
+  const informace = AKTIVNI_ZEME.flatMap((z) => [...(z.balicky ?? []).map((b) => `/${z.kod}/balicek/${b.slug}/`), ...(z.informace ?? [])]);
 
   const alternativy = HREFLANG_HUBY.map(
     (a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${new URL(a.href, SITE.url).href}"/>`,

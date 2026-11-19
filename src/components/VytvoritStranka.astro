@@ -8,7 +8,7 @@ import Pruvodce from './Pruvodce.astro';
 import StazeniBand from './StazeniBand.astro';
 import Podpora from './Podpora.astro';
 import type { StrankaDokumentu } from '../obsah/typy';
-import { souvisejici, urlStranky, zemeKod } from '../obsah';
+import { balickyDokumentu, slugStranky, souvisejici, urlBalicku, urlStranky, zemeKod } from '../obsah';
 import { texty } from '../i18n';
 import { SOUBORY } from '../sablony/registr';
 
@@ -22,6 +22,7 @@ const TX = texty(s.jazyk);
 const T = TX.vytvorit;
 const base = urlStranky(stranka);
 const dalsi = souvisejici(s.zeme, stranka.souvisejici, base);
+const balicky = balickyDokumentu(s.zeme, slugStranky(stranka)).map((b) => ({ nazev: b.nazev, url: urlBalicku(s.zeme, b.slug) }));
 ---
 
 <Base title={stranka.vytvorit.title} description={stranka.vytvorit.description} lang={s.jazyk} noindex>
@@ -37,7 +38,7 @@ const dalsi = souvisejici(s.zeme, stranka.souvisejici, base);
           <a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › <a href={base}>{stranka.nazev}</a> › {T.vyplnitOnline}
         </nav>
         <h1 class="pruvodce__nadpis">{stranka.nazev}{' '}<span>{stranka.vytvorit.podnadpis ?? T.podnadpis}</span></h1>
-        <Pruvodce sablona={s} dalsi={dalsi} soubor={SOUBORY[s.kod]} />
+        <Pruvodce sablona={s} dalsi={dalsi} soubor={SOUBORY[s.kod]} balicky={balicky} />
       </div>
     </div>
   </section>

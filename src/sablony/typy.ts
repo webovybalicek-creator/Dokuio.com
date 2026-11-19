@@ -48,6 +48,8 @@ export interface Pole {
    * 'dnes' = dnešní datum, { obecZ: 'p_adresa' } = obec z adresy v jiném poli
    */
   vychozi?: 'dnes' | { obecZ: string };
+  /** Pole s IČO: tlačítko „Načíst z ARES“ doplní název a sídlo do zadaných polí (jen CZ) */
+  ares?: { nazev: string; adresa: string };
 }
 
 export interface Krok {
@@ -136,6 +138,51 @@ export interface Sablona {
   overeno: string;
   /** Nabídnout předvyplnění z jiné rozpracované šablony (např. z kupní smlouvy) */
   prevzit?: { kod: string; nazev: string; mapuj: (zdroj: Data) => Data };
+  /** Přílohy na konec dokumentu (např. splátkový kalendář) */
+  prilohy?: (data: Data) => Tabulka[];
+  /** Termíny do kalendáře po stažení (.ics) */
+  pripominky?: (data: Data) => Pripominka[];
+  /** Překlad pro dvojjazyčnou verzi (např. CZ + EN). Strukturou kopíruje `clanky`, rozhodující je originál. */
+  preklad?: Preklad;
+}
+
+export interface Tabulka {
+  nadpis: string;
+  popis?: string;
+  hlavicka: string[];
+  radky: string[][];
+  /** Indexy sloupců zarovnaných doprava (částky) */
+  vpravo?: number[];
+  poznamka?: string;
+}
+
+export interface Pripominka {
+  nazev: string;
+  /** YYYY-MM-DD */
+  datum: string;
+  popis?: string;
+  /** Opakovat měsíčně – celkový počet výskytů */
+  mesicne?: number;
+}
+
+export type OdstavecPrekladu = string | { moznosti: Record<string, string>; uvod?: string; uvodVzor?: string; dalsi?: string };
+
+export interface Preklad {
+  jazyk: string;
+  /** Popisek přepínače v průvodci, např. „Přidat anglický překlad (CZ + EN)“ */
+  prepinac: string;
+  nazev: string;
+  podnadpis: string;
+  uvod?: string;
+  podpisy: { vlevo: string; vpravo: string };
+  mistoDne: [string, string];
+  /** Doložka o přednosti originálu (do patičky i na konec) */
+  prednost: string;
+  /** Nadpis článku v překladu – předpona, např. „Article“ */
+  clanek: string;
+  clanky: { nadpis: string; odstavce: OdstavecPrekladu[] }[];
+  /** Hodnoty polí typu volba v překladu (id pole → hodnota → text) */
+  volby?: Record<string, Record<string, string>>;
 }
 
 /** Tvary slova pro texty rozhraní: 1. pád, 2. pád, 4. pád, 6. pád */

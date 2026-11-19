@@ -6,6 +6,7 @@
  */
 import type { Sablona } from '../typy';
 import { castkaSlovy } from '../dokument';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const darovaciSmlouva: Sablona = {
   kod: 'CZ-DAROVACI',
@@ -28,6 +29,7 @@ export const darovaciSmlouva: Sablona = {
   ],
 
   overeno: '2026-11-19',
+  pripominky: (d) => (typeof d.predani_do === 'string' && d.predani_do ? [{ nazev: 'Předat dar', datum: d.predani_do }] : []),
   kontrola: [
       "Dárce je skutečný vlastník daru (u auta zapsaný v osvědčení o registraci).",
       "Peníze převodem: v poznámce platby uveďte „dar podle darovací smlouvy ze dne …“.",

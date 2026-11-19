@@ -8,12 +8,30 @@
 import type { Sablona } from '../typy';
 import { castkaSlovy } from '../dokument';
 import { OZ, NV_DROBNE_OPRAVY, ZAKON_SLUZBY, OCHRANCE_NAJEM, IURE_PRIRUCKA, TIP_TOTOZNOST } from './zdroje';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const najemniSmlouvaByt: Sablona = {
   kod: 'CZ-NAJEM-BYT',
   verze: '1.0',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
+  pripominky: (d) => {
+    const out: { nazev: string; datum: string; popis?: string; mesicne?: number }[] = [];
+    const od = naDatum(d.od);
+    const konec = d.doba === 'urcita' ? naDatum(d.do) : undefined;
+    const den = Math.round(cislo(d.splatnost));
+    if (typeof d.predani === 'string' && d.predani) out.push({ nazev: 'Předání bytu a předávací protokol', datum: d.predani });
+    if (od && den >= 1 && den <= 31) {
+      const prvni = pridejMesice(od, od.getDate() > den ? 1 : 0, den);
+      const pocet = konec ? Math.max(1, (konec.getFullYear() - prvni.getFullYear()) * 12 + konec.getMonth() - prvni.getMonth() + 1) : 12;
+      out.push({ nazev: 'Nájemné a zálohy', datum: isoDatum(prvni), mesicne: pocet, popis: konec ? undefined : 'Prvních 12 měsíců.' });
+    }
+    if (konec) {
+      out.push({ nazev: 'Domluvit prodloužení nebo konec nájmu', datum: isoDatum(pridejMesice(konec, -3)), popis: 'Za 3 měsíce končí nájem na dobu určitou.' });
+      out.push({ nazev: 'Konec nájmu', datum: isoDatum(konec) });
+    }
+    return out;
+  },
   zeme: 'cz',
   jazyk: 'cs',
   nazev: 'Smlouva o nájmu bytu',

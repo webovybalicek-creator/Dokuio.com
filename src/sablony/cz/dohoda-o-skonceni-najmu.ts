@@ -4,12 +4,24 @@
  */
 import type { Sablona } from '../typy';
 import { OZ, OCHRANCE_NAJEM } from './zdroje';
+import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const dohodaOSkonceniNajmu: Sablona = {
   kod: 'CZ-DOHODA-NAJEM',
   verze: '1.0',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
+  pripominky: (d) => {
+    const out: { nazev: string; datum: string; popis?: string }[] = [];
+    if (typeof d.konec_dne === 'string' && d.konec_dne) out.push({ nazev: 'Konec nájmu', datum: d.konec_dne });
+    const odevzdani = naDatum(d.odevzdani);
+    if (odevzdani) {
+      out.push({ nazev: 'Odevzdání bytu a předávací protokol', datum: isoDatum(odevzdani) });
+      const dni = Math.round(cislo(d.jistota_dni));
+      if (dni > 0) out.push({ nazev: 'Vrácení jistoty (kauce)', datum: isoDatum(pridejDny(odevzdani, dni)) });
+    }
+    return out;
+  },
   zeme: 'cz',
   jazyk: 'cs',
   nazev: 'Dohoda o skončení nájmu bytu',
