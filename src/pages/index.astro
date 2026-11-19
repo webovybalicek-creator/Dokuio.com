@@ -9,7 +9,7 @@ import { AKTIVNI_ZEME as ZEME, HREFLANG_HUBY } from '../obsah';
 // Nepřesměrovává, když uživatel přišel z jiné stránky webu nebo zvolil „Jiná země“ (?zeme=…),
 // takže si zemi může vždy vybrat ručně. Roboti vyhledávačů (časová zóna USA) zůstanou na rozcestníku.
 const zony = Object.fromEntries(ZEME.map((z) => [z.casovaZona, z.kod]));
-const jazyky = Object.fromEntries(ZEME.map((z) => [z.jazyk, z.kod]));
+const jazyky = Object.fromEntries([...ZEME].reverse().map((z) => [z.jazyk, z.kod])); // první země s daným jazykem vyhrává (de → Německo)
 const geoSkript = `(function(){try{
 if(/[?&]zeme=/.test(location.search))return;
 if(document.referrer&&new URL(document.referrer).host===location.host)return;
