@@ -96,7 +96,7 @@ const stranka: StrankaDokumentu = {
     "faq": [
       {
         "q": "Kto płaci podatek PCC?",
-        "a": "Kupujący – 2% wartości rynkowej auta, deklaracja PCC-3 w ciągu 14 dni od zawarcia umowy."
+        "a": "Kupujący – 2% wartości rynkowej auta, deklaracja PCC-3 w ciągu 14 dni od zawarcia umowy. Od 3 listopada 2026 zwolnione są rzeczy o wartości rynkowej do 3000 zł."
       },
       {
         "q": "Ile mam czasu na zgłoszenie sprzedaży?",

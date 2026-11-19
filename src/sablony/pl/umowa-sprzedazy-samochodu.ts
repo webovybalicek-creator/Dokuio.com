@@ -10,7 +10,7 @@ import { KC, PORD, GOV_ZBYCIE, HISTORIA_POJAZDU, PCC_FORMULARZE, TIP_TOZSAMOSC, 
 
 export const umowaSprzedazySamochodu: Sablona = {
   kod: 'PL-SPRZEDAZ-AUTO',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-19',
   overeno: '2026-11-19',
   zeme: 'pl',
@@ -18,7 +18,7 @@ export const umowaSprzedazySamochodu: Sablona = {
   nazev: 'Umowa kupna-sprzedaży samochodu',
   podnadpis: 'zawarta na podstawie art. 535 i nast. ustawy z dnia 23 kwietnia 1964 r. – Kodeks cywilny',
   souborPdf: 'umowa-kupna-sprzedazy-samochodu',
-  paticka: 'Utworzono za darmo · szablon PL-SPRZEDAZ-AUTO v1.0 · wzór do wypełnienia, nie porada prawna · za treść odpowiadają strony, zalecamy konsultację z prawnikiem',
+  paticka: 'Utworzono za darmo · szablon PL-SPRZEDAZ-AUTO v1.1 · wzór do wypełnienia, nie porada prawna · za treść odpowiadają strony, zalecamy konsultację z prawnikiem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'sprzedający', vpravo: 'kupujący' },
@@ -33,7 +33,7 @@ export const umowaSprzedazySamochodu: Sablona = {
     const od = naDatum(d.datum_podpisu);
     if (!od) return [];
     return [
-      { nazev: 'PCC-3: deklaracja i 2% podatku (kupujący)', datum: isoDatum(pridejDny(od, 14)), popis: '14 dni od zawarcia umowy, jeśli wartość auta przekracza 1000 zł.' },
+      { nazev: 'PCC-3: deklaracja i 2% podatku (kupujący)', datum: isoDatum(pridejDny(od, 14)), popis: '14 dni od zawarcia umowy, jeśli wartość rynkowa auta przekracza 3000 zł (próg od 3.11.2026).' },
       { nazev: 'Zgłoszenie zbycia / rejestracja pojazdu', datum: isoDatum(pridejDny(od, 30)), popis: 'Sprzedający zgłasza zbycie, kupujący rejestruje pojazd – 30 dni od zawarcia umowy.' },
     ];
   },
@@ -44,7 +44,7 @@ export const umowaSprzedazySamochodu: Sablona = {
     'Auto nie może być w leasingu ani objęte zastawem – wtedy sprzedający nie może nim swobodnie rozporządzać.',
     TIP_TOZSAMOSC,
     TIP_GOTOWKA,
-    'Kupujący: [deklaracja PCC-3](https://www.podatki.gov.pl/podatki-osobiste/pcc/formularze/) w ciągu 14 dni (2% wartości rynkowej). Sprzedający: [zgłoszenie zbycia](https://www.gov.pl/web/gov/zglos-zbycie-lub-nabycie-pojazdu-na-przyklad-sprzedaz-kupno-darowizne) w ciągu 30 dni.',
+    'Kupujący: [deklaracja PCC-3](https://www.podatki.gov.pl/podatki-osobiste/pcc/formularze/) w ciągu 14 dni (2% wartości rynkowej, jeśli przekracza 3000 zł – próg obowiązuje od 3 listopada 2026, wcześniej 1000 zł). Sprzedający: [zgłoszenie zbycia](https://www.gov.pl/web/gov/zglos-zbycie-lub-nabycie-pojazdu-na-przyklad-sprzedaz-kupno-darowizne) w ciągu 30 dni.',
   ],
   zdroje: [KC, PORD, GOV_ZBYCIE, HISTORIA_POJAZDU, PCC_FORMULARZE],
 
