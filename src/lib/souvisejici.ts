@@ -33,3 +33,15 @@ export const BEZNE: { nazev: string; popis: string; url: string; ilustrace: Ilus
 ];
 
 export const bezneKrome = (url: string) => BEZNE.filter((d) => d.url !== url);
+
+/** Bydlení */
+export const BYDLENI: { nazev: string; popis: string; url: string; ilustrace: Ilustrace }[] = [
+  { nazev: 'Nájemní smlouva na byt', popis: 'Nájemné, služby, kauce, doba nájmu.', url: '/cz/najemni-smlouva-byt/', ilustrace: 'protokol' },
+  { nazev: 'Předávací protokol k bytu', popis: 'Stav bytu, měřiče a klíče.', url: '/cz/predavaci-protokol-byt/', ilustrace: 'protokol' },
+  { nazev: 'Výpověď z nájmu bytu', popis: 'Výpověď nájemce.', url: '/cz/vypoved-z-najmu/', ilustrace: 'protokol' },
+  { nazev: 'Dohoda o skončení nájmu', popis: 'Ukončení dohodou a vrácení kauce.', url: '/cz/dohoda-o-skonceni-najmu/', ilustrace: 'protokol' },
+  { nazev: 'Souhlas s trvalým pobytem', popis: 'Přihlášení na adresu bytu.', url: '/cz/souhlas-s-trvalym-pobytem/', ilustrace: 'plnamoc' },
+  { nazev: 'Potvrzení o převzetí peněz', popis: 'Třeba na předanou kauci.', url: '/cz/potvrzeni-o-prevzeti-penez/', ilustrace: 'penize' },
+];
+
+export const bydleniKrome = (url: string) => BYDLENI.filter((d) => d.url !== url);

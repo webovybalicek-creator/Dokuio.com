@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { najemniSmlouvaByt as s } from '../../../../sablony/cz/najemni-smlouva-byt';
+import { bydleniKrome } from '../../../../lib/souvisejici';
+const base = '/cz/najemni-smlouva-byt/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Nájemní smlouva na byt"
+  nazevA="nájemní smlouvu na byt"
+  title="Vyplnit nájemní smlouvu na byt online – PDF zdarma"
+  description="Průvodce nájemní smlouvou na byt: nájemné, služby, kauce, inflační doložka. PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 5 minut"
+  dalsi={bydleniKrome(base)}
+/>

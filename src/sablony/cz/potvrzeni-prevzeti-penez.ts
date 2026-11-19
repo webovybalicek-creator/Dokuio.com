@@ -71,6 +71,7 @@ export const potvrzeniPrevzetiPenez: Sablona = {
           moznosti: [
             { hodnota: 'kupni', popis: 'Kupní cena' },
             { hodnota: 'zaloha', popis: 'Záloha' },
+            { hodnota: 'jistota', popis: 'Jistota (kauce) k nájmu' },
             { hodnota: 'zapujcka', popis: 'Půjčené peníze (předání zápůjčky)' },
             { hodnota: 'splatka', popis: 'Vrácení půjčky nebo splátka' },
             { hodnota: 'jine', popis: 'Něco jiného' },
@@ -124,6 +125,7 @@ export const potvrzeniPrevzetiPenez: Sablona = {
           moznosti: {
             kupni: 'kupní cena.',
             zaloha: 'záloha.',
+            jistota: 'jistota (kauce) podle nájemní smlouvy.',
             zapujcka: 'předání zápůjčky.',
             splatka: 'vrácení zápůjčky nebo její splátka.',
             jine: 'jiná platba.',

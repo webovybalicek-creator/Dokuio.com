@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { vypovedNajmuNajemce as s } from '../../../../sablony/cz/vypoved-najmu-najemce';
+import { bydleniKrome } from '../../../../lib/souvisejici';
+const base = '/cz/vypoved-z-najmu/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Výpověď z nájmu bytu"
+  nazevA="výpověď z nájmu bytu"
+  title="Vyplnit výpověď z nájmu bytu online – PDF zdarma"
+  description="Průvodce výpovědí nájmu bytu nájemcem. PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 2 minuty"
+  dalsi={bydleniKrome(base)}
+/>

@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { predavaciProtokolByt as s } from '../../../../sablony/cz/predavaci-protokol-byt';
+import { bydleniKrome } from '../../../../lib/souvisejici';
+const base = '/cz/predavaci-protokol-byt/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Předávací protokol k bytu"
+  nazevA="předávací protokol k bytu"
+  title="Vyplnit předávací protokol k bytu online – PDF zdarma"
+  description="Průvodce předávacím protokolem k bytu: měřiče, stav, vybavení, klíče. PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 3 minuty"
+  dalsi={bydleniKrome(base)}
+/>

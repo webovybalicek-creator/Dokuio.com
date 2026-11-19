@@ -15,6 +15,10 @@ import { odstoupeniOdSmlouvy } from './cz/odstoupeni-od-smlouvy';
 import { reklamace } from './cz/reklamace';
 import { souhlasTrvalyPobyt } from './cz/souhlas-trvaly-pobyt';
 import { souhlasVycestovaniDite } from './cz/souhlas-vycestovani-dite';
+import { najemniSmlouvaByt } from './cz/najemni-smlouva-byt';
+import { predavaciProtokolByt } from './cz/predavaci-protokol-byt';
+import { vypovedNajmuNajemce } from './cz/vypoved-najmu-najemce';
+import { dohodaOSkonceniNajmu } from './cz/dohoda-o-skonceni-najmu';
 
 export const SABLONY: Record<string, Sablona> = Object.fromEntries(
   [
@@ -33,5 +37,9 @@ export const SABLONY: Record<string, Sablona> = Object.fromEntries(
     reklamace,
     souhlasTrvalyPobyt,
     souhlasVycestovaniDite,
+    najemniSmlouvaByt,
+    predavaciProtokolByt,
+    vypovedNajmuNajemce,
+    dohodaOSkonceniNajmu,
   ].map((s) => [s.kod, s]),
 );

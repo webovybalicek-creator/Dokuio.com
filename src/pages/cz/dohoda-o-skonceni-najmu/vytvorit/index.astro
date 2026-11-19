@@ -1,0 +1,17 @@
+---
+import VytvoritStranka from '../../../../components/VytvoritStranka.astro';
+import { dohodaOSkonceniNajmu as s } from '../../../../sablony/cz/dohoda-o-skonceni-najmu';
+import { bydleniKrome } from '../../../../lib/souvisejici';
+const base = '/cz/dohoda-o-skonceni-najmu/';
+---
+
+<VytvoritStranka
+  sablona={s}
+  base={base}
+  nazev="Dohoda o skončení nájmu"
+  nazevA="dohodu o skončení nájmu"
+  title="Vyplnit dohodu o skončení nájmu bytu online – PDF zdarma"
+  description="Průvodce dohodou o skončení nájmu bytu včetně vrácení kauce. PDF nebo Word zdarma."
+  podnadpis="Zdarma · výsledek v PDF i ve Wordu · zabere asi 2 minuty"
+  dalsi={bydleniKrome(base)}
+/>

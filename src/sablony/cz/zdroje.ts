@@ -26,3 +26,10 @@ export const MZV_DETI = {
   url: 'https://mzv.gov.cz/jnp/cz/cestujeme/podminky_vycestovani_z_cr/cestovani_s_detmi.html',
 };
 export const MZV_STATY = { nazev: 'MZV – státy světa, informace na cesty', url: 'https://mzv.gov.cz/jnp/cz/encyklopedie_statu/index.html' };
+export const NV_DROBNE_OPRAVY = { nazev: 'Nařízení vlády č. 308/2015 Sb., drobné opravy (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2015/308' };
+export const OCHRANCE_NAJEM = { nazev: 'Veřejný ochránce práv – leták Nájem bytu', url: 'https://www.ochrance.cz/letaky/najem-bytu/najem-bytu.pdf' };
+export const IURE_PRIRUCKA = {
+  nazev: 'Jak pronajmout byt? (příručka Iuridicum Remedium s podporou MMR)',
+  url: 'https://iure.iure.org/wp-content/uploads/2026/01/jak_pronajmout_byt_iure_2025.pdf',
+};
+export const ZAKON_SLUZBY = { nazev: 'Zákon č. 67/2013 Sb., služby spojené s užíváním bytů (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2013/67' };
