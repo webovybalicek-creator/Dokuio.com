@@ -3,8 +3,9 @@ import { cs, type Texty } from './cs';
 import { sk } from './sk';
 import { pl } from './pl';
 import { de } from './de';
+import { deCH } from './de-ch';
 
-export const TEXTY = { cs, sk, pl, de } satisfies Record<string, Texty>;
+export const TEXTY = { cs, sk, pl, de, 'de-CH': deCH } satisfies Record<string, Texty>;
 export type Jazyk = keyof typeof TEXTY;
 export type { Texty };
 

@@ -4,6 +4,7 @@
  * Provozovatel je v ČR → řídí se českým právem; práva spotřebitele podle země bydliště zůstávají.
  */
 import { SITE } from '../lib/config';
+import { naSchweiz } from '../i18n/schweiz';
 
 export type TypInfo = 'onas' | 'podminky' | 'ochrana';
 export interface InfoStranka {
@@ -125,11 +126,13 @@ const PL: InfoStranka[] = [
 ];
 
 /* ------------------------------------------------------------------ německy (DE i AT) */
-const de = (zeme: 'de' | 'at'): InfoStranka[] => {
+const de = (zeme: 'de' | 'at' | 'ch'): InfoStranka[] => {
   const behoerde =
     zeme === 'at'
       ? 'bei der österreichischen Datenschutzbehörde (<a href="https://www.dsb.gv.at" rel="noopener">dsb.gv.at</a>)'
-      : 'bei der Datenschutzaufsichtsbehörde Ihres Bundeslandes';
+      : zeme === 'ch'
+        ? 'beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (<a href="https://www.edoeb.admin.ch" rel="noopener">EDÖB</a>)'
+        : 'bei der Datenschutzaufsichtsbehörde Ihres Bundeslandes';
   return [
     {
       typ: 'onas',
@@ -138,7 +141,7 @@ const de = (zeme: 'de' | 'at'): InfoStranka[] => {
       description: 'Dokuio.com – kostenlose Vertragsvorlagen als PDF und Word. Wer dahintersteht und wie die Vorlagen entstehen.',
       html: `<p class="text-stranka__vytah">Dokuio gibt es, damit jede und jeder einen einfachen Vertrag – etwa beim Autoverkauf – selbst, schnell und kostenlos erstellen kann. Ohne Anmeldung, ohne Gebühren und ohne Juristendeutsch.</p>
 <h2>Wie die Vorlagen entstehen</h2>
-<ul><li>Die Texte beruhen auf den geltenden Gesetzen (${zeme === 'at' ? 'ABGB, KFG, FAGG, VGG – Quelle RIS' : 'BGB, EGBGB, ErbStG – Quelle gesetze-im-internet.de'}) und amtlichen Informationen, nicht auf künstlicher Intelligenz.</li>
+<ul><li>Die Texte beruhen auf den geltenden Gesetzen (${zeme === 'at' ? 'ABGB, KFG, FAGG, VGG – Quelle RIS' : zeme === 'ch' ? 'OR, ZGB, SchKG – Quelle Fedlex' : 'BGB, EGBGB, ErbStG – Quelle gesetze-im-internet.de'}) und amtlichen Informationen, nicht auf künstlicher Intelligenz.</li>
 <li>Jede Vorlage hat eine Versionsnummer und ein Änderungsdatum – auf der Seite und in der Fußzeile des PDFs. Ein QR-Code im PDF führt zur Prüfung der Version.</li>
 <li>Zu jedem Feld gibt es eine Erklärung, zu jedem Dokument Hinweise „Vor der Unterschrift prüfen“.</li>
 <li>Wir verzichten bewusst auf komplizierte Klauseln. Ein einfacher, ausgewogener Text ist für Alltagsfälle sicherer.</li></ul>
@@ -181,7 +184,7 @@ const de = (zeme: 'de' | 'at'): InfoStranka[] => {
   ];
 };
 
-export const INFORMACE: Record<string, InfoStranka[]> = { sk: SK, pl: PL, de: de('de'), at: de('at') };
+export const INFORMACE: Record<string, InfoStranka[]> = { sk: SK, pl: PL, de: de('de'), at: de('at'), ch: naSchweiz(de('ch')) };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */
 export const INFO_ODKAZY: Record<string, Record<TypInfo, string>> = {

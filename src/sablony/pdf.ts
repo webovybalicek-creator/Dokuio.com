@@ -50,8 +50,8 @@ export async function dokumentPdf(
 ): Promise<Uint8Array> {
   const pdf = await PDFDocument.create();
   pdf.registerFontkit(fontkit);
-  const reg = await pdf.embedFont(pisma.regular, { subset: false });
-  const semi = await pdf.embedFont(pisma.semibold, { subset: false });
+  const reg = await pdf.embedFont(pisma.regular, { subset: false, features: { calt: false } });
+  const semi = await pdf.embedFont(pisma.semibold, { subset: false, features: { calt: false } });
 
   pdf.setTitle(d.nazev);
   pdf.setSubject(d.podnadpis);

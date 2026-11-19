@@ -7,19 +7,21 @@ Vše se počítá v prohlížeči uživatele; na server jde jen to, co je níže
 
 Jednotná sada 11 dokumentů v každé zemi (podle práva a úředních zdrojů dané země, s tipy „Před podpisem zkontrolujte“ a zdroji):
 
-| Dokument | 🇨🇿 CZ | 🇸🇰 SK | 🇵🇱 PL | 🇩🇪 DE | 🇦🇹 AT |
-|---|---|---|---|---|---|
-| Kupní smlouva na auto | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Předávací protokol k vozidlu | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Plná moc k přepisu / registraci vozidla | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Smlouva o zápůjčce | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Potvrzení o převzetí peněz | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Uznání dluhu | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Darovací smlouva | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Plná moc (obecná) | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Kupní smlouva na věc | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Odstoupení od smlouvy (e-shop, 14 dní) | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Reklamace | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Dokument | 🇨🇿 CZ | 🇸🇰 SK | 🇵🇱 PL | 🇩🇪 DE | 🇦🇹 AT | 🇨🇭 CH |
+|---|---|---|---|---|---|---|
+| Kupní smlouva na auto | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Předávací protokol k vozidlu | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Plná moc k přepisu / registraci vozidla | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Smlouva o zápůjčce | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Potvrzení o převzetí peněz | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Uznání dluhu | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Darovací smlouva | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Plná moc (obecná) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Kupní smlouva na věc | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Odstoupení od smlouvy (e-shop, 14 dní) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓¹ |
+| Reklamace | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+¹ Ve Švýcarsku zákonné odstoupení u nákupů online neexistuje – CH má místo toho odvolání podomního/telefonického prodeje (Art. 40a OR).
 
 Česko má navíc: kupní smlouvu na motorku, nájemní a podnájemní smlouvu (i dvojjazyčně CZ/EN), předávací protokol k bytu,
 výpověď a dohodu o skončení nájmu, výpověď povinného ručení, souhlas s trvalým pobytem a s vycestováním dítěte.
@@ -53,12 +55,17 @@ Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 - E-mail: `public/odeslat-email.php` + PHPMailer (`public/lib/phpmailer`). SMTP `mail.next01.exon.io:465` (SSL),
   účet `info@dokuio.com`; heslo z GitHub secretu `SMTP_PASSWORD` (případně `SMTP_USER`), konfigurace se vytvoří při deployi.
   Limity: 5 e-mailů/h a 20/den z jedné IP, 10/den na adresu, 300/den celkem.
-- Web je zatím `noindex`, dokud se v konfiguraci nenastaví `indexovat: true`.
+- Indexace zapnutá (`indexovat: true`). Search Console pod webovybalicek@gmail.com (doménová služba dokuio.com, sitemap odeslaná).
+- Pravidelné ohlašování vyhledávačům: po každém deployi IndexNow (Bing, Seznam…) se změněnými stránkami
+  (`deploy/indexnow.py`, klíč `public/<klíč>.txt`), každé pondělí celá sitemapa (`.github/workflows/indexace.yml`).
+  Google si sitemapu čte sám.
+- Google Analytics 4: samostatný účet „Dokuio“ (G-DKDXRKV5TB), načítá se až po souhlasu v cookie liště.
+- Švýcarsko: jazyk `de-CH` (`src/i18n/de-ch.ts` – „ss“ místo „ß“, CHF), šablony v `src/sablony/ch/` odvozené z DE
+  s textem podle OR/SchKG (Fedlex).
 - Testy: Playwright skripty (projdou všechny dokumenty každé země, stáhnou PDF), kontrola přetékání na 320/360/768 px.
 
 ## Otevřené
 
 - Kontrola šablon místním advokátem (hlavně nájem/podnájem a zahraniční šablony).
-- Textové stránky (O nás, podmínky, ochrana údajů) v jazycích SK/PL/DE – zatím odkazují na české.
-- IBAN pro QR platbu, volba analytiky.
-- Další země (Maďarsko, Slovinsko, Chorvatsko…).
+- Další země (Maďarsko, Slovinsko, Chorvatsko…), CH ve francouzštině/italštině.
+- PL: tlačítko pro odstoupení – sledovat novelu zákona o právech spotřebitele.

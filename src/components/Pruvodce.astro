@@ -26,6 +26,9 @@ const TX = texty(s.jazyk);
 const T = TX.pruvodce;
 const w = s.slovo ?? TX.slovo;
 const pocet = s.kroky.length + 1;
+const vinExtra = TX.vin as { pole?: string; radky?: [string, string][] };
+const vinPole = vinExtra.pole ?? 'E';
+const vinRadky: [string, string][] = vinExtra.radky ?? [['A', '1AB 2345'], ['B', '15.03.2018'], ['D.1', 'ŠKODA'], ['D.3', 'OCTAVIA COMBI']];
 ---
 
 <div class="pruvodce" data-pruvodce data-kod={s.kod} data-soubor={soubor} data-verze={s.verze}>
@@ -142,13 +145,15 @@ const pocet = s.kroky.length + 1;
                           <rect x="1" y="22" width="318" height="13" fill="#e8edf7" />
                           <text x="16" y="23" font-size="10" font-weight="600" fill="#425466" letter-spacing=".06em">{TX.vin.dokladNadpis}</text>
                           <g font-size="11" fill="#425466">
-                            <text x="16" y="60" font-weight="600">A</text><text x="48" y="60">1AB 2345</text>
-                            <text x="16" y="82" font-weight="600">B</text><text x="48" y="82">15.03.2018</text>
-                            <text x="16" y="104" font-weight="600">D.1</text><text x="48" y="104">ŠKODA</text>
-                            <text x="16" y="126" font-weight="600">D.3</text><text x="48" y="126">OCTAVIA COMBI</text>
+                            {vinRadky.map(([k, v], i) => (
+                              <>
+                                <text x="16" y={60 + i * 22} font-weight="600">{k}</text>
+                                <text x="48" y={60 + i * 22}>{v}</text>
+                              </>
+                            ))}
                           </g>
                           <rect x="8" y="138" width="304" height="28" rx="7" fill="#533afd" fill-opacity=".1" stroke="#533afd" />
-                          <text x="16" y="157" font-size="11" font-weight="700" fill="#533afd">E</text>
+                          <text x="16" y="157" font-size="11" font-weight="700" fill="#533afd">{vinPole}</text>
                           <text x="48" y="157" font-size="12" font-weight="600" fill="#0a2540" letter-spacing=".08em">TMBJJ7NE8J0123456</text>
                           <text x="16" y="185" font-size="9" fill="#8792a2">{TX.vin.ilustrace}</text>
                         </svg>

@@ -105,6 +105,18 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 | ⬜ | P1 | einkauf / gewaehrleistung | Gewährleistung nach dem VGG: Fristen und Rechte | Gewährleistung Österreich | Mängelrüge |
 | ⬜ | P2 | alltag / vollmacht | Vollmacht in Österreich | Vollmacht Muster Österreich | Vollmacht |
 
+## 🇨🇭 Schweiz – /ch/ratgeber/
+
+| Stav | P | Kategorie / téma | Článek | Hlavní dotaz | Vzory |
+|---|---|---|---|---|---|
+| ✅ | P1 | auto / auto-verkaufen | Auto privat verkaufen in der Schweiz | Auto verkaufen Schweiz | Kaufvertrag Auto, Protokoll, Quittung |
+| ✅ | P1 | geld / schulden | Schuldanerkennung und Betreibung | Schuldanerkennung | Schuldanerkennung |
+| ⬜ | P1 | einkauf / rueckgabe | Online-Kauf zurückgeben: Was in der Schweiz gilt (kein Widerrufsrecht) | Rückgaberecht Schweiz | Widerruf Haustürgeschäft |
+| ⬜ | P1 | einkauf / gewaehrleistung | Mängelrüge: sofort rügen, Wandelung, Minderung | Mängelrüge | Mängelrüge |
+| ⬜ | P1 | geld / darlehen | Privatdarlehen in der Schweiz | Darlehensvertrag privat | Darlehensvertrag |
+| ⬜ | P2 | auto / strassenverkehrsamt | Auto einlösen: Schilder, Versicherungsnachweis, MFK | Auto einlösen | Vollmacht Strassenverkehrsamt |
+| ⬜ | P2 | geld / schenkung | Schenkung und kantonale Schenkungssteuer | Schenkungssteuer | Schenkungsvertrag |
+
 ## Plán publikace
 
 - Týden 1: všechny **P1** pro CZ (12 zbývá), pak P1 ostatních zemí.
