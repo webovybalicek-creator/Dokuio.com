@@ -16,7 +16,7 @@ export const reklamace: Sablona = {
   nazev: 'Reklamace zboží',
   podnadpis: 'uplatnění práv z vadného plnění podle § 2161 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'reklamace',
-  paticka: 'Vytvořeno zdarma · šablona CZ-REKLAMACE v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-REKLAMACE v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'kupující', vpravo: 'převzal za prodávajícího (datum a podpis)' },

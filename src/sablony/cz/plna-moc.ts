@@ -16,7 +16,7 @@ export const plnaMoc: Sablona = {
   nazev: 'Plná moc',
   podnadpis: 'podle § 441 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'plna-moc',
-  paticka: 'Vytvořeno zdarma · šablona CZ-PLNA-MOC v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-PLNA-MOC v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'zmocnitel', vpravo: 'zmocněnec – zmocnění přijímám' },

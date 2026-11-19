@@ -16,7 +16,7 @@ export const kupniSmlouvaAuto: Sablona = {
   nazev: 'Kupní smlouva na motorové vozidlo',
   podnadpis: 'uzavřená podle § 2079 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'kupni-smlouva-auto',
-  paticka: 'Vytvořeno zdarma · šablona CZ-KUPNI-AUTO v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-KUPNI-AUTO v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'prodávající', vpravo: 'kupující' },

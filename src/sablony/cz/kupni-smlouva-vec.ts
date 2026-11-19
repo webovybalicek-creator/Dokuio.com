@@ -17,7 +17,7 @@ export const kupniSmlouvaVec: Sablona = {
   nazev: 'Kupní smlouva',
   podnadpis: 'na movitou věc, uzavřená podle § 2079 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'kupni-smlouva-vec',
-  paticka: 'Vytvořeno zdarma · šablona CZ-KUPNI-VEC v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-KUPNI-VEC v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'prodávající', vpravo: 'kupující' },

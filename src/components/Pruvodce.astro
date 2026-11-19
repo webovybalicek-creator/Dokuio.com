@@ -7,6 +7,7 @@
 import { SMLOUVA, velke, type Sablona } from '../sablony/typy';
 import Duvera from './Duvera.astro';
 import Kontrola from './Kontrola.astro';
+import Upozorneni from './Upozorneni.astro';
 import '../styles/dokument.css';
 
 interface Props {
@@ -185,6 +186,7 @@ const pocet = s.kroky.length + 1;
           </div>
         </details>
         )}
+        <Upozorneni jazyk={s.jazyk} />
         <div class="akce akce--tesne">
           <button type="button" class="btn btn--primarni" data-stahnout="pdf">Stáhnout PDF zdarma</button>
           <button type="button" class="btn btn--duch" data-stahnout="docx">Stáhnout Word</button>

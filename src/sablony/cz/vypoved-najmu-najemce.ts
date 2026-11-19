@@ -16,7 +16,7 @@ export const vypovedNajmuNajemce: Sablona = {
   nazev: 'Výpověď z nájmu bytu',
   podnadpis: 'výpověď nájemce podle zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'vypoved-z-najmu',
-  paticka: 'Vytvořeno zdarma · šablona CZ-VYPOVED-NAJEM v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-VYPOVED-NAJEM v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'nájemce', vpravo: 'převzal pronajímatel (datum a podpis)' },

@@ -19,7 +19,7 @@ export const najemniSmlouvaByt: Sablona = {
   nazev: 'Smlouva o nájmu bytu',
   podnadpis: 'uzavřená podle § 2235 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'najemni-smlouva-byt',
-  paticka: 'Vytvořeno zdarma · šablona CZ-NAJEM-BYT v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-NAJEM-BYT v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'pronajímatel', vpravo: 'nájemce' },

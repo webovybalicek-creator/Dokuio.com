@@ -17,7 +17,7 @@ export const uznaniDluhu: Sablona = {
   nazev: 'Uznání dluhu',
   podnadpis: 'podle § 2053 zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'uznani-dluhu',
-  paticka: 'Vytvořeno zdarma · šablona CZ-UZNANI-DLUHU v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-UZNANI-DLUHU v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'dlužník', vpravo: 'věřitel (souhlas se splátkami)' },

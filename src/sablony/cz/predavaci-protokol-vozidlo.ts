@@ -14,7 +14,7 @@ export const predavaciProtokolVozidlo: Sablona = {
   nazev: 'Předávací protokol k vozidlu',
   podnadpis: 'záznam o předání a převzetí motorového vozidla',
   souborPdf: 'predavaci-protokol-vozidlo',
-  paticka: 'Vytvořeno zdarma · šablona CZ-PROTOKOL-AUTO v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-PROTOKOL-AUTO v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'predani_datum',
   podpisy: { vlevo: 'předávající', vpravo: 'přebírající' },

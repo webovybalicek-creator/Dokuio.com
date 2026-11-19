@@ -16,7 +16,7 @@ export const odstoupeniOdSmlouvy: Sablona = {
   nazev: 'Odstoupení od smlouvy',
   podnadpis: 'uzavřené distančním způsobem (na dálku), podle § 1829 zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'odstoupeni-od-smlouvy',
-  paticka: 'Vytvořeno zdarma · šablona CZ-ODSTOUPENI-14 v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-ODSTOUPENI-14 v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'spotřebitel', vpravo: 'převzal za prodávajícího (při osobním podání)' },

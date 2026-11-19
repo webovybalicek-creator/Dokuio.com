@@ -15,7 +15,7 @@ export const dohodaOSkonceniNajmu: Sablona = {
   nazev: 'Dohoda o skončení nájmu bytu',
   podnadpis: 'uzavřená podle zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'dohoda-o-skonceni-najmu',
-  paticka: 'Vytvořeno zdarma · šablona CZ-DOHODA-NAJEM v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-DOHODA-NAJEM v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'pronajímatel', vpravo: 'nájemce' },

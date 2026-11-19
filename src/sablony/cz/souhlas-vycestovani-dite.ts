@@ -17,7 +17,7 @@ export const souhlasVycestovaniDite: Sablona = {
   nazev: 'Souhlas s vycestováním dítěte do zahraničí',
   podnadpis: 'souhlas zákonného zástupce s cestou nezletilého dítěte do zahraničí',
   souborPdf: 'souhlas-s-vycestovanim-ditete',
-  paticka: 'Vytvořeno zdarma · šablona CZ-SOUHLAS-CESTA-DITE v1.0 · podle vzorů MZV ČR · nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-SOUHLAS-CESTA-DITE v1.0 · podle vzorů MZV ČR · nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'zákonný zástupce 1 (úředně ověřený podpis)', vpravo: 'zákonný zástupce 2 (úředně ověřený podpis)' },

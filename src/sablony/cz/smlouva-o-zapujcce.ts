@@ -16,7 +16,7 @@ export const smlouvaOZapujcce: Sablona = {
   nazev: 'Smlouva o zápůjčce',
   podnadpis: 'uzavřená podle § 2390 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'smlouva-o-zapujcce',
-  paticka: 'Vytvořeno zdarma · šablona CZ-ZAPUJCKA v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-ZAPUJCKA v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'zapůjčitel', vpravo: 'vydlužitel' },

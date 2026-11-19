@@ -16,7 +16,7 @@ export const darovaciSmlouva: Sablona = {
   nazev: 'Darovací smlouva',
   podnadpis: 'uzavřená podle § 2055 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'darovaci-smlouva',
-  paticka: 'Vytvořeno zdarma · šablona CZ-DAROVACI v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-DAROVACI v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'dárce', vpravo: 'obdarovaný' },

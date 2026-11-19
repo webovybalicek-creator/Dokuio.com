@@ -16,7 +16,7 @@ export const vypovedPovinneRuceni: Sablona = {
   nazev: 'Výpověď pojištění odpovědnosti z provozu vozidla',
   podnadpis: 'výpověď povinného ručení podle občanského zákoníku a zákona č. 168/1999 Sb.',
   souborPdf: 'vypoved-povinneho-ruceni',
-  paticka: 'Vytvořeno zdarma · šablona CZ-VYPOVED-POV v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-VYPOVED-POV v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'pojistník', vpravo: 'převzal za pojistitele (při osobním podání)' },

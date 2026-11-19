@@ -241,9 +241,25 @@ export async function dokumentPdf(
       }),
     );
     s.node.addAnnot(odkaz);
-    const text = t(`${d.paticka} · ${datum}`);
-    s.drawText(text, { x: xUrl + wUrl + 8, y: 34.5, size: 6.5, font: reg, color: SEDA });
     const cislo = `${i + 1} / ${strany.length}`;
+    // patička: když se nevejde na řádek, zalomí se na dva (po úsecích „ · “)
+    const xText = xUrl + wUrl + 8;
+    const sirka = A4[0] - OKRAJ_X - reg.widthOfTextAtSize(cislo, 7) - 12 - xText;
+    const useky = t(`${d.paticka} · ${datum}`).split(' · ');
+    const radky: string[] = [];
+    let r = '';
+    for (const u of useky) {
+      const zk = r ? `${r} · ${u}` : u;
+      if (r && reg.widthOfTextAtSize(zk, 6.5) > sirka) {
+        radky.push(r);
+        r = u;
+      } else r = zk;
+    }
+    if (r) radky.push(r);
+    const yPrvni = radky.length > 1 ? 38.5 : 34.5;
+    radky.slice(0, 2).forEach((radek, j) =>
+      s.drawText(radek, { x: xText, y: yPrvni - j * 8, size: 6.5, font: reg, color: SEDA }),
+    );
     s.drawText(cislo, { x: A4[0] - OKRAJ_X - reg.widthOfTextAtSize(cislo, 7), y: 34, size: 7, font: reg, color: SEDA });
   });
 

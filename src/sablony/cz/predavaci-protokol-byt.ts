@@ -16,7 +16,7 @@ export const predavaciProtokolByt: Sablona = {
   nazev: 'Předávací protokol k bytu',
   podnadpis: 'záznam o předání a převzetí bytu',
   souborPdf: 'predavaci-protokol-byt',
-  paticka: 'Vytvořeno zdarma · šablona CZ-PROTOKOL-BYT v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-PROTOKOL-BYT v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'pronajímatel', vpravo: 'nájemce' },

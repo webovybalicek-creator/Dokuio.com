@@ -1,5 +1,6 @@
 ---
 import { SMLOUVA, type Slovo } from '../sablony/typy';
+import Upozorneni from './Upozorneni.astro';
 /**
  * Pás se stažením na konci každé stránky dokumentu (požadavek ze zadání):
  * vždy jde stáhnout vlastní (vyplněná/upravená) verze i obecný prázdný vzor, v PDF i ve Wordu.
@@ -53,6 +54,7 @@ const zensky = /a$|moc$/.test(w.n);
           </div>
         </div>
       </div>
+      <Upozorneni />
     </div>
   </div>
 </section>

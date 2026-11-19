@@ -1185,6 +1185,30 @@ a.vypis__polozka:active {
   font-size: 0.9375rem;
 }
 
+/* upozornění u stažení */
+.upozorneni {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 20px 0 0;
+  padding: 14px 16px;
+  border: 1px solid #f1d29b;
+  border-radius: var(--r);
+  background: #fff8ec;
+  color: #6b4a12;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  max-width: 52rem;
+}
+.upozorneni svg {
+  flex: none;
+  margin-top: 2px;
+  color: #b7791f;
+}
+.upozorneni strong {
+  color: #4a3208;
+}
+
 /* Před podpisem zkontrolujte + oficiální zdroje */
 .kontrola {
   margin-top: 16px;

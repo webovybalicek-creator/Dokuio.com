@@ -37,7 +37,7 @@ export const kupniSmlouvaMotorka: Sablona = {
   kod: 'CZ-KUPNI-MOTO',
   nazev: 'Kupní smlouva na motorové vozidlo',
   souborPdf: 'kupni-smlouva-motorka',
-  paticka: 'Vytvořeno zdarma · šablona CZ-KUPNI-MOTO v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-KUPNI-MOTO v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   // Nápovědy a průvodce přeložené pro motorku; právní text článků zůstává stejný (mluví o „vozidle“)
   kroky: prelozit(a.kroky),
   coDal: prelozit(a.coDal),

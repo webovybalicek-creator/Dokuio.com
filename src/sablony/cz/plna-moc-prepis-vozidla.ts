@@ -16,7 +16,7 @@ export const plnaMocPrepisVozidla: Sablona = {
   nazev: 'Plná moc k přepisu vozidla',
   podnadpis: 'k zastoupení při zápisu změny vlastníka v registru silničních vozidel',
   souborPdf: 'plna-moc-prepis-vozidla',
-  paticka: 'Vytvořeno zdarma · šablona CZ-PLNAMOC-PREPIS v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-PLNAMOC-PREPIS v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'zmocnitel (úředně ověřený podpis)', vpravo: 'zmocněnec – zmocnění přijímám' },

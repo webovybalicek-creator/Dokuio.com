@@ -16,7 +16,7 @@ export const souhlasTrvalyPobyt: Sablona = {
   nazev: 'Souhlas s přihlášením k trvalému pobytu',
   podnadpis: 'potvrzení oprávněné osoby o souhlasu s ohlášením změny místa trvalého pobytu podle zákona č. 133/2000 Sb.',
   souborPdf: 'souhlas-s-trvalym-pobytem',
-  paticka: 'Vytvořeno zdarma · šablona CZ-SOUHLAS-POBYT v1.0 · vzor k vyplnění, nejde o právní poradenství',
+  paticka: 'Vytvořeno zdarma · šablona CZ-SOUHLAS-POBYT v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'oprávněná osoba (úředně ověřený podpis)', vpravo: 'přihlašovaná osoba (nepovinné)' },
