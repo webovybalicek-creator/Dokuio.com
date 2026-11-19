@@ -9,7 +9,7 @@ export const SITE = {
    */
   indexovat: true,
   /** Google Analytics 4 – ID měření (G-XXXXXXX). Prázdné = žádná analytika ani cookie lišta. Načte se jen po souhlasu. */
-  ga: 'G-B635G3SHYP',
+  ga: 'G-DKDXRKV5TB',
   /** Provozovatel webu */
   provozovatel: {
     nazev: 'Vladimír Fischer',
