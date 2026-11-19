@@ -12,3 +12,7 @@ export const TIP_HOTOVOST_SK =
   'Hotovosť prepočítajte až pri podpise; vyššie sumy radšej prevodom. Medzi dvoma fyzickými osobami nepodnikateľmi zákon zakazuje hotovostnú platbu nad 15 000 €, ak je jednou stranou podnikateľ alebo firma, nad 5 000 €.';
 export const ZAKON_SPOTREBITEL_SK = { nazev: 'Zákon č. 108/2024 Z. z. o ochrane spotrebiteľa (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/2024/108/' };
 export const SOI = { nazev: 'Slovenská obchodná inšpekcia', url: 'https://www.soi.sk/' };
+export const SK_NAJOM_BYTU = { nazev: 'Občiansky zákonník – nájom bytu, § 685 až § 716 (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/1964/40/' };
+export const SK_KRATKODOBY_NAJOM = { nazev: 'Zákon č. 98/2014 Z. z. o krátkodobom nájme bytu (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/2014/98/' };
+export const SK_DROBNE_OPRAVY = { nazev: 'Nariadenie vlády č. 87/1995 Z. z. – drobné opravy v byte (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/1995/87/' };
+export const TIP_NOVY_OZ_SK = 'Pozor: od 1. júla 2027 platí nový Občiansky zákonník (zákon č. 260/2026 Z. z.) s novými pravidlami nájmu. Tento vzor zodpovedá právu platnému do 30. júna 2027.';

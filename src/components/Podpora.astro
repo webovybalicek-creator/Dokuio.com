@@ -130,6 +130,7 @@ const vychozi = PODPORA.castky.find((c) => 'doporucene' in c && c.doporucene) ??
     const ukaz = (k: string) => kroky.forEach((el) => (el.hidden = el.dataset.krok !== k));
 
     const smiUkazat = () => {
+      if (/[?&]podpora=1/.test(location.search)) return true; // test: ?podpora=1 ukáže okno vždy
       try {
         const posledni = Number(localStorage.getItem(KLIC) ?? 0);
         return Date.now() - posledni > pauzaDni * 864e5;
@@ -180,14 +181,18 @@ const vychozi = PODPORA.castky.find((c) => 'doporucene' in c && c.doporucene) ??
       dlg.close();
     };
 
-    let navicDni = 0;
+    // Zavření bez odpovědi = klid jen 7 dní; odpověď = plná pauza; odchod na platbu = +60 dní
+    let navicDni = 7 - pauzaDni;
     dlg.addEventListener('close', () => zapamatuj(navicDni));
     dlg.addEventListener('click', (e) => {
       const t = e.target as HTMLElement;
       if (t === dlg) zavri(); // klik na pozadí
       else if (t.closest('[data-podpora-zavrit]')) zavri();
-      else if (t.closest('[data-podpora-ano]')) ukaz('podpora');
-      else if (t.closest('[data-podpora-ne]')) {
+      else if (t.closest('[data-podpora-ano]')) {
+        navicDni = Math.max(navicDni, 0);
+        ukaz('podpora');
+      } else if (t.closest('[data-podpora-ne]')) {
+        navicDni = Math.max(navicDni, 0);
         ukaz('vazba');
         dlg.querySelector('textarea')?.focus();
       } else if (t.closest('[data-podpora-stripe]')) {

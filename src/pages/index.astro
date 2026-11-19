@@ -20,6 +20,15 @@ if(!k){var l=(navigator.languages||[navigator.language||'']);for(var i=0;i<l.len
 if(k)location.replace('/'+k+'/');
 }catch(e){}})();`;
 
+const ALIASY: Record<string, string> = {
+  cz: 'czech republic cesko čechy tschechien czechy česká republika',
+  sk: 'slovakia slowakei słowacja slovensko',
+  pl: 'poland polen polsko poľsko',
+  de: 'germany německo nemecko niemcy',
+  at: 'austria rakousko rakúsko austria österreich osterreich',
+  ch: 'switzerland švýcarsko švajčiarsko szwajcaria suisse svizzera',
+};
+
 const kroky = [
   { nazev: 'Choose a document', popis: 'Pick the contract you need, for example a car sale agreement.' },
   { nazev: 'Answer a few questions', popis: 'A short guided form asks only what matters and explains every question.' },
@@ -42,7 +51,7 @@ const kroky = [
     <div class="hero__vlna" aria-hidden="true"></div>
     <div class="wrap">
       <div class="ram hero__obsah">
-        <p class="horni-stitek">Free · PDF and Word · <span>Czechia and Slovakia</span></p>
+        <p class="horni-stitek">Free · PDF and Word · <span>{ZEME.length} countries</span></p>
         <h1>
           Free contract templates, <em>ready as PDF.</em>{' '}
           <span>Answer a few simple questions and download a ready-to-sign contract that follows the law of your country.</span>
@@ -58,32 +67,46 @@ const kroky = [
 
   <section class="sekce" id="countries" aria-labelledby="countries-title">
     <div class="wrap">
-      <div class="ram sekce__in">
+      <div class="ram sekce__in sekce__in--tesne">
         <h2 id="countries-title">
-          Built for local law.{' '}<span>Contracts differ from country to country, so every country gets its own set of templates.</span>
+          Choose your country.{' '}<span>Every country gets its own templates, written for local law.</span>
         </h2>
-        <ul class="mrizka">
+        <label class="hledani__pole zeme-hledani">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+          <input type="search" id="zeme-hledat" placeholder="Search country" autocomplete="off" aria-label="Search country" />
+        </label>
+        <ul class="zeme-mrizka" id="zeme-seznam">
           {
             ZEME.map((z) => (
-              <li>
-                <a class="karta" href={`/${z.kod}/`} hreflang={z.jazyk}>
-                  <h3>
-                    <Vlajka kod={z.kod} />
-                    {z.nazev}
-                  </h3>
-                  <p>{z.nazevEn}</p>
-                  <span class="odkaz-sipka">Open</span>
+              <li data-hledat={`${z.nazev} ${z.nazevEn} ${ALIASY[z.kod] ?? ''}`.toLowerCase()}>
+                <a class="zeme-polozka" href={`/${z.kod}/`} hreflang={z.jazyk}>
+                  <Vlajka kod={z.kod} />
+                  <strong>{z.nazev}</strong>
+                  <span>{z.nazevEn}</span>
                 </a>
               </li>
             ))
           }
-          <li>
-            <div class="karta karta--tlumena">
-              <h3>More countries</h3>
-              <p>On the way.</p>
-            </div>
-          </li>
         </ul>
+        <p class="zeme-nic" id="zeme-nic" hidden>This country is not available yet. More countries are on the way.</p>
+        <p class="zeme-dalsi">More countries on the way.</p>
+        <script is:inline>
+          (function () {
+            var i = document.getElementById('zeme-hledat'), polozky = document.querySelectorAll('#zeme-seznam li'), nic = document.getElementById('zeme-nic');
+            if (!i) return;
+            var bez = function (t) { return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+            i.addEventListener('input', function () {
+              var q = bez(i.value.trim()), n = 0;
+              polozky.forEach(function (li) { var ok = !q || bez(li.dataset.hledat).indexOf(q) > -1; li.hidden = !ok; if (ok) n++; });
+              nic.hidden = n > 0;
+            });
+            i.addEventListener('keydown', function (e) {
+              if (e.key !== 'Enter') return;
+              var prvni = document.querySelector('#zeme-seznam li:not([hidden]) a');
+              if (prvni) location.href = prvni.href;
+            });
+          })();
+        </script>
       </div>
     </div>
   </section>

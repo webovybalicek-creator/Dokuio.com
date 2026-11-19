@@ -3018,3 +3018,36 @@ h2 {
 .hero--clanek .hero__obsah {
   z-index: 1;
 }
+
+/* ---------------------------------------------------------------- výběr země (kompaktně) */
+.zeme-hledani { margin-top: 24px; max-width: 420px; min-height: 48px; }
+.zeme-mrizka {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--lavender);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--lavender);
+  gap: 1px;
+}
+.zeme-mrizka li { background: var(--white); }
+.zeme-polozka {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 160ms var(--ease-out);
+}
+.zeme-polozka strong { font-weight: 500; }
+.zeme-polozka span { margin-left: auto; color: var(--slate); font-size: 0.875rem; }
+.zeme-polozka span::after { content: ' ›'; }
+@media (hover: hover) { .zeme-polozka:hover { background: var(--mist); } }
+.zeme-polozka:focus-visible { outline: 2px solid var(--indigo); outline-offset: -2px; }
+.zeme-dalsi, .zeme-nic { margin: 10px 0 0; color: var(--slate); font-size: 0.875rem; }
+@media (max-width: 760px) { .zeme-mrizka { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .zeme-mrizka { grid-template-columns: 1fr; } }
