@@ -27,11 +27,11 @@ export const ZEME = [
 
 /**
  * Dobrovolná podpora provozu (okno po stažení smlouvy).
- * stripe: Payment Link (30 Kč / 1 € / 1 $, Apple Pay, Google Pay, karta). Po aktivaci účtu nahradit odkazem z ostrého režimu.
+ * stripe: Payment Link (30 Kč / 1 € / 1 $, Apple Pay, Google Pay, karta). Ostrý režim (účet Stripe „Dokuio“).
  * iban: když je vyplněný, okno nabídne i QR platbu (CZ, formát SPAYD).
  */
 export const PODPORA = {
-  stripe: 'https://buy.stripe.com/test_7sY9AM2Ux08f1Mn4Lr48000',
+  stripe: 'https://buy.stripe.com/7sY9AM2Ux08f1Mn4Lr48000',
   iban: '',
   prijemce: 'Dokuio',
   castkaKc: 30,
