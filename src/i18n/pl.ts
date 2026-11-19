@@ -254,7 +254,7 @@ export const pl: Texty = {
   },
   dokument: {
     v: '',
-    dne: 'dnia',
+    dne: ', dnia',
     upraveno: 'Zmienione',
     overeniSablony: 'Weryfikacja szablonu: ',
     kDoplneni: 'do uzupełnienia',

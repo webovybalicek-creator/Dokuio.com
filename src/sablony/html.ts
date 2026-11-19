@@ -65,7 +65,7 @@ export function dokumentHtml(d: Dokument, moznostiUprav = false): string {
     moznostiUprav
       ? `<p class="dok__pridat"><button type="button" class="odst__tl odst__tl--pridat" data-akce="pridat">${T.pridat}</button></p>`
       : '',
-    `<p class="dok__misto">${d.mistoDne[0]} ${useky(d.misto, T)} ${d.mistoDne[1]} ${useky(d.datum, T)}</p>`,
+    `<p class="dok__misto">${d.mistoDne[0] ? `${d.mistoDne[0]} ` : ''}${useky(d.misto, T)}${d.mistoDne[1].startsWith(',') ? '' : ' '}${d.mistoDne[1]} ${useky(d.datum, T)}</p>`,
     `<div class="dok__podpisy"><div><span></span>${esc(d.podpisy.vlevo)}</div><div><span></span>${esc(d.podpisy.vpravo)}</div></div>`,
     ...d.prilohy.map(
       (t) =>
