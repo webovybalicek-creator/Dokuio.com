@@ -1,4 +1,5 @@
 ---
+import { HREFLANG_HUBY } from '../../lib/config';
 import Base from '../../layouts/Base.astro';
 import Duvera from '../../components/Duvera.astro';
 import Hledani from '../../components/Hledani.astro';
@@ -11,6 +12,7 @@ const kroky = [
 ---
 
 <Base
+  alternates={HREFLANG_HUBY}
   title="Vzory zmlúv zadarmo v PDF – vyplňte online"
   description="Vzory zmlúv zadarmo podľa slovenského práva: kúpna zmluva na auto, splnomocnenie, darovacia zmluva. PDF aj Word, bez registrácie."
   lang="sk"

@@ -8,9 +8,11 @@ interface Props {
   description: string;
   lang?: string;
   noindex?: boolean;
+  /** Jazykové verze téže stránky (hreflang) – jen tam, kde jde opravdu o stejný obsah */
+  alternates?: { hreflang: string; href: string }[];
 }
 
-const { title, description, lang = 'en', noindex = false } = Astro.props;
+const { title, description, lang = 'en', noindex = false, alternates = [] } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const robots = !SITE.indexovat || noindex ? 'noindex, follow' : 'index, follow';
 const fullTitle = title.includes(SITE.nazev) ? title : `${title} | ${SITE.nazev}`;
@@ -25,6 +27,7 @@ const fullTitle = title.includes(SITE.nazev) ? title : `${title} | ${SITE.nazev}
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={new URL(a.href, SITE.url).href} />)}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#ffffff" />
     <meta property="og:type" content="website" />

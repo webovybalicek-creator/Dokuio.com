@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Vlajka from '../components/Vlajka.astro';
 import Duvera from '../components/Duvera.astro';
-import { ZEME } from '../lib/config';
+import { HREFLANG_HUBY, ZEME } from '../lib/config';
 
 // Směrování podle polohy: Česko → /cz/, Slovensko → /sk/.
 // Poloha z časové zóny zařízení (bez IP a bez cookies), záložně z jazyka prohlížeče.
@@ -28,6 +28,7 @@ const kroky = [
 ---
 
 <Base
+  alternates={HREFLANG_HUBY}
   title="Dokuio – contracts and documents made easy"
   description="Free contract templates as PDF and Word. Answer a few questions and download a ready-to-sign contract that follows the law of your country."
 >

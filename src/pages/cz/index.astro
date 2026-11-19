@@ -1,4 +1,5 @@
 ---
+import { HREFLANG_HUBY } from '../../lib/config';
 import Base from '../../layouts/Base.astro';
 import Duvera from '../../components/Duvera.astro';
 import Hledani from '../../components/Hledani.astro';
@@ -11,6 +12,7 @@ const kroky = [
 ---
 
 <Base
+  alternates={HREFLANG_HUBY}
   title="Vzory smluv zdarma v PDF – vyplňte online"
   description="Vzory smluv zdarma: kupní smlouva na auto a další dokumenty podle českého práva. Vyplňte online, stáhněte PDF nebo Word, bez registrace."
   lang="cs"

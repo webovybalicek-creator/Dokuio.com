@@ -3,7 +3,7 @@ import { SITE } from '../lib/config';
 
 export const GET: APIRoute = () => {
   const body = SITE.indexovat
-    ? `User-agent: *\nDisallow:\n`
+    ? `User-agent: *\nDisallow:\n\nSitemap: ${new URL('/sitemap.xml', SITE.url).href}\n`
     : `# Web je ve vývoji – zatím neindexovat.\nUser-agent: *\nDisallow: /\n`;
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };

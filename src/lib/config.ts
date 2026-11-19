@@ -38,3 +38,11 @@ export const PODPORA = {
   /** Kolik dní po zavření okno znovu neukazovat */
   pauzaDni: 30,
 };
+
+/** Vstupní stránky zemí jsou jazykové verze téhož rozcestníku → hreflang */
+export const HREFLANG_HUBY = [
+  { hreflang: 'x-default', href: '/' },
+  { hreflang: 'en', href: '/' },
+  { hreflang: 'cs-CZ', href: '/cz/' },
+  { hreflang: 'sk-SK', href: '/sk/' },
+];
