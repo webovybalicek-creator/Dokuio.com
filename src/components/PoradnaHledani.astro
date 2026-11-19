@@ -3,6 +3,7 @@
 import { katalog } from '../obsah';
 import { texty } from '../i18n';
 import { PORADNY, urlClanku, urlTematu, type Clanek } from '../lib/poradna';
+import { urlFotky, altFotky } from '../lib/fotky';
 interface Props {
   zeme: string;
   jazyk: string;
@@ -16,16 +17,16 @@ const polozky = [
   ...clanky.map((c) => {
     const kat = nazevKat[c.data.kategorie];
     const tema = kat?.temata.find((t) => t.slug === c.data.tema);
-    return { typ: T.clanek, nazev: c.data.nazev ?? c.data.title, popis: c.data.perex, url: urlClanku(c), text: [c.data.title, c.data.perex, ...c.data.slova, kat?.nazev, tema?.nazev].join(' ') };
+    return { typ: T.clanek, druh: 'clanek', foto: c.data.foto as string | undefined, nazev: c.data.nazev ?? c.data.title, popis: c.data.perex, url: urlClanku(c), text: [c.data.title, c.data.perex, ...c.data.slova, kat?.nazev, tema?.nazev].join(' ') };
   }),
   ...P.kategorie.flatMap((k) =>
     k.temata
       .filter((t) => clanky.some((c) => c.data.kategorie === k.slug && c.data.tema === t.slug))
-      .map((t) => ({ typ: k.nazev, nazev: t.nazev, popis: t.popis, url: urlTematu(zeme, k.slug, t.slug), text: [t.nazev, t.popis, k.nazev].join(' ') })),
+      .map((t) => ({ typ: k.nazev, druh: 'tema', foto: undefined, nazev: t.nazev, popis: t.popis, url: urlTematu(zeme, k.slug, t.slug), text: [t.nazev, t.popis, k.nazev].join(' ') })),
   ),
   ...katalog(zeme)
     .filter((d) => d.url)
-    .map((d) => ({ typ: T.dokument, nazev: d.nazev, popis: d.popis, url: d.url!, text: [d.nazev, d.popis, ...d.slova].join(' ') })),
+    .map((d) => ({ typ: T.dokument, druh: 'dokument', foto: undefined, nazev: d.nazev, popis: d.popis, url: d.url!, text: [d.nazev, d.popis, ...d.slova].join(' ') })),
 ];
 ---
 
@@ -41,9 +42,22 @@ const polozky = [
       polozky.map((x) => (
         <li data-text={x.text} hidden>
           <a href={x.url}>
-            <span class="p-hledani__typ">{x.typ}</span>
-            <strong>{x.nazev}</strong>
-            <span>{x.popis}</span>
+            {x.foto ? (
+              <img class="p-hledani__nahled" src={urlFotky(x.foto, 192, 128)} width="96" height="64" alt={altFotky(x.foto, jazyk)} loading="lazy" decoding="async" />
+            ) : (
+              <span class={`p-hledani__nahled p-hledani__nahled--${x.druh}`} aria-hidden="true">
+                {x.druh === 'dokument' ? (
+                  <svg viewBox="0 0 24 24" width="24" height="24"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /><path d="M14 3v5h5M10 13h6M10 17h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /></svg>
+                )}
+              </span>
+            )}
+            <span class="p-hledani__text">
+              <span class="p-hledani__typ">{x.typ}</span>
+              <strong>{x.nazev}</strong>
+              <span>{x.popis}</span>
+            </span>
           </a>
         </li>
       ))

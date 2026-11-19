@@ -5,6 +5,8 @@
 Vše se sestaví samo: stránky, průvodce, prázdné vzory PDF/DOCX, katalog a vyhledávání,
 související dokumenty, OG obrázky, sitemap i hreflang.
 
+> **Pravidlo:** každý nový dokument i článek se dělá **pro všechny země, které Dokuio má** (místní verze podle práva země, ne překlad). Nová země dostane celou sadu dokumentů i článků.
+
 ## Nový dokument (2 soubory)
 
 1. **Šablona** `src/sablony/<zeme>/<nazev>.ts` – `export const …: Sablona`.
