@@ -45,6 +45,8 @@ const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${t
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
+    <!-- ověření Seznam Webmaster (účet fischer.vlada@gmail.com) – nemazat -->
+    <meta name="seznam-wmt" content="Wlrl09VqnKO9l83VuUuYRwfVNT6qmori" />
     <link rel="canonical" href={canonical} />
     {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={new URL(a.href, SITE.url).href} />)}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
