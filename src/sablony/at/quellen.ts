@@ -12,3 +12,6 @@ export const WKO_VGG = { nazev: 'Gewährleistung beim Warenkauf nach dem VGG (WK
 export const MRG = { nazev: 'Mietrechtsgesetz (RIS)', url: 'https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10002531' };
 export const OEGV_MIETE = { nazev: 'Wohnen – Miete (oesterreich.gv.at)', url: 'https://www.oesterreich.gv.at/themen/bauen_und_wohnen/wohnen.html' };
 export const OEGV_KUENDIGUNG_MIETER = { nazev: 'Kündigung eines Mietvertrags durch den Mieter (oesterreich.gv.at)', url: 'https://www.oesterreich.gv.at/themen/bauen_und_wohnen/wohnen/3/Seite.210281.html' };
+export const ABGB_1170A = { nazev: '§ 1170a ABGB – Kostenvoranschlag (RIS)', url: 'https://www.ris.bka.gv.at/eli/jgs/1811/946/P1170a/NOR12018912' };
+export const EJUSTICE_ZINSEN_AT = { nazev: 'Gesetzliche Zinsen und Verzugszinsen in Österreich (Europäisches Justizportal)', url: 'https://e-justice.europa.eu/topics/taking-legal-action/where-and-how/interest-rates/at_de' };
+export const OEGV_KLAGEN = { nazev: 'Ich will jemanden klagen (oesterreich.gv.at)', url: 'https://www.oesterreich.gv.at/de/themen/gesetze_und_recht/gerichtsorganisation_der_justiz/zivilrecht/1/Seite.1010180' };

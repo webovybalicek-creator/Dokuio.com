@@ -20,8 +20,14 @@ Jednotná sada 11 dokumentů v každé zemi (podle práva a úředních zdrojů 
 | Kupní smlouva na věc | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Odstoupení od smlouvy (e-shop, 14 dní) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓¹ |
 | Reklamace | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Předžalobní výzva / výzva k zaplacení | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Smlouva o dílo (řemeslník, oprava) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Čestné prohlášení | ✓ | ✓ | ✓ | ✓² | ✓² | ✓² |
 
 ¹ Ve Švýcarsku zákonné odstoupení u nákupů online neexistuje – CH má místo toho odvolání podomního/telefonického prodeje (Art. 40a OR).
+² DE/AT/CH: obecná „Erklärung“ – výslovně ne eidesstattliche Versicherung (ta jen před příslušným úřadem či soudem).
+
+Nové vzory (20. 11. 2026) mají i 🇭🇺 HU: fizetési felszólítás, vállalkozási szerződés, nyilatkozat. Nové kategorie „Služby a řemeslníci“ (a obdoby v každé zemi). AT/CH verze se skládají z DE přes `sablony/nahrad.ts` (nahrazení textů) a mají vlastní právo (ABGB § 1170a, § 1333; OR 102, 104, 363–375). SK: OZ byl zrušen zák. č. 260/2026 Z. z. (nový OZ s pozdější účinností) – šablony na to upozorňují.
 
 Česko má navíc: kupní smlouvu na motorku, nájemní a podnájemní smlouvu (i dvojjazyčně CZ/EN), předávací protokol k bytu,
 výpověď a dohodu o skončení nájmu, výpověď povinného ručení, souhlas s trvalým pobytem a s vycestováním dítěte.

@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Warsaw',
   aktivni: true,
   poradi: 3,
-  kategorie: { auto: 'Samochody', pieniadze: 'Pieniądze i darowizny', mieszkanie: 'Mieszkanie i najem', codzienne: 'Zakupy i sprawy codzienne' },
+  kategorie: { auto: 'Samochody', pieniadze: 'Pieniądze i darowizny', mieszkanie: 'Mieszkanie i najem', codzienne: 'Zakupy i sprawy codzienne', uslugi: 'Usługi i fachowcy' },
   skupiny: {
     auto: [
       { slug: 'umowa-kupna-sprzedazy-samochodu', popis: 'Sprzedaż używanego auta między osobami prywatnymi.' },
@@ -21,6 +21,7 @@ export const zeme: Zeme = {
       { slug: 'umowa-pozyczki', popis: 'Pożyczka między znajomymi, także na raty.' },
       { slug: 'pokwitowanie-odbioru-pieniedzy', popis: 'Potwierdzenie przyjęcia gotówki.' },
       { slug: 'uznanie-dlugu', popis: 'Dług na piśmie, także z ratami.' },
+      { slug: 'wezwanie-do-zaplaty', popis: 'Ostatnie wezwanie przed sądem.' },
       { slug: 'umowa-darowizny', popis: 'Darowizna pieniędzy lub rzeczy.' },
     ],
     mieszkanie: [
@@ -33,6 +34,12 @@ export const zeme: Zeme = {
       { slug: 'umowa-kupna-sprzedazy', popis: 'Sprzedaż używanych rzeczy.' },
       { slug: 'odstapienie-od-umowy', popis: 'Zwrot zakupu z internetu w 14 dni.' },
       { slug: 'reklamacja', popis: 'Wadliwy towar u sprzedawcy.' },
+      { slug: 'oswiadczenie', popis: 'Oświadczenie dla szkoły, urzędu lub banku.' },
+    ],
+    uslugi: [
+      { slug: 'umowa-o-dzielo', popis: 'Remont, naprawa lub wykonanie na zamówienie.' },
+      { slug: 'pokwitowanie-odbioru-pieniedzy', popis: 'Pokwitowanie zaliczki.' },
+      { slug: 'wezwanie-do-zaplaty', popis: 'Gdy zamawiający nie płaci.' },
     ],
   },
   pripravujeme: [],

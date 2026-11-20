@@ -12,7 +12,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Budapest',
   aktivni: true,
   poradi: 7,
-  kategorie: { auto: 'Autó', penz: 'Pénz és ajándék', lakas: 'Lakás és bérlet', mindennapok: 'Vásárlás és ügyintézés' },
+  kategorie: { auto: 'Autó', penz: 'Pénz és ajándék', lakas: 'Lakás és bérlet', mindennapok: 'Vásárlás és ügyintézés', szolgaltatas: 'Szakemberek és megrendelések' },
   skupiny: {
     auto: [
       { slug: 'gepjarmu-adasveteli-szerzodes', popis: 'Használt autó eladása magánszemélyek között.' },
@@ -24,6 +24,7 @@ export const zeme: Zeme = {
       { slug: 'kolcsonszerzodes', popis: 'Kölcsön ismerősnek, akár részletekben.' },
       { slug: 'atveteli-elismerveny', popis: 'Készpénz átvételének igazolása.' },
       { slug: 'tartozaselismero-nyilatkozat', popis: 'Tartozás írásban, részletfizetéssel.' },
+      { slug: 'fizetesi-felszolitas', popis: 'Utolsó felszólítás a per előtt.' },
       { slug: 'ajandekozasi-szerzodes', popis: 'Pénz vagy dolog ajándékozása.' },
     ],
     lakas: [
@@ -36,6 +37,12 @@ export const zeme: Zeme = {
       { slug: 'adasveteli-szerzodes', popis: 'Használt dolog eladása.' },
       { slug: 'elallasi-nyilatkozat', popis: 'Webshopos vásárlás visszaküldése 14 napon belül.' },
       { slug: 'kellekszavatossagi-igeny', popis: 'Hibás termék a boltban.' },
+      { slug: 'nyilatkozat', popis: 'Nyilatkozat iskolának, banknak vagy bérbeadónak.' },
+    ],
+    szolgaltatas: [
+      { slug: 'vallalkozasi-szerzodes', popis: 'Felújítás, javítás vagy egyedi munka.' },
+      { slug: 'atveteli-elismerveny', popis: 'Az előleg átvételének igazolása.' },
+      { slug: 'fizetesi-felszolitas', popis: 'Ha a megrendelő nem fizet.' },
     ],
   },
   pripravujeme: [],

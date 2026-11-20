@@ -19,7 +19,7 @@ Stav k 19. 11. 2026 (77 článků publikováno). Články se píšou do `src/con
 | 100–1 000 | darovací smlouva vzor / auto · dohoda o skončení nájmu · kupní smlouva motorka · odstoupení od kupní smlouvy vzor · podnájemní smlouva · pracovní smlouva vzor · promlčení dluhu · předávací protokol auto / byt · předžalobní výzva vzor · reklamace vzor · reklamační protokol · smlouva o dílo vzor · smlouva o půjčce vzor · smlouva o výpůjčce · smlouva o zápůjčce · splátkový kalendář · uznání dluhu (+ vzor) · vrácení zboží · výpověď nájemní smlouvy vzor · výpověď povinného ručení · výpověď z nájmu |
 | 10–100 | dohoda o splátkách · kauce nájem · kupní smlouva pozemek · nájemní smlouva garáž · plná moc k převzetí zásilky · potvrzení o převzetí peněz · souhlas s trvalým pobytem · upomínka dluhu |
 
-**Závěr:** nové vzory podle hledanosti: **předžalobní výzva**, **čestné prohlášení**, **smlouva o dílo** (vše 1–10 tis.), pak smlouva o výpůjčce. Dohodu o provedení práce a pracovní smlouvu zatím ne (pracovní právo = vyšší riziko).
+**Závěr:** nové vzory podle hledanosti: **předžalobní výzva**, **čestné prohlášení**, **smlouva o dílo** (vše 1–10 tis.) – ✓ hotovo 20. 11. 2026 ve všech 7 zemích; dál smlouva o výpůjčce. Dohodu o provedení práce a pracovní smlouvu zatím ne (pracovní právo = vyšší riziko).
 Souhlas s vycestováním dítěte má 1–10 tis. → převést do všech zemí jako první z „jen CZ“ dokumentů.
 
 ## Jednotná sada témat ve všech zemích

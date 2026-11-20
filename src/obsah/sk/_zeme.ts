@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Bratislava',
   aktivni: true,
   poradi: 2,
-  kategorie: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', byvanie: 'Bývanie a nájom', zastoupeni: 'Splnomocnenia', bezne: 'Nákupy a bežný život' },
+  kategorie: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', byvanie: 'Bývanie a nájom', zastoupeni: 'Splnomocnenia a vyhlásenia', bezne: 'Nákupy a bežný život', sluzby: 'Služby a remeselníci' },
   skupiny: {
     auto: [
       { slug: 'kupna-zmluva-auto', popis: 'Predaj jazdeného auta medzi súkromnými osobami.' },
@@ -21,6 +21,7 @@ export const zeme: Zeme = {
       { slug: 'potvrdenie-o-prevzati-penazi', popis: 'Doklad o odovzdaní hotovosti.' },
       { slug: 'darovacia-zmluva', popis: 'Darovanie peňazí alebo hnuteľnej veci.' },
       { slug: 'uznanie-dlhu', popis: 'Dlh písomne, aj so splátkami.' },
+      { slug: 'vyzva-na-zaplatenie', popis: 'Posledná výzva dlžníkovi pred súdom.' },
       { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
     ],
     byvanie: [
@@ -33,6 +34,12 @@ export const zeme: Zeme = {
       { slug: 'odstupenie-od-zmluvy', popis: 'Vrátenie tovaru z e-shopu do 14 dní.' },
       { slug: 'reklamacia', popis: 'Chybný tovar u predávajúceho.' },
       { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
+      { slug: 'cestne-vyhlasenie', popis: 'Vyhlásenie pre úrad, školu alebo banku.' },
+    ],
+    sluzby: [
+      { slug: 'zmluva-o-dielo', popis: 'Remeselník, rekonštrukcia alebo oprava.' },
+      { slug: 'potvrdenie-o-prevzati-penazi', popis: 'Doklad o zaplatenom preddavku.' },
+      { slug: 'vyzva-na-zaplatenie', popis: 'Keď objednávateľ nezaplatí.' },
     ],
   },
   pripravujeme: [],
