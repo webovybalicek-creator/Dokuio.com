@@ -58,7 +58,7 @@ export async function dokumentPdf(
   pdf.setSubject(d.podnadpis);
   pdf.setCreator('Dokuio.com');
   pdf.setProducer('Dokuio.com');
-  pdf.setLanguage(({ cs: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', hu: 'hu-HU' } as Record<string, string>)[d.jazyk] ?? 'cs-CZ');
+  pdf.setLanguage(({ cs: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', hu: 'hu-HU', hr: 'hr-HR' } as Record<string, string>)[d.jazyk] ?? 'cs-CZ');
   pdf.setCreationDate(meta.vytvoreno ?? new Date());
 
   const strany: PDFPage[] = [];

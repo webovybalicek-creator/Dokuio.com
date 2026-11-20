@@ -350,6 +350,7 @@ const JAZYK_ZEME: Record<string, string> = {
   de: 'German',
   'de-CH': 'German',
   hu: 'Hungarian',
+  hr: 'Croatian',
   uk: 'Ukrainian',
 };
 const enJazyk = (j: string) => JAZYK_ZEME[j] ?? j;
@@ -362,6 +363,7 @@ const ZEME: TextyVerze['zeme'] = {
   at: { n: 'Austria', g: 'Austria', v: 'in Austria' },
   ch: { n: 'Switzerland', g: 'Switzerland', v: 'in Switzerland' },
   hu: { n: 'Hungary', g: 'Hungary', v: 'in Hungary' },
+  hr: { n: 'Croatia', g: 'Croatia', v: 'in Croatia' },
 };
 
 export const enVerze: TextyVerze = {
@@ -403,6 +405,12 @@ export const enVerze: TextyVerze = {
     mindennapok: 'Shopping and paperwork',
     alltag: 'Everyday life, shopping and powers of attorney',
     vertraege: 'Cancellations and work',
+    novac: 'Money and gifts',
+    stan: 'Housing and renting',
+    svakodnevno: 'Shopping and paperwork',
+    usluge: 'Tradespeople and orders',
+    posao: 'Work',
+    obitelj: 'Family and travel',
   },
   dokument: {
     mistoDne: ['In', 'on'],

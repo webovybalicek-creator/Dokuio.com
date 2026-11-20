@@ -50,6 +50,12 @@ meghatalmazás k átírás i obecná, kölcsön, elismervény, ajándékozás, t
 lakásbérlet + jegyzőkönyv + felmondás, adásvétel věci), maďarské rozhraní `src/i18n/hu.ts`, částky slovy `sablony/hu/szamok.ts`,
 info stránky, e-mail. Vzory ověřené 19. 11. 2026 na njt.jog.gov.hu (oprava: prodávající hlásí prodej auta do 15 dní,
 304/2009. Korm. r. 2. § (1); povinné náležitosti smlouvy podle 3. §; osvobození darů i pro sourozence). Poradna `/hu/tanacsadas/` – 12 článků. Doporučená kontrola maďarským advokátem (ügyvéd).
+🇭🇷 **Chorvatsko (spuštěno 20. 11. 2026):** `src/obsah/hr/`, `src/sablony/hr/` – 13 vzorů (kupoprodajni ugovor za automobil s rokem 15 dní,
+primopredajni zapisnik vozila i stana, potvrda o primitku novca, ugovor o zajmu, izjava o priznanju duga, ugovor o darovanju,
+punomoć, kupoprodajni ugovor, jednostrani raskid (NN 117/22), reklamacija, ugovor o najmu stana, otkaz najma), chorvatské rozhraní
+`src/i18n/hr.ts`, měna EUR, částky slovy `sablony/hr/brojevi.ts`, info stránky (AZOP), e-mail. Ověřeno 20. 11. 2026 na narodne-novine.nn.hr,
+porezna-uprava.gov.hr a gov.hr (upravna pristojba platí kupec v STP; porez na darove 4 % nad 6.700 €, osvobozena užší rodina;
+otkazni rok najmu 3 měsíce). Poradna `/hr/savjetnik/` – 12 článků. Doporučená kontrola chorvatským advokátem (odvjetnik).
 Obecně: země s `aktivni: false` se vůbec negeneruje (ani stránky, ani sitemap).
 
 🇺🇦🇬🇧 **Jazykové verze (20. 11. 2026):** dokument země může mít ukrajinskou a anglickou verzi – `/<zeme>/uk/<slug>/`, `/<zeme>/en/<slug>/`

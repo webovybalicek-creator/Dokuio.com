@@ -86,6 +86,7 @@ export function formatDatum(iso: string, jazyk?: string): string {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso.trim());
   if (!m) return iso;
   if (jazyk === 'hu') return `${m[1]}. ${m[2]}. ${m[3]}.`;
+  if (jazyk === 'hr') return `${Number(m[3])}. ${Number(m[2])}. ${m[1]}.`;
   return `${Number(m[3])}. ${Number(m[2])}. ${m[1]}`;
 }
 
