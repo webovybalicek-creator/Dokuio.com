@@ -37,3 +37,6 @@ export const IURE_PRIRUCKA = {
   url: 'https://iure.iure.org/wp-content/uploads/2026/01/jak_pronajmout_byt_iure_2025.pdf',
 };
 export const ZAKON_SLUZBY = { nazev: 'Zákon č. 67/2013 Sb., služby spojené s užíváním bytů (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2013/67' };
+export const OSR = { nazev: 'Občanský soudní řád č. 99/1963 Sb., § 142a (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/1963/99' };
+export const NV_UROK = { nazev: 'Nařízení vlády č. 351/2013 Sb., výše úroku z prodlení (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2013/351' };
+export const ZAKON_OVEROVANI = { nazev: 'Zákon č. 21/2006 Sb., o ověřování shody opisu a pravosti podpisu (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2006/21' };

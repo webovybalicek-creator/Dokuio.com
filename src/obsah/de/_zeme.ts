@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Berlin',
   aktivni: true,
   poradi: 4,
-  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten' },
+  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten', dienst: 'Handwerker und Aufträge' },
   skupiny: {
     auto: [
       { slug: 'kaufvertrag-gebrauchtwagen', popis: 'Privatverkauf eines gebrauchten Autos.' },
@@ -21,6 +21,7 @@ export const zeme: Zeme = {
       { slug: 'darlehensvertrag', popis: 'Geld leihen, auch in Raten.' },
       { slug: 'quittung', popis: 'Empfangsbestätigung für Bargeld.' },
       { slug: 'schuldanerkenntnis', popis: 'Schuld schriftlich bestätigen, mit Raten.' },
+      { slug: 'mahnung', popis: 'Zahlungsaufforderung mit Frist.' },
       { slug: 'schenkungsvertrag', popis: 'Geld oder eine Sache verschenken.' },
     ],
     wohnen: [
@@ -33,6 +34,12 @@ export const zeme: Zeme = {
       { slug: 'kaufvertrag-privat', popis: 'Gebrauchte Sachen von privat verkaufen.' },
       { slug: 'widerruf', popis: 'Online-Kauf binnen 14 Tagen widerrufen.' },
       { slug: 'maengelanzeige', popis: 'Defekte Ware reklamieren.' },
+      { slug: 'erklaerung', popis: 'Schriftliche Erklärung für Schule, Bank oder Vermieter.' },
+    ],
+    dienst: [
+      { slug: 'werkvertrag', popis: 'Handwerker, Renovierung oder Reparatur.' },
+      { slug: 'quittung', popis: 'Anzahlung bar quittieren.' },
+      { slug: 'mahnung', popis: 'Wenn der Kunde nicht zahlt.' },
     ],
   },
   pripravujeme: [],

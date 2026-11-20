@@ -16,7 +16,8 @@ export const zeme: Zeme = {
     veci: 'Prodej věcí',
     bydleni: 'Bydlení',
     rodina: 'Rodina a cestování',
-    zastoupeni: 'Plné moci',
+    zastoupeni: 'Plné moci a prohlášení',
+    sluzby: 'Služby a řemeslníci',
   },
   skupiny: {
     auto: [
@@ -31,6 +32,7 @@ export const zeme: Zeme = {
       { slug: 'smlouva-o-zapujcce', popis: 'Půjčka peněz mezi známými, i na splátky.' },
       { slug: 'potvrzeni-o-prevzeti-penez', popis: 'Doklad o předání hotovosti.' },
       { slug: 'uznani-dluhu', popis: 'Dlužník písemně potvrdí, kolik a do kdy vrátí.' },
+      { slug: 'predzalobni-vyzva', popis: 'Poslední výzva dlužníkovi před žalobou.' },
       { slug: 'kupni-smlouva-vec', popis: 'Prodej kola, telefonu, nábytku.' },
       { slug: 'plna-moc', popis: 'Aby za vás někdo něco vyřídil.' },
     ],
@@ -40,6 +42,12 @@ export const zeme: Zeme = {
       { slug: 'souhlas-s-trvalym-pobytem', popis: 'Přihlášení na adresu.' },
       { slug: 'souhlas-s-vycestovanim-ditete', popis: 'Cesta dítěte do zahraničí.' },
       { slug: 'plna-moc', popis: 'Aby za vás někdo něco vyřídil.' },
+      { slug: 'cestne-prohlaseni', popis: 'Prohlášení pro úřad, školu nebo banku.' },
+    ],
+    sluzby: [
+      { slug: 'smlouva-o-dilo', popis: 'Řemeslník, rekonstrukce nebo oprava.' },
+      { slug: 'potvrzeni-o-prevzeti-penez', popis: 'Doklad o zaplacené záloze.' },
+      { slug: 'predzalobni-vyzva', popis: 'Když objednatel nezaplatí.' },
     ],
     bydleni: [
       { slug: 'najemni-smlouva-byt', popis: 'Nájemné, služby, kauce, doba nájmu.' },
