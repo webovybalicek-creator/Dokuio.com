@@ -11,29 +11,40 @@ Stav k 19. 11. 2026 (77 článků publikováno). Články se píšou do `src/con
 - Priorita: **P1** = hledanost + přímá vazba na vzor, **P2** = doplňující, **P3** = dlouhý ocas.
 
 
+## Hledanost CZ (Google Ads Plánovač, Česko, 11/2025–10/2026, rozpětí – účet bez kampaní)
+
+| Hledanost / měsíc | Dotazy |
+|---|---|
+| **1 000–10 000** | kupní smlouva auto · kupní smlouva na auto vzor · kupní smlouva vzor · darovací smlouva · nájemní smlouva (+ vzor) · odstoupení od smlouvy · plná moc (+ vzor) · plná moc k přepisu vozidla · prodej auta · přepis auta · souhlas s vycestováním dítěte · **předžalobní výzva** · **čestné prohlášení (+ vzor)** · **smlouva o dílo** · dohoda o provedení práce |
+| 100–1 000 | darovací smlouva vzor / auto · dohoda o skončení nájmu · kupní smlouva motorka · odstoupení od kupní smlouvy vzor · podnájemní smlouva · pracovní smlouva vzor · promlčení dluhu · předávací protokol auto / byt · předžalobní výzva vzor · reklamace vzor · reklamační protokol · smlouva o dílo vzor · smlouva o půjčce vzor · smlouva o výpůjčce · smlouva o zápůjčce · splátkový kalendář · uznání dluhu (+ vzor) · vrácení zboží · výpověď nájemní smlouvy vzor · výpověď povinného ručení · výpověď z nájmu |
+| 10–100 | dohoda o splátkách · kauce nájem · kupní smlouva pozemek · nájemní smlouva garáž · plná moc k převzetí zásilky · potvrzení o převzetí peněz · souhlas s trvalým pobytem · upomínka dluhu |
+
+**Závěr:** nové vzory podle hledanosti: **předžalobní výzva**, **čestné prohlášení**, **smlouva o dílo** (vše 1–10 tis.), pak smlouva o výpůjčce. Dohodu o provedení práce a pracovní smlouvu zatím ne (pracovní právo = vyšší riziko).
+Souhlas s vycestováním dítěte má 1–10 tis. → převést do všech zemí jako první z „jen CZ“ dokumentů.
+
 ## Jednotná sada témat ve všech zemích
 
 Každé téma má článek v každé zemi – stejný obsah, ale **přepsaný podle práva a úřadů dané země** (ne překlad).
 Nová země = napsat všech 8 základních témat. Nové téma = napsat ho pro všechny země najednou.
 
-| Téma | 🇨🇿 cz | 🇸🇰 sk | 🇵🇱 pl | 🇩🇪 de | 🇦🇹 at | 🇨🇭 ch |
-|---|---|---|---|---|---|---|
-| Prodej auta | jak-prodat-auto | ako-predat-auto | jak-sprzedac-samochod | auto-privat-verkaufen | auto-privat-verkaufen-oesterreich | auto-privat-verkaufen-schweiz |
-| Přepis / registrace | prepis-auta | prepis-vozidla | przerejestrowanie-samochodu (+ pcc-3) | auto-ummelden-halterwechsel | auto-ab-und-anmelden | halterwechsel-strassenverkehrsamt |
-| Půjčka známému | pujcka-kamaradovi | pozicka-kamaratovi | pozyczka-dla-znajomego | privatdarlehen-freunde | privatdarlehen-oesterreich | privatdarlehen-schweiz |
-| Uznání dluhu | uznani-dluhu | uznanie-dlhu | uznanie-dlugu | schuldanerkenntnis-bgb | schuldanerkenntnis-oesterreich | schuldanerkennung-betreibung |
-| Promlčení | promlceni-dluhu | premlcanie-dlhu | przedawnienie-dlugu | verjaehrung-forderungen | verjaehrung-oesterreich | verjaehrung-schweiz |
-| Reklamace | reklamace-zbozi | reklamacia-tovaru | reklamacja-towaru | gewaehrleistung-maengel | gewaehrleistung-oesterreich | gewaehrleistung-schweiz |
-| Vrácení zboží (e-shop) | vraceni-zbozi-z-e-shopu | vratenie-tovaru-z-e-shopu | zwrot-towaru-kupionego-online | widerrufsrecht-online-kauf | ruecktritt-online-kauf-fagg | rueckgabe-online-kauf-schweiz |
-| Plná moc – forma | plna-moc-kdy-overit | splnomocnenie-kedy-overit | pelnomocnictwo-kiedy-notariusz | vollmacht-form-beglaubigung | vollmacht-oesterreich | vollmacht-schweiz |
-| Koupě ojetiny | koupe-ojeteho-auta | kupa-jazdeneho-auta | zakup-uzywanego-samochodu | gebrauchtwagen-privat-kaufen | gebrauchtwagen-kaufen-oesterreich | occasion-kaufen-schweiz |
+| Téma | 🇨🇿 cz | 🇸🇰 sk | 🇵🇱 pl | 🇩🇪 de | 🇦🇹 at | 🇨🇭 ch | 🇭🇺 hu |
+|---|---|---|---|---|---|---|---|
+| Prodej auta | jak-prodat-auto | ako-predat-auto | jak-sprzedac-samochod | auto-privat-verkaufen | auto-privat-verkaufen-oesterreich | auto-privat-verkaufen-schweiz | auto-eladasa |
+| Přepis / registrace | prepis-auta | prepis-vozidla | przerejestrowanie-samochodu (+ pcc-3) | auto-ummelden-halterwechsel | auto-ab-und-anmelden | halterwechsel-strassenverkehrsamt | forgalmi-atiras |
+| Půjčka známému | pujcka-kamaradovi | pozicka-kamaratovi | pozyczka-dla-znajomego | privatdarlehen-freunde | privatdarlehen-oesterreich | privatdarlehen-schweiz | kolcson-ismerosnek |
+| Uznání dluhu | uznani-dluhu | uznanie-dlhu | uznanie-dlugu | schuldanerkenntnis-bgb | schuldanerkenntnis-oesterreich | schuldanerkennung-betreibung | tartozaselismeres |
+| Promlčení | promlceni-dluhu | premlcanie-dlhu | przedawnienie-dlugu | verjaehrung-forderungen | verjaehrung-oesterreich | verjaehrung-schweiz | elevules |
+| Reklamace | reklamace-zbozi | reklamacia-tovaru | reklamacja-towaru | gewaehrleistung-maengel | gewaehrleistung-oesterreich | gewaehrleistung-schweiz | kellekszavatossag |
+| Vrácení zboží (e-shop) | vraceni-zbozi-z-e-shopu | vratenie-tovaru-z-e-shopu | zwrot-towaru-kupionego-online | widerrufsrecht-online-kauf | ruecktritt-online-kauf-fagg | rueckgabe-online-kauf-schweiz | elallas-online-vasarlastol |
+| Plná moc – forma | plna-moc-kdy-overit | splnomocnenie-kedy-overit | pelnomocnictwo-kiedy-notariusz | vollmacht-form-beglaubigung | vollmacht-oesterreich | vollmacht-schweiz | meghatalmazas-mikor-kell-tanu |
+| Koupě ojetiny | koupe-ojeteho-auta | kupa-jazdeneho-auta | zakup-uzywanego-samochodu | gebrauchtwagen-privat-kaufen | gebrauchtwagen-kaufen-oesterreich | occasion-kaufen-schweiz | hasznalt-auto-vasarlasa |
 | Darování a daně | darovani-penez-v-rodine | darovanie-penazi-a-veci | darowizna-w-rodzinie | schenkung-geld-familie | schenkung-oesterreich | schenkung-schweiz |
-| Nájem – kauce | kauce-u-najmu | najom-bytu-zabezpeka | kaucja-za-mieszkanie | mietkaution | kaution-mietwohnung-oesterreich | mietkaution-schweiz |
-| Nájem – výpověď | vypoved-z-najmu | vypoved-z-najmu-bytu | wypowiedzenie-najmu-mieszkania | wohnung-kuendigen | mietvertrag-kuendigen-oesterreich | wohnung-kuendigen-schweiz |
+| Nájem – kauce | kauce-u-najmu | najom-bytu-zabezpeka | kaucja-za-mieszkanie | mietkaution | kaution-mietwohnung-oesterreich | mietkaution-schweiz | kaucio-alberletnel |
+| Nájem – výpověď | vypoved-z-najmu | vypoved-z-najmu-bytu | wypowiedzenie-najmu-mieszkania | wohnung-kuendigen | mietvertrag-kuendigen-oesterreich | wohnung-kuendigen-schweiz | alberlet-felmondasa |
 
 Jen pro CZ: vypoved-povinneho-ruceni, cestovani-s-ditetem-bez-rodice, trvaly-pobyt-v-cizim-byte, limit-platby-v-hotovosti (vzory/instituty jsou specificky české).
 
-**🇭🇺 Maďarsko:** země je připravená a vzory ověřené (19. 11. 2026), ale skrytá – napsat všech 12 témat (poradna `/hu/tanacsadas/` + `_poradna.ts`).
+**🇭🇺 Maďarsko:** spuštěno 20. 11. 2026 – 14 vzorů, poradna `/hu/tanacsadas/` se všemi 12 tématy.
 
 **SK pozor:** od 1. 7. 2027 platí nový Občiansky zákonník (zákon č. 260/2026 Z. z.) – před tímto datem projít všechny SK vzory a články (nájem, premlčanie, pôžička, darovanie…).
 

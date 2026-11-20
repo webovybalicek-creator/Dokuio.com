@@ -26,12 +26,12 @@ Jednotná sada 11 dokumentů v každé zemi (podle práva a úředních zdrojů 
 Česko má navíc: kupní smlouvu na motorku, nájemní a podnájemní smlouvu (i dvojjazyčně CZ/EN), předávací protokol k bytu,
 výpověď a dohodu o skončení nájmu, výpověď povinného ručení, souhlas s trvalým pobytem a s vycestováním dítěte.
 
-🇭🇺 **Maďarsko (rozpracované, skryté):** `src/obsah/hu/`, `src/sablony/hu/` – 14 vzorů (adásvétel autó s tanúk, jegyzőkönyv,
+🇭🇺 **Maďarsko (spuštěno 20. 11. 2026):** `src/obsah/hu/`, `src/sablony/hu/` – 14 vzorů (adásvétel autó s tanúk, jegyzőkönyv,
 meghatalmazás k átírás i obecná, kölcsön, elismervény, ajándékozás, tartozáselismerés, elállás, kellékszavatosság,
 lakásbérlet + jegyzőkönyv + felmondás, adásvétel věci), maďarské rozhraní `src/i18n/hu.ts`, částky slovy `sablony/hu/szamok.ts`,
 info stránky, e-mail. Vzory ověřené 19. 11. 2026 na njt.jog.gov.hu (oprava: prodávající hlásí prodej auta do 15 dní,
-304/2009. Korm. r. 2. § (1); povinné náležitosti smlouvy podle 3. §; osvobození darů i pro sourozence). `aktivni: false` –
-neaktivní země se vůbec negeneruje (ani stránky, ani sitemap). Před zapnutím: napsat články poradny, ideálně kontrola ügyvéd.
+304/2009. Korm. r. 2. § (1); povinné náležitosti smlouvy podle 3. §; osvobození darů i pro sourozence). Poradna `/hu/tanacsadas/` – 12 článků. Doporučená kontrola maďarským advokátem (ügyvéd).
+Obecně: země s `aktivni: false` se vůbec negeneruje (ani stránky, ani sitemap).
 
 Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 
@@ -74,7 +74,6 @@ Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 ## Otevřené
 
 - Kontrola šablon místním advokátem (hlavně nájem/podnájem a zahraniční šablony).
-- 🇭🇺 Maďarsko: napsat články poradny (12 témat) → `aktivni: true`.
 - Upozornění 1. 3. 2027: příprava SK vzorů na nový Občiansky zákonník (účinnost 1. 7. 2027) – naplánovaná úloha.
 - Další země (Slovinsko, Chorvatsko…), CH ve francouzštině/italštině.
 - PL: tlačítko pro odstoupení – sledovat novelu zákona o právech spotřebitele.

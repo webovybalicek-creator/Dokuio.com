@@ -1,8 +1,7 @@
 import type { Zeme } from '../typy';
 
 /**
- * Magyarország. Vzory ověřené 19. 11. 2026 (viz src/sablony/hu/forrasok.ts). NEAKTIVNÍ, dokud nebudou
- * napsané články poradny (jednotná sada témat) – pak přepnout `aktivni: true`.
+ * Magyarország. Vzory ověřené 19. 11. 2026 (viz src/sablony/hu/forrasok.ts), poradna 12 článků (20. 11. 2026).
  */
 export const zeme: Zeme = {
   kod: 'hu',
@@ -11,7 +10,7 @@ export const zeme: Zeme = {
   jazyk: 'hu',
   hreflang: 'hu-HU',
   casovaZona: 'Europe/Budapest',
-  aktivni: false,
+  aktivni: true,
   poradi: 7,
   kategorie: { auto: 'Autó', penz: 'Pénz és ajándék', lakas: 'Lakás és bérlet', mindennapok: 'Vásárlás és ügyintézés' },
   skupiny: {

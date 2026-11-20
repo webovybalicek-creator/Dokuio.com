@@ -48,36 +48,36 @@ export const srcsetFotky = (klic: string, pomer = 16 / 9) =>
 export const autorFotky = (klic: string) => (FOTKY as Record<string, Fotka>)[klic]?.autor ?? '';
 
 /** Popisky fotek (alt) podle jazyka; de-CH používá de (bez ß) */
-const ALT: Record<string, [string, string, string, string]> = {
-  'auto-klice': ['Předání klíčů od auta', 'Odovzdanie kľúčov od auta', 'Przekazanie kluczyków do samochodu', 'Übergabe der Autoschlüssel'],
-  'auto-predani': ['Prodávající podává kupujícímu klíče od auta', 'Predávajúci podáva kupujúcemu kľúče od auta', 'Sprzedający podaje kupującemu kluczyki', 'Verkäufer übergibt dem Käufer den Autoschlüssel'],
-  'auto-ojetina': ['Klíček v ruce před ojetým autem', 'Kľúč v ruke pred jazdeným autom', 'Kluczyk w dłoni przed używanym autem', 'Autoschlüssel vor einem Gebrauchtwagen'],
-  'auto-tachometr': ['Tachometr auta', 'Tachometer auta', 'Licznik samochodu', 'Tacho eines Autos'],
-  'auto-jizda': ['Jízda autem po silnici', 'Jazda autom po ceste', 'Jazda samochodem', 'Autofahrt auf der Landstrasse'],
-  'auto-palubka': ['Interiér auta s volantem', 'Interiér auta s volantom', 'Wnętrze samochodu', 'Innenraum eines Autos'],
-  'podpis': ['Podpis smlouvy perem', 'Podpis zmluvy perom', 'Podpisywanie umowy', 'Unterschrift unter einen Vertrag'],
-  'dokumenty': ['Dva lidé procházejí dokumenty', 'Dvaja ľudia prechádzajú dokumenty', 'Dwie osoby przeglądają dokumenty', 'Zwei Personen prüfen Dokumente'],
-  'psani': ['Psaní dokumentu', 'Písanie dokumentu', 'Pisanie dokumentu', 'Ein Dokument wird geschrieben'],
-  'podani-ruky': ['Podání ruky nad smlouvou', 'Podanie rúk nad zmluvou', 'Uścisk dłoni nad umową', 'Handschlag über einem Vertrag'],
-  'penize': ['Bankovky v ruce', 'Bankovky v ruke', 'Banknoty w dłoni', 'Geldscheine in der Hand'],
-  'kalkulacka': ['Počítání na kalkulačce', 'Počítanie na kalkulačke', 'Liczenie na kalkulatorze', 'Rechnen mit dem Taschenrechner'],
-  'ucty': ['Doklady a kalkulačka na stole', 'Doklady a kalkulačka na stole', 'Dokumenty i kalkulator na biurku', 'Belege und Taschenrechner auf dem Tisch'],
-  'dar': ['Zabalený dárek', 'Zabalený darček', 'Zapakowany prezent', 'Verpacktes Geschenk'],
-  'klice-byt': ['Klíče od bytu před vchodem', 'Kľúče od bytu pred vchodom', 'Klucze do mieszkania przed wejściem', 'Wohnungsschlüssel vor dem Eingang'],
-  'klice-dvere': ['Klíč ve dveřích', 'Kľúč vo dverách', 'Klucz w drzwiach', 'Schlüssel in der Tür'],
-  'stehovani': ['Stěhování s krabicemi', 'Sťahovanie s krabicami', 'Przeprowadzka z kartonami', 'Umzug mit Kartons'],
-  'krabice': ['Pokoj plný krabic', 'Izba plná krabíc', 'Pokój pełen kartonów', 'Zimmer voller Kartons'],
-  'balik': ['Předání balíku', 'Odovzdanie balíka', 'Przekazanie paczki', 'Übergabe eines Pakets'],
-  'nakup-online': ['Nákup na internetu s platební kartou', 'Nákup na internete s platobnou kartou', 'Zakupy online z kartą płatniczą', 'Online-Einkauf mit Kreditkarte'],
-  'oprava': ['Oprava mobilního telefonu', 'Oprava mobilného telefónu', 'Naprawa telefonu', 'Reparatur eines Smartphones'],
-  'rozbity-telefon': ['Rozbitý displej telefonu', 'Rozbitý displej telefónu', 'Rozbity ekran telefonu', 'Gesprungenes Handydisplay'],
-  'dite-cesta': ['Dítě na letišti', 'Dieťa na letisku', 'Dziecko na lotnisku', 'Kind am Flughafen'],
-  'pas': ['Cestovní pas v ruce', 'Cestovný pas v ruke', 'Paszport w dłoni', 'Reisepass in der Hand'],
+const ALT: Record<string, [string, string, string, string, string]> = {
+  'auto-klice': ['Předání klíčů od auta', 'Odovzdanie kľúčov od auta', 'Przekazanie kluczyków do samochodu', 'Übergabe der Autoschlüssel', 'Az autókulcs átadása'],
+  'auto-predani': ['Prodávající podává kupujícímu klíče od auta', 'Predávajúci podáva kupujúcemu kľúče od auta', 'Sprzedający podaje kupującemu kluczyki', 'Verkäufer übergibt dem Käufer den Autoschlüssel', 'Az eladó átadja a vevőnek az autókulcsot'],
+  'auto-ojetina': ['Klíček v ruce před ojetým autem', 'Kľúč v ruke pred jazdeným autom', 'Kluczyk w dłoni przed używanym autem', 'Autoschlüssel vor einem Gebrauchtwagen', 'Autókulcs egy használt autó előtt'],
+  'auto-tachometr': ['Tachometr auta', 'Tachometer auta', 'Licznik samochodu', 'Tacho eines Autos', 'Az autó kilométerórája'],
+  'auto-jizda': ['Jízda autem po silnici', 'Jazda autom po ceste', 'Jazda samochodem', 'Autofahrt auf der Landstrasse', 'Autózás országúton'],
+  'auto-palubka': ['Interiér auta s volantem', 'Interiér auta s volantom', 'Wnętrze samochodu', 'Innenraum eines Autos', 'Autó belső tere kormánnyal'],
+  'podpis': ['Podpis smlouvy perem', 'Podpis zmluvy perom', 'Podpisywanie umowy', 'Unterschrift unter einen Vertrag', 'Szerződés aláírása tollal'],
+  'dokumenty': ['Dva lidé procházejí dokumenty', 'Dvaja ľudia prechádzajú dokumenty', 'Dwie osoby przeglądają dokumenty', 'Zwei Personen prüfen Dokumente', 'Két ember iratokat néz át'],
+  'psani': ['Psaní dokumentu', 'Písanie dokumentu', 'Pisanie dokumentu', 'Ein Dokument wird geschrieben', 'Dokumentum írása'],
+  'podani-ruky': ['Podání ruky nad smlouvou', 'Podanie rúk nad zmluvou', 'Uścisk dłoni nad umową', 'Handschlag über einem Vertrag', 'Kézfogás egy szerződés felett'],
+  'penize': ['Bankovky v ruce', 'Bankovky v ruke', 'Banknoty w dłoni', 'Geldscheine in der Hand', 'Bankjegyek kézben'],
+  'kalkulacka': ['Počítání na kalkulačce', 'Počítanie na kalkulačke', 'Liczenie na kalkulatorze', 'Rechnen mit dem Taschenrechner', 'Számolás számológéppel'],
+  'ucty': ['Doklady a kalkulačka na stole', 'Doklady a kalkulačka na stole', 'Dokumenty i kalkulator na biurku', 'Belege und Taschenrechner auf dem Tisch', 'Bizonylatok és számológép az asztalon'],
+  'dar': ['Zabalený dárek', 'Zabalený darček', 'Zapakowany prezent', 'Verpacktes Geschenk', 'Becsomagolt ajándék'],
+  'klice-byt': ['Klíče od bytu před vchodem', 'Kľúče od bytu pred vchodom', 'Klucze do mieszkania przed wejściem', 'Wohnungsschlüssel vor dem Eingang', 'Lakáskulcs a bejárat előtt'],
+  'klice-dvere': ['Klíč ve dveřích', 'Kľúč vo dverách', 'Klucz w drzwiach', 'Schlüssel in der Tür', 'Kulcs az ajtóban'],
+  'stehovani': ['Stěhování s krabicemi', 'Sťahovanie s krabicami', 'Przeprowadzka z kartonami', 'Umzug mit Kartons', 'Költözés dobozokkal'],
+  'krabice': ['Pokoj plný krabic', 'Izba plná krabíc', 'Pokój pełen kartonów', 'Zimmer voller Kartons', 'Dobozokkal teli szoba'],
+  'balik': ['Předání balíku', 'Odovzdanie balíka', 'Przekazanie paczki', 'Übergabe eines Pakets', 'Csomag átadása'],
+  'nakup-online': ['Nákup na internetu s platební kartou', 'Nákup na internete s platobnou kartou', 'Zakupy online z kartą płatniczą', 'Online-Einkauf mit Kreditkarte', 'Online vásárlás bankkártyával'],
+  'oprava': ['Oprava mobilního telefonu', 'Oprava mobilného telefónu', 'Naprawa telefonu', 'Reparatur eines Smartphones', 'Mobiltelefon javítása'],
+  'rozbity-telefon': ['Rozbitý displej telefonu', 'Rozbitý displej telefónu', 'Rozbity ekran telefonu', 'Gesprungenes Handydisplay', 'Repedt telefonkijelző'],
+  'dite-cesta': ['Dítě na letišti', 'Dieťa na letisku', 'Dziecko na lotnisku', 'Kind am Flughafen', 'Gyermek a repülőtéren'],
+  'pas': ['Cestovní pas v ruce', 'Cestovný pas v ruke', 'Paszport w dłoni', 'Reisepass in der Hand', 'Útlevél kézben'],
 };
 
 export const altFotky = (klic: string, jazyk: string) => {
   const a = ALT[klic];
   if (!a) return '';
-  const i = { cs: 0, sk: 1, pl: 2 }[jazyk] ?? 3;
+  const i = ({ cs: 0, sk: 1, pl: 2, hu: 4 } as Record<string, number>)[jazyk] ?? 3;
   return jazyk === 'de-CH' ? a[3].replace(/ß/g, 'ss') : a[i];
 };
