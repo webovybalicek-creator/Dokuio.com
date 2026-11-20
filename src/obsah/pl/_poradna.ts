@@ -38,6 +38,7 @@ export const poradna: Poradna = {
       temata: [
         { slug: 'zwrot', nazev: 'Zwrot zakupu', popis: 'Odstąpienie od umowy w 14 dni.' },
         { slug: 'reklamacja', nazev: 'Reklamacja', popis: 'Terminy i prawa konsumenta.' },
+        { slug: 'sprzedaz-rzeczy', nazev: 'Sprzedaż z drugiej ręki', popis: 'OLX, ogłoszenie, umowa, PCC.' },
         { slug: 'fachowcy', nazev: 'Fachowcy i usługi', popis: 'Umowa o dzieło, zaliczka, odbiór.' },
         { slug: 'uzyczenie', nazev: 'Użyczenie rzeczy', popis: 'Zasady, koszty, zwrot.' },
       ],

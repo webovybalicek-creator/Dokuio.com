@@ -38,6 +38,7 @@ export const poradna: Poradna = {
       temata: [
         { slug: 'widerruf', nazev: 'Widerruf und Rückgabe', popis: '14 Tage Widerrufsrecht.' },
         { slug: 'gewaehrleistung', nazev: 'Gewährleistung', popis: 'Fristen und Rechte bei Mängeln.' },
+        { slug: 'privatverkauf', nazev: 'Privatverkauf', popis: 'Inserat, Kaufvertrag, Betrugsmaschen.' },
         { slug: 'handwerker', nazev: 'Handwerker', popis: 'Werkvertrag, Preis, Abnahme.' },
       ],
     },

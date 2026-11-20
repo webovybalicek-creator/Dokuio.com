@@ -80,8 +80,8 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 | ✅ | P3 | bydleni / konec-najmu | Dohoda o skončení nájmu místo výpovědi | dohoda o ukončení nájmu | dohoda o skončení nájmu |
 | ✅ | P1 | nakupy / vraceni-zbozi | Vrácení zboží z e-shopu do 14 dnů | vrácení zboží e-shop | odstoupení od smlouvy |
 | ✅ | P1 | nakupy / reklamace | Reklamace zboží – lhůty a práva | reklamace | reklamace |
-| ⬜ | P2 | nakupy / reklamace | Obchod zamítl reklamaci – co dál (ČOI, mimosoudní řešení) | zamítnutá reklamace | reklamace |
-| ⬜ | P2 | nakupy / prodej-veci | Prodej přes bazar a inzerát: kupní smlouva a podvody | prodej bazar | kupní smlouva na věc |
+| ✅ | P2 | nakupy / reklamace | Obchod zamítl reklamaci – co dál (ČOI, mimosoudní řešení) | zamítnutá reklamace | reklamace |
+| ✅ | P2 | nakupy / prodej-veci | Prodej přes bazar a inzerát: kupní smlouva a podvody | prodej bazar | kupní smlouva na věc |
 | ⬜ | P3 | nakupy / vraceni-zbozi | Vrácení zboží koupeného na tržišti a od Číny | vrácení zboží zahraničí | odstoupení |
 | ✅ | P1 | rodina-a-urady / plna-moc | Plná moc: kdy stačí obyčejná a kdy úředně ověřená | plná moc vzor | plná moc |
 | ✅ | P1 | rodina-a-urady / deti | Cestování s dítětem bez rodiče: souhlas s vycestováním | souhlas s vycestováním dítěte | souhlas s vycestováním |
@@ -115,7 +115,7 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 | ✅ | P2 | pieniadze / dlugi | Uznanie długu i przedawnienie | uznanie długu | uznanie długu |
 | ✅ | P1 | zakupy / zwrot | Zwrot zakupu z internetu w 14 dni | odstąpienie od umowy | odstąpienie |
 | ✅ | P1 | zakupy / reklamacja | Reklamacja: 2 lata, odpowiedź w 14 dni | reklamacja | reklamacja |
-| ⬜ | P2 | zakupy / zwrot | Sprzedaż rzeczy na OLX: umowa i PCC | sprzedaż rzeczy umowa | umowa kupna-sprzedaży |
+| ✅ | P2 | zakupy / zwrot | Sprzedaż rzeczy na OLX: umowa i PCC | sprzedaż rzeczy umowa | umowa kupna-sprzedaży |
 | ✅ | P2 | sprawy / pelnomocnictwo | Pełnomocnictwo: kiedy wystarczy zwykłe | pełnomocnictwo wzór | pełnomocnictwo |
 
 ## 🇩🇪 Deutschland – /de/ratgeber/

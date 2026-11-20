@@ -38,6 +38,7 @@ export const poradna: Poradna = {
       temata: [
         { slug: 'rueckgabe', nazev: 'Rückgabe und Widerruf', popis: 'Was online, an der Haustür und am Telefon gilt.' },
         { slug: 'gewaehrleistung', nazev: 'Gewährleistung', popis: 'Sofort rügen, Fristen und Rechte.' },
+        { slug: 'privatverkauf', nazev: 'Privatverkauf', popis: 'Inserat, Kaufvertrag, Betrugsmaschen.' },
         { slug: 'handwerker', nazev: 'Handwerker', popis: 'Werkvertrag, Preis, Abnahme.' },
       ],
     },

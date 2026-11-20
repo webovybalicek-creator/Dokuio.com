@@ -38,6 +38,7 @@ export const poradna: Poradna = {
       temata: [
         { slug: 'vratenie-tovaru', nazev: 'Vrátenie tovaru', popis: 'Odstúpenie od zmluvy do 14 dní.' },
         { slug: 'reklamacia', nazev: 'Reklamácia', popis: 'Lehoty a práva kupujúceho.' },
+        { slug: 'predaj-veci', nazev: 'Predaj z druhej ruky', popis: 'Bazár, inzerát, kúpna zmluva.' },
         { slug: 'remeselnici', nazev: 'Remeselníci a služby', popis: 'Zmluva o dielo, preddavok, prevzatie.' },
         { slug: 'pozicanie-veci', nazev: 'Požičanie vecí', popis: 'Výpožička, vrátenie, škody.' },
       ],
