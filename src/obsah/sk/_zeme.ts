@@ -31,6 +31,7 @@ export const zeme: Zeme = {
       { slug: 'vypoved-z-najmu', popis: 'Výpoveď nájomcu, lehota tri mesiace.' },
     ],
     bezne: [
+      { slug: 'zmluva-o-vypozicke', popis: 'Bezplatné požičanie veci.' },
       { slug: 'kupna-zmluva', popis: 'Predaj použitých vecí medzi ľuďmi.' },
       { slug: 'odstupenie-od-zmluvy', popis: 'Vrátenie tovaru z e-shopu do 14 dní.' },
       { slug: 'reklamacia', popis: 'Chybný tovar u predávajúceho.' },

@@ -32,6 +32,7 @@ export const zeme: Zeme = {
       { slug: 'kuendigung-vertrag', popis: 'Strom, Gas, Internet beim Umzug kündigen.' },
     ],
     alltag: [
+      { slug: 'leihvertrag', popis: 'Sache kostenlos verleihen.' },
       { slug: 'vollmacht', popis: 'Damit jemand eine Sache für Sie erledigt.' },
       { slug: 'kaufvertrag-privat', popis: 'Gebrauchte Sachen von privat verkaufen.' },
       { slug: 'widerruf', popis: 'Online-Kauf binnen 14 Tagen widerrufen.' },

@@ -34,6 +34,7 @@ export const zeme: Zeme = {
       { slug: 'berleti-szerzodes-felmondasa', popis: 'Felmondás a bérlő részéről.' },
     ],
     mindennapok: [
+      { slug: 'haszonkolcson-szerzodes', popis: 'Dolog ingyenes kölcsönadása.' },
       { slug: 'meghatalmazas', popis: 'Ha valamit más intéz Ön helyett.' },
       { slug: 'adasveteli-szerzodes', popis: 'Használt dolog eladása.' },
       { slug: 'elallasi-nyilatkozat', popis: 'Webshopos vásárlás visszaküldése 14 napon belül.' },

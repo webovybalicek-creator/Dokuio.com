@@ -31,6 +31,7 @@ export const zeme: Zeme = {
       { slug: 'kuendigung-mietvertrag', popis: 'Kündigung durch den Mieter.' },
     ],
     alltag: [
+      { slug: 'leihvertrag', popis: 'Sache kostenlos verleihen.' },
       { slug: 'vollmacht', popis: 'Damit jemand eine Sache für Sie erledigt.' },
       { slug: 'kaufvertrag-privat', popis: 'Gebrauchte Sachen von privat verkaufen.' },
       { slug: 'ruecktritt-widerruf', popis: 'Online-Kauf binnen 14 Tagen zurückgeben.' },

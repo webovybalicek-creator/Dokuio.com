@@ -22,6 +22,7 @@ Jednotná sada 11 dokumentů v každé zemi (podle práva a úředních zdrojů 
 | Reklamace | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Předžalobní výzva / výzva k zaplacení | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Smlouva o dílo (řemeslník, oprava) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Smlouva o výpůjčce (bezplatné půjčení věci) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Čestné prohlášení | ✓ | ✓ | ✓ | ✓² | ✓² | ✓² |
 | Výpověď smlouvy (operátor, pojištění, energie, posilovna, předplatné) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Výpověď z pracovního poměru (zaměstnanec, i návrh dohody) | ✓ | ✓ | ✓ | ✓³ | ✓ | ✓ |

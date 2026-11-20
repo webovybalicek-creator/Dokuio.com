@@ -64,3 +64,4 @@ export const AA_EINVERSTAENDNIS = { nazev: 'Auswärtiges Amt – Einverständnis
 export const AA_REISEHINWEISE = { nazev: 'Auswärtiges Amt – Reise- und Sicherheitshinweise (Einreisebestimmungen)', url: 'https://www.auswaertiges-amt.de/DE/Laenderinformationen/LaenderReiseinformationen_node.html' };
 export const AA_VERTRETUNGEN = { nazev: 'Auswärtiges Amt – Vertretungen anderer Staaten in Deutschland', url: 'https://www.auswaertiges-amt.de/DE/Laenderinformationen/VertretungenFremderStaatenA-Z-Laenderauswahlseite_node.html' };
 export const BPOL_MINDERJAEHRIGE = { nazev: 'Bundespolizei – Reisen mit Minderjährigen', url: 'https://bundespolizei.de/sicher-auf-reisen/passrechtliche-hinweise/reisen-mit-minderjaehrigen' };
+export const BGB_598 = { nazev: '§§ 598–606 BGB – Leihe', url: 'https://www.gesetze-im-internet.de/bgb/__598.html' };

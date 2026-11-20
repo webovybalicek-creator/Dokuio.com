@@ -39,6 +39,7 @@ export const zeme: Zeme = {
       { slug: 'plna-moc', popis: 'Aby za vás někdo něco vyřídil.' },
     ],
     bezne: [
+      { slug: 'smlouva-o-vypujcce', popis: 'Bezplatné půjčení věci.' },
       { slug: 'odstoupeni-od-smlouvy', popis: 'Vrácení zboží z e-shopu.' },
       { slug: 'reklamace', popis: 'Oprava, výměna, sleva nebo vrácení peněz.' },
       { slug: 'souhlas-s-trvalym-pobytem', popis: 'Přihlášení na adresu.' },

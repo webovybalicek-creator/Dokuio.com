@@ -31,6 +31,7 @@ export const zeme: Zeme = {
       { slug: 'wypowiedzenie-umowy-najmu', popis: 'Wypowiedzenie najemcy.' },
     ],
     codzienne: [
+      { slug: 'umowa-uzyczenia', popis: 'Bezpłatne użyczenie rzeczy.' },
       { slug: 'pelnomocnictwo', popis: 'Upoważnienie do załatwienia sprawy.' },
       { slug: 'umowa-kupna-sprzedazy', popis: 'Sprzedaż używanych rzeczy.' },
       { slug: 'odstapienie-od-umowy', popis: 'Zwrot zakupu z internetu w 14 dni.' },
