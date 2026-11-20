@@ -44,6 +44,6 @@ Untermiete ist in der Schweiz weit verbreitet – mit klaren Regeln im Obligatio
 - Sie haften, wenn der Untermieter die Wohnung anders gebraucht, als es Ihnen gestattet ist.
 - Das **Untermietverhältnis endet spätestens mit dem Hauptmietverhältnis**.
 
-## 4. Vertrag schließen
+## 4. Vertrag schliessen
 
 Den [Untermietvertrag](/ch/untermietvertrag/) füllen Sie kostenlos online aus; beim Einzug hilft ein [Übergabeprotokoll](/ch/uebergabeprotokoll-wohnung/). Zahlungen per Überweisung oder gegen [Quittung](/ch/quittung/).
