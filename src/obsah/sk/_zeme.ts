@@ -31,6 +31,7 @@ export const zeme: Zeme = {
       { slug: 'dohoda-o-skonceni-najmu', popis: 'Nájom končí dohodou.' },
       { slug: 'najomna-zmluva-byt', popis: 'Prenájom bytu podľa Občianskeho zákonníka.' },
       { slug: 'preberaci-protokol-bytu', popis: 'Merače, vady a kľúče pri odovzdaní.' },
+      { slug: 'suhlas-s-trvalym-pobytom', popis: 'Súhlas vlastníka s prihlásením na trvalý pobyt.' },
       { slug: 'vypoved-z-najmu', popis: 'Výpoveď nájomcu, lehota tri mesiace.' },
     ],
     bezne: [

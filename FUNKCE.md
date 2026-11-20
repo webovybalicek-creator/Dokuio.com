@@ -43,7 +43,7 @@ Nové vzory (20. 11. 2026) mají i 🇭🇺 HU: fizetési felszólítás, válla
 
 Motorka (20. 11. 2026) se ve všech zemích skládá ze smlouvy na auto přes `sablony/motorka.ts` (`naMotorku`) – právní text stejný, mění se nápovědy, příklady, VIN na rámu a tip k výbavě.
 
-Česko má navíc: výpověď povinného ručení, souhlas s trvalým pobytem a s vycestováním dítěte.
+Česko má navíc: výpověď povinného ručení (jinde stačí obecná výpověď smlouvy; pojištění auta se při prodeji řeší jinak). Souhlas s trvalým pobytem má i 🇸🇰 SK (súhlas vlastníka s osvedčeným podpisom, § 3 ods. 8 písm. d) zák. č. 253/1998 Z. z.); 🇩🇪 DE má místo něj Wohnungsgeberbestätigung (§ 19 BMG). AT, CH, PL a HU používají úřední formuláře (Meldezettel, formulář obce, szállásadói nyilatkozat), vlastní vzor proto nemají. Článek „Jak pronajmout byt“ (20. 11. 2026) je ve všech zemích.
 
 🇭🇺 **Maďarsko (spuštěno 20. 11. 2026):** `src/obsah/hu/`, `src/sablony/hu/` – 14 vzorů (adásvétel autó s tanúk, jegyzőkönyv,
 meghatalmazás k átírás i obecná, kölcsön, elismervény, ajándékozás, tartozáselismerés, elállás, kellékszavatosság,

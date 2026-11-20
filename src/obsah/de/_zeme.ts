@@ -31,6 +31,7 @@ export const zeme: Zeme = {
       { slug: 'mietaufhebungsvertrag', popis: 'Mietverhältnis einvernehmlich beenden.' },
       { slug: 'mietvertrag-wohnung', popis: 'Mietvertrag für eine Wohnung.' },
       { slug: 'uebergabeprotokoll-wohnung', popis: 'Zählerstände, Mängel und Schlüssel.' },
+      { slug: 'wohnungsgeberbestaetigung', popis: 'Einzug bestätigen für die Anmeldung.' },
       { slug: 'kuendigung-mietvertrag', popis: 'Kündigung durch den Mieter.' },
       { slug: 'kuendigung-vertrag', popis: 'Strom, Gas, Internet beim Umzug kündigen.' },
     ],

@@ -58,7 +58,7 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 |---|---|---|---|---|---|
 | ✅ | P1 | auto / prodej-auta | Jak prodat auto v roce 2026 – postup krok za krokem | prodej auta | kupní smlouva auto, protokol, plná moc |
 | ✅ | P1 | auto / prepis-a-registr | Přepis auta: lhůta 10 pracovních dnů, poplatky, co s sebou | přepis auta | plná moc k přepisu |
-| ⬜ | P1 | auto / koupe-ojetiny | Koupě ojetiny: kontrola VIN, tachometru a zástavy před zaplacením | koupě ojetého auta | kupní smlouva auto |
+| ✅ | P1 | auto / koupe-ojetiny | Koupě ojetiny: kontrola VIN, tachometru a zástavy před zaplacením (už existuje ve všech zemích: koupe-ojeteho-auta a obdoby) | koupě ojetého auta | kupní smlouva auto |
 | ✅ | P1 | auto / povinne-ruceni | Výpověď povinného ručení: lhůty 6 týdnů, 8 dní, po nehodě | výpověď povinného ručení | výpověď povinného ručení |
 | ⬜ | P2 | auto / prodej-auta | Prodej auta na splátky: výhrada vlastnictví a bezpečná platba | prodej auta na splátky | kupní smlouva auto |
 | ⬜ | P2 | auto / prodej-auta | Prodej motorky, skútru a čtyřkolky – na co nezapomenout | prodej motorky | kupní smlouva motorka |
@@ -71,7 +71,7 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 | ⬜ | P2 | penize / dary-a-dane | Darování peněz v rodině: smlouva, kdy se platí daň | darování peněz | darovací smlouva |
 | ⬜ | P2 | penize / pujcka | Platba v hotovosti: limit 270 000 Kč a jak ho nepřekročit | limit hotovost | potvrzení o převzetí peněz |
 | ⬜ | P3 | penize / dary-a-dane | Darovací smlouva na auto: přepis a pojištění | darování auta | darovací smlouva |
-| ⬜ | P1 | bydleni / najem-bytu | Jak pronajmout byt: smlouva, kauce, předávací protokol | pronájem bytu | nájemní smlouva, protokol k bytu |
+| ✅ | P1 | bydleni / najem-bytu | Jak pronajmout byt (20. 11. 2026 ve všech zemích; SK = najom-bytu-zabezpeka): smlouva, kauce, předávací protokol | pronájem bytu | nájemní smlouva, protokol k bytu |
 | ✅ | P1 | bydleni / konec-najmu | Výpověď z nájmu: výpovědní doba a důvody (nájemce i pronajímatel) | výpověď z nájmu | výpověď z nájmu, dohoda o skončení |
 | ✅ | P1 | bydleni / konec-najmu | Kauce: kolik smí být a kdy se vrací | kauce nájem | nájemní smlouva, protokol |
 | ⬜ | P2 | bydleni / podnajem | Podnájem bytu: kdy potřebuji souhlas pronajímatele | podnájem | podnájemní smlouva |
