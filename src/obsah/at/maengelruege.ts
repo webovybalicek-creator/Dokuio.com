@@ -9,8 +9,8 @@ const stranka: StrankaDokumentu = {
   nazevA: 'Mängelrüge',
   katalog: { ...de.katalog, slova: ['Mängelrüge', 'Gewährleistung', 'Reklamation', 'VGG', 'defekt'] },
   landing: { ...de.landing, ...{
-  "title": "Mängelrüge Österreich {rok} – Gewährleistung Vorlage kostenlos",
-  "description": "Kostenlose Mängelrüge nach dem VGG: defekte Ware reklamieren, Verbesserung oder Austausch verlangen, Frist setzen.",
+  "title": "Mängelrüge Österreich {rok} – Vorlage PDF kostenlos",
+  "description": "Kostenlose Mängelrüge nach dem VGG: defekte Ware reklamieren, Verbesserung oder Austausch verlangen, Frist setzen. Als PDF und Word.",
   "perex": "Ware kaputt? Mit der Mängelrüge verlangen Sie Verbesserung oder Austausch und setzen eine Frist.",
   "po": [
     {

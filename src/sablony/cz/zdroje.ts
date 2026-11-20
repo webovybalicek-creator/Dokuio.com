@@ -40,3 +40,12 @@ export const ZAKON_SLUZBY = { nazev: 'Zákon č. 67/2013 Sb., služby spojené s
 export const OSR = { nazev: 'Občanský soudní řád č. 99/1963 Sb., § 142a (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/1963/99' };
 export const NV_UROK = { nazev: 'Nařízení vlády č. 351/2013 Sb., výše úroku z prodlení (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2013/351' };
 export const ZAKON_OVEROVANI = { nazev: 'Zákon č. 21/2006 Sb., o ověřování shody opisu a pravosti podpisu (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2006/21' };
+export const ZAKONIK_PRACE = { nazev: 'Zákoník práce č. 262/2006 Sb. (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2006/262' };
+export const MPSV_FLEXINOVELA = {
+  nazev: 'MPSV – Jaké změny přináší flexibilní novela zákoníku práce (od 1. 6. 2025)',
+  url: 'https://mpsv.gov.cz/jake-zmeny-prinasi-flexibilni-novela-zakoniku-prace-',
+};
+export const ZAKON_EK = { nazev: 'Zákon č. 127/2005 Sb., o elektronických komunikacích, § 63b (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2005/127' };
+export const CTU_UKONCENI = { nazev: 'Český telekomunikační úřad – ukončení smlouvy', url: 'https://ctu.gov.cz/ukonceni-smlouvy' };
+export const ENERGETICKY_ZAKON = { nazev: 'Energetický zákon č. 458/2000 Sb., § 11a až 11d (e-Sbírka)', url: 'https://www.e-sbirka.cz/sb/2000/458' };
+export const ERU_VYPOVED = { nazev: 'Energetický regulační úřad – vzory pro odstoupení nebo výpověď smlouvy', url: 'https://eru.gov.cz/vzory-pro-odstoupeni-nebo-vypoved-smlouvy' };

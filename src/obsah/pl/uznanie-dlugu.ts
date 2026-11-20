@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "pieniadze",
   landing: {
   "title": "Uznanie długu {rok} – wzór PDF za darmo",
-  "description": "Darmowe uznanie długu: tytuł i kwota, spłata jednorazowa lub w ratach z harmonogramem. Przerywa bieg przedawnienia.",
+  "description": "Darmowe uznanie długu: tytuł i kwota, spłata jednorazowa lub w ratach z harmonogramem. Przerywa bieg przedawnienia. PDF i Word.",
   "perex": "Dłużnik pisemnie potwierdza, ile i z jakiego tytułu jest winien i jak spłaci dług.",
   "obsahPopis": "Oświadczenie z warunkami spłaty.",
   "obsah": [

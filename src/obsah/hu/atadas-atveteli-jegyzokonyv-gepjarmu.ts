@@ -18,7 +18,7 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: 'auto',
   landing: {
-  "title": "Átadás-átvételi jegyzőkönyv autóhoz {rok} – ingyen minta",
+  "title": "Átadás-átvételi jegyzőkönyv autóhoz {rok} – ingyenes PDF minta",
   "description": "Ingyenes gépjármű átadás-átvételi jegyzőkönyv: kilométeróra, üzemanyag, sérülések, kulcsok és az átadás pontos időpontja. PDF és Word.",
   "perex": "Rögzíti, milyen állapotban és mikor vette át a vevő az autót. Kitölthető az adásvételi szerződés adataiból.",
   "obsahPopis": "Mit rögzít a jegyzőkönyv.",

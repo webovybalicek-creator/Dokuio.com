@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "bezne",
   landing: {
   "title": "Reklamácia tovaru {rok} – vzor zadarmo v PDF",
-  "description": "Bezplatný reklamačný list: opis vady, požiadavka na opravu, výmenu, zľavu alebo vrátenie peňazí. Vybavenie spravidla do 30 dní.",
+  "description": "Bezplatný reklamačný list: opis vady, požiadavka na opravu, výmenu, zľavu alebo vrátenie peňazí. Vybavenie spravidla do 30 dní. V PDF aj Worde.",
   "perex": "Tovar je chybný? Reklamujte ho písomne – s presným opisom vady a tým, čo požadujete.",
   "obsahPopis": "Reklamácia s požiadavkou na vybavenie.",
   "obsah": [

@@ -8,8 +8,8 @@ const stranka: StrankaDokumentu = {
   katalog: { popis: "Wohnungsmietvertrag nach ABGB und MRG.", kategorie: 'wohnen', ilustrace: 'protokol', slova: ["Mietvertrag", "Wohnung mieten", "Wohnung vermieten", "Kaution", "Befristung", "MRG", "Österreich"] },
   souvisejici: 'wohnen',
   landing: {
-    title: "Mietvertrag Wohnung Österreich {rok} – Vorlage PDF",
-    description: "Mietvertrag für Wohnungen in Österreich nach ABGB und MRG: befristet ab 3 Jahren oder unbefristet, Kaution, Betriebskosten, Wertsicherung nach MieWeG.",
+    title: "Mietvertrag Wohnung Österreich {rok} – Vorlage PDF kostenlos",
+    description: "Mietvertrag für Wohnungen in Österreich nach ABGB und MRG: befristet oder unbefristet, Kaution, Betriebskosten, Wertsicherung. Kostenlos als PDF und Word.",
     perex: "Sie vermieten in Österreich? Mietvertrag nach ABGB und Mietrechtsgesetz – befristet mindestens drei Jahre oder unbefristet.",
     obsahPopis: "Wohnungsmietvertrag nach §§ 1090 ff. ABGB und MRG.",
     obsah: [{"nazev": "Parteien und Wohnung", "popis": "Vermieter, Mieter, Lage, Ausstattung."}, {"nazev": "Mietdauer", "popis": "Befristet (mind. 3 Jahre) oder unbefristet."}, {"nazev": "Mietzins und Kaution", "popis": "Akonto, Wertsicherung, verzinste Kaution."}, {"nazev": "Kündigung", "popis": "Fristen für Mieter."}],

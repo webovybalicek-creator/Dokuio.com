@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   "souvisejici": "auto",
   "landing": {
     "title": "Übergabeprotokoll Fahrzeug Schweiz {rok} – Vorlage kostenlos als PDF",
-    "description": "Kostenloses Übergabeprotokoll für Auto und Motorrad: Kilometerstand, Tank, Schäden, Schlüssel, Uhrzeit der Übergabe. Für Verkauf und Ausleihe.",
+    "description": "Kostenloses Übergabeprotokoll für Auto und Motorrad: Kilometerstand, Tank, Schäden, Schlüssel, Uhrzeit der Übergabe. Für Verkauf und Ausleihe. Als PDF und Word.",
     "perex": "Halten Sie beim Verkauf oder Ausleihen fest, in welchem Zustand das Fahrzeug übergeben wird – mit Kilometerstand, Schäden und genauer Uhrzeit.",
     "obsahPopis": "Protokoll mit Ankreuzfeldern.",
     "obsah": [

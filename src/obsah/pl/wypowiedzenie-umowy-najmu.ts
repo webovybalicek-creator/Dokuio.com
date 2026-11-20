@@ -8,7 +8,7 @@ const stranka: StrankaDokumentu = {
   katalog: { popis: 'Wypowiedzenie najemcy, 3 miesiące na koniec miesiąca.', kategorie: 'mieszkanie', ilustrace: 'protokol', slova: ['wypowiedzenie umowy najmu', 'wypowiedzenie najmu', 'najemca', 'przeprowadzka', 'okres wypowiedzenia'] },
   souvisejici: 'mieszkanie',
   landing: {
-    title: 'Wypowiedzenie umowy najmu mieszkania {rok} – wzór PDF',
+    title: 'Wypowiedzenie umowy najmu mieszkania {rok} – wzór PDF za darmo',
     description: 'Wypowiedzenie umowy najmu przez najemcę: czas nieoznaczony (3 miesiące, art. 688 KC) i czas oznaczony według umowy. PDF i Word za darmo.',
     perex: 'Przeprowadzasz się? Wypowiedzenie umowy najmu z poprawnym okresem i prośbą o zwrot kaucji.',
     obsahPopis: 'Wypowiedzenie najemcy (art. 688 i 673 KC).',

@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   "souvisejici": "geld",
   "landing": {
     "title": "Schuldanerkennung Vorlage Schweiz {rok} – kostenlos als PDF",
-    "description": "Kostenlose Schuldanerkennung nach Art. 17 OR: Grund und Höhe der Schuld, Zahlung auf einmal oder in Raten. Gilt als Rechtsöffnungstitel (Art. 82 SchKG).",
+    "description": "Kostenlose Schuldanerkennung nach Art. 17 OR: Grund und Höhe der Schuld, Zahlung auf einmal oder in Raten. Gilt als Rechtsöffnungstitel. Als PDF und Word.",
     "perex": "Der Schuldner bestätigt schriftlich, wie viel er schuldet und wann er zahlt. Mit Unterschrift ist das in der Betreibung ein starkes Dokument.",
     "obsahPopis": "Kurzes Dokument, auf Wunsch mit Tilgungsplan.",
     "obsah": [

@@ -18,7 +18,7 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: 'mindennapok',
   landing: {
-  "title": "Elállási nyilatkozat minta {rok} – 14 napos elállás",
+  "title": "Elállási nyilatkozat {rok} – ingyenes PDF minta",
   "description": "Ingyenes elállási nyilatkozat online vásárláshoz a 45/2014. Korm. rendelet szerint: 14 nap indoklás nélkül, emlékeztető a határidőre. PDF.",
   "perex": "Interneten vagy telefonon vásárolt terméket 14 napon belül indoklás nélkül visszaküldhet. A nyilatkozat a hivatalos minta szerint készül.",
   "obsahPopis": "Mit tartalmaz.",

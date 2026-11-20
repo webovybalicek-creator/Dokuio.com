@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   "souvisejici": "alltag",
   "landing": {
     "title": "Vollmacht Vorlage Schweiz {rok} – kostenlos als PDF",
-    "description": "Kostenlose Vollmacht nach Art. 32 ff. OR: Wer wen wofür bevollmächtigt, gültig bis wann. Für Post, Behörden und Alltag.",
+    "description": "Kostenlose Vollmacht nach Art. 32 ff. OR: Wer wen wofür bevollmächtigt, gültig bis wann. Für Post, Behörden und Alltag. Als PDF und Word.",
     "perex": "Damit eine andere Person eine bestimmte Sache für Sie erledigt – klar und konkret formuliert.",
     "obsahPopis": "Eine Seite nach Art. 32 ff. OR.",
     "obsah": [

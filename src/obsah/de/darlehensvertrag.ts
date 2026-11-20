@@ -19,7 +19,7 @@ const stranka: StrankaDokumentu = {
   },
   souvisejici: 'geld',
   landing: {
-    "title": "Privater Darlehensvertrag {rok} – Vorlage kostenlos mit Tilgungsplan",
+    "title": "Privater Darlehensvertrag {rok} – Vorlage PDF kostenlos",
     "description": "Kostenloser privater Darlehensvertrag: Betrag, Zinsen, Rückzahlung in einer Summe oder in Raten mit Tilgungsplan. PDF und Word.",
     "perex": "Geld unter Freunden schwarz auf weiß. In einer Summe oder in Raten – den Tilgungsplan fügen wir automatisch an.",
     "obsahPopis": "Fünf Paragrafen nach §§ 488 ff. BGB.",

@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "alltag",
   landing: {
   "title": "Mängelanzeige {rok} – Reklamation Vorlage kostenlos als PDF",
-  "description": "Kostenlose Mängelanzeige: defekte Ware reklamieren, Reparatur oder Ersatz verlangen und Frist setzen. Nach §§ 437 ff. BGB.",
+  "description": "Kostenlose Mängelanzeige: defekte Ware reklamieren, Reparatur oder Ersatz verlangen und Frist setzen. Nach §§ 437 ff. BGB. Als PDF und Word.",
   "perex": "Ware kaputt? Mit der Mängelanzeige verlangen Sie Reparatur oder Ersatz und setzen eine Frist.",
   "obsahPopis": "Reklamation mit Fristsetzung.",
   "obsah": [

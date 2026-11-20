@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: "alltag",
   landing: {
-  "title": "Widerruf Online-Kauf {rok} – Muster-Widerrufsformular kostenlos",
+  "title": "Widerruf Online-Kauf {rok} – Vorlage PDF kostenlos",
   "description": "Kostenloses Widerrufsformular nach dem gesetzlichen Muster: Online-Kauf binnen 14 Tagen widerrufen, Erstattung anfordern. PDF und Word.",
   "perex": "Online gekauft und doch nicht gewollt? Mit dem gesetzlichen Muster widerrufen Sie innerhalb von 14 Tagen ohne Begründung.",
   "obsahPopis": "Text nach dem Muster-Widerrufsformular.",

@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "penize",
   landing: {
   "title": "Uznanie dlhu {rok} – vzor zadarmo v PDF",
-  "description": "Bezplatné uznanie dlhu podľa § 558 OZ: dôvod a výška dlhu, splatenie naraz alebo v splátkach so splátkovým kalendárom.",
+  "description": "Bezplatné uznanie dlhu podľa § 558 OZ: dôvod a výška dlhu, splatenie naraz alebo v splátkach so splátkovým kalendárom. V PDF aj Worde.",
   "perex": "Dlžník písomne potvrdí, koľko a za čo dlhuje a ako zaplatí. Premlčacia doba sa predĺži na 10 rokov.",
   "obsahPopis": "Uznanie so spôsobom splatenia.",
   "obsah": [

@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Vienna',
   aktivni: true,
   poradi: 5,
-  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten', dienst: 'Handwerker und Aufträge' },
+  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten', dienst: 'Handwerker und Aufträge', arbeit: 'Arbeit und Beruf', familie: 'Familie und Reisen' },
   skupiny: {
     auto: [
       { slug: 'kaufvertrag-gebrauchtwagen', popis: 'Privatverkauf eines gebrauchten Autos.' },
@@ -21,6 +21,7 @@ export const zeme: Zeme = {
       { slug: 'darlehensvertrag', popis: 'Geld leihen, auch in Raten.' },
       { slug: 'quittung', popis: 'Empfangsbestätigung für Bargeld.' },
       { slug: 'schuldanerkenntnis', popis: 'Schuld schriftlich bestätigen, mit Raten.' },
+      { slug: 'ratenvereinbarung', popis: 'Offene Rechnung oder Schuld in Monatsraten.' },
       { slug: 'mahnung', popis: 'Zahlungsaufforderung mit Frist.' },
       { slug: 'schenkungsvertrag', popis: 'Geld oder eine Sache verschenken.' },
     ],
@@ -35,11 +36,24 @@ export const zeme: Zeme = {
       { slug: 'ruecktritt-widerruf', popis: 'Online-Kauf binnen 14 Tagen zurückgeben.' },
       { slug: 'maengelruege', popis: 'Defekte Ware reklamieren.' },
       { slug: 'erklaerung', popis: 'Schriftliche Erklärung für Schule, Bank oder Vermieter.' },
+      { slug: 'kuendigung-vertrag', popis: 'Handy, Versicherung, Strom oder Fitnessstudio kündigen.' },
+      { slug: 'reisevollmacht-kind', popis: 'Kind reist ohne Eltern ins Ausland.' },
     ],
     dienst: [
       { slug: 'werkvertrag', popis: 'Handwerker, Renovierung oder Reparatur.' },
       { slug: 'quittung', popis: 'Anzahlung bar quittieren.' },
       { slug: 'mahnung', popis: 'Wenn der Kunde nicht zahlt.' },
+      { slug: 'ratenvereinbarung', popis: 'Wenn der Kunde nur in Raten zahlen kann.' },
+    ],
+    arbeit: [
+      { slug: 'kuendigung-dienstverhaeltnis', popis: 'Job kündigen oder einvernehmlich auflösen.' },
+      { slug: 'erklaerung', popis: 'Schriftliche Erklärung für Behörde oder Bank.' },
+      { slug: 'vollmacht', popis: 'Damit jemand etwas für Sie erledigt.' },
+    ],
+    familie: [
+      { slug: 'reisevollmacht-kind', popis: 'Einverständniserklärung für die Auslandsreise des Kindes.' },
+      { slug: 'vollmacht', popis: 'Damit jemand etwas für Sie erledigt.' },
+      { slug: 'erklaerung', popis: 'Schriftliche Erklärung für Schule oder Behörde.' },
     ],
   },
   pripravujeme: [],
@@ -91,7 +105,7 @@ export const zeme: Zeme = {
         ilustrace: 'penize',
         moznosti: [
           { text: 'Ich leihe jemandem Geld', dokumenty: ['darlehensvertrag', 'quittung'], balicek: 'geld-leihen' },
-          { text: 'Jemand schuldet mir Geld und will in Raten zahlen', dokumenty: ['schuldanerkenntnis'] },
+          { text: 'Jemand schuldet mir Geld und will in Raten zahlen', dokumenty: ['ratenvereinbarung', 'schuldanerkenntnis'], tip: 'Die Ratenvereinbarung regelt die Zahlung, das Anerkenntnis bestätigt die Schuld.' },
           { text: 'Ich verschenke Geld oder eine Sache', dokumenty: ['schenkungsvertrag'], tip: 'Größere Schenkungen binnen drei Monaten dem Finanzamt melden.' },
           { text: 'Ich übergebe oder erhalte Bargeld', dokumenty: ['quittung'] },
         ],
@@ -104,6 +118,22 @@ export const zeme: Zeme = {
           { text: 'Gekaufte Ware ist defekt', dokumenty: ['maengelruege'] },
           { text: 'Ich verkaufe etwas Gebrauchtes von privat', dokumenty: ['kaufvertrag-privat'] },
           { text: 'Jemand soll etwas für mich erledigen', dokumenty: ['vollmacht'] },
+          { text: 'Ich will Handy, Versicherung, Strom oder Fitnessstudio kündigen', dokumenty: ['kuendigung-vertrag'], tip: 'Frist und Termin stehen in den AGB.' },
+        ],
+      },
+      {
+        nazev: 'Arbeit',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Ich will meinen Job kündigen', dokumenty: ['kuendigung-dienstverhaeltnis'], tip: 'Meist ein Monat zum Monatsletzten – Kollektivvertrag prüfen.' },
+          { text: 'Ich will mich mit dem Arbeitgeber auf ein Ende einigen', dokumenty: ['kuendigung-dienstverhaeltnis'] },
+        ],
+      },
+      {
+        nazev: 'Familie und Reisen',
+        ilustrace: 'plnamoc',
+        moznosti: [
+          { text: 'Mein Kind reist ohne mich oder mit nur einem Elternteil ins Ausland', dokumenty: ['reisevollmacht-kind'], tip: 'Bestimmungen des Ziellandes beim BMEIA prüfen.' },
         ],
       },
     ],

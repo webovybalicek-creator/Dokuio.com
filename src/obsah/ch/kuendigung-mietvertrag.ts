@@ -8,8 +8,8 @@ const stranka: StrankaDokumentu = {
   katalog: { popis: "Kündigung durch den Mieter auf den nächsten Termin.", kategorie: 'wohnen', ilustrace: 'protokol', slova: ["Kündigung Mietvertrag", "Wohnung kündigen", "Kündigungstermin", "Nachmieter", "Schweiz"] },
   souvisejici: 'wohnen',
   landing: {
-    title: "Kündigung Mietvertrag Schweiz {rok} – Vorlage PDF",
-    description: "Kündigung der Wohnung durch den Mieter in der Schweiz: schriftlich, drei Monate auf einen ortsüblichen Termin (Art. 266c OR), Familienwohnung mit beiden Unterschriften.",
+    title: "Kündigung Mietvertrag Schweiz {rok} – Vorlage PDF kostenlos",
+    description: "Wohnung kündigen in der Schweiz: schriftlich, drei Monate auf einen ortsüblichen Termin (Art. 266c OR), Familienwohnung mit zwei Unterschriften. Kostenlos als PDF.",
     perex: "Sie ziehen um? Kündigen Sie schriftlich auf den nächsten Termin – oder suchen Sie einen Nachmieter.",
     obsahPopis: "Kündigung durch den Mieter nach Art. 266c OR.",
     obsah: [{"nazev": "Vermieter", "popis": "An wen die Kündigung geht."}, {"nazev": "Kündigung", "popis": "Termin, Wohnung, Kaution."}],

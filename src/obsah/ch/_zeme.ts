@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Zurich',
   aktivni: true,
   poradi: 6,
-  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten', dienst: 'Handwerker und Aufträge' },
+  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten', dienst: 'Handwerker und Aufträge', arbeit: 'Arbeit und Stelle', familie: 'Familie und Reisen' },
   skupiny: {
     auto: [
       { slug: 'kaufvertrag-auto', popis: 'Privatverkauf eines Occasionsfahrzeugs.' },
@@ -21,6 +21,7 @@ export const zeme: Zeme = {
       { slug: 'darlehensvertrag', popis: 'Geld leihen, auch in Raten.' },
       { slug: 'quittung', popis: 'Empfangsbestätigung für Bargeld.' },
       { slug: 'schuldanerkennung', popis: 'Schuld schriftlich bestätigen – stark in der Betreibung.' },
+      { slug: 'abzahlungsvereinbarung', popis: 'Offene Schuld in Raten abzahlen, von beiden unterschrieben.' },
       { slug: 'mahnung', popis: 'Zahlungsaufforderung mit Frist.' },
       { slug: 'schenkungsvertrag', popis: 'Geld oder eine Sache verschenken.' },
     ],
@@ -28,6 +29,7 @@ export const zeme: Zeme = {
       { slug: 'mietvertrag-wohnung', popis: 'Mietvertrag für eine Wohnung.' },
       { slug: 'uebergabeprotokoll-wohnung', popis: 'Zählerstände, Mängel und Schlüssel.' },
       { slug: 'kuendigung-mietvertrag', popis: 'Kündigung durch den Mieter.' },
+      { slug: 'kuendigung-vertrag', popis: 'Strom abmelden, Internet und TV kündigen beim Umzug.' },
     ],
     alltag: [
       { slug: 'vollmacht', popis: 'Damit jemand eine Sache für Sie erledigt.' },
@@ -35,11 +37,25 @@ export const zeme: Zeme = {
       { slug: 'maengelruege', popis: 'Defekte Ware sofort rügen.' },
       { slug: 'widerruf-haustuergeschaeft', popis: 'Haustür- oder Telefonkauf binnen 14 Tagen widerrufen.' },
       { slug: 'erklaerung', popis: 'Schriftliche Erklärung für Schule, Bank oder Vermieter.' },
+      { slug: 'kuendigung-vertrag', popis: 'Handy, Versicherung, Fitness oder Abo kündigen.' },
     ],
     dienst: [
       { slug: 'werkvertrag', popis: 'Handwerker, Renovierung oder Reparatur.' },
       { slug: 'quittung', popis: 'Anzahlung bar quittieren.' },
       { slug: 'mahnung', popis: 'Wenn der Kunde nicht zahlt.' },
+      { slug: 'abzahlungsvereinbarung', popis: 'Wenn der Kunde in Raten zahlen will.' },
+      { slug: 'kuendigung-vertrag', popis: 'Auftrag jederzeit beenden (Art. 404 OR).' },
+    ],
+    kuendigungen: [
+      { slug: 'kuendigung-vertrag', popis: 'Handy, Versicherung, Krankenkasse, Fitness, Abo oder Auftrag.' },
+      { slug: 'kuendigung-arbeitsvertrag', popis: 'Stelle kündigen als Arbeitnehmer/in.' },
+      { slug: 'kuendigung-mietvertrag', popis: 'Wohnung kündigen als Mieter/in.' },
+      { slug: 'widerruf-haustuergeschaeft', popis: 'Haustür- oder Telefonkauf binnen 14 Tagen widerrufen.' },
+    ],
+    familie: [
+      { slug: 'einverstaendniserklaerung-reise-kind', popis: 'Kind reist ohne Eltern oder mit einem Elternteil ins Ausland.' },
+      { slug: 'vollmacht', popis: 'Damit jemand eine Sache für Sie erledigt.' },
+      { slug: 'erklaerung', popis: 'Schriftliche Erklärung für Schule, Bank oder Vermieter.' },
     ],
   },
   pripravujeme: [],
@@ -84,6 +100,7 @@ export const zeme: Zeme = {
         moznosti: [
           { text: 'Ich vermiete oder miete eine Wohnung', dokumenty: ['mietvertrag-wohnung', 'uebergabeprotokoll-wohnung'] },
           { text: 'Ich will meine Wohnung kündigen', dokumenty: ['kuendigung-mietvertrag'] },
+          { text: 'Ich ziehe um und melde Strom, Internet oder TV ab', dokumenty: ['kuendigung-vertrag'], tip: 'Haushalte können den Stromlieferanten nicht wählen – beim Umzug nur abmelden.' },
         ],
       },
       {
@@ -91,7 +108,7 @@ export const zeme: Zeme = {
         ilustrace: 'penize',
         moznosti: [
           { text: 'Ich leihe jemandem Geld', dokumenty: ['darlehensvertrag', 'quittung'], balicek: 'geld-leihen' },
-          { text: 'Jemand schuldet mir Geld und will in Raten zahlen', dokumenty: ['schuldanerkennung'], tip: 'Mit Unterschrift ein Rechtsöffnungstitel in der Betreibung.' },
+          { text: 'Jemand schuldet mir Geld und will in Raten zahlen', dokumenty: ['abzahlungsvereinbarung', 'schuldanerkennung'], tip: 'Mit unterschriebener Schuldanerkennung ein Rechtsöffnungstitel in der Betreibung.' },
           { text: 'Ich verschenke Geld oder eine Sache', dokumenty: ['schenkungsvertrag'], tip: 'Die Schenkungssteuer regelt der Kanton.' },
           { text: 'Ich übergebe oder erhalte Bargeld', dokumenty: ['quittung'] },
         ],
@@ -104,6 +121,15 @@ export const zeme: Zeme = {
           { text: 'Gekaufte Ware ist defekt', dokumenty: ['maengelruege'], tip: 'Sofort rügen.' },
           { text: 'Ich verkaufe etwas Gebrauchtes von privat', dokumenty: ['kaufvertrag-privat'] },
           { text: 'Jemand soll etwas für mich erledigen', dokumenty: ['vollmacht'] },
+          { text: 'Ich will Handy, Versicherung, Krankenkasse, Fitness oder ein Abo kündigen', dokumenty: ['kuendigung-vertrag'], tip: 'Per Einschreiben senden – massgebend ist meist der Empfang.' },
+        ],
+      },
+      {
+        nazev: 'Arbeit und Familie',
+        ilustrace: 'plnamoc',
+        moznosti: [
+          { text: 'Ich kündige meine Stelle', dokumenty: ['kuendigung-arbeitsvertrag'], tip: 'Nach der Probezeit 1 bis 3 Monate auf Monatsende, je nach Dienstjahr und Vertrag.' },
+          { text: 'Mein Kind reist ohne mich ins Ausland', dokumenty: ['einverstaendniserklaerung-reise-kind'], tip: 'Das EDA empfiehlt die Erklärung dringend; Regeln des Ziellandes bei der Botschaft prüfen.' },
         ],
       },
     ],

@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   "souvisejici": "geld",
   "landing": {
     "title": "Schenkungsvertrag Schweiz {rok} – Vorlage kostenlos als PDF",
-    "description": "Kostenloser Schenkungsvertrag für Geld oder bewegliche Sachen nach Art. 239 ff. OR – mit Hinweisen zur kantonalen Schenkungssteuer.",
+    "description": "Kostenloser Schenkungsvertrag für Geld oder bewegliche Sachen nach Art. 239 ff. OR – mit Hinweisen zur kantonalen Schenkungssteuer. Als PDF und Word.",
     "perex": "Für Schenkungen von Geld oder Sachen, die sofort übergeben werden. Mit Hinweisen zur Schenkungssteuer im Kanton.",
     "obsahPopis": "Vier Artikel nach Art. 239 ff. OR.",
     "obsah": [

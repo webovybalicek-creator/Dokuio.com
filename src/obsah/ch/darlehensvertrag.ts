@@ -20,8 +20,8 @@ const stranka: StrankaDokumentu = {
   },
   "souvisejici": "geld",
   "landing": {
-    "title": "Darlehensvertrag privat Schweiz {rok} – Vorlage kostenlos",
-    "description": "Kostenloser privater Darlehensvertrag nach Art. 312 ff. OR: Betrag, Zinsen, Rückzahlung auf einmal oder in Raten mit Tilgungsplan.",
+    "title": "Darlehensvertrag privat Schweiz {rok} – Vorlage PDF kostenlos",
+    "description": "Kostenloser privater Darlehensvertrag nach Art. 312 ff. OR: Betrag, Zinsen, Rückzahlung auf einmal oder in Raten mit Tilgungsplan. Als PDF und Word.",
     "perex": "Geld an Freunde oder Familie leihen – schriftlich, mit klarer Rückzahlung und auf Wunsch mit Tilgungsplan.",
     "obsahPopis": "Fünf Artikel nach Art. 312 ff. OR, auf Wunsch mit Tilgungsplan.",
     "obsah": [

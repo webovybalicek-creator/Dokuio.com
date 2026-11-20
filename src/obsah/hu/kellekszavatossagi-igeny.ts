@@ -19,8 +19,8 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: 'mindennapok',
   landing: {
-  "title": "Kellékszavatossági igény minta {rok} – hibás termék",
-  "description": "Ingyenes kellékszavatossági igény hibás termékre: kijavítás, kicserélés, árleszállítás vagy elállás. Fogyasztóként 2 évig érvényesíthető.",
+  "title": "Kellékszavatossági igény {rok} – ingyenes PDF minta",
+  "description": "Ingyenes kellékszavatossági igény hibás termékre: kijavítás, kicserélés, árleszállítás vagy elállás. Fogyasztóként 2 évig érvényesíthető. PDF és Word.",
   "perex": "Ha a vásárolt termék hibás, írásban kérhet javítást, cserét vagy pénzt vissza. A levél pontosan leírja a hibát és az igényét.",
   "obsahPopis": "Mit tartalmaz.",
   "obsah": [

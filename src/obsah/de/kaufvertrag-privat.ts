@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "alltag",
   landing: {
   "title": "Kaufvertrag privat {rok} – Vorlage kostenlos als PDF",
-  "description": "Kostenloser Kaufvertrag für gebrauchte Sachen zwischen Privatpersonen: Beschreibung, Mängel, Preis, Gewährleistungsausschluss.",
+  "description": "Kostenloser Kaufvertrag für gebrauchte Sachen zwischen Privatpersonen: Beschreibung, Mängel, Preis, Gewährleistungsausschluss. Als PDF und Word.",
   "perex": "Für den Verkauf gebrauchter Sachen von privat an privat – Fahrrad, Handy, Möbel, Instrument.",
   "obsahPopis": "Kurzer Vertrag mit Gewährleistungsregel.",
   "obsah": [

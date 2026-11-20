@@ -8,8 +8,8 @@ const stranka: StrankaDokumentu = {
   katalog: { popis: "Mietvertrag für Wohnräume nach OR.", kategorie: 'wohnen', ilustrace: 'protokol', slova: ["Mietvertrag", "Wohnung mieten", "Wohnung vermieten", "Mietkaution", "Nebenkosten", "Schweiz"] },
   souvisejici: 'wohnen',
   landing: {
-    title: "Mietvertrag Wohnung Schweiz {rok} – Vorlage kostenlos",
-    description: "Mietvertrag für Wohnräume in der Schweiz nach Art. 253 ff. OR: Nettomietzins, Nebenkosten, Mietkaution auf Sperrkonto, Kündigungstermine. PDF und Word.",
+    title: "Mietvertrag Wohnung Schweiz {rok} – Vorlage PDF kostenlos",
+    description: "Mietvertrag für Wohnräume in der Schweiz nach Art. 253 ff. OR: Nettomietzins, Nebenkosten, Mietkaution auf Sperrkonto, Kündigungstermine. Kostenlos als PDF.",
     perex: "Sie vermieten in der Schweiz? Mietvertrag nach Obligationenrecht – mit einzeln aufgeführten Nebenkosten und Kaution auf Sperrkonto.",
     obsahPopis: "Mietvertrag für Wohnräume nach Art. 253 ff. OR.",
     obsah: [{"nazev": "Parteien und Wohnung", "popis": "Vermieter, Mieter, Lage, Ausstattung."}, {"nazev": "Mietzins und Nebenkosten", "popis": "Akonto nur für aufgeführte Kosten."}, {"nazev": "Sicherheit", "popis": "Höchstens drei Monatszinse, Sperrkonto."}, {"nazev": "Kündigung", "popis": "Drei Monate auf ortsübliche Termine."}],

@@ -23,9 +23,17 @@ Jednotná sada 11 dokumentů v každé zemi (podle práva a úředních zdrojů 
 | Předžalobní výzva / výzva k zaplacení | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Smlouva o dílo (řemeslník, oprava) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Čestné prohlášení | ✓ | ✓ | ✓ | ✓² | ✓² | ✓² |
+| Výpověď smlouvy (operátor, pojištění, energie, posilovna, předplatné) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Výpověď z pracovního poměru (zaměstnanec, i návrh dohody) | ✓ | ✓ | ✓ | ✓³ | ✓ | ✓ |
+| Dohoda o splátkách (splátkový kalendář) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Souhlas s vycestováním dítěte | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 ¹ Ve Švýcarsku zákonné odstoupení u nákupů online neexistuje – CH má místo toho odvolání podomního/telefonického prodeje (Art. 40a OR).
 ² DE/AT/CH: obecná „Erklärung“ – výslovně ne eidesstattliche Versicherung (ta jen před příslušným úřadem či soudem).
+
+³ DE: výpověď jen vlastnoručně podepsaná na papíře (§ 623 BGB) – podpis na obrazovce se nenabízí.
+
+Výpovědi, dohoda o splátkách a souhlas s cestou dítěte (20. 11. 2026) jsou i v 🇭🇺 HU; nové kategorie Práce a Rodina/cestování ve všech zemích. Metadata vzorů: title vždy „… {rok} – vzor PDF zdarma“ (místní obdoba), description končí „zdarma v PDF i Wordu“.
 
 Nové vzory (20. 11. 2026) mají i 🇭🇺 HU: fizetési felszólítás, vállalkozási szerződés, nyilatkozat. Nové kategorie „Služby a řemeslníci“ (a obdoby v každé zemi). AT/CH verze se skládají z DE přes `sablony/nahrad.ts` (nahrazení textů) a mají vlastní právo (ABGB § 1170a, § 1333; OR 102, 104, 363–375). SK: OZ byl zrušen zák. č. 260/2026 Z. z. (nový OZ s pozdější účinností) – šablony na to upozorňují.
 

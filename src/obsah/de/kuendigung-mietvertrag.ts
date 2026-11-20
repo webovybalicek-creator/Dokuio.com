@@ -8,8 +8,8 @@ const stranka: StrankaDokumentu = {
   katalog: { popis: "Kündigung durch den Mieter, drei Monate Frist.", kategorie: 'wohnen', ilustrace: 'protokol', slova: ["Kündigung Mietvertrag", "Wohnung kündigen", "Kündigungsfrist", "Mieter", "Umzug"] },
   souvisejici: 'wohnen',
   landing: {
-    title: "Kündigung Mietvertrag Wohnung {rok} – Vorlage PDF",
-    description: "Kündigung des Mietvertrags durch den Mieter nach § 573c BGB: drei Monate Frist, Zugang bis zum dritten Werktag, Kaution zurück. Als PDF und Word.",
+    title: "Kündigung Mietvertrag Wohnung {rok} – Vorlage PDF kostenlos",
+    description: "Kündigung des Mietvertrags durch den Mieter nach § 573c BGB: drei Monate Frist, Zugang bis zum dritten Werktag, Kaution zurück. Kostenlos als PDF und Word.",
     perex: "Sie ziehen um? Kündigen Sie Ihre Wohnung schriftlich mit drei Monaten Frist – mit Bitte um Übergabetermin und Kautionsrückzahlung.",
     obsahPopis: "Kündigung durch den Mieter nach § 573c BGB.",
     obsah: [{"nazev": "Vermieter", "popis": "An wen die Kündigung geht."}, {"nazev": "Kündigung", "popis": "Wohnung, Vertrag, Frist und Kaution."}],

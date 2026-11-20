@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: 'lakas',
   landing: {
   "title": "Lakásbérleti szerződés minta {rok} – ingyen PDF",
-  "description": "Ingyenes lakásbérleti szerződés magánszemélyeknek: bérleti díj, rezsi, óvadék, felmondási idő, visszaadás. Határozott vagy határozatlan idő.",
+  "description": "Ingyenes lakásbérleti szerződés magánszemélyeknek: bérleti díj, rezsi, óvadék, felmondási idő, visszaadás. Határozott vagy határozatlan idő. PDF és Word.",
   "perex": "Albérlet írásban, kiegyensúlyozott feltételekkel. Az óvadékot és a felmondási időt egyértelműen rögzíti.",
   "obsahPopis": "Mit rögzít a szerződés.",
   "obsah": [

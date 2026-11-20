@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Berlin',
   aktivni: true,
   poradi: 4,
-  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten', dienst: 'Handwerker und Aufträge' },
+  kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten', vertraege: 'Kündigungen und Arbeit', familie: 'Familie und Reisen', dienst: 'Handwerker und Aufträge' },
   skupiny: {
     auto: [
       { slug: 'kaufvertrag-gebrauchtwagen', popis: 'Privatverkauf eines gebrauchten Autos.' },
@@ -21,6 +21,7 @@ export const zeme: Zeme = {
       { slug: 'darlehensvertrag', popis: 'Geld leihen, auch in Raten.' },
       { slug: 'quittung', popis: 'Empfangsbestätigung für Bargeld.' },
       { slug: 'schuldanerkenntnis', popis: 'Schuld schriftlich bestätigen, mit Raten.' },
+      { slug: 'ratenzahlungsvereinbarung', popis: 'Offene Forderung in Monatsraten, mit Ratenplan.' },
       { slug: 'mahnung', popis: 'Zahlungsaufforderung mit Frist.' },
       { slug: 'schenkungsvertrag', popis: 'Geld oder eine Sache verschenken.' },
     ],
@@ -28,12 +29,24 @@ export const zeme: Zeme = {
       { slug: 'mietvertrag-wohnung', popis: 'Mietvertrag für eine Wohnung.' },
       { slug: 'uebergabeprotokoll-wohnung', popis: 'Zählerstände, Mängel und Schlüssel.' },
       { slug: 'kuendigung-mietvertrag', popis: 'Kündigung durch den Mieter.' },
+      { slug: 'kuendigung-vertrag', popis: 'Strom, Gas, Internet beim Umzug kündigen.' },
     ],
     alltag: [
       { slug: 'vollmacht', popis: 'Damit jemand eine Sache für Sie erledigt.' },
       { slug: 'kaufvertrag-privat', popis: 'Gebrauchte Sachen von privat verkaufen.' },
       { slug: 'widerruf', popis: 'Online-Kauf binnen 14 Tagen widerrufen.' },
       { slug: 'maengelanzeige', popis: 'Defekte Ware reklamieren.' },
+      { slug: 'erklaerung', popis: 'Schriftliche Erklärung für Schule, Bank oder Vermieter.' },
+    ],
+    vertraege: [
+      { slug: 'kuendigung-vertrag', popis: 'Handy, Versicherung, Strom, Fitnessstudio oder Abo kündigen.' },
+      { slug: 'kuendigung-arbeitsvertrag', popis: 'Eigenkündigung als Arbeitnehmer/in.' },
+      { slug: 'kuendigung-mietvertrag', popis: 'Wohnung als Mieter/in kündigen.' },
+      { slug: 'widerruf', popis: 'Online-Kauf binnen 14 Tagen widerrufen.' },
+    ],
+    familie: [
+      { slug: 'einverstaendniserklaerung-reise-kind', popis: 'Kind reist ohne beide Eltern ins Ausland.' },
+      { slug: 'vollmacht', popis: 'Damit jemand eine Sache für Sie erledigt.' },
       { slug: 'erklaerung', popis: 'Schriftliche Erklärung für Schule, Bank oder Vermieter.' },
     ],
     dienst: [
@@ -87,11 +100,26 @@ export const zeme: Zeme = {
         ],
       },
       {
+        nazev: 'Kündigen und Arbeit',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Ich will Handy, Internet, Versicherung, Strom, Fitnessstudio oder ein Abo kündigen', dokumenty: ['kuendigung-vertrag'], tip: 'Unsicher bei der Frist? Zum nächstmöglichen Zeitpunkt kündigen.' },
+          { text: 'Ich kündige meinen Job', dokumenty: ['kuendigung-arbeitsvertrag'], tip: 'Nur mit eigenhändiger Unterschrift auf Papier wirksam – nicht per E-Mail.' },
+        ],
+      },
+      {
+        nazev: 'Familie und Reisen',
+        ilustrace: 'plnamoc',
+        moznosti: [
+          { text: 'Mein Kind reist ohne mich oder nur mit einem Elternteil ins Ausland', dokumenty: ['einverstaendniserklaerung-reise-kind'], tip: 'Einreisebestimmungen des Ziellandes beim Auswärtigen Amt prüfen.' },
+        ],
+      },
+      {
         nazev: 'Geld',
         ilustrace: 'penize',
         moznosti: [
           { text: 'Ich leihe jemandem Geld', dokumenty: ['darlehensvertrag', 'quittung'], balicek: 'geld-leihen' },
-          { text: 'Jemand schuldet mir Geld und will in Raten zahlen', dokumenty: ['schuldanerkenntnis'] },
+          { text: 'Jemand schuldet mir Geld und will in Raten zahlen', dokumenty: ['ratenzahlungsvereinbarung', 'schuldanerkenntnis'], tip: 'Ratenzahlungsvereinbarung unterschreiben beide; das Schuldanerkenntnis nur die schuldende Person.' },
           { text: 'Ich verschenke Geld oder eine Sache', dokumenty: ['schenkungsvertrag'], tip: 'Schenkungen binnen drei Monaten dem Finanzamt anzeigen.' },
           { text: 'Ich übergebe oder erhalte Bargeld', dokumenty: ['quittung'] },
         ],

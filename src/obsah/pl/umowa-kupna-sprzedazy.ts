@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "codzienne",
   landing: {
   "title": "Umowa kupna-sprzedaży {rok} – wzór PDF za darmo",
-  "description": "Darmowa umowa kupna-sprzedaży rzeczy ruchomej: opis, wady, cena, płatność. Z informacją o PCC (próg 3000 zł).",
+  "description": "Darmowa umowa kupna-sprzedaży rzeczy ruchomej: opis, wady, cena, płatność. Z informacją o PCC (próg 3000 zł). PDF i Word.",
   "perex": "Do sprzedaży używanych rzeczy między osobami prywatnymi – roweru, telefonu, mebli.",
   "obsahPopis": "Krótka umowa z opisem rzeczy i wad.",
   "obsah": [

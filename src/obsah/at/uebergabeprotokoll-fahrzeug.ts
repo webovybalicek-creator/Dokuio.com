@@ -6,7 +6,7 @@ const stranka: StrankaDokumentu = {
   ...de,
   sablona,
   landing: { ...de.landing, ...{
-  "description": "Kostenloses Übergabeprotokoll für Auto und Motorrad in Österreich: Kilometerstand, Tank, Schäden, Schlüssel, Typenschein und Pickerl.",
+  "description": "Kostenloses Übergabeprotokoll für Auto und Motorrad in Österreich: Kilometerstand, Tank, Schäden, Schlüssel, Typenschein und Pickerl. Als PDF und Word.",
     "title": "Übergabeprotokoll Kfz Österreich {rok} – Vorlage kostenlos als PDF",
   "po": [
     {

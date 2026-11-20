@@ -8,7 +8,7 @@ const stranka: StrankaDokumentu = {
   katalog: { popis: 'Liczniki, usterki i klucze przy wydaniu lokalu.', kategorie: 'mieszkanie', ilustrace: 'protokol', slova: ['protokół zdawczo-odbiorczy', 'mieszkanie', 'liczniki', 'klucze', 'kaucja', 'najem'] },
   souvisejici: 'mieszkanie',
   landing: {
-    title: 'Protokół zdawczo-odbiorczy mieszkania {rok} – wzór',
+    title: 'Protokół zdawczo-odbiorczy mieszkania {rok} – wzór PDF za darmo',
     description: 'Protokół zdawczo-odbiorczy mieszkania: stany liczników, usterki, wyposażenie, klucze. Przy wydaniu i zwrocie lokalu. PDF i Word za darmo.',
     perex: 'Najważniejszy dowód przy sporze o kaucję. Zapisz stan mieszkania na początku i na końcu najmu.',
     obsahPopis: 'Protokół wydania i odbioru lokalu.',

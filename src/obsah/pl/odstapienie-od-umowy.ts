@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "codzienne",
   landing: {
   "title": "Odstąpienie od umowy {rok} – formularz PDF za darmo",
-  "description": "Darmowy formularz odstąpienia od umowy zawartej na odległość, według wzoru z ustawy o prawach konsumenta. 14 dni bez podania przyczyny.",
+  "description": "Darmowy formularz odstąpienia od umowy zawartej na odległość, według wzoru z ustawy o prawach konsumenta. 14 dni bez podania przyczyny. PDF i Word.",
   "perex": "Kupione w internecie i nie pasuje? W ciągu 14 dni możesz odstąpić od umowy bez podawania przyczyny.",
   "obsahPopis": "Treść według ustawowego wzoru.",
   "obsah": [

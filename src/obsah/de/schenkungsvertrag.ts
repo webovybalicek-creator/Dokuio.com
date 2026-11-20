@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "geld",
   landing: {
   "title": "Schenkungsvertrag {rok} – Vorlage kostenlos als PDF",
-  "description": "Kostenloser Schenkungsvertrag für Geld oder bewegliche Sachen, sofort vollzogen – ohne Notar. Mit Hinweisen zu Freibeträgen und Anzeige beim Finanzamt.",
+  "description": "Kostenloser Schenkungsvertrag für Geld oder bewegliche Sachen – ohne Notar. Mit Hinweisen zu Freibeträgen und Anzeige beim Finanzamt. Als PDF und Word.",
   "perex": "Für Schenkungen, die sofort übergeben oder überwiesen werden. Mit Hinweisen zur Schenkungsteuer.",
   "obsahPopis": "Vertrag über eine sofort vollzogene Schenkung.",
   "obsah": [

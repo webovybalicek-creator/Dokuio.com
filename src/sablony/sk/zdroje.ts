@@ -16,3 +16,13 @@ export const SK_NAJOM_BYTU = { nazev: 'Občiansky zákonník – nájom bytu, §
 export const SK_KRATKODOBY_NAJOM = { nazev: 'Zákon č. 98/2014 Z. z. o krátkodobom nájme bytu (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/2014/98/' };
 export const SK_DROBNE_OPRAVY = { nazev: 'Nariadenie vlády č. 87/1995 Z. z. – drobné opravy v byte (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/1995/87/' };
 export const TIP_NOVY_OZ_SK = 'Pozor: od 1. júla 2027 platí nový Občiansky zákonník (zákon č. 260/2026 Z. z.) s novými pravidlami nájmu. Tento vzor zodpovedá právu platnému do 30. júna 2027.';
+export const TIP_ZRUSENY_OZ_SK =
+  'Pozor: Občiansky zákonník bol zrušený zákonom č. 260/2026 Z. z. a od 1. júla 2027 ho nahradí nový. Tento vzor zodpovedá právu platnému do 30. júna 2027 – neskôr si overte aktuálne znenie.';
+export const ZAKONNIK_PRACE_SK = { nazev: 'Zákonník práce č. 311/2001 Z. z. – § 60 až § 62, § 67, § 72, § 75 (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/2001/311/20260901.html' };
+export const ZAKON_EK_SK = { nazev: 'Zákon č. 452/2021 Z. z. o elektronických komunikáciách – § 87 (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/2021/452/20260818.html' };
+export const ZAKON_ENERGETIKA_SK = { nazev: 'Zákon č. 251/2012 Z. z. o energetike – § 17 a § 17c (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/2012/251/20260701.html' };
+export const OZ_SK_ZAVAZKY = { nazev: 'Občiansky zákonník – § 565, § 566, § 582, § 800 (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/1964/40/20260731.html' };
+export const ZAKON_O_RODINE_SK = { nazev: 'Zákon č. 36/2005 Z. z. o rodine – § 28 a § 35 (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/2005/36/20260901.html' };
+export const NOTARSKY_PORIADOK_SK = { nazev: 'Notársky poriadok č. 323/1992 Zb. – § 58 osvedčenie podpisu (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/1992/323/20260817.html' };
+export const ZAKON_OSVEDCOVANIE_SK = { nazev: 'Zákon č. 78/2026 Z. z. o osvedčovaní listín a podpisov na listinách (Slov-Lex)', url: 'https://static.slov-lex.sk/static/SK/ZZ/2026/78/20260901.html' };
+export const SK_CESTOVNY_PAS_DETI = { nazev: 'Cestovný pas pre deti – praktická rada o súhlase zákonného zástupcu (slovensko.sk)', url: 'https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovny-pas-pre-deti' };

@@ -6,9 +6,9 @@ const stranka: StrankaDokumentu = {
   ...de,
   sablona,
   landing: { ...de.landing, ...{
-  "title": "Vollmacht Zulassungsstelle Österreich {rok} – Vorlage kostenlos",
+  "title": "Vollmacht Zulassungsstelle Österreich {rok} – Vorlage PDF kostenlos",
   "kroky": [{"nazev": "Ausfüllen", "popis": "Daten aus dem Kaufvertrag übernehmen wir."}, {"nazev": "Unterschreiben", "popis": "Eigenhändig."}, {"nazev": "Unterlagen packen", "popis": "Ausweise, Zulassungsschein, Versicherungsbestätigung."}],
-  "description": "Kostenlose Vollmacht für An-, Ab- oder Ummeldung bei einer Zulassungsstelle in Österreich. Mit Liste der Unterlagen.",
+  "description": "Kostenlose Vollmacht für An-, Ab- oder Ummeldung bei einer Zulassungsstelle in Österreich. Mit Liste der Unterlagen. Als PDF und Word.",
   "perex": "Damit eine andere Person Ihr Fahrzeug bei einer Zulassungsstelle an-, ab- oder ummeldet. Mit Liste, was sonst noch mit muss.",
   "nehodiSe": [
     "Fälle, in denen die Zulassungsstelle ein eigenes Formular verlangt – vorher nachfragen"

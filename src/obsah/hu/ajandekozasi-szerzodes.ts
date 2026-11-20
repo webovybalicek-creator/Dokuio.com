@@ -18,7 +18,7 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: 'penz',
   landing: {
-  "title": "Ajándékozási szerződés minta {rok} – pénz vagy ingóság",
+  "title": "Ajándékozási szerződés {rok} – ingyenes PDF minta",
   "description": "Ingyenes ajándékozási szerződés pénzre vagy ingóságra: rokoni kapcsolat, illeték, átadás. Szülő, gyermek, testvér között illetékmentes. PDF és Word.",
   "perex": "Pénz vagy dolog ajándékozása írásban. A tippekben megmutatjuk, mikor illetékmentes.",
   "obsahPopis": "Mit tartalmaz.",

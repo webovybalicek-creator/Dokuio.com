@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "auto",
   landing: {
   "title": "Pełnomocnictwo do rejestracji pojazdu {rok} – wzór PDF za darmo",
-  "description": "Darmowe pełnomocnictwo do rejestracji samochodu w wydziale komunikacji. Z listą dokumentów i informacją o opłacie skarbowej 17 zł.",
+  "description": "Darmowe pełnomocnictwo do rejestracji samochodu w wydziale komunikacji. Z listą dokumentów i informacją o opłacie skarbowej 17 zł. PDF i Word.",
   "perex": "Gdy rejestrację auta załatwia za Ciebie ktoś inny – rodzina, znajomy lub sprzedający.",
   "obsahPopis": "Krótkie pełnomocnictwo do spraw rejestracyjnych.",
   "obsah": [

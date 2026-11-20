@@ -8,8 +8,8 @@ const stranka: StrankaDokumentu = {
   katalog: { popis: "Kündigung durch den Mieter, befristet oder unbefristet.", kategorie: 'wohnen', ilustrace: 'protokol', slova: ["Kündigung Mietvertrag", "Wohnung kündigen", "befristet", "MRG", "Österreich"] },
   souvisejici: 'wohnen',
   landing: {
-    title: "Kündigung Mietvertrag Österreich {rok} – Vorlage PDF",
-    description: "Kündigung der Mietwohnung in Österreich: unbefristet mit einem Monat, befristet nach einem Jahr mit drei Monaten zum Monatsletzten (§ 29 MRG).",
+    title: "Kündigung Mietvertrag Österreich {rok} – Vorlage PDF kostenlos",
+    description: "Mietwohnung in Österreich kündigen: unbefristet mit einem Monat, befristet nach einem Jahr mit drei Monaten (§ 29 MRG). Kostenlos als PDF und Word.",
     perex: "Sie ziehen aus? Schriftliche Kündigung für unbefristete und befristete Mietverträge nach dem Mietrechtsgesetz.",
     obsahPopis: "Kündigung durch den Mieter nach MRG.",
     obsah: [{"nazev": "Vermieter", "popis": "An wen die Kündigung geht."}, {"nazev": "Kündigung", "popis": "Vertrag, Frist, Kaution."}],

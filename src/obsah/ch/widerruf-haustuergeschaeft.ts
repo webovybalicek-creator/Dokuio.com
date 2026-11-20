@@ -20,8 +20,8 @@ const stranka: StrankaDokumentu = {
   },
   "souvisejici": "alltag",
   "landing": {
-    "title": "Widerruf Haustürgeschäft Schweiz {rok} – Vorlage kostenlos",
-    "description": "Kostenloser Widerruf nach Art. 40a ff. OR: Verträge von der Haustür, am Telefon oder an Werbefahrten binnen 14 Tagen widerrufen. Ab 100 Franken.",
+    "title": "Widerruf Haustürgeschäft Schweiz {rok} – Vorlage PDF kostenlos",
+    "description": "Kostenloser Widerruf nach Art. 40a ff. OR: Verträge von der Haustür, am Telefon oder an Werbefahrten binnen 14 Tagen widerrufen. Als PDF und Word.",
     "perex": "An der Haustür oder am Telefon etwas gekauft und bereut? Solche Verträge können Sie innert 14 Tagen ohne Begründung widerrufen.",
     "obsahPopis": "Ein Brief an den Anbieter.",
     "obsah": [

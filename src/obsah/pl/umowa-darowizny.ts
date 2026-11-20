@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "pieniadze",
   landing: {
   "title": "Umowa darowizny {rok} – wzór PDF za darmo",
-  "description": "Darmowa umowa darowizny pieniędzy lub rzeczy ruchomej wykonanej od razu – bez notariusza. Z przypomnieniem o SD-Z2 w 6 miesięcy.",
+  "description": "Darmowa umowa darowizny pieniędzy lub rzeczy ruchomej wykonanej od razu – bez notariusza. Z przypomnieniem o SD-Z2 w 6 miesięcy. PDF i Word.",
   "perex": "Dla darowizny przekazanej od razu – przelewem lub z rąk do rąk. Z informacją o podatku i zgłoszeniu SD-Z2.",
   "obsahPopis": "Umowa darowizny wykonanej przy zawarciu.",
   "obsah": [

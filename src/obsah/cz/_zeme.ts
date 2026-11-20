@@ -18,6 +18,7 @@ export const zeme: Zeme = {
     rodina: 'Rodina a cestování',
     zastoupeni: 'Plné moci a prohlášení',
     sluzby: 'Služby a řemeslníci',
+    prace: 'Práce a zaměstnání',
   },
   skupiny: {
     auto: [
@@ -32,6 +33,7 @@ export const zeme: Zeme = {
       { slug: 'smlouva-o-zapujcce', popis: 'Půjčka peněz mezi známými, i na splátky.' },
       { slug: 'potvrzeni-o-prevzeti-penez', popis: 'Doklad o předání hotovosti.' },
       { slug: 'uznani-dluhu', popis: 'Dlužník písemně potvrdí, kolik a do kdy vrátí.' },
+      { slug: 'dohoda-o-splatkach', popis: 'Splátkový kalendář dluhu podepsaný oběma stranami.' },
       { slug: 'predzalobni-vyzva', popis: 'Poslední výzva dlužníkovi před žalobou.' },
       { slug: 'kupni-smlouva-vec', popis: 'Prodej kola, telefonu, nábytku.' },
       { slug: 'plna-moc', popis: 'Aby za vás někdo něco vyřídil.' },
@@ -48,6 +50,23 @@ export const zeme: Zeme = {
       { slug: 'smlouva-o-dilo', popis: 'Řemeslník, rekonstrukce nebo oprava.' },
       { slug: 'potvrzeni-o-prevzeti-penez', popis: 'Doklad o zaplacené záloze.' },
       { slug: 'predzalobni-vyzva', popis: 'Když objednatel nezaplatí.' },
+      { slug: 'dohoda-o-splatkach', popis: 'Když objednatel nemůže zaplatit najednou.' },
+      { slug: 'vypoved-smlouvy', popis: 'Zrušení služby, předplatného nebo členství.' },
+    ],
+    vypovedi: [
+      { slug: 'vypoved-smlouvy', popis: 'Operátor, energie, pojištění, posilovna, předplatné.' },
+      { slug: 'vypoved-povinneho-ruceni', popis: 'Po prodeji auta, k výročí nebo při zdražení.' },
+      { slug: 'odstoupeni-od-smlouvy', popis: 'Do 14 dnů u nákupu na dálku.' },
+      { slug: 'vypoved-z-najmu', popis: 'Výpověď nájemce bytu.' },
+      { slug: 'vypoved-z-pracovniho-pomeru', popis: 'Odchod z práce výpovědí nebo dohodou.' },
+      { slug: 'reklamace', popis: 'Když služba nebo zboží nefunguje.' },
+    ],
+    prace: [
+      { slug: 'vypoved-z-pracovniho-pomeru', popis: 'Výpověď zaměstnance nebo návrh dohody.' },
+      { slug: 'vypoved-smlouvy', popis: 'Zrušení služeb při stěhování za prací.' },
+      { slug: 'vypoved-z-najmu', popis: 'Když se kvůli práci stěhujete.' },
+      { slug: 'cestne-prohlaseni', popis: 'Prohlášení pro úřad, školu nebo banku.' },
+      { slug: 'plna-moc', popis: 'Aby za vás někdo něco vyřídil.' },
     ],
     bydleni: [
       { slug: 'najemni-smlouva-byt', popis: 'Nájemné, služby, kauce, doba nájmu.' },
@@ -130,6 +149,7 @@ export const zeme: Zeme = {
         moznosti: [
           { text: 'Půjčuji někomu peníze', dokumenty: ['smlouva-o-zapujcce', 'potvrzeni-o-prevzeti-penez'], balicek: 'pujcka-penez' },
           { text: 'Někdo mi dluží a chci to mít písemně', dokumenty: ['uznani-dluhu'], tip: 'Písemné uznání prodlouží promlčení až na 10 let.' },
+          { text: 'Dlužník chce (nebo já chci) splácet po částech', dokumenty: ['dohoda-o-splatkach'], tip: 'Splátkový kalendář se sestaví sám; uznání dluhu lze přidat zaškrtnutím.' },
           { text: 'Daruji peníze nebo věc', dokumenty: ['darovaci-smlouva'] },
           { text: 'Předávám nebo přebírám hotovost', dokumenty: ['potvrzeni-o-prevzeti-penez'] },
         ],
@@ -160,6 +180,15 @@ export const zeme: Zeme = {
         moznosti: [
           { text: 'Dítě cestuje do zahraničí bez rodiče', dokumenty: ['souhlas-s-vycestovanim-ditete'], tip: 'Podmínky cílové země ověřte na webu MZV.' },
           { text: 'Někdo za mě něco vyřídí (pošta, úřad)', dokumenty: ['plna-moc'] },
+        ],
+      },
+      {
+        nazev: 'Práce a smlouvy',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Chci odejít z práce', dokumenty: ['vypoved-z-pracovniho-pomeru'], tip: 'Výpovědní doba nejméně 2 měsíce, běží ode dne doručení.' },
+          { text: 'Ruším mobil, internet, energie nebo pojištění', dokumenty: ['vypoved-smlouvy'] },
+          { text: 'Končím s posilovnou nebo předplatným', dokumenty: ['vypoved-smlouvy'], tip: 'Výpovědní dobu najdete ve smlouvě nebo obchodních podmínkách.' },
         ],
       },
     ],

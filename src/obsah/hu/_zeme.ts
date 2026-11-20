@@ -1,7 +1,7 @@
 import type { Zeme } from '../typy';
 
 /**
- * Magyarország. Vzory ověřené 19. 11. 2026 (viz src/sablony/hu/forrasok.ts), poradna 12 článků (20. 11. 2026).
+ * Magyarország. Vzory ověřené 19. 11. 2026, další 4 vzory 20. 11. 2026 (viz src/sablony/hu/forrasok.ts), poradna 12 článků (20. 11. 2026).
  */
 export const zeme: Zeme = {
   kod: 'hu',
@@ -12,7 +12,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Budapest',
   aktivni: true,
   poradi: 7,
-  kategorie: { auto: 'Autó', penz: 'Pénz és ajándék', lakas: 'Lakás és bérlet', mindennapok: 'Vásárlás és ügyintézés', szolgaltatas: 'Szakemberek és megrendelések' },
+  kategorie: { auto: 'Autó', penz: 'Pénz és ajándék', lakas: 'Lakás és bérlet', mindennapok: 'Vásárlás és ügyintézés', szolgaltatas: 'Szakemberek és megrendelések', munka: 'Munka', csalad: 'Család és utazás' },
   skupiny: {
     auto: [
       { slug: 'gepjarmu-adasveteli-szerzodes', popis: 'Használt autó eladása magánszemélyek között.' },
@@ -24,6 +24,7 @@ export const zeme: Zeme = {
       { slug: 'kolcsonszerzodes', popis: 'Kölcsön ismerősnek, akár részletekben.' },
       { slug: 'atveteli-elismerveny', popis: 'Készpénz átvételének igazolása.' },
       { slug: 'tartozaselismero-nyilatkozat', popis: 'Tartozás írásban, részletfizetéssel.' },
+      { slug: 'reszletfizetesi-megallapodas', popis: 'Hitelező és adós megállapodik a részletekben.' },
       { slug: 'fizetesi-felszolitas', popis: 'Utolsó felszólítás a per előtt.' },
       { slug: 'ajandekozasi-szerzodes', popis: 'Pénz vagy dolog ajándékozása.' },
     ],
@@ -37,12 +38,24 @@ export const zeme: Zeme = {
       { slug: 'adasveteli-szerzodes', popis: 'Használt dolog eladása.' },
       { slug: 'elallasi-nyilatkozat', popis: 'Webshopos vásárlás visszaküldése 14 napon belül.' },
       { slug: 'kellekszavatossagi-igeny', popis: 'Hibás termék a boltban.' },
+      { slug: 'szerzodes-felmondasa', popis: 'Mobil, internet, biztosítás, edzőterem felmondása.' },
       { slug: 'nyilatkozat', popis: 'Nyilatkozat iskolának, banknak vagy bérbeadónak.' },
+      { slug: 'hozzajarulo-nyilatkozat-kiskoru-utazas', popis: 'A gyermek külföldi utazása szülő nélkül.' },
     ],
     szolgaltatas: [
       { slug: 'vallalkozasi-szerzodes', popis: 'Felújítás, javítás vagy egyedi munka.' },
       { slug: 'atveteli-elismerveny', popis: 'Az előleg átvételének igazolása.' },
       { slug: 'fizetesi-felszolitas', popis: 'Ha a megrendelő nem fizet.' },
+    ],
+    munka: [
+      { slug: 'munkavallaloi-felmondas', popis: 'Felmondás vagy közös megegyezés javaslata.' },
+      { slug: 'nyilatkozat', popis: 'Nyilatkozat a munkáltatónak vagy hatóságnak.' },
+      { slug: 'meghatalmazas', popis: 'Ha valamit más intéz Ön helyett.' },
+    ],
+    csalad: [
+      { slug: 'hozzajarulo-nyilatkozat-kiskoru-utazas', popis: 'Gyermek utazása nagyszülővel, táborral vagy egyik szülővel.' },
+      { slug: 'meghatalmazas', popis: 'Ha valamit más intéz Ön helyett.' },
+      { slug: 'nyilatkozat', popis: 'Nyilatkozat iskolának vagy hatóságnak.' },
     ],
   },
   pripravujeme: [],
@@ -77,7 +90,7 @@ export const zeme: Zeme = {
         moznosti: [
           { text: 'Pénzt adok kölcsön', dokumenty: ['kolcsonszerzodes', 'atveteli-elismerveny'] },
           { text: 'Készpénzt adok át vagy veszek át', dokumenty: ['atveteli-elismerveny'] },
-          { text: 'Valaki tartozik nekem, és részletekben fizetne', dokumenty: ['tartozaselismero-nyilatkozat'] },
+          { text: 'Valaki tartozik nekem, és részletekben fizetne', dokumenty: ['reszletfizetesi-megallapodas', 'tartozaselismero-nyilatkozat'], tip: 'Megállapodás: mindketten aláírják. Elismerő nyilatkozat: csak az adós.' },
           { text: 'Pénzt vagy dolgot ajándékozok', dokumenty: ['ajandekozasi-szerzodes'], tip: 'Egyenes ági rokon, házastárs, testvér: illetékmentes.' },
         ],
       },
@@ -97,6 +110,15 @@ export const zeme: Zeme = {
           { text: 'A vásárolt termék hibás', dokumenty: ['kellekszavatossagi-igeny'] },
           { text: 'Használt dolgot adok el', dokumenty: ['adasveteli-szerzodes'] },
           { text: 'Valakinek el kell intéznie valamit helyettem', dokumenty: ['meghatalmazas'] },
+          { text: 'Fel akarom mondani az előfizetést, biztosítást vagy tagságot', dokumenty: ['szerzodes-felmondasa'], tip: 'A határidőnél a megérkezés napja számít.' },
+        ],
+      },
+      {
+        nazev: 'Munka és család',
+        ilustrace: 'plnamoc',
+        moznosti: [
+          { text: 'Fel akarok mondani a munkahelyemen', dokumenty: ['munkavallaloi-felmondas'], tip: 'A felmondási idő legalább 30 nap.' },
+          { text: 'A gyermekem szülő nélkül utazik külföldre', dokumenty: ['hozzajarulo-nyilatkozat-kiskoru-utazas'], tip: 'Nézze meg a célország feltételeit is.' },
         ],
       },
     ],

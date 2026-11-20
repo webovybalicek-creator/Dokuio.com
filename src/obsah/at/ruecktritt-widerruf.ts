@@ -8,7 +8,7 @@ const stranka: StrankaDokumentu = {
   nazev: 'Rücktritt Online-Kauf',
   nazevA: 'Rücktritt',
   landing: { ...de.landing, ...{
-  "title": "Rücktritt vom Online-Kauf Österreich {rok} – Muster-Widerrufsformular",
+  "title": "Rücktritt vom Online-Kauf Österreich {rok} – Vorlage PDF kostenlos",
   "description": "Kostenloses Formular für den Rücktritt vom Online-Kauf nach dem FAGG: binnen 14 Tagen, ohne Begründung. PDF und Word.",
   "perex": "Online gekauft und doch nicht gewollt? Nach dem FAGG treten Sie innerhalb von 14 Tagen ohne Begründung zurück.",
   "faq": [

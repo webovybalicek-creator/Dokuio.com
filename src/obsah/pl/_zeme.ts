@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Warsaw',
   aktivni: true,
   poradi: 3,
-  kategorie: { auto: 'Samochody', pieniadze: 'Pieniądze i darowizny', mieszkanie: 'Mieszkanie i najem', codzienne: 'Zakupy i sprawy codzienne', uslugi: 'Usługi i fachowcy' },
+  kategorie: { auto: 'Samochody', pieniadze: 'Pieniądze i darowizny', mieszkanie: 'Mieszkanie i najem', codzienne: 'Zakupy i sprawy codzienne', uslugi: 'Usługi i fachowcy', praca: 'Praca', rodzina: 'Rodzina i podróże' },
   skupiny: {
     auto: [
       { slug: 'umowa-kupna-sprzedazy-samochodu', popis: 'Sprzedaż używanego auta między osobami prywatnymi.' },
@@ -21,6 +21,7 @@ export const zeme: Zeme = {
       { slug: 'umowa-pozyczki', popis: 'Pożyczka między znajomymi, także na raty.' },
       { slug: 'pokwitowanie-odbioru-pieniedzy', popis: 'Potwierdzenie przyjęcia gotówki.' },
       { slug: 'uznanie-dlugu', popis: 'Dług na piśmie, także z ratami.' },
+      { slug: 'porozumienie-o-splacie-w-ratach', popis: 'Umowa o raty z harmonogramem spłat.' },
       { slug: 'wezwanie-do-zaplaty', popis: 'Ostatnie wezwanie przed sądem.' },
       { slug: 'umowa-darowizny', popis: 'Darowizna pieniędzy lub rzeczy.' },
     ],
@@ -35,11 +36,24 @@ export const zeme: Zeme = {
       { slug: 'odstapienie-od-umowy', popis: 'Zwrot zakupu z internetu w 14 dni.' },
       { slug: 'reklamacja', popis: 'Wadliwy towar u sprzedawcy.' },
       { slug: 'oswiadczenie', popis: 'Oświadczenie dla szkoły, urzędu lub banku.' },
+      { slug: 'wypowiedzenie-umowy', popis: 'Abonament, prąd, gaz, siłownia, ubezpieczenie.' },
+      { slug: 'zgoda-na-wyjazd-dziecka', popis: 'Podróż dziecka za granicę.' },
     ],
     uslugi: [
       { slug: 'umowa-o-dzielo', popis: 'Remont, naprawa lub wykonanie na zamówienie.' },
       { slug: 'pokwitowanie-odbioru-pieniedzy', popis: 'Pokwitowanie zaliczki.' },
       { slug: 'wezwanie-do-zaplaty', popis: 'Gdy zamawiający nie płaci.' },
+    ],
+    praca: [
+      { slug: 'wypowiedzenie-umowy-o-prace', popis: 'Odejście z pracy lub porozumienie stron.' },
+      { slug: 'wypowiedzenie-umowy', popis: 'Rezygnacja z karty sportowej, abonamentu i innych usług.' },
+      { slug: 'oswiadczenie', popis: 'Oświadczenie dla pracodawcy lub urzędu.' },
+      { slug: 'pelnomocnictwo', popis: 'Gdy ktoś odbierze dokumenty za Ciebie.' },
+    ],
+    rodzina: [
+      { slug: 'zgoda-na-wyjazd-dziecka', popis: 'Wakacje, kolonie, podróż z jednym rodzicem.' },
+      { slug: 'pelnomocnictwo', popis: 'Upoważnienie do załatwienia sprawy.' },
+      { slug: 'oswiadczenie', popis: 'Oświadczenie dla szkoły lub urzędu.' },
     ],
   },
   pripravujeme: [],
@@ -74,7 +88,7 @@ export const zeme: Zeme = {
         moznosti: [
           { text: 'Pożyczam komuś pieniądze', dokumenty: ['umowa-pozyczki', 'pokwitowanie-odbioru-pieniedzy'], tip: 'Pożyczka może podlegać PCC 0,5% – sprawdź zwolnienia.' },
           { text: 'Przekazuję lub przyjmuję gotówkę', dokumenty: ['pokwitowanie-odbioru-pieniedzy'] },
-          { text: 'Ktoś jest mi winien i chce spłacać w ratach', dokumenty: ['uznanie-dlugu'] },
+          { text: 'Ktoś jest mi winien i chce spłacać w ratach', dokumenty: ['porozumienie-o-splacie-w-ratach', 'uznanie-dlugu'], tip: 'Porozumienie z harmonogramem; uznanie długu przerywa przedawnienie.' },
           { text: 'Daruję pieniądze lub rzecz', dokumenty: ['umowa-darowizny'], tip: 'Najbliższa rodzina: SD-Z2 w 6 miesięcy i przelew na konto.' },
         ],
       },
@@ -94,6 +108,15 @@ export const zeme: Zeme = {
           { text: 'Kupiony towar jest wadliwy', dokumenty: ['reklamacja'] },
           { text: 'Sprzedaję używaną rzecz', dokumenty: ['umowa-kupna-sprzedazy'] },
           { text: 'Ktoś ma coś za mnie załatwić', dokumenty: ['pelnomocnictwo'] },
+          { text: 'Chcę wypowiedzieć abonament, prąd, gaz lub siłownię', dokumenty: ['wypowiedzenie-umowy'], tip: 'Sprawdź okres wypowiedzenia w umowie lub regulaminie.' },
+        ],
+      },
+      {
+        nazev: 'Praca i rodzina',
+        ilustrace: 'plnamoc',
+        moznosti: [
+          { text: 'Odchodzę z pracy (jestem pracownikiem)', dokumenty: ['wypowiedzenie-umowy-o-prace'], tip: 'Okres: 2 tygodnie, 1 lub 3 miesiące – zależnie od stażu.' },
+          { text: 'Dziecko jedzie za granicę bez rodzica', dokumenty: ['zgoda-na-wyjazd-dziecka'], tip: 'Wymogi kraju sprawdź w serwisie MSZ.' },
         ],
       },
     ],

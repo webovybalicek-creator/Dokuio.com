@@ -9,7 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Bratislava',
   aktivni: true,
   poradi: 2,
-  kategorie: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', byvanie: 'Bývanie a nájom', zastoupeni: 'Splnomocnenia a vyhlásenia', bezne: 'Nákupy a bežný život', sluzby: 'Služby a remeselníci' },
+  kategorie: { auto: 'Auto a vozidlá', penize: 'Peniaze a dary', byvanie: 'Bývanie a nájom', zastoupeni: 'Splnomocnenia a vyhlásenia', bezne: 'Nákupy a bežný život', sluzby: 'Služby a remeselníci', praca: 'Práca a zamestnanie', rodina: 'Rodina a cestovanie' },
   skupiny: {
     auto: [
       { slug: 'kupna-zmluva-auto', popis: 'Predaj jazdeného auta medzi súkromnými osobami.' },
@@ -21,6 +21,7 @@ export const zeme: Zeme = {
       { slug: 'potvrdenie-o-prevzati-penazi', popis: 'Doklad o odovzdaní hotovosti.' },
       { slug: 'darovacia-zmluva', popis: 'Darovanie peňazí alebo hnuteľnej veci.' },
       { slug: 'uznanie-dlhu', popis: 'Dlh písomne, aj so splátkami.' },
+      { slug: 'dohoda-o-splatkach', popis: 'Splátkový kalendár dlhu podpísaný oboma stranami.' },
       { slug: 'vyzva-na-zaplatenie', popis: 'Posledná výzva dlžníkovi pred súdom.' },
       { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
     ],
@@ -33,6 +34,7 @@ export const zeme: Zeme = {
       { slug: 'kupna-zmluva', popis: 'Predaj použitých vecí medzi ľuďmi.' },
       { slug: 'odstupenie-od-zmluvy', popis: 'Vrátenie tovaru z e-shopu do 14 dní.' },
       { slug: 'reklamacia', popis: 'Chybný tovar u predávajúceho.' },
+      { slug: 'vypoved-zmluvy', popis: 'Operátor, poistenie, energie, posilňovňa či predplatné.' },
       { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
       { slug: 'cestne-vyhlasenie', popis: 'Vyhlásenie pre úrad, školu alebo banku.' },
     ],
@@ -40,6 +42,18 @@ export const zeme: Zeme = {
       { slug: 'zmluva-o-dielo', popis: 'Remeselník, rekonštrukcia alebo oprava.' },
       { slug: 'potvrdenie-o-prevzati-penazi', popis: 'Doklad o zaplatenom preddavku.' },
       { slug: 'vyzva-na-zaplatenie', popis: 'Keď objednávateľ nezaplatí.' },
+    ],
+    praca: [
+      { slug: 'vypoved-z-pracovneho-pomeru', popis: 'Výpoveď zamestnanca alebo návrh dohody.' },
+      { slug: 'vypoved-zmluvy', popis: 'Zrušenie služieb, napr. pri sťahovaní za prácou.' },
+      { slug: 'cestne-vyhlasenie', popis: 'Vyhlásenie pre úrad, školu alebo banku.' },
+      { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
+    ],
+    rodina: [
+      { slug: 'suhlas-s-vycestovanim-dietata', popis: 'Cesta dieťaťa do zahraničia bez rodičov.' },
+      { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
+      { slug: 'cestne-vyhlasenie', popis: 'Vyhlásenie pre úrad, školu alebo banku.' },
+      { slug: 'darovacia-zmluva', popis: 'Darovanie peňazí alebo veci v rodine.' },
     ],
   },
   pripravujeme: [],
@@ -85,7 +99,7 @@ export const zeme: Zeme = {
           { text: 'Požičiavam niekomu peniaze', dokumenty: ['zmluva-o-pozicke', 'potvrdenie-o-prevzati-penazi'], balicek: 'pozicka-penazi' },
           { text: 'Darujem peniaze alebo vec', dokumenty: ['darovacia-zmluva'] },
           { text: 'Odovzdávam alebo preberám hotovosť', dokumenty: ['potvrdenie-o-prevzati-penazi'] },
-          { text: 'Niekto mi dlhuje a chce splácať', dokumenty: ['uznanie-dlhu'] },
+          { text: 'Niekto mi dlhuje a chce splácať', dokumenty: ['dohoda-o-splatkach', 'uznanie-dlhu'], tip: 'Celý zostatok naraz len pri dohodnutej strate výhody splátok.' },
         ],
       },
       {
@@ -103,7 +117,21 @@ export const zeme: Zeme = {
           { text: 'Chcem vrátiť tovar z e-shopu', dokumenty: ['odstupenie-od-zmluvy'], tip: '14 dní od prevzatia tovaru.' },
           { text: 'Kúpený tovar je chybný', dokumenty: ['reklamacia'] },
           { text: 'Predávam použitú vec', dokumenty: ['kupna-zmluva'] },
+          { text: 'Chcem zrušiť operátora, poistenie, energie alebo predplatné', dokumenty: ['vypoved-zmluvy'], tip: 'Lehotu nájdete v zmluve alebo obchodných podmienkach.' },
         ],
+      },
+      {
+        nazev: 'Práca',
+        ilustrace: 'protokol',
+        moznosti: [
+          { text: 'Chcem dať výpoveď v práci', dokumenty: ['vypoved-z-pracovneho-pomeru'], tip: 'Výpovedná doba najmenej 1 mesiac, po roku 2 mesiace.' },
+          { text: 'Chcem skončiť skôr dohodou', dokumenty: ['vypoved-z-pracovneho-pomeru'], tip: 'Dohoda musí byť písomná.' },
+        ],
+      },
+      {
+        nazev: 'Rodina',
+        ilustrace: 'plnamoc',
+        moznosti: [{ text: 'Dieťa cestuje do zahraničia bez rodiča', dokumenty: ['suhlas-s-vycestovanim-dietata'], tip: 'Podmienky si overte na zastupiteľskom úrade cieľovej krajiny.' }],
       },
       {
         nazev: 'Úrady a zastupovanie',

@@ -19,7 +19,7 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: 'penz',
   landing: {
-  "title": "Átvételi elismervény pénzről {rok} – ingyen minta",
+  "title": "Átvételi elismervény pénzről {rok} – ingyenes PDF minta",
   "description": "Ingyenes átvételi elismervény készpénz átvételéről: összeg számmal és betűvel, jogcím, felek. Egyszerű bizonyíték, PDF és Word.",
   "perex": "Egyszerű bizonyíték, hogy a készpénz gazdát cserélt. Az összeget betűvel automatikusan kiírjuk.",
   "obsahPopis": "Rövid elismervény jogcímmel.",

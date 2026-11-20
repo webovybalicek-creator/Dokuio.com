@@ -8,7 +8,7 @@ const stranka: StrankaDokumentu = {
   katalog: { popis: 'Merače, vady a kľúče pri odovzdaní bytu.', kategorie: 'byvanie', ilustrace: 'protokol', slova: ['preberací protokol', 'odovzdanie bytu', 'merače', 'kľúče', 'nájom', 'sťahovanie'] },
   souvisejici: 'byvanie',
   landing: {
-    title: 'Preberací protokol k bytu {rok} – vzor zadarmo',
+    title: 'Preberací protokol k bytu {rok} – vzor PDF zadarmo',
     description: 'Preberací protokol pri odovzdaní bytu: stavy meračov, vady, vybavenie, kľúče. Na začiatku aj pri skončení nájmu. PDF aj Word zadarmo.',
     perex: 'Hlavný dôkaz pri spore o zábezpeku. Zapíšte stav bytu, merače a kľúče pri nasťahovaní aj pri odchode.',
     obsahPopis: 'Záznam o odovzdaní a prevzatí bytu.',

@@ -18,7 +18,7 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: 'lakas',
   landing: {
-  "title": "Lakás átadás-átvételi jegyzőkönyv {rok} – ingyen minta",
+  "title": "Lakás átadás-átvételi jegyzőkönyv {rok} – ingyenes PDF minta",
   "description": "Ingyenes lakás átadás-átvételi jegyzőkönyv albérlethez: mérőóra-állások, kulcsok, sérülések be- és kiköltözéskor. Védi az óvadékot. PDF és Word.",
   "perex": "Beköltözéskor és kiköltözéskor rögzíti a lakás állapotát. Vita esetén ez dönt az óvadékról.",
   "obsahPopis": "Mit rögzít.",

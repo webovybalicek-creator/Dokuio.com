@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "bezne",
   landing: {
   "title": "Kúpna zmluva na vec {rok} – vzor zadarmo v PDF",
-  "description": "Bezplatná kúpna zmluva na hnuteľnú vec: opis, vady, cena, platba. Pre predaj bicykla, mobilu, nábytku medzi súkromnými osobami.",
+  "description": "Bezplatná kúpna zmluva na hnuteľnú vec: opis, vady, cena, platba. Pre predaj bicykla, mobilu, nábytku medzi súkromnými osobami. V PDF aj Worde.",
   "perex": "Na predaj použitých vecí medzi súkromnými osobami – bicykel, mobil, nábytok, hudobný nástroj.",
   "obsahPopis": "Krátka zmluva s opisom vecí a vád.",
   "obsah": [

@@ -18,7 +18,7 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: 'mindennapok',
   landing: {
-  "title": "Adásvételi szerződés minta ingóságra {rok} – ingyen",
+  "title": "Adásvételi szerződés minta ingóságra {rok} – ingyenes PDF minta",
   "description": "Ingyenes adásvételi szerződés használt dolgokra (kerékpár, telefon, bútor): leírás, ismert hibák, vételár betűvel. PDF és Word, regisztráció nélkül.",
   "perex": "Használt dolog eladása írásban: mit, milyen állapotban, mennyiért.",
   "obsahPopis": "Mit tartalmaz.",

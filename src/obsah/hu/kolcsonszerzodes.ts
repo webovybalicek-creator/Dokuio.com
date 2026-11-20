@@ -19,7 +19,7 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: 'penz',
   landing: {
-  "title": "Kölcsönszerződés minta magánszemélyek között {rok}",
+  "title": "Kölcsönszerződés minta magánszemélyek között {rok} – ingyenes PDF minta",
   "description": "Ingyenes kölcsönszerződés magánszemélyeknek: kamatmentes vagy kamatos, egy összegben vagy részletekben, törlesztési ütemtervvel. PDF és Word.",
   "perex": "Kölcsön családnak vagy ismerősnek, írásban. Részleteknél törlesztési ütemtervet is készítünk.",
   "obsahPopis": "Mit rögzít a szerződés.",

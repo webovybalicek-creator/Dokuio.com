@@ -8,7 +8,7 @@ const stranka: StrankaDokumentu = {
   landing: {
     ...de.landing,
     "description": "Kostenloser privater Darlehensvertrag nach §§ 983 ff. ABGB: Betrag, Zinsen, Rückzahlung auf einmal oder in Raten mit Tilgungsplan. PDF und Word.",
-    title: 'Darlehensvertrag privat Österreich {rok} – Vorlage mit Tilgungsplan',
+    title: 'Darlehensvertrag privat Österreich {rok} – Vorlage PDF kostenlos',
     obsahPopis: 'Fünf Paragrafen nach §§ 983 ff. ABGB.',
     faq: [
       { q: 'Braucht ein Privatdarlehen einen schriftlichen Vertrag?', a: 'Es ist nicht zwingend, aber dringend zu empfehlen – als Nachweis über Betrag, Rückzahlung und Zinsen.' },

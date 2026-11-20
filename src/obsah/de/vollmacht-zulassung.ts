@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "auto",
   landing: {
   "title": "Vollmacht Zulassungsstelle {rok} – Vorlage kostenlos als PDF",
-  "description": "Kostenlose Vollmacht für die Kfz-Zulassung, Umschreibung oder Abmeldung. Mit Checkliste der Unterlagen (SEPA-Mandat, Ausweis).",
+  "description": "Kostenlose Vollmacht für die Kfz-Zulassung, Umschreibung oder Abmeldung. Mit Checkliste der Unterlagen (SEPA-Mandat, Ausweis). Als PDF und Word.",
   "perex": "Damit eine andere Person Ihr Fahrzeug bei der Zulassungsbehörde an-, um- oder abmelden darf. Mit Liste, was sonst noch mit muss.",
   "obsahPopis": "Kurze Vollmacht für einen Vorgang bei der Zulassungsstelle.",
   "obsah": [

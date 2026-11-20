@@ -18,7 +18,7 @@ const stranka: StrankaDokumentu = {
 },
   souvisejici: 'auto',
   landing: {
-  "title": "Meghatalmazás forgalmi átíráshoz {rok} – ingyen minta",
+  "title": "Meghatalmazás forgalmi átíráshoz {rok} – ingyenes PDF minta",
   "description": "Ingyenes meghatalmazás gépjármű forgalmi átírásához és bejelentéséhez a kormányablakban, két tanúval. PDF és Word, regisztráció nélkül.",
   "perex": "Ha az átírást vagy a bejelentést rokon vagy ismerős intézi. Két tanúval, ahogy a hatóság kéri.",
   "obsahPopis": "Mit tartalmaz.",

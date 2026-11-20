@@ -7,7 +7,7 @@ const stranka: StrankaDokumentu = {
   sablona,
   landing: { ...de.landing, ...{
   "title": "Schenkungsvertrag Österreich {rok} – Vorlage kostenlos als PDF",
-  "description": "Kostenloser Schenkungsvertrag für Geld oder bewegliche Sachen mit wirklicher Übergabe – ohne Notariatsakt. Mit Hinweisen zur Schenkungsmeldung.",
+  "description": "Kostenloser Schenkungsvertrag für Geld oder bewegliche Sachen mit wirklicher Übergabe – ohne Notariatsakt, mit Tipps zur Schenkungsmeldung. Als PDF und Word.",
   "perex": "Für Schenkungen, die sofort übergeben oder überwiesen werden. Mit Hinweisen zur Schenkungsmeldung beim Finanzamt.",
   "kroky": [
     {

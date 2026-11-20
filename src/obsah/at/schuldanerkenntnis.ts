@@ -7,7 +7,7 @@ const stranka: StrankaDokumentu = {
   sablona,
   landing: { ...de.landing, ...{
   "title": "Schuldanerkenntnis Österreich {rok} – Vorlage kostenlos als PDF",
-  "description": "Kostenloses Schuldanerkenntnis nach österreichischem Recht: Grund und Höhe der Schuld, Zahlung auf einmal oder in Raten mit Tilgungsplan.",
+  "description": "Kostenloses Schuldanerkenntnis nach österreichischem Recht: Grund und Höhe der Schuld, Zahlung auf einmal oder in Raten mit Tilgungsplan. Als PDF und Word.",
   "faq": [
     {
       "q": "Braucht ein Schuldanerkenntnis eine Form?",

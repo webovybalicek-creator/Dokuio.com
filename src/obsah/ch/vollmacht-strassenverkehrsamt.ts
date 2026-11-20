@@ -20,8 +20,8 @@ const stranka: StrankaDokumentu = {
   },
   "souvisejici": "auto",
   "landing": {
-    "title": "Vollmacht Strassenverkehrsamt Schweiz {rok} – Vorlage kostenlos",
-    "description": "Kostenlose Vollmacht für Einlösen, Halterwechsel oder Ausserverkehrsetzung beim kantonalen Strassenverkehrsamt. Mit Liste der Unterlagen.",
+    "title": "Vollmacht Strassenverkehrsamt Schweiz {rok} – Vorlage PDF kostenlos",
+    "description": "Kostenlose Vollmacht für Einlösen, Halterwechsel oder Ausserverkehrsetzung beim kantonalen Strassenverkehrsamt. Mit Liste der Unterlagen. Als PDF und Word.",
     "perex": "Damit eine andere Person Ihr Fahrzeug beim Strassenverkehrsamt einlöst, umschreibt oder die Schilder abgibt.",
     "obsahPopis": "Eine Seite nach Art. 32 ff. OR.",
     "obsah": [

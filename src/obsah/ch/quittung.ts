@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   "souvisejici": "geld",
   "landing": {
     "title": "Quittung Vorlage Schweiz {rok} – kostenlos als PDF",
-    "description": "Kostenlose Quittung über eine Barzahlung: Betrag in Ziffern und Worten, Zahlungsgrund, Unterschrift. Nach Art. 88 OR.",
+    "description": "Kostenlose Quittung über eine Barzahlung: Betrag in Ziffern und Worten, Zahlungsgrund, Unterschrift. Nach Art. 88 OR. Als PDF und Word.",
     "perex": "Bestätigen Sie schriftlich, dass Sie Bargeld erhalten haben – mit Betrag in Worten und Zahlungsgrund.",
     "obsahPopis": "Eine kurze Bestätigung.",
     "obsah": [

@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "codzienne",
   landing: {
   "title": "Reklamacja {rok} – wzór pisma PDF za darmo",
-  "description": "Darmowe pismo reklamacyjne: niezgodność towaru z umową, żądanie naprawy, wymiany, obniżenia ceny lub zwrotu. Sprzedawca ma 14 dni na odpowiedź.",
+  "description": "Darmowe pismo reklamacyjne: niezgodność towaru z umową, żądanie naprawy, wymiany, obniżenia ceny lub zwrotu. Sprzedawca ma 14 dni na odpowiedź. PDF i Word.",
   "perex": "Towar jest wadliwy? Złóż reklamację na piśmie – z opisem wady i żądaniem.",
   "obsahPopis": "Reklamacja z żądaniem.",
   "obsah": [

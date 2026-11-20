@@ -22,7 +22,7 @@ const stranka: StrankaDokumentu = {
   "souvisejici": "alltag",
   "landing": {
     "title": "Kaufvertrag privat Schweiz {rok} – Vorlage kostenlos als PDF",
-    "description": "Kostenloser Kaufvertrag für gebrauchte Sachen zwischen Privatpersonen nach Art. 184 ff. OR – mit Gewährleistungsausschluss. Für Velo, Handy, Möbel.",
+    "description": "Kostenloser Kaufvertrag für gebrauchte Sachen zwischen Privatpersonen nach Art. 184 ff. OR, mit Gewährleistungsausschluss. Für Velo, Handy, Möbel. PDF und Word.",
     "perex": "Verkauf eines Velos, Handys oder Möbelstücks von privat – mit Beschreibung, Mängeln und Gewährleistungsausschluss.",
     "obsahPopis": "Vier Artikel nach Art. 184 ff. OR.",
     "obsah": [

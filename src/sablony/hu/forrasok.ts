@@ -14,7 +14,23 @@ export const KGFB = { nazev: 'A kötelező gépjármű-felelősségbiztosításr
 export const FOGY_RENDELET = { nazev: '45/2014. (II. 26.) Korm. rendelet – távollévők közötti szerződések, elállás (NJT)', url: NJT('2014-45-20-22') };
 export const LTV = { nazev: 'A lakások és helyiségek bérletéről szóló 1993. évi LXXVIII. törvény (NJT)', url: NJT('1993-78-00-00') };
 export const KORM_304 = { nazev: '304/2009. (XII. 22.) Korm. rendelet – tulajdonjog-változás bejelentése, a magánokirat tartalma (NJT)', url: NJT('2009-304-20-22') };
-export const KORMANYABLAK = { nazev: 'Kormányablak – ügyintézés (kormanyablak.hu)', url: 'https://kormanyablak.hu/' };
+/*
+ * Ověřeno 20. 11. 2026 (NJT): Mt. 22. § (1), (3), 24. §, 44. §, 64. § (1), 65. § (1), 67. § (1)–(2), 68. § (1), 69. § (1), (3),
+ * 70. § (1), 80. §, 81. § (1); Eht. 127. § (4b)–(4c), 132. § (5), 134. § (1), (14)–(15a), (17); Kgfb. 7. § (1), (1a), (4).
+ * Kiskorú utazása: e-justice (Magyarország, frissítve 2024. 01. 15.) – rövid utazáshoz a másik szülő hozzájárulása
+ * a magyar jog szerint nem kell, huzamos tartózkodáshoz/letelepedéshez igen (vita esetén gyámhivatal).
+ */
+export const MT = { nazev: 'A munka törvénykönyvéről szóló 2012. évi I. törvény (NJT)', url: NJT('2012-1-00-00') };
+export const EHT = { nazev: 'Az elektronikus hírközlésről szóló 2003. évi C. törvény (NJT)', url: NJT('2003-100-00-00') };
+export const EJUSTICE_GYERMEK = {
+  nazev: 'Európai e-igazságügyi portál – A gyermekek jogszerű külföldre vitele, Magyarország',
+  url: 'https://e-justice.europa.eu/pdf-export/2454_hu',
+};
+export const KONZINFO_ORSZAGOK = {
+  nazev: 'Konzuli Szolgálat (Külügyminisztérium) – utazási tanácsok országonként',
+  url: 'https://konzinfo.mfa.gov.hu/utazas/utazasi-tanacsok-orszagonkent',
+};
+export const KORMANYABLAK ={ nazev: 'Kormányablak – ügyintézés (kormanyablak.hu)', url: 'https://kormanyablak.hu/' };
 export const NAV = { nazev: 'Nemzeti Adó- és Vámhivatal (nav.gov.hu)', url: 'https://nav.gov.hu/' };
 
 export const TIP_SZEMELYAZONOSSAG = 'Ellenőrizze a másik fél személyazonosságát igazolvánnyal, és a nevet pontosan úgy írja be, ahogy az okmányban szerepel.';

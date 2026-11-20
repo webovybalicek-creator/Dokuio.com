@@ -7,7 +7,7 @@ const stranka: StrankaDokumentu = {
   sablona,
   landing: {
     ...de.landing,
-    "description": "Kostenlose Quittung über eine Barzahlung nach österreichischem Recht (§ 1426 ABGB): Betrag in Ziffern und Worten, Zahlungsgrund, Unterschrift.",
+    "description": "Kostenlose Quittung über eine Barzahlung nach österreichischem Recht (§ 1426 ABGB): Betrag in Ziffern und Worten, Zahlungsgrund, Unterschrift. Als PDF und Word.",
     title: 'Quittung Österreich {rok} – Vorlage kostenlos als PDF',
     faq: [
       { q: 'Kann ich eine Quittung verlangen?', a: 'Ja, wer zahlt, kann eine Quittung verlangen (§ 1426 ABGB).' },

@@ -6,7 +6,7 @@ const stranka: StrankaDokumentu = {
   ...de,
   sablona,
   landing: { ...de.landing, ...{
-  "description": "Kostenlose Vollmacht nach §§ 1002 ff. ABGB: Wer wen wofür bevollmächtigt, gültig bis wann. Für Post, Behörden und Alltag in Österreich.",
+  "description": "Kostenlose Vollmacht nach §§ 1002 ff. ABGB: Wer wen wofür bevollmächtigt, gültig bis wann. Für Post, Behörden und Alltag in Österreich. Als PDF und Word.",
     "title": "Vollmacht Österreich {rok} – Vorlage kostenlos als PDF",
   "nehodiSe": [
     "Vorsorgevollmacht für Krankheit oder Alter",

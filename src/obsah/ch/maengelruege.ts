@@ -22,7 +22,7 @@ const stranka: StrankaDokumentu = {
   "souvisejici": "alltag",
   "landing": {
     "title": "Mängelrüge Schweiz {rok} – Vorlage kostenlos als PDF",
-    "description": "Kostenlose Mängelrüge nach Art. 201 OR: defekte Ware sofort rügen und Reparatur, Ersatz, Minderung oder Wandelung verlangen.",
+    "description": "Kostenlose Mängelrüge nach Art. 201 OR: defekte Ware sofort rügen und Reparatur, Ersatz, Minderung oder Wandelung verlangen. Als PDF und Word.",
     "perex": "Ware defekt? Rügen Sie den Mangel sofort schriftlich – sonst gilt die Ware als genehmigt.",
     "obsahPopis": "Ein Brief an den Verkäufer.",
     "obsah": [

@@ -20,7 +20,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: "geld",
   landing: {
   "title": "Schuldanerkenntnis {rok} – Vorlage kostenlos als PDF",
-  "description": "Kostenloses Schuldanerkenntnis nach § 781 BGB: Grund und Höhe der Schuld, Zahlung auf einmal oder in Raten mit Tilgungsplan.",
+  "description": "Kostenloses Schuldanerkenntnis nach § 781 BGB: Grund und Höhe der Schuld, Zahlung auf einmal oder in Raten mit Tilgungsplan. Als PDF und Word.",
   "perex": "Die schuldende Person bestätigt schriftlich, wie viel sie wofür schuldet und wie sie zahlt. Die Verjährung beginnt neu.",
   "obsahPopis": "Anerkenntnis mit Zahlungsvereinbarung.",
   "obsah": [

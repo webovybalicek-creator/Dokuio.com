@@ -8,7 +8,7 @@ const stranka: StrankaDokumentu = {
   katalog: { popis: "Zähler, Mängel und Schlüssel bei Ein- und Auszug.", kategorie: 'wohnen', ilustrace: 'protokol', slova: ["Übergabeprotokoll", "Wohnungsübergabe", "Einzug", "Auszug", "Zählerstände", "Schlüssel"] },
   souvisejici: 'wohnen',
   landing: {
-    title: "Wohnungsübergabeprotokoll {rok} – Vorlage kostenlos",
+    title: "Wohnungsübergabeprotokoll {rok} – Vorlage PDF kostenlos",
     description: "Übergabeprotokoll für die Wohnung: Zählerstände, Mängel, Ausstattung und Schlüssel bei Einzug und Auszug. Kostenlos als PDF und Word.",
     perex: "Der wichtigste Beweis im Streit um die Kaution. Halten Sie den Zustand bei Ein- und Auszug fest.",
     obsahPopis: "Protokoll über Übergabe und Rücknahme der Wohnung.",
