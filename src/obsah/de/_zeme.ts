@@ -26,6 +26,7 @@ export const zeme: Zeme = {
       { slug: 'schenkungsvertrag', popis: 'Geld oder eine Sache verschenken.' },
     ],
     wohnen: [
+      { slug: 'untermietvertrag', popis: 'Zimmer oder Wohnung untervermieten.' },
       { slug: 'mietaufhebungsvertrag', popis: 'Mietverhältnis einvernehmlich beenden.' },
       { slug: 'mietvertrag-wohnung', popis: 'Mietvertrag für eine Wohnung.' },
       { slug: 'uebergabeprotokoll-wohnung', popis: 'Zählerstände, Mängel und Schlüssel.' },

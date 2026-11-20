@@ -26,6 +26,7 @@ export const zeme: Zeme = {
       { slug: 'umowa-darowizny', popis: 'Darowizna pieniędzy lub rzeczy.' },
     ],
     mieszkanie: [
+      { slug: 'umowa-podnajmu', popis: 'Pokój lub mieszkanie w podnajmie.' },
       { slug: 'porozumienie-rozwiazanie-umowy-najmu', popis: 'Koniec najmu za porozumieniem.' },
       { slug: 'umowa-najmu-mieszkania', popis: 'Zwykły najem mieszkania z kaucją.' },
       { slug: 'protokol-zdawczo-odbiorczy-mieszkania', popis: 'Liczniki, usterki i klucze.' },

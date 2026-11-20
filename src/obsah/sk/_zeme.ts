@@ -26,6 +26,7 @@ export const zeme: Zeme = {
       { slug: 'splnomocnenie', popis: 'Aby za vás niekto niečo vybavil.' },
     ],
     byvanie: [
+      { slug: 'zmluva-o-podnajme', popis: 'Izba alebo byt v podnájme.' },
       { slug: 'dohoda-o-skonceni-najmu', popis: 'Nájom končí dohodou.' },
       { slug: 'najomna-zmluva-byt', popis: 'Prenájom bytu podľa Občianskeho zákonníka.' },
       { slug: 'preberaci-protokol-bytu', popis: 'Merače, vady a kľúče pri odovzdaní.' },

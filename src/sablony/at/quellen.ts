@@ -42,3 +42,4 @@ export const OEGV_BEGLAUBIGUNG = { nazev: 'Beglaubigung – Notar oder Bezirksge
 export const BMEIA_REISEINFO = { nazev: 'Reiseinformationen nach Ländern (Außenministerium, BMEIA)', url: 'https://www.bmeia.gv.at/reise-services/reiseinformation' };
 export const OEAMTC_REISEVOLLMACHT = { nazev: 'Vollmacht für allein reisende Kinder – mehrsprachige Muster (ÖAMTC, verlinkt von oesterreich.gv.at)', url: 'https://www.oeamtc.at/thema/reiseplanung/vollmacht-fuer-allein-reisende-kinder-16182598' };
 export const ABGB_971 = { nazev: '§§ 971–982 ABGB – Leihvertrag (RIS)', url: 'https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001622' };
+export const OEGV_UNTERMIETE = { nazev: 'Recht des Hauptmieters zur Untervermietung (oesterreich.gv.at)', url: 'https://www.oesterreich.gv.at/de/themen/bauen_und_wohnen/wohnen/3/2/Seite.210218' };

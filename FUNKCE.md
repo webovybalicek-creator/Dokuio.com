@@ -22,6 +22,7 @@ Jednotná sada 11 dokumentů v každé zemi (podle práva a úředních zdrojů 
 | Reklamace | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Předžalobní výzva / výzva k zaplacení | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Smlouva o dílo (řemeslník, oprava) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Podnájemní smlouva (pokoj / celý byt) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Dohoda o skončení nájmu | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Smlouva o výpůjčce (bezplatné půjčení věci) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Čestné prohlášení | ✓ | ✓ | ✓ | ✓² | ✓² | ✓² |
@@ -39,7 +40,7 @@ Výpovědi, dohoda o splátkách a souhlas s cestou dítěte (20. 11. 2026) jsou
 
 Nové vzory (20. 11. 2026) mají i 🇭🇺 HU: fizetési felszólítás, vállalkozási szerződés, nyilatkozat. Nové kategorie „Služby a řemeslníci“ (a obdoby v každé zemi). AT/CH verze se skládají z DE přes `sablony/nahrad.ts` (nahrazení textů) a mají vlastní právo (ABGB § 1170a, § 1333; OR 102, 104, 363–375). SK: OZ byl zrušen zák. č. 260/2026 Z. z. (nový OZ s pozdější účinností) – šablony na to upozorňují.
 
-Česko má navíc: kupní smlouvu na motorku, podnájemní smlouvu, výpověď povinného ručení, souhlas s trvalým pobytem a s vycestováním dítěte.
+Česko má navíc: kupní smlouvu na motorku, výpověď povinného ručení, souhlas s trvalým pobytem a s vycestováním dítěte.
 
 🇭🇺 **Maďarsko (spuštěno 20. 11. 2026):** `src/obsah/hu/`, `src/sablony/hu/` – 14 vzorů (adásvétel autó s tanúk, jegyzőkönyv,
 meghatalmazás k átírás i obecná, kölcsön, elismervény, ajándékozás, tartozáselismerés, elállás, kellékszavatosság,

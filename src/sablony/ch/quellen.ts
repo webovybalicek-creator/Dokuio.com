@@ -68,3 +68,4 @@ export const EDA_REISEINFO = { nazev: 'Reisedokumente, Visum und Einreise (EDA)'
 export const EDA_REISEHINWEISE = { nazev: 'Reisen ins Ausland – Reisehinweise nach Land (EDA)', url: 'https://www.eda.admin.ch/de/reisen-ins-ausland' };
 export const BJ_KINDESENTFUEHRUNG = { nazev: 'Internationale Kindesentführungen (Bundesamt für Justiz)', url: 'https://www.bj.admin.ch/bj/de/home/gesellschaft/kindesentfuehrung.html' };
 export const OR_305 = or('305–311', 'Gebrauchsleihe');
+export const OR_262 = or('262', 'Untermiete');

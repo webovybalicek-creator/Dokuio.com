@@ -29,6 +29,7 @@ export const zeme: Zeme = {
       { slug: 'ajandekozasi-szerzodes', popis: 'Pénz vagy dolog ajándékozása.' },
     ],
     lakas: [
+      { slug: 'alberleti-szerzodes', popis: 'Szoba vagy lakás albérletbe.' },
       { slug: 'berleti-szerzodes-megszuntetese-kozos-megegyezessel', popis: 'Bérlet vége közös megegyezéssel.' },
       { slug: 'lakasberleti-szerzodes', popis: 'Albérlet óvadékkal.' },
       { slug: 'lakas-atadas-atveteli-jegyzokonyv', popis: 'Mérőórák, kulcsok, állapot.' },
