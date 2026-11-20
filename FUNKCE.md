@@ -98,7 +98,7 @@ Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 - Pravidelné ohlašování vyhledávačům: po každém deployi IndexNow (Bing, Seznam…) se změněnými stránkami
   (`deploy/indexnow.py`, klíč `public/<klíč>.txt`), každé pondělí celá sitemapa (`.github/workflows/indexace.yml`).
   Google si sitemapu čte sám.
-- Google Analytics 4: samostatný účet „Dokuio“ (G-DKDXRKV5TB), načítá se až po souhlasu v cookie liště.
+- Google Analytics 4: samostatný účet „Dokuio“ (G-DKDXRKV5TB), načítá se až po souhlasu v cookie liště. Interní návštěvnost (Vladimírova IP, pravidlo „Vladimír“ ve značce Google) je vyloučená filtrem „Internal Traffic“ (aktivní od 20. 11. 2026); při změně IP pravidlo upravit.
 - Švýcarsko: jazyk `de-CH` (`src/i18n/de-ch.ts` – „ss“ místo „ß“, CHF), šablony v `src/sablony/ch/` odvozené z DE
   s textem podle OR/SchKG (Fedlex).
 - Testy: Playwright skripty (projdou všechny dokumenty každé země, stáhnou PDF), kontrola přetékání na 320/360/768 px.
@@ -107,5 +107,5 @@ Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 
 - Kontrola šablon místním advokátem (hlavně nájem/podnájem a zahraniční šablony).
 - Upozornění 1. 3. 2027: příprava SK vzorů na nový Občiansky zákonník (účinnost 1. 7. 2027) – naplánovaná úloha.
-- Další země (Slovinsko, Chorvatsko…), CH ve francouzštině/italštině.
+- 🇭🇷 HR doplnit zbývající vzory jako v ostatních zemích (výzva, dílo, podnájem, motorka, výpovědi, splátky, dítě…). Další země (Slovinsko…), CH ve francouzštině/italštině.
 - PL: tlačítko pro odstoupení – sledovat novelu zákona o právech spotřebitele.
