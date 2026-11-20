@@ -61,7 +61,7 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 | ✅ | P1 | auto / koupe-ojetiny | Koupě ojetiny: kontrola VIN, tachometru a zástavy před zaplacením (už existuje ve všech zemích: koupe-ojeteho-auta a obdoby) | koupě ojetého auta | kupní smlouva auto |
 | ✅ | P1 | auto / povinne-ruceni | Výpověď povinného ručení: lhůty 6 týdnů, 8 dní, po nehodě | výpověď povinného ručení | výpověď povinného ručení |
 | ⬜ | P2 | auto / prodej-auta | Prodej auta na splátky: výhrada vlastnictví a bezpečná platba | prodej auta na splátky | kupní smlouva auto |
-| ⬜ | P2 | auto / prodej-auta | Prodej motorky, skútru a čtyřkolky – na co nezapomenout | prodej motorky | kupní smlouva motorka |
+| ✅ | P2 | auto / prodej-auta | Prodej motorky, skútru a čtyřkolky – na co nezapomenout | prodej motorky | kupní smlouva motorka |
 | ⬜ | P2 | auto / prepis-a-registr | Plná moc k přepisu vozidla: ověření podpisu na Czech POINTu | plná moc přepis auta | plná moc k přepisu |
 | ⬜ | P3 | auto / prodej-auta | Prodali jste auto a přišla pokuta? Jak pomůže předávací protokol | pokuta po prodeji auta | předávací protokol |
 | ✅ | P1 | penize / pujcka | Půjčka kamarádovi nebo v rodině – jak ji sepsat | smlouva o zápůjčce | zápůjčka, potvrzení, uznání dluhu |
@@ -74,7 +74,7 @@ Legenda stavu: ✅ publikováno · ✍️ rozpracováno · ⬜ v backlogu
 | ✅ | P1 | bydleni / najem-bytu | Jak pronajmout byt (20. 11. 2026 ve všech zemích; SK = najom-bytu-zabezpeka): smlouva, kauce, předávací protokol | pronájem bytu | nájemní smlouva, protokol k bytu |
 | ✅ | P1 | bydleni / konec-najmu | Výpověď z nájmu: výpovědní doba a důvody (nájemce i pronajímatel) | výpověď z nájmu | výpověď z nájmu, dohoda o skončení |
 | ✅ | P1 | bydleni / konec-najmu | Kauce: kolik smí být a kdy se vrací | kauce nájem | nájemní smlouva, protokol |
-| ⬜ | P2 | bydleni / podnajem | Podnájem bytu: kdy potřebuji souhlas pronajímatele | podnájem | podnájemní smlouva |
+| ✅ | P2 | bydleni / podnajem | Podnájem bytu: kdy potřebuji souhlas pronajímatele | podnájem | podnájemní smlouva |
 | ⬜ | P2 | bydleni / najem-bytu | Drobné opravy a údržba: co platí nájemník | drobné opravy nájem | nájemní smlouva |
 | ⬜ | P2 | bydleni / najem-bytu | Nájemní smlouva v angličtině pro cizince | nájemní smlouva anglicky | nájemní smlouva (CZ/EN) |
 | ⬜ | P3 | bydleni / konec-najmu | Dohoda o skončení nájmu místo výpovědi | dohoda o ukončení nájmu | dohoda o skončení nájmu |

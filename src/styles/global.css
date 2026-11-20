@@ -3064,10 +3064,11 @@ span.p-hledani__nahled {
   border: 1px solid var(--lavender);
   border-radius: var(--r);
   overflow: hidden;
-  background: var(--lavender);
-  gap: 1px;
+  background: var(--white);
 }
-.zeme-mrizka li { background: var(--white); }
+/* Čáry mezi buňkami stínem vpravo a dole – prázdné místo v posledním řádku zůstane bílé.
+   Stíny na vnějším okraji ořízne overflow kontejneru. */
+.zeme-mrizka li { box-shadow: 1px 0 0 var(--lavender), 0 1px 0 var(--lavender); }
 .zeme-polozka {
   display: flex;
   align-items: center;
