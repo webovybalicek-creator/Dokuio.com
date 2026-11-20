@@ -16,6 +16,7 @@ export const zeme: Zeme = {
   skupiny: {
     auto: [
       { slug: 'gepjarmu-adasveteli-szerzodes', popis: 'Használt autó eladása magánszemélyek között.' },
+      { slug: 'motorkerekpar-adasveteli-szerzodes', popis: 'Motor, robogó vagy quad eladása magánszemélyek között.' },
       { slug: 'atadas-atveteli-jegyzokonyv-gepjarmu', popis: 'Kilométer, sérülések és kulcsok az átadáskor.' },
       { slug: 'meghatalmazas-forgalmi-atirashoz', popis: 'Ha az átírást más intézi.' },
       { slug: 'atveteli-elismerveny', popis: 'A készpénzes fizetés igazolása.' },
@@ -83,6 +84,7 @@ export const zeme: Zeme = {
         ilustrace: 'auto',
         moznosti: [
           { text: 'Használt autót adok el vagy veszek', dokumenty: ['gepjarmu-adasveteli-szerzodes', 'atadas-atveteli-jegyzokonyv-gepjarmu'], balicek: 'auto-eladasa', tip: 'Két tanú kell. Eladó és vevő is 15 napon belül a kormányablakba.' },
+          { text: 'Motort, robogót vagy quadot adok el', dokumenty: ['motorkerekpar-adasveteli-szerzodes', 'atadas-atveteli-jegyzokonyv-gepjarmu'] },
           { text: 'Az átírást más intézi helyettem', dokumenty: ['meghatalmazas-forgalmi-atirashoz'] },
           { text: 'Kölcsönadom az autómat', dokumenty: ['atadas-atveteli-jegyzokonyv-gepjarmu'] },
         ],

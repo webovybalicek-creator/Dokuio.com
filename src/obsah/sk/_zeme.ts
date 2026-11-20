@@ -13,6 +13,7 @@ export const zeme: Zeme = {
   skupiny: {
     auto: [
       { slug: 'kupna-zmluva-auto', popis: 'Predaj jazdeného auta medzi súkromnými osobami.' },
+      { slug: 'kupna-zmluva-motorka', popis: 'Predaj motocykla, skútra alebo štvorkolky.' },
       { slug: 'preberaci-protokol-vozidla', popis: 'Stav km, poškodenia, kľúče a výbava pri odovzdaní.' },
       { slug: 'splnomocnenie-prepis-vozidla', popis: 'Keď na dopravný inšpektorát ide niekto iný.' },
     ],
@@ -91,6 +92,7 @@ export const zeme: Zeme = {
         ilustrace: 'auto',
         moznosti: [
           { text: 'Predávam alebo kupujem jazdené auto', dokumenty: ['kupna-zmluva-auto', 'preberaci-protokol-vozidla', 'splnomocnenie-prepis-vozidla'], balicek: 'predaj-auta', tip: 'Žiadosť o zmenu držby vozidla do 30 dní.' },
+          { text: 'Predávam motorku, skúter alebo štvorkolku', dokumenty: ['kupna-zmluva-motorka', 'preberaci-protokol-vozidla', 'splnomocnenie-prepis-vozidla'] },
           { text: 'Prepis za mňa vybaví niekto iný', dokumenty: ['splnomocnenie-prepis-vozidla'], tip: 'Podpis na splnomocnení musí byť úradne overený.' },
           { text: 'Požičiavam auto známemu', dokumenty: ['preberaci-protokol-vozidla'] },
         ],

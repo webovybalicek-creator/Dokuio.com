@@ -13,6 +13,7 @@ export const zeme: Zeme = {
   skupiny: {
     auto: [
       { slug: 'umowa-kupna-sprzedazy-samochodu', popis: 'Sprzedaż używanego auta między osobami prywatnymi.' },
+      { slug: 'umowa-kupna-sprzedazy-motocykla', popis: 'Sprzedaż motocykla, skutera lub quada.' },
       { slug: 'protokol-zdawczo-odbiorczy-pojazdu', popis: 'Przebieg, uszkodzenia i kluczyki przy przekazaniu.' },
       { slug: 'pelnomocnictwo-rejestracja-pojazdu', popis: 'Gdy rejestrację załatwia ktoś inny.' },
       { slug: 'pokwitowanie-odbioru-pieniedzy', popis: 'Potwierdzenie zapłaty gotówką.' },
@@ -81,6 +82,7 @@ export const zeme: Zeme = {
         ilustrace: 'auto',
         moznosti: [
           { text: 'Sprzedaję lub kupuję używane auto', dokumenty: ['umowa-kupna-sprzedazy-samochodu', 'protokol-zdawczo-odbiorczy-pojazdu'], balicek: 'sprzedaz-auta', tip: 'Kupujący: PCC-3 w 14 dni. Sprzedający: zgłoszenie zbycia w 30 dni.' },
+          { text: 'Sprzedaję motocykl, skuter lub quada', dokumenty: ['umowa-kupna-sprzedazy-motocykla', 'protokol-zdawczo-odbiorczy-pojazdu'] },
           { text: 'Rejestrację załatwi za mnie ktoś inny', dokumenty: ['pelnomocnictwo-rejestracja-pojazdu'], tip: 'Opłata skarbowa 17 zł, rodzina zwolniona.' },
           { text: 'Pożyczam auto znajomemu', dokumenty: ['protokol-zdawczo-odbiorczy-pojazdu'] },
         ],

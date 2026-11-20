@@ -13,6 +13,7 @@ export const zeme: Zeme = {
   skupiny: {
     auto: [
       { slug: 'kaufvertrag-gebrauchtwagen', popis: 'Privatverkauf eines gebrauchten Autos.' },
+      { slug: 'kaufvertrag-motorrad', popis: 'Privatverkauf eines Motorrads, Mopeds oder Quads.' },
       { slug: 'uebergabeprotokoll-fahrzeug', popis: 'Kilometerstand, Schäden und Schlüssel bei der Übergabe.' },
       { slug: 'vollmacht-zulassung', popis: 'Wenn jemand anderes zur Zulassungsstelle geht.' },
       { slug: 'quittung', popis: 'Bestätigung der Barzahlung.' },
@@ -91,6 +92,7 @@ export const zeme: Zeme = {
         ilustrace: 'auto',
         moznosti: [
           { text: 'Ich verkaufe oder kaufe ein gebrauchtes Auto', dokumenty: ['kaufvertrag-gebrauchtwagen', 'uebergabeprotokoll-fahrzeug', 'quittung'], balicek: 'autoverkauf', tip: 'Verkäufer meldet ab, Käufer meldet mit Kaufvertrag und Pickerl an.' },
+          { text: 'Ich verkaufe ein Motorrad, ein Moped oder ein Quad', dokumenty: ['kaufvertrag-motorrad', 'uebergabeprotokoll-fahrzeug', 'quittung'] },
           { text: 'Jemand anderes meldet das Auto für mich ab oder an', dokumenty: ['vollmacht-zulassung'] },
           { text: 'Ich verleihe mein Auto', dokumenty: ['uebergabeprotokoll-fahrzeug'] },
         ],

@@ -24,6 +24,7 @@ Jednotná sada 11 dokumentů v každé zemi (podle práva a úředních zdrojů 
 | Smlouva o dílo (řemeslník, oprava) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Podnájemní smlouva (pokoj / celý byt) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Dohoda o skončení nájmu | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Kupní smlouva na motorku (skútr, čtyřkolka) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Smlouva o výpůjčce (bezplatné půjčení věci) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Čestné prohlášení | ✓ | ✓ | ✓ | ✓² | ✓² | ✓² |
 | Výpověď smlouvy (operátor, pojištění, energie, posilovna, předplatné) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
@@ -40,7 +41,9 @@ Výpovědi, dohoda o splátkách a souhlas s cestou dítěte (20. 11. 2026) jsou
 
 Nové vzory (20. 11. 2026) mají i 🇭🇺 HU: fizetési felszólítás, vállalkozási szerződés, nyilatkozat. Nové kategorie „Služby a řemeslníci“ (a obdoby v každé zemi). AT/CH verze se skládají z DE přes `sablony/nahrad.ts` (nahrazení textů) a mají vlastní právo (ABGB § 1170a, § 1333; OR 102, 104, 363–375). SK: OZ byl zrušen zák. č. 260/2026 Z. z. (nový OZ s pozdější účinností) – šablony na to upozorňují.
 
-Česko má navíc: kupní smlouvu na motorku, výpověď povinného ručení, souhlas s trvalým pobytem a s vycestováním dítěte.
+Motorka (20. 11. 2026) se ve všech zemích skládá ze smlouvy na auto přes `sablony/motorka.ts` (`naMotorku`) – právní text stejný, mění se nápovědy, příklady, VIN na rámu a tip k výbavě.
+
+Česko má navíc: výpověď povinného ručení, souhlas s trvalým pobytem a s vycestováním dítěte.
 
 🇭🇺 **Maďarsko (spuštěno 20. 11. 2026):** `src/obsah/hu/`, `src/sablony/hu/` – 14 vzorů (adásvétel autó s tanúk, jegyzőkönyv,
 meghatalmazás k átírás i obecná, kölcsön, elismervény, ajándékozás, tartozáselismerés, elállás, kellékszavatosság,
