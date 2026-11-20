@@ -20,9 +20,13 @@ interface Props {
   soubor?: string;
   /** Balíčky, do kterých dokument patří */
   balicky?: { nazev: string; url: string }[];
+  /** Soubor překladu jazykové verze pro líné načtení (src/preklady/nacti.ts) */
+  preklad?: string;
 }
-const { sablona: s, dalsi = [], soubor, balicky = [] } = Astro.props;
-const TX = texty(s.jazyk);
+const { sablona: s, dalsi = [], soubor, balicky = [], preklad } = Astro.props;
+// jazyková verze: rozhraní v jazyce verze, údaje země (měna, doklad k vozidlu) podle země
+const jazyk = s.jazykRozhrani ?? s.jazyk;
+const TX = texty(jazyk, s.jazyk);
 const T = TX.pruvodce;
 const w = s.slovo ?? TX.slovo;
 const pocet = s.kroky.length + 1;
@@ -31,7 +35,7 @@ const vinPole = vinExtra.pole ?? 'E';
 const vinRadky: [string, string][] = vinExtra.radky ?? [['A', '1AB 2345'], ['B', '15.03.2018'], ['D.1', 'ŠKODA'], ['D.3', 'OCTAVIA COMBI']];
 ---
 
-<div class="pruvodce" data-pruvodce data-kod={s.kod} data-soubor={soubor} data-verze={s.verze}>
+<div class="pruvodce" data-pruvodce data-kod={s.kod} data-soubor={soubor} data-verze={s.verze} data-preklad={preklad} data-jazyk={preklad ? s.jazykRozhrani : undefined}>
   <div class="pruvodce__formular">
     <ol class="kroky-nav" aria-label={T.kroky}>
       {
@@ -82,11 +86,18 @@ const vinRadky: [string, string][] = vinExtra.radky ?? [['A', '1AB 2345'], ['B',
               {k.nazev}
             </legend>
             {k.popis && <p class="krok__popis">{k.popis}</p>}
-            {i === 0 && s.preklad && (
+            {i === 0 && s.preklad && !s.prekladVzdy && (
               <label class="prepinac">
                 <input type="checkbox" name="_preklad" value={s.preklad.jazyk} />
                 <span class="prepinac__spinac" aria-hidden="true" />
                 <span>{s.preklad.prepinac}</span>
+              </label>
+            )}
+            {i === 0 && s.prekladVzdy && s.preklad?.jenOriginal && (
+              <label class="prepinac">
+                <input type="checkbox" name="_jenOriginal" value="1" />
+                <span class="prepinac__spinac" aria-hidden="true" />
+                <span>{s.preklad.jenOriginal}</span>
               </label>
             )}
             <div class="pole-mrizka">
@@ -211,12 +222,12 @@ const vinRadky: [string, string][] = vinExtra.radky ?? [['A', '1AB 2345'], ['B',
           </div>
         </details>
         )}
-        <Upozorneni jazyk={s.jazyk} />
+        <Upozorneni jazyk={jazyk} />
         <div class="akce akce--tesne">
           <button type="button" class="btn btn--primarni" data-stahnout="pdf">{T.stahnoutPdf}</button>
           <button type="button" class="btn btn--duch" data-stahnout="docx">{T.stahnoutWord}</button>
         </div>
-        <EmailPdf jazyk={s.jazyk} />
+        <EmailPdf jazyk={jazyk} />
         <div class="sdilet">
           <button type="button" class="odkaz-tl sdilet__tl" data-sdilet>
             <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M8 12l4-4M7 9.5 5 11.5a2.8 2.8 0 0 0 4 4l2-2M13 10.5l2-2a2.8 2.8 0 0 0-4-4l-2 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -256,7 +267,7 @@ const vinRadky: [string, string][] = vinExtra.radky ?? [['A', '1AB 2345'], ['B',
         </div>
       </fieldset>
     </form>
-    <Duvera class="duvera--pruvodce" lang={s.jazyk} />
+    <Duvera class="duvera--pruvodce" lang={jazyk} />
   </div>
 
   <aside class="pruvodce__nahled" id="nahled-smlouvy" aria-label={T.nahled(w)}>

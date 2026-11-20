@@ -138,6 +138,8 @@ export const pl: Texty = {
     potvrditSmazani: 'Na pewno usunąć wszystkie wpisane dane i zmiany tekstu?',
     pripravuji: 'Przygotowuję…',
     chybaSouboru: 'Nie udało się utworzyć pliku. Spróbuj ponownie lub w innej przeglądarce.',
+    /** Připojí se k názvu pole s chybným údajem (např. VIN) v seznamu před stažením */
+    zkontrolujte: 'sprawdź',
     mesicne: (n) => `co miesiąc, ${n}×`,
     kalendarNadpis: 'Pilnuj terminów',
     kalendarPopis: 'Zapisz ważne daty w kalendarzu w telefonie lub komputerze. Przypomnimy dzień wcześniej.',
@@ -327,5 +329,8 @@ export const pl: Texty = {
     dalsiUjednaniVysvetleni: 'Twoje własne postanowienie. Ten tekst nie jest częścią naszego sprawdzonego wzoru.',
     clanek: (_r, cislo) => `§ ${cislo}`,
     upravenoUzivatelem: 'tekst zmieniony przez użytkownika',
+    /** Jazyková doložka dvojjazyčné verze v jazyce originálu (j = jazyk překladu: uk, en) */
+    dvojjazycne: (j: string) =>
+      `Niniejszy dokument sporządzono w języku polskim i ${({ uk: 'ukraińskim', en: 'angielskim' } as Record<string, string>)[j] ?? j}. W razie rozbieżności między wersjami językowymi rozstrzygająca jest wersja w języku polskim.`,
   },
 };

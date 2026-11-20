@@ -4,7 +4,8 @@
  * „vytvorit“ používá obrázek svého dokumentu. Neznámá stránka dostane „default“.
  */
 import { AKTIVNI_ZEME, VSECHNY_STRANKY, urlStranky } from '../obsah';
-import { TEXTY, type Jazyk } from '../i18n';
+import { JAZYKY_VERZI, TEXTY, type Jazyk } from '../i18n';
+import { ROZCESTNIKY_VERZI, VERZE } from '../preklady';
 
 export interface OgStranka {
   slug: string;
@@ -34,6 +35,21 @@ export const OG_STRANKY: OgStranka[] = [
     nadpis: st.nazev,
     popis: st.katalog.popis,
     papir: st.nazev,
+  })),
+  // jazykové verze (src/preklady): obrázky v jazyce verze
+  ...ROZCESTNIKY_VERZI.map((r) => ({
+    slug: `${r.zeme.kod}-${r.jazyk}`,
+    stitek: zdarma(r.jazyk),
+    nadpis: `${JAZYKY_VERZI[r.jazyk].hub.h1(r.zeme.kod)} ${TEXTY[r.jazyk as Jazyk].hub.h1Em.replace(/\.$/, '')}`,
+    popis: JAZYKY_VERZI[r.jazyk].hub.ogPopis(r.zeme.jazyk),
+    papir: TEXTY[r.jazyk as Jazyk].slovo.n.replace(/^./, (c) => c.toUpperCase()),
+  })),
+  ...VERZE.map((v) => ({
+    slug: urlStranky(v.stranka).replace(/^\/|\/$/g, '').replace(/\//g, '-'),
+    stitek: zdarma(v.jazyk),
+    nadpis: v.stranka.nazev,
+    popis: v.stranka.katalog.popis,
+    papir: v.stranka.nazev,
   })),
   ...AKTIVNI_ZEME.flatMap((z) =>
     (z.balicky ?? []).map((b) => ({

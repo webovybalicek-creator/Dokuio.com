@@ -7,6 +7,8 @@ import { join, relative } from 'node:path';
 
 const DIST = 'dist';
 const ZEME = { cz: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', at: 'de-AT', ch: 'de-CH', hu: 'hu-HU' };
+/** Jazykové verze /<zeme>/<jazyk>/… (PREKLADY.md): lang = jazyk + region země (uk-CZ), og:locale platný pro Open Graph */
+const VERZE = { uk: 'uk_UA', en: 'en_GB' };
 const soubory = [];
 const projdi = (d) => {
   for (const f of readdirSync(d)) {
@@ -20,6 +22,8 @@ projdi(DIST);
 const chyby = [];
 const varovani = [];
 const tituly = new Map();
+/** cesta → hreflang odkazy (kontrola vzájemnosti) */
+const alternativy = new Map();
 const popisy = new Map();
 const meta = (h, re) => (h.match(re) ?? [])[1];
 const dekoduj = (s = '') => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -29,7 +33,9 @@ for (const f of soubory) {
   const cesta = '/' + relative(DIST, f).replace(/index\.html$/, '').replace(/\\/g, '/');
   const noindex = /<meta name="robots" content="noindex/.test(h);
   const kod = cesta.split('/')[1];
-  const ocekavanyJazyk = ZEME[kod];
+  const jazykVerze = VERZE[cesta.split('/')[2]] ? cesta.split('/')[2] : undefined;
+  const ocekavanyJazyk = ZEME[kod] && jazykVerze ? `${jazykVerze}-${ZEME[kod].split('-')[1]}` : ZEME[kod];
+  const ocekavanyLocale = jazykVerze ? VERZE[jazykVerze] : ocekavanyJazyk?.replace('-', '_');
   const lang = meta(h, /<html lang="([^"]+)"/);
   const title = dekoduj(meta(h, /<title>([^<]*)<\/title>/));
   const desc = dekoduj(meta(h, /<meta name="description" content="([^"]*)"/));
@@ -48,10 +54,17 @@ for (const f of soubory) {
   if (!ogImage) ch('chybí og:image');
   if (ocekavanyJazyk) {
     if (lang !== ocekavanyJazyk) ch(`lang="${lang}", čeká se ${ocekavanyJazyk}`);
-    if (ogLocale !== ocekavanyJazyk.replace('-', '_')) ch(`og:locale=${ogLocale}, čeká se ${ocekavanyJazyk.replace('-', '_')}`);
+    if (ogLocale !== ocekavanyLocale) ch(`og:locale=${ogLocale}, čeká se ${ocekavanyLocale}`);
   }
   if (kod === 'ch' && /ß/.test(`${title} ${desc}`)) ch('Švýcarsko: „ß“ v titulku nebo popisu');
   if (noindex) continue;
+  const alt = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="https:\/\/dokuio\.com([^"]+)"/g)].map((m) => ({ hreflang: m[1], cesta: m[2] }));
+  if (alt.length) {
+    alternativy.set(cesta, alt);
+    if (!alt.some((a) => a.cesta === cesta)) ch('hreflang neodkazuje sám na sebe');
+    const vlastni = alt.find((a) => a.cesta === cesta);
+    if (vlastni && lang && vlastni.hreflang !== lang && vlastni.hreflang !== 'en' && vlastni.hreflang !== 'x-default') ch(`hreflang na sebe „${vlastni.hreflang}“ ≠ lang „${lang}“`);
+  }
   if (h1 !== 1) ch(`počet <h1> = ${h1}`);
   if (title && title.length > 70) va(`titulek ${title.length} znaků (> 70): ${title}`);
   if (title && title.length < 20) va(`titulek krátký (${title.length}): ${title}`);
@@ -59,6 +72,12 @@ for (const f of soubory) {
   if (title) tituly.set(title, [...(tituly.get(title) ?? []), cesta]);
   if (desc) popisy.set(desc, [...(popisy.get(desc) ?? []), cesta]);
 }
+// hreflang musí být vzájemný: když A odkazuje na B, B odkazuje zpět na A
+for (const [cesta, alt] of alternativy)
+  for (const a of alt) {
+    const zpet = alternativy.get(a.cesta);
+    if (zpet && !zpet.some((x) => x.cesta === cesta)) chyby.push(`${cesta} – hreflang na ${a.cesta}, ale ta neodkazuje zpět`);
+  }
 for (const [t, c] of tituly) if (c.length > 1) chyby.push(`duplicitní titulek „${t}“: ${c.join(', ')}`);
 for (const [d, c] of popisy) if (c.length > 1) varovani.push(`duplicitní description: ${c.join(', ')}`);
 

@@ -55,6 +55,8 @@ export interface Dokument {
   /** „V“ a „dne“ u místa a data podpisu v jazyce dokumentu */
   mistoDne: [string, string];
   jazyk: string;
+  /** Jazyk ovládání náhledu (tlačítka, „Co to znamená?“) u jazykové verze; jinak = jazyk */
+  jazykRozhrani?: string;
   /** Uživatel upravil text šablony */
   upraveno: boolean;
   /** Kolik polí je vyplněno / celkem (pro průvodce) */
@@ -109,7 +111,7 @@ export function formatHodnota(pole: Pole | undefined, h: Hodnota, jazyk?: string
       return v.toUpperCase().replace(/\s/g, '');
     case 'volba': {
       const m = pole.moznosti?.find((o) => o.hodnota === v);
-      return m ? m.popis : v;
+      return m ? (m.dokument ?? m.popis) : v;
     }
     default: {
       // PSČ a obec držet pohromadě: „251 01 Říčany“ se nezalomí uprostřed
@@ -169,6 +171,9 @@ export function textNaRadky(text: string): Radek[] {
       return { uroven: (i > 0 && box ? 1 : 0) as 0 | 1, useky };
     });
 }
+
+/** Základ názvu staženého souboru: jazyková verze má příponu jazyka (kupni-smlouva-auto-uk.pdf) */
+export const nazevSouboru = (s: Sablona) => (s.jazykRozhrani ? `${s.souborPdf}-${s.jazykRozhrani}` : s.souborPdf);
 
 export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dokument {
   const T = textyJazyka(s.jazyk).dokument;
@@ -231,8 +236,8 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     return radky;
   };
 
-  /** Dvojjazyčná verze: data._preklad = jazyk překladu */
-  const P = s.preklad && data._preklad === s.preklad.jazyk ? s.preklad : undefined;
+  /** Dvojjazyčná verze: data._preklad = jazyk překladu, u jazykové verze (prekladVzdy) vždy */
+  const P = s.preklad && (s.prekladVzdy || data._preklad === s.preklad.jazyk) && data._jenOriginal !== '1' ? s.preklad : undefined;
   const prelozVolbu = (id: string, v: string) => P?.volby?.[id]?.[v];
   const radkyPrekladu = (o: Odstavec, op: OdstavecPrekladu | undefined): Radek[] => {
     if (!op) return [];
@@ -281,6 +286,19 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
   const texty = upravy.text ?? {};
   let upraveno = false;
 
+  /** Odstavec podle úprav uživatele (smazaný / přepsaný / původní) */
+  const odstavecDok = (id: string, radky: () => Radek[]): OdstavecDok => {
+    if (smazane.has(id)) {
+      upraveno = true;
+      return { id, stav: 'smazano', radky: radky() };
+    }
+    if (texty[id] !== undefined) {
+      upraveno = true;
+      return { id, stav: 'upraveno', radky: textNaRadky(texty[id]) };
+    }
+    return { id, stav: 'puvodni', radky: radky() };
+  };
+
   const clanky: { nadpis: string; vysvetleni?: string; odstavce: OdstavecDok[] }[] = s.clanky.map((c, i) => ({
     nadpis: c.nadpis,
     vysvetleni: c.vysvetleni,
@@ -291,25 +309,31 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
         const je = Array.isArray(o.kdyz.je) ? o.kdyz.je : [o.kdyz.je];
         if (typeof v === 'string' && v && !je.includes(v)) return [];
       }
-      if (smazane.has(id)) {
-        upraveno = true;
-        return [{ id, stav: 'smazano' as const, radky: radkyOdstavce(o) }];
-      }
-      if (texty[id] !== undefined) {
-        upraveno = true;
-        return [{ id, stav: 'upraveno' as const, radky: textNaRadky(texty[id]) }];
-      }
       const op = P?.clanky[i]?.odstavce[j];
-      return [{ id, stav: 'puvodni' as const, radky: [...radkyOdstavce(o), ...radkyPrekladu(o, op)] }];
+      // smazaný odstavec ukazuje jen originál (k vrácení), původní i s překladem
+      if (smazane.has(id)) return [odstavecDok(id, () => radkyOdstavce(o))];
+      return [odstavecDok(id, () => [...radkyOdstavce(o), ...radkyPrekladu(o, op)])];
     }),
   }));
+
+  // Jazyková doložka (originál + překlad) jako poslední odstavec posledního článku
+  if (P?.dolozka && clanky.length) {
+    const i = clanky.length - 1;
+    const [orig, prek] = P.dolozka;
+    clanky[i].odstavce.push(
+      odstavecDok(`${i + 1}.${s.clanky[i].odstavce.length + 1}`, () => [
+        { uroven: 0, useky: rozloz(orig) },
+        { uroven: 0, useky: rozloz(prek), preklad: true },
+      ]),
+    );
+  }
 
   const vlastni = (upravy.vlastni ?? []).filter((t) => t.trim());
   if (vlastni.length) {
     upraveno = true;
     clanky.splice(Math.max(clanky.length - 1, 0), 0, {
       nadpis: T.dalsiUjednani,
-      vysvetleni: T.dalsiUjednaniVysvetleni,
+      vysvetleni: textyJazyka(s.jazykRozhrani ?? s.jazyk).dokument.dalsiUjednaniVysvetleni,
       odstavce: vlastni.map((t, k) => ({ id: `v${k}`, stav: 'vlastni', radky: textNaRadky(t) })),
     });
   }
@@ -342,10 +366,10 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     podnadpis: s.podnadpis,
     nazev2: P?.nazev,
     podnadpis2: P?.podnadpis,
-    prilohy: s.prilohy?.(data) ?? [],
+    prilohy: (s.prilohy?.(data) ?? []).map((t) => (P?.prilohy ? prelozTabulku(t, P.prilohy) : t)),
     overeni: `https://dokuio.com/overeni/?k=${encodeURIComponent(s.kod)}&v=${encodeURIComponent(s.verze)}`,
     kod: s.kod,
-    uvod: s.uvod ? rozloz(s.uvod) : [],
+    uvod: s.uvod ? [...rozloz(s.uvod), ...(P?.uvod ? [{ t: 'text' as const, text: ' / ' }, ...rozlozP(P.uvod)] : [])] : [],
     bloky,
     misto: [hodnotaUseku(s.mistoPodpisu)],
     datum: [hodnotaUseku(s.datumPodpisu)],
@@ -355,9 +379,26 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     paticka: upraveno ? `${zakladPaticky} · ${T.upravenoUzivatelem}` : zakladPaticky,
     mistoDne: P ? [`${T.v} / ${P.mistoDne[0]}`, `${T.dne} / ${P.mistoDne[1]}`] : [T.v, T.dne],
     jazyk: s.jazyk,
+    jazykRozhrani: s.jazykRozhrani,
     upraveno,
     vyplneno,
     celkem,
+  };
+}
+
+/** Texty příloh ve dvojjazyčné verzi: „originál / překlad“ podle slovníku (přesná shoda nebo začátek textu) */
+function prelozTabulku(t: Tabulka, slovnik: Record<string, string>): Tabulka {
+  const pr = (text: string): string => {
+    if (slovnik[text]) return `${text} / ${slovnik[text]}`;
+    const k = Object.keys(slovnik).find((x) => text.startsWith(x));
+    return k ? `${text} / ${slovnik[k]}${text.slice(k.length)}` : text;
+  };
+  return {
+    ...t,
+    nadpis: pr(t.nadpis),
+    popis: t.popis && pr(t.popis),
+    hlavicka: t.hlavicka.map(pr),
+    poznamka: t.poznamka && pr(t.poznamka),
   };
 }
 

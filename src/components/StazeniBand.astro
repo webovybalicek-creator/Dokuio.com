@@ -19,9 +19,11 @@ interface Props {
   jazyk?: string;
   /** Název dokumentu do e-mailu */
   nazev?: string;
+  /** Jazyk země, když je stránka v jazykové verzi (e-mail chodí v jazyce země) */
+  jazykZeme?: string;
 }
-const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false, slovo, jazyk, nazev } = Astro.props;
-const TX = texty(jazyk);
+const { nadpis, vzorPdf, vzorDocx, vytvorit, pruvodce = false, slovo, jazyk, nazev, jazykZeme } = Astro.props;
+const TX = texty(jazyk, jazykZeme);
 const T = TX.stazeni;
 const w = slovo ?? TX.slovo;
 ---
@@ -54,7 +56,7 @@ const w = slovo ?? TX.slovo;
             <a class="btn btn--duch" href={vzorPdf} download>{T.vzorPdf}</a>
             <a class="btn btn--duch" href={vzorDocx} download>{T.vzorWord}</a>
           </div>
-          <div class="stazeni__email" data-email-vzor={vzorPdf} data-nadpis={nazev ?? nadpis}>
+          <div class="stazeni__email" data-email-vzor={vzorPdf} data-nadpis={nazev ?? nadpis} data-jazyk={jazykZeme ?? jazyk ?? 'cs'} data-jazyk-ui={jazyk ?? 'cs'}>
             <EmailPdf jazyk={jazyk ?? 'cs'} />
           </div>
         </div>
@@ -71,7 +73,8 @@ const w = slovo ?? TX.slovo;
     const soubor = url.split('/').pop()!.replace(/\.pdf$/, '');
     const zeme = location.pathname.split('/').filter(Boolean)[0] ?? 'cz';
     napojEmail(el.querySelector<HTMLElement>('[data-email-pdf]')!, () => fetch(url).then((r) => r.blob()), {
-      jazyk: document.documentElement.lang,
+      jazyk: el.dataset.jazyk ?? 'cs',
+      jazykUi: el.dataset.jazykUi,
       zeme,
       nazev: el.dataset.nadpis ?? soubor,
       soubor,

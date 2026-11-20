@@ -1,0 +1,13 @@
+---
+/** Průvodce jazykové verze: /<zeme>/<jazyk>/<slug>/vytvorit/ */
+import VytvoritStranka from '../../../../../components/VytvoritStranka.astro';
+import { VERZE } from '../../../../../preklady';
+import type { StrankaDokumentu } from '../../../../../obsah/typy';
+
+export function getStaticPaths() {
+  return VERZE.map((v) => ({ params: { zeme: v.zeme, jazyk: v.jazyk, dokument: v.slug }, props: { stranka: v.stranka } }));
+}
+const { stranka } = Astro.props as { stranka: StrankaDokumentu };
+---
+
+<VytvoritStranka stranka={stranka} />

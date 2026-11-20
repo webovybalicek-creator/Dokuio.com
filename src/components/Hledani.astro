@@ -5,16 +5,24 @@
  */
 import Ilustrace from './Ilustrace.astro';
 import { katalog, zemeKod } from '../obsah';
+import type { Dokument } from '../obsah/typy';
 import { texty } from '../i18n';
 import { SITE } from '../lib/config';
 
 interface Props {
   zeme: string;
+  /** Jazyková verze: vlastní katalog (jen přeložené dokumenty), názvy kategorií a jazyk textů */
+  dokumenty?: Dokument[];
+  kategorie?: Record<string, string>;
+  jazyk?: string;
 }
 const zeme = zemeKod(Astro.props.zeme);
-const docs = katalog(zeme.kod);
-const kat = zeme.kategorie;
-const t = texty(zeme.jazyk).hledani;
+const docs = Astro.props.dokumenty ?? katalog(zeme.kod);
+// u verze jen kategorie, ve kterých je přeložený dokument
+const kat = Astro.props.kategorie
+  ? Object.fromEntries(Object.entries(Astro.props.kategorie).filter(([k]) => docs.some((d) => d.kategorie === k)))
+  : zeme.kategorie;
+const t = texty(Astro.props.jazyk ?? zeme.jazyk).hledani;
 const hledatText = (d: (typeof docs)[number]) => [d.nazev, d.popis, ...d.slova].join(' ');
 ---
 

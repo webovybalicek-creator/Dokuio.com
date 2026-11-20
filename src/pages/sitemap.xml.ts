@@ -1,16 +1,24 @@
 import type { APIRoute } from 'astro';
 import { SITE } from '../lib/config';
-import { AKTIVNI_ZEME, HREFLANG_HUBY, VSECHNY_STRANKY, urlStranky } from '../obsah';
+import { AKTIVNI_ZEME, VSECHNY_STRANKY, slugStranky, urlStranky } from '../obsah';
+import { HREFLANG_ROZCESTNIKU, ROZCESTNIKY_VERZI, VERZE, hreflangDokumentu } from '../preklady';
 import { INFO_ODKAZY } from '../obsah/informace';
 import { PORADNY, clanky, urlClanku, urlKategorie, urlPoradny, urlTematu } from '../lib/poradna';
 
 export const GET: APIRoute = async () => {
-  const huby = ['/', ...AKTIVNI_ZEME.map((z) => `/${z.kod}/`)];
+  const huby = ['/', ...AKTIVNI_ZEME.map((z) => `/${z.kod}/`), ...ROZCESTNIKY_VERZI.map((r) => r.url)];
   /** Datum poslední změny podle šablony */
   const aktualizace: Record<string, string> = Object.fromEntries(
     VSECHNY_STRANKY.map((s) => [urlStranky(s), s.sablona.aktualizovano]),
   );
-  const dokumenty = VSECHNY_STRANKY.map(urlStranky);
+  for (const v of VERZE) aktualizace[urlStranky(v.stranka)] = v.stranka.sablona.aktualizovano;
+  const dokumenty = [...VSECHNY_STRANKY.map(urlStranky), ...VERZE.map((v) => urlStranky(v.stranka))];
+  /** hreflang dokumentů s jazykovými verzemi (originál i verze odkazují na všechny) */
+  const hreflangStranky: Record<string, { hreflang: string; href: string }[]> = {};
+  for (const st of VSECHNY_STRANKY) {
+    const alt = hreflangDokumentu(st.sablona.zeme, slugStranky(st));
+    for (const a of alt) hreflangStranky[a.href] = alt;
+  }
   const informace = AKTIVNI_ZEME.flatMap((z) => [
     ...(z.balicky ?? []).map((b) => `/${z.kod}/balicek/${b.slug}/`),
     ...Object.values(INFO_ODKAZY[z.kod] ?? {}),
@@ -28,9 +36,9 @@ export const GET: APIRoute = async () => {
     ];
   });
 
-  const alternativy = HREFLANG_HUBY.map(
-    (a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${new URL(a.href, SITE.url).href}"/>`,
-  ).join('\n');
+  const odkazy = (alt: { hreflang: string; href: string }[]) =>
+    alt.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${new URL(a.href, SITE.url).href}"/>`).join('\n');
+  const alternativy = odkazy(HREFLANG_ROZCESTNIKU);
 
   const url = (cesta: string) => {
     const lastmod = aktualizace[cesta];
@@ -38,7 +46,7 @@ export const GET: APIRoute = async () => {
       '  <url>',
       `    <loc>${new URL(cesta, SITE.url).href}</loc>`,
       lastmod ? `    <lastmod>${lastmod}</lastmod>` : '',
-      huby.includes(cesta) ? alternativy : '',
+      huby.includes(cesta) ? alternativy : hreflangStranky[cesta] ? odkazy(hreflangStranky[cesta]) : '',
       '  </url>',
     ]
       .filter(Boolean)

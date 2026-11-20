@@ -12,7 +12,7 @@ interface Props {
   kompakt?: boolean;
 }
 const { sablona: s, kompakt = false } = Astro.props;
-const T = texty(s.jazyk).kontrola;
+const T = texty(s.jazykRozhrani ?? s.jazyk).kontrola;
 const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const html = (t: string) =>
   esc(t).replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" rel="noopener" target="_blank">$1</a>');

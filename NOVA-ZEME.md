@@ -5,6 +5,8 @@
 Vše se sestaví samo: stránky, průvodce, prázdné vzory PDF/DOCX, katalog a vyhledávání,
 související dokumenty, OG obrázky, sitemap i hreflang.
 
+> **Jazykové verze (ukrajinsky, anglicky):** překlad dokumentu se přidává jedním souborem `src/preklady/<zeme>/<jazyk>/<slug>.ts` – návod, pravidla a slovníček v [PREKLADY.md](PREKLADY.md). Nová země potřebuje názvy a kategorie v `src/i18n/uk.ts` a `en.ts` (`zeme`, `kategorie`, `jazykZeme`) a v textech svého jazyka `dokument.dvojjazycne` (jazyková doložka).
+
 > **Pravidlo:** každý nový dokument i článek se dělá **pro všechny země, které Dokuio má** (místní verze podle práva země, ne překlad). Nová země dostane celou sadu dokumentů i článků.
 
 ## Nový dokument (2 soubory)

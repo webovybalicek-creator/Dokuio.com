@@ -21,7 +21,9 @@ export const zemeKod = (kod: string): Zeme => {
 };
 
 export const slugStranky = (s: StrankaDokumentu) => s.sablona.souborPdf;
-export const urlStranky = (s: StrankaDokumentu) => `/${s.sablona.zeme}/${s.sablona.souborPdf}/`;
+/** Adresa landing page; jazyková verze (src/preklady) má jazyk za zemí: /cz/uk/kupni-smlouva-auto/ */
+export const urlStranky = (s: StrankaDokumentu) =>
+  `/${s.sablona.zeme}/${s.sablona.jazykRozhrani ? `${s.sablona.jazykRozhrani}/` : ''}${s.sablona.souborPdf}/`;
 
 /** Dokumenty po zemích */
 export const STRANKY: Record<string, StrankaDokumentu[]> = {};

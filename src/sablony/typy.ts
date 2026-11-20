@@ -25,6 +25,11 @@ export interface Moznost {
   hodnota: string;
   /** Popisek ve formuláři */
   popis: string;
+  /**
+   * Text do dokumentu, když se liší od popisku ve formuláři. Nastavuje ho jazyková verze
+   * (src/preklady): formulář je přeložený, ale v originálu smlouvy musí zůstat text v jazyce země.
+   */
+  dokument?: string;
 }
 
 export interface Pole {
@@ -144,6 +149,13 @@ export interface Sablona {
   pripominky?: (data: Data) => Pripominka[];
   /** Překlad pro dvojjazyčnou verzi (např. CZ + EN). Strukturou kopíruje `clanky`, rozhodující je originál. */
   preklad?: Preklad;
+  /**
+   * Jazyk rozhraní jazykové verze (`uk`, `en`), když se liší od jazyka dokumentu. Nastavuje jen
+   * `slozVerzi` (src/preklady/verze.ts) – ručně se v šablonách nepíše. Dokument zůstává v `jazyk`.
+   */
+  jazykRozhrani?: string;
+  /** Překlad je vždy zapnutý (jazyková verze), bez přepínače v průvodci */
+  prekladVzdy?: boolean;
 }
 
 export interface Tabulka {
@@ -178,11 +190,20 @@ export interface Preklad {
   mistoDne: [string, string];
   /** Doložka o přednosti originálu (do patičky i na konec) */
   prednost: string;
+  /** Jazyková verze: popisek přepínače „jen originál“ (dokumenty s úředně ověřeným podpisem) */
+  jenOriginal?: string;
   /** Nadpis článku v překladu – předpona, např. „Article“ */
   clanek: string;
   clanky: { nadpis: string; odstavce: OdstavecPrekladu[] }[];
   /** Hodnoty polí typu volba v překladu (id pole → hodnota → text) */
   volby?: Record<string, Record<string, string>>;
+  /**
+   * Jazyková doložka na konec posledního článku: [v jazyce originálu, v jazyce překladu],
+   * např. „… v případě rozporu je rozhodující české znění“. Jazykové verze ji mají vždy.
+   */
+  dolozka?: [string, string];
+  /** Překlad textů v přílohách (tabulkách): přesný text nebo začátek buňky → překlad. Vypíše se „originál / překlad“. */
+  prilohy?: Record<string, string>;
 }
 
 /** Tvary slova pro texty rozhraní: 1. pád, 2. pád, 4. pád, 6. pád */

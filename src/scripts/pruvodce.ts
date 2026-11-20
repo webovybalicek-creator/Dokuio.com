@@ -14,6 +14,7 @@ import {
   vsechnaPole,
   type Dokument,
   type Upravy,
+  nazevSouboru,
 } from '../sablony/dokument';
 import { dokumentHtml } from '../sablony/html';
 
@@ -61,7 +62,10 @@ export function spustPruvodce(s: Sablona) {
   const navTl = [...koren.querySelectorAll<HTMLButtonElement>('[data-skok]')];
   const pole = vsechnaPole(s);
   const klic = `dokuio:${s.kod}:${s.verze}`;
-  const TX = texty(s.jazyk);
+  // jazyková verze (uk, en): rozhraní v jazyce verze, dokument v jazyce země
+  const jazyk = s.jazykRozhrani ?? s.jazyk;
+  const TX = texty(jazyk, s.jazyk);
+  const soubor = nazevSouboru(s);
   const T = TX.pruvodce;
   const w = s.slovo ?? TX.slovo;
 
@@ -114,7 +118,7 @@ export function spustPruvodce(s: Sablona) {
     if (box && obnoveno && !location.hash.startsWith('#s=')) {
       const d = kdy ? new Date(kdy) : null;
       const popis = d
-        ? d.toLocaleString(s.jazyk === 'cs' ? 'cs-CZ' : s.jazyk, { day: 'numeric', month: 'numeric', hour: '2-digit', minute: '2-digit' })
+        ? d.toLocaleString(jazyk === 'cs' ? 'cs-CZ' : jazyk, { day: 'numeric', month: 'numeric', hour: '2-digit', minute: '2-digit' })
         : '';
       box.querySelector<HTMLElement>('[data-koncept-text]')!.textContent = TX.koncept.obnoveno(popis);
       box.hidden = false;
@@ -154,6 +158,8 @@ export function spustPruvodce(s: Sablona) {
     }
     const preklad = form.querySelector<HTMLInputElement>('[name="_preklad"]');
     if (preklad) data._preklad = preklad.checked ? preklad.value : '';
+    const jenOriginal = form.querySelector<HTMLInputElement>('[name="_jenOriginal"]');
+    if (jenOriginal) data._jenOriginal = jenOriginal.checked ? '1' : '';
     stav.data = data;
   };
 
@@ -215,7 +221,7 @@ export function spustPruvodce(s: Sablona) {
           .flatMap((p) => {
             const v = stav.data[p.id];
             if (prazdne(v)) return [{ p, text: p.popis }];
-            if (p.typ === 'vin' && !VIN.test(String(v).replace(/\s/g, ''))) return [{ p, text: `${p.popis} – zkontrolujte`, chyba: true }];
+            if (p.typ === 'vin' && !VIN.test(String(v).replace(/\s/g, ''))) return [{ p, text: `${p.popis} – ${T.zkontrolujte}`, chyba: true }];
             return [];
           });
         pocet += polozky.length;
@@ -531,7 +537,7 @@ export function spustPruvodce(s: Sablona) {
   /* ---------------------------------------------------------- odeslání PDF na e-mail */
   const emailBox = koren.querySelector<HTMLElement>('[data-email-pdf]');
   if (emailBox)
-    napojEmail(emailBox, () => vytvorPdf(sestavDokument(s, stav.data, stav.upravy)), { jazyk: s.jazyk, zeme: s.zeme, nazev: s.nazev, soubor: s.souborPdf }, () => {
+    napojEmail(emailBox, () => vytvorPdf(sestavDokument(s, stav.data, stav.upravy)), { jazyk: s.jazyk, jazykUi: jazyk, zeme: s.zeme, nazev: s.nazev, soubor }, () => {
       koren.querySelector<HTMLElement>('[data-co-dal]')!.hidden = false;
       vykresliPripominky();
     });
@@ -546,7 +552,7 @@ export function spustPruvodce(s: Sablona) {
     try {
       const d = sestavDokument(s, stav.data, stav.upravy);
       if (typ === 'pdf') {
-        stahni(await vytvorPdf(d), `${s.souborPdf}.pdf`);
+        stahni(await vytvorPdf(d), `${soubor}.pdf`);
       } else {
         const [{ dokumentDocx }, logo] = await Promise.all([
           import('../sablony/docx'),
@@ -555,7 +561,7 @@ export function spustPruvodce(s: Sablona) {
             .then((b) => new Uint8Array(b))
             .catch(() => undefined),
         ]);
-        stahni(await dokumentDocx(d, podpisy, logo), `${s.souborPdf}.docx`);
+        stahni(await dokumentDocx(d, podpisy, logo), `${soubor}.docx`);
       }
       koren.querySelector<HTMLElement>('[data-co-dal]')!.hidden = false;
       vykresliPripominky();
@@ -641,7 +647,7 @@ export function spustPruvodce(s: Sablona) {
   kalendarEl?.querySelector('[data-kalendar-stahnout]')?.addEventListener('click', async () => {
     const { pripominkyIcs } = await import('./kalendar');
     const ics = pripominkyIcs(budouci(), { nazevDokumentu: s.nazev, url: location.origin + location.pathname.replace(/vytvorit\/$/, '') });
-    stahni(new Blob([ics], { type: 'text/calendar;charset=utf-8' }), `${s.souborPdf}-pripominky.ics`);
+    stahni(new Blob([ics], { type: 'text/calendar;charset=utf-8' }), `${soubor}-pripominky.ics`);
   });
 
   /* ---------------------------------------------------------- ARES (IČO → název a sídlo) */

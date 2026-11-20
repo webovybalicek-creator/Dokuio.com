@@ -1,0 +1,13 @@
+---
+/** Landing jazykové verze dokumentu: /<zeme>/<jazyk>/<slug>/ – překlad ze src/preklady/<zeme>/<jazyk>/<slug>.ts */
+import DokumentLanding from '../../../../components/DokumentLanding.astro';
+import { VERZE } from '../../../../preklady';
+import type { StrankaDokumentu } from '../../../../obsah/typy';
+
+export function getStaticPaths() {
+  return VERZE.map((v) => ({ params: { zeme: v.zeme, jazyk: v.jazyk, dokument: v.slug }, props: { stranka: v.stranka } }));
+}
+const { stranka } = Astro.props as { stranka: StrankaDokumentu };
+---
+
+<DokumentLanding stranka={stranka} />

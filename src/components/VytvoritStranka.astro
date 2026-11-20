@@ -1,16 +1,21 @@
 ---
 /**
  * Stránka „Vyplnit online“ pro libovolný dokument: průvodce + stažení + podpora.
- * Šablonu si klientský skript najde podle data-kod (registr šablon).
+ * Šablonu si klientský skript najde podle data-kod (registr šablon). U jazykové verze
+ * (sablona.jazykRozhrani) načte i soubor překladu a šablonu složí stejně jako build (slozVerzi).
  */
 import Base from '../layouts/Base.astro';
 import Pruvodce from './Pruvodce.astro';
 import StazeniBand from './StazeniBand.astro';
 import Podpora from './Podpora.astro';
+import PrepinacJazyka from './PrepinacJazyka.astro';
+import Dvojjazycne from './Dvojjazycne.astro';
 import type { StrankaDokumentu } from '../obsah/typy';
 import { balickyDokumentu, slugStranky, souvisejici, urlBalicku, urlStranky, zemeKod } from '../obsah';
-import { texty } from '../i18n';
+import { JAZYKY_VERZI, POPISEK_PREPINACE, texty } from '../i18n';
 import { SOUBORY } from '../sablony/registr';
+import { nazevSouboru } from '../sablony/dokument';
+import { jazykyDokumentu, souvisejiciVerze, urlRozcestnikuVerze, verzeDokumentu } from '../preklady';
 
 interface Props {
   stranka: StrankaDokumentu;
@@ -18,14 +23,22 @@ interface Props {
 const { stranka } = Astro.props;
 const s = stranka.sablona;
 const zeme = zemeKod(s.zeme);
-const TX = texty(s.jazyk);
+const verze = s.jazykRozhrani;
+const V = verze ? JAZYKY_VERZI[verze] : undefined;
+const jazyk = verze ?? s.jazyk;
+const TX = texty(jazyk, s.jazyk);
 const T = TX.vytvorit;
 const base = urlStranky(stranka);
-const dalsi = souvisejici(s.zeme, stranka.souvisejici, base);
-const balicky = balickyDokumentu(s.zeme, slugStranky(stranka)).map((b) => ({ nazev: b.nazev, url: urlBalicku(s.zeme, b.slug) }));
+const slug = slugStranky(stranka);
+const dalsi = verze ? souvisejiciVerze(s.zeme, verze, stranka.souvisejici, base) : souvisejici(s.zeme, stranka.souvisejici, base);
+const balicky = verze ? [] : balickyDokumentu(s.zeme, slug).map((b) => ({ nazev: b.nazev, url: urlBalicku(s.zeme, b.slug) }));
+const hub = verze ? { url: urlRozcestnikuVerze(zeme.kod, verze), nazev: V!.zeme[zeme.kod].n } : { url: `/${zeme.kod}/`, nazev: zeme.nazev };
+const jazyky = jazykyDokumentu(s.zeme, slug, jazyk, 'vytvorit/');
+/** Soubor překladu pro prohlížeč (src/preklady/nacti.ts) */
+const prekladSoubor = verze ? verzeDokumentu(s.zeme, slug).find((v) => v.jazyk === verze)?.soubor : undefined;
 ---
 
-<Base title={stranka.vytvorit.title} description={stranka.vytvorit.description} lang={s.jazyk} noindex>
+<Base title={stranka.vytvorit.title} description={stranka.vytvorit.description} lang={jazyk} jazykVerze={verze} noindex>
   <Fragment slot="nav">
     <a class="nav__odkaz" href={base}>{T.oDokumentu}</a>
     <a class="btn btn--duch btn--maly" href="#stazeni">{T.stahnout}</a>
@@ -34,31 +47,42 @@ const balicky = balickyDokumentu(s.zeme, slugStranky(stranka)).map((b) => ({ naz
   <section class="pruvodce-sekce">
     <div class="wrap">
       <div class="ram pruvodce-sekce__in">
-        <nav class="drobecky" aria-label={TX.drobecky}>
-          <a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › <a href={base}>{stranka.nazev}</a> › {T.vyplnitOnline}
-        </nav>
+        <div class="pruvodce-hlava">
+          <nav class="drobecky" aria-label={TX.drobecky}>
+            <a href={hub.url}>{hub.nazev}</a> › <a href={base}>{stranka.nazev}</a> › {T.vyplnitOnline}
+          </nav>
+          <PrepinacJazyka jazyky={jazyky} popisek={POPISEK_PREPINACE[jazyk]} />
+        </div>
         <h1 class="pruvodce__nadpis">{stranka.nazev}{' '}<span>{stranka.vytvorit.podnadpis ?? T.podnadpis}</span></h1>
-        <Pruvodce sablona={s} dalsi={dalsi} soubor={SOUBORY[s.kod]} balicky={balicky} />
+        {V && <Dvojjazycne text={`${V.dvojjazycne(s.jazyk)} ${V.vyplnovani(s.jazyk)}`} />}
+        <Pruvodce sablona={s} dalsi={dalsi} soubor={SOUBORY[s.kod]} balicky={balicky} preklad={prekladSoubor} />
       </div>
     </div>
   </section>
 
   <StazeniBand
     nadpis={T.stahnoutNadpis(stranka.nazevA)}
-    vzorPdf={`${base}${s.souborPdf}-vzor.pdf`}
-    vzorDocx={`${base}${s.souborPdf}-vzor.docx`}
+    vzorPdf={`${base}${nazevSouboru(s)}-vzor.pdf`}
+    vzorDocx={`${base}${nazevSouboru(s)}-vzor.docx`}
     pruvodce
     slovo={s.slovo}
-    jazyk={s.jazyk}
+    jazyk={jazyk}
+    jazykZeme={s.jazyk}
     nazev={stranka.nazev}
   />
-  <Podpora jazyk={s.jazyk} />
+  <Podpora jazyk={jazyk} jazykZeme={s.jazyk} />
 </Base>
 
 <script>
   import { spustPruvodce } from '../scripts/pruvodce';
   import { nactiSablonu } from '../sablony/nacti';
   const el = document.querySelector<HTMLElement>('[data-pruvodce]');
-  const { kod, soubor } = el?.dataset ?? {};
-  if (kod && soubor) nactiSablonu(soubor, kod).then((s) => s && spustPruvodce(s));
+  const { kod, soubor, preklad, jazyk } = el?.dataset ?? {};
+  if (kod && soubor) {
+    // jazyková verze: šablona + překlad (překladový soubor se stáhne jen tady)
+    const nacteni = preklad && jazyk
+      ? import('../preklady/nacti').then((m) => m.nactiVerzi(soubor, kod, preklad, jazyk))
+      : nactiSablonu(soubor, kod);
+    nacteni.then((s) => s && spustPruvodce(s));
+  }
 </script>

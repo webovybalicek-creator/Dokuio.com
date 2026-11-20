@@ -2,7 +2,10 @@
 import { texty } from '../i18n';
 
 export interface EmailMeta {
+  /** Jazyk e-mailu (jazyk země) */
   jazyk: string;
+  /** Jazyk hlášek formuláře, když se liší (jazyková verze uk/en) */
+  jazykUi?: string;
   zeme: string;
   nazev: string;
   soubor: string;
@@ -17,7 +20,7 @@ const jeAktivni = () =>
     .catch(() => false));
 
 export function napojEmail(box: HTMLElement, ziskejPdf: () => Promise<Blob>, meta: EmailMeta, poOdeslani?: () => void) {
-  const T = texty(meta.jazyk).email;
+  const T = texty(meta.jazykUi ?? meta.jazyk).email;
   box.hidden = true;
   jeAktivni().then((ok) => (box.hidden = !ok));
   const vstup = box.querySelector<HTMLInputElement>('[data-email-adresa]')!;

@@ -1,14 +1,17 @@
 ---
 /** „Rozpracované v tomto prohlížeči“ – seznam konceptů z localStorage (nic se neposílá na server). */
 import { STRANKY, urlStranky } from '../obsah';
+import type { StrankaDokumentu } from '../obsah/typy';
 import { texty } from '../i18n';
 interface Props {
   zeme: string;
   jazyk: string;
+  /** Jazyková verze: dokumenty verze (kód šablony je stejný jako u originálu, koncept je společný) */
+  stranky?: StrankaDokumentu[];
 }
-const { zeme, jazyk } = Astro.props;
+const { zeme, jazyk, stranky } = Astro.props;
 const T = texty(jazyk).koncept;
-const mapa = Object.fromEntries((STRANKY[zeme] ?? []).map((st) => [st.sablona.kod, { nazev: st.nazev, url: `${urlStranky(st)}vytvorit/` }]));
+const mapa = Object.fromEntries((stranky ?? STRANKY[zeme] ?? []).map((st) => [st.sablona.kod, { nazev: st.nazev, url: `${urlStranky(st)}vytvorit/` }]));
 ---
 
 <div class="rozpracovane" data-rozpracovane data-mapa={JSON.stringify(mapa)} data-jazyk={jazyk} data-pokracovat={T.pokracovat} data-smazat={T.smazat} data-upraveno={T.upraveno('{kdy}')} hidden>

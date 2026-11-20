@@ -135,6 +135,8 @@ export const de: Texty = {
     potvrditSmazani: 'Wirklich alle eingegebenen Daten und Textänderungen löschen?',
     pripravuji: 'Wird erstellt…',
     chybaSouboru: 'Die Datei konnte nicht erstellt werden. Bitte erneut oder in einem anderen Browser versuchen.',
+    /** Připojí se k názvu pole s chybným údajem (např. VIN) v seznamu před stažením */
+    zkontrolujte: 'bitte prüfen',
     mesicne: (n) => `monatlich, ${n}×`,
     kalendarNadpis: 'Termine im Blick',
     kalendarPopis: 'Speichern Sie wichtige Daten im Kalender auf Handy oder Computer. Erinnerung einen Tag vorher.',
@@ -324,5 +326,8 @@ export const de: Texty = {
     dalsiUjednaniVysvetleni: 'Ihre eigene Regelung. Dieser Text ist nicht Teil unserer geprüften Vorlage.',
     clanek: (_r, cislo) => `§ ${cislo}`,
     upravenoUzivatelem: 'Text vom Nutzer geändert',
+    /** Jazyková doložka dvojjazyčné verze v jazyce originálu (j = jazyk překladu: uk, en) */
+    dvojjazycne: (j: string) =>
+      `Dieses Dokument ist in deutscher und ${({ uk: 'ukrainischer', en: 'englischer' } as Record<string, string>)[j] ?? j} Sprache abgefasst. Bei Abweichungen zwischen den Sprachfassungen ist die deutsche Fassung maßgeblich.`,
   },
 };

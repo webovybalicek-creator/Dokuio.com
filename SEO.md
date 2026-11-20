@@ -11,10 +11,10 @@ a **chyba zastaví nasazení**. Varování opravit před commitem (cíl: 0 chyb,
 |---|---|
 | `<title>` | Unikátní napříč celým webem (i mezi DE/AT/CH). 20–70 znaků, hlavní dotaz na začátku, u vzorů země a rok (`… Österreich {rok}`). Značka „| Dokuio“ jen když se vejde. |
 | `meta description` | Unikátní, 70–170 znaků, v jazyce země, konkrétní (zákon, lhůta, co uživatel dostane). Žádné kopie z jiné země – i AT/CH musí mít vlastní text. |
-| `<html lang>` | Podle země v URL: `cs-CZ`, `sk-SK`, `pl-PL`, `de-DE`, `de-AT`, `de-CH` (nastavuje `Base.astro` z `_zeme.ts`). |
-| `og:locale` | Stejně jako lang s podtržítkem (`de_CH`). |
+| `<html lang>` | Podle země v URL: `cs-CZ`, `sk-SK`, `pl-PL`, `de-DE`, `de-AT`, `de-CH` (nastavuje `Base.astro` z `_zeme.ts`). Jazykové verze `/<zeme>/<jazyk>/…`: jazyk verze + region země (`uk-CZ`, `en-AT`). |
+| `og:locale` | Stejně jako lang s podtržítkem (`de_CH`). Jazykové verze: `uk_UA` / `en_GB` (Open Graph nezná `uk_CZ`). |
 | `canonical` | Absolutní URL stránky samé, s koncovým lomítkem. |
-| `hreflang` | Jen mezi opravdu stejnými stránkami (rozcestníky zemí). Dokumenty různých zemí nejsou překlady – liší se právem, nespojovat. |
+| `hreflang` | Jen mezi opravdu stejnými stránkami: rozcestníky zemí (a jejich jazykových verzí) a dokument + jeho jazykové verze v téže zemi (`cs-CZ`, `uk-CZ`, `en-CZ`, vzájemně). Dokumenty různých zemí nejsou překlady – liší se právem, nespojovat. |
 | `og:image` | Vždy (generované OG nebo titulní fotka článku 1200×630). |
 | `<h1>` | Právě jeden na stránce. |
 | Strukturovaná data | Dokument: `HowTo`/`Product` dle šablony stránky, článek: `Article` (+ `image`), `BreadcrumbList`, `FAQPage` pokud jsou FAQ. |
@@ -28,6 +28,11 @@ a **chyba zastaví nasazení**. Varování opravit před commitem (cíl: 0 chyb,
 - Klíčová slova podle místního hledání (např. „Kaufvertrag Auto Schweiz“, „umowa kupna-sprzedaży samochodu“), ne doslovný překlad.
 - Popisy fotek (`alt`) v jazyce země (`src/lib/fotky.ts`).
 - Zákony a lhůty v metadatech jen ověřené z oficiálních zdrojů země (viz NOVA-ZEME.md).
+
+## Jazykové verze (uk, en)
+
+Titulek landing page verze: „<název> <země> {rok} – зразок PDF безкоштовно“ / „… – free PDF template“ (země kvůli unikátnosti mezi zeměmi).
+Pravidla a kontrola úplnosti v [PREKLADY.md](PREKLADY.md).
 
 ## Poradna – jednotná sada článků
 

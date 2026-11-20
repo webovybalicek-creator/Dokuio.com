@@ -160,6 +160,8 @@ export const cs = {
     potvrditSmazani: 'Opravdu smazat všechny vyplněné údaje a úpravy textu?',
     pripravuji: 'Připravuji…',
     chybaSouboru: 'Soubor se nepodařilo vytvořit. Zkuste to prosím znovu, případně v jiném prohlížeči.',
+    /** Připojí se k názvu pole s chybným údajem (např. VIN) v seznamu před stažením */
+    zkontrolujte: 'zkontrolujte',
   },
   vin: {
     kde: 'Kde VIN najdu?',
@@ -334,6 +336,9 @@ export const cs = {
     dalsiUjednaniVysvetleni: 'Vaše vlastní ustanovení. Tento text není součástí našeho ověřeného vzoru.',
     clanek: (rimske: string, _cislo?: number) => `Článek ${rimske}`,
     upravenoUzivatelem: 'text upraven uživatelem',
+    /** Jazyková doložka dvojjazyčné verze v jazyce originálu (j = jazyk překladu: uk, en) */
+    dvojjazycne: (j: string) =>
+      `Tento dokument je vyhotoven v jazyce českém a ${({ uk: 'ukrajinském', en: 'anglickém' } as Record<string, string>)[j] ?? j}. V případě rozporu mezi jazykovými verzemi je rozhodující znění v jazyce českém.`,
   },
 };
 

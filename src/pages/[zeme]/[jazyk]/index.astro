@@ -1,0 +1,80 @@
+---
+/**
+ * Rozcestník jazykové verze země /<zeme>/<jazyk>/ (např. /cz/uk/): katalog přeložených dokumentů
+ * a vyhledávání, texty v jazyce verze (src/i18n/<jazyk>.ts → hub). Vznikne jen pro verzi s aspoň 1 dokumentem.
+ * Poradna a balíčky se nepřekládají – tady nejsou; odkaz vede na rozcestník originálu.
+ */
+import Base from '../../../layouts/Base.astro';
+import Duvera from '../../../components/Duvera.astro';
+import Hledani from '../../../components/Hledani.astro';
+import Rozpracovane from '../../../components/Rozpracovane.astro';
+import PrepinacJazyka from '../../../components/PrepinacJazyka.astro';
+import { STRANKY } from '../../../obsah';
+import type { Zeme } from '../../../obsah/typy';
+import { JAZYKY_VERZI, POPISEK_PREPINACE, texty } from '../../../i18n';
+import { HREFLANG_ROZCESTNIKU, ROZCESTNIKY_VERZI, dokumentyVerze, jazykyRozcestniku, katalogVerze } from '../../../preklady';
+
+export function getStaticPaths() {
+  return ROZCESTNIKY_VERZI.map((r) => ({ params: { zeme: r.zeme.kod, jazyk: r.jazyk }, props: { zeme: r.zeme, jazyk: r.jazyk } }));
+}
+const { zeme, jazyk } = Astro.props as { zeme: Zeme; jazyk: string };
+const V = JAZYKY_VERZI[jazyk];
+const TX = texty(jazyk, zeme.jazyk);
+const T = TX.hub;
+const h = V.hub;
+const dokumenty = katalogVerze(zeme.kod, jazyk);
+const kategorie = Object.fromEntries(Object.keys(zeme.kategorie).map((k) => [k, V.kategorie[k] ?? zeme.kategorie[k]]));
+const pocetOriginalu = (STRANKY[zeme.kod] ?? []).length;
+---
+
+<Base alternates={HREFLANG_ROZCESTNIKU} title={h.title(zeme.kod)} description={h.description(zeme.kod, zeme.jazyk)} lang={jazyk} jazykVerze={jazyk}>
+  <Fragment slot="nav">
+    <a class="nav__odkaz" href={`#${T.kotva}`}>{T.jakToFunguje}</a>
+    <a class="btn btn--duch btn--maly" href="/?zeme=vyber" hreflang="en">{TX.jinaZeme}</a>
+  </Fragment>
+
+  <section class="hero">
+    <div class="hero__vlna" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="ram hero__obsah hero__obsah--hledani">
+        <PrepinacJazyka jazyky={jazykyRozcestniku(zeme.kod, jazyk)} popisek={POPISEK_PREPINACE[jazyk]} class="jazyky--hub" />
+        <p class="horni-stitek">{h.stitek(zeme.kod)} · <span>{h.stitekSpan}</span></p>
+        <h1>
+          {h.h1(zeme.kod)} <em>{T.h1Em}</em>{' '}
+          <span>{h.h1Span(zeme.jazyk)}</span>
+        </h1>
+        <Duvera class="duvera--hero" lang={jazyk} />
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" id="smlouvy" aria-labelledby="smlouvy-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in sekce__in--tesne">
+        <h2 id="smlouvy-nadpis">{h.hledaniNadpis}{' '}<span>{h.hledaniSpan}</span></h2>
+        <Rozpracovane zeme={zeme.kod} jazyk={jazyk} stranky={dokumentyVerze(zeme.kod, jazyk).map((v) => v.stranka)} />
+        <Hledani zeme={zeme.kod} dokumenty={dokumenty} kategorie={kategorie} jazyk={jazyk} />
+        <p class="poznamka"><a href={`/${zeme.kod}/`} hreflang={zeme.hreflang}>{h.puvodni(pocetOriginalu)} →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sekce" id={T.kotva} aria-labelledby="jak-nadpis">
+    <div class="wrap">
+      <div class="ram sekce__in">
+        <h2 id="jak-nadpis">{T.krokyNadpis}{' '}<span>{T.krokySpan}</span></h2>
+        <ol class="kroky">
+          {
+            T.kroky.map((k) => (
+              <li>
+                <h3>{k.nazev}</h3>
+                <p>{k.popis}</p>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="poznamka">{h.poznamka(zeme.jazyk)}</p>
+      </div>
+    </div>
+  </section>
+</Base>

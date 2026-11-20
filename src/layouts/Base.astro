@@ -1,5 +1,5 @@
 ---
-import { TEXTY, type Jazyk } from '../i18n';
+import { JAZYKY_VERZI, TEXTY, type Jazyk } from '../i18n';
 import '@fontsource-variable/inter-tight';
 import '../styles/global.css';
 import { SITE } from '../lib/config';
@@ -18,9 +18,11 @@ interface Props {
   alternates?: { hreflang: string; href: string }[];
   /** Vlastní náhledový obrázek (absolutní URL), jinak vygenerovaný /og/… */
   obrazek?: string;
+  /** Jazyková verze stránky země (uk, en): <html lang> = uk-CZ, og:locale jazyka, bez poradny */
+  jazykVerze?: string;
 }
 
-const { title, description, lang = 'en', noindex = false, alternates = [], obrazek } = Astro.props;
+const { title, description, lang = 'en', noindex = false, alternates = [], obrazek, jazykVerze } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const robots = !SITE.indexovat || noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1';
 const ogImage = obrazek ?? new URL(`/og/${ogSlug(Astro.url.pathname)}.png`, SITE.url).href;
@@ -28,10 +30,13 @@ const P = TEXTY[lang as Jazyk]?.paticka;
 const zemeCesty = Astro.url.pathname.split('/').filter(Boolean)[0] ?? '';
 // Jazyk a locale podle země v cestě (de-AT, de-CH…), ne jen podle jazyka rozhraní
 const zemeStranky = ZEME.find((z) => z.kod === zemeCesty);
-const htmlLang = zemeStranky?.hreflang ?? lang;
-const ogLocale = zemeStranky ? zemeStranky.hreflang.replace('-', '_') : (P?.ogLocale ?? 'en_US');
+// Jazyková verze: jazyk verze + region země (uk-CZ); og:locale bere jen platné dvojice Open Graph (uk_UA, en_GB)
+const verze = jazykVerze ? JAZYKY_VERZI[jazykVerze] : undefined;
+const htmlLang = verze && zemeStranky ? `${verze.hreflang}-${zemeStranky.hreflang.split('-')[1]}` : (zemeStranky?.hreflang ?? lang);
+const ogLocale = verze ? verze.ogLocale : zemeStranky ? zemeStranky.hreflang.replace('-', '_') : (P?.ogLocale ?? 'en_US');
 const zemeKodPaticky = INFO_ODKAZY[zemeCesty] ? zemeCesty : ({ sk: 'sk', pl: 'pl', de: 'de', hu: 'hu' } as Record<string, string>)[lang] ?? 'cz';
-const poradna = PORADNY[zemeKodPaticky];
+// Poradna se nepřekládá – na stránkách jazykových verzí se nezobrazuje (PREKLADY.md)
+const poradna = verze ? undefined : PORADNY[zemeKodPaticky];
 const odkazy = INFO_ODKAZY[zemeCesty] ?? INFO_ODKAZY[({ sk: 'sk', pl: 'pl', de: 'de', hu: 'hu' } as Record<string, string>)[lang] ?? 'cz'];
 // Značku přidat jen tam, kde se titulek vejde do ~60 znaků (Google delší ořízne)
 const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${title} | ${SITE.nazev}`;

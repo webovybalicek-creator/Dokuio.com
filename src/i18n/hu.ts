@@ -147,6 +147,8 @@ export const hu: Texty = {
     potvrditSmazani: 'Biztosan törli az összes kitöltött adatot és szövegmódosítást?',
     pripravuji: 'Készül…',
     chybaSouboru: 'Nem sikerült létrehozni a fájlt. Próbálja újra, esetleg másik böngészőben.',
+    /** Připojí se k názvu pole s chybným údajem (např. VIN) v seznamu před stažením */
+    zkontrolujte: 'ellenőrizze',
   },
   vin: {
     kde: 'Hol találom az alvázszámot?',
@@ -320,5 +322,8 @@ export const hu: Texty = {
     dalsiUjednaniVysvetleni: 'Az Ön saját rendelkezése. Ez a szöveg nem része az ellenőrzött mintánknak.',
     clanek: (_rimske, cislo) => `${cislo ?? ''}. pont`,
     upravenoUzivatelem: 'a felhasználó módosította a szöveget',
+    /** Jazyková doložka dvojjazyčné verze v jazyce originálu (j = jazyk překladu: uk, en) */
+    dvojjazycne: (j: string) =>
+      `Ez a dokumentum magyar és ${({ uk: 'ukrán', en: 'angol' } as Record<string, string>)[j] ?? j} nyelven készült. A nyelvi változatok közötti eltérés esetén a magyar nyelvű szöveg az irányadó.`,
   },
 };

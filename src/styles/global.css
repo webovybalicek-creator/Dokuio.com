@@ -3085,3 +3085,116 @@ span.p-hledani__nahled {
 .zeme-dalsi, .zeme-nic { margin: 10px 0 0; color: var(--slate); font-size: 0.875rem; }
 @media (max-width: 760px) { .zeme-mrizka { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .zeme-mrizka { grid-template-columns: 1fr; } }
+
+/* ---------------------------------------------------------------- přepínač jazyka (jazykové verze dokumentů) */
+.jazyky {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: var(--slate);
+}
+.jazyky__ikona {
+  flex: none;
+}
+.jazyky__seznam {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.jazyky__polozka {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid var(--frost);
+  border-radius: 9999px;
+  background: var(--white);
+  color: var(--steel);
+  text-decoration: none;
+  line-height: 1.3;
+  white-space: nowrap;
+  transition: border-color 0.15s, color 0.15s;
+}
+a.jazyky__polozka:hover {
+  border-color: var(--lavender);
+  color: var(--indigo);
+}
+a.jazyky__polozka:focus-visible {
+  outline: 2px solid var(--indigo);
+  outline-offset: 2px;
+}
+.jazyky__polozka--aktivni {
+  border-color: var(--wash);
+  background: var(--wash);
+  color: var(--indigo);
+  font-weight: 500;
+}
+/* nad náhledem smlouvy na landing page – vpravo */
+.jazyky--nahled {
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+/* v hlavě průvodce: drobečky vlevo, jazyky vpravo */
+.pruvodce-hlava {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 20px;
+}
+.pruvodce-hlava .drobecky {
+  margin-bottom: 0;
+}
+.jazyky--hub {
+  margin-bottom: 20px;
+}
+/* poznámka „dvojjazyčný dokument, rozhoduje originál“ */
+.dvojjazycne {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 0 0 24px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--mist);
+  border: 1px solid var(--frost);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--steel);
+}
+.dvojjazycne svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--indigo);
+}
+.nahled-vzoru .dvojjazycne {
+  margin: 12px 0 0;
+  font-size: 0.8125rem;
+}
+@media (max-width: 400px) {
+  .jazyky__ikona {
+    display: none;
+  }
+  .jazyky--nahled {
+    justify-content: flex-start;
+  }
+}
+/* delší popisky tlačítek (např. ukrajinská verze) se na úzkém displeji zalomí místo přetečení */
+@media (max-width: 400px) {
+  main .btn,
+  .souhlas__akce .btn {
+    white-space: normal;
+    max-width: 100%;
+    padding-block: 10px;
+    line-height: 1.25;
+    text-align: center;
+  }
+}
+@media (max-width: 400px) {
+  .souhlas__akce {
+    flex-wrap: wrap;
+  }
+}

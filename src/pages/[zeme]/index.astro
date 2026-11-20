@@ -8,7 +8,10 @@ import Rozpracovane from '../../components/Rozpracovane.astro';
 import { PORADNY } from '../../lib/poradna';
 import Ilustrace from '../../components/Ilustrace.astro';
 import { urlBalicku } from '../../obsah';
-import { AKTIVNI_ZEME, HREFLANG_HUBY } from '../../obsah';
+import { AKTIVNI_ZEME } from '../../obsah';
+import PrepinacJazyka from '../../components/PrepinacJazyka.astro';
+import { HREFLANG_ROZCESTNIKU, jazykyRozcestniku } from '../../preklady';
+import { POPISEK_PREPINACE } from '../../i18n';
 import type { Zeme } from '../../obsah/typy';
 import { texty } from '../../i18n';
 
@@ -21,7 +24,7 @@ const T = TX.hub;
 const h = zeme.hub;
 ---
 
-<Base alternates={HREFLANG_HUBY} title={h.title} description={h.description} lang={zeme.jazyk}>
+<Base alternates={HREFLANG_ROZCESTNIKU} title={h.title} description={h.description} lang={zeme.jazyk}>
   <Fragment slot="nav">
     <a class="nav__odkaz" href={`#${T.kotva}`}>{T.jakToFunguje}</a>
     {PORADNY[zeme.kod] && <a class="nav__odkaz" href={`/${zeme.kod}/${PORADNY[zeme.kod].slug}/`}>{PORADNY[zeme.kod].nazev}</a>}
@@ -32,6 +35,7 @@ const h = zeme.hub;
     <div class="hero__vlna" aria-hidden="true"></div>
     <div class="wrap">
       <div class="ram hero__obsah hero__obsah--hledani">
+        <PrepinacJazyka jazyky={jazykyRozcestniku(zeme.kod)} popisek={POPISEK_PREPINACE[zeme.jazyk]} class="jazyky--hub" />
         <p class="horni-stitek">{h.stitek} · <span>{h.stitekSpan}</span></p>
         <h1>
           {h.h1} <em>{T.h1Em}</em>{' '}

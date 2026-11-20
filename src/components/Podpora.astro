@@ -9,8 +9,10 @@ import { PODPORA } from '../lib/config';
 import { texty } from '../i18n';
 interface Props {
   jazyk?: string;
+  /** Jazyk země u jazykové verze – částky v měně země */
+  jazykZeme?: string;
 }
-const T = texty(Astro.props.jazyk).podpora;
+const T = texty(Astro.props.jazyk, Astro.props.jazykZeme).podpora;
 const vychozi = PODPORA.castky.find((c) => 'doporucene' in c && c.doporucene) ?? PODPORA.castky[0];
 ---
 

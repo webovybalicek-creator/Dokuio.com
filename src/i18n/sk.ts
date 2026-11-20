@@ -156,6 +156,8 @@ export const sk: Texty = {
     potvrditSmazani: 'Naozaj zmazať všetky vyplnené údaje a úpravy textu?',
     pripravuji: 'Pripravujem…',
     chybaSouboru: 'Súbor sa nepodarilo vytvoriť. Skúste to prosím znova, prípadne v inom prehliadači.',
+    /** Připojí se k názvu pole s chybným údajem (např. VIN) v seznamu před stažením */
+    zkontrolujte: 'skontrolujte',
   },
   vin: {
     kde: 'Kde nájdem VIN?',
@@ -330,5 +332,8 @@ export const sk: Texty = {
     dalsiUjednaniVysvetleni: 'Vaše vlastné ustanovenie. Tento text nie je súčasťou nášho overeného vzoru.',
     clanek: (rimske) => `Článok ${rimske}`,
     upravenoUzivatelem: 'text upravený používateľom',
+    /** Jazyková doložka dvojjazyčné verze v jazyce originálu (j = jazyk překladu: uk, en) */
+    dvojjazycne: (j: string) =>
+      `Tento dokument je vyhotovený v slovenskom a ${({ uk: 'ukrajinskom', en: 'anglickom' } as Record<string, string>)[j] ?? j} jazyku. V prípade rozporu medzi jazykovými verziami je rozhodujúce znenie v slovenskom jazyku.`,
   },
 };

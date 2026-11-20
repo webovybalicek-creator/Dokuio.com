@@ -1,0 +1,38 @@
+---
+/**
+ * Přepínač jazyka stránky: originál (jazyk země) a jazykové verze téhož dokumentu / rozcestníku.
+ * Ukazuje jen jazyky, které opravdu existují; názvy jazyků v jejich vlastním jazyce.
+ * Data připraví jazykyDokumentu / jazykyRozcestniku (src/preklady/index.ts) – bez verzí se nic nevykreslí.
+ */
+import type { JazykStranky } from '../preklady';
+
+interface Props {
+  jazyky: JazykStranky[];
+  /** Popisek pro čtečky v jazyce stránky */
+  popisek: string;
+  class?: string;
+}
+const { jazyky, popisek, class: cls } = Astro.props;
+---
+
+{
+  jazyky.length > 1 && (
+    <nav class:list={['jazyky', cls]} aria-label={popisek}>
+      <svg class="jazyky__ikona" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+        <circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <path d="M2.75 10h14.5M10 2.75c2 2 3 4.4 3 7.25s-1 5.25-3 7.25c-2-2-3-4.4-3-7.25s1-5.25 3-7.25z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+      </svg>
+      <ul class="jazyky__seznam">
+        {jazyky.map((j) => (
+          <li>
+            {j.aktivni ? (
+              <span class="jazyky__polozka jazyky__polozka--aktivni" aria-current="page" lang={j.hreflang}>{j.nazev}</span>
+            ) : (
+              <a class="jazyky__polozka" href={j.href} hreflang={j.hreflang} lang={j.hreflang}>{j.nazev}</a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}

@@ -47,6 +47,13 @@ info stránky, e-mail. Vzory ověřené 19. 11. 2026 na njt.jog.gov.hu (oprava: 
 304/2009. Korm. r. 2. § (1); povinné náležitosti smlouvy podle 3. §; osvobození darů i pro sourozence). Poradna `/hu/tanacsadas/` – 12 článků. Doporučená kontrola maďarským advokátem (ügyvéd).
 Obecně: země s `aktivni: false` se vůbec negeneruje (ani stránky, ani sitemap).
 
+🇺🇦🇬🇧 **Jazykové verze (20. 11. 2026):** dokument země může mít ukrajinskou a anglickou verzi – `/<zeme>/uk/<slug>/`, `/<zeme>/en/<slug>/`
+(+ průvodce, dvojjazyčné prázdné vzory PDF/DOCX, rozcestník `/<zeme>/<jazyk>/` s katalogem a hledáním). Právo a šablona zůstávají země,
+přeložené je rozhraní, nápovědy a texty stránky; smlouva je dvojjazyčná (originál + překlad pod každým odstavcem, doložka „rozhoduje
+znění v jazyce země“). Přepínač jazyka nad náhledem, v průvodci a na rozcestníku; koncept v prohlížeči je společný pro všechny jazyky;
+hreflang mezi originálem a verzemi. Hotová ukázka: CZ kupní smlouva na auto (uk, en). Poradna a balíčky se nepřekládají.
+Překlady se přidávají po jednom souboru `src/preklady/<zeme>/<jazyk>/<slug>.ts`, build hlídá úplnost – návod `PREKLADY.md`.
+
 Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 
 ## Pro uživatele

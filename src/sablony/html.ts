@@ -48,7 +48,8 @@ function odstavec(o: OdstavecDok, sOvladanim: boolean, sCisly: boolean, T: TD): 
 }
 
 export function dokumentHtml(d: Dokument, moznostiUprav = false): string {
-  const T = texty(d.jazyk).dokument;
+  // ovládání náhledu v jazyce rozhraní (jazyková verze), texty dokumentu už jsou v `d`
+  const T = texty(d.jazykRozhrani ?? d.jazyk).dokument;
   return [
     `<div class="dok__hlava"><h2 class="dok__nazev">${esc(d.nazev)}</h2>${d.nazev2 ? `<p class="dok__nazev2">${esc(d.nazev2)}</p>` : ''}<p class="dok__pod">${esc(d.podnadpis)}</p>${d.podnadpis2 ? `<p class="dok__pod dok__pod--preklad">${esc(d.podnadpis2)}</p>` : ''}</div>`,
     d.uvod.length ? `<p class="dok__uvod">${useky(d.uvod, T)}</p>` : '',

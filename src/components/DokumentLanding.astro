@@ -2,6 +2,8 @@
 /**
  * Landing stránka dokumentu (SEO + rozcestí): hero s náhledem vzoru, jak to funguje, obsah,
  * online vs. papír, pro koho je, co dál, FAQ (FAQPage JSON-LD), související dokumenty, stažení.
+ * Slouží originálu i jazykové verzi (src/preklady): u verze je `sablona.jazykRozhrani` = jazyk stránky,
+ * náhled a vzory jsou dvojjazyčné, odkazy vedou jen na přeložené dokumenty, poradna a balíčky se skrývají.
  */
 import Base from '../layouts/Base.astro';
 import Duvera from './Duvera.astro';
@@ -9,12 +11,15 @@ import StazeniBand from './StazeniBand.astro';
 import Podpora from './Podpora.astro';
 import Ilustrace from './Ilustrace.astro';
 import Kontrola from './Kontrola.astro';
+import PrepinacJazyka from './PrepinacJazyka.astro';
+import Dvojjazycne from './Dvojjazycne.astro';
 import type { StrankaDokumentu } from '../obsah/typy';
 import { balickyDokumentu, slugStranky, souvisejici as najdiSouvisejici, urlBalicku, urlStranky, zemeKod } from '../obsah';
-import { sestavDokument, formatDatum } from '../sablony/dokument';
+import { sestavDokument, formatDatum, nazevSouboru } from '../sablony/dokument';
 import { dokumentHtml } from '../sablony/html';
 import { SITE } from '../lib/config';
-import { texty } from '../i18n';
+import { JAZYKY_VERZI, POPISEK_PREPINACE, texty } from '../i18n';
+import { hreflangDokumentu, jazykyDokumentu, souvisejiciVerze, urlRozcestnikuVerze } from '../preklady';
 import '../styles/dokument.css';
 
 interface Props {
@@ -23,7 +28,11 @@ interface Props {
 const { stranka } = Astro.props;
 const s = stranka.sablona;
 const zeme = zemeKod(s.zeme);
-const TX = texty(s.jazyk);
+/** Jazyk verze (uk, en) – u originálu undefined */
+const verze = s.jazykRozhrani;
+const V = verze ? JAZYKY_VERZI[verze] : undefined;
+const jazyk = verze ?? s.jazyk;
+const TX = texty(jazyk, s.jazyk);
 const T = TX.landing;
 const base = urlStranky(stranka);
 const p = {
@@ -31,11 +40,16 @@ const p = {
   nazev: stranka.nazev,
   nazevA: stranka.nazevA,
   title: stranka.landing.title.replace('{rok}', s.aktualizovano.slice(0, 4)),
-  souvisejici: najdiSouvisejici(s.zeme, stranka.souvisejici, base),
+  souvisejici: verze
+    ? souvisejiciVerze(s.zeme, verze, stranka.souvisejici, base)
+    : najdiSouvisejici(s.zeme, stranka.souvisejici, base),
 };
-const balicky = balickyDokumentu(s.zeme, slugStranky(stranka));
-const vzorPdf = `${base}${s.souborPdf}-vzor.pdf`;
-const vzorDocx = `${base}${s.souborPdf}-vzor.docx`;
+const hub = verze ? { url: urlRozcestnikuVerze(zeme.kod, verze), nazev: V!.zeme[zeme.kod].n } : { url: `/${zeme.kod}/`, nazev: zeme.nazev };
+// balíčky jsou jen v jazyce země
+const balicky = verze ? [] : balickyDokumentu(s.zeme, slugStranky(stranka));
+const jazyky = jazykyDokumentu(s.zeme, slugStranky(stranka), jazyk);
+const vzorPdf = `${base}${nazevSouboru(s)}-vzor.pdf`;
+const vzorDocx = `${base}${nazevSouboru(s)}-vzor.docx`;
 const vytvorit = `${base}vytvorit/`;
 const aktualizovano = formatDatum(s.aktualizovano);
 const mesic = s.aktualizovano.slice(5, 7).replace(/^0/, '') + '/' + s.aktualizovano.slice(0, 4);
@@ -50,7 +64,7 @@ const schema = [
     url: `${SITE.url}${base}`,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Any',
-    inLanguage: s.jazyk,
+    inLanguage: jazyk,
     offers: { '@type': 'Offer', price: '0', priceCurrency: TX.mena.kod },
   },
   {
@@ -62,14 +76,14 @@ const schema = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: zeme.nazev, item: `${SITE.url}/${zeme.kod}/` },
+      { '@type': 'ListItem', position: 1, name: hub.nazev, item: `${SITE.url}${hub.url}` },
       { '@type': 'ListItem', position: 2, name: p.nazev, item: `${SITE.url}${base}` },
     ],
   },
 ];
 ---
 
-<Base title={p.title} description={p.description} lang={s.jazyk}>
+<Base title={p.title} description={p.description} lang={jazyk} jazykVerze={verze} alternates={hreflangDokumentu(s.zeme, slugStranky(stranka))}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
   <Fragment slot="nav">
     <a class="nav__odkaz" href="#jak-to-funguje">{T.jakToFunguje}</a>
@@ -81,7 +95,7 @@ const schema = [
     <div class="wrap">
       <div class="ram hero__obsah hero__mrizka">
         <div>
-          <nav class="drobecky" aria-label={TX.drobecky}><a href={`/${zeme.kod}/`}>{zeme.nazev}</a> › {p.nazev}</nav>
+          <nav class="drobecky" aria-label={TX.drobecky}><a href={hub.url}>{hub.nazev}</a> › {p.nazev}</nav>
           <p class="horni-stitek">{T.stitek} · <span>{T.aktualizovano} {mesic}</span></p>
           <h1>{p.nazev}{' '}<span>{p.perex}</span></h1>
           <div class="akce">
@@ -93,11 +107,13 @@ const schema = [
               {TX.balicek.stitek}: <strong>{b.nazev}</strong> · {TX.balicek.dokumentu(b.dokumenty.length)} →
             </a>
           ))}
-          <Duvera class="duvera--hero" lang={s.jazyk} />
+          <Duvera class="duvera--hero" lang={jazyk} />
         </div>
         <figure class="nahled-vzoru">
+          <PrepinacJazyka jazyky={jazyky} popisek={POPISEK_PREPINACE[jazyk]} class="jazyky--nahled" />
           <div class="papir papir--orez" set:html={nahled} />
           <figcaption>{T.nahledVzoru(s.kod, s.verze)}</figcaption>
+          {V && <Dvojjazycne text={V.dvojjazycne(s.jazyk)} />}
         </figure>
       </div>
     </div>
@@ -263,8 +279,9 @@ const schema = [
     vzorPdf={vzorPdf}
     vzorDocx={vzorDocx}
     slovo={s.slovo}
-    jazyk={s.jazyk}
+    jazyk={jazyk}
+    jazykZeme={s.jazyk}
     nazev={p.nazev}
   />
-  <Podpora jazyk={s.jazyk} />
+  <Podpora jazyk={jazyk} jazykZeme={s.jazyk} />
 </Base>
