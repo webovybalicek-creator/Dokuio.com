@@ -68,7 +68,7 @@ export const NAJEM_BYT_EN: Preklad = {
             zalohy: 'Electricity and, where applicable, gas are covered by the advance payments for services.',
           },
         },
-        'Rent and advance payments are payable monthly in advance, always by the {{splatnost}}th day of the calendar month, to the Landlord’s bank account No. {{ucet}}.',
+        'Rent and advance payments are payable monthly in advance, always by day {{splatnost}} of the calendar month, to the Landlord’s bank account No. {{ucet}}.',
         'The Landlord shall settle the advance payments for services once a year, at the latest within four months after the end of the billing period. Any overpayment or underpayment is due within four months of delivery of the statement.',
         {
           uvodVzor: 'Rent increases (tick one option):',
@@ -171,7 +171,7 @@ export const PODNAJEM_EN: Preklad = {
     {
       nadpis: 'Rent and Deposit',
       odstavce: [
-        'The Subtenant shall pay a monthly rent of {{podnajemne}}, always by the {{splatnost}}th day of the month, to the Tenant’s bank account No. {{ucet}}.',
+        'The Subtenant shall pay a monthly rent of {{podnajemne}}, always by day {{splatnost}} of the month, to the Tenant’s bank account No. {{ucet}}.',
         'Services and utilities: {{sluzby}}',
         'The Subtenant shall pay a deposit of {{kauce}}. The Tenant shall return it within one month after the end of the sublease and surrender of the flat, setting off any amounts owed by the Subtenant.',
       ],

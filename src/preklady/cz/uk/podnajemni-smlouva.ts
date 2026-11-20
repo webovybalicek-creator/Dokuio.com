@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CZ-PODNAJEM', verze: '1.0' },
+  sablona: { kod: 'CZ-PODNAJEM', verze: '1.1' },
 
   nazev: 'Договір суборенди',
   nazevA: 'договір суборенди',

@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-MIETVERTRAG', verze: '1.0' },
+  sablona: { kod: 'AT-MIETVERTRAG', verze: '1.1' },
 
   nazev: 'Договір оренди квартири',
   nazevA: 'договір оренди квартири',
@@ -74,11 +74,11 @@ export default {
     },
     pole: {
       v_name: { popis: 'Орендодавець – ім’я', napoveda: 'Власник квартири.', placeholder: 'напр. Thomas Müller' },
-      v_adresse: { popis: 'Адреса орендодавця', napoveda: 'Для листування.', placeholder: 'напр. Hauptstraße 12, 10115 Berlin' },
+      v_adresse: { popis: 'Адреса орендодавця', napoveda: 'Для листування.', placeholder: 'напр. Hauptstraße 12, 1010 Wien' },
       m_name: { popis: 'Орендар – ім’я', napoveda: 'Якщо орендарів кілька, укажіть усіх.', placeholder: 'напр. Anna Schmidt' },
       m_geburt: { popis: 'Дата народження орендаря', napoveda: 'За документом, що посвідчує особу.' },
-      m_adresse: { popis: 'Попередня адреса орендаря', napoveda: 'До вселення.', placeholder: 'напр. Gartenweg 5, 80331 München' },
-      objekt: { popis: 'Адреса квартири', napoveda: 'Вулиця, номер будинку, поштовий індекс, населений пункт.', placeholder: 'напр. Lindenstraße 7, 10969 Berlin' },
+      m_adresse: { popis: 'Попередня адреса орендаря', napoveda: 'До вселення.', placeholder: 'напр. Gartengasse 5, 8010 Graz' },
+      objekt: { popis: 'Адреса квартири', napoveda: 'Вулиця, номер будинку, поштовий індекс, населений пункт.', placeholder: 'напр. Lindengasse 7, 1070 Wien' },
       lage: { popis: 'Розташування в будинку', napoveda: 'Поверх і розташування.', placeholder: 'напр. 2. OG links (3-й поверх, ліворуч)' },
       zimmer: { popis: 'Кімнати', napoveda: 'Без кухні та ванної.', placeholder: 'напр. 2' },
       flaeche: { popis: 'Житлова площа', napoveda: 'Приблизно.', placeholder: 'напр. 58' },
@@ -99,14 +99,14 @@ export default {
       miete: { popis: 'Основна орендна плата (€ щомісяця, нетто)', napoveda: 'Без експлуатаційних витрат і ПДВ.', placeholder: 'напр. 950' },
       nebenkosten: { popis: 'Аванс на експлуатаційні витрати (€ щомісяця)', napoveda: 'Експлуатаційні витрати та збори, розрахунок раз на рік.', placeholder: 'напр. 180' },
       faellig: { popis: 'Сплатити до (день місяця)', napoveda: 'Звичайно: до 5-го числа місяця наперед.', placeholder: 'напр. 5' },
-      iban: { popis: 'IBAN орендодавця', napoveda: 'Для сплати орендної плати.', placeholder: 'DE00 0000 0000 0000 0000 00' },
+      iban: { popis: 'IBAN орендодавця', napoveda: 'Для сплати орендної плати.', placeholder: 'AT00 0000 0000 0000 0000' },
       kaution: { popis: 'Гарантійний депозит (€)', napoveda: 'Звичайно до трьох місячних орендних плат брутто.', placeholder: 'напр. 2850' },
       tiere: {
         popis: 'Домашні тварини',
         napoveda: 'Дрібні тварини дозволені завжди; щодо собак і котів діє домовленість.',
         moznosti: { erlaubt: 'Дозволено', zustimmung: 'За згодою орендодавця' },
       },
-      ort: { popis: 'Місце', napoveda: 'Місце підписання.', placeholder: 'напр. Berlin' },
+      ort: { popis: 'Місце', napoveda: 'Місце підписання.', placeholder: 'напр. Wien' },
       datum: { popis: 'Дата', napoveda: 'Заздалегідь заповнено сьогоднішню дату.' },
     },
     vysvetleni: ['', '', '', '', '', '', '', ''],

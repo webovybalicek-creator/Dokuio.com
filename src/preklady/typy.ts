@@ -59,7 +59,8 @@ export interface PrekladDokumentu {
     prevzit?: string;
     /**
      * Připomínky do kalendáře: název z originálu (nebo jeho začátek) → překlad.
-     * Text za shodným začátkem (např. částka) se zachová.
+     * Text za shodným začátkem (např. částka) se zachová. U připomínek splátek (`Pripominka.splatky`) se `popis`
+     * nepíše – sestaví se sám z přeloženého názvu a počtu splátek (`dokument.splatky.celkem` v src/i18n/<jazyk>.ts).
      */
     pripominky?: Record<string, { nazev: string; popis?: string }>;
   };
@@ -79,7 +80,11 @@ export interface PrekladDokumentu {
     clanky: { nadpis: string; odstavce: OdstavecPrekladu[] }[];
     /** Hodnoty polí typu volba vložené do textu přes {{id}} – výchozí jsou popisky z `pruvodce.pole` */
     volby?: Record<string, Record<string, string>>;
-    /** Překlad textů v přílohách (splátkový kalendář…): text nebo jeho začátek → překlad */
+    /**
+     * Překlad textů v přílohách (splátkový kalendář…): text nebo jeho začátek → překlad (nadpis, hlavička, poznámka).
+     * Souhrn pod nadpisem kalendáře („Celkem 12 000 Kč v 12 měsíčních splátkách…“) sem nepatří – přeloží se sám
+     * ze strukturovaných dat `Tabulka.souhrn` funkcí `dokument.splatky.popis` v src/i18n/<jazyk>.ts.
+     */
     prilohy?: Record<string, string>;
   };
 }

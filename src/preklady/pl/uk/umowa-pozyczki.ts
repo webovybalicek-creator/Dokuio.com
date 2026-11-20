@@ -117,7 +117,7 @@ export default {
     pripominky: {
       'PCC-3 od pożyczki – sprawdź obowiązek (pożyczkobiorca)': { nazev: 'PCC-3 із позики – перевірте обов’язок (позичальник)' },
       'Rata pożyczki – ostatnia': { nazev: 'Платіж за позикою – останній' },
-      'Rata pożyczki': { nazev: 'Платіж за позикою', popis: 'Щомісячний платіж за договором позики (графік – у додатку № 1).' },
+      'Rata pożyczki': { nazev: 'Платіж за позикою' },
       'Zwrot pożyczki': { nazev: 'Повернення позики' },
     },
   },

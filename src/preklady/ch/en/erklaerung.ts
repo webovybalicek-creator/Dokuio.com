@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CH-ERKLAERUNG', verze: '1.0' },
+  sablona: { kod: 'CH-ERKLAERUNG', verze: '1.1' },
 
   nazev: 'Declaration',
   nazevA: 'the declaration',
@@ -90,7 +90,7 @@ export default {
       'If an authority or a court requires a specific form, use their form.',
       'First ask whether the organisation has its own form – if so, use it.',
       'Be specific: who, what, since when (e.g. “dass ich seit dem 1. 1. 2025 in der Wohnung … wohne” – “that I have lived in the flat … since 1 January 2025”).',
-      'Check the identity of the other party against their identity card (Personalausweis) and copy the name and address exactly.',
+      'Sign it by hand and keep a copy for your records. If the recipient requires a certified signature, sign only at the certification office (notary’s office, or the municipality – Gemeinde – depending on the canton).',
     ],
   },
 

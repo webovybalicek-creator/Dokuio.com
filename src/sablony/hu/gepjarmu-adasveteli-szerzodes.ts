@@ -6,7 +6,7 @@
 import type { Sablona } from '../typy';
 import { osszegBetuvel } from './szamok';
 import { naDatum, pridejDny, isoDatum } from '../terminy';
-import { PTK, PP, KKNYT, KORM_304, ITV, KGFB, KORMANYABLAK, TIP_SZEMELYAZONOSSAG, TIP_KESZPENZ, TIP_TANUK } from './forrasok';
+import { PTK, PP, KKNYT, KORM_304, ITV, KGFB, KORMANYABLAK, TIP_SZEMELYAZONOSSAG, TIP_KESZPENZ, TIP_TANUK_ATIRAS } from './forrasok';
 
 export const gepjarmuAdasvetel: Sablona = {
   kod: 'HU-AUTO',
@@ -42,7 +42,7 @@ export const gepjarmuAdasvetel: Sablona = {
     'Az alvázszám (VIN) az okmányokban egyezik az autón lévővel.',
     'Az autó előéletét, kilométer-állását és műszaki vizsgáit a [kormányzati járműadat-lekérdezésben](https://kormanyablak.hu/) ellenőrizheti.',
     'Lízingelt, hitelfedezetként terhelt vagy elidegenítési tilalom alatt álló autót az eladó nem adhat el szabadon.',
-    TIP_TANUK,
+    TIP_TANUK_ATIRAS,
     TIP_SZEMELYAZONOSSAG,
     TIP_KESZPENZ,
     'Mindkét félnek 15 napja van: a vevő kéri az átírást (és fizeti a vagyonszerzési illetéket), az eladó bejelenti az eladást. A vevő a birtokbavételtől köt kötelező biztosítást.',

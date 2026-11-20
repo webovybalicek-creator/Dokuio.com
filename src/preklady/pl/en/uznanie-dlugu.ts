@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'PL-UZNANIE-DLUGU', verze: '1.0' },
+  sablona: { kod: 'PL-UZNANIE-DLUGU', verze: '1.1' },
 
   nazev: 'Acknowledgement of Debt',
   nazevA: 'the acknowledgement of debt',
@@ -100,7 +100,7 @@ export default {
     ],
     pripominky: {
       'Rata – ostatnia': { nazev: 'Instalment – last' },
-      Rata: { nazev: 'Instalment', popis: 'Monthly instalment under the acknowledgement of debt (schedule in Annex 1).' },
+      Rata: { nazev: 'Instalment' },
       'Termin zapłaty długu': { nazev: 'Debt payment deadline' },
     },
   },
@@ -144,8 +144,8 @@ export default {
       Termin: 'Due date',
       Kwota: 'Amount',
       'Pozostało': 'Remaining',
-      'Harmonogram sporządzono według uzgodnionych rat; w razie rozbieżności rozstrzyga treść umowy.':
-        'The schedule was drawn up according to the agreed instalments; in case of discrepancy the text of the agreement prevails.',
+      'Harmonogram sporządzono według uzgodnionych rat; w razie rozbieżności rozstrzyga treść uznania długu.':
+        'The schedule was drawn up according to the agreed instalments; in case of discrepancy the text of the acknowledgement of debt prevails.',
     },
   },
 } satisfies PrekladDokumentu;

@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CZ-UZNANI-DLUHU', verze: '1.0' },
+  sablona: { kod: 'CZ-UZNANI-DLUHU', verze: '1.1' },
 
   nazev: 'Acknowledgement of Debt',
   nazevA: 'the acknowledgement of debt',
@@ -157,7 +157,7 @@ export default {
             uvodVzor: 'Payments:',
             moznosti: {
               naraz: 'Payments shall be credited to the Creditor’s account No. {{ucet}}, or handed over in cash against written confirmation.',
-              splatky: 'Payments shall be credited to the Creditor’s account No. {{ucet}}, or handed over in cash against written confirmation. If any instalment is more than 30 days overdue, the Creditor may demand in writing payment of the entire remaining debt within 30 days of delivery of the demand.',
+              splatky: 'Payments shall be credited to the Creditor’s account No. {{ucet}}, or handed over in cash against written confirmation. If the Debtor fails to pay any instalment even within 14 days after it falls due, the Creditor is entitled to demand payment of the entire remaining debt (Section 1931 of the Civil Code). The Creditor shall exercise this right by a written demand delivered to the Debtor no later than the due date of the next instalment; the remaining debt is then due within 30 days of delivery of the demand.',
             },
           },
           'The Debtor may pay the debt early, in full or in part.',
@@ -170,8 +170,8 @@ export default {
       'Splatná do': 'Due by',
       Částka: 'Amount',
       'Zbývá splatit': 'Remaining',
-      'Přehled je sestavený podle sjednaných splátek; při rozporu má přednost text smlouvy.':
-        'The schedule is based on the agreed instalments; in case of conflict, the text of the agreement prevails.',
+      'Přehled je sestavený podle sjednaných splátek; při rozporu rozhoduje text dokumentu.':
+        'The schedule is based on the agreed instalments; in case of conflict, the text of the document prevails.',
     },
   },
 } satisfies PrekladDokumentu;

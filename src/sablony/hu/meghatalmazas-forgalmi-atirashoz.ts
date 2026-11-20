@@ -1,6 +1,6 @@
 /** Meghatalmazás gépjármű forgalmi átírásához / tulajdonosváltozás bejelentéséhez – Magyarország. Ptk. képviselet; teljes bizonyító erejű magánokirat (Pp.) két tanúval. */
 import type { Sablona } from '../typy';
-import { PTK, PP, KKNYT, KORMANYABLAK, TIP_SZEMELYAZONOSSAG, TIP_TANUK } from './forrasok';
+import { PTK, PP, KKNYT, KORMANYABLAK, TIP_SZEMELYAZONOSSAG, TIP_TANUK_ATIRAS } from './forrasok';
 
 export const meghatalmazasAtiras: Sablona = {
   kod: 'HU-MEGHATALMAZAS-ATIRAS',
@@ -22,7 +22,7 @@ export const meghatalmazasAtiras: Sablona = {
   slovo: { n: 'meghatalmazás', g: 'meghatalmazás', a: 'meghatalmazást', l: 'meghatalmazásban' },
   coDal: ['Nyomtassa ki, írja alá tollal, és írassa alá két tanúval.', 'A meghatalmazott vigye magával a kormányablakba a saját személyi igazolványát is.'],
   kontrola: [
-    TIP_TANUK,
+    TIP_TANUK_ATIRAS,
     'A jármű adatai (rendszám, alvázszám) egyezzenek a forgalmi engedéllyel.',
     'Az ügyintézés előtt nézze meg a [kormányablak.hu](https://kormanyablak.hu/) oldalon, milyen további okmányok kellenek.',
     TIP_SZEMELYAZONOSSAG,

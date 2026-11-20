@@ -5,7 +5,7 @@
  */
 import type { Sablona } from '../typy';
 import { darlehensvertrag as de } from '../de/darlehensvertrag';
-import { naDatum, isoDatum, pripominkySplatek, splatky } from '../terminy';
+import { naDatum, isoDatum, pripominkySplatek, splatky, souhrnSplatek } from '../terminy';
 import { formatDatum } from '../dokument';
 import { schweiz, betragInFranken, chf, paticka } from './schweiz';
 import { OR, OR_312, OR_318, SCHKG_82, TIPP_IDENTITAET_CH, TIPP_BAR_CH } from './quellen';
@@ -18,6 +18,7 @@ export const tilgungsplanCH: NonNullable<Sablona['prilohy']> = (d) => {
     {
       nadpis: 'Anhang 1 · Tilgungsplan',
       popis: `Insgesamt ${chf(Number(String(d.castka).replace(/[\s'’]/g, '')))} in ${s.length} Monatsraten.`,
+      souhrn: souhrnSplatek(s, chf(Number(String(d.castka).replace(/[\s'’]/g, '')))),
       hlavicka: ['Rate', 'Fällig am', 'Betrag', 'Restschuld'],
       radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum)), chf(x.castka), chf(x.zbyva)]),
       vpravo: [2, 3],

@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'DE-SCHULDANERKENNTNIS', verze: '1.0' },
+  sablona: { kod: 'DE-SCHULDANERKENNTNIS', verze: '1.1' },
 
   nazev: 'Acknowledgement of Debt',
   nazevA: 'the acknowledgement of debt',
@@ -150,7 +150,7 @@ export default {
       'Fällig am': 'Due on',
       Betrag: 'Amount',
       Restschuld: 'Remaining debt',
-      'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Vertragstext.': 'The plan follows the agreed instalments; in the event of discrepancies, the text of the agreement prevails.',
+      'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Text des Schuldanerkenntnisses.': 'The plan follows the agreed instalments; in the event of discrepancies, the text of the acknowledgement of debt prevails.',
     },
   },
 } satisfies PrekladDokumentu;

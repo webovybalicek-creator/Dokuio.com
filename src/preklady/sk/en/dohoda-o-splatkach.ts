@@ -118,7 +118,7 @@ export default {
     ],
     pripominky: {
       'Splátka dlhu – posledná': { nazev: 'Debt instalment – last' },
-      'Splátka dlhu': { nazev: 'Debt instalment', popis: 'Monthly instalment under the debt instalment agreement (the amount is in the event title).' },
+      'Splátka dlhu': { nazev: 'Debt instalment' },
     },
   },
 

@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'HU-NYILATKOZAT', verze: '1.0' },
+  sablona: { kod: 'HU-NYILATKOZAT', verze: '1.1' },
 
   nazev: 'Written Declaration',
   nazevA: 'the written declaration',
@@ -81,7 +81,7 @@ export default {
       'Write only true information. A false declaration may have legal consequences.',
       'First ask whether the institution has its own form – if so, use that.',
       'Be specific: who, what, since when.',
-      'With the signatures of two witnesses (stating their names and home addresses), the document becomes a private document with full probative force (teljes bizonyító erejű magánokirat) – this is what the transfer of a vehicle’s ownership requires. A party to the contract cannot be a witness.',
+      'With the signatures of two witnesses (stating their names and home addresses), the document becomes a private document with full probative force (teljes bizonyító erejű magánokirat) – in a dispute this is stronger evidence. The person making the declaration cannot be a witness.',
     ],
   },
 

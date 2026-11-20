@@ -103,7 +103,7 @@ export default {
     ],
     pripominky: {
       'Kölcsönrészlet – utolsó': { nazev: 'Loan instalment – last' },
-      Kölcsönrészlet: { nazev: 'Loan instalment', popis: 'Monthly instalment under the loan agreement (schedule in Annex 1).' },
+      Kölcsönrészlet: { nazev: 'Loan instalment' },
       'A kölcsön visszafizetése': { nazev: 'Loan repayment' },
     },
   },

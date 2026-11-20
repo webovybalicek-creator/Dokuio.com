@@ -91,7 +91,7 @@ export default {
     ],
     pripominky: {
       'Darlehensrate – letzte': { nazev: 'Loan instalment – last', popis: 'Last instalment under the loan agreement.' },
-      Darlehensrate: { nazev: 'Loan instalment', popis: 'Monthly instalment under the loan agreement.' },
+      Darlehensrate: { nazev: 'Loan instalment' },
       'Darlehen zurückzahlen': { nazev: 'Repay the loan' },
     },
   },

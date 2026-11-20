@@ -13,7 +13,7 @@ import { splatkovyKalendar, pripominkySplatek } from '../terminy';
 
 export const dohodaOSplatkach: Sablona = {
   kod: 'CZ-DOHODA-SPLATKY',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-20',
   overeno: '2026-11-20',
   zeme: 'cz',
@@ -21,7 +21,7 @@ export const dohodaOSplatkach: Sablona = {
   nazev: 'Dohoda o splátkách dluhu',
   podnadpis: 'dohoda o splacení dluhu ve splátkách podle zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'dohoda-o-splatkach',
-  paticka: 'Vytvořeno zdarma · šablona CZ-DOHODA-SPLATKY v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
+  paticka: 'Vytvořeno zdarma · šablona CZ-DOHODA-SPLATKY v1.1 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'věřitel', vpravo: 'dlužník' },

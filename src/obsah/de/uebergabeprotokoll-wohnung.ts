@@ -14,7 +14,7 @@ const stranka: StrankaDokumentu = {
     obsahPopis: "Protokoll über Übergabe und Rücknahme der Wohnung.",
     obsah: [{"nazev": "Parteien und Wohnung", "popis": "Wer übergibt, wer übernimmt."}, {"nazev": "Zählerstände", "popis": "Strom, Gas, Wasser, Heizung."}, {"nazev": "Zustand und Schlüssel", "popis": "Mängel und Vereinbarungen."}],
     kroky: [{ nazev: 'Ausfüllen', popis: 'Ein paar Fragen, alles erklärt.' }, { nazev: 'PDF oder Word laden', popis: 'Kostenlos, ohne Anmeldung.' }, { nazev: 'Unterschreiben', popis: 'Jede Seite erhält ein Exemplar.' }],
-    online: ['Beträge in Worten automatisch', 'Erinnerungen für den Kalender', 'Download als PDF und Word'],
+    online: ['Erklärungen zu jedem Feld', 'Vorbefüllt aus dem Mietvertrag', 'Download als PDF und Word'],
     hodiSe: ["Einzug in eine Mietwohnung", "Auszug am Ende des Mietverhältnisses"],
     nehodiSe: ["Verkauf einer Eigentumswohnung"],
     poNadpis: 'Danach.',

@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CZ-KUPNI-MOTO', verze: '1.0' },
+  sablona: { kod: 'CZ-KUPNI-MOTO', verze: '1.1' },
 
   nazev: 'Motorcycle Purchase Agreement',
   nazevA: 'the motorcycle purchase agreement',
@@ -77,14 +77,14 @@ export default {
       rok: { popis: 'Year of manufacture', napoveda: 'Stated in the registration certificate or in the technical certificate.', placeholder: 'e.g. 2018' },
       orv: { popis: 'Registration certificate number', napoveda: 'The “small technical certificate” (card). The number is printed on the document, usually three letters and six digits.', placeholder: 'e.g. UAA123456' },
       tp: { popis: 'Technical certificate number', napoveda: 'Only older vehicles have the “large technical certificate” (technický průkaz). If there is none, leave it empty.' },
-      barva: { popis: 'Colour', napoveda: 'A plain description is enough – it helps identify the motorcycle clearly. Ideally write it in Czech.', placeholder: 'e.g. šedá metalíza (metallic grey)' },
-      km: { popis: 'Odometer reading', napoveda: 'Copy it from the dashboard on the day of signing. It protects both parties from a dispute about a wound-back odometer.', placeholder: 'e.g. 154320' },
+      barva: { popis: 'Colour', napoveda: 'A plain description is enough – it helps identify the motorcycle clearly. Ideally write it in Czech.', placeholder: 'e.g. černá (black)' },
+      km: { popis: 'Odometer reading', napoveda: 'Copy it from the odometer on the day of signing. It protects both parties from a dispute about a wound-back odometer.', placeholder: 'e.g. 23450' },
       vady: {
         popis: 'Defects of the vehicle',
-        napoveda: 'A defect is anything that does not work or is damaged (scratches, a broken air conditioning, cracked glass). What you write into the agreement, the buyer cannot claim later.',
+        napoveda: 'A defect is anything that does not work or is damaged (scratches, a broken indicator, a worn chain). What you write into the agreement, the buyer cannot claim later.',
         moznosti: { bez: 'The seller is not aware of any defects', s: 'The vehicle has defects the seller knows about' },
       },
-      vady_popis: { popis: 'Description of the defects', placeholder: 'e.g. prasklé čelní sklo, nefunkční klimatizace (cracked windscreen, broken air conditioning)' },
+      vady_popis: { popis: 'Description of the defects', placeholder: 'e.g. poškrábaná nádrž, nefunkční levý blinkr (scratched tank, broken left indicator)' },
       havarie: {
         popis: 'Has the vehicle been in an accident?',
         napoveda: 'If you don’t know for sure (for example you bought the motorcycle used yourself), choose “The seller does not know”. A false statement can lead to a dispute.',
@@ -102,8 +102,8 @@ export default {
           navod: 'Owner’s manual',
         },
       },
-      doklady_jine: { popis: 'Other items handed over', placeholder: 'e.g. sada zimních pneumatik (set of winter tyres)' },
-      cena: { popis: 'Purchase price (CZK)', napoveda: 'The full agreed price. We add the amount in words (in Czech) to the agreement ourselves.', placeholder: 'e.g. 215000' },
+      doklady_jine: { popis: 'Other items handed over', placeholder: 'e.g. boční kufry, helma (side cases, helmet)' },
+      cena: { popis: 'Purchase price (CZK)', napoveda: 'The full agreed price. We add the amount in words (in Czech) to the agreement ourselves.', placeholder: 'e.g. 85000' },
       platba: {
         popis: 'How and when the buyer pays',
         napoveda: 'Ownership passes to the buyer once they have paid the full price. When paying in cash, signing the agreement confirms that you have received the money – only sign with the money in your hand.',
@@ -122,7 +122,7 @@ export default {
     },
     vysvetleni: [
       'Who is entering into the agreement. The details must match the identity documents so that it is clear who sold and who bought.',
-      'Exactly which vehicle is being sold. The VIN is the most important – it is unique worldwide and the vehicle can be traced by it in the register.',
+      'Exactly which vehicle is being sold – a motorcycle, scooter, moped or quad bike. The VIN is the most important – it is unique worldwide and the vehicle can be traced by it in the register.',
       'What the seller knows about the vehicle. Defects listed here cannot be claimed by the buyer later, so describe them truthfully.',
       'How much, how and when payment is made. The vehicle belongs to the buyer only once the full price is paid, which protects the seller.',
       'When the buyer takes over the vehicle, what they receive with it and who arranges the transfer at the register. From the handover, the buyer is responsible for the vehicle.',

@@ -1,11 +1,13 @@
 import type { StrankaDokumentu } from '../typy';
 import de from '../de/untermietvertrag';
 import { untermietvertragAT as sablona } from '../../sablony/at/untermietvertrag';
+import { nahradV } from '../../sablony/nahrad';
 
 const stranka: StrankaDokumentu = {
   ...de,
   sablona,
-  landing: { ...de.landing, ...{
+  katalog: nahradV(de.katalog, [['§ 553 BGB', '§ 11 MRG']]),
+  landing: { ...nahradV(de.landing, [['Hausordnung, Textform.', 'Hausordnung, Schriftform.']]), ...{
   "title": "Untermietvertrag Österreich {rok} – Muster kostenlos (PDF)",
   "description": "Kostenloser Untermietvertrag für Zimmer oder Wohnung in Österreich: Zustimmung des Vermieters, Dauer, Untermietzins, Kaution. Online ausfüllen, als PDF oder Word.",
   "obsahPopis": "Fünf Abschnitte (ABGB, MRG).",

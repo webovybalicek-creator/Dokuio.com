@@ -2,7 +2,7 @@
  * Pomocné výpočty termínů pro šablony: pracovní dny (ČR), splátkový kalendář, připomínky.
  * Vše je orientační – v rozhraní i v dokumentu to tak popisujeme.
  */
-import type { Data, Hodnota, Pripominka, Tabulka } from './typy';
+import type { Data, Hodnota, Pripominka, SouhrnSplatek, Tabulka } from './typy';
 import { formatCislo, formatDatum } from './dokument';
 
 const iso = (d: Date) =>
@@ -116,6 +116,16 @@ export function splatky(d: Data, pole = { castka: 'castka', splatka: 'splatka', 
 
 const kc = (n: number, mena = "Kč") => `${formatCislo(String(n))}\u00a0${mena}`;
 
+/**
+ * Strukturovaný souhrn kalendáře (`Tabulka.souhrn`) – jazykové verze z něj sestaví překlad popisu přílohy.
+ * `celkem` = celková částka už naformátovaná s měnou země; den splatnosti jen když ho popis originálu uvádí.
+ */
+export const souhrnSplatek = (s: Splatka[], celkem: string, d?: Data): SouhrnSplatek => ({
+  celkem,
+  pocet: s.length,
+  ...(d ? { den: Math.round(cislo(d.splatka_den)) } : {}),
+});
+
 /** Tabulka „Splátkový kalendář“ pro přílohu (česky) */
 export function splatkovyKalendar(d: Data, poznamka?: string): Tabulka[] {
   const s = splatky(d);
@@ -124,10 +134,11 @@ export function splatkovyKalendar(d: Data, poznamka?: string): Tabulka[] {
     {
       nadpis: 'Příloha č. 1 · Splátkový kalendář',
       popis: `Celkem ${kc(cislo(d.castka))} v ${s.length} měsíčních splátkách, vždy do ${Math.round(cislo(d.splatka_den))}. dne v měsíci.`,
+      souhrn: souhrnSplatek(s, kc(cislo(d.castka)), d),
       hlavicka: ['Splátka', 'Splatná do', 'Částka', 'Zbývá splatit'],
       radky: s.map((x) => [`${x.poradi}.`, formatDatum(iso(x.datum)), kc(x.castka), kc(x.zbyva)]),
       vpravo: [2, 3],
-      poznamka: [poznamka, 'Přehled je sestavený podle sjednaných splátek; při rozporu má přednost text smlouvy.'].filter(Boolean).join(' '),
+      poznamka: [poznamka, 'Přehled je sestavený podle sjednaných splátek; při rozporu rozhoduje text dokumentu.'].filter(Boolean).join(' '),
     },
   ];
 }
@@ -145,6 +156,7 @@ export function pripominkySplatek(d: Data, nazev: string, mena = 'Kč', texty = 
       datum: iso(prvni.datum),
       mesicne: stejne,
       popis: `${nazev}: ${kc(prvni.castka, mena)} (${texty.celkem(s.length)}).`,
+      splatky: s.length,
     },
   ];
   if (posledni.castka !== prvni.castka) {

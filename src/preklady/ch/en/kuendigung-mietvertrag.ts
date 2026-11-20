@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CH-KUENDIGUNG-MIETE', verze: '1.0' },
+  sablona: { kod: 'CH-KUENDIGUNG-MIETE', verze: '1.1' },
 
   nazev: 'Tenancy Termination Notice',
   nazevA: 'the tenancy termination notice',
@@ -29,7 +29,7 @@ export default {
       { nazev: 'Download PDF or Word', popis: 'Free, no sign-up. The document is bilingual: German original and English translation.' },
       { nazev: 'Sign', popis: 'Each party receives one copy.' },
     ],
-    online: ['Amounts in words added automatically', 'Calendar reminders', 'Download as PDF and Word'],
+    online: ['Explanations for every field', 'Calendar reminders', 'Download as PDF and Word'],
     hodiSe: ['you are a tenant in Switzerland and are moving out'],
     nehodiSe: [
       'you are the landlord – an official form is required',

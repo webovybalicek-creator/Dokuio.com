@@ -1,7 +1,7 @@
 /** Privater Darlehensvertrag – Deutschland. §§ 488 ff. BGB; Kündigung § 488 Abs. 3 BGB. Ratenplan als Anlage. */
 import type { Sablona } from '../typy';
 import { betragInWorten } from './zahlen';
-import { naDatum, isoDatum, pripominkySplatek, splatky } from '../terminy';
+import { naDatum, isoDatum, pripominkySplatek, splatky, souhrnSplatek } from '../terminy';
 import { formatCislo, formatDatum } from '../dokument';
 import { BGB, BGB_488, TIPP_IDENTITAET, TIPP_BAR } from './quellen';
 
@@ -31,6 +31,7 @@ export const darlehensvertrag: Sablona = {
       {
         nadpis: 'Anlage 1 · Tilgungsplan',
         popis: `Insgesamt ${eur(Number(String(d.castka).replace(/\s/g, '')))} in ${s.length} Monatsraten.`,
+        souhrn: souhrnSplatek(s, eur(Number(String(d.castka).replace(/\s/g, '')))),
         hlavicka: ['Rate', 'Fällig am', 'Betrag', 'Restschuld'],
         radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum)), eur(x.castka), eur(x.zbyva)]),
         vpravo: [2, 3],

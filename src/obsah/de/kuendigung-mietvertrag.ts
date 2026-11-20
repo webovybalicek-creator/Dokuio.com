@@ -14,7 +14,7 @@ const stranka: StrankaDokumentu = {
     obsahPopis: "Kündigung durch den Mieter nach § 573c BGB.",
     obsah: [{"nazev": "Vermieter", "popis": "An wen die Kündigung geht."}, {"nazev": "Kündigung", "popis": "Wohnung, Vertrag, Frist und Kaution."}],
     kroky: [{ nazev: 'Ausfüllen', popis: 'Ein paar Fragen, alles erklärt.' }, { nazev: 'PDF oder Word laden', popis: 'Kostenlos, ohne Anmeldung.' }, { nazev: 'Unterschreiben', popis: 'Jede Seite erhält ein Exemplar.' }],
-    online: ['Beträge in Worten automatisch', 'Erinnerungen für den Kalender', 'Download als PDF und Word'],
+    online: ['Erklärungen zu jedem Feld', 'Erinnerungen für den Kalender', 'Download als PDF und Word'],
     hodiSe: ["Sie sind Mieter und ziehen aus", "unbefristeter Mietvertrag"],
     nehodiSe: ["Sie sind Vermieter – dafür gelten Kündigungsgründe und längere Fristen", "vereinbarter Kündigungsverzicht noch nicht abgelaufen"],
     poNadpis: 'Danach.',

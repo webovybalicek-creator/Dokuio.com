@@ -9,7 +9,7 @@ import { PTK, TIP_SZEMELYAZONOSSAG, TIP_TANUK } from './forrasok';
 
 export const vallalkozasiSzerzodes: Sablona = {
   kod: 'HU-VALLALKOZASI-SZERZODES',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-20',
   overeno: '2026-11-20',
   zeme: 'hu',
@@ -17,7 +17,7 @@ export const vallalkozasiSzerzodes: Sablona = {
   nazev: 'Vállalkozási szerződés',
   podnadpis: 'a Polgári Törvénykönyv 6:238. §-a és következő szakaszai alapján',
   souborPdf: 'vallalkozasi-szerzodes',
-  paticka: 'Ingyenesen készült · HU-VALLALKOZASI-SZERZODES v1.0 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek, ügyvédi ellenőrzést javaslunk',
+  paticka: 'Ingyenesen készült · HU-VALLALKOZASI-SZERZODES v1.1 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek, ügyvédi ellenőrzést javaslunk',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'megrendelő', vpravo: 'vállalkozó' },

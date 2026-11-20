@@ -1,11 +1,16 @@
 import type { StrankaDokumentu } from '../typy';
 import de from '../de/werkvertrag';
 import { werkvertragCH as sablona } from '../../sablony/ch/werkvertrag';
+import { nahradV } from '../../sablony/nahrad';
 
 const stranka: StrankaDokumentu = {
   ...de,
   sablona,
-  landing: { ...de.landing, ...{
+  landing: { ...nahradV(de.landing, [
+    ['Änderungen in Textform.', 'Änderungen schriftlich.'],
+    ['Zusatzarbeiten und Preise in Textform.', 'Zusatzarbeiten und Preise schriftlich vereinbaren.'],
+    ['Hausbau oder großer Umbau – Verbraucherbauvertrag fachkundig erstellen lassen', 'Hausbau oder grosser Umbau – Bauwerkvertrag fachkundig erstellen lassen (z. B. nach SIA-Norm 118)'],
+  ]), ...{
   "title": "Werkvertrag Schweiz {rok} – Muster kostenlos (PDF & Word)",
   "description": "Kostenloser Werkvertrag nach Art. 363 ff. OR: Leistung, Termin, fester Preis oder Kostenansatz, Anzahlung, Mängelrüge und Verjährung. PDF und Word.",
   "obsahPopis": "Sechs Abschnitte nach Art. 363 ff. OR.",

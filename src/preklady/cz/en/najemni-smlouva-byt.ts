@@ -7,7 +7,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CZ-NAJEM-BYT', verze: '1.0' },
+  sablona: { kod: 'CZ-NAJEM-BYT', verze: '1.1' },
 
   nazev: 'Residential Lease Agreement',
   nazevA: 'the residential lease agreement',
@@ -38,7 +38,7 @@ export default {
     ],
     online: ['Bilingual agreement: Czech original + English translation', 'Deposit and minor repairs within the legal limits', 'A correctly worded inflation clause', 'We pre-fill the follow-up handover report', 'Download as PDF and Word'],
     hodiSe: ['you are letting your own flat for living in', 'you are renting a flat from a private owner', 'you want a fair agreement without invalid clauses'],
-    nehodiSe: ['a sublease (the tenant lets the flat on) – we are preparing a sublease agreement (podnájemní smlouva)', 'non-residential premises, an office or a garage – different rules', 'short-term accommodation (Airbnb) – this is not a flat lease'],
+    nehodiSe: ['a sublease (the tenant lets the flat on) – use the sublease agreement (podnájemní smlouva)', 'non-residential premises, an office or a garage – different rules', 'short-term accommodation (Airbnb) – this is not a flat lease'],
     poNadpis: 'After signing.',
     po: [
       { nazev: 'Handover report', popis: 'Meter readings, defects, keys and photos (předávací protokol).' },
@@ -218,7 +218,7 @@ export default {
               zalohy: 'Electricity and, where applicable, gas are covered by the advance payments for services.',
             },
           },
-          'Rent and advance payments are payable monthly in advance, always by the {{splatnost}}th day of the calendar month, to the Landlord’s bank account No. {{ucet}}.',
+          'Rent and advance payments are payable monthly in advance, always by day {{splatnost}} of the calendar month, to the Landlord’s bank account No. {{ucet}}.',
           'The Landlord shall settle the advance payments for services once a year, at the latest within four months after the end of the billing period. Any overpayment or underpayment is due within four months of delivery of the statement.',
           {
             uvodVzor: 'Rent increases (tick one option):',

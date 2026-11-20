@@ -8,7 +8,7 @@ import { PTK, TIP_SZEMELYAZONOSSAG, TIP_TANUK } from './forrasok';
 
 export const haszonkolcsonSzerzodes: Sablona = {
   kod: 'HU-HASZONKOLCSON',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-20',
   overeno: '2026-11-20',
   zeme: 'hu',
@@ -16,7 +16,7 @@ export const haszonkolcsonSzerzodes: Sablona = {
   nazev: "Haszonkölcsön-szerződés",
   podnadpis: "a Polgári Törvénykönyv (2013. évi V. törvény) haszonkölcsönre vonatkozó szabályai alapján",
   souborPdf: 'haszonkolcson-szerzodes',
-  paticka: "Ingyenesen készült · HU-HASZONKOLCSON v1.0 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek",
+  paticka: "Ingyenesen készült · HU-HASZONKOLCSON v1.1 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek",
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: "kölcsönadó", vpravo: "kölcsönvevő (használó)" },

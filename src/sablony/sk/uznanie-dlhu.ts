@@ -10,20 +10,20 @@ import { OZ_SK, TIP_TOTOZNOST_SK } from './zdroje';
 
 export const uznanieDlhu: Sablona = {
   kod: 'SK-UZNANIE-DLHU',
-  verze: '1.0',
-  aktualizovano: '2026-11-19',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   overeno: '2026-11-19',
   zeme: 'sk',
   jazyk: 'sk',
   nazev: 'Uznanie dlhu',
   podnadpis: 'podľa § 558 zákona č. 40/1964 Zb., Občiansky zákonník',
   souborPdf: 'uznanie-dlhu',
-  paticka: 'Vytvorené zadarmo · šablóna SK-UZNANIE-DLHU v1.0 · vzor na vyplnenie, nejde o právne poradenstvo · za obsah zodpovedajú strany, odporúčame kontrolu advokátom',
+  paticka: 'Vytvorené zadarmo · šablóna SK-UZNANIE-DLHU v1.1 · vzor na vyplnenie, nejde o právne poradenstvo · za obsah zodpovedajú strany, odporúčame kontrolu advokátom',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'dlžník', vpravo: 'veriteľ (súhlas so splátkami)' },
   slovo: { n: 'uznanie dlhu', g: 'uznania dlhu', a: 'uznanie dlhu', l: 'uznaní dlhu' },
-  prilohy: (d) => (d.splaceni === 'splatky' ? (zmluvaOPozicke.prilohy?.(d) ?? []) : []),
+  prilohy: (d) => (d.splaceni === 'splatky' ? (zmluvaOPozicke.prilohy?.(d) ?? []).map((t) => ({ ...t, poznamka: 'Prehľad je zostavený podľa dohodnutých splátok; pri rozpore rozhoduje text uznania dlhu.' })) : []),
   pripominky: (d) => [
     ...(d.splaceni === 'splatky' ? pripominkySplatek(d, 'Splátka dlhu', '€', { celkem: (n) => `spolu ${n} splátok`, posledni: 'posledná' }) : []),
     ...(d.splaceni === 'naraz' && naDatum(d.zaplatit_do) ? [{ nazev: 'Splatnosť dlhu', datum: String(d.zaplatit_do) }] : []),
@@ -114,7 +114,7 @@ export const uznanieDlhu: Sablona = {
           uvodVzor: 'Spôsob splatenia (zaškrtnite jednu možnosť):',
           moznosti: {
             naraz: 'Dlžník zaplatí dlh naraz najneskôr do {{zaplatit_do}}.',
-            splatky: 'Dlžník bude dlh splácať v mesačných splátkach po {{splatka}}, splatných vždy do {{splatka_den}}. dňa v mesiaci, podľa splátkového kalendára v prílohe. Posledná splátka môže byť nižšia. Ak sa dlžník omešká so zaplatením dvoch splátok po sebe, stáva sa splatným celý zostatok dlhu.',
+            splatky: 'Dlžník bude dlh splácať v mesačných splátkach po {{splatka}}, splatných vždy do {{splatka_den}}. dňa v mesiaci, podľa splátkového kalendára v prílohe. Posledná splátka môže byť nižšia. Ak sa dlžník omešká so zaplatením dvoch splátok, môže veriteľ požadovať zaplatenie celého zostatku dlhu naraz (§ 565 Občianskeho zákonníka); toto právo môže použiť najneskôr do splatnosti najbližšie nasledujúcej splátky.',
           },
         },
         'Platby sa uhrádzajú na účet IBAN {{ucet}} alebo v hotovosti proti potvrdeniu. Predčasné splatenie je kedykoľvek možné.',

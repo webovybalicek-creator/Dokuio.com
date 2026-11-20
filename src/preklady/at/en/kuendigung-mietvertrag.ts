@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-KUENDIGUNG-MIETE', verze: '1.0' },
+  sablona: { kod: 'AT-KUENDIGUNG-MIETE', verze: '1.1' },
 
   nazev: 'Tenancy Termination Notice',
   nazevA: 'notice of termination of the tenancy agreement',
@@ -29,7 +29,7 @@ export default {
       { nazev: 'Download PDF or Word', popis: 'Free, no registration.' },
       { nazev: 'Sign', popis: 'Each party receives one copy.' },
     ],
-    online: ['Amounts in words added automatically', 'Reminders for your calendar', 'Download as PDF and Word'],
+    online: ['Explanations for every field', 'Reminders for your calendar', 'Download as PDF and Word'],
     hodiSe: ['you are a tenant in Austria', 'fixed-term agreement after the first year'],
     nehodiSe: ['you are the landlord – termination only through the court and for important reasons'],
     poNadpis: 'Afterwards.',
@@ -60,14 +60,14 @@ export default {
     },
     pole: {
       m_name: { popis: 'Tenant – name', napoveda: 'As in the tenancy agreement; if there are several tenants, all of them.', placeholder: 'e.g. Anna Schmidt' },
-      m_kontakt: { popis: 'Phone or e-mail', napoveda: 'For arranging the handover date.', placeholder: 'e.g. anna@email.de' },
+      m_kontakt: { popis: 'Phone or e-mail', napoveda: 'For arranging the handover date.', placeholder: 'e.g. anna@email.at' },
       v_name: { popis: 'Landlord – name', napoveda: 'Who the notice is addressed to.', placeholder: 'e.g. Thomas Müller' },
-      v_adresse: { popis: 'Landlord’s address', napoveda: 'Address for delivery.', placeholder: 'e.g. Hauptstraße 12, 10115 Berlin' },
-      wohnung: { popis: 'Flat (address and location)', napoveda: 'As in the agreement.', placeholder: 'e.g. Lindenstraße 7, Berlin, 2. OG links (second floor, left)' },
+      v_adresse: { popis: 'Landlord’s address', napoveda: 'Address for delivery.', placeholder: 'e.g. Hauptstraße 12, 1010 Wien' },
+      wohnung: { popis: 'Flat (address and location)', napoveda: 'As in the agreement.', placeholder: 'e.g. Lindengasse 7/12, 1070 Wien (flat no. 12)' },
       vertrag_datum: { popis: 'Date of the tenancy agreement', napoveda: 'When it was signed.' },
       art: { popis: 'The agreement is', napoveda: 'Stated in the tenancy agreement.', moznosti: { unbefristet: 'Open-ended', befristet: 'Fixed-term' } },
-      iban: { popis: 'IBAN for the deposit (optional)', napoveda: 'Where the deposit (Kaution) should be returned to.', placeholder: 'DE00 0000 0000 0000 0000 00' },
-      ort: { popis: 'Place', napoveda: 'Place of signing.', placeholder: 'e.g. Berlin' },
+      iban: { popis: 'IBAN for the deposit (optional)', napoveda: 'Where the deposit (Kaution) should be returned to.', placeholder: 'AT00 0000 0000 0000 0000' },
+      ort: { popis: 'Place', napoveda: 'Place of signing.', placeholder: 'e.g. Wien' },
       datum: { popis: 'Date', napoveda: 'Today’s date is pre-filled.' },
     },
     vysvetleni: ['', ''],

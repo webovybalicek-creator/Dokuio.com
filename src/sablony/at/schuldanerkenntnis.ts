@@ -14,7 +14,7 @@ export const schuldanerkenntnisAT: Sablona = {
   zeme: 'at',
   podnadpis: 'nach dem Allgemeinen bürgerlichen Gesetzbuch (ABGB)',
   paticka: de.paticka.replace('DE-SCHULDANERKENNTNIS', 'AT-SCHULDANERKENNTNIS'),
-  prilohy: (d) => (d.splaceni === 'splatky' ? (darlehensvertragAT.prilohy?.(d) ?? []) : []),
+  prilohy: (d) => (d.splaceni === 'splatky' ? (darlehensvertragAT.prilohy?.(d) ?? []).map((t) => ({ ...t, poznamka: 'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Text des Schuldanerkenntnisses.' })) : []),
   kontrola: [
     'Schriftlich festhalten und von der schuldenden Person eigenhändig unterschreiben lassen – das ist Ihr Beweis.',
     'Grund und Höhe der Schuld konkret angeben (aus welchem Vertrag oder Ereignis, von welchem Tag).',

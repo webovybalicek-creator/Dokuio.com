@@ -8,7 +8,7 @@
  * gebührenfreie Kredite (Merkblatt KKG Kanton Zürich) – Hinweis in den Tipps.
  */
 import type { Sablona } from '../typy';
-import { pripominkySplatek, splatky, isoDatum, cislo } from '../terminy';
+import { pripominkySplatek, splatky, isoDatum, cislo, souhrnSplatek } from '../terminy';
 import { formatDatum } from '../dokument';
 import { schweiz, betragInFranken, chf, paticka } from './schweiz';
 import { OR_17, OR_135, OR_104, SCHKG_82, ZH_KKG, TIPP_IDENTITAET_CH } from './quellen';
@@ -35,6 +35,7 @@ export const abzahlungsvereinbarungCH: Sablona = schweiz({
       {
         nadpis: 'Anhang 1 · Ratenplan',
         popis: `Insgesamt ${chf(cislo(String(d.castka ?? '').replace(/['’]/g, '')))} in ${s.length} Monatsraten, jeweils fällig am ${Math.round(cislo(d.splatka_den))}. des Monats.`,
+        souhrn: souhrnSplatek(s, chf(cislo(String(d.castka ?? '').replace(/['’]/g, ''))), d),
         hlavicka: ['Rate', 'Fällig am', 'Betrag', 'Restschuld'],
         radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum)), chf(x.castka), chf(x.zbyva)]),
         vpravo: [2, 3],

@@ -13,8 +13,8 @@ import { NAJEM_BYT_EN } from './preklady-en';
 
 export const najemniSmlouvaByt: Sablona = {
   kod: 'CZ-NAJEM-BYT',
-  verze: '1.0',
-  aktualizovano: '2026-11-19',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   overeno: '2026-11-19',
   preklad: NAJEM_BYT_EN,
   pripominky: (d) => {
@@ -39,7 +39,7 @@ export const najemniSmlouvaByt: Sablona = {
   nazev: 'Smlouva o nájmu bytu',
   podnadpis: 'uzavřená podle § 2235 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'najemni-smlouva-byt',
-  paticka: 'Vytvořeno zdarma · šablona CZ-NAJEM-BYT v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
+  paticka: 'Vytvořeno zdarma · šablona CZ-NAJEM-BYT v1.1 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'pronajímatel', vpravo: 'nájemce' },

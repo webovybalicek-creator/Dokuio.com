@@ -117,7 +117,7 @@ export default {
     pripominky: {
       'PCC-3 od pożyczki – sprawdź obowiązek (pożyczkobiorca)': { nazev: 'PCC-3 on the loan – check whether it applies (borrower)' },
       'Rata pożyczki – ostatnia': { nazev: 'Loan instalment – last' },
-      'Rata pożyczki': { nazev: 'Loan instalment', popis: 'Monthly instalment under the loan agreement (schedule in Annex 1).' },
+      'Rata pożyczki': { nazev: 'Loan instalment' },
       'Zwrot pożyczki': { nazev: 'Loan repayment' },
     },
   },

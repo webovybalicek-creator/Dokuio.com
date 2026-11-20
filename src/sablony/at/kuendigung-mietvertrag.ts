@@ -7,13 +7,16 @@ import type { Sablona } from '../typy';
 import { naDatum, isoDatum, pridejDny } from '../terminy';
 import { kuendigungMietvertrag as de } from '../de/kuendigung-mietvertrag';
 import { MRG, ABGB, OEGV_KUENDIGUNG_MIETER } from './quellen';
+import { nahrad, MUSTER_AT } from '../nahrad';
 
-export const kuendigungMietvertragAT: Sablona = {
+export const kuendigungMietvertragAT: Sablona = nahrad({
   ...de,
   kod: 'AT-KUENDIGUNG-MIETE',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   zeme: 'at',
   podnadpis: 'Kündigung durch den Mieter nach dem Mietrechtsgesetz (MRG)',
-  paticka: 'Kostenlos erstellt · Vorlage AT-KUENDIGUNG-MIETE v1.0 · Vorlage zum Ausfüllen, keine Rechtsberatung · für den Inhalt sind die Parteien verantwortlich, anwaltliche Prüfung empfohlen',
+  paticka: 'Kostenlos erstellt · Vorlage AT-KUENDIGUNG-MIETE v1.1 · Vorlage zum Ausfüllen, keine Rechtsberatung · für den Inhalt sind die Parteien verantwortlich, anwaltliche Prüfung empfohlen',
   pripominky: (d) => {
     const z = naDatum(d.datum);
     if (!z) return [];
@@ -52,4 +55,4 @@ export const kuendigungMietvertragAT: Sablona = {
       ],
     },
   ],
-};
+}, MUSTER_AT);

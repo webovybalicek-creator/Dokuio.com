@@ -21,7 +21,7 @@ export const meghatalmazas: Sablona = {
   coDal: ['Nyomtassa ki és írja alá. Hatósághoz vagy bankhoz vigyen eredeti példányt.', 'Kérdezze meg előre, kér-e a hivatal tanúkat vagy közjegyzői okiratot.'],
   kontrola: [
     'Az ügyet konkrétan írja le – a túl általános meghatalmazást a hivatalok gyakran nem fogadják el.',
-    TIP_TANUK.replace(' – a forgalmi átíráshoz ez kell', ''),
+    TIP_TANUK.replace(' – vita esetén ez erősebb bizonyíték', ''),
     'Ingatlanügyekhez és egyes banki ügyekhez ügyvédi ellenjegyzés vagy közjegyzői okirat kell.',
     TIP_SZEMELYAZONOSSAG,
   ],

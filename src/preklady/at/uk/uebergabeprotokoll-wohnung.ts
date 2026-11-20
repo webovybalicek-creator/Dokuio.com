@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-PROTOKOLL-WOHNUNG', verze: '1.0' },
+  sablona: { kod: 'AT-PROTOKOLL-WOHNUNG', verze: '1.1' },
 
   nazev: 'Акт приймання-передачі квартири',
   nazevA: 'акт приймання-передачі квартири',
@@ -30,8 +30,8 @@ export default {
       { nazev: 'Підпишіть', popis: 'Кожна сторона отримує один примірник.' },
     ],
     online: [
-      'Суми словами автоматично',
-      'Нагадування для календаря',
+      'Пояснення до кожного поля',
+      'Попереднє заповнення з договору оренди',
       'Завантаження у PDF і Word',
     ],
     hodiSe: [
@@ -69,7 +69,7 @@ export default {
     pole: {
       v_name: { popis: 'Орендодавець – ім’я', napoveda: 'Власник.', placeholder: 'напр. Thomas Müller' },
       m_name: { popis: 'Орендар – ім’я', napoveda: 'Хто користується квартирою.', placeholder: 'напр. Anna Schmidt' },
-      objekt: { popis: 'Квартира (адреса та розташування)', napoveda: 'Як у договорі оренди.', placeholder: 'напр. Lindenstraße 7, Berlin, 2. OG links' },
+      objekt: { popis: 'Квартира (адреса та розташування)', napoveda: 'Як у договорі оренди.', placeholder: 'напр. Lindengasse 7/12, 1070 Wien' },
       anlass: {
         popis: 'Підстава',
         napoveda: 'Заселення або виселення.',
@@ -90,7 +90,7 @@ export default {
       ausstattung: { popis: 'Обладнання та його стан', napoveda: 'Прилади й меблі.', placeholder: 'напр. Kühlschrank – funktioniert (холодильник – працює)' },
       schluessel: { popis: 'Ключі', napoveda: 'Кількість і від чого.', placeholder: 'напр. 3× Wohnung, 2× Haus, 1× Keller (квартира, будинок, підвал)' },
       vereinbarung: { popis: 'Домовленості (необов’язково)', napoveda: 'Хто що усуне й до коли.', placeholder: 'напр. Vermieter repariert den Wasserhahn bis 30.11. (орендодавець полагодить кран до 30.11.)' },
-      ort: { popis: 'Місце', napoveda: 'Місце передання.', placeholder: 'напр. Berlin' },
+      ort: { popis: 'Місце', napoveda: 'Місце передання.', placeholder: 'напр. Wien' },
       datum: { popis: 'Дата', napoveda: 'Попередньо заповнено сьогоднішню дату.' },
     },
     vysvetleni: ['', '', ''],

@@ -170,7 +170,7 @@ export default {
     ],
     pripominky: {
       'Rata zadłużenia – ostatnia': { nazev: 'Debt instalment – last', popis: 'Last instalment under the instalment agreement.' },
-      'Rata zadłużenia': { nazev: 'Debt instalment', popis: 'Monthly instalment under the instalment agreement, according to the schedule.' },
+      'Rata zadłużenia': { nazev: 'Debt instalment' },
     },
   },
 

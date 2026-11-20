@@ -3,6 +3,15 @@
  * Nic dalšího se při přidání dokumentu nebo země ručně nezapisuje.
  */
 import type { Dokument, Odkaz, StrankaDokumentu, Zeme } from './typy';
+import { chText } from '../i18n/schweiz';
+
+/** Švýcarský pravopis pro všechny řetězce stránky kromě šablony (ta ho má ze schweiz()) */
+function naSchweizTexte<T>(v: T): T {
+  if (typeof v === 'string') return chText(v) as T;
+  if (Array.isArray(v)) return v.map(naSchweizTexte) as T;
+  if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v as Record<string, unknown>).map(([k, x]) => [k, k === 'sablona' ? x : naSchweizTexte(x)])) as T;
+  return v;
+}
 
 const zemeSoubory = import.meta.glob<{ zeme: Zeme }>('./*/_zeme.ts', { eager: true });
 const strankySoubory = import.meta.glob<{ default: StrankaDokumentu }>(['./*/*.ts', '!./*/_*.ts'], { eager: true });
@@ -32,7 +41,8 @@ for (const [cesta, m] of Object.entries(strankySoubory)) {
   const zemeSlozky = cesta.split('/')[1];
   if (s.sablona.zeme !== zemeSlozky) throw new Error(`${cesta}: šablona patří zemi ${s.sablona.zeme}`);
   if (!AKTIVNI_ZEME.some((z) => z.kod === zemeSlozky)) continue; // neaktivní země (rozpracovaná) se negeneruje
-  (STRANKY[zemeSlozky] ??= []).push(s);
+  // Švýcarsko: texty stránek převzaté z DE (spread `...de`) v švýcarském pravopisu – „ß“ → „ss“, € → CHF (šablony to mají v schweiz())
+  (STRANKY[zemeSlozky] ??= []).push(zemeSlozky === 'ch' ? { ...naSchweizTexte(s), sablona: s.sablona } : s);
 }
 
 export const VSECHNY_STRANKY = Object.values(STRANKY).flat();

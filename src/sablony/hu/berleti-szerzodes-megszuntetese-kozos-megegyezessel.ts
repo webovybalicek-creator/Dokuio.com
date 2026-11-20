@@ -8,7 +8,7 @@ import { PTK, TIP_TANUK } from './forrasok';
 
 export const berletMegszunteteseKozos: Sablona = {
   kod: 'HU-BERLET-KOZOS-MEGSZUNTETES',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-20',
   overeno: '2026-11-20',
   zeme: 'hu',
@@ -16,7 +16,7 @@ export const berletMegszunteteseKozos: Sablona = {
   nazev: "Megállapodás a lakásbérleti szerződés közös megegyezéssel történő megszüntetéséről",
   podnadpis: "a Polgári Törvénykönyv 6:212. §-a alapján",
   souborPdf: 'berleti-szerzodes-megszuntetese-kozos-megegyezessel',
-  paticka: "Ingyenesen készült · HU-BERLET-KOZOS-MEGSZUNTETES v1.0 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek",
+  paticka: "Ingyenesen készült · HU-BERLET-KOZOS-MEGSZUNTETES v1.1 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek",
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: "bérbeadó", vpravo: "bérlő" },

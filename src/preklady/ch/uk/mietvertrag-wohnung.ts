@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CH-MIETVERTRAG', verze: '1.0' },
+  sablona: { kod: 'CH-MIETVERTRAG', verze: '1.1' },
 
   nazev: 'Договір оренди житла',
   nazevA: 'договір оренди житла',

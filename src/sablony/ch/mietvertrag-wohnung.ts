@@ -12,9 +12,11 @@ import { OR_MIETE, OR_257E, OR_266C, CH_MIETE, TIPP_IDENTITAET_CH } from './quel
 export const mietvertragWohnungCH: Sablona = schweiz({
   ...de,
   kod: 'CH-MIETVERTRAG',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   nazev: 'Mietvertrag für Wohnräume',
   podnadpis: 'nach Art. 253 ff. Obligationenrecht (OR)',
-  paticka: paticka('CH-MIETVERTRAG'),
+  paticka: paticka('CH-MIETVERTRAG', '1.1'),
   coDal: [
     'Zwei Exemplare ausdrucken, beide Seiten unterschreiben beide.',
     'Bei der Übergabe ein Übergabeprotokoll erstellen – Mängel, die nicht im Protokoll stehen, kann der Mieter in den ersten Tagen noch schriftlich melden.',

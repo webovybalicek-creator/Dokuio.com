@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CH-PROTOKOLL-WOHNUNG', verze: '1.0' },
+  sablona: { kod: 'CH-PROTOKOLL-WOHNUNG', verze: '1.1' },
 
   nazev: 'Акт приймання-передачі квартири',
   nazevA: 'акт приймання-передачі квартири',
@@ -30,8 +30,8 @@ export default {
       { nazev: 'Підпишіть', popis: 'Кожна сторона отримує один примірник.' },
     ],
     online: [
-      'Суми словами допишуться автоматично',
-      'Нагадування в календар',
+      'Пояснення до кожного поля',
+      'Попереднє заповнення з договору оренди',
       'Завантаження у PDF і Word',
     ],
     hodiSe: ['заселення в орендовану квартиру', 'здача квартири після закінчення оренди'],
@@ -68,7 +68,7 @@ export default {
     pole: {
       v_name: { popis: 'Орендодавець/орендодавиця – ім’я', napoveda: 'Власник/власниця.', placeholder: 'напр. Thomas Müller' },
       m_name: { popis: 'Орендар/орендарка – ім’я', napoveda: 'Хто користується квартирою.', placeholder: 'напр. Anna Schmidt' },
-      objekt: { popis: 'Квартира (адреса та розташування)', napoveda: 'Як у договорі оренди.', placeholder: 'напр. Lindenstrasse 7, Berlin, 2. OG links (3-й поверх ліворуч)' },
+      objekt: { popis: 'Квартира (адреса та розташування)', napoveda: 'Як у договорі оренди.', placeholder: 'напр. Lindenstrasse 7, 8004 Zürich, 2. OG links (3-й поверх ліворуч)' },
       anlass: {
         popis: 'Привід',
         napoveda: 'Заселення або виселення.',
@@ -109,7 +109,7 @@ export default {
         napoveda: 'Хто що усуне й до якого строку.',
         placeholder: 'напр. Vermieter repariert den Wasserhahn bis 30.11. (орендодавець відремонтує кран до 30.11.)',
       },
-      ort: { popis: 'Місце', napoveda: 'Місце передання.', placeholder: 'напр. Berlin' },
+      ort: { popis: 'Місце', napoveda: 'Місце передання.', placeholder: 'напр. Zürich' },
       datum: { popis: 'Дата', napoveda: 'Заздалегідь заповнено сьогоднішню дату.' },
     },
     vysvetleni: ['', '', ''],

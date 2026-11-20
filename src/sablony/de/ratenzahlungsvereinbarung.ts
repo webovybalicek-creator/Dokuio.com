@@ -9,7 +9,7 @@
  */
 import type { Sablona } from '../typy';
 import { betragInWorten } from './zahlen';
-import { cislo, isoDatum, pripominkySplatek, splatky } from '../terminy';
+import { cislo, isoDatum, pripominkySplatek, splatky, souhrnSplatek } from '../terminy';
 import { formatCislo, formatDatum } from '../dokument';
 import { BGB_266, BGB_212, BGB_286, BGB_506, BGB_781, TIPP_IDENTITAET } from './quellen';
 
@@ -37,6 +37,7 @@ export const ratenzahlungsvereinbarung: Sablona = {
       {
         nadpis: 'Anlage 1 · Ratenplan',
         popis: `Insgesamt ${eur(cislo(d.castka))} in ${s.length} Monatsraten, jeweils fällig am ${Math.round(cislo(d.splatka_den))}. eines Monats.`,
+        souhrn: souhrnSplatek(s, eur(cislo(d.castka)), d),
         hlavicka: ['Rate', 'Fällig am', 'Betrag', 'Restbetrag'],
         radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum)), eur(x.castka), eur(x.zbyva)]),
         vpravo: [2, 3],

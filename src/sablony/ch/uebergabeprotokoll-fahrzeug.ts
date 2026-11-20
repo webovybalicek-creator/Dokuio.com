@@ -10,10 +10,13 @@ import { OR_184, OR_201, CH_FAHRZEUGAUSWEIS, TIPP_IDENTITAET_CH } from './quelle
 
 const r = (t: string) =>
   t
+    // Teil II vor Teil I ersetzen (sonst wird aus „Teil II“ „… (annulliert)I“)
+    .replace('Zulassungsbescheinigung Teil II (Fahrzeugbrief)', 'Serviceheft')
     .replace('Zulassungsbescheinigung Teil I (Fahrzeugschein)', 'Fahrzeugausweis (annulliert)')
-    .replace('Zulassungsbescheinigung Teil II (Fahrzeugbrief)', 'Serviceheft / Prüfbericht der letzten MFK')
+    .replace('Zulassungsbescheinigung Teil II', 'Serviceheft')
     .replace('Zulassungsbescheinigung Teil I', 'Fahrzeugausweis (annulliert)')
-    .replace('Zulassungsbescheinigung Teil II', 'Serviceheft / Prüfbericht der letzten MFK')
+    .replace('Bericht der letzten Hauptuntersuchung', 'Prüfbericht der letzten Fahrzeugprüfung (MFK)')
+    .replace('Feld E im Fahrzeugschein.', 'Feld 23 im Fahrzeugausweis.')
     .replace('FIN {{vin}}, amtliches Kennzeichen {{spz}}', 'Fahrgestellnummer {{vin}}, bisheriges Kontrollschild {{spz}}')
     .replace('Musterstraße 1, 10115 Berlin', 'Musterstrasse 1, 8001 Zürich')
     .replace('z. B. B-AB 1234', 'z. B. ZH 123456')
@@ -33,6 +36,7 @@ const kroky: Krok[] = de.kroky.map((k) => ({
   pole: k.pole.map((p) => ({
     ...p,
     popis: r(p.popis),
+    napoveda: p.napoveda ? r(p.napoveda) : p.napoveda,
     placeholder: p.placeholder ? r(p.placeholder) : p.placeholder,
     moznosti: p.moznosti?.map((m) => ({ ...m, popis: r(m.popis) })),
   })),
@@ -41,7 +45,9 @@ const kroky: Krok[] = de.kroky.map((k) => ({
 export const uebergabeprotokollFahrzeugCH: Sablona = schweiz({
   ...de,
   kod: 'CH-UEBERGABE-FZ',
-  paticka: paticka('CH-UEBERGABE-FZ'),
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
+  paticka: paticka('CH-UEBERGABE-FZ', '1.1'),
   coDal: [
     'Protokoll zweimal ausdrucken, beide Seiten unterschreiben beide Exemplare.',
     'Fahrzeug von allen Seiten und den Tachostand fotografieren – Fotos aufbewahren.',

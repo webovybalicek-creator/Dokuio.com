@@ -29,7 +29,7 @@ export default {
       { nazev: 'Download PDF or Word', popis: 'Free, no sign-up.' },
       { nazev: 'Sign', popis: 'Each side receives one copy.' },
     ],
-    online: ['Amounts in words automatically', 'Calendar reminders', 'Download as PDF and Word'],
+    online: ['Explanations for every field', 'Pre-filled from the tenancy agreement', 'Download as PDF and Word'],
     hodiSe: ['Moving into a rented flat', 'Moving out at the end of the tenancy'],
     nehodiSe: ['Selling an owner-occupied flat'],
     poNadpis: 'Afterwards.',

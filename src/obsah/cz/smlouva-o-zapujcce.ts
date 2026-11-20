@@ -34,7 +34,7 @@ const stranka: StrankaDokumentu = {
     nehodiSe: [
       'půjčujete v rámci podnikání – platí pravidla spotřebitelského úvěru',
       'peníze dáváte a nechcete zpět – použijte darovací smlouvu',
-      'dluh už existuje a jen ho chcete písemně potvrdit – připravujeme uznání dluhu',
+      'dluh už existuje a jen ho chcete písemně potvrdit – použijte uznání dluhu',
     ],
     poNadpis: "Po podpisu.",
     po: [
@@ -46,7 +46,7 @@ const stranka: StrankaDokumentu = {
       { q: 'Jaký je rozdíl mezi půjčkou a zápůjčkou?', a: 'Běžně se říká „půjčka“, ale u peněz občanský zákoník používá pojem zápůjčka: vydlužitel vrací stejnou částku, ne tytéž bankovky. Výpůjčka je naopak bezplatné půjčení konkrétní věci, která se vrací.' },
       { q: 'Musí být smlouva o zápůjčce písemná?', a: 'Zákon to nevyžaduje, ale bez písemné smlouvy se těžko dokazuje, kolik a za jakých podmínek jste půjčili. Písemnou smlouvu doporučujeme vždy.' },
       { q: 'Jaký úrok je přiměřený?', a: 'Zákon pevný strop nestanoví, ale úrok, který je v hrubém nepoměru k běžným sazbám, je lichevní a neplatný. Mezi známými se nejčastěji půjčuje bez úroku. Přijaté úroky jsou zdanitelný příjem.' },
-      { q: 'Co když vydlužitel nesplácí?', a: 'Od prvního dne prodlení platí zákonný úrok z prodlení. U splátek může zapůjčitel po 30 dnech prodlení písemně žádat vrácení celé zbývající částky. Nepomůže-li výzva, lze podat žalobu nebo návrh na platební rozkaz.' },
+      { q: 'Co když vydlužitel nesplácí?', a: 'Od prvního dne prodlení platí zákonný úrok z prodlení. U splátek může zapůjčitel, když splátka nepřijde ani do 14 dnů po splatnosti, písemně žádat vrácení celé zbývající částky – nejpozději do splatnosti další splátky (§ 1931 občanského zákoníku). Nepomůže-li výzva, lze podat žalobu nebo návrh na platební rozkaz.' },
       { q: 'Proč ve smlouvě nejsou smluvní pokuty?', a: 'Vysoké pokuty mezi soukromými osobami soudy často snižují nebo ruší a zbytečně vyhrocují vztahy. Vzor proto spoléhá na zákonný úrok z prodlení. Pokud chcete pokutu, můžete ji přidat jako vlastní ustanovení.' },
       { q: 'Ukládáte moje údaje?', a: 'Ne. Smlouva se skládá přímo ve vašem prohlížeči a údaje se na server neodesílají.' },
     ],

@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-KUENDIGUNG-MIETE', verze: '1.0' },
+  sablona: { kod: 'AT-KUENDIGUNG-MIETE', verze: '1.1' },
 
   nazev: 'Розірвання договору оренди',
   nazevA: 'повідомлення про розірвання договору оренди',
@@ -29,7 +29,7 @@ export default {
       { nazev: 'Завантажте PDF або Word', popis: 'Безкоштовно, без реєстрації.' },
       { nazev: 'Підпишіть', popis: 'Кожна сторона отримує один примірник.' },
     ],
-    online: ['Суми словами автоматично', 'Нагадування для календаря', 'Завантаження у PDF і Word'],
+    online: ['Пояснення до кожного поля', 'Нагадування для календаря', 'Завантаження у PDF і Word'],
     hodiSe: ['ви орендар в Австрії', 'строковий договір після першого року'],
     nehodiSe: ['ви орендодавець – розірвання лише через суд і з поважних причин'],
     poNadpis: 'Потім.',
@@ -60,14 +60,14 @@ export default {
     },
     pole: {
       m_name: { popis: 'Орендар – ім’я', napoveda: 'Як у договорі оренди; якщо орендарів кілька – усі.', placeholder: 'напр. Anna Schmidt' },
-      m_kontakt: { popis: 'Телефон або e-mail', napoveda: 'Для домовленості про дату передання квартири.', placeholder: 'напр. anna@email.de' },
+      m_kontakt: { popis: 'Телефон або e-mail', napoveda: 'Для домовленості про дату передання квартири.', placeholder: 'напр. anna@email.at' },
       v_name: { popis: 'Орендодавець – ім’я', napoveda: 'Кому адресоване повідомлення.', placeholder: 'напр. Thomas Müller' },
-      v_adresse: { popis: 'Адреса орендодавця', napoveda: 'Адреса для доставки.', placeholder: 'напр. Hauptstraße 12, 10115 Berlin' },
-      wohnung: { popis: 'Квартира (адреса й розташування)', napoveda: 'Як у договорі.', placeholder: 'напр. Lindenstraße 7, Berlin, 2. OG links (2-й поверх над партером, ліворуч)' },
+      v_adresse: { popis: 'Адреса орендодавця', napoveda: 'Адреса для доставки.', placeholder: 'напр. Hauptstraße 12, 1010 Wien' },
+      wohnung: { popis: 'Квартира (адреса й розташування)', napoveda: 'Як у договорі.', placeholder: 'напр. Lindengasse 7/12, 1070 Wien (квартира № 12)' },
       vertrag_datum: { popis: 'Дата договору оренди', napoveda: 'Коли його підписали.' },
       art: { popis: 'Договір є', napoveda: 'Зазначено в договорі оренди.', moznosti: { unbefristet: 'Безстроковим', befristet: 'Строковим' } },
-      iban: { popis: 'IBAN для повернення гарантійного депозиту (необов’язково)', napoveda: 'Куди має повернутися гарантійний депозит (Kaution).', placeholder: 'DE00 0000 0000 0000 0000 00' },
-      ort: { popis: 'Місце (населений пункт)', napoveda: 'Місце підписання.', placeholder: 'напр. Berlin' },
+      iban: { popis: 'IBAN для повернення гарантійного депозиту (необов’язково)', napoveda: 'Куди має повернутися гарантійний депозит (Kaution).', placeholder: 'AT00 0000 0000 0000 0000' },
+      ort: { popis: 'Місце (населений пункт)', napoveda: 'Місце підписання.', placeholder: 'напр. Wien' },
       datum: { popis: 'Дата', napoveda: 'Сьогоднішню дату заповнено заздалегідь.' },
     },
     vysvetleni: ['', ''],

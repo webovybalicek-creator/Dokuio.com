@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CZ-DOHODA-SPLATKY', verze: '1.0' },
+  sablona: { kod: 'CZ-DOHODA-SPLATKY', verze: '1.1' },
 
   nazev: 'Instalment Agreement',
   nazevA: 'the instalment agreement',
@@ -120,7 +120,7 @@ export default {
     ],
     pripominky: {
       'Splátka dluhu – poslední': { nazev: 'Debt instalment – last' },
-      'Splátka dluhu': { nazev: 'Debt instalment', popis: 'Monthly instalment under the debt instalment agreement (the amount is in the event title).' },
+      'Splátka dluhu': { nazev: 'Debt instalment' },
     },
   },
 
@@ -193,9 +193,9 @@ export default {
       'Splatná do': 'Due by',
       'Částka': 'Amount',
       'Zbývá splatit': 'Remaining balance',
-      'Tabulka uvádí jen dluh bez úroku. Úrok se platí podle dohody. Přehled je sestavený podle sjednaných splátek; při rozporu má přednost text smlouvy.':
-        'The table shows only the debt without interest. Interest is paid as agreed. The overview is based on the agreed instalments; in case of conflict, the text of the contract prevails.',
-      'Přehled je sestavený podle sjednaných splátek; při rozporu má přednost text smlouvy.': 'The overview is based on the agreed instalments; in case of conflict, the text of the contract prevails.',
+      'Tabulka uvádí jen dluh bez úroku. Úrok se platí podle dohody. Přehled je sestavený podle sjednaných splátek; při rozporu rozhoduje text dokumentu.':
+        'The table shows only the debt without interest. Interest is paid as agreed. The overview is based on the agreed instalments; in case of conflict, the text of the document prevails.',
+      'Přehled je sestavený podle sjednaných splátek; při rozporu rozhoduje text dokumentu.': 'The overview is based on the agreed instalments; in case of conflict, the text of the document prevails.',
     },
   },
 } satisfies PrekladDokumentu;

@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-UEBERGABE-KFZ', verze: '1.0' },
+  sablona: { kod: 'AT-UEBERGABE-KFZ', verze: '1.1' },
 
   nazev: 'Vehicle Handover Report',
   nazevA: 'the vehicle handover report',
@@ -79,7 +79,7 @@ export default {
       k_jmeno: { popis: 'Person taking over – first name and surname' },
       k_adresa: { popis: 'Address of the person taking over' },
       znacka: { popis: 'Make and model', placeholder: 'e.g. VW Golf Variant' },
-      vin: { popis: 'Vehicle identification number (VIN, German FIN)', napoveda: 'Field E in the registration certificate (Fahrzeugschein).' },
+      vin: { popis: 'Vehicle identification number (VIN, German FIN)', napoveda: 'Shown in the registration certificate (Zulassungsschein) and on the vehicle.' },
       spz: { popis: 'Official registration number (Kennzeichen)', placeholder: 'e.g. W-12345A' },
       km: { popis: 'Mileage (km)' },
       palivo: { popis: 'Fuel level', moznosti: { rezerva: 'Reserve', ctvrt: '1/4', pul: '1/2', tri: '3/4', plna: 'Full' } },
@@ -89,7 +89,7 @@ export default {
       doklady: {
         popis: 'Documents handed over',
         moznosti: {
-          zs: 'Registration certificate (Zulassungsschein, Zulassungsbescheinigung Teil I)',
+          zs: 'Registration certificate (Zulassungsschein)',
           ts: 'Type certificate (Typenschein) / proof of approval (Genehmigungsnachweis)',
           pickerl: 'Latest inspection report under § 57a KFG (“Pickerl”)',
           servis: 'Service book',
@@ -193,7 +193,7 @@ export default {
           {
             uvod: 'Documents handed over:',
             moznosti: {
-              zs: 'registration certificate (Zulassungsschein, Zulassungsbescheinigung Teil I)',
+              zs: 'registration certificate (Zulassungsschein)',
               ts: 'type certificate (Typenschein) / proof of approval (Genehmigungsnachweis)',
               pickerl: 'latest inspection report under § 57a KFG (“Pickerl”)',
               servis: 'service book',

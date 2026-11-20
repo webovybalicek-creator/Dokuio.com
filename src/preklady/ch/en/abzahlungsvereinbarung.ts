@@ -206,7 +206,6 @@ export default {
     ],
     prilohy: {
       'Anhang 1 · Ratenplan': 'Annex 1 · Payment schedule',
-      Insgesamt: 'Total:',
       Rate: 'Instalment',
       'Fällig am': 'Due on',
       Betrag: 'Amount',

@@ -7,6 +7,7 @@ import type { Hodnota, Sablona } from '../typy';
 import { inWorten } from '../de/zahlen';
 import { chText } from '../../i18n/schweiz';
 import { formatCislo } from '../dokument';
+import { nahrad, MUSTER_CH } from '../nahrad';
 
 function texte<T>(v: T): T {
   if (typeof v === 'string') return chText(v) as T;
@@ -18,8 +19,11 @@ function texte<T>(v: T): T {
   return v;
 }
 
-/** Schweizer Vorlage: zeme 'ch', Sprache de-CH, Texte in Schweizer Schreibweise */
-export const schweiz = (s: Sablona): Sablona => ({ ...texte(s), zeme: 'ch', jazyk: 'de-CH' });
+/**
+ * Schweizer Vorlage: zeme 'ch', Sprache de-CH, Texte in Schweizer Schreibweise; aus DE übernommene
+ * Beispielwerte (Berlin, DE-IBAN, B-AB …) werden durch Schweizer ersetzt (MUSTER_CH in ../nahrad.ts).
+ */
+export const schweiz = (s: Sablona): Sablona => ({ ...texte(nahrad(s, MUSTER_CH)), zeme: 'ch', jazyk: 'de-CH' });
 
 export const chf = (n: number) => `${formatCislo(String(n))} CHF`;
 

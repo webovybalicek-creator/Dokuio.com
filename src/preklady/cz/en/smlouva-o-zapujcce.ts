@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CZ-ZAPUJCKA', verze: '1.0' },
+  sablona: { kod: 'CZ-ZAPUJCKA', verze: '1.1' },
 
   nazev: 'Loan Agreement',
   nazevA: 'the loan agreement',
@@ -36,7 +36,7 @@ export default {
     nehodiSe: [
       'you are lending as part of a business – consumer credit rules apply',
       'you are giving money and don’t want it back – use a gift agreement (darovací smlouva)',
-      'the debt already exists and you only want to confirm it in writing – we are preparing an acknowledgement of debt (uznání dluhu)',
+      'the debt already exists and you only want to confirm it in writing – use the acknowledgement of debt (uznání dluhu)',
     ],
     poNadpis: 'After signing.',
     po: [
@@ -48,7 +48,7 @@ export default {
       { q: 'What is the difference between “půjčka” and “zápůjčka”?', a: 'People usually say “půjčka” (loan), but for money the Czech Civil Code uses the term “zápůjčka” (loan for consumption): the borrower returns the same amount, not the same banknotes. A “výpůjčka”, on the other hand, is lending a specific item free of charge, which is then returned.' },
       { q: 'Does a loan agreement have to be in writing?', a: 'The law does not require it, but without a written agreement it is hard to prove how much you lent and on what terms. We always recommend a written agreement.' },
       { q: 'What interest is reasonable?', a: 'The law sets no fixed cap, but interest grossly disproportionate to usual rates is usurious and invalid. Between people who know each other, money is most often lent without interest. Interest received is taxable income.' },
-      { q: 'What if the borrower doesn’t repay?', a: 'Statutory default interest applies from the first day of default. With instalments, the lender may demand in writing repayment of the entire remaining amount after 30 days of default. If a demand doesn’t help, you can file a lawsuit or an application for a payment order.' },
+      { q: 'What if the borrower doesn’t repay?', a: 'Statutory default interest applies from the first day of default. With instalments, if an instalment has not arrived even 14 days after it was due, the lender may demand in writing repayment of the entire remaining amount – at the latest by the due date of the next instalment (Section 1931 of the Civil Code). If a demand doesn’t help, you can file a lawsuit or an application for a payment order.' },
       { q: 'Why are there no contractual penalties in the agreement?', a: 'Courts often reduce or cancel high penalties between private individuals, and they needlessly strain relationships. The template therefore relies on statutory default interest. If you want a penalty, you can add it as your own clause.' },
       { q: 'Do you store my details?', a: 'No. The agreement is put together directly in your browser and the details are not sent to any server.' },
     ],
@@ -194,7 +194,7 @@ export default {
           {
             uvodVzor: 'In the case of instalments:',
             moznosti: {
-              splatky: 'If the Borrower is more than 30 days in default with any instalment, the Lender may demand in writing repayment of the entire amount not yet repaid within 30 days of delivery of the demand.',
+              splatky: 'If the Borrower fails to pay any instalment even within 14 days after it falls due, the Lender is entitled to demand repayment of the entire amount not yet repaid (Section 1931 of the Civil Code). The Lender shall exercise this right by a written demand delivered to the Borrower no later than the due date of the next instalment; the entire amount not yet repaid is then due within 30 days of delivery of the demand.',
             },
           },
         ],
@@ -215,10 +215,10 @@ export default {
       'Splatná do': 'Due by',
       Částka: 'Amount',
       'Zbývá splatit': 'Remaining',
-      'Tabulka uvádí jen jistinu. Úrok se platí podle článku o úroku. Přehled je sestavený podle sjednaných splátek; při rozporu má přednost text smlouvy.':
-        'The table shows the principal only. Interest is paid according to the article on interest. The schedule is based on the agreed instalments; in case of conflict, the text of the agreement prevails.',
-      'Přehled je sestavený podle sjednaných splátek; při rozporu má přednost text smlouvy.':
-        'The schedule is based on the agreed instalments; in case of conflict, the text of the agreement prevails.',
+      'Tabulka uvádí jen jistinu. Úrok se platí podle článku o úroku. Přehled je sestavený podle sjednaných splátek; při rozporu rozhoduje text dokumentu.':
+        'The table shows the principal only. Interest is paid according to the article on interest. The schedule is based on the agreed instalments; in case of conflict, the text of the document prevails.',
+      'Přehled je sestavený podle sjednaných splátek; při rozporu rozhoduje text dokumentu.':
+        'The schedule is based on the agreed instalments; in case of conflict, the text of the document prevails.',
     },
   },
 } satisfies PrekladDokumentu;

@@ -8,7 +8,7 @@
  */
 import type { Sablona } from '../typy';
 import { sumaSlovom } from './cisla';
-import { pripominkySplatek, splatky, isoDatum, cislo } from '../terminy';
+import { pripominkySplatek, splatky, isoDatum, cislo, souhrnSplatek } from '../terminy';
 import { formatCislo, formatDatum } from '../dokument';
 import { OZ_SK, OZ_SK_ZAVAZKY, ZAKON_HOTOVOST_SK, TIP_TOTOZNOST_SK, TIP_HOTOVOST_SK, TIP_ZRUSENY_OZ_SK } from './zdroje';
 
@@ -36,6 +36,7 @@ export const dohodaOSplatkach: Sablona = {
       {
         nadpis: 'Príloha č. 1 · Splátkový kalendár',
         popis: `Spolu ${eur(cislo(d.castka))} v ${s.length} mesačných splátkach.`,
+        souhrn: souhrnSplatek(s, eur(cislo(d.castka))),
         hlavicka: ['Splátka', 'Splatná do', 'Suma', 'Zostáva splatiť'],
         radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum)), eur(x.castka), eur(x.zbyva)]),
         vpravo: [2, 3],

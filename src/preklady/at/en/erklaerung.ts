@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-ERKLAERUNG', verze: '1.0' },
+  sablona: { kod: 'AT-ERKLAERUNG', verze: '1.1' },
 
   nazev: 'Declaration',
   nazevA: 'declaration',
@@ -79,7 +79,7 @@ export default {
       'If an authority or a court requires a specific form (e.g. a declaration made before the authority), use its form.',
       'First ask whether the recipient has its own form – if so, use it.',
       'Be specific: who, what, since when (e.g. “that I have lived in the flat … since 1 Jan 2025”).',
-      'Check the other party’s identity against their identity card and copy their name and address exactly.',
+      'Sign it by hand and keep a copy for your records. If the recipient requires a certified signature, sign only in front of the notary (Notar) or at the district court (Bezirksgericht).',
     ],
   },
 

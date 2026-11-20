@@ -41,7 +41,10 @@ export function slozVerzi(s: Sablona, p: PrekladDokumentu, jazyk: string): Sablo
     const mapa = P.pripominky ?? {};
     const klic = mapa[x.nazev] ? x.nazev : Object.keys(mapa).find((k) => x.nazev.startsWith(k));
     if (!klic) return x;
-    return { ...x, nazev: mapa[klic].nazev + x.nazev.slice(klic.length), popis: mapa[klic].popis ?? x.popis };
+    const nazev = mapa[klic].nazev + x.nazev.slice(klic.length);
+    // připomínka splátky: popis celý v jazyce verze z přeloženého názvu (s částkou) a počtu splátek
+    if (x.splatky) return { ...x, nazev, popis: `${nazev} (${V.dokument.splatky.celkem(x.splatky)}).` };
+    return { ...x, nazev, popis: mapa[klic].popis ?? x.popis };
   };
 
   const D = p.dokument;
@@ -72,6 +75,7 @@ export function slozVerzi(s: Sablona, p: PrekladDokumentu, jazyk: string): Sablo
       clanky: D.clanky,
       volby: { ...volby, ...D.volby },
       prilohy: D.prilohy,
+      splatky: { popis: V.dokument.splatky.popis },
       dolozka: [texty(s.jazyk).dokument.dvojjazycne(jazyk), V.dokument.dolozka(s.jazyk)],
     },
   };

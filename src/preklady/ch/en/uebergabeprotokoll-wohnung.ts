@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CH-PROTOKOLL-WOHNUNG', verze: '1.0' },
+  sablona: { kod: 'CH-PROTOKOLL-WOHNUNG', verze: '1.1' },
 
   nazev: 'Flat Handover Report',
   nazevA: 'the flat handover report',
@@ -30,8 +30,8 @@ export default {
       { nazev: 'Sign', popis: 'Each party receives one copy.' },
     ],
     online: [
-      'Amounts in words added automatically',
-      'Calendar reminders',
+      'Explanations for every field',
+      'Pre-filled from the tenancy agreement',
       'Download as PDF and Word',
     ],
     hodiSe: ['moving into a rented flat', 'handing back the flat at the end of the tenancy'],
@@ -68,7 +68,7 @@ export default {
     pole: {
       v_name: { popis: 'Landlord – name', napoveda: 'The owner.', placeholder: 'e.g. Thomas Müller' },
       m_name: { popis: 'Tenant – name', napoveda: 'The person who uses the flat.', placeholder: 'e.g. Anna Schmidt' },
-      objekt: { popis: 'Flat (address and location)', napoveda: 'As in the tenancy agreement.', placeholder: 'e.g. Lindenstrasse 7, Berlin, 2. OG links (2nd floor, left)' },
+      objekt: { popis: 'Flat (address and location)', napoveda: 'As in the tenancy agreement.', placeholder: 'e.g. Lindenstrasse 7, 8004 Zürich, 2. OG links (2nd floor, left)' },
       anlass: {
         popis: 'Reason',
         napoveda: 'Moving in or moving out.',
@@ -109,7 +109,7 @@ export default {
         napoveda: 'Who fixes what and by when.',
         placeholder: 'e.g. Vermieter repariert den Wasserhahn bis 30.11. (landlord repairs the tap by 30 Nov.)',
       },
-      ort: { popis: 'Place', napoveda: 'Place of handover.', placeholder: 'e.g. Berlin' },
+      ort: { popis: 'Place', napoveda: 'Place of handover.', placeholder: 'e.g. Zürich' },
       datum: { popis: 'Date', napoveda: 'Today’s date pre-filled.' },
     },
     vysvetleni: ['', '', ''],

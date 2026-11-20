@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CZ-DOHODA-SPLATKY', verze: '1.0' },
+  sablona: { kod: 'CZ-DOHODA-SPLATKY', verze: '1.1' },
 
   nazev: 'Угода про розстрочку',
   nazevA: 'угоду про розстрочку',
@@ -120,7 +120,7 @@ export default {
     ],
     pripominky: {
       'Splátka dluhu – poslední': { nazev: 'Платіж за боргом – останній' },
-      'Splátka dluhu': { nazev: 'Платіж за боргом', popis: 'Щомісячний платіж за угодою про розстрочку боргу (сума – у назві події).' },
+      'Splátka dluhu': { nazev: 'Платіж за боргом' },
     },
   },
 
@@ -193,9 +193,9 @@ export default {
       'Splatná do': 'Сплатити до',
       'Částka': 'Сума',
       'Zbývá splatit': 'Залишок до сплати',
-      'Tabulka uvádí jen dluh bez úroku. Úrok se platí podle dohody. Přehled je sestavený podle sjednaných splátek; při rozporu má přednost text smlouvy.':
-        'Таблиця містить лише борг без відсотків. Відсотки сплачуються згідно з угодою. Огляд складено за погодженими платежами; у разі розбіжностей перевагу має текст договору.',
-      'Přehled je sestavený podle sjednaných splátek; při rozporu má přednost text smlouvy.': 'Огляд складено за погодженими платежами; у разі розбіжностей перевагу має текст договору.',
+      'Tabulka uvádí jen dluh bez úroku. Úrok se platí podle dohody. Přehled je sestavený podle sjednaných splátek; při rozporu rozhoduje text dokumentu.':
+        'Таблиця містить лише борг без відсотків. Відсотки сплачуються згідно з угодою. Огляд складено за погодженими платежами; у разі розбіжностей вирішальним є текст документа.',
+      'Přehled je sestavený podle sjednaných splátek; při rozporu rozhoduje text dokumentu.': 'Огляд складено за погодженими платежами; у разі розбіжностей вирішальним є текст документа.',
     },
   },
 } satisfies PrekladDokumentu;

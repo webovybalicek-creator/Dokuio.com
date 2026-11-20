@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-PROTOKOLL-WOHNUNG', verze: '1.0' },
+  sablona: { kod: 'AT-PROTOKOLL-WOHNUNG', verze: '1.1' },
 
   nazev: 'Flat Handover Report',
   nazevA: 'the flat handover report',
@@ -30,8 +30,8 @@ export default {
       { nazev: 'Sign', popis: 'Each side receives one copy.' },
     ],
     online: [
-      'Amounts in words automatically',
-      'Reminders for your calendar',
+      'Explanations for every field',
+      'Pre-filled from the tenancy agreement',
       'Download as PDF and Word',
     ],
     hodiSe: [
@@ -69,7 +69,7 @@ export default {
     pole: {
       v_name: { popis: 'Landlord – name', napoveda: 'The owner.', placeholder: 'e.g. Thomas Müller' },
       m_name: { popis: 'Tenant – name', napoveda: 'The person who uses the flat.', placeholder: 'e.g. Anna Schmidt' },
-      objekt: { popis: 'Flat (address and location)', napoveda: 'As in the tenancy agreement.', placeholder: 'e.g. Lindenstraße 7, Berlin, 2. OG links' },
+      objekt: { popis: 'Flat (address and location)', napoveda: 'As in the tenancy agreement.', placeholder: 'e.g. Lindengasse 7/12, 1070 Wien' },
       anlass: {
         popis: 'Reason',
         napoveda: 'Moving in or moving out.',
@@ -90,7 +90,7 @@ export default {
       ausstattung: { popis: 'Fittings and their condition', napoveda: 'Appliances and furniture.', placeholder: 'e.g. Kühlschrank – funktioniert (fridge – works)' },
       schluessel: { popis: 'Keys', napoveda: 'Number and what for.', placeholder: 'e.g. 3× Wohnung, 2× Haus, 1× Keller (flat, building, cellar)' },
       vereinbarung: { popis: 'Arrangements (optional)', napoveda: 'Who fixes what by when.', placeholder: 'e.g. Vermieter repariert den Wasserhahn bis 30.11. (landlord repairs the tap by 30 Nov.)' },
-      ort: { popis: 'Place', napoveda: 'Place of the handover.', placeholder: 'e.g. Berlin' },
+      ort: { popis: 'Place', napoveda: 'Place of the handover.', placeholder: 'e.g. Wien' },
       datum: { popis: 'Date', napoveda: 'Today’s date is pre-filled.' },
     },
     vysvetleni: ['', '', ''],

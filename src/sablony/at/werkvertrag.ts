@@ -10,6 +10,7 @@ import { ABGB, ABGB_1170A } from './quellen';
 
 const z = nahrad(de, [
   ['DE-WERKVERTRAG', 'AT-WERKVERTRAG'],
+  ['AT-WERKVERTRAG v1.0', 'AT-WERKVERTRAG v1.1'],
   ['nach §§ 631 ff. des Bürgerlichen Gesetzbuchs (BGB)', 'nach §§ 1165 ff. des Allgemeinen bürgerlichen Gesetzbuchs (ABGB)'],
   ['Der Kostenanschlag ist unverbindlich. Zeichnet sich eine wesentliche Überschreitung ab, zeigt der Unternehmer dies dem Besteller unverzüglich an.', 'Der Kostenvoranschlag wird ohne Gewährleistung für seine Richtigkeit zugrunde gelegt. Erweist sich eine beträchtliche Überschreitung als unvermeidlich, zeigt der Unternehmer dies dem Besteller unverzüglich an; der Besteller kann dann unter angemessener Vergütung der geleisteten Arbeit vom Vertrag zurücktreten (§ 1170a Abs. 2 ABGB).'],
   ['Die Parteien vereinbaren einen Pauschalpreis von {{preis}} (in Worten: {{preis_worte}}) einschließlich Umsatzsteuer.', 'Die Parteien vereinbaren einen Pauschalpreis von {{preis}} (in Worten: {{preis_worte}}) einschließlich Umsatzsteuer. Er gilt als Kostenvoranschlag unter ausdrücklicher Gewährleistung; eine Erhöhung ist ausgeschlossen (§ 1170a Abs. 1 ABGB).'],
@@ -21,6 +22,7 @@ const z = nahrad(de, [
   ['Nimmt der Besteller ein Werk trotz Kenntnis eines Mangels ab, behält er seine Mängelrechte nur, wenn er sie bei der Abnahme vorbehält.', 'Bekannte Mängel werden bei der Übernahme im Protokoll vorbehalten.'],
   ['Es gelten die gesetzlichen Mängelrechte (§§ 634 ff. BGB). Die Ansprüche verjähren nach § 634a BGB.', 'Es gilt die gesetzliche Gewährleistung (§§ 922 ff. ABGB).'],
   ['Im Übrigen gelten die Vorschriften des BGB.', 'Im Übrigen gelten die Vorschriften des ABGB.'],
+  ['Änderungen und Ergänzungen dieses Vertrags bedürfen der Textform.', 'Änderungen und Ergänzungen dieses Vertrags bedürfen der Schriftform.'],
   ['z. B. Lindenstraße 5, 10115 Berlin', 'z. B. Mariahilfer Straße 10, 1060 Wien'],
   ['z. B. Hauptstraße 1, 10117 Berlin', 'z. B. Hauptplatz 1, 1060 Wien'],
   ['z. B. Berlin', 'z. B. Wien'],
@@ -28,6 +30,8 @@ const z = nahrad(de, [
 
 export const werkvertragAT: Sablona = {
   ...z,
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   zeme: 'at',
   kontrola: [
     'Leistung so genau wie möglich beschreiben (Umfang, Material, Maße; Angebot als Anlage beifügen).',

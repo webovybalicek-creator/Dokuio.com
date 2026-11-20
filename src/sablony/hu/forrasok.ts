@@ -35,4 +35,6 @@ export const NAV = { nazev: 'Nemzeti Adó- és Vámhivatal (nav.gov.hu)', url: '
 
 export const TIP_SZEMELYAZONOSSAG = 'Ellenőrizze a másik fél személyazonosságát igazolvánnyal, és a nevet pontosan úgy írja be, ahogy az okmányban szerepel.';
 export const TIP_KESZPENZ = 'A készpénzt aláíráskor számolja meg; nagyobb összeget inkább utaljon – a banki terhelési értesítő a legjobb bizonyíték.';
-export const TIP_TANUK = 'Két tanú aláírásával (nevük és lakcímük feltüntetésével) az okirat teljes bizonyító erejű magánokirat lesz – a forgalmi átíráshoz ez kell. Tanú nem lehet a szerződő fél.';
+export const TIP_TANUK = 'Két tanú aláírásával (nevük és lakcímük feltüntetésével) az okirat teljes bizonyító erejű magánokirat lesz – vita esetén ez erősebb bizonyíték. Tanú nem lehet a szerződő fél.';
+/** Gépjármű: a forgalmi átíráshoz kell a teljes bizonyító erejű magánokirat */
+export const TIP_TANUK_ATIRAS = TIP_TANUK.replace(' – vita esetén ez erősebb bizonyíték', ' – a forgalmi átíráshoz ez kell');

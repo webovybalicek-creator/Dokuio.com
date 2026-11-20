@@ -10,8 +10,8 @@ import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, s
 
 export const uznaniDluhu: Sablona = {
   kod: 'CZ-UZNANI-DLUHU',
-  verze: '1.0',
-  aktualizovano: '2026-11-19',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   overeno: '2026-11-19',
   prilohy: (d) => (d.splaceni === 'splatky' ? splatkovyKalendar(d) : []),
   pripominky: (d) => [
@@ -23,7 +23,7 @@ export const uznaniDluhu: Sablona = {
   nazev: 'Uznání dluhu',
   podnadpis: 'podle § 2053 zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'uznani-dluhu',
-  paticka: 'Vytvořeno zdarma · šablona CZ-UZNANI-DLUHU v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
+  paticka: 'Vytvořeno zdarma · šablona CZ-UZNANI-DLUHU v1.1 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'dlužník', vpravo: 'věřitel (souhlas se splátkami)' },
@@ -160,7 +160,7 @@ export const uznaniDluhu: Sablona = {
           uvodVzor: 'Platby:',
           moznosti: {
             naraz: 'Platby budou připsány na účet věřitele č. {{ucet}}, případně předány v hotovosti proti písemnému potvrzení.',
-            splatky: 'Platby budou připsány na účet věřitele č. {{ucet}}, případně předány v hotovosti proti písemnému potvrzení. Při prodlení s některou splátkou o více než 30 dnů může věřitel písemně požadovat zaplacení celého zbytku dluhu do 30 dnů od doručení výzvy.',
+            splatky: 'Platby budou připsány na účet věřitele č. {{ucet}}, případně předány v hotovosti proti písemnému potvrzení. Nezaplatí-li dlužník kteroukoli splátku ani do 14 dnů po její splatnosti, má věřitel právo požadovat zaplacení celého zbytku dluhu (§ 1931 občanského zákoníku). Toto právo uplatní písemnou výzvou doručenou dlužníkovi nejpozději do splatnosti nejblíže příští splátky; zbytek dluhu je pak splatný do 30 dnů od doručení výzvy.',
           },
         },
         'Dlužník může dluh zaplatit i dříve, celý nebo zčásti.',

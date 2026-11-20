@@ -9,7 +9,7 @@ import { PTK, TIP_SZEMELYAZONOSSAG, TIP_TANUK } from './forrasok';
 
 export const alberletiSzerzodes: Sablona = {
   kod: 'HU-ALBERLET',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-20',
   overeno: '2026-11-20',
   zeme: 'hu',
@@ -17,7 +17,7 @@ export const alberletiSzerzodes: Sablona = {
   nazev: "Albérleti szerződés",
   podnadpis: "a Polgári Törvénykönyv bérletre vonatkozó szabályai alapján",
   souborPdf: 'alberleti-szerzodes',
-  paticka: "Ingyenesen készült · HU-ALBERLET v1.0 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek",
+  paticka: "Ingyenesen készült · HU-ALBERLET v1.1 minta · kitölthető minta, nem jogi tanácsadás · a tartalomért a felek felelnek",
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: "bérlő (albérletbe adó)", vpravo: "albérlő" },

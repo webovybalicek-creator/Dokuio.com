@@ -166,6 +166,18 @@ export interface Tabulka {
   /** Indexy sloupců zarovnaných doprava (částky) */
   vpravo?: number[];
   poznamka?: string;
+  /**
+   * Souhrn splátkového kalendáře strukturovaně (k `popis`). Jazyková verze z něj sestaví celý překlad popisu
+   * funkcí `dokument.splatky.popis` ze src/i18n/<jazyk>.ts (společně pro všechny země) – slovník `prilohy` to nemusí umět.
+   */
+  souhrn?: SouhrnSplatek;
+}
+
+/** Souhrn splátek pro překlad: celková částka už s měnou země („12 000 Kč“), počet měsíčních splátek, den splatnosti v měsíci */
+export interface SouhrnSplatek {
+  celkem: string;
+  pocet: number;
+  den?: number;
 }
 
 export interface Pripominka {
@@ -175,6 +187,11 @@ export interface Pripominka {
   popis?: string;
   /** Opakovat měsíčně – celkový počet výskytů */
   mesicne?: number;
+  /**
+   * Připomínka splátky (pripominkySplatek v terminy.ts): celkový počet splátek. Jazyková verze z toho sestaví popis
+   * „<přeložený název s částkou> (<počet splátek>)“ funkcí `dokument.splatky.celkem` ze src/i18n/<jazyk>.ts.
+   */
+  splatky?: number;
 }
 
 export type OdstavecPrekladu = string | { moznosti: Record<string, string>; uvod?: string; uvodVzor?: string; dalsi?: string };
@@ -204,6 +221,8 @@ export interface Preklad {
   dolozka?: [string, string];
   /** Překlad textů v přílohách (tabulkách): přesný text nebo začátek buňky → překlad. Vypíše se „originál / překlad“. */
   prilohy?: Record<string, string>;
+  /** Překlad souhrnu splátkového kalendáře (`Tabulka.souhrn`) – z textů jazyka verze */
+  splatky?: { popis: (s: SouhrnSplatek) => string };
 }
 
 /** Tvary slova pro texty rozhraní: 1. pád, 2. pád, 4. pád, 6. pád */

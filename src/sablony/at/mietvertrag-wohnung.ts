@@ -8,14 +8,17 @@ import type { Sablona } from '../typy';
 import { mietvertragWohnung as de } from '../de/mietvertrag-wohnung';
 import { naDatum, isoDatum } from '../terminy';
 import { ABGB, MRG, OEGV_MIETE } from './quellen';
+import { nahrad, MUSTER_AT } from '../nahrad';
 
-export const mietvertragWohnungAT: Sablona = {
+export const mietvertragWohnungAT: Sablona = nahrad({
   ...de,
   kod: 'AT-MIETVERTRAG',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   zeme: 'at',
   nazev: 'Mietvertrag über eine Wohnung',
   podnadpis: 'nach §§ 1090 ff. ABGB und dem Mietrechtsgesetz (MRG)',
-  paticka: 'Kostenlos erstellt · Vorlage AT-MIETVERTRAG v1.0 · Vorlage zum Ausfüllen, keine Rechtsberatung · für den Inhalt sind die Parteien verantwortlich, anwaltliche Prüfung empfohlen',
+  paticka: 'Kostenlos erstellt · Vorlage AT-MIETVERTRAG v1.1 · Vorlage zum Ausfüllen, keine Rechtsberatung · für den Inhalt sind die Parteien verantwortlich, anwaltliche Prüfung empfohlen',
   pripominky: (d) => {
     const out = de.pripominky ? de.pripominky(d) : [];
     const ende = d.dauer === 'befristet' ? naDatum(d.ende) : undefined;
@@ -108,4 +111,4 @@ export const mietvertragWohnungAT: Sablona = {
       ],
     },
   ],
-};
+}, MUSTER_AT);

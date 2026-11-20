@@ -10,14 +10,14 @@ import { naDatum, pridejPracovniDny, pridejDny, pridejMesice, isoDatum, cislo, s
 
 export const smlouvaOZapujcce: Sablona = {
   kod: 'CZ-ZAPUJCKA',
-  verze: '1.0',
-  aktualizovano: '2026-11-19',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   zeme: 'cz',
   jazyk: 'cs',
   nazev: 'Smlouva o zápůjčce',
   podnadpis: 'uzavřená podle § 2390 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'smlouva-o-zapujcce',
-  paticka: 'Vytvořeno zdarma · šablona CZ-ZAPUJCKA v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
+  paticka: 'Vytvořeno zdarma · šablona CZ-ZAPUJCKA v1.1 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'zapůjčitel', vpravo: 'vydlužitel' },
@@ -208,7 +208,7 @@ export const smlouvaOZapujcce: Sablona = {
           kdyz: { pole: 'splaceni', je: 'splatky' },
           uvodVzor: 'Jde-li o splátky:',
           moznosti: {
-            splatky: 'Pokud se vydlužitel dostane do prodlení s úhradou některé splátky o více než 30 dnů, může zapůjčitel písemně požadovat vrácení celé dosud nesplacené částky do 30 dnů od doručení výzvy.',
+            splatky: 'Nezaplatí-li vydlužitel kteroukoli splátku ani do 14 dnů po její splatnosti, má zapůjčitel právo požadovat vrácení celé dosud nesplacené částky (§ 1931 občanského zákoníku). Toto právo uplatní písemnou výzvou doručenou vydlužiteli nejpozději do splatnosti nejblíže příští splátky; celá dosud nesplacená částka je pak splatná do 30 dnů od doručení výzvy.',
           },
         },
       ],

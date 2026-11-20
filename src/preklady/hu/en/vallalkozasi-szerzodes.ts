@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'HU-VALLALKOZASI-SZERZODES', verze: '1.0' },
+  sablona: { kod: 'HU-VALLALKOZASI-SZERZODES', verze: '1.1' },
 
   nazev: 'Contract for Work',
   nazevA: 'the contract for work',
@@ -119,7 +119,7 @@ export default {
       'Describe the work as precisely as possible (scope, materials, dimensions; the quotation can be an annex) – the contractor undertakes to deliver a result (Ptk. 6:238. §).',
       'With a lump-sum fee, the contractor may claim on top of the lump sum only the price of the additional work (pótmunka), not that of the surplus work (többletmunka) (Ptk. 6:244–6:245. §).',
       'Separate rules (construction contract – kivitelezési szerződés) apply to building or renovating a home where the work requires a building permit or notification – do not use this template there.',
-      'With the signatures of two witnesses (stating their names and home addresses), the document becomes a private document with full probative force (teljes bizonyító erejű magánokirat) – this is what the transfer of a vehicle’s ownership requires. A party to the contract cannot be a witness.',
+      'With the signatures of two witnesses (stating their names and home addresses), the document becomes a private document with full probative force (teljes bizonyító erejű magánokirat) – in a dispute this is stronger evidence. A party to the contract cannot be a witness.',
       'Check the other party’s identity with an identity document and write the name exactly as it appears in the document.',
     ],
     pripominky: {

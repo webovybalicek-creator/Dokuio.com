@@ -4,7 +4,7 @@
  */
 import type { Sablona } from '../typy';
 import { kwotaSlownie } from './liczby';
-import { naDatum, isoDatum, pripominkySplatek, splatky } from '../terminy';
+import { naDatum, isoDatum, pripominkySplatek, splatky, souhrnSplatek } from '../terminy';
 import { formatCislo, formatDatum } from '../dokument';
 import { KC, PCC_FORMULARZE, PCC_POZYCZKA_RODZINA, TIP_TOZSAMOSC, TIP_GOTOWKA } from './zrodla';
 
@@ -38,6 +38,7 @@ export const umowaPozyczki: Sablona = {
       {
         nadpis: 'Załącznik nr 1 · Harmonogram spłat',
         popis: `Razem ${zl(Number(String(d.castka).replace(/\s/g, '')))} w ${s.length} miesięcznych ratach.`,
+        souhrn: souhrnSplatek(s, zl(Number(String(d.castka).replace(/\s/g, '')))),
         hlavicka: ['Rata', 'Termin', 'Kwota', 'Pozostało'],
         radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum)), zl(x.castka), zl(x.zbyva)]),
         vpravo: [2, 3],

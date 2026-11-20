@@ -34,7 +34,7 @@ const stranka: StrankaDokumentu = {
     ],
     online: ['Volitelně dvojjazyčně: česky + anglicky', 'Kauce a drobné opravy v zákonných mezích', 'Správně formulovaná inflační doložka', 'Navazující předávací protokol předvyplníme', 'Stažení v PDF i ve Wordu'],
     hodiSe: ['pronajímáte vlastní byt k bydlení', 'najímáte si byt od soukromého majitele', 'chcete férovou smlouvu bez neplatných ujednání'],
-    nehodiSe: ['podnájem (nájemce dává byt dál) – připravujeme podnájemní smlouvu', 'nebytový prostor, kancelář nebo garáž – jiná pravidla', 'krátkodobé ubytování (Airbnb) – nejde o nájem bytu'],
+    nehodiSe: ['podnájem (nájemce dává byt dál) – použijte podnájemní smlouvu', 'nebytový prostor, kancelář nebo garáž – jiná pravidla', 'krátkodobé ubytování (Airbnb) – nejde o nájem bytu'],
     poNadpis: "Po podpisu.",
     po: [
       { nazev: 'Předávací protokol', popis: 'Stavy měřičů, vady, klíče a fotky.' },

@@ -12,12 +12,14 @@ import { OR_17, OR_135, SCHKG_82, TIPP_IDENTITAET_CH } from './quellen';
 export const schuldanerkennungCH: Sablona = schweiz({
   ...de,
   kod: 'CH-SCHULDANERKENNUNG',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   nazev: 'Schuldanerkennung',
   podnadpis: 'nach Art. 17 Obligationenrecht (OR)',
   souborPdf: 'schuldanerkennung',
-  paticka: paticka('CH-SCHULDANERKENNUNG'),
+  paticka: paticka('CH-SCHULDANERKENNUNG', '1.1'),
   slovo: { n: 'Schuldanerkennung', g: 'Schuldanerkennung', a: 'Schuldanerkennung', l: 'Schuldanerkennung' },
-  prilohy: (d) => (d.splaceni === 'splatky' ? tilgungsplanCH(d) : []),
+  prilohy: (d) => (d.splaceni === 'splatky' ? tilgungsplanCH(d).map((t) => ({ ...t, poznamka: 'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Text der Schuldanerkennung.' })) : []),
   pripominky: (d) => [
     ...(d.splaceni === 'splatky' ? pripominkySplatek(d, 'Rate', 'CHF', { celkem: (n) => `insgesamt ${n} Raten`, posledni: 'letzte' }) : []),
     ...(d.splaceni === 'naraz' && naDatum(d.zaplatit_do) ? [{ nazev: 'Schuld fällig', datum: String(d.zaplatit_do) }] : []),

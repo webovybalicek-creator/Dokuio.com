@@ -30,7 +30,7 @@ export default {
       { nazev: 'Check the text', popis: 'Preview next to the form.' },
       { nazev: 'Download and sign', popis: 'PDF or Word. The document is bilingual: German original and English translation.' },
     ],
-    online: ['Amount in words added automatically', 'Signature on screen', 'Draft stays saved in your browser', 'Download as PDF and Word'],
+    online: ['Explanations for every field', 'Signature on screen', 'Draft stays saved in your browser', 'Download as PDF and Word'],
     hodiSe: ['new or used goods bought from a retailer are defective'],
     nehodiSe: ['purchase between private individuals with the warranty excluded'],
     po: [

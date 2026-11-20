@@ -7,8 +7,10 @@ import { OR_MIETE } from './quellen';
 export const uebergabeprotokollWohnungCH: Sablona = schweiz({
   ...de,
   kod: 'CH-PROTOKOLL-WOHNUNG',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   nazev: 'Wohnungsübergabeprotokoll',
-  paticka: paticka('CH-PROTOKOLL-WOHNUNG'),
+  paticka: paticka('CH-PROTOKOLL-WOHNUNG', '1.1'),
   kontrola: [
     ...de.kontrola.slice(0, 4),
     'Bei der Rückgabe muss der Vermieter Mängel sofort schriftlich rügen, sonst verliert er seine Ansprüche, ausser bei versteckten Mängeln (Art. 267a OR).',

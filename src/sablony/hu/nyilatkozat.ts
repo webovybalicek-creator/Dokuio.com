@@ -4,7 +4,7 @@ import { PP, TIP_TANUK } from './forrasok';
 
 export const nyilatkozat: Sablona = {
   kod: 'HU-NYILATKOZAT',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-20',
   overeno: '2026-11-20',
   zeme: 'hu',
@@ -12,7 +12,7 @@ export const nyilatkozat: Sablona = {
   nazev: 'Nyilatkozat',
   podnadpis: 'magánszemély írásbeli nyilatkozata',
   souborPdf: 'nyilatkozat',
-  paticka: 'Ingyenesen készült · HU-NYILATKOZAT v1.0 minta · kitölthető minta, nem jogi tanácsadás · a tartalom valóságáért a nyilatkozó felel',
+  paticka: 'Ingyenesen készült · HU-NYILATKOZAT v1.1 minta · kitölthető minta, nem jogi tanácsadás · a tartalom valóságáért a nyilatkozó felel',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'nyilatkozó', vpravo: 'tanú (név, lakcím, aláírás – ha szükséges)' },
@@ -24,7 +24,7 @@ export const nyilatkozat: Sablona = {
     'Csak valós adatot írjon. A valótlan nyilatkozatnak jogi következményei lehetnek.',
     'Előbb kérdezze meg, van-e a szervnek saját nyomtatványa – akkor azt használja.',
     'Fogalmazzon konkrétan: ki, mit, mióta.',
-    TIP_TANUK,
+    TIP_TANUK.replace('Tanú nem lehet a szerződő fél.', 'Tanú nem lehet maga a nyilatkozó.'),
   ],
   zdroje: [PP],
   kroky: [

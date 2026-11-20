@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CH-SCHULDANERKENNUNG', verze: '1.0' },
+  sablona: { kod: 'CH-SCHULDANERKENNUNG', verze: '1.1' },
 
   nazev: 'Acknowledgement of Debt',
   nazevA: 'the acknowledgement of debt',
@@ -110,7 +110,7 @@ export default {
     ],
     pripominky: {
       'Rate – letzte': { nazev: 'Instalment – last' },
-      Rate: { nazev: 'Instalment', popis: 'Monthly instalment under the acknowledgement of debt (Schuldanerkennung) according to the repayment schedule.' },
+      Rate: { nazev: 'Instalment' },
       'Schuld fällig': { nazev: 'Debt due' },
     },
   },
@@ -155,8 +155,8 @@ export default {
       Betrag: 'Amount',
       Restschuld: 'Remaining debt',
       Rate: 'Instalment',
-      'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Vertragstext.':
-        'The schedule follows the agreed instalments; in the event of any discrepancy, the text of the document prevails.',
+      'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Text der Schuldanerkennung.':
+        'The schedule follows the agreed instalments; in the event of any discrepancy, the text of the acknowledgement of debt prevails.',
     },
   },
 } satisfies PrekladDokumentu;

@@ -1,11 +1,16 @@
 import type { StrankaDokumentu } from '../typy';
 import de from '../de/werkvertrag';
 import { werkvertragAT as sablona } from '../../sablony/at/werkvertrag';
+import { nahradV } from '../../sablony/nahrad';
 
 const stranka: StrankaDokumentu = {
   ...de,
   sablona,
-  landing: { ...de.landing, ...{
+  landing: { ...nahradV(de.landing, [
+    ['Änderungen in Textform.', 'Änderungen schriftlich.'],
+    ['Zusatzarbeiten und Preise in Textform.', 'Zusatzarbeiten und Preise schriftlich vereinbaren.'],
+    ['Hausbau oder großer Umbau – Verbraucherbauvertrag fachkundig erstellen lassen', 'Hausbau oder großer Umbau – Bauvertrag fachkundig erstellen lassen (z. B. auf Basis der ÖNORM B 2110)'],
+  ]), ...{
   "title": "Werkvertrag Österreich {rok} – Muster kostenlos (PDF & Word)",
   "description": "Kostenloser Werkvertrag nach §§ 1165 ff. ABGB: Leistung, Termin, Pauschalpreis oder Kostenvoranschlag (§ 1170a), Anzahlung und Übernahme. PDF und Word.",
   "obsahPopis": "Sechs Abschnitte nach §§ 1165 ff. ABGB.",

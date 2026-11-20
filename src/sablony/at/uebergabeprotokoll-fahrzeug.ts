@@ -3,6 +3,7 @@ import type { Sablona } from '../typy';
 import { uebergabeprotokollFahrzeug as de } from '../de/uebergabeprotokoll-fahrzeug';
 import { TIPP_IDENTITAET } from '../de/quellen';
 import { ABGB, OEGV_ABMELDUNG } from './quellen';
+import { nahrad, MUSTER_AT } from '../nahrad';
 
 const DOKLADY = [
   { hodnota: 'zs', popis: 'Zulassungsschein (Zulassungsbescheinigung Teil I)' },
@@ -12,11 +13,13 @@ const DOKLADY = [
   { hodnota: 'navod', popis: 'Bedienungsanleitung' },
 ];
 
-export const uebergabeprotokollFahrzeugAT: Sablona = {
+export const uebergabeprotokollFahrzeugAT: Sablona = nahrad({
   ...de,
   kod: 'AT-UEBERGABE-KFZ',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   zeme: 'at',
-  paticka: de.paticka.replace('DE-UEBERGABE-KFZ', 'AT-UEBERGABE-KFZ'),
+  paticka: de.paticka.replace('DE-UEBERGABE-KFZ', 'AT-UEBERGABE-KFZ').replace(' v1.0 ', ' v1.1 '),
   coDal: [
     'Protokoll zweimal ausdrucken, beide Seiten unterschreiben beide Exemplare.',
     'Fahrzeug von allen Seiten und den Tachostand fotografieren – Fotos aufbewahren.',
@@ -52,4 +55,4 @@ export const uebergabeprotokollFahrzeugAT: Sablona = {
         : o,
     ),
   })),
-};
+}, MUSTER_AT);

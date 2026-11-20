@@ -1,11 +1,13 @@
 import type { StrankaDokumentu } from '../typy';
 import de from '../de/untermietvertrag';
 import { untermietvertragCH as sablona } from '../../sablony/ch/untermietvertrag';
+import { nahradV } from '../../sablony/nahrad';
 
 const stranka: StrankaDokumentu = {
   ...de,
   sablona,
-  landing: { ...de.landing, ...{
+  katalog: nahradV(de.katalog, [['§ 553 BGB', 'Art. 262 OR']]),
+  landing: { ...nahradV(de.landing, [['Hausordnung, Textform.', 'Hausordnung, Schriftform.']]), ...{
   "title": "Untermietvertrag Schweiz {rok} – Muster kostenlos (PDF & Word)",
   "description": "Kostenloser Untermietvertrag für Zimmer oder Wohnung nach Art. 262 OR: Zustimmung des Vermieters, Dauer, Mietzins in CHF, Mietkaution. Als PDF oder Word.",
   "obsahPopis": "Fünf Abschnitte nach Art. 262 OR.",

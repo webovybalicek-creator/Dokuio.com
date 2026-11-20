@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-WERKVERTRAG', verze: '1.0' },
+  sablona: { kod: 'AT-WERKVERTRAG', verze: '1.1' },
 
   nazev: 'Contract for Work',
   nazevA: 'the contract for work',
@@ -26,7 +26,7 @@ export default {
       { nazev: 'Time of performance', popis: 'Start and completion.' },
       { nazev: 'Remuneration and payment', popis: 'Fixed price or cost estimate, down payment, payment term.' },
       { nazev: 'Acceptance and defects', popis: 'Acceptance report, reservation of known defects, limitation.' },
-      { nazev: 'Final provisions', popis: 'Changes in text form.' },
+      { nazev: 'Final provisions', popis: 'Changes in writing.' },
     ],
     kroky: [
       { nazev: 'Describe the work', popis: 'Scope, place, dates.' },
@@ -45,13 +45,13 @@ export default {
       'as a tradesperson, clear terms with customers',
     ],
     nehodiSe: [
-      'building a house or a major conversion – have a consumer construction contract (Verbraucherbauvertrag) drawn up by an expert',
+      'building a house or a major conversion – have a construction contract drawn up by an expert (e.g. based on the ÖNORM B 2110 standard)',
       'ongoing work for an employer',
       'buying a finished item – use a purchase agreement',
     ],
     po: [
       { nazev: 'Down payment', popis: 'Transfer it or get a receipt.' },
-      { nazev: 'Changes in writing', popis: 'Additional work and prices in text form.' },
+      { nazev: 'Changes in writing', popis: 'Agree additional work and prices in writing.' },
       { nazev: 'Acceptance', popis: 'Report with a reservation of defects.' },
     ],
     faq: [
@@ -191,7 +191,7 @@ export default {
       {
         nadpis: 'Final Provisions',
         odstavce: [
-          'Amendments and additions to this contract must be made in text form. In all other respects, the provisions of the ABGB apply.',
+          'Amendments and additions to this contract must be made in writing. In all other respects, the provisions of the ABGB apply.',
           'This contract is executed in two counterparts; each party receives one copy.',
         ],
       },

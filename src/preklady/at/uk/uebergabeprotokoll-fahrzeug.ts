@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-UEBERGABE-KFZ', verze: '1.0' },
+  sablona: { kod: 'AT-UEBERGABE-KFZ', verze: '1.1' },
 
   nazev: 'Акт приймання-передачі авто',
   nazevA: 'акт приймання-передачі авто',
@@ -79,7 +79,7 @@ export default {
       k_jmeno: { popis: 'Хто приймає – ім’я та прізвище' },
       k_adresa: { popis: 'Адреса того, хто приймає' },
       znacka: { popis: 'Виробник і модель', placeholder: 'напр. VW Golf Variant' },
-      vin: { popis: 'Ідентифікаційний номер транспортного засобу (VIN, нім. FIN)', napoveda: 'Поле E у свідоцтві про реєстрацію (Fahrzeugschein).' },
+      vin: { popis: 'Ідентифікаційний номер транспортного засобу (VIN, нім. FIN)', napoveda: 'Зазначений у свідоцтві про реєстрацію (Zulassungsschein) і на транспортному засобі.' },
       spz: { popis: 'Офіційний номерний знак (Kennzeichen)', placeholder: 'напр. W-12345A' },
       km: { popis: 'Пробіг (км)' },
       palivo: { popis: 'Рівень пального', moznosti: { rezerva: 'Резерв', ctvrt: '1/4', pul: '1/2', tri: '3/4', plna: 'Повний бак' } },
@@ -89,7 +89,7 @@ export default {
       doklady: {
         popis: 'Передані документи',
         moznosti: {
-          zs: 'Свідоцтво про реєстрацію (Zulassungsschein, Zulassungsbescheinigung Teil I)',
+          zs: 'Свідоцтво про реєстрацію (Zulassungsschein)',
           ts: 'Паспорт транспортного засобу (Typenschein) / документ про допуск (Genehmigungsnachweis)',
           pickerl: 'Останній висновок техогляду за § 57a KFG («Pickerl»)',
           servis: 'Сервісна книжка',
@@ -193,7 +193,7 @@ export default {
           {
             uvod: 'Передані документи:',
             moznosti: {
-              zs: 'свідоцтво про реєстрацію (Zulassungsschein, Zulassungsbescheinigung Teil I)',
+              zs: 'свідоцтво про реєстрацію (Zulassungsschein)',
               ts: 'паспорт транспортного засобу (Typenschein) / документ про допуск (Genehmigungsnachweis)',
               pickerl: 'останній висновок техогляду за § 57a KFG («Pickerl»)',
               servis: 'сервісна книжка',

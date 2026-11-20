@@ -128,7 +128,7 @@ export default {
     ],
     pripominky: {
       'Rate – letzte': { nazev: 'Instalment – last' },
-      Rate: { nazev: 'Instalment', popis: 'Monthly instalment under the instalment agreement – amounts and dates in the instalment plan (Annex 1).' },
+      Rate: { nazev: 'Instalment' },
     },
   },
 

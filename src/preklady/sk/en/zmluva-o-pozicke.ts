@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'SK-POZICKA', verze: '1.0' },
+  sablona: { kod: 'SK-POZICKA', verze: '1.1' },
 
   nazev: 'Loan Agreement',
   nazevA: 'the loan agreement',
@@ -112,7 +112,7 @@ export default {
     pripominky: {
       'Odovzdať peniaze z pôžičky': { nazev: 'Hand over the loan money' },
       'Splátka pôžičky – posledná': { nazev: 'Loan instalment – last one', popis: 'Last instalment under the loan agreement (see the instalment schedule).' },
-      'Splátka pôžičky': { nazev: 'Loan instalment', popis: 'Monthly instalment under the loan agreement (see the instalment schedule).' },
+      'Splátka pôžičky': { nazev: 'Loan instalment' },
       'Vrátiť pôžičku': { nazev: 'Repay the loan' },
     },
   },
@@ -168,7 +168,7 @@ export default {
           {
             uvodVzor: 'In the case of instalments:',
             moznosti: {
-              splatky: 'If the Borrower is more than 30 days late in paying any instalment, the Lender may demand in writing repayment of the entire outstanding amount within 30 days of delivery of the demand.',
+              splatky: 'If the Borrower is more than 15 days late in paying any instalment, the Lender may demand repayment of the entire outstanding amount (Section 565 of the Civil Code). The Lender may exercise this right by a written demand delivered to the Borrower no later than the due date of the next instalment; the outstanding amount is then due within 30 days of delivery of the demand.',
             },
           },
         ],

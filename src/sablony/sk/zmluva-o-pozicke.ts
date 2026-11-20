@@ -4,7 +4,7 @@
  */
 import type { Sablona } from '../typy';
 import { sumaSlovom } from './cisla';
-import { naDatum, isoDatum, pripominkySplatek, splatky } from '../terminy';
+import { naDatum, isoDatum, pripominkySplatek, splatky, souhrnSplatek } from '../terminy';
 import { formatCislo, formatDatum } from '../dokument';
 import { OZ_SK, ZAKON_HOTOVOST_SK, TIP_TOTOZNOST_SK, TIP_HOTOVOST_SK } from './zdroje';
 
@@ -12,15 +12,15 @@ const eur = (n: number) => `${formatCislo(String(n))} €`;
 
 export const zmluvaOPozicke: Sablona = {
   kod: 'SK-POZICKA',
-  verze: '1.0',
-  aktualizovano: '2026-11-19',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   overeno: '2026-11-19',
   zeme: 'sk',
   jazyk: 'sk',
   nazev: 'Zmluva o pôžičke',
   podnadpis: 'uzavretá podľa § 657 a nasl. zákona č. 40/1964 Zb., Občiansky zákonník',
   souborPdf: 'zmluva-o-pozicke',
-  paticka: 'Vytvorené zadarmo · šablóna SK-POZICKA v1.0 · vzor na vyplnenie, nejde o právne poradenstvo · za obsah zodpovedajú strany, odporúčame kontrolu advokátom',
+  paticka: 'Vytvorené zadarmo · šablóna SK-POZICKA v1.1 · vzor na vyplnenie, nejde o právne poradenstvo · za obsah zodpovedajú strany, odporúčame kontrolu advokátom',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'veriteľ', vpravo: 'dlžník' },
@@ -38,6 +38,7 @@ export const zmluvaOPozicke: Sablona = {
       {
         nadpis: 'Príloha č. 1 · Splátkový kalendár',
         popis: `Spolu ${eur(Number(String(d.castka).replace(/\s/g, '')))} v ${s.length} mesačných splátkach.`,
+        souhrn: souhrnSplatek(s, eur(Number(String(d.castka).replace(/\s/g, '')))),
         hlavicka: ['Splátka', 'Splatná do', 'Suma', 'Zostáva splatiť'],
         radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum)), eur(x.castka), eur(x.zbyva)]),
         vpravo: [2, 3],
@@ -188,7 +189,7 @@ export const zmluvaOPozicke: Sablona = {
           kdyz: { pole: 'splaceni', je: 'splatky' },
           uvodVzor: 'Ak ide o splátky:',
           moznosti: {
-            splatky: 'Ak sa dlžník dostane do omeškania so zaplatením niektorej splátky o viac ako 30 dní, môže veriteľ písomne požadovať vrátenie celej nesplatenej sumy do 30 dní od doručenia výzvy.',
+            splatky: 'Ak sa dlžník omešká so zaplatením niektorej splátky o viac ako 15 dní, môže veriteľ požadovať vrátenie celej nesplatenej sumy (§ 565 Občianskeho zákonníka). Toto právo môže veriteľ použiť písomnou výzvou doručenou dlžníkovi najneskôr do splatnosti najbližšie nasledujúcej splátky; nesplatená suma je potom splatná do 30 dní od doručenia výzvy.',
           },
         },
       ],

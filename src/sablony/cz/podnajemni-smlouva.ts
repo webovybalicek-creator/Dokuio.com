@@ -12,8 +12,8 @@ import { PODNAJEM_EN } from './preklady-en';
 
 export const podnajemniSmlouva: Sablona = {
   kod: 'CZ-PODNAJEM',
-  verze: '1.0',
-  aktualizovano: '2026-11-19',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   overeno: '2026-11-19',
   preklad: PODNAJEM_EN,
   pripominky: (d) => {
@@ -37,7 +37,7 @@ export const podnajemniSmlouva: Sablona = {
   nazev: 'Smlouva o podnájmu bytu',
   podnadpis: 'uzavřená podle § 2215 a § 2274 a násl. zákona č. 89/2012 Sb., občanský zákoník',
   souborPdf: 'podnajemni-smlouva',
-  paticka: 'Vytvořeno zdarma · šablona CZ-PODNAJEM v1.0 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
+  paticka: 'Vytvořeno zdarma · šablona CZ-PODNAJEM v1.1 · vzor k vyplnění, nejde o právní poradenství · za obsah odpovídají strany, doporučujeme kontrolu advokátem',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum_podpisu',
   podpisy: { vlevo: 'nájemce', vpravo: 'podnájemce' },

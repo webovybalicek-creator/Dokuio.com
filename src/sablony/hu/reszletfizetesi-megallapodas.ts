@@ -8,7 +8,7 @@
  */
 import type { Sablona } from '../typy';
 import { osszegBetuvel } from './szamok';
-import { pripominkySplatek, splatky, isoDatum, cislo } from '../terminy';
+import { pripominkySplatek, splatky, isoDatum, cislo, souhrnSplatek } from '../terminy';
 import { formatCislo, formatDatum } from '../dokument';
 import { PTK, PP, TIP_SZEMELYAZONOSSAG, TIP_TANUK } from './forrasok';
 
@@ -41,6 +41,7 @@ export const reszletfizetesiMegallapodas: Sablona = {
       {
         nadpis: '1. számú melléklet · Törlesztési ütemterv',
         popis: `Összesen ${ft(cislo(d.castka))} ${s.length} havi részletben, minden hónap ${Math.round(cislo(d.splatka_den))}. napjáig.`,
+        souhrn: souhrnSplatek(s, ft(cislo(d.castka)), d),
         hlavicka: ['Részlet', 'Esedékes', 'Összeg', 'Hátralék'],
         radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum), 'hu'), ft(x.castka), ft(x.zbyva)]),
         vpravo: [2, 3],
@@ -55,7 +56,7 @@ export const reszletfizetesiMegallapodas: Sablona = {
     'Ha az adós elismeri a tartozást, az megszakítja az elévülést – az 5 éves elévülési idő újra kezdődik.',
     'Hogy hány elmaradt részlet után válik esedékessé a teljes hátralék, azt a felek szabadon megállapodják – ezt rögzíti a megállapodás.',
     'Kamat esetén a mértéket évi százalékban adja meg. Túlzott (uzsorás) kamat semmis lehet.',
-    TIP_TANUK.replace(' – a forgalmi átíráshoz ez kell', ' – vita esetén ez erősebb bizonyíték'),
+    TIP_TANUK,
     TIP_SZEMELYAZONOSSAG,
   ],
   zdroje: [PTK, PP],

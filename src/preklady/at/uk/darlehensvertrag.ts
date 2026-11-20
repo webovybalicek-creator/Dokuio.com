@@ -91,7 +91,7 @@ export default {
     ],
     pripominky: {
       'Darlehensrate – letzte': { nazev: 'Платіж за позикою – останній', popis: 'Останній платіж за договором позики.' },
-      Darlehensrate: { nazev: 'Платіж за позикою', popis: 'Щомісячний платіж за договором позики.' },
+      Darlehensrate: { nazev: 'Платіж за позикою' },
       'Darlehen zurückzahlen': { nazev: 'Повернути позику' },
     },
   },

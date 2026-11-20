@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'DE-SCHULDANERKENNTNIS', verze: '1.0' },
+  sablona: { kod: 'DE-SCHULDANERKENNTNIS', verze: '1.1' },
 
   nazev: 'Визнання боргу',
   nazevA: 'визнання боргу',
@@ -150,7 +150,7 @@ export default {
       'Fällig am': 'Строк сплати',
       Betrag: 'Сума',
       Restschuld: 'Залишок боргу',
-      'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Vertragstext.': 'Графік відповідає погодженим платежам; у разі розбіжностей діє текст договору.',
+      'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Text des Schuldanerkenntnisses.': 'Графік відповідає погодженим платежам; у разі розбіжностей діє текст визнання боргу.',
     },
   },
 } satisfies PrekladDokumentu;

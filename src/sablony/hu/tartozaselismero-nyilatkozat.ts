@@ -42,7 +42,7 @@ export const tartozaselismeres: Sablona = {
     'Az elismerés után az adósnak kell bizonyítania, ha a tartozás mégsem áll fenn.',
     'A tartozás elismerése megszakítja az elévülést – az 5 éves elévülési idő újra kezdődik.',
     'Írja le pontosan, miből ered a tartozás (pl. „a 2026. 03. 01-jén kelt kölcsönszerződés”).',
-    TIP_TANUK.replace(' – a forgalmi átíráshoz ez kell', ' – vita esetén ez erősebb bizonyíték'),
+    TIP_TANUK,
     TIP_SZEMELYAZONOSSAG,
   ],
   zdroje: [PTK, PP],

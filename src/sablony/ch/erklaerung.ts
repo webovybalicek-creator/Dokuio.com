@@ -11,8 +11,9 @@ export const erklaerungCH: Sablona = schweiz({
     ['z. B. Lindenstraße 5, 10115 Berlin', 'z. B. Bahnhofstrasse 10, 8001 Zürich'],
     ['Lindenstraße 5 in Berlin', 'Bahnhofstrasse 10 in Zürich'],
     ['z. B. Berlin', 'z. B. Zürich'],
+    ['unterschreiben Sie erst vor dem Notar.', 'unterschreiben Sie erst bei der Beglaubigungsstelle (Notariat, je nach Kanton auch Gemeinde).'],
   ]),
   kod: 'CH-ERKLAERUNG',
-  paticka: paticka('CH-ERKLAERUNG').replace('für den Inhalt sind die Parteien verantwortlich, anwaltliche Prüfung empfohlen', 'für die Richtigkeit ist die erklärende Person verantwortlich'),
+  paticka: paticka('CH-ERKLAERUNG', '1.1').replace('für den Inhalt sind die Parteien verantwortlich, anwaltliche Prüfung empfohlen', 'für die Richtigkeit ist die erklärende Person verantwortlich'),
   zdroje: [OR],
 });

@@ -4,11 +4,10 @@
  * einer dafür zuständigen Behörde oder einem Gericht möglich und hat eigene Formvorgaben).
  */
 import type { Sablona } from '../typy';
-import { TIPP_IDENTITAET } from './quellen';
 
 export const erklaerung: Sablona = {
   kod: 'DE-ERKLAERUNG',
-  verze: '1.0',
+  verze: '1.1',
   aktualizovano: '2026-11-20',
   overeno: '2026-11-20',
   zeme: 'de',
@@ -16,7 +15,7 @@ export const erklaerung: Sablona = {
   nazev: 'Erklärung',
   podnadpis: 'schriftliche Erklärung einer Privatperson',
   souborPdf: 'erklaerung',
-  paticka: 'Kostenlos erstellt · Vorlage DE-ERKLAERUNG v1.0 · Vorlage zum Ausfüllen, keine Rechtsberatung · für die Richtigkeit ist die erklärende Person verantwortlich',
+  paticka: 'Kostenlos erstellt · Vorlage DE-ERKLAERUNG v1.1 · Vorlage zum Ausfüllen, keine Rechtsberatung · für die Richtigkeit ist die erklärende Person verantwortlich',
   mistoPodpisu: 'misto',
   datumPodpisu: 'datum',
   podpisy: { vlevo: 'Unterschrift', vpravo: 'Beglaubigung (nur falls verlangt)' },
@@ -33,7 +32,7 @@ export const erklaerung: Sablona = {
     'Dies ist keine eidesstattliche Versicherung. Verlangt eine Behörde oder ein Gericht eine Versicherung an Eides statt, nutzen Sie deren Formular.',
     'Zuerst fragen, ob die Stelle ein eigenes Formular hat – dann dieses verwenden.',
     'Konkret formulieren: wer, was, seit wann (z. B. „dass ich seit dem 1. 1. 2025 in der Wohnung … wohne“).',
-    TIPP_IDENTITAET,
+    'Eigenhändig unterschreiben und eine Kopie für Ihre Unterlagen behalten. Verlangt die Stelle eine beglaubigte Unterschrift, unterschreiben Sie erst vor dem Notar.',
   ],
   zdroje: [{ nazev: 'Bürgerliches Gesetzbuch (gesetze-im-internet.de)', url: 'https://www.gesetze-im-internet.de/bgb/' }],
 

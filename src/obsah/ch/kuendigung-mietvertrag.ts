@@ -14,7 +14,7 @@ const stranka: StrankaDokumentu = {
     obsahPopis: "Kündigung durch den Mieter nach Art. 266c OR.",
     obsah: [{"nazev": "Vermieter", "popis": "An wen die Kündigung geht."}, {"nazev": "Kündigung", "popis": "Termin, Wohnung, Kaution."}],
     kroky: [{ nazev: 'Ausfüllen', popis: 'Ein paar Fragen, alles erklärt.' }, { nazev: 'PDF oder Word laden', popis: 'Kostenlos, ohne Anmeldung.' }, { nazev: 'Unterschreiben', popis: 'Jede Seite erhält ein Exemplar.' }],
-    online: ['Beträge in Worten automatisch', 'Erinnerungen für den Kalender', 'Download als PDF und Word'],
+    online: ['Erklärungen zu jedem Feld', 'Erinnerungen für den Kalender', 'Download als PDF und Word'],
     hodiSe: ["Sie sind Mieter in der Schweiz und ziehen aus"],
     nehodiSe: ["Sie sind Vermieter – amtliches Formular nötig", "Auszug ausserhalb der Termine – Nachmieter vorschlagen (Art. 264 OR)"],
     poNadpis: 'Danach.',

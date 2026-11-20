@@ -28,7 +28,7 @@ export default {
       { nazev: 'Download PDF or Word', popis: 'Free, no sign-up.' },
       { nazev: 'Sign', popis: 'Each party receives a copy.' },
     ],
-    online: ['Amounts in words added automatically', 'Reminders for your calendar', 'Download as PDF and Word'],
+    online: ['Explanations for every field', 'Reminders for your calendar', 'Download as PDF and Word'],
     hodiSe: ['you are a tenant and are moving out', 'a tenancy agreement for an indefinite period'],
     nehodiSe: [
       'you are the landlord – grounds for termination and longer notice periods apply',

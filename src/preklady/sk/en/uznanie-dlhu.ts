@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'SK-UZNANIE-DLHU', verze: '1.0' },
+  sablona: { kod: 'SK-UZNANIE-DLHU', verze: '1.1' },
 
   nazev: 'Acknowledgement of Debt',
   nazevA: 'the acknowledgement of debt',
@@ -100,7 +100,7 @@ export default {
     ],
     pripominky: {
       'Splátka dlhu – posledná': { nazev: 'Debt instalment – last one', popis: 'Last instalment under the acknowledgement of debt (see the instalment schedule).' },
-      'Splátka dlhu': { nazev: 'Debt instalment', popis: 'Monthly instalment under the acknowledgement of debt (see the instalment schedule).' },
+      'Splátka dlhu': { nazev: 'Debt instalment' },
       'Splatnosť dlhu': { nazev: 'Debt due date' },
     },
   },
@@ -132,7 +132,7 @@ export default {
             uvodVzor: 'Method of repayment (tick one option):',
             moznosti: {
               naraz: 'The Debtor shall pay the debt at once no later than {{zaplatit_do}}.',
-              splatky: 'The Debtor shall repay the debt in monthly instalments of {{splatka}}, each due by day {{splatka_den}} of the month, according to the instalment schedule in the annex. The last instalment may be lower. If the Debtor is late in paying two consecutive instalments, the entire outstanding balance of the debt becomes due.',
+              splatky: 'The Debtor shall repay the debt in monthly instalments of {{splatka}}, each due by day {{splatka_den}} of the month, according to the instalment schedule in the annex. The last instalment may be lower. If the Debtor is late in paying two instalments, the Creditor may demand payment of the entire outstanding balance of the debt at once (Section 565 of the Civil Code); the Creditor may exercise this right no later than the due date of the next instalment.',
             },
           },
           'Payments are made to the account IBAN {{ucet}} or in cash against a receipt. Early repayment is possible at any time.',
@@ -145,8 +145,8 @@ export default {
       'Splatná do': 'Due by',
       Suma: 'Amount',
       'Zostáva splatiť': 'Remaining balance',
-      'Prehľad je zostavený podľa dohodnutých splátok; pri rozpore má prednosť text zmluvy.':
-        'The overview is based on the agreed instalments; in case of conflict, the text of the agreement prevails.',
+      'Prehľad je zostavený podľa dohodnutých splátok; pri rozpore rozhoduje text uznania dlhu.':
+        'The overview is based on the agreed instalments; in case of conflict, the text of the acknowledgement of debt prevails.',
     },
   },
 } satisfies PrekladDokumentu;

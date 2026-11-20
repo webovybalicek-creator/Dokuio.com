@@ -103,7 +103,7 @@ export default {
     ],
     pripominky: {
       'Kölcsönrészlet – utolsó': { nazev: 'Платіж за позикою – останній' },
-      Kölcsönrészlet: { nazev: 'Платіж за позикою', popis: 'Щомісячний платіж за договором позики (графік – у додатку № 1).' },
+      Kölcsönrészlet: { nazev: 'Платіж за позикою' },
       'A kölcsön visszafizetése': { nazev: 'Повернення позики' },
     },
   },

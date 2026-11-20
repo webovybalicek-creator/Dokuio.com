@@ -118,7 +118,7 @@ export default {
     ],
     pripominky: {
       'Splátka dlhu – posledná': { nazev: 'Платіж за боргом – останній' },
-      'Splátka dlhu': { nazev: 'Платіж за боргом', popis: 'Щомісячний платіж за угодою про розстрочку боргу (сума – у назві події).' },
+      'Splátka dlhu': { nazev: 'Платіж за боргом' },
     },
   },
 

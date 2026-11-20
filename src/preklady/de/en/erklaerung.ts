@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'DE-ERKLAERUNG', verze: '1.0' },
+  sablona: { kod: 'DE-ERKLAERUNG', verze: '1.1' },
 
   nazev: 'Declaration',
   nazevA: 'the declaration',
@@ -86,7 +86,7 @@ export default {
       'This is not a statutory declaration in lieu of an oath (eidesstattliche Versicherung). If an authority or a court requires a declaration in lieu of an oath (Versicherung an Eides statt), use its form.',
       'First ask whether the body has its own form – if so, use it.',
       'Be specific: who, what, since when (e.g. “that I have lived in the flat … since 1. 1. 2025”).',
-      'Check the other party’s identity using their identity card (Personalausweis) and copy the name and address exactly.',
+      'Sign it by hand and keep a copy for your records. If the recipient requires a certified signature, sign only in front of the notary (Notar).',
     ],
   },
 

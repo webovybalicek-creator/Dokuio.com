@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-KAUF-AUTO', verze: '1.0' },
+  sablona: { kod: 'AT-KAUF-AUTO', verze: '1.1' },
 
   nazev: 'Used Car Purchase Agreement',
   nazevA: 'used car purchase agreement',
@@ -59,7 +59,7 @@ export default {
     slovo: { n: 'purchase agreement', g: 'purchase agreement', a: 'purchase agreement', l: 'purchase agreement' },
     kroky: {
       parteien: { nazev: 'Seller and buyer', popis: 'You may not know the buyer’s details yet – leave them blank and the agreement will have lines to fill in by hand.' },
-      fahrzeug: { nazev: 'Vehicle', popis: 'Copy the details from the registration certificate Part I (Zulassungsbescheinigung Teil I).' },
+      fahrzeug: { nazev: 'Vehicle', popis: 'Copy the details from the registration certificate (Zulassungsschein).' },
       zustand: { nazev: 'Condition and liability' },
       preis: { nazev: 'Price and handover' },
     },
@@ -73,8 +73,8 @@ export default {
       k_doklad: { popis: 'ID document number' },
       k_adresa: { popis: 'Address' },
       znacka: { popis: 'Make and model', placeholder: 'e.g. VW Golf' },
-      vin: { popis: 'Vehicle identification number (VIN, German FIN)', napoveda: '17 characters, field E in the vehicle registration document (Fahrzeugschein).' },
-      spz: { popis: 'Official number plate', placeholder: 'e.g. B-AB 1234' },
+      vin: { popis: 'Vehicle identification number (VIN, German FIN)', napoveda: '17 characters, shown in the registration certificate (Zulassungsschein) and on the vehicle.' },
+      spz: { popis: 'Official number plate', placeholder: 'e.g. W-12345A' },
       ez: { popis: 'First registration' },
       zb2: { popis: 'Type certificate (Typenschein) / proof of type approval no.' },
       hu: { popis: 'Next § 57a inspection (“Pickerl”)', placeholder: 'e.g. 06/2027' },

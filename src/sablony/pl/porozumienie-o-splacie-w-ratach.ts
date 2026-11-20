@@ -6,7 +6,7 @@
  */
 import type { Sablona } from '../typy';
 import { kwotaSlownie } from './liczby';
-import { isoDatum, pripominkySplatek, splatky, cislo } from '../terminy';
+import { isoDatum, pripominkySplatek, splatky, cislo, souhrnSplatek } from '../terminy';
 import { formatCislo, formatDatum } from '../dokument';
 import { KC, KC_TEKST, TIP_TOZSAMOSC, TIP_GOTOWKA } from './zrodla';
 
@@ -34,6 +34,7 @@ export const porozumienieOSplacieWRatach: Sablona = {
       {
         nadpis: 'Załącznik nr 1 · Harmonogram spłat',
         popis: `Razem ${zl(cislo(d.castka))} w ${s.length} miesięcznych ratach, płatnych do ${Math.round(cislo(d.splatka_den))}. dnia miesiąca.`,
+        souhrn: souhrnSplatek(s, zl(cislo(d.castka)), d),
         hlavicka: ['Rata', 'Termin zapłaty', 'Kwota', 'Pozostało do spłaty'],
         radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum)), zl(x.castka), zl(x.zbyva)]),
         vpravo: [2, 3],

@@ -179,7 +179,6 @@ export default {
     ],
     prilohy: {
       'Anhang 1 · Tilgungsplan': 'Annex 1 · Repayment schedule',
-      Insgesamt: 'Total:',
       Rate: 'Instalment',
       'Fällig am': 'Due on',
       Betrag: 'Amount',

@@ -14,7 +14,7 @@ const stranka: StrankaDokumentu = {
     obsahPopis: "Kündigung durch den Mieter nach MRG.",
     obsah: [{"nazev": "Vermieter", "popis": "An wen die Kündigung geht."}, {"nazev": "Kündigung", "popis": "Vertrag, Frist, Kaution."}],
     kroky: [{ nazev: 'Ausfüllen', popis: 'Ein paar Fragen, alles erklärt.' }, { nazev: 'PDF oder Word laden', popis: 'Kostenlos, ohne Anmeldung.' }, { nazev: 'Unterschreiben', popis: 'Jede Seite erhält ein Exemplar.' }],
-    online: ['Beträge in Worten automatisch', 'Erinnerungen für den Kalender', 'Download als PDF und Word'],
+    online: ['Erklärungen zu jedem Feld', 'Erinnerungen für den Kalender', 'Download als PDF und Word'],
     hodiSe: ["Sie sind Mieter in Österreich", "befristeter Vertrag nach dem ersten Jahr"],
     nehodiSe: ["Sie sind Vermieter – Kündigung nur gerichtlich aus wichtigen Gründen"],
     poNadpis: 'Danach.',

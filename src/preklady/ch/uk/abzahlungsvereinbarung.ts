@@ -206,7 +206,6 @@ export default {
     ],
     prilohy: {
       'Anhang 1 · Ratenplan': 'Додаток 1 · Графік платежів',
-      Insgesamt: 'Разом:',
       Rate: 'Платіж',
       'Fällig am': 'Строк сплати',
       Betrag: 'Сума',

@@ -410,6 +410,11 @@ export const enVerze: TextyVerze = {
     dolozka: (j) =>
       `This document is made in ${enJazyk(j)} and English. In case of any discrepancy between the language versions, the ${enJazyk(j)} version prevails.`,
     jenOriginal: 'Original only, without translation – for official signature certification (offices often will not certify a bilingual text)',
+    splatky: {
+      popis: ({ celkem, pocet, den }) =>
+        `Total ${celkem} in ${pocet} monthly ${pocet === 1 ? 'instalment' : 'instalments'}${den ? `, each due on day ${den} of the month` : ''}.`,
+      celkem: (n) => `${n} ${n === 1 ? 'instalment' : 'instalments'} in total`,
+    },
     prednost: (j) => `in case of discrepancy the ${enJazyk(j)} version prevails`,
   },
   vin: {

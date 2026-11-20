@@ -7,6 +7,7 @@
  * a sloučení textů jazyka verze s údaji země (měna, doklad k vozidlu, cena příspěvku).
  */
 import type { Texty } from './cs';
+import type { SouhrnSplatek } from '../sablony/typy';
 
 export interface TextyVerze {
   /** Kód jazyka verze v URL: /<zeme>/<kod>/… */
@@ -39,6 +40,11 @@ export interface TextyVerze {
     prednost: (jazykZeme: string) => string;
     /** Přepínač u dokumentů s úředně ověřeným podpisem: stáhnout jen originál (úřad dvojjazyčný text často neověří) */
     jenOriginal: string;
+    /**
+     * Splátkový kalendář a připomínky splátek (všechny země): `popis` = souhrn pod nadpisem přílohy
+     * (`Tabulka.souhrn`, částka už s měnou země), `celkem` = doplněk popisu připomínky splátky („12 instalments in total“).
+     */
+    splatky: { popis: (s: SouhrnSplatek) => string; celkem: (pocet: number) => string };
   };
   /** VIN: doklad země v originále (např. „Osvědčení o registraci vozidla“) a kolonka */
   vin: {

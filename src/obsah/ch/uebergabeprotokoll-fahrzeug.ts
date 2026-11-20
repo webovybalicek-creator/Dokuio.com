@@ -61,7 +61,7 @@ const stranka: StrankaDokumentu = {
       }
     ],
     "online": [
-      "Betrag in Worten automatisch",
+      "Erklärungen zu jedem Feld",
       "Unterschrift auf dem Bildschirm",
       "Entwurf bleibt im Browser gespeichert",
       "Download als PDF und Word"

@@ -157,7 +157,7 @@ export default {
     ],
     pripominky: {
       'Részlet – utolsó': { nazev: 'Instalment – last', popis: 'Last instalment under the instalment agreement.' },
-      Részlet: { nazev: 'Instalment', popis: 'Monthly instalment under the instalment agreement, according to the schedule.' },
+      Részlet: { nazev: 'Instalment' },
     },
   },
 

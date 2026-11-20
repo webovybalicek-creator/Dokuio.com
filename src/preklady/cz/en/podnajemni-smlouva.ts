@@ -7,7 +7,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CZ-PODNAJEM', verze: '1.0' },
+  sablona: { kod: 'CZ-PODNAJEM', verze: '1.1' },
 
   nazev: 'Sublease Agreement',
   nazevA: 'the sublease agreement',
@@ -194,7 +194,7 @@ export default {
       {
         nadpis: 'Rent and Deposit',
         odstavce: [
-          'The Subtenant shall pay a monthly rent of {{podnajemne}}, always by the {{splatnost}}th day of the month, to the Tenant’s bank account No. {{ucet}}.',
+          'The Subtenant shall pay a monthly rent of {{podnajemne}}, always by day {{splatnost}} of the month, to the Tenant’s bank account No. {{ucet}}.',
           'Services and utilities: {{sluzby}}',
           'The Subtenant shall pay a deposit of {{kauce}}. The Tenant shall return it within one month after the end of the sublease and surrender of the flat, setting off any amounts owed by the Subtenant.',
         ],

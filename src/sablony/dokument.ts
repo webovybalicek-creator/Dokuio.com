@@ -2,7 +2,7 @@
  * Převod šablony + dat na strukturovaný dokument, ze kterého kreslí HTML náhled i PDF.
  * Nevyplněná pole se mění na linky, nevybrané volby na zaškrtávací výčet.
  */
-import type { Data, Hodnota, Odstavec, OdstavecPrekladu, Pole, Sablona, Tabulka } from './typy';
+import type { Data, Hodnota, Odstavec, OdstavecPrekladu, Pole, Preklad, Sablona, Tabulka } from './typy';
 import { texty as textyJazyka } from '../i18n';
 
 export type Usek =
@@ -366,7 +366,7 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
     podnadpis: s.podnadpis,
     nazev2: P?.nazev,
     podnadpis2: P?.podnadpis,
-    prilohy: (s.prilohy?.(data) ?? []).map((t) => (P?.prilohy ? prelozTabulku(t, P.prilohy) : t)),
+    prilohy: (s.prilohy?.(data) ?? []).map((t) => (P?.prilohy || P?.splatky ? prelozTabulku(t, P.prilohy ?? {}, P.splatky) : t)),
     overeni: `https://dokuio.com/overeni/?k=${encodeURIComponent(s.kod)}&v=${encodeURIComponent(s.verze)}`,
     kod: s.kod,
     uvod: s.uvod ? [...rozloz(s.uvod), ...(P?.uvod ? [{ t: 'text' as const, text: ' / ' }, ...rozlozP(P.uvod)] : [])] : [],
@@ -386,8 +386,11 @@ export function sestavDokument(s: Sablona, data: Data, upravy: Upravy = {}): Dok
   };
 }
 
-/** Texty příloh ve dvojjazyčné verzi: „originál / překlad“ podle slovníku (přesná shoda nebo začátek textu) */
-function prelozTabulku(t: Tabulka, slovnik: Record<string, string>): Tabulka {
+/**
+ * Texty příloh ve dvojjazyčné verzi: „originál / překlad“ podle slovníku (přesná shoda nebo začátek textu).
+ * Souhrn splátkového kalendáře (`Tabulka.souhrn`) přeloží celý funkce jazyka verze (`Preklad.splatky`).
+ */
+function prelozTabulku(t: Tabulka, slovnik: Record<string, string>, splatky?: Preklad['splatky']): Tabulka {
   const pr = (text: string): string => {
     if (slovnik[text]) return `${text} / ${slovnik[text]}`;
     const k = Object.keys(slovnik).find((x) => text.startsWith(x));
@@ -396,7 +399,7 @@ function prelozTabulku(t: Tabulka, slovnik: Record<string, string>): Tabulka {
   return {
     ...t,
     nadpis: pr(t.nadpis),
-    popis: t.popis && pr(t.popis),
+    popis: t.popis && (t.souhrn && splatky ? `${t.popis} / ${splatky.popis(t.souhrn)}` : pr(t.popis)),
     hlavicka: t.hlavicka.map(pr),
     poznamka: t.poznamka && pr(t.poznamka),
   };

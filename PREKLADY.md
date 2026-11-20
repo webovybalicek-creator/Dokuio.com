@@ -46,9 +46,9 @@ se na web nedostane – build spadne a vypíše, co chybí.
 | `pruvodce.coDal`, `pruvodce.kontrola` | šablona `coDal`, `kontrola` (stejný počet, **stejné URL** odkazů `[text](url)`) | „Hotovo. Co dál?“, „Před podpisem zkontrolujte“ |
 | `pruvodce.slovo` | šablona `slovo` – povinné, jen když ho originál má | texty rozhraní („Náhled …“) |
 | `pruvodce.podpisPoznamka`, `pruvodce.prevzit` | šablona `podpisPoznamka`, `prevzit.nazev` – jen když je originál má | průvodce |
-| `pruvodce.pripominky` | šablona `pripominky` – název připomínky (nebo jeho začátek) → `{ nazev, popis }` | soubor .ics |
+| `pruvodce.pripominky` | šablona `pripominky` – název připomínky (nebo jeho začátek) → `{ nazev, popis }`; u splátek jen `{ nazev }` (popis se sestaví sám, viz níže) | soubor .ics |
 | `dokument` | šablona `nazev`, `podnadpis`, `uvod`, `podpisy`, `clanky` | překladová část smlouvy |
-| `dokument.prilohy` | texty tabulek v přílohách (splátkový kalendář) – text nebo jeho začátek → překlad | přílohy „originál / překlad“ |
+| `dokument.prilohy` | texty tabulek v přílohách (splátkový kalendář): nadpis, hlavička, poznámka – text nebo jeho začátek → překlad; souhrn s částkou se překládá sám (viz níže) | přílohy „originál / překlad“ |
 | `dokument.volby` | jen když se pole typu volba vkládá do textu přes `{{id}}` a popisek z formuláře se do věty nehodí | překlad hodnoty v textu |
 
 **Odstavce `dokument.clanky`** kopírují originál 1:1: stejný počet článků i odstavců. Prostý odstavec = řetězec.
@@ -60,6 +60,20 @@ Podmínky `kdyz` se přebírají z originálu automaticky.
 
 Jazykovou doložku, místo a datum („м. … дата …“), předponu článku („Стаття“, „Article“) a poznámku do patičky
 **nepište** – doplní se samy z `src/i18n/<jazyk>.ts` a z textů země (`Texty.dokument.dvojjazycne`).
+
+### Splátkový kalendář a připomínky splátek (texty s částkami a počty)
+
+Věty s proměnnými čísly se slovníkem (přesná shoda / začátek textu) přeložit nedají. Proto je nesou šablony
+**strukturovaně** a celý překlad dodá jazyk verze – společně pro všech 7 zemí, v souboru překladu se nepíší:
+
+- **Souhrn přílohy** („Celkem 12 000 Kč v 12 měsíčních splátkách, vždy do 15. dne v měsíci.“, „Insgesamt … in N Monatsraten“,
+  „Razem … zł w N miesięcznych ratach“…): tabulka má vedle `popis` i `souhrn: { celkem, pocet, den? }` (`Tabulka.souhrn`,
+  pomocník `souhrnSplatek()` v `src/sablony/terminy.ts`; `celkem` už s měnou země). Verze vypíše „originál / překlad“, překlad
+  = `dokument.splatky.popis(souhrn)` z `src/i18n/uk.ts` / `en.ts`. Nová šablona s kalendářem: k `popis` přidat `souhrn`.
+- **Popis připomínky splátky** („Splátka zápůjčky: 1 000 Kč (celkem 12 splátek).“): `pripominkySplatek()` v `terminy.ts` dává
+  připomínce `splatky: <počet>`. Verze složí popis z přeloženého názvu (s částkou) + `dokument.splatky.celkem(počet)`.
+  V `pruvodce.pripominky` stačí přeložit název (`'Splátka zápůjčky': { nazev: 'Loan instalment' }`), `popis` se u splátek ignoruje.
+- Nadpis přílohy, hlavičku tabulky a poznámku pod ní dál překládá `dokument.prilohy` (jsou to pevné texty).
 
 ---
 

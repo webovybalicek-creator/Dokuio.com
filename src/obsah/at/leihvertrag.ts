@@ -1,11 +1,12 @@
 import type { StrankaDokumentu } from '../typy';
 import de from '../de/leihvertrag';
 import { leihvertragAT as sablona } from '../../sablony/at/leihvertrag';
+import { nahradV } from '../../sablony/nahrad';
 
 const stranka: StrankaDokumentu = {
   ...de,
   sablona,
-  landing: { ...de.landing, ...{
+  landing: { ...nahradV(de.landing, [['Textform, zwei Exemplare.', 'Schriftform, zwei Exemplare.']]), ...{
   "title": "Leihvertrag Österreich {rok} – Muster kostenlos (PDF & Word)",
   "description": "Kostenloser Leihvertrag nach §§ 971 ff. ABGB: unentgeltlicher Gebrauch, Zustand bei Übergabe, Dauer und Rückgabe. Online ausfüllen, als PDF oder Word laden.",
   "obsahPopis": "Fünf Abschnitte nach §§ 971 ff. ABGB.",

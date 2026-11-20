@@ -7,6 +7,7 @@ import type { Sablona } from '../typy';
 import { kaufvertragGebrauchtwagen as de } from '../de/kaufvertrag-gebrauchtwagen';
 import { TIPP_IDENTITAET, TIPP_BAR } from '../de/quellen';
 import { ABGB, KFG, OEAMTC_ZULASSUNG, OEAMTC_AUTOKAUF } from './quellen';
+import { nahrad, MUSTER_AT } from '../nahrad';
 
 const ersetze = (t: string) =>
   t
@@ -17,12 +18,14 @@ const ersetze = (t: string) =>
     .replace('Der Käufer verpflichtet sich, das Fahrzeug unverzüglich auf sich umzumelden. Der Verkäufer zeigt die Veräußerung unverzüglich der Zulassungsbehörde und seinem Kfz-Versicherer an.', 'Der Verkäufer meldet das Fahrzeug bei einer Zulassungsstelle ab und verständigt seinen Kfz-Haftpflichtversicherer. Der Käufer meldet das Fahrzeug auf sich an und schließt eine Kfz-Haftpflichtversicherung ab.')
     .replace('Im Übrigen gelten', 'Im Übrigen gelten');
 
-export const kaufvertragGebrauchtwagenAT: Sablona = {
+export const kaufvertragGebrauchtwagenAT: Sablona = nahrad({
   ...de,
   kod: 'AT-KAUF-AUTO',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   zeme: 'at',
   podnadpis: ersetze(de.podnadpis),
-  paticka: de.paticka.replace('DE-KAUF-AUTO', 'AT-KAUF-AUTO'),
+  paticka: de.paticka.replace('DE-KAUF-AUTO', 'AT-KAUF-AUTO').replace(' v1.0 ', ' v1.1 '),
   coDal: [
     'Vertrag zweimal ausdrucken, beide Seiten unterschreiben beide Exemplare.',
     'Fahrzeug, Schlüssel, Typenschein und Pickerl-Gutachten übergeben.',
@@ -69,4 +72,4 @@ export const kaufvertragGebrauchtwagenAT: Sablona = {
           : o,
     ),
   })),
-};
+}, MUSTER_AT);

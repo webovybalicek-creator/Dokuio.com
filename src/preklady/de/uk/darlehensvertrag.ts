@@ -161,7 +161,6 @@ export default {
     ],
     prilohy: {
       'Anlage 1 · Tilgungsplan': 'Додаток 1 · Графік погашення',
-      Insgesamt: 'Разом:',
       Rate: 'Платіж',
       'Fällig am': 'Строк сплати',
       Betrag: 'Сума',

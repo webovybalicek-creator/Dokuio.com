@@ -1,7 +1,7 @@
 /** Kölcsönszerződés – Magyarország, magánszemélyek között. Ptk. kölcsönszerződés; elévülés 5 év. */
 import type { Sablona } from '../typy';
 import { osszegBetuvel } from './szamok';
-import { naDatum, isoDatum, pripominkySplatek, splatky } from '../terminy';
+import { naDatum, isoDatum, pripominkySplatek, splatky, souhrnSplatek } from '../terminy';
 import { formatCislo, formatDatum } from '../dokument';
 import { PTK, PP, TIP_SZEMELYAZONOSSAG, TIP_KESZPENZ, TIP_TANUK } from './forrasok';
 
@@ -31,6 +31,7 @@ export const kolcsonszerzodes: Sablona = {
       {
         nadpis: '1. számú melléklet · Törlesztési ütemterv',
         popis: `Összesen ${ft(Number(String(d.castka).replace(/\s/g, '')))} ${s.length} havi részletben.`,
+        souhrn: souhrnSplatek(s, ft(Number(String(d.castka).replace(/\s/g, '')))),
         hlavicka: ['Részlet', 'Esedékes', 'Összeg', 'Hátralék'],
         radky: s.map((x) => [`${x.poradi}.`, formatDatum(isoDatum(x.datum), 'hu'), ft(x.castka), ft(x.zbyva)]),
         vpravo: [2, 3],
@@ -46,7 +47,7 @@ export const kolcsonszerzodes: Sablona = {
     'A kölcsönszerződés magánszemélyek között szóban is érvényes, de írásban sokkal könnyebb bizonyítani.',
     'Kamat esetén a mértéket évi százalékban adja meg. Túlzott (uzsorás) kamat semmis lehet.',
     'A követelés általában 5 év alatt évül el; a tartozás írásbeli elismerése megszakítja az elévülést.',
-    TIP_TANUK.replace(' – a forgalmi átíráshoz ez kell', ' – vita esetén ez erősebb bizonyíték'),
+    TIP_TANUK,
     TIP_SZEMELYAZONOSSAG,
     TIP_KESZPENZ,
   ],

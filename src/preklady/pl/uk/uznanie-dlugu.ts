@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'PL-UZNANIE-DLUGU', verze: '1.0' },
+  sablona: { kod: 'PL-UZNANIE-DLUGU', verze: '1.1' },
 
   nazev: 'Визнання боргу',
   nazevA: 'визнання боргу',
@@ -100,7 +100,7 @@ export default {
     ],
     pripominky: {
       'Rata – ostatnia': { nazev: 'Платіж – останній' },
-      Rata: { nazev: 'Платіж', popis: 'Щомісячний платіж за визнанням боргу (графік – у додатку № 1).' },
+      Rata: { nazev: 'Платіж' },
       'Termin zapłaty długu': { nazev: 'Строк сплати боргу' },
     },
   },
@@ -144,8 +144,8 @@ export default {
       Termin: 'Строк',
       Kwota: 'Сума',
       'Pozostało': 'Залишок',
-      'Harmonogram sporządzono według uzgodnionych rat; w razie rozbieżności rozstrzyga treść umowy.':
-        'Графік складено відповідно до погоджених платежів; у разі розбіжностей вирішальним є текст договору.',
+      'Harmonogram sporządzono według uzgodnionych rat; w razie rozbieżności rozstrzyga treść uznania długu.':
+        'Графік складено відповідно до погоджених платежів; у разі розбіжностей вирішальним є текст визнання боргу.',
     },
   },
 } satisfies PrekladDokumentu;

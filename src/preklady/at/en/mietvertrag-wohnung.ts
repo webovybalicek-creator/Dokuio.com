@@ -6,7 +6,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'AT-MIETVERTRAG', verze: '1.0' },
+  sablona: { kod: 'AT-MIETVERTRAG', verze: '1.1' },
 
   nazev: 'Flat Tenancy Agreement',
   nazevA: 'the flat tenancy agreement',
@@ -74,11 +74,11 @@ export default {
     },
     pole: {
       v_name: { popis: 'Landlord – name', napoveda: 'The owner of the flat.', placeholder: 'e.g. Thomas Müller' },
-      v_adresse: { popis: 'Landlord’s address', napoveda: 'For correspondence.', placeholder: 'e.g. Hauptstraße 12, 10115 Berlin' },
+      v_adresse: { popis: 'Landlord’s address', napoveda: 'For correspondence.', placeholder: 'e.g. Hauptstraße 12, 1010 Wien' },
       m_name: { popis: 'Tenant – name', napoveda: 'If there are several tenants, list them all.', placeholder: 'e.g. Anna Schmidt' },
       m_geburt: { popis: 'Tenant’s date of birth', napoveda: 'As in the identity document.' },
-      m_adresse: { popis: 'Tenant’s previous address', napoveda: 'Before moving in.', placeholder: 'e.g. Gartenweg 5, 80331 München' },
-      objekt: { popis: 'Address of the flat', napoveda: 'Street, house number, postcode, town.', placeholder: 'e.g. Lindenstraße 7, 10969 Berlin' },
+      m_adresse: { popis: 'Tenant’s previous address', napoveda: 'Before moving in.', placeholder: 'e.g. Gartengasse 5, 8010 Graz' },
+      objekt: { popis: 'Address of the flat', napoveda: 'Street, house number, postcode, town.', placeholder: 'e.g. Lindengasse 7, 1070 Wien' },
       lage: { popis: 'Location in the building', napoveda: 'Floor and position.', placeholder: 'e.g. 2. OG links (2nd floor, left)' },
       zimmer: { popis: 'Rooms', napoveda: 'Excluding kitchen and bathroom.', placeholder: 'e.g. 2' },
       flaeche: { popis: 'Living area', napoveda: 'Approximate figure.', placeholder: 'e.g. 58' },
@@ -99,14 +99,14 @@ export default {
       miete: { popis: 'Main rent (€ per month, net)', napoveda: 'Excluding operating costs and VAT.', placeholder: 'e.g. 950' },
       nebenkosten: { popis: 'Advance payment for operating costs (€ per month)', napoveda: 'Operating costs and charges, settled annually.', placeholder: 'e.g. 180' },
       faellig: { popis: 'Due by (day of the month)', napoveda: 'Usual: by the 5th of the month, in advance.', placeholder: 'e.g. 5' },
-      iban: { popis: 'Landlord’s IBAN', napoveda: 'For paying the rent.', placeholder: 'DE00 0000 0000 0000 0000 00' },
+      iban: { popis: 'Landlord’s IBAN', napoveda: 'For paying the rent.', placeholder: 'AT00 0000 0000 0000 0000' },
       kaution: { popis: 'Deposit (€)', napoveda: 'Usually up to three months’ gross rent.', placeholder: 'e.g. 2850' },
       tiere: {
         popis: 'Pets',
         napoveda: 'Small animals are always allowed; for dogs and cats the agreement applies.',
         moznosti: { erlaubt: 'Allowed', zustimmung: 'With the landlord’s consent' },
       },
-      ort: { popis: 'Place', napoveda: 'Place of signing.', placeholder: 'e.g. Berlin' },
+      ort: { popis: 'Place', napoveda: 'Place of signing.', placeholder: 'e.g. Wien' },
       datum: { popis: 'Date', napoveda: 'Today’s date pre-filled.' },
     },
     vysvetleni: ['', '', '', '', '', '', '', ''],

@@ -5,7 +5,7 @@
 import type { PrekladDokumentu } from '../../typy';
 
 export default {
-  sablona: { kod: 'CH-UEBERGABE-FZ', verze: '1.0' },
+  sablona: { kod: 'CH-UEBERGABE-FZ', verze: '1.1' },
 
   nazev: 'Vehicle Handover Report',
   nazevA: 'the vehicle handover report',
@@ -32,7 +32,7 @@ export default {
       { nazev: 'Download and sign', popis: 'PDF or Word.' },
     ],
     online: [
-      'Amount in words added automatically',
+      'Explanations for every field',
       'Signature on screen',
       'Draft saved in your browser',
       'Download as PDF and Word',
@@ -81,7 +81,7 @@ export default {
       k_jmeno: { popis: 'Person taking over – first name and surname' },
       k_adresa: { popis: 'Address of the person taking over' },
       znacka: { popis: 'Make and model', placeholder: 'e.g. VW Golf Variant' },
-      vin: { popis: 'Vehicle identification number (FIN)', napoveda: 'Field E in the vehicle registration document (Fahrzeugschein).' },
+      vin: { popis: 'Vehicle identification number (FIN)', napoveda: 'Field 23 in the vehicle registration document (Fahrzeugausweis).' },
       spz: { popis: 'Number plate (Kontrollschild)', placeholder: 'e.g. ZH 123456' },
       km: { popis: 'Mileage (odometer reading)' },
       palivo: {
@@ -101,8 +101,8 @@ export default {
         popis: 'Documents handed over',
         moznosti: {
           zb1: 'Vehicle registration document (Fahrzeugausweis, cancelled)',
-          zb2: 'Service book / report of the last vehicle inspection (MFK)',
-          hu: 'Report of the last main inspection (Hauptuntersuchung)',
+          zb2: 'Service book',
+          hu: 'Report of the last vehicle inspection (MFK)',
           servis: 'Service book',
           navod: 'Owner’s manual',
         },
@@ -207,8 +207,8 @@ export default {
             uvod: 'Documents handed over:',
             moznosti: {
               zb1: 'vehicle registration document (cancelled)',
-              zb2: 'vehicle registration document (cancelled)',
-              hu: 'report of the last main inspection',
+              zb2: 'service book',
+              hu: 'report of the last vehicle inspection (MFK)',
               servis: 'service book',
               navod: 'owner’s manual',
             },

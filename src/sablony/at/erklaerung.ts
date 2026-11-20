@@ -11,6 +11,7 @@ export const erklaerungAT: Sablona = {
     ['z. B. Lindenstraße 5, 10115 Berlin', 'z. B. Mariahilfer Straße 10, 1060 Wien'],
     ['Lindenstraße 5 in Berlin', 'Mariahilfer Straße 10 in Wien'],
     ['z. B. Berlin', 'z. B. Wien'],
+    ['unterschreiben Sie erst vor dem Notar.', 'unterschreiben Sie erst vor dem Notar oder beim Bezirksgericht.'],
   ]),
   zeme: 'at',
   zdroje: [ABGB],

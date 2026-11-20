@@ -136,7 +136,7 @@ export default {
     ],
     pripominky: {
       'Rate – letzte': { nazev: 'Останній платіж' },
-      Rate: { nazev: 'Платіж', popis: 'Щомісячний платіж за угодою про розстрочку.' },
+      Rate: { nazev: 'Платіж' },
     },
   },
 

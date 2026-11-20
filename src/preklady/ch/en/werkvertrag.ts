@@ -44,7 +44,7 @@ export default {
       'as a tradesperson – clear terms with your customers',
     ],
     nehodiSe: [
-      'building a house or a major conversion – have a consumer building contract (Verbraucherbauvertrag) drawn up by an expert',
+      'building a house or a major conversion – have a construction contract (Bauwerkvertrag) drawn up by an expert (e.g. under the SIA 118 standard)',
       'ongoing work for an employer',
       'buying a finished item – use a purchase agreement',
     ],

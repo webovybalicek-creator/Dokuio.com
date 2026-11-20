@@ -31,7 +31,7 @@ export default {
       { nazev: 'Download and sign', popis: 'PDF or Word.' },
     ],
     online: [
-      'Amount in words added automatically',
+      'Explanations for every field',
       'Signature on screen',
       'Draft saved in your browser',
       'Download as PDF and Word',

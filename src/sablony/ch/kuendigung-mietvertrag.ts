@@ -11,8 +11,10 @@ import { OR_MIETE, OR_266C, CH_MIETE } from './quellen';
 export const kuendigungMietvertragCH: Sablona = schweiz({
   ...de,
   kod: 'CH-KUENDIGUNG-MIETE',
+  verze: '1.1',
+  aktualizovano: '2026-11-20',
   podnadpis: 'Kündigung durch den Mieter nach Art. 266c OR',
-  paticka: paticka('CH-KUENDIGUNG-MIETE'),
+  paticka: paticka('CH-KUENDIGUNG-MIETE', '1.1'),
   pripominky: (d) => {
     const t = naDatum(d.termin);
     return t ? [{ nazev: 'Mietende', datum: isoDatum(t) }, { nazev: 'Wohnungsabgabe vereinbaren', datum: isoDatum(pridejDny(t, -14)) }] : [];
