@@ -49,6 +49,7 @@ export const poradna: Poradna = {
         { slug: 'elallas', nazev: 'Elállás', popis: '14 nap indoklás nélkül.' },
         { slug: 'szavatossag', nazev: 'Szavatosság', popis: 'Javítás, csere, pénz vissza.' },
         { slug: 'szakember', nazev: 'Szakemberek', popis: 'Vállalkozási szerződés, előleg, átadás.' },
+        { slug: 'kolcsonadas', nazev: 'Dolgok kölcsönadása', popis: 'Haszonkölcsön, visszaadás.' },
       ],
     },
     {

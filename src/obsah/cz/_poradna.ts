@@ -52,6 +52,7 @@ export const poradna: Poradna = {
         { slug: 'reklamace', nazev: 'Reklamace', popis: 'Lhůty, práva, co dělat, když obchod nereaguje.' },
         { slug: 'prodej-veci', nazev: 'Prodej z druhé ruky', popis: 'Bazar, inzerát, kupní smlouva.' },
         { slug: 'remeslnici', nazev: 'Řemeslníci a služby', popis: 'Smlouva o dílo, záloha, převzetí.' },
+        { slug: 'pujceni-veci', nazev: 'Půjčení věcí', popis: 'Výpůjčka, vrácení, škody.' },
       ],
     },
     {

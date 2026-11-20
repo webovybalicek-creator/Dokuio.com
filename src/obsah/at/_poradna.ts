@@ -46,7 +46,7 @@ export const poradna: Poradna = {
       nazev: 'Behörden und Vollmachten',
       popis: 'Wenn jemand anderes etwas für Sie erledigt.',
       ilustrace: 'plnamoc',
-      temata: [{ slug: 'vollmacht', nazev: 'Vollmacht', popis: 'Wann eine einfache Vollmacht reicht.' }, { slug: 'kinder', nazev: 'Kinder auf Reisen', popis: 'Einverständniserklärung für Auslandsreisen.' }],
+      temata: [{ slug: 'vollmacht', nazev: 'Vollmacht', popis: 'Wann eine einfache Vollmacht reicht.' }, { slug: 'kinder', nazev: 'Kinder auf Reisen', popis: 'Einverständniserklärung für Auslandsreisen.' }, { slug: 'verleihen', nazev: 'Sachen verleihen', popis: 'Leihvertrag, Rückgabe.' }],
     },
     {
       slug: 'wohnen',
