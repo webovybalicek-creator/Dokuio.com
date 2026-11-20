@@ -22,3 +22,6 @@ export const SAVJET_IDENTITET = 'Provjerite identitet druge strane prema osobnoj
 export const SAVJET_GOTOVINA = 'Gotovinu prebrojite pri potpisu; veće iznose radije platite na račun – bankovna potvrda najbolji je dokaz.';
 export const PATICKA = (kod: string) =>
   `Izrađeno besplatno · predložak ${kod} v1.0 · obrazac za ispunjavanje, nije pravni savjet · za sadržaj odgovaraju strane, preporučujemo provjeru kod odvjetnika`;
+export const ZR = { nazev: 'Zakon o radu (Narodne novine 93/14 i izmjene) – otkaz i otkazni rok, čl. 122.', url: 'https://narodne-novine.nn.hr/clanci/sluzbeni/2014_07_93_1872.html' };
+export const GOV_OTKAZ = { nazev: 'Redoviti otkaz (gov.hr)', url: 'https://www.gov.hr/hr/redoviti-otkaz/840' };
+export const EU_MALOLJETNICI = { nazev: 'Dokumenti za maloljetne osobe koje putuju u EU-u (Your Europe)', url: 'https://europa.eu/youreurope/citizens/travel/entry-exit/travel-documents-minors/croatia/index_hr.htm' };

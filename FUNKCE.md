@@ -55,7 +55,7 @@ primopredajni zapisnik vozila i stana, potvrda o primitku novca, ugovor o zajmu,
 punomoć, kupoprodajni ugovor, jednostrani raskid (NN 117/22), reklamacija, ugovor o najmu stana, otkaz najma), chorvatské rozhraní
 `src/i18n/hr.ts`, měna EUR, částky slovy `sablony/hr/brojevi.ts`, info stránky (AZOP), e-mail. Ověřeno 20. 11. 2026 na narodne-novine.nn.hr,
 porezna-uprava.gov.hr a gov.hr (upravna pristojba platí kupec v STP; porez na darove 4 % nad 6.700 €, osvobozena užší rodina;
-otkazni rok najmu 3 měsíce). Poradna `/hr/savjetnik/` – 12 článků. Doporučená kontrola chorvatským advokátem (odvjetnik).
+otkazni rok najmu 3 měsíce). 21. 11. 2026 doplněno dalších 11 vzorů jako v ostatních zemích: motocikl, opomena pred tužbu, ugovor o djelu, ugovor o posudbi, sporazum o obročnoj otplati, sporazumni raskid najma, ugovor o podnajmu (jen s dopuštěním najmodavce), izjava, otkaz ugovora, otkaz ugovora o radu (ZR čl. 122), suglasnost za putovanje djeteta (Your Europe) – celkem 24 vzorů; kategorie Usluge, Posao, Obitelj. Poradna `/hr/savjetnik/` – 25 článků. Doporučená kontrola chorvatským advokátem (odvjetnik).
 Obecně: země s `aktivni: false` se vůbec negeneruje (ani stránky, ani sitemap).
 
 🇺🇦🇬🇧 **Jazykové verze (20. 11. 2026):** dokument země může mít ukrajinskou a anglickou verzi – `/<zeme>/uk/<slug>/`, `/<zeme>/en/<slug>/`
@@ -107,5 +107,5 @@ Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 
 - Kontrola šablon místním advokátem (hlavně nájem/podnájem a zahraniční šablony).
 - Upozornění 1. 3. 2027: příprava SK vzorů na nový Občiansky zákonník (účinnost 1. 7. 2027) – naplánovaná úloha.
-- 🇭🇷 HR doplnit zbývající vzory jako v ostatních zemích (výzva, dílo, podnájem, motorka, výpovědi, splátky, dítě…). Další země (Slovinsko…), CH ve francouzštině/italštině.
+- 🇭🇷 HR: chybí jen jazykové verze uk/en. Další země (Slovinsko…), CH ve francouzštině/italštině.
 - PL: tlačítko pro odstoupení – sledovat novelu zákona o právech spotřebitele.
