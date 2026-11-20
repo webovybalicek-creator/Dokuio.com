@@ -38,6 +38,7 @@ export const poradna: Poradna = {
       temata: [
         { slug: 'zwrot', nazev: 'Zwrot zakupu', popis: 'Odstąpienie od umowy w 14 dni.' },
         { slug: 'reklamacja', nazev: 'Reklamacja', popis: 'Terminy i prawa konsumenta.' },
+        { slug: 'fachowcy', nazev: 'Fachowcy i usługi', popis: 'Umowa o dzieło, zaliczka, odbiór.' },
       ],
     },
     {
@@ -45,7 +46,7 @@ export const poradna: Poradna = {
       nazev: 'Urzędy i pełnomocnictwa',
       popis: 'Gdy sprawę załatwia za Ciebie ktoś inny.',
       ilustrace: 'plnamoc',
-      temata: [{ slug: 'pelnomocnictwo', nazev: 'Pełnomocnictwo', popis: 'Kiedy wystarczy zwykłe, ile kosztuje.' }],
+      temata: [{ slug: 'pelnomocnictwo', nazev: 'Pełnomocnictwo', popis: 'Kiedy wystarczy zwykłe, ile kosztuje.' }, { slug: 'dzieci', nazev: 'Dzieci w podróży', popis: 'Zgoda na wyjazd dziecka za granicę.' }],
     },
     {
       slug: 'mieszkanie',

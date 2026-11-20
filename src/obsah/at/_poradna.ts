@@ -38,6 +38,7 @@ export const poradna: Poradna = {
       temata: [
         { slug: 'widerruf', nazev: 'Widerruf und Rückgabe', popis: '14 Tage Widerrufsrecht.' },
         { slug: 'gewaehrleistung', nazev: 'Gewährleistung', popis: 'Fristen und Rechte bei Mängeln.' },
+        { slug: 'handwerker', nazev: 'Handwerker', popis: 'Werkvertrag, Preis, Abnahme.' },
       ],
     },
     {
@@ -45,7 +46,7 @@ export const poradna: Poradna = {
       nazev: 'Behörden und Vollmachten',
       popis: 'Wenn jemand anderes etwas für Sie erledigt.',
       ilustrace: 'plnamoc',
-      temata: [{ slug: 'vollmacht', nazev: 'Vollmacht', popis: 'Wann eine einfache Vollmacht reicht.' }],
+      temata: [{ slug: 'vollmacht', nazev: 'Vollmacht', popis: 'Wann eine einfache Vollmacht reicht.' }, { slug: 'kinder', nazev: 'Kinder auf Reisen', popis: 'Einverständniserklärung für Auslandsreisen.' }],
     },
     {
       slug: 'wohnen',

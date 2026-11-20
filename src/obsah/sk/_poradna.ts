@@ -38,6 +38,7 @@ export const poradna: Poradna = {
       temata: [
         { slug: 'vratenie-tovaru', nazev: 'Vrátenie tovaru', popis: 'Odstúpenie od zmluvy do 14 dní.' },
         { slug: 'reklamacia', nazev: 'Reklamácia', popis: 'Lehoty a práva kupujúceho.' },
+        { slug: 'remeselnici', nazev: 'Remeselníci a služby', popis: 'Zmluva o dielo, preddavok, prevzatie.' },
       ],
     },
     {
@@ -45,7 +46,7 @@ export const poradna: Poradna = {
       nazev: 'Úrady a splnomocnenia',
       popis: 'Keď za vás niečo vybaví niekto iný.',
       ilustrace: 'plnamoc',
-      temata: [{ slug: 'splnomocnenie', nazev: 'Splnomocnenie', popis: 'Kedy treba úradne overený podpis.' }],
+      temata: [{ slug: 'splnomocnenie', nazev: 'Splnomocnenie', popis: 'Kedy treba úradne overený podpis.' }, { slug: 'deti', nazev: 'Deti a cestovanie', popis: 'Súhlas s cestou dieťaťa do zahraničia.' }],
     },
     {
       slug: 'byvanie',

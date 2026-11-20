@@ -38,6 +38,7 @@ export const poradna: Poradna = {
       temata: [
         { slug: 'rueckgabe', nazev: 'Rückgabe und Widerruf', popis: 'Was online, an der Haustür und am Telefon gilt.' },
         { slug: 'gewaehrleistung', nazev: 'Gewährleistung', popis: 'Sofort rügen, Fristen und Rechte.' },
+        { slug: 'handwerker', nazev: 'Handwerker', popis: 'Werkvertrag, Preis, Abnahme.' },
       ],
     },
     {
@@ -45,7 +46,7 @@ export const poradna: Poradna = {
       nazev: 'Behörden und Vollmachten',
       popis: 'Wenn jemand anderes etwas für Sie erledigt.',
       ilustrace: 'plnamoc',
-      temata: [{ slug: 'vollmacht', nazev: 'Vollmacht', popis: 'Wann eine einfache Vollmacht reicht.' }],
+      temata: [{ slug: 'vollmacht', nazev: 'Vollmacht', popis: 'Wann eine einfache Vollmacht reicht.' }, { slug: 'kinder', nazev: 'Kinder auf Reisen', popis: 'Einverständniserklärung für Auslandsreisen.' }],
     },
     {
       slug: 'wohnen',

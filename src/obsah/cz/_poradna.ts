@@ -51,6 +51,7 @@ export const poradna: Poradna = {
         { slug: 'vraceni-zbozi', nazev: 'Vrácení zboží', popis: 'Odstoupení od smlouvy do 14 dnů.' },
         { slug: 'reklamace', nazev: 'Reklamace', popis: 'Lhůty, práva, co dělat, když obchod nereaguje.' },
         { slug: 'prodej-veci', nazev: 'Prodej z druhé ruky', popis: 'Bazar, inzerát, kupní smlouva.' },
+        { slug: 'remeslnici', nazev: 'Řemeslníci a služby', popis: 'Smlouva o dílo, záloha, převzetí.' },
       ],
     },
     {

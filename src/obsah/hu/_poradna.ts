@@ -48,6 +48,7 @@ export const poradna: Poradna = {
       temata: [
         { slug: 'elallas', nazev: 'Elállás', popis: '14 nap indoklás nélkül.' },
         { slug: 'szavatossag', nazev: 'Szavatosság', popis: 'Javítás, csere, pénz vissza.' },
+        { slug: 'szakember', nazev: 'Szakemberek', popis: 'Vállalkozási szerződés, előleg, átadás.' },
       ],
     },
     {
@@ -55,7 +56,7 @@ export const poradna: Poradna = {
       nazev: 'Ügyintézés és meghatalmazás',
       popis: 'Ha az ügyet valaki más intézi Ön helyett.',
       ilustrace: 'plnamoc',
-      temata: [{ slug: 'meghatalmazas', nazev: 'Meghatalmazás', popis: 'Mikor kell tanú vagy ügyvéd.' }],
+      temata: [{ slug: 'meghatalmazas', nazev: 'Meghatalmazás', popis: 'Mikor kell tanú vagy ügyvéd.' }, { slug: 'gyerek', nazev: 'Gyerek utazása', popis: 'Hozzájáruló nyilatkozat külföldi úthoz.' }],
     },
   ],
 };
