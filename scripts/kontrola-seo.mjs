@@ -6,7 +6,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const DIST = 'dist';
-const ZEME = { cz: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', at: 'de-AT', ch: 'de-CH', hu: 'hu-HU', hr: 'hr-HR', si: 'sl-SI' };
+const ZEME = { cz: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', at: 'de-AT', ch: 'de-CH', hu: 'hu-HU', hr: 'hr-HR', si: 'sl-SI', ro: 'ro-RO' };
 /** Jazykové verze /<zeme>/<jazyk>/… (PREKLADY.md): lang = jazyk + region země (uk-CZ), og:locale platný pro Open Graph */
 const VERZE = { uk: 'uk_UA', en: 'en_GB' };
 const soubory = [];

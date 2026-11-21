@@ -48,7 +48,7 @@ if (!in_array($puvod, $povolene, true)) odpoved(403, 'puvod');
 if (trim((string)($_POST['web'] ?? '')) !== '') odpoved(200, 'odeslano'); // past na roboty: tvářit se, že OK
 $email = trim((string)($_POST['email'] ?? ''));
 if ($email === '' || strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) odpoved(400, 'email');
-$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl'], true) ? (string)$_POST['jazyk'] : 'cs';
+$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro'], true) ? (string)$_POST['jazyk'] : 'cs';
 $nazev = mb_substr(trim(strip_tags((string)($_POST['nazev'] ?? ''))), 0, 120) ?: 'Dokument';
 $soubor = substr(preg_replace('~[^a-z0-9-]~', '', strtolower((string)($_POST['soubor'] ?? ''))) ?: 'dokument', 0, 80);
 $zeme = preg_replace('~[^a-z]~', '', (string)($_POST['zeme'] ?? '')) ?: 'cz';
@@ -161,6 +161,17 @@ $T = [
         'podporaText' => 'Dokuio je brezplačen, brez oglasov in brez registracije. Strežnike, pravno preverjanje obrazcev in nove dokumente plačujemo z majhnimi prispevki tistih, ki smo jim pomagali.',
         'podporaTl' => 'Častite nas s kavo (približno 1,25 €)',
         'pata' => 'To sporočilo ste zahtevali na dokuio.com. Prosimo, ne odgovarjajte nanj.',
+    ],
+    'ro' => [
+        'predmet' => 'Documentul dvs. în PDF: %s (Dokuio)',
+        'nadpis' => 'Vă trimitem documentul atașat',
+        'text' => 'Vă trimitem atașat documentul <strong>%s</strong> în format PDF. Înainte de semnare citiți-l cu atenție și verificați toate datele.',
+        'pravni' => 'Modelul îl oferim gratuit și cu bună-credință, nu este consultanță juridică. Pentru conținutul și folosirea documentului răspundeți dvs.',
+        'soukromi' => 'Documentul l-am trimis doar la cererea dvs. și nu îl salvăm nicăieri.',
+        'podporaNadpis' => 'V-am economisit timp?',
+        'podporaText' => 'Dokuio este gratuit, fără reclame și fără înregistrare. Serverele, verificarea modelelor și documentele noi le plătim din contribuții mici de la cei pe care i-am ajutat.',
+        'podporaTl' => 'Cinstiți-ne cu o cafea (aprox. 6 lei)',
+        'pata' => 'Ați solicitat acest mesaj pe dokuio.com. Vă rugăm să nu răspundeți.',
     ],
 ][$jazyk];
 

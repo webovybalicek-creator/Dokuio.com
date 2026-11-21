@@ -278,6 +278,56 @@ const SI: InfoStranka[] = [
   },
 ];
 
+const RO: InfoStranka[] = [
+  {
+    typ: 'onas',
+    slug: 'despre-noi',
+    title: 'Despre Dokuio – modele de contracte gratuite',
+    description: 'Dokuio.com – modele de contracte gratuite în PDF și Word. Cine se află în spatele site-ului și cum se pregătesc modelele (România).',
+    html: `<p class="text-stranka__vytah">Dokuio există pentru ca oricine să poată întocmi rapid și gratuit un contract simplu – de exemplu la vânzarea unei mașini. Fără înregistrare, fără plată și fără limbaj juridic greoi.</p>
+<h2>Cum se pregătesc modelele</h2>
+<ul><li>Textele se bazează pe legislația română în vigoare și pe surse oficiale (legislatie.just.ro, ANAF, ANPC, Poliția de Frontieră), nu pe inteligență artificială.</li>
+<li>Fiecare model are un număr de versiune și o dată a modificării – vizibile pe pagină și în subsolul PDF-ului. Codul QR din PDF duce la verificarea versiunii.</li>
+<li>Lângă fiecare câmp există o explicație, la fiecare document sfaturi „Verificați înainte de semnare”.</li>
+<li>Evităm intenționat clauzele complicate. Un text simplu și echilibrat este mai sigur pentru situațiile obișnuite.</li></ul>
+<h2>De ce gratuit</h2><p>Vrem ca actele de bază să fie accesibile tuturor. Funcționarea site-ului o finanțăm singuri și din contribuții voluntare ale utilizatorilor.</p>
+<h2>Contact</h2><p>${p.nazev}<br />IČO (număr de identificare în Cehia) ${p.ico}<br />${p.sidlo}, Cehia<br />E-mail: ${e}</p>
+<p>Ați găsit o greșeală într-un model sau vă lipsește un document? Scrieți-ne – citim fiecare mesaj.</p>`,
+  },
+  {
+    typ: 'podminky',
+    slug: 'termeni-de-utilizare',
+    title: 'Termeni de utilizare',
+    description: 'Termenii de utilizare Dokuio.com – modele de contracte gratuite în PDF și Word: serviciul oferit, răspunderea și folosirea modelelor.',
+    aktualizovano: AKT,
+    html: `<h2>1. Furnizorul</h2><p>Site-ul dokuio.com este administrat de ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Cehia („furnizorul”). Contact: ${e}.</p>
+<h2>2. Ce oferă Dokuio</h2><p>Modele de contracte și documente simple, pe care utilizatorul le completează în ghidul online sau le descarcă goale în PDF ori Word. Serviciul este <strong>gratuit</strong> și nu necesită înregistrare.</p>
+<h2>3. Nu este consultanță juridică</h2><p>Oferim modelele cu bună-credință, ca serviciu public. Se bazează pe legislația în vigoare, dar <strong>nu constituie consultanță juridică</strong> și nu se potrivesc oricărei situații. Furnizorul nu este avocat și nu este parte în contractele încheiate de utilizatori.</p>
+<h2>4. Răspunderea utilizatorului</h2><p>Pentru conținutul, modificările, completarea și folosirea contractului răspunde exclusiv utilizatorul. Citiți-l cu atenție înainte de semnare. Textul modificat de utilizator nu mai face parte din modelul nostru – în PDF acest lucru este marcat.</p>
+<h2>5. Limitarea răspunderii</h2><p>Furnizorul nu răspunde pentru prejudiciile cauzate de folosirea modelelor, completarea greșită sau folosirea contrară scopului, în limitele permise de lege. Aceasta nu afectează drepturile consumatorilor care nu pot fi limitate.</p>
+<h2>6. Sprijin voluntar</h2><p>Funcționarea site-ului poate fi susținută voluntar prin Stripe. Plata nu este o condiție de utilizare și nu dă dreptul la servicii suplimentare. Dacă ați plătit din greșeală, scrieți-ne în 14 zile – vă restituim suma.</p>
+<h2>7. Folosirea modelelor</h2><p>Puteți folosi modelele pentru nevoi proprii, le puteți modifica și puteți împărtăși contractul completat cu cealaltă parte. Copierea în masă, distribuirea sau vânzarea modelelor ca propria colecție fără acordul furnizorului nu sunt permise.</p>
+<h2>8. Dispoziții finale</h2><p>Termenilor li se aplică legea cehă; aceasta nu afectează normele imperative de protecție a consumatorilor din statul dvs. de reședință. Prelucrarea datelor personale este descrisă pe pagina <a href="/ro/protectia-datelor/">Protecția datelor personale</a>.</p>`,
+  },
+  {
+    typ: 'ochrana',
+    slug: 'protectia-datelor',
+    title: 'Protecția datelor personale',
+    description: 'Cum prelucrează Dokuio.com datele personale. Datele din contracte rămân în browserul dvs., analiza traficului doar cu acordul dvs.',
+    aktualizovano: AKT,
+    html: `<p class="text-stranka__vytah"><strong>Pe scurt:</strong> ce scrieți într-un contract nu trimitem nicăieri. Contractul se creează direct în browserul dvs. Cookie-urile de analiză le folosim doar cu acordul dvs.</p>
+<h2>1. Operatorul</h2><p>Operatorul este ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Cehia, e-mail ${e}.</p>
+<h2>2. Datele din contracte</h2><p>Numele, adresele, datele vehiculului și celelalte date din ghid sunt prelucrate doar de browserul dvs.; <strong>nu sunt trimise pe serverul nostru și nu le stocăm</strong>. Documentul început este salvat de browser în memoria locală (localStorage) numai pe dispozitivul dvs.; îl puteți șterge în ghid sau prin ștergerea datelor browserului. Semnăturile desenate pe ecran nu le stocăm.</p>
+<p><strong>Linkul pentru cealaltă parte:</strong> datele introduse sunt codificate în link (după semnul #, pe care browserul nu îl trimite serverului). Trimiteți-l doar celeilalte părți a contractului.</p>
+<p><strong>Trimiterea PDF-ului pe e-mail:</strong> browserul trimite PDF-ul final și adresa indicată serverului nostru, care trimite mesajul o singură dată și nu salvează nimic. Pentru protecție împotriva abuzurilor, serverul păstrează 24 de ore doar o amprentă ireversibilă a adresei IP și a e-mailului și ora trimiterii (temei juridic: interes legitim, art. 6 alin. (1) lit. f) GDPR).</p>
+<h2>3. Părerile utilizatorilor</h2><p>Textul părerii îl salvăm cu data și adresa paginii, fără nume și e-mail, cel mult 2 ani.</p>
+<h2>4. Plăți</h2><p>Plățile cu cardul sunt procesate de Stripe Payments Europe, Ltd.; datele cardului nu le vedem. De la Stripe primim e-mailul plătitorului, suma și data, pe care le păstrăm conform normelor contabile.</p>
+<h2>5. Analiză și cookie-uri</h2><p>Dacă vă dați acordul în banner, folosim Google Analytics 4 (Google Ireland Ltd.) pentru măsurarea anonimă a traficului (art. 6 alin. (1) lit. a) GDPR); Google nu stochează adresele IP în UE. Fără acord, analiza nu se încarcă și nu folosim cookie-uri. Acordul îl puteți schimba oricând prin linkul „Setări cookie” din subsol.</p>
+<h2>6. Găzduire</h2><p>Site-ul funcționează pe serverele companiei Exon din Cehia, care păstrează pentru scurt timp jurnale tehnice de acces, din motive de securitate. Fotografiile din ghid se încarcă de pe serviciul Unsplash (images.unsplash.com), care vede astfel adresa dvs. IP.</p>
+<h2>7. Drepturile dvs.</h2><p>Aveți dreptul de acces, rectificare, ștergere, restricționare a prelucrării și opoziție. Scrieți la ${e}. Puteți depune o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (<a href="https://www.dataprotection.ro" rel="noopener">ANSPDCP</a>) sau la autoritatea cehă de supraveghere (ÚOOÚ).</p>`,
+  },
+];
+
 /* ------------------------------------------------------------------ německy (DE i AT) */
 const de = (zeme: 'de' | 'at' | 'ch'): InfoStranka[] => {
   const behoerde =
@@ -347,6 +397,7 @@ export const INFORMACE: Record<string, InfoStranka[]> = {
   hu: HU,
   hr: HR,
   si: SI,
+  ro: RO,
 };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */
