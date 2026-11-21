@@ -95,6 +95,15 @@ const { kod } = Astro.props;
   )
 }
 {
+  kod === 'bg' && (
+    <svg class="vlajka" viewBox="0 0 27 18" aria-hidden="true">
+      <rect width="27" height="6" fill="#ffffff" />
+      <rect y="6" width="27" height="6" fill="#00966e" />
+      <rect y="12" width="27" height="6" fill="#d62612" />
+    </svg>
+  )
+}
+{
   kod === 'ro' && (
     <svg class="vlajka" viewBox="0 0 27 18" aria-hidden="true">
       <rect width="9" height="18" fill="#002b7f" />
