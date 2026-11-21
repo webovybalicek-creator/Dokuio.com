@@ -351,6 +351,7 @@ const JAZYK_ZEME: Record<string, string> = {
   'de-CH': 'німецькою',
   hu: 'угорською',
   hr: 'хорватською',
+  sl: 'словенською',
   en: 'англійською',
 };
 const ukVerzeJazyk = (j: string) => JAZYK_ZEME[j] ?? j;
@@ -364,6 +365,7 @@ const ZEME: TextyVerze['zeme'] = {
   ch: { n: 'Швейцарія', g: 'Швейцарії', v: 'у Швейцарії' },
   hu: { n: 'Угорщина', g: 'Угорщини', v: 'в Угорщині' },
   hr: { n: 'Хорватія', g: 'Хорватії', v: 'в Хорватії' },
+  si: { n: 'Словенія', g: 'Словенії', v: 'у Словенії' },
 };
 
 export const ukVerze: TextyVerze = {
@@ -411,6 +413,12 @@ export const ukVerze: TextyVerze = {
     usluge: 'Майстри та замовлення',
     posao: 'Робота',
     obitelj: 'Сім’я та подорожі',
+    denar: 'Гроші та дарування',
+    stanovanje: 'Житло та оренда',
+    vsakdan: 'Покупки та справи в установах',
+    storitve: 'Майстри та замовлення',
+    delo: 'Робота',
+    druzina: 'Сім’я та подорожі',
   },
   dokument: {
     mistoDne: ['м.', 'дата'],

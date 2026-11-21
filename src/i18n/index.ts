@@ -10,11 +10,12 @@ import { de } from './de';
 import { deCH } from './de-ch';
 import { hu } from './hu';
 import { hr } from './hr';
+import { sl } from './sl';
 import { uk, ukVerze } from './uk';
 import { en, enVerze } from './en';
 import { proZemi, type TextyVerze } from './verze';
 
-export const TEXTY = { cs, sk, pl, de, 'de-CH': deCH, hu, hr, uk, en } satisfies Record<string, Texty>;
+export const TEXTY = { cs, sk, pl, de, 'de-CH': deCH, hu, hr, sl, uk, en } satisfies Record<string, Texty>;
 export type Jazyk = keyof typeof TEXTY;
 export type { Texty, TextyVerze };
 
@@ -30,6 +31,7 @@ export const NAZVY_JAZYKU: Record<string, string> = {
   'de-CH': 'Deutsch',
   hu: 'Magyar',
   hr: 'Hrvatski',
+  sl: 'Slovenščina',
   uk: 'Українська',
   en: 'English',
 };
@@ -43,6 +45,7 @@ export const POPISEK_PREPINACE: Record<string, string> = {
   'de-CH': 'Sprache der Seite',
   hu: 'Az oldal nyelve',
   hr: 'Jezik stranice',
+  sl: 'Jezik strani',
   uk: 'Мова сторінки',
   en: 'Page language',
 };

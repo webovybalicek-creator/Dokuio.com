@@ -48,36 +48,36 @@ export const srcsetFotky = (klic: string, pomer = 16 / 9) =>
 export const autorFotky = (klic: string) => (FOTKY as Record<string, Fotka>)[klic]?.autor ?? '';
 
 /** Popisky fotek (alt) podle jazyka; de-CH používá de (bez ß) */
-const ALT: Record<string, [string, string, string, string, string]> = {
-  'auto-klice': ['Předání klíčů od auta', 'Odovzdanie kľúčov od auta', 'Przekazanie kluczyków do samochodu', 'Übergabe der Autoschlüssel', 'Az autókulcs átadása', 'Predaja ključeva automobila'],
-  'auto-predani': ['Prodávající podává kupujícímu klíče od auta', 'Predávajúci podáva kupujúcemu kľúče od auta', 'Sprzedający podaje kupującemu kluczyki', 'Verkäufer übergibt dem Käufer den Autoschlüssel', 'Az eladó átadja a vevőnek az autókulcsot', 'Prodavatelj predaje kupcu ključeve automobila'],
-  'auto-ojetina': ['Klíček v ruce před ojetým autem', 'Kľúč v ruke pred jazdeným autom', 'Kluczyk w dłoni przed używanym autem', 'Autoschlüssel vor einem Gebrauchtwagen', 'Autókulcs egy használt autó előtt', 'Ključ u ruci ispred rabljenog automobila'],
-  'auto-tachometr': ['Tachometr auta', 'Tachometer auta', 'Licznik samochodu', 'Tacho eines Autos', 'Az autó kilométerórája', 'Brzinomjer automobila'],
-  'auto-jizda': ['Jízda autem po silnici', 'Jazda autom po ceste', 'Jazda samochodem', 'Autofahrt auf der Landstrasse', 'Autózás országúton', 'Vožnja automobilom po cesti'],
-  'auto-palubka': ['Interiér auta s volantem', 'Interiér auta s volantom', 'Wnętrze samochodu', 'Innenraum eines Autos', 'Autó belső tere kormánnyal', 'Unutrašnjost automobila s upravljačem'],
-  'podpis': ['Podpis smlouvy perem', 'Podpis zmluvy perom', 'Podpisywanie umowy', 'Unterschrift unter einen Vertrag', 'Szerződés aláírása tollal', 'Potpisivanje ugovora olovkom'],
-  'dokumenty': ['Dva lidé procházejí dokumenty', 'Dvaja ľudia prechádzajú dokumenty', 'Dwie osoby przeglądają dokumenty', 'Zwei Personen prüfen Dokumente', 'Két ember iratokat néz át', 'Dvoje ljudi pregledava dokumente'],
-  'psani': ['Psaní dokumentu', 'Písanie dokumentu', 'Pisanie dokumentu', 'Ein Dokument wird geschrieben', 'Dokumentum írása', 'Pisanje dokumenta'],
-  'podani-ruky': ['Podání ruky nad smlouvou', 'Podanie rúk nad zmluvou', 'Uścisk dłoni nad umową', 'Handschlag über einem Vertrag', 'Kézfogás egy szerződés felett', 'Rukovanje nad ugovorom'],
-  'penize': ['Bankovky v ruce', 'Bankovky v ruke', 'Banknoty w dłoni', 'Geldscheine in der Hand', 'Bankjegyek kézben', 'Novčanice u ruci'],
-  'kalkulacka': ['Počítání na kalkulačce', 'Počítanie na kalkulačke', 'Liczenie na kalkulatorze', 'Rechnen mit dem Taschenrechner', 'Számolás számológéppel', 'Računanje na kalkulatoru'],
-  'ucty': ['Doklady a kalkulačka na stole', 'Doklady a kalkulačka na stole', 'Dokumenty i kalkulator na biurku', 'Belege und Taschenrechner auf dem Tisch', 'Bizonylatok és számológép az asztalon', 'Računi i kalkulator na stolu'],
-  'dar': ['Zabalený dárek', 'Zabalený darček', 'Zapakowany prezent', 'Verpacktes Geschenk', 'Becsomagolt ajándék', 'Zamotani poklon'],
-  'klice-byt': ['Klíče od bytu před vchodem', 'Kľúče od bytu pred vchodom', 'Klucze do mieszkania przed wejściem', 'Wohnungsschlüssel vor dem Eingang', 'Lakáskulcs a bejárat előtt', 'Ključevi stana ispred ulaza'],
-  'klice-dvere': ['Klíč ve dveřích', 'Kľúč vo dverách', 'Klucz w drzwiach', 'Schlüssel in der Tür', 'Kulcs az ajtóban', 'Ključ u vratima'],
-  'stehovani': ['Stěhování s krabicemi', 'Sťahovanie s krabicami', 'Przeprowadzka z kartonami', 'Umzug mit Kartons', 'Költözés dobozokkal', 'Selidba s kutijama'],
-  'krabice': ['Pokoj plný krabic', 'Izba plná krabíc', 'Pokój pełen kartonów', 'Zimmer voller Kartons', 'Dobozokkal teli szoba', 'Soba puna kutija'],
-  'balik': ['Předání balíku', 'Odovzdanie balíka', 'Przekazanie paczki', 'Übergabe eines Pakets', 'Csomag átadása', 'Predaja paketa'],
-  'nakup-online': ['Nákup na internetu s platební kartou', 'Nákup na internete s platobnou kartou', 'Zakupy online z kartą płatniczą', 'Online-Einkauf mit Kreditkarte', 'Online vásárlás bankkártyával', 'Kupnja na internetu platnom karticom'],
-  'oprava': ['Oprava mobilního telefonu', 'Oprava mobilného telefónu', 'Naprawa telefonu', 'Reparatur eines Smartphones', 'Mobiltelefon javítása', 'Popravak mobitela'],
-  'rozbity-telefon': ['Rozbitý displej telefonu', 'Rozbitý displej telefónu', 'Rozbity ekran telefonu', 'Gesprungenes Handydisplay', 'Repedt telefonkijelző', 'Razbijen zaslon mobitela'],
-  'dite-cesta': ['Dítě na letišti', 'Dieťa na letisku', 'Dziecko na lotnisku', 'Kind am Flughafen', 'Gyermek a repülőtéren', 'Dijete u zračnoj luci'],
-  'pas': ['Cestovní pas v ruce', 'Cestovný pas v ruke', 'Paszport w dłoni', 'Reisepass in der Hand', 'Útlevél kézben', 'Putovnica u ruci'],
+const ALT: Record<string, string[]> = {
+  'auto-klice': ['Předání klíčů od auta', 'Odovzdanie kľúčov od auta', 'Przekazanie kluczyków do samochodu', 'Übergabe der Autoschlüssel', 'Az autókulcs átadása', 'Predaja ključeva automobila', 'Predaja ključev avtomobila'],
+  'auto-predani': ['Prodávající podává kupujícímu klíče od auta', 'Predávajúci podáva kupujúcemu kľúče od auta', 'Sprzedający podaje kupującemu kluczyki', 'Verkäufer übergibt dem Käufer den Autoschlüssel', 'Az eladó átadja a vevőnek az autókulcsot', 'Prodavatelj predaje kupcu ključeve automobila', 'Prodajalec izroča kupcu ključe avtomobila'],
+  'auto-ojetina': ['Klíček v ruce před ojetým autem', 'Kľúč v ruke pred jazdeným autom', 'Kluczyk w dłoni przed używanym autem', 'Autoschlüssel vor einem Gebrauchtwagen', 'Autókulcs egy használt autó előtt', 'Ključ u ruci ispred rabljenog automobila', 'Ključ v roki pred rabljenim avtomobilom'],
+  'auto-tachometr': ['Tachometr auta', 'Tachometer auta', 'Licznik samochodu', 'Tacho eines Autos', 'Az autó kilométerórája', 'Brzinomjer automobila', 'Merilnik hitrosti avtomobila'],
+  'auto-jizda': ['Jízda autem po silnici', 'Jazda autom po ceste', 'Jazda samochodem', 'Autofahrt auf der Landstrasse', 'Autózás országúton', 'Vožnja automobilom po cesti', 'Vožnja z avtomobilom po cesti'],
+  'auto-palubka': ['Interiér auta s volantem', 'Interiér auta s volantom', 'Wnętrze samochodu', 'Innenraum eines Autos', 'Autó belső tere kormánnyal', 'Unutrašnjost automobila s upravljačem', 'Notranjost avtomobila z volanom'],
+  'podpis': ['Podpis smlouvy perem', 'Podpis zmluvy perom', 'Podpisywanie umowy', 'Unterschrift unter einen Vertrag', 'Szerződés aláírása tollal', 'Potpisivanje ugovora olovkom', 'Podpisovanje pogodbe s pisalom'],
+  'dokumenty': ['Dva lidé procházejí dokumenty', 'Dvaja ľudia prechádzajú dokumenty', 'Dwie osoby przeglądają dokumenty', 'Zwei Personen prüfen Dokumente', 'Két ember iratokat néz át', 'Dvoje ljudi pregledava dokumente', 'Dve osebi pregledujeta dokumente'],
+  'psani': ['Psaní dokumentu', 'Písanie dokumentu', 'Pisanie dokumentu', 'Ein Dokument wird geschrieben', 'Dokumentum írása', 'Pisanje dokumenta', 'Pisanje dokumenta'],
+  'podani-ruky': ['Podání ruky nad smlouvou', 'Podanie rúk nad zmluvou', 'Uścisk dłoni nad umową', 'Handschlag über einem Vertrag', 'Kézfogás egy szerződés felett', 'Rukovanje nad ugovorom', 'Stisk rok nad pogodbo'],
+  'penize': ['Bankovky v ruce', 'Bankovky v ruke', 'Banknoty w dłoni', 'Geldscheine in der Hand', 'Bankjegyek kézben', 'Novčanice u ruci', 'Bankovci v roki'],
+  'kalkulacka': ['Počítání na kalkulačce', 'Počítanie na kalkulačke', 'Liczenie na kalkulatorze', 'Rechnen mit dem Taschenrechner', 'Számolás számológéppel', 'Računanje na kalkulatoru', 'Računanje na kalkulatorju'],
+  'ucty': ['Doklady a kalkulačka na stole', 'Doklady a kalkulačka na stole', 'Dokumenty i kalkulator na biurku', 'Belege und Taschenrechner auf dem Tisch', 'Bizonylatok és számológép az asztalon', 'Računi i kalkulator na stolu', 'Računi in kalkulator na mizi'],
+  'dar': ['Zabalený dárek', 'Zabalený darček', 'Zapakowany prezent', 'Verpacktes Geschenk', 'Becsomagolt ajándék', 'Zamotani poklon', 'Zavito darilo'],
+  'klice-byt': ['Klíče od bytu před vchodem', 'Kľúče od bytu pred vchodom', 'Klucze do mieszkania przed wejściem', 'Wohnungsschlüssel vor dem Eingang', 'Lakáskulcs a bejárat előtt', 'Ključevi stana ispred ulaza', 'Ključi stanovanja pred vhodom'],
+  'klice-dvere': ['Klíč ve dveřích', 'Kľúč vo dverách', 'Klucz w drzwiach', 'Schlüssel in der Tür', 'Kulcs az ajtóban', 'Ključ u vratima', 'Ključ v vratih'],
+  'stehovani': ['Stěhování s krabicemi', 'Sťahovanie s krabicami', 'Przeprowadzka z kartonami', 'Umzug mit Kartons', 'Költözés dobozokkal', 'Selidba s kutijama', 'Selitev s škatlami'],
+  'krabice': ['Pokoj plný krabic', 'Izba plná krabíc', 'Pokój pełen kartonów', 'Zimmer voller Kartons', 'Dobozokkal teli szoba', 'Soba puna kutija', 'Soba polna škatel'],
+  'balik': ['Předání balíku', 'Odovzdanie balíka', 'Przekazanie paczki', 'Übergabe eines Pakets', 'Csomag átadása', 'Predaja paketa', 'Predaja paketa'],
+  'nakup-online': ['Nákup na internetu s platební kartou', 'Nákup na internete s platobnou kartou', 'Zakupy online z kartą płatniczą', 'Online-Einkauf mit Kreditkarte', 'Online vásárlás bankkártyával', 'Kupnja na internetu platnom karticom', 'Nakup na spletu s plačilno kartico'],
+  'oprava': ['Oprava mobilního telefonu', 'Oprava mobilného telefónu', 'Naprawa telefonu', 'Reparatur eines Smartphones', 'Mobiltelefon javítása', 'Popravak mobitela', 'Popravilo mobilnega telefona'],
+  'rozbity-telefon': ['Rozbitý displej telefonu', 'Rozbitý displej telefónu', 'Rozbity ekran telefonu', 'Gesprungenes Handydisplay', 'Repedt telefonkijelző', 'Razbijen zaslon mobitela', 'Razbit zaslon telefona'],
+  'dite-cesta': ['Dítě na letišti', 'Dieťa na letisku', 'Dziecko na lotnisku', 'Kind am Flughafen', 'Gyermek a repülőtéren', 'Dijete u zračnoj luci', 'Otrok na letališču'],
+  'pas': ['Cestovní pas v ruce', 'Cestovný pas v ruke', 'Paszport w dłoni', 'Reisepass in der Hand', 'Útlevél kézben', 'Putovnica u ruci', 'Potni list v roki'],
 };
 
 export const altFotky = (klic: string, jazyk: string) => {
   const a = ALT[klic];
   if (!a) return '';
-  const i = ({ cs: 0, sk: 1, pl: 2, hu: 4, hr: 5 } as Record<string, number>)[jazyk] ?? 3;
+  const i = ({ cs: 0, sk: 1, pl: 2, hu: 4, hr: 5, sl: 6 } as Record<string, number>)[jazyk] ?? 3;
   return jazyk === 'de-CH' ? a[3].replace(/ß/g, 'ss') : a[i];
 };

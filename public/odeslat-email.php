@@ -48,7 +48,7 @@ if (!in_array($puvod, $povolene, true)) odpoved(403, 'puvod');
 if (trim((string)($_POST['web'] ?? '')) !== '') odpoved(200, 'odeslano'); // past na roboty: tvářit se, že OK
 $email = trim((string)($_POST['email'] ?? ''));
 if ($email === '' || strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) odpoved(400, 'email');
-$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr'], true) ? (string)$_POST['jazyk'] : 'cs';
+$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl'], true) ? (string)$_POST['jazyk'] : 'cs';
 $nazev = mb_substr(trim(strip_tags((string)($_POST['nazev'] ?? ''))), 0, 120) ?: 'Dokument';
 $soubor = substr(preg_replace('~[^a-z0-9-]~', '', strtolower((string)($_POST['soubor'] ?? ''))) ?: 'dokument', 0, 80);
 $zeme = preg_replace('~[^a-z]~', '', (string)($_POST['zeme'] ?? '')) ?: 'cz';
@@ -150,6 +150,17 @@ $T = [
         'podporaText' => 'Dokuio je besplatan, bez oglasa i bez registracije. Poslužitelje, pravnu provjeru obrazaca i nove dokumente plaćamo malim prilozima onih kojima smo pomogli.',
         'podporaTl' => 'Častite nas kavom (oko 1,25 €)',
         'pata' => 'Ovu ste poruku zatražili na dokuio.com. Molimo ne odgovarajte na nju.',
+    ],
+    'sl' => [
+        'predmet' => 'Vaš dokument v PDF: %s (Dokuio)',
+        'nadpis' => 'Pošiljamo vam dokument v prilogi',
+        'text' => 'V prilogi vam pošiljamo dokument <strong>%s</strong> v formatu PDF. Pred podpisom ga natančno preberite in preverite vse podatke.',
+        'pravni' => 'Obrazec zagotavljamo brezplačno in v dobri veri, ni pravni nasvet. Za vsebino in uporabo dokumenta odgovarjate vi; v zahtevnejših primerih priporočamo pregled pri odvetniku.',
+        'soukromi' => 'Dokument smo poslali le na vašo zahtevo in ga nikjer ne shranjujemo.',
+        'podporaNadpis' => 'Smo vam prihranili čas?',
+        'podporaText' => 'Dokuio je brezplačen, brez oglasov in brez registracije. Strežnike, pravno preverjanje obrazcev in nove dokumente plačujemo z majhnimi prispevki tistih, ki smo jim pomagali.',
+        'podporaTl' => 'Častite nas s kavo (približno 1,25 €)',
+        'pata' => 'To sporočilo ste zahtevali na dokuio.com. Prosimo, ne odgovarjajte nanj.',
     ],
 ][$jazyk];
 

@@ -227,6 +227,57 @@ const HR: InfoStranka[] = [
   },
 ];
 
+/* ------------------------------------------------------------------ slovenščina */
+const SI: InfoStranka[] = [
+  {
+    typ: 'onas',
+    slug: 'o-nas',
+    title: 'O Dokuiu – brezplačni vzorci pogodb',
+    description: 'Dokuio.com – brezplačni vzorci pogodb v PDF in Wordu. Kdo stoji za stranjo in kako nastajajo obrazci (Slovenija).',
+    html: `<p class="text-stranka__vytah">Dokuio obstaja zato, da lahko vsak hitro in brezplačno sestavi preprosto pogodbo – na primer pri prodaji avtomobila. Brez registracije, brez plačila in brez pravniškega žargona.</p>
+<h2>Kako nastajajo obrazci</h2>
+<ul><li>Besedila pogodb temeljijo na veljavnih slovenskih predpisih in uradnih virih (Uradni list, PISRS, FURS, gov.si), ne na umetni inteligenci.</li>
+<li>Vsak obrazec ima številko različice in datum spremembe – vidno na strani in v nogi PDF. Koda QR v PDF vodi na preverjanje različice.</li>
+<li>Ob vsakem polju je razlaga, ob vsakem dokumentu nasveti „Pred podpisom preverite“.</li>
+<li>Zapletenim določbam se namenoma izogibamo. Preprosto, uravnoteženo besedilo je za običajne situacije varnejše.</li></ul>
+<h2>Zakaj brezplačno</h2><p>Želimo, da so osnovne pogodbe dostopne vsem. Delovanje strani financiramo sami in s prostovoljnimi prispevki uporabnikov.</p>
+<h2>Kontakt</h2><p>${p.nazev}<br />IČO (identifikacijska številka na Češkem) ${p.ico}<br />${p.sidlo}, Češka<br />E-pošta: ${e}</p>
+<p>Ste v obrazcu našli napako ali pogrešate pogodbo? Pišite nam – preberemo vsako sporočilo.</p>`,
+  },
+  {
+    typ: 'podminky',
+    slug: 'pogoji-uporabe',
+    title: 'Pogoji uporabe',
+    description: 'Pogoji uporabe Dokuio.com – brezplačni vzorci pogodb v PDF in Wordu: obseg storitve, odgovornost in uporaba obrazcev.',
+    aktualizovano: AKT,
+    html: `<h2>1. Ponudnik</h2><p>Stran dokuio.com upravlja ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Češka („ponudnik“). Kontakt: ${e}.</p>
+<h2>2. Kaj Dokuio ponuja</h2><p>Vzorce preprostih pogodb in dokumentov, ki jih uporabnik izpolni v spletnem vodniku ali prenese prazne v PDF ali Wordu. Storitev je <strong>brezplačna</strong> in ne zahteva registracije.</p>
+<h2>3. Ni pravni nasvet</h2><p>Obrazce zagotavljamo v dobri veri kot javno storitev. Temeljijo na veljavnih predpisih, vendar <strong>niso pravni nasvet</strong> in ne ustrezajo vsaki situaciji. Ponudnik ni odvetnik in ni stranka pogodb, ki jih sklepajo uporabniki.</p>
+<h2>4. Odgovornost uporabnika</h2><p>Za vsebino, spremembe, izpolnitev in uporabo pogodbe odgovarja izključno uporabnik. Pred podpisom jo pozorno preberite; v zapletenih ali vrednih zadevah se obrnite na odvetnika. Besedilo, ki ga je uporabnik spremenil, ni del našega obrazca – v PDF je to označeno.</p>
+<h2>5. Omejitev odgovornosti</h2><p>Ponudnik ne odgovarja za škodo zaradi uporabe obrazcev, napačne izpolnitve ali uporabe v nasprotju z namenom, v obsegu, ki ga dopuščajo predpisi. To ne vpliva na pravice potrošnikov, ki jih ni mogoče omejiti.</p>
+<h2>6. Prostovoljna podpora</h2><p>Delovanje strani je mogoče prostovoljno podpreti prek Stripa. Plačilo ni pogoj za uporabo in ne daje pravice do dodatnih storitev. Če ste plačali pomotoma, nam pišite v 14 dneh – znesek vrnemo.</p>
+<h2>7. Uporaba obrazcev</h2><p>Obrazce smete uporabljati za lastne potrebe, jih spreminjati in izpolnjeno pogodbo deliti z drugo stranko. Množično kopiranje ter razširjanje ali prodaja obrazcev kot lastne zbirke brez dovoljenja ponudnika nista dovoljena.</p>
+<h2>8. Končne določbe</h2><p>Za pogoje se uporablja češko pravo; to ne vpliva na obvezne predpise o varstvu potrošnikov države vašega prebivališča. Obdelavo osebnih podatkov opisuje stran <a href="/si/varstvo-osebnih-podatkov/">Varstvo osebnih podatkov</a>.</p>`,
+  },
+  {
+    typ: 'ochrana',
+    slug: 'varstvo-osebnih-podatkov',
+    title: 'Varstvo osebnih podatkov',
+    description: 'Kako Dokuio.com ravna z osebnimi podatki. Podatki iz pogodb ostanejo v vašem brskalniku, analitika le s privolitvijo.',
+    aktualizovano: AKT,
+    html: `<p class="text-stranka__vytah"><strong>Na kratko:</strong> kar vpišete v pogodbo, nikamor ne pošiljamo. Pogodba nastane neposredno v vašem brskalniku. Analitične piškotke uporabljamo le z vašo privolitvijo.</p>
+<h2>1. Upravljavec</h2><p>Upravljavec je ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Češka, e-pošta ${e}.</p>
+<h2>2. Podatki v pogodbah</h2><p>Imena, naslove, podatke o vozilu in druge podatke iz vodnika obdeluje le vaš brskalnik; <strong>ne pošiljajo se na naš strežnik in jih ne shranjujemo</strong>. Začeti dokument brskalnik shrani v lokalno shrambo (localStorage) samo na vaši napravi; izbrišete ga lahko v vodniku ali z brisanjem podatkov brskalnika. Podpisov, narisanih na zaslonu, ne shranjujemo.</p>
+<p><strong>Povezava za drugo stranko:</strong> vpisani podatki so kodirani v sami povezavi (za znakom #, ki ga brskalnik strežniku ne pošlje). Pošljite jo le drugi pogodbeni stranki.</p>
+<p><strong>Pošiljanje PDF po e-pošti:</strong> brskalnik pošlje gotov PDF in vpisani naslov našemu strežniku, ki sporočilo pošlje enkrat in ničesar ne shrani. Zaradi zaščite pred zlorabo strežnik 24 ur hrani le nepovraten izvleček naslova IP in e-pošte ter čas pošiljanja (pravna podlaga: zakoniti interes, točka (f) člena 6(1) GDPR).</p>
+<h2>3. Povratne informacije</h2><p>Besedilo povratne informacije shranimo z datumom in naslovom strani, brez imena in e-pošte, največ 2 leti.</p>
+<h2>4. Plačila</h2><p>Plačila s kartico obdeluje Stripe Payments Europe, Ltd.; podatkov o kartici ne vidimo. Od Stripa prejmemo e-pošto plačnika, znesek in datum, ki jih hranimo skladno z računovodskimi predpisi.</p>
+<h2>5. Analitika in piškotki</h2><p>Če privolite v pasici, uporabljamo Google Analytics 4 (Google Ireland Ltd.) za anonimno merjenje obiska (točka (a) člena 6(1) GDPR); Google v EU ne shranjuje naslovov IP. Brez privolitve se analitika ne naloži in ne uporabljamo nobenih piškotkov. Privolitev lahko kadar koli spremenite s povezavo „Nastavitve piškotkov“ v nogi.</p>
+<h2>6. Gostovanje</h2><p>Stran deluje na strežnikih podjetja Exon na Češkem, ki iz varnostnih razlogov kratek čas hranijo tehnične dnevnike dostopa. Fotografije v svetovalnici se nalagajo s storitve Unsplash (images.unsplash.com), ki pri tem vidi vaš naslov IP.</p>
+<h2>7. Vaše pravice</h2><p>Imate pravico do dostopa, popravka, izbrisa, omejitve obdelave in ugovora. Pišite na ${e}. Pritožbo lahko vložite pri Informacijskem pooblaščencu (<a href="https://www.ip-rs.si" rel="noopener">ip-rs.si</a>) ali pri češkem nadzornem organu (ÚOOÚ).</p>`,
+  },
+];
+
 /* ------------------------------------------------------------------ německy (DE i AT) */
 const de = (zeme: 'de' | 'at' | 'ch'): InfoStranka[] => {
   const behoerde =
@@ -295,6 +346,7 @@ export const INFORMACE: Record<string, InfoStranka[]> = {
   ch: naSchweiz(sZemi(de('ch'), 'Schweiz')),
   hu: HU,
   hr: HR,
+  si: SI,
 };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */
