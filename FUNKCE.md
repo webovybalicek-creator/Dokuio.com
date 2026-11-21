@@ -68,7 +68,7 @@ znění v jazyce země“). Přepínač jazyka nad náhledem, v průvodci a na r
 hreflang mezi originálem a verzemi. Hotová ukázka: CZ kupní smlouva na auto (uk, en). Poradna a balíčky se nepřekládají.
 Překlady se přidávají po jednom souboru `src/preklady/<zeme>/<jazyk>/<slug>.ts`, build hlídá úplnost – návod `PREKLADY.md`.
 
-21. 11. 2026: 🇭🇷 HR a 🇸🇮 SI mají ukrajinské a anglické verze všech 24 vzorů (96 souborů v `src/preklady/hr|si/uk|en/`).
+21. 11. 2026: 🇭🇷 HR a 🇸🇮 SI mají ukrajinské a anglické verze všech 24 vzorů (96 souborů v `src/preklady/hr|si/uk|en/`). Tentýž den doplněny chybějící verze v CZ, SK, PL, DE, AT, CH a HU (motorka, výpůjčka, podnájem, dohoda o skončení nájmu, Wohnungsgeberbestätigung, súhlas s trvalým pobytom – 54 souborů); uk/en verze teď mají všechny vzory ve všech zemích. Motorka se překládá z překladu smlouvy na auto (`skripty/prek2/moto.py`).
 
 Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 
