@@ -11,7 +11,7 @@ const stranka: StrankaDokumentu = {
   "title": "Sporazumna razveza najemne pogodbe {rok} – brezplačen obrazec PDF",
   "description": "Brezplačna sporazumna razveza najemne pogodbe za stanovanje: datum prenehanja, predaja stanovanja, vračilo varščine in poračun stroškov. PDF in Word.",
   "perex": "Ko se najemodajalec in najemnik dogovorita za konec najema – tudi brez odpovednega roka.",
-  "obsahPopis": "Štirje členi po Obligacijskem zakoniku.",
+  "obsahPopis": "Pet členov po Obligacijskem zakoniku.",
   "obsah": [
     {
       "nazev": "Stranki in pogodba",

@@ -50,7 +50,7 @@ const stranka: StrankaDokumentu = {
     "podarjate avto ali drugo stvar"
   ],
   "nehodiSe": [
-    "podarjate nepremičnino – potrebna je pogodba v obliki notarskega zapisa"
+    "podarjate nepremičnino – obrnite se na notarja"
   ],
   "po": [
     {

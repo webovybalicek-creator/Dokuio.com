@@ -11,7 +11,7 @@ const stranka: StrankaDokumentu = {
   "title": "Podnajemna pogodba {rok} – brezplačen obrazec PDF",
   "description": "Brezplačna podnajemna pogodba za sobo ali stanovanje: soglasje lastnika, podnajemnina, varščina, stroški in konec podnajema. PDF in Word.",
   "perex": "Za oddajo sobe ali dela stanovanja naprej – le s soglasjem lastnika.",
-  "obsahPopis": "Osem členov po SZ-1 in OZ.",
+  "obsahPopis": "Sedem členov po SZ-1 in OZ.",
   "obsah": [
     {
       "nazev": "Stranke",

@@ -11,7 +11,7 @@ const stranka: StrankaDokumentu = {
   "title": "Dogovor o obročnem odplačilu {rok} – brezplačen obrazec PDF",
   "description": "Brezplačen dogovor o obročnem odplačilu dolga: znesek z besedo, število in višina obrokov, datumi, zapadlost celotnega dolga ob zamudi. PDF in Word.",
   "perex": "Dolžnik ne more plačati naenkrat? Dogovor o obrokih s jasnim urnikom in posledicami zamude.",
-  "obsahPopis": "Štirje členi po Obligacijskem zakoniku.",
+  "obsahPopis": "Pet členov po Obligacijskem zakoniku.",
   "obsah": [
     {
       "nazev": "Stranki",

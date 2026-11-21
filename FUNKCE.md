@@ -66,6 +66,8 @@ znění v jazyce země“). Přepínač jazyka nad náhledem, v průvodci a na r
 hreflang mezi originálem a verzemi. Hotová ukázka: CZ kupní smlouva na auto (uk, en). Poradna a balíčky se nepřekládají.
 Překlady se přidávají po jednom souboru `src/preklady/<zeme>/<jazyk>/<slug>.ts`, build hlídá úplnost – návod `PREKLADY.md`.
 
+21. 11. 2026: 🇭🇷 HR a 🇸🇮 SI mají ukrajinské a anglické verze všech 24 vzorů (96 souborů v `src/preklady/hr|si/uk|en/`).
+
 Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 
 ## Pro uživatele
@@ -108,5 +110,5 @@ Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 
 - Kontrola šablon místním advokátem (hlavně nájem/podnájem a zahraniční šablony).
 - Upozornění 1. 3. 2027: příprava SK vzorů na nový Občiansky zákonník (účinnost 1. 7. 2027) – naplánovaná úloha.
-- 🇭🇷 HR, 🇸🇮 SI: chybí jen jazykové verze uk/en. Další země (Rumunsko, Bulharsko…), CH ve francouzštině/italštině.
+- Další země (Rumunsko, Bulharsko…), CH ve francouzštině/italštině.
 - PL: tlačítko pro odstoupení – sledovat novelu zákona o právech spotřebitele.

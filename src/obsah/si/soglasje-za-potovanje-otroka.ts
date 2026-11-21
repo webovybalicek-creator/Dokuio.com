@@ -63,7 +63,7 @@ const stranka: StrankaDokumentu = {
       "a": "Ne. Dokument nastane neposredno v vašem brskalniku, podatki se ne pošiljajo na strežnik."
     }
   ],
-  "zakony": "Obrazec temelji na informacijah portala Your Europe in Policije o potovanju mladoletnikov.",
+  "zakony": "Obrazec temelji na informacijah portala Your Europe o potovanju mladoletnikov.",
   "souvisejiciPopis": "Drugi dokumenti, prav tako brezplačno."
 },
   vytvorit: {"title": "Izpolnite soglasje za potovanje otroka na spletu – PDF brezplačno", "description": "Soglasje staršev za potovanje otroka. PDF ali Word brezplačno.", "podnadpis": "Brezplačno · rezultat v PDF in Wordu · traja nekaj minut"},

@@ -11,7 +11,7 @@ const stranka: StrankaDokumentu = {
   "title": "Najemna pogodba za stanovanje {rok} – brezplačen obrazec PDF",
   "description": "Brezplačna najemna pogodba za stanovanje po Stanovanjskem zakonu: ID stanovanja, uporabniki, najemnina, varščina, stroški in odpovedni razlogi. PDF in Word.",
   "perex": "Za oddajo stanovanja fizični osebi. Z obveznimi sestavinami iz Stanovanjskega zakona, varščino in stroški.",
-  "obsahPopis": "Deset členov po Stanovanjskem zakonu (SZ-1) in OZ.",
+  "obsahPopis": "Osem členov po Stanovanjskem zakonu (SZ-1) in OZ.",
   "obsah": [
     {
       "nazev": "Pogodbeni stranki",

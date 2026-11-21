@@ -9,13 +9,13 @@ const stranka: StrankaDokumentu = {
   souvisejici: "auto",
   landing: {
   "title": "Kupoprodajna pogodba za avto {rok} – brezplačen obrazec PDF",
-  "description": "Brezplačna kupoprodajna pogodba za rabljen avto po slovenskem pravu: EMŠO, številka šasije, kilometri, napake, plačilo in ura izročitve. PDF in Word.",
+  "description": "Brezplačna kupoprodajna pogodba za rabljen avto po slovenskem pravu: davčna številka, številka šasije, kilometri, napake, plačilo in ura izročitve. PDF in Word.",
   "perex": "Za prodajo rabljenega avtomobila med fizičnimi osebami. Z uro izročitve, znanimi napakami in rokom 15 dni za prijavo spremembe lastništva.",
   "obsahPopis": "Sedem členov po Obligacijskem zakoniku.",
   "obsah": [
     {
       "nazev": "Pogodbeni stranki",
-      "popis": "Prodajalec in kupec z davčno številko ali EMŠO."
+      "popis": "Prodajalec in kupec z davčno številko."
     },
     {
       "nazev": "Predmet pogodbe",
