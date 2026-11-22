@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { SITE } from '../lib/config';
 import { AKTIVNI_ZEME, VSECHNY_STRANKY, slugStranky, urlStranky } from '../obsah';
 import { HREFLANG_ROZCESTNIKU, ROZCESTNIKY_VERZI, VERZE, hreflangDokumentu } from '../preklady';
-import { INFO_ODKAZY } from '../obsah/informace';
+import { INFO_ODKAZY, indexovatInfo, type TypInfo } from '../obsah/informace';
 import { PORADNY, clanky, urlClanku, urlKategorie, urlPoradny, urlTematu } from '../lib/poradna';
 
 export const GET: APIRoute = async () => {
@@ -21,7 +21,7 @@ export const GET: APIRoute = async () => {
   }
   const informace = AKTIVNI_ZEME.flatMap((z) => [
     ...(z.balicky ?? []).map((b) => `/${z.kod}/balicek/${b.slug}/`),
-    ...Object.values(INFO_ODKAZY[z.kod] ?? {}),
+    ...Object.entries(INFO_ODKAZY[z.kod] ?? {}).filter(([typ]) => indexovatInfo(z.kod, typ as TypInfo)).map(([, u]) => u),
   ]);
   const vse = await clanky();
   for (const c of vse) aktualizace[urlClanku(c)] = c.data.aktualizovano ?? c.data.datum;

@@ -9,6 +9,7 @@ import Ilustrace from '../../../../components/Ilustrace.astro';
 import Upozorneni from '../../../../components/Upozorneni.astro';
 import Podpora from '../../../../components/Podpora.astro';
 import EmailPdf from '../../../../components/EmailPdf.astro';
+import Kontrola from '../../../../components/Kontrola.astro';
 import { AKTIVNI_ZEME, strankaPodleSlugu, urlStranky } from '../../../../obsah';
 import type { Balicek, Zeme } from '../../../../obsah/typy';
 import { SOUBORY } from '../../../../sablony/registr';
@@ -26,6 +27,11 @@ const dokumenty = balicek.dokumenty.flatMap((slug) => {
   const st = strankaPodleSlugu(zeme.kod, slug);
   return st ? [st] : [];
 });
+/**
+ * Místní obsah balíčku (ne obecné „jak to funguje“): kroky po podpisu ze všech dokumentů balíčku a kontrola
+ * hlavního dokumentu – podle práva a úřadů země, takže se balíček DE/AT/CH textově liší (kontrola-podobnosti.mjs).
+ */
+const postup = dokumenty.flatMap((st) => st.landing.po).filter((k, i, a) => a.findIndex((x) => x.nazev === k.nazev) === i).slice(0, 6);
 ---
 
 <Base title={balicek.title} description={balicek.description} lang={zeme.jazyk}>
@@ -98,13 +104,13 @@ const dokumenty = balicek.dokumenty.flatMap((slug) => {
     </div>
   </section>
 
-  <section class="sekce" aria-labelledby="jak-nadpis">
+  <section class="sekce" aria-labelledby="po-nadpis">
     <div class="wrap">
       <div class="ram sekce__in">
-        <h2 id="jak-nadpis">{T.jakNadpis}{' '}<span>{T.jakSpan}</span></h2>
+        <h2 id="po-nadpis">{TX.landing.poNadpis}{' '}<span>{TX.landing.poSpan}</span></h2>
         <ol class="kroky">
           {
-            T.jak.map((k) => (
+            postup.map((k) => (
               <li>
                 <h3>{k.nazev}</h3>
                 <p>{k.popis}</p>
@@ -115,6 +121,19 @@ const dokumenty = balicek.dokumenty.flatMap((slug) => {
       </div>
     </div>
   </section>
+
+  {
+    dokumenty[0] && (
+      <section class="sekce" aria-labelledby="kontrola-nadpis">
+        <div class="wrap">
+          <div class="ram sekce__in">
+            <h2 id="kontrola-nadpis">{TX.landing.kontrolaNadpis}{' '}<span>{TX.landing.kontrolaSpan}</span></h2>
+            <Kontrola sablona={dokumenty[0].sablona} />
+          </div>
+        </div>
+      </section>
+    )
+  }
   <Podpora jazyk={zeme.jazyk} />
 </Base>
 

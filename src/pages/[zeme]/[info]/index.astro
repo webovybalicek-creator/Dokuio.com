@@ -12,6 +12,6 @@ export function getStaticPaths() {
 const { s, jazyk, zeme } = Astro.props as { s: InfoStranka; jazyk: string; zeme: string };
 ---
 
-<Text title={s.title} description={s.description} lang={jazyk} zeme={zeme} aktualizovano={s.aktualizovano}>
+<Text title={s.title} description={s.description} lang={jazyk} zeme={zeme} aktualizovano={s.aktualizovano} typ={s.typ}>
   <Fragment set:html={s.html} />
 </Text>

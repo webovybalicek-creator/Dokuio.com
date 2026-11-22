@@ -17,6 +17,8 @@ const vychozi = PODPORA.castky.find((c) => 'doporucene' in c && c.doporucene) ??
 ---
 
 <dialog class="podpora" data-podpora data-stripe={PODPORA.stripe} data-iban={PODPORA.iban} data-prijemce={PODPORA.prijemce} data-castka={PODPORA.castkaKc} data-prispet={T.prispet("{cena}")} data-pauza={PODPORA.pauzaDni} aria-labelledby="podpora-nadpis">
+  <!-- obsah okna je v <template>, aby nebyl součástí indexovaného textu každé stránky; vloží se při první interakci -->
+  <template data-podpora-obsah>
   <button type="button" class="podpora__zavrit" data-podpora-zavrit aria-label={T.zavrit}>
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
   </button>
@@ -119,13 +121,29 @@ const vychozi = PODPORA.castky.find((c) => 'doporucene' in c && c.doporucene) ??
       <button type="button" class="btn btn--duch" data-podpora-zavrit>{T.zavrit}</button>
     </div>
   </div>
+  </template>
 </dialog>
 
 <script>
   import qrcode from 'qrcode-generator';
 
   const dlg = document.querySelector<HTMLDialogElement>('[data-podpora]');
+  /** Okno se naplní až po první interakci uživatele (klik, klávesa, dotyk) – vyhledávače text okna nevidí. */
+  const spust = () => {
+    if (!dlg || dlg.dataset.hotovo) return;
+    dlg.dataset.hotovo = '1';
+    const tpl = dlg.querySelector<HTMLTemplateElement>('template[data-podpora-obsah]');
+    if (tpl) {
+      dlg.append(tpl.content.cloneNode(true));
+      tpl.remove();
+    }
+    init(dlg);
+  };
   if (dlg) {
+    if (/[?&]podpora=1/.test(location.search)) spust();
+    else for (const ev of ['pointerdown', 'keydown', 'touchstart']) addEventListener(ev, spust, { once: true, passive: true, capture: true });
+  }
+  function init(dlg: HTMLDialogElement) {
     const KLIC = 'dokuio:podpora';
     const pauzaDni = Number(dlg.dataset.pauza ?? 30);
     const kroky = [...dlg.querySelectorAll<HTMLElement>('[data-krok]')];

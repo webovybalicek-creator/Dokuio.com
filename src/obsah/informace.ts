@@ -657,6 +657,12 @@ export const INFORMACE: Record<string, InfoStranka[]> = {
 };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */
+/**
+ * Které textové stránky se indexují: podmínky a ochrana údajů nikde (právní text bez hledanosti, mezi zeměmi skoro stejný),
+ * „O nás“ ano, kromě AT a CH (text je téměř shodný s DE). Viz SEO pravidla – unikátnost obsahu.
+ */
+export const indexovatInfo = (zeme: string, typ: TypInfo) => typ === 'onas' && zeme !== 'at' && zeme !== 'ch';
+
 export const INFO_ODKAZY: Record<string, Record<TypInfo, string>> = {
   cz: { onas: '/cz/o-nas/', podminky: '/cz/podminky-uziti/', ochrana: '/cz/ochrana-osobnich-udaju/' },
   ...Object.fromEntries(

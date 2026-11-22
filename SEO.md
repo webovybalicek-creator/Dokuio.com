@@ -47,3 +47,17 @@ Pravidla a kontrola úplnosti v [PREKLADY.md](PREKLADY.md).
 1. Vyplnit `title`/`description` v jazyce země (vlastní text, ne převzatý z jiné země).
 2. `npm run build && node scripts/kontrola-seo.mjs` → 0 chyb, 0 varování.
 3. Po nasazení se změněné stránky samy ohlásí vyhledávačům (IndexNow), Google čte sitemapu.
+
+## Unikátnost obsahu (proti „thin / duplicate content“)
+
+Penalizace za podobnost nehrozí, ale Google podobné stránky nezaindexuje nebo je sloučí. Proto platí pro každou novou i upravenou stránku:
+
+1. **Měřit:** po buildu `node scripts/kontrola-podobnosti.mjs` (běží i v GitHub Actions, nasazení nezastaví). Cíl: žádná dvojice indexovaných stránek nad 80 % shody (pětice slov, Jaccard), šablonový text v jazyce země pod 20 %, u uk/en verzí pod 35 %. `--prah 0.6 --vse` ukáže všechny dvojice nad 60 %.
+2. **Místní obsah místo obecného:** perex, „Pro koho / pro koho ne“, „Po podpisu“ a FAQ každé stránky píšeme pro danou zemi – konkrétní úřad a e-služba (Regitra, e-CSDD, Zulassungsstelle…), lhůty, poplatky, limity hotovosti, zákon. Odvozené země (AT, CH z DE) **nesmí převzít `landing` beze změny** – minimálně vlastní perex, `po`, `hodiSe`/`nehodiSe` a 3 FAQ.
+3. **FAQ podle země:** aspoň 3 otázky, které se v dané zemi opravdu hledají (ne překlad obecných otázek). Obecná otázka o ochraně dat smí být jen jedna.
+4. **Motorka vs. auto a další odvozené vzory:** odvozená stránka má vlastní perex, `po` a FAQ (např. VIN na rámu, výbava, helma, technická kontrola motocyklů) – shoda s „rodičem“ pod 75 %.
+5. **Šablonový text držet krátký:** obecné bloky (kroky, podpora, e-mail) jsou na stránce jednou a stručně; okno podpory je v `<template>` a vkládá se až po interakci, takže se neindexuje. Nové obecné bloky do landingu nepřidávat – každý nový blok musí nést text specifický pro zemi/dokument.
+6. **uk/en verze:** kromě překladu vždy místní kontext pro cizince (co přinést na úřad, zda úřad přijme dvojjazyčnou smlouvu, místní e-služba). Když GSC verze hromadně neindexuje, dát `noindex` všemu kromě rozcestníků.
+7. **Textové stránky:** podmínky užití a ochrana údajů mají `noindex` a nejsou v sitemapě; „O nás“ se indexuje jen tam, kde má vlastní text (AT a CH ne) – řídí `indexovatInfo` v `src/obsah/informace.ts`.
+8. **Balíčky:** stránka balíčku skládá „Po podpisu“ a kontrolu z dokumentů země; vlastní `title`, `description` a `perex` balíčku musí jmenovat zemi a její postup (ne kopie z DE).
+9. **Nestavět stránky bez poptávky** a každou novou stránku prolinkovat z poradny (článek ↔ vzor).

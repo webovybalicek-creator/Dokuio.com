@@ -27,3 +27,7 @@ související dokumenty, OG obrázky, sitemap i hreflang.
 3. Vlajka v `src/components/Vlajka.astro`.
 4. Pro částky slovy v jiném jazyce/měně přidat funkci podobnou `castkaSlovy` (zatím jen česky).
 5. Šablony dané země podle jejích oficiálních zdrojů (viz zadání: bezpečnost).
+
+## Kontrola unikátnosti (povinné)
+
+Po buildu spusť vedle `kontrola-seo.mjs` i `node scripts/kontrola-podobnosti.mjs` a drž se pravidel v SEO.md, oddíl „Unikátnost obsahu“: vlastní perex, „Po podpisu“ a 3 FAQ podle země u každého vzoru (i u odvozených zemí a motorky), žádná dvojice nad 80 % shody.

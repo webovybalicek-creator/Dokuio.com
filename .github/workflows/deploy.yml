@@ -33,6 +33,8 @@ jobs:
 
       - name: Kontrola SEO (lokální metadata každé URL, viz SEO.md)
         run: node scripts/kontrola-seo.mjs
+      - name: Kontrola podobnosti stránek (jen přehled, nezastavuje nasazení)
+        run: node scripts/kontrola-podobnosti.mjs
 
       - name: Nastavení odesílání e-mailů (SMTP ze secretů)
         if: env.SMTP_PASSWORD != ''
