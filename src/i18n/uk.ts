@@ -357,6 +357,7 @@ const JAZYK_ZEME: Record<string, string> = {
   el: 'грецькою',
   et: 'естонською',
   lv: 'латиською',
+  lt: 'литовською',
   en: 'англійською',
 };
 const ukVerzeJazyk = (j: string) => JAZYK_ZEME[j] ?? j;
@@ -376,6 +377,7 @@ const ZEME: TextyVerze['zeme'] = {
   gr: { n: 'Греція', g: 'Греції', v: 'у Греції' },
   ee: { n: 'Естонія', g: 'Естонії', v: 'в Естонії' },
   lv: { n: 'Латвія', g: 'Латвії', v: 'в Латвії' },
+  lt: { n: 'Литва', g: 'Литви', v: 'в Литві' },
 };
 
 export const ukVerze: TextyVerze = {

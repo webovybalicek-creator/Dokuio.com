@@ -134,7 +134,7 @@ Dāvinājuma līgums pierāda, ka nauda bija dāvana, nevis aizdevums vai ienāk
 Tuvi radinieki – bez nodokļa. Citi – līdz 1425 eiro gadā. Lielākiem dāvinājumiem līgums un deklarācija.
 ''')
 
-c('dzivokla-izireshana','Dzīvokļa izīrēšana: līgums, drošības nauda un nodokļi','Dzīvokļa izīrēšana',
+c('dzivokla-iziresana','Dzīvokļa izīrēšana: līgums, drošības nauda un nodokļi','Dzīvokļa izīrēšana',
  'Kā izīrēt dzīvokli pēc Dzīvojamo telpu īres likuma: rakstveida līgums uz noteiktu termiņu, drošības nauda līdz 2 mēnešiem, akts un zemesgrāmata.',
  'Līgums rakstveidā un uz noteiktu termiņu, drošības nauda ne vairāk kā divu mēnešu īres maksa. Akts ar skaitītājiem nodošanas dienā.',
  'majoklis','ire',['ires-ligums','dzivokla-nodosanas-akts'],

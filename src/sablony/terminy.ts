@@ -76,6 +76,15 @@ const SVATKY: Record<string, (rok: number) => string[]> = {
       posun(1), // Otrās Lieldienas
     ];
   },
+  /** Darbo kodekso 123 str.: Velykos (sekmadienis ir pirmadienis), Joninės, Vėlinės, Kūčios */
+  lt: (rok) => {
+    const v = velikonoce(rok);
+    return [
+      ...['01-01', '02-16', '03-11', '05-01', '06-24', '07-06', '08-15', '11-01', '11-02', '12-24', '12-25', '12-26'].map((x) => `${rok}-${x}`),
+      iso(v),
+      iso(new Date(v.getFullYear(), v.getMonth(), v.getDate() + 1)),
+    ];
+  },
   sk: (rok) => {
     const v = velikonoce(rok);
     const posun = (dni: number) => iso(new Date(v.getFullYear(), v.getMonth(), v.getDate() + dni));

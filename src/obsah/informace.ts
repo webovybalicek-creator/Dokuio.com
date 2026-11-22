@@ -479,6 +479,56 @@ const EE: InfoStranka[] = [
 ];
 
 
+const LT: InfoStranka[] = [
+  {
+    typ: 'onas',
+    slug: 'apie-mus',
+    title: 'Dokuio – sutarčių pavyzdžiai nemokamai PDF formatu',
+    description: 'Dokuio.com – sutarčių pavyzdžiai nemokamai PDF ir Word formatu. Kas yra už svetainės ir kaip rengiami pavyzdžiai (Lietuva).',
+    html: `<p class="text-stranka__vytah">Dokuio sukurtas tam, kad kiekvienas galėtų greitai ir nemokamai parengti paprastą sutartį – pavyzdžiui, parduodamas automobilį. Be registracijos, be mokesčio ir be sudėtingos teisinės kalbos.</p>
+<h2>Kaip rengiami pavyzdžiai</h2>
+<ul><li>Tekstai remiasi galiojančiais Lietuvos įstatymais ir oficialiais šaltiniais (Civilinis kodeksas, Darbo kodeksas, e-TAR, Regitra, VMI, Your Europe), o ne dirbtiniu intelektu.</li>
+<li>Kiekvienas pavyzdys turi versijos numerį ir pakeitimo datą – jie matomi puslapyje ir PDF poraštėje. QR kodas PDF faile veda į versijos patikrinimą.</li>
+<li>Prie kiekvieno lauko yra paaiškinimas, o kiekviename dokumente – patarimai „Patikrinkite prieš pasirašydami“.</li>
+<li>Sąmoningai vengiame sudėtingų sąlygų. Paprastas ir subalansuotas tekstas įprastose situacijose yra saugesnis.</li></ul>
+<h2>Kodėl nemokamai</h2><p>Norime, kad pagrindiniai dokumentai būtų prieinami visiems. Svetainės veiklą finansuojame patys ir savanoriškomis naudotojų aukomis.</p>
+<h2>Kontaktai</h2><p>${p.nazev}<br />IČO (registracijos numeris Čekijoje) ${p.ico}<br />${p.sidlo}, Čekija<br />El. paštas: ${e}</p>
+<p>Radote klaidą pavyzdyje ar trūksta kokio nors dokumento? Parašykite mums – perskaitome kiekvieną laišką.</p>`,
+  },
+  {
+    typ: 'podminky',
+    slug: 'naudojimo-salygos',
+    title: 'Naudojimo sąlygos',
+    description: 'Dokuio.com naudojimo sąlygos – sutarčių pavyzdžiai nemokamai PDF ir Word formatu: paslauga, atsakomybė ir pavyzdžių naudojimas.',
+    aktualizovano: AKT,
+    html: `<h2>1. Paslaugos teikėjas</h2><p>Svetainę dokuio.com valdo ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Čekija („paslaugos teikėjas“). Kontaktai: ${e}.</p>
+<h2>2. Ką siūlo Dokuio</h2><p>Paprastų sutarčių ir dokumentų pavyzdžius, kuriuos naudotojas pildo internetiniame vedlyje arba atsisiunčia tuščius PDF ar Word formatu. Paslauga yra <strong>nemokama</strong> ir nereikalauja registracijos.</p>
+<h2>3. Tai nėra teisinė konsultacija</h2><p>Pavyzdžius siūlome sąžiningai kaip visuomenei naudingą paslaugą. Jie remiasi galiojančia teise, tačiau <strong>nėra teisinė konsultacija</strong> ir tinka ne kiekvienai situacijai. Paslaugos teikėjas nėra advokatas ir nėra naudotojų sudaromų sutarčių šalis.</p>
+<h2>4. Naudotojo atsakomybė</h2><p>Už sutarties turinį, pakeitimus, pildymą ir naudojimą visiškai atsako naudotojas. Prieš pasirašydami atidžiai perskaitykite sutartį. Naudotojo redaguotas tekstas nebėra mūsų pavyzdžio dalis – PDF faile jis pažymėtas.</p>
+<h2>5. Atsakomybės ribojimas</h2><p>Kiek leidžia įstatymai, paslaugos teikėjas neatsako už žalą, atsiradusią dėl pavyzdžių naudojimo, netinkamo pildymo ar naudojimo kitam tikslui. Tai neriboja vartotojo teisių, kurių negalima apriboti.</p>
+<h2>6. Savanoriška parama</h2><p>Svetainės veiklą galima savanoriškai paremti per Stripe. Mokėjimas nėra naudojimosi sąlyga ir nesuteikia teisės į papildomas paslaugas. Jei sumokėjote per klaidą, parašykite mums per 14 dienų – sumą grąžinsime.</p>
+<h2>7. Pavyzdžių naudojimas</h2><p>Pavyzdžius galite naudoti savo reikmėms, redaguoti ir dalintis užpildyta sutartimi su kita šalimi. Masiškai kopijuoti, platinti ar parduoti pavyzdžius kaip savo rinkinį be paslaugos teikėjo sutikimo draudžiama.</p>
+<h2>8. Baigiamosios nuostatos</h2><p>Sąlygoms taikoma Čekijos teisė; tai neturi įtakos privalomoms jūsų gyvenamosios valstybės vartotojų apsaugos normoms. Asmens duomenų tvarkymas aprašytas puslapyje <a href="/lt/asmens-duomenu-apsauga/">Asmens duomenų apsauga</a>.</p>`,
+  },
+  {
+    typ: 'ochrana',
+    slug: 'asmens-duomenu-apsauga',
+    title: 'Asmens duomenų apsauga',
+    description: 'Kaip Dokuio.com tvarko asmens duomenis. Sutarčių duomenys lieka jūsų naršyklėje, lankomumas matuojamas tik jums sutikus.',
+    aktualizovano: AKT,
+    html: `<p class="text-stranka__vytah"><strong>Trumpai:</strong> ką įrašote į sutartį, niekur nesiunčiame. Sutartis kuriama tiesiai jūsų naršyklėje. Analitinius slapukus naudojame tik jums sutikus.</p>
+<h2>1. Duomenų valdytojas</h2><p>Duomenų valdytojas – ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Čekija, el. paštas ${e}.</p>
+<h2>2. Sutarčių duomenys</h2><p>Vardus, adresus, transporto priemonės ir kitus vedlio duomenis tvarko tik jūsų naršyklė; <strong>jie nesiunčiami į mūsų serverį ir mes jų nesaugome</strong>. Pradėtą dokumentą naršyklė išsaugo vietinėje atmintyje (localStorage) tik jūsų įrenginyje; jį galite ištrinti vedlyje arba išvalę naršyklės duomenis. Ekrane nupieštų parašų nesaugome.</p>
+<p><strong>Nuoroda kitai šaliai:</strong> įvesti duomenys užkoduojami nuorodoje (po ženklo #, kurio naršyklė į serverį nesiunčia). Siųskite nuorodą tik kitai sutarties šaliai.</p>
+<p><strong>PDF siuntimas el. paštu:</strong> naršyklė perduoda paruoštą PDF ir nurodytą adresą mūsų serveriui, kuris laišką išsiunčia vieną kartą ir nieko nesaugo. Siekiant išvengti piktnaudžiavimo, serveris 24 valandas saugo tik IP adresą, negrįžtamą el. pašto adreso atspaudą ir siuntimo laiką (teisinis pagrindas – teisėtas interesas, BDAR 6 straipsnio 1 dalies f punktas).</p>
+<h2>3. Naudotojų atsiliepimai</h2><p>Atsiliepimo tekstą saugome kartu su data ir puslapio adresu, be vardo ir el. pašto, ne ilgiau kaip 2 metus.</p>
+<h2>4. Mokėjimai</h2><p>Mokėjimus kortele tvarko Stripe Payments Europe, Ltd.; kortelių duomenų mes nematome. Iš Stripe gauname mokėtojo el. paštą, sumą ir datą, kuriuos saugome pagal apskaitos taisykles.</p>
+<h2>5. Analitika ir slapukai</h2><p>Jei juostoje sutinkate, anoniminiam lankomumo matavimui naudojame Google Analytics 4 (Google Ireland Ltd.) (BDAR 6 straipsnio 1 dalies a punktas); ES Google IP adresų nesaugo. Be sutikimo analitika neįkeliama ir slapukai nenaudojami. Sutikimą bet kada galite pakeisti nuoroda „Slapukų nustatymai“ puslapio apačioje.</p>
+<h2>6. Prieglobos paslauga</h2><p>Svetainė veikia Exon serveriuose Čekijoje, kurie saugumo tikslais trumpai saugo techninius prisijungimo žurnalus. Patarimų nuotraukos įkeliamos iš Unsplash (images.unsplash.com), todėl ši paslauga mato jūsų IP adresą.</p>
+<h2>7. Jūsų teisės</h2><p>Turite teisę susipažinti su savo duomenimis, juos ištaisyti ir ištrinti, apriboti jų tvarkymą ir nesutikti su juo. Rašykite ${e}. Skundą galite pateikti Valstybinei duomenų apsaugos inspekcijai (<a href="https://vdai.lrv.lt" rel="noopener">vdai.lrv.lt</a>) arba Čekijos priežiūros institucijai (ÚOOÚ).</p>`,
+  },
+];
+
 const LV: InfoStranka[] = [
   {
     typ: 'onas',
@@ -603,6 +653,7 @@ export const INFORMACE: Record<string, InfoStranka[]> = {
   gr: GR,
   ee: EE,
   lv: LV,
+  lt: LT,
 };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */

@@ -34,10 +34,10 @@ const zemeStranky = ZEME.find((z) => z.kod === zemeCesty);
 const verze = jazykVerze ? JAZYKY_VERZI[jazykVerze] : undefined;
 const htmlLang = verze && zemeStranky ? `${verze.hreflang}-${zemeStranky.hreflang.split('-')[1]}` : (zemeStranky?.hreflang ?? lang);
 const ogLocale = verze ? verze.ogLocale : zemeStranky ? zemeStranky.hreflang.replace('-', '_') : (P?.ogLocale ?? 'en_US');
-const zemeKodPaticky = INFO_ODKAZY[zemeCesty] ? zemeCesty : ({ sk: 'sk', pl: 'pl', de: 'de', hu: 'hu', hr: 'hr', sl: 'si', ro: 'ro', bg: 'bg', el: 'gr', et: 'ee', lv: 'lv' } as Record<string, string>)[lang] ?? 'cz';
+const zemeKodPaticky = INFO_ODKAZY[zemeCesty] ? zemeCesty : ({ sk: 'sk', pl: 'pl', de: 'de', hu: 'hu', hr: 'hr', sl: 'si', ro: 'ro', bg: 'bg', el: 'gr', et: 'ee', lv: 'lv', lt: 'lt' } as Record<string, string>)[lang] ?? 'cz';
 // Poradna se nepřekládá – na stránkách jazykových verzí se nezobrazuje (PREKLADY.md)
 const poradna = verze ? undefined : PORADNY[zemeKodPaticky];
-const odkazy = INFO_ODKAZY[zemeCesty] ?? INFO_ODKAZY[({ sk: 'sk', pl: 'pl', de: 'de', hu: 'hu', hr: 'hr', sl: 'si', ro: 'ro', bg: 'bg', el: 'gr', et: 'ee', lv: 'lv' } as Record<string, string>)[lang] ?? 'cz'];
+const odkazy = INFO_ODKAZY[zemeCesty] ?? INFO_ODKAZY[({ sk: 'sk', pl: 'pl', de: 'de', hu: 'hu', hr: 'hr', sl: 'si', ro: 'ro', bg: 'bg', el: 'gr', et: 'ee', lv: 'lv', lt: 'lt' } as Record<string, string>)[lang] ?? 'cz'];
 // Značku přidat jen tam, kde se titulek vejde do ~60 znaků (Google delší ořízne)
 const fullTitle = title.includes(SITE.nazev) || title.length > 50 ? title : `${title} | ${SITE.nazev}`;
 ---

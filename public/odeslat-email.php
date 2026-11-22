@@ -48,7 +48,7 @@ if (!in_array($puvod, $povolene, true)) odpoved(403, 'puvod');
 if (trim((string)($_POST['web'] ?? '')) !== '') odpoved(200, 'odeslano'); // past na roboty: tvářit se, že OK
 $email = trim((string)($_POST['email'] ?? ''));
 if ($email === '' || strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) odpoved(400, 'email');
-$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg', 'el', 'et', 'lv'], true) ? (string)$_POST['jazyk'] : 'cs';
+$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg', 'el', 'et', 'lv', 'lt'], true) ? (string)$_POST['jazyk'] : 'cs';
 $nazev = mb_substr(trim(strip_tags((string)($_POST['nazev'] ?? ''))), 0, 120) ?: 'Dokument';
 $soubor = substr(preg_replace('~[^a-z0-9-]~', '', strtolower((string)($_POST['soubor'] ?? ''))) ?: 'dokument', 0, 80);
 $zeme = preg_replace('~[^a-z]~', '', (string)($_POST['zeme'] ?? '')) ?: 'cz';
@@ -205,6 +205,17 @@ $T = [
         'podporaText' => 'Dokuio on tasuta, ilma reklaamide ja registreerimiseta. Servereid, põhjade kontrolli ja uusi dokumente maksame väikeste annetustega neilt, keda aitasime.',
         'podporaTl' => 'Tehke meile välja kohv (umbes 1,25 €)',
         'pata' => 'Tellisite selle sõnumi lehel dokuio.com. Palun ärge vastake.',
+    ],
+    'lt' => [
+        'predmet' => 'Jūsų dokumentas PDF formatu: %s (Dokuio)',
+        'nadpis' => 'Siunčiame jums dokumentą priede',
+        'text' => 'Siunčiame jums dokumentą <strong>%s</strong> PDF formatu. Prieš pasirašydami atidžiai jį perskaitykite ir patikrinkite visus duomenis.',
+        'pravni' => 'Pavyzdį siūlome nemokamai ir sąžiningai, tai nėra teisinė konsultacija. Už dokumento turinį ir naudojimą atsakote jūs.',
+        'soukromi' => 'Dokumentą išsiuntėme tik jūsų prašymu ir niekur jo nesaugome.',
+        'podporaNadpis' => 'Ar sutaupėme jums laiko?',
+        'podporaText' => 'Dokuio yra nemokamas, be reklamų ir registracijos. Serverius, pavyzdžių tikrinimą ir naujus dokumentus apmokame nedidelėmis aukomis tų, kuriems padėjome.',
+        'podporaTl' => 'Pavaišinkite mus kava (apie 1,25 €)',
+        'pata' => 'Šio laiško paprašėte svetainėje dokuio.com. Prašome į jį neatsakyti.',
     ],
     'lv' => [
         'predmet' => 'Jūsu dokuments PDF formātā: %s (Dokuio)',
