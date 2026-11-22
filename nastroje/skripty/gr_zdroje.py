@@ -1,0 +1,15 @@
+import sys; sys.path.insert(0,'/home/claude/skripty')
+from clanek import clanek
+AK=('Αστικός Κώδικας (Taxheaven – π.δ. 456/1984)','https://www.taxheaven.gr/law/%CE%A0.%CE%94.456/1984')
+METAV=('Μεταβίβαση οχήματος ιδιωτικής χρήσης – ψηφιακά (gov.gr)','https://www.gov.gr/org/yme/metakineseis/metabibase-okhematos-idiotikes-khreses-ikh')
+METR=('Συναλλαγές από 500 € μόνο με ηλεκτρονικά μέσα – ν. 5301/2026, άρθρο 77','https://www.taxheaven.gr/law/5301/2026/arthro/77')
+DOR=('Φορολογία δωρεών και γονικών παροχών (ΑΑΔΕ)','https://www.aade.gr/omogeneis-katoikoi-exoterikoy/kefalaio/forologia-doreon-kai-gonikon-parohon')
+DOR800=('Αφορολόγητο 800.000 € – Κώδικας Φορολογίας Περιουσίας, άρθρο 98','https://www.taxheaven.gr/law/5219/2025/arthro/98')
+MISTH=('Δηλώσεις μίσθωσης ακινήτων (ΑΑΔΕ)','https://www.aade.gr/polites/eisodima/diloseis-misthosis-akiniton')
+YPAN=('Δικαίωμα υπαναχώρησης 14 ημερών (Your Europe)','https://europa.eu/youreurope/citizens/consumers/shopping/returns/index_el.htm')
+EGG=('Νόμιμη εγγύηση 2 ετών (Your Europe)','https://europa.eu/youreurope/citizens/consumers/shopping/guarantees/index_el.htm')
+ERG=('Αναγγελία λύσης σύμβασης εργασίας – π.δ. 62/2025, άρθρο 330','https://www.taxheaven.gr/law/%CE%A0.%CE%94.62/2025/arthro/330')
+ANIL=('Ταξιδιωτικά έγγραφα για ανηλίκους (Υπουργείο Εξωτερικών)','https://www.mfa.gr/services/dioikitikes-upotheseis/taxidiotika-eggrapha-gia-anelikous-ellada/')
+YPEU=('Υπεύθυνη δήλωση και e-dilosi – άρθρο 8 ν. 1599/1986 (Μίτος)','https://mitos.gov.gr/index.php/%CE%94%CE%94:%CE%A5%CF%80%CE%B5%CF%8D%CE%B8%CF%85%CE%BD%CE%B7_%CE%B4%CE%AE%CE%BB%CF%89%CF%83%CE%B7_%CE%BA%CE%B1%CE%B9_%CE%B7%CE%BB%CE%B5%CE%BA%CF%84%CF%81%CE%BF%CE%BD%CE%B9%CE%BA%CE%AE_%CF%85%CF%80%CE%B5%CF%8D%CE%B8%CF%85%CE%BD%CE%B7_%CE%B4%CE%AE%CE%BB%CF%89%CF%83%CE%B7')
+def c(slug, title, nazev, desc, perex, kat, tema, dok, slova, zdroje, faq, telo):
+    clanek('gr', slug, dict(title=title, nazev=nazev, description=desc, perex=perex, kategorie=kat, tema=tema, dokumenty=dok, slova=slova, zdroje=zdroje, faq=faq), telo)
