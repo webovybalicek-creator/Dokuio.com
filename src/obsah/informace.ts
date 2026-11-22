@@ -428,6 +428,57 @@ const GR: InfoStranka[] = [
   },
 ];
 
+const EE: InfoStranka[] = [
+  {
+    typ: 'onas',
+    slug: 'meist',
+    title: 'Dokuio – tasuta lepingunäidised PDF-ina',
+    description: 'Dokuio.com – tasuta lepingunäidised PDF-i ja Wordina. Kes on lehe taga ja kuidas näidiseid koostatakse (Eesti).',
+    html: `<p class="text-stranka__vytah">Dokuio on olemas selleks, et igaüks saaks kiiresti ja tasuta koostada lihtsa lepingu – näiteks auto müümisel. Ilma registreerimise, maksmise ja keerulise juriidilise keeleta.</p>
+<h2>Kuidas näidiseid koostatakse</h2>
+<ul><li>Tekstid põhinevad kehtivatel Eesti seadustel ja ametlikel allikatel (võlaõigusseadus, töölepingu seadus, Riigi Teataja, Transpordiamet, Maksu- ja Tolliamet, Your Europe), mitte tehisintellektil.</li>
+<li>Igal põhjal on versiooninumber ja muutmise kuupäev – need on näha lehel ja PDF-i jaluses. PDF-i QR-kood viib versiooni kontrollini.</li>
+<li>Iga välja juures on selgitus ja igas dokumendis näpunäited „Kontrollige enne allkirjastamist“.</li>
+<li>Väldime teadlikult keerulisi tingimusi. Lihtne ja tasakaalus tekst on tavaolukordades turvalisem.</li></ul>
+<h2>Miks tasuta</h2><p>Soovime, et põhilised dokumendid oleksid kõigile kättesaadavad. Lehe tööd rahastame ise ja kasutajate vabatahtlike annetustega.</p>
+<h2>Kontakt</h2><p>${p.nazev}<br />IČO (registrikood Tšehhis) ${p.ico}<br />${p.sidlo}, Tšehhi<br />E-post: ${e}</p>
+<p>Leidsite mõnes põhjas vea või jääb teil dokument puudu? Kirjutage meile – loeme iga sõnumi.</p>`,
+  },
+  {
+    typ: 'podminky',
+    slug: 'kasutustingimused',
+    title: 'Kasutustingimused',
+    description: 'Dokuio.com kasutustingimused – tasuta lepingunäidised PDF-i ja Wordina: teenus, vastutus ja näidiste kasutamine.',
+    aktualizovano: AKT,
+    html: `<h2>1. Teenuse osutaja</h2><p>Veebilehte dokuio.com haldab ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Tšehhi („teenuse osutaja“). Kontakt: ${e}.</p>
+<h2>2. Mida Dokuio pakub</h2><p>Lihtsate lepingute ja dokumentide põhju, mida kasutaja täidab veebijuhendis või laadib tühjana alla PDF-i või Wordina. Teenus on <strong>tasuta</strong> ega nõua registreerimist.</p>
+<h2>3. Ei ole õigusnõu</h2><p>Pakume põhju heas usus avaliku teenusena. Need põhinevad kehtival õigusel, kuid <strong>ei ole õigusnõu</strong> ega sobi igaks olukorraks. Teenuse osutaja ei ole advokaat ega kasutajate sõlmitud lepingute pool.</p>
+<h2>4. Kasutaja vastutus</h2><p>Lepingu sisu, muudatuste, täitmise ja kasutamise eest vastutab täielikult kasutaja. Lugege leping enne allkirjastamist hoolikalt läbi. Kasutaja muudetud tekst ei ole enam osa meie põhjast – PDF-is on see märgitud.</p>
+<h2>5. Vastutuse piiramine</h2><p>Teenuse osutaja ei vastuta seadusega lubatud ulatuses kahju eest, mis tekib põhjade kasutamisest, valest täitmisest või kasutamisest muul eesmärgil. See ei mõjuta tarbija õigusi, mida ei saa piirata.</p>
+<h2>6. Vabatahtlik toetus</h2><p>Lehe tööd saab vabatahtlikult toetada Stripe’i kaudu. Makse ei ole kasutamise eeltingimus ega anna õigust lisateenustele. Kui maksite kogemata, kirjutage meile 14 päeva jooksul – tagastame summa.</p>
+<h2>7. Põhjade kasutamine</h2><p>Võite põhju kasutada oma tarbeks, neid muuta ja täidetud lepingut teise poolega jagada. Põhjade massiline kopeerimine, levitamine või müümine oma kogumikuna ilma teenuse osutaja nõusolekuta ei ole lubatud.</p>
+<h2>8. Lõppsätted</h2><p>Tingimustele kohaldatakse Tšehhi õigust; see ei mõjuta teie elukohariigi kohustuslikke tarbijakaitse norme. Isikuandmete töötlemist kirjeldab leht <a href="/ee/isikuandmete-kaitse/">Isikuandmete kaitse</a>.</p>`,
+  },
+  {
+    typ: 'ochrana',
+    slug: 'isikuandmete-kaitse',
+    title: 'Isikuandmete kaitse',
+    description: 'Kuidas Dokuio.com isikuandmeid töötleb. Lepingute andmed jäävad teie brauserisse, külastatavuse mõõtmine ainult nõusolekul.',
+    aktualizovano: AKT,
+    html: `<p class="text-stranka__vytah"><strong>Lühidalt:</strong> mida lepingusse kirjutate, seda me kuhugi ei saada. Leping luuakse otse teie brauseris. Analüüsiküpsiseid kasutame ainult teie nõusolekul.</p>
+<h2>1. Vastutav töötleja</h2><p>Vastutav töötleja on ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Tšehhi, e-post ${e}.</p>
+<h2>2. Lepingute andmed</h2><p>Nimesid, aadresse, sõiduki andmeid ja muid juhendi andmeid töötleb ainult teie brauser; <strong>neid ei saadeta meie serverisse ja me ei salvesta neid</strong>. Pooleli oleva dokumendi salvestab brauser kohalikku mällu (localStorage) ainult teie seadmes; selle saate kustutada juhendis või brauseri andmeid kustutades. Ekraanil joonistatud allkirju me ei salvesta.</p>
+<p><strong>Link teisele poolele:</strong> sisestatud andmed on kodeeritud lingi sisse (märgi # järele, mida brauser serverisse ei saada). Saatke link ainult teisele lepingupoolele.</p>
+<p><strong>PDF-i saatmine e-postiga:</strong> brauser saadab valmis PDF-i ja antud aadressi meie serverisse, mis saadab sõnumi ühe korra ega salvesta midagi. Kuritarvituste vältimiseks hoiab server 24 tundi ainult IP-aadressi ja e-posti pöördumatut jälge ning saatmise aega (õiguslik alus: õigustatud huvi, isikuandmete kaitse üldmääruse art 6 lg 1 p f).</p>
+<h2>3. Kasutajate tagasiside</h2><p>Tagasiside teksti salvestame koos kuupäeva ja lehe aadressiga, ilma nime ja e-postita, kõige rohkem 2 aastat.</p>
+<h2>4. Maksed</h2><p>Kaardimakseid töötleb Stripe Payments Europe, Ltd.; kaardiandmeid me ei näe. Stripe’ilt saame maksja e-posti, summa ja kuupäeva, mida säilitame raamatupidamisreeglite kohaselt.</p>
+<h2>5. Analüüs ja küpsised</h2><p>Kui annate bänneris nõusoleku, kasutame külastatavuse anonüümseks mõõtmiseks Google Analytics 4 (Google Ireland Ltd.) (isikuandmete kaitse üldmääruse art 6 lg 1 p a); Google ei salvesta ELis IP-aadresse. Ilma nõusolekuta analüüsi ei laadita ja küpsiseid ei kasutata. Nõusolekut saate igal ajal muuta lehe allosas oleva lingi „Küpsiste seaded“ kaudu.</p>
+<h2>6. Majutus</h2><p>Leht töötab ettevõtte Exon serverites Tšehhis, mis hoiab turvalisuse huvides lühiajaliselt tehnilisi juurdepääsulogisid. Nõuande fotod laaditakse teenusest Unsplash (images.unsplash.com), mis näeb seega teie IP-aadressi.</p>
+<h2>7. Teie õigused</h2><p>Teil on õigus tutvuda oma andmetega, neid parandada ja kustutada, piirata nende töötlemist ja esitada vastuväiteid. Kirjutage aadressil ${e}. Kaebuse võite esitada Andmekaitse Inspektsioonile (<a href="https://www.aki.ee" rel="noopener">aki.ee</a>) või Tšehhi järelevalveasutusele (ÚOOÚ).</p>`,
+  },
+];
+
+
 /* ------------------------------------------------------------------ německy (DE i AT) */
 const de = (zeme: 'de' | 'at' | 'ch'): InfoStranka[] => {
   const behoerde =
@@ -500,6 +551,7 @@ export const INFORMACE: Record<string, InfoStranka[]> = {
   ro: RO,
   bg: BG,
   gr: GR,
+  ee: EE,
 };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */

@@ -48,7 +48,7 @@ if (!in_array($puvod, $povolene, true)) odpoved(403, 'puvod');
 if (trim((string)($_POST['web'] ?? '')) !== '') odpoved(200, 'odeslano'); // past na roboty: tvářit se, že OK
 $email = trim((string)($_POST['email'] ?? ''));
 if ($email === '' || strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) odpoved(400, 'email');
-$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg', 'el'], true) ? (string)$_POST['jazyk'] : 'cs';
+$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg', 'el', 'et'], true) ? (string)$_POST['jazyk'] : 'cs';
 $nazev = mb_substr(trim(strip_tags((string)($_POST['nazev'] ?? ''))), 0, 120) ?: 'Dokument';
 $soubor = substr(preg_replace('~[^a-z0-9-]~', '', strtolower((string)($_POST['soubor'] ?? ''))) ?: 'dokument', 0, 80);
 $zeme = preg_replace('~[^a-z]~', '', (string)($_POST['zeme'] ?? '')) ?: 'cz';
@@ -194,6 +194,17 @@ $T = [
         'podporaText' => 'Το Dokuio είναι δωρεάν, χωρίς διαφημίσεις και χωρίς εγγραφή. Τους διακομιστές, τον έλεγχο των υποδειγμάτων και τα νέα έγγραφα τα πληρώνουμε με μικρές δωρεές από όσους βοηθήσαμε.',
         'podporaTl' => 'Κεράστε μας έναν καφέ (περίπου 1,25 €)',
         'pata' => 'Ζητήσατε αυτό το μήνυμα στο dokuio.com. Παρακαλούμε μην απαντήσετε.',
+    ],
+    'et' => [
+        'predmet' => 'Teie dokument PDF-ina: %s (Dokuio)',
+        'nadpis' => 'Saadame teile dokumendi manusena',
+        'text' => 'Saadame teile dokumendi <strong>%s</strong> PDF-vormingus. Enne allkirjastamist lugege see hoolikalt läbi ja kontrollige kõiki andmeid.',
+        'pravni' => 'Põhja pakume tasuta ja heas usus, see ei ole õigusnõu. Dokumendi sisu ja kasutamise eest vastutate teie.',
+        'soukromi' => 'Saatsime dokumendi ainult teie soovil ega salvesta seda kuskile.',
+        'podporaNadpis' => 'Kas säästsime teie aega?',
+        'podporaText' => 'Dokuio on tasuta, ilma reklaamide ja registreerimiseta. Servereid, põhjade kontrolli ja uusi dokumente maksame väikeste annetustega neilt, keda aitasime.',
+        'podporaTl' => 'Tehke meile välja kohv (umbes 1,25 €)',
+        'pata' => 'Tellisite selle sõnumi lehel dokuio.com. Palun ärge vastake.',
     ],
 ][$jazyk];
 

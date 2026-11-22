@@ -50,6 +50,13 @@ const SVATKY: Record<string, (rok: number) => string[]> = {
       posun(1), // Velikonoční pondělí
     ];
   },
+  ee: (rok) => {
+    const v = velikonoce(rok);
+    return [
+      ...['01-01', '02-24', '05-01', '06-23', '06-24', '08-20', '12-24', '12-25', '12-26'].map((x) => `${rok}-${x}`),
+      iso(new Date(v.getFullYear(), v.getMonth(), v.getDate() - 2)), // suur reede
+    ];
+  },
   sk: (rok) => {
     const v = velikonoce(rok);
     const posun = (dni: number) => iso(new Date(v.getFullYear(), v.getMonth(), v.getDate() + dni));
