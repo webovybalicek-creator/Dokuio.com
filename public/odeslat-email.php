@@ -48,7 +48,7 @@ if (!in_array($puvod, $povolene, true)) odpoved(403, 'puvod');
 if (trim((string)($_POST['web'] ?? '')) !== '') odpoved(200, 'odeslano'); // past na roboty: tvářit se, že OK
 $email = trim((string)($_POST['email'] ?? ''));
 if ($email === '' || strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) odpoved(400, 'email');
-$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg'], true) ? (string)$_POST['jazyk'] : 'cs';
+$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg', 'el'], true) ? (string)$_POST['jazyk'] : 'cs';
 $nazev = mb_substr(trim(strip_tags((string)($_POST['nazev'] ?? ''))), 0, 120) ?: 'Dokument';
 $soubor = substr(preg_replace('~[^a-z0-9-]~', '', strtolower((string)($_POST['soubor'] ?? ''))) ?: 'dokument', 0, 80);
 $zeme = preg_replace('~[^a-z]~', '', (string)($_POST['zeme'] ?? '')) ?: 'cz';
@@ -183,6 +183,17 @@ $T = [
         'podporaText' => 'Dokuio е безплатен, без реклами и без регистрация. Сървърите, проверката на образците и новите документи плащаме с малки дарения от тези, на които сме помогнали.',
         'podporaTl' => 'Почерпете ни с кафе (около 1,25 €)',
         'pata' => 'Поискахте това съобщение на dokuio.com. Моля, не отговаряйте на него.',
+    ],
+    'el' => [
+        'predmet' => 'Το έγγραφό σας σε PDF: %s (Dokuio)',
+        'nadpis' => 'Σας στέλνουμε το έγγραφο στο συνημμένο αρχείο',
+        'text' => 'Σας στέλνουμε το έγγραφο <strong>%s</strong> σε μορφή PDF. Πριν το υπογράψετε, διαβάστε το προσεκτικά και ελέγξτε όλα τα στοιχεία.',
+        'pravni' => 'Το υπόδειγμα το προσφέρουμε δωρεάν και καλόπιστα, δεν αποτελεί νομική συμβουλή. Για το περιεχόμενο και τη χρήση του εγγράφου ευθύνεστε εσείς.',
+        'soukromi' => 'Στείλαμε το έγγραφο μόνο κατόπιν αιτήματός σας και δεν το αποθηκεύουμε πουθενά.',
+        'podporaNadpis' => 'Σας γλιτώσαμε χρόνο;',
+        'podporaText' => 'Το Dokuio είναι δωρεάν, χωρίς διαφημίσεις και χωρίς εγγραφή. Τους διακομιστές, τον έλεγχο των υποδειγμάτων και τα νέα έγγραφα τα πληρώνουμε με μικρές δωρεές από όσους βοηθήσαμε.',
+        'podporaTl' => 'Κεράστε μας έναν καφέ (περίπου 1,25 €)',
+        'pata' => 'Ζητήσατε αυτό το μήνυμα στο dokuio.com. Παρακαλούμε μην απαντήσετε.',
     ],
 ][$jazyk];
 

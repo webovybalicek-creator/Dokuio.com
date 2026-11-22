@@ -237,3 +237,5 @@ export const velke = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 
 export type Hodnota = string | string[] | undefined;
 export type Data = Record<string, Hodnota>;
+/** Verzálky; v řečtině bez tonosu (ΠΏΛΗΣΗ → ΠΩΛΗΣΗ), jinde beze změny diakritiky */
+export const verzalky = (t: string) => t.toUpperCase().normalize('NFD').replace(/([Ͱ-Ͽ])́/g, '$1').normalize('NFC');

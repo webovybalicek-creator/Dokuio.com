@@ -6,6 +6,7 @@
 import { AKTIVNI_ZEME, VSECHNY_STRANKY, urlStranky } from '../obsah';
 import { JAZYKY_VERZI, TEXTY, type Jazyk } from '../i18n';
 import { ROZCESTNIKY_VERZI, VERZE } from '../preklady';
+import { verzalky } from '../sablony/typy';
 
 export interface OgStranka {
   slug: string;
@@ -111,7 +112,7 @@ export function ogSvg(p: OgStranka): string {
   <g transform="translate(828 120) rotate(4)">
     <rect width="300" height="400" rx="10" fill="#fff"/>
     <rect width="300" height="400" rx="10" fill="none" stroke="#0a2540" stroke-opacity=".08"/>
-    ${papir.map((t, i) => `<text x="150" y="${58 + i * 24}" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="19" fill="#0a2540">${esc(t.toUpperCase())}</text>`).join('')}
+    ${papir.map((t, i) => `<text x="150" y="${58 + i * 24}" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="19" fill="#0a2540">${esc(verzalky(t))}</text>`).join('')}
     ${[0, 1, 2, 3, 4, 5, 6].map((i) => `<rect x="34" y="${120 + i * 30}" width="${i % 3 === 2 ? 150 : 232}" height="7" rx="3.5" fill="#e3e8ee"/>`).join('')}
     <rect x="34" y="340" width="100" height="1.5" fill="#0a2540" opacity=".4"/>
     <rect x="166" y="340" width="100" height="1.5" fill="#0a2540" opacity=".4"/>

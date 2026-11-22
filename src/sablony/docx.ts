@@ -22,6 +22,7 @@ import {
 } from 'docx';
 import type { Dokument, Usek } from './dokument';
 import { texty } from '../i18n';
+import { verzalky } from './typy';
 
 const PISMO = 'Calibri';
 const VEL = 21; // půlbody → 10,5 pt
@@ -45,14 +46,14 @@ export async function dokumentDocx(
     new Paragraph({
       alignment: AlignmentType.CENTER,
       spacing: { after: 60 },
-      children: [new TextRun({ text: d.nazev.toUpperCase(), bold: true, size: 32 })],
+      children: [new TextRun({ text: verzalky(d.nazev), bold: true, size: 32 })],
     }),
     ...(d.nazev2
       ? [
           new Paragraph({
             alignment: AlignmentType.CENTER,
             spacing: { after: 60 },
-            children: [new TextRun({ text: d.nazev2.toUpperCase(), size: 22, color: '64748D', italics: true })],
+            children: [new TextRun({ text: verzalky(d.nazev2), size: 22, color: '64748D', italics: true })],
           }),
         ]
       : []),

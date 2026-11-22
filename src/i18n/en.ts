@@ -354,6 +354,7 @@ const JAZYK_ZEME: Record<string, string> = {
   sl: 'Slovenian',
   ro: 'Romanian',
   bg: 'Bulgarian',
+  el: 'Greek',
   uk: 'Ukrainian',
 };
 const enJazyk = (j: string) => JAZYK_ZEME[j] ?? j;
@@ -370,6 +371,7 @@ const ZEME: TextyVerze['zeme'] = {
   si: { n: 'Slovenia', g: 'Slovenia', v: 'in Slovenia' },
   ro: { n: 'Romania', g: 'Romania', v: 'in Romania' },
   bg: { n: 'Bulgaria', g: 'Bulgaria', v: 'in Bulgaria' },
+  gr: { n: 'Greece', g: 'Greece', v: 'in Greece' },
 };
 
 export const enVerze: TextyVerze = {
@@ -433,6 +435,12 @@ export const enVerze: TextyVerze = {
     zhilishte: 'Housing and renting',
     pokupki: 'Shopping and paperwork',
     rabota: 'Work',
+    chrimata: 'Money and gifts',
+    katoikia: 'Housing and renting',
+    agores: 'Shopping and paperwork',
+    ypiresies: 'Tradespeople and orders',
+    ergasia: 'Work',
+    oikogeneia: 'Family and travel',
     semeystvo: 'Family and travel',
   },
   dokument: {

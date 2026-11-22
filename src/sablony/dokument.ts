@@ -87,6 +87,10 @@ export function formatDatum(iso: string, jazyk?: string): string {
   if (!m) return iso;
   if (jazyk === 'hu') return `${m[1]}. ${m[2]}. ${m[3]}.`;
   if (jazyk === 'hr') return `${Number(m[3])}. ${Number(m[2])}. ${m[1]}.`;
+  if (jazyk === 'el') return `${m[3]}/${m[2]}/${m[1]}`;
+  if (jazyk === 'lt') return `${m[1]}-${m[2]}-${m[3]}`;
+  if (jazyk === 'lv') return `${m[3]}.${m[2]}.${m[1]}.`;
+  if (jazyk === 'et' || jazyk === 'fr-CH' || jazyk === 'it-CH') return `${m[3]}.${m[2]}.${m[1]}`;
   return `${Number(m[3])}. ${Number(m[2])}. ${m[1]}`;
 }
 

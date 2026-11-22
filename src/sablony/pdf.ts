@@ -7,6 +7,7 @@ import qrcode from 'qrcode-generator';
 import fontkit from '@pdf-lib/fontkit';
 import type { Dokument, Usek } from './dokument';
 import { formatDatum } from './dokument';
+import { verzalky } from './typy';
 
 export interface Pisma {
   regular: ArrayBuffer | Uint8Array;
@@ -58,7 +59,7 @@ export async function dokumentPdf(
   pdf.setSubject(d.podnadpis);
   pdf.setCreator('Dokuio.com');
   pdf.setProducer('Dokuio.com');
-  pdf.setLanguage(({ cs: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', hu: 'hu-HU', hr: 'hr-HR', sl: 'sl-SI', ro: 'ro-RO', bg: 'bg-BG' } as Record<string, string>)[d.jazyk] ?? 'cs-CZ');
+  pdf.setLanguage(({ cs: 'cs-CZ', sk: 'sk-SK', pl: 'pl-PL', de: 'de-DE', hu: 'hu-HU', hr: 'hr-HR', sl: 'sl-SI', ro: 'ro-RO', bg: 'bg-BG', el: 'el-GR' } as Record<string, string>)[d.jazyk] ?? 'cs-CZ');
   pdf.setCreationDate(meta.vytvoreno ?? new Date());
 
   const strany: PDFPage[] = [];
@@ -161,8 +162,8 @@ export async function dokumentPdf(
   };
 
   // Hlava dokumentu
-  naStred(t(d.nazev.toUpperCase()), semi, 17);
-  if (d.nazev2) naStred(t(d.nazev2.toUpperCase()), reg, 11, SEDA);
+  naStred(t(verzalky(d.nazev)), semi, 17);
+  if (d.nazev2) naStred(t(verzalky(d.nazev2)), reg, 11, SEDA);
   y -= 2;
   for (const r of zalom(naPolozky([{ t: 'text', text: d.podnadpis2 ? `${d.podnadpis} / ${d.podnadpis2}` : d.podnadpis }]), SIRKA - 60)) {
     const w = r.reduce((a, p) => a + p.w, 0);
