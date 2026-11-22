@@ -3,7 +3,7 @@ title: "Donner de l’argent à ses enfants : forme et impôt sur les donations"
 nazev: "Donation d’argent"
 description: "Donner de l’argent en Suisse : donation manuelle sans forme, promesse écrite, contrat comme preuve et impôt cantonal (conjoints et descendants souvent exonérés)."
 perex: "Une donation de la main à la main est valable sans forme ; un contrat écrit sert de preuve. L’impôt sur les donations dépend du canton."
-kategorie: "geld"
+kategorie: "argent"
 tema: "donation"
 dokumenty: ["contrat-de-donation"]
 datum: '2026-11-22'

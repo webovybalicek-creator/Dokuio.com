@@ -3,7 +3,7 @@ title: "Le débiteur ne paie pas : mise en demeure et poursuite"
 nazev: "Débiteur qui ne paie pas"
 description: "Que faire quand quelqu’un ne vous paie pas en Suisse : mise en demeure, intérêt moratoire de 5 %, réquisition de poursuite, opposition et mainlevée provisoire."
 perex: "D’abord une mise en demeure avec un délai, puis la poursuite à l’office du domicile du débiteur. Une reconnaissance de dette signée accélère tout."
-kategorie: "geld"
+kategorie: "argent"
 tema: "dettes"
 dokumenty: ["mise-en-demeure", "reconnaissance-de-dette", "convention-paiement-echelonne"]
 datum: '2026-11-22'

@@ -20,7 +20,7 @@ export const poradna: Poradna = {
       ],
     },
     {
-      slug: 'geld',
+      slug: 'argent',
       nazev: 'Argent et dettes',
       popis: 'Prêt entre particuliers, reconnaissance de dette, poursuite, donations.',
       ilustrace: 'penize',

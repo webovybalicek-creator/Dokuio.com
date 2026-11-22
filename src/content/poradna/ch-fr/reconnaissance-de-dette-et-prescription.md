@@ -3,7 +3,7 @@ title: "Reconnaissance de dette et prescription : quand une dette se prescrit"
 nazev: "Prescription des dettes"
 description: "Quand une dette se prescrit en Suisse : délai général de 10 ans, 5 ans pour les intérêts et loyers, et comment une reconnaissance de dette interrompt la prescription."
 perex: "La plupart des créances se prescrivent par 10 ans, les intérêts et loyers par 5 ans. Une reconnaissance de dette interrompt la prescription : un nouveau délai commence."
-kategorie: "geld"
+kategorie: "argent"
 tema: "dettes"
 dokumenty: ["reconnaissance-de-dette", "convention-paiement-echelonne"]
 datum: '2026-11-22'

@@ -3,7 +3,7 @@ title: "Payer une dette par mensualités : convention et plan de paiement"
 nazev: "Paiement échelonné"
 description: "Comment convenir d’un paiement par mensualités d’une dette en Suisse : reconnaissance de dette, plan de paiement, intérêts, clause de déchéance et délai de grâce."
 perex: "Une convention écrite fixe les mensualités, contient une reconnaissance de dette et prévoit ce qui se passe en cas de retard. Le créancier renonce à la poursuite tant que tout est payé."
-kategorie: "geld"
+kategorie: "argent"
 tema: "dettes"
 dokumenty: ["convention-paiement-echelonne", "reconnaissance-de-dette"]
 datum: '2026-11-22'
