@@ -18,11 +18,12 @@ import { et } from './et';
 import { lv } from './lv';
 import { lt } from './lt';
 import { frCH } from './fr-ch';
+import { itCH } from './it-ch';
 import { uk, ukVerze } from './uk';
 import { en, enVerze } from './en';
 import { proZemi, type TextyVerze } from './verze';
 
-export const TEXTY = { cs, sk, pl, de, 'de-CH': deCH, hu, hr, sl, ro, bg, el, et, lv, lt, 'fr-CH': frCH, uk, en } satisfies Record<string, Texty>;
+export const TEXTY = { cs, sk, pl, de, 'de-CH': deCH, hu, hr, sl, ro, bg, el, et, lv, lt, 'fr-CH': frCH, 'it-CH': itCH, uk, en } satisfies Record<string, Texty>;
 export type Jazyk = keyof typeof TEXTY;
 export type { Texty, TextyVerze };
 
@@ -46,6 +47,7 @@ export const NAZVY_JAZYKU: Record<string, string> = {
   lv: 'Latviešu',
   lt: 'Lietuvių',
   'fr-CH': 'Français',
+  'it-CH': 'Italiano',
   uk: 'Українська',
   en: 'English',
 };
@@ -67,6 +69,7 @@ export const POPISEK_PREPINACE: Record<string, string> = {
   lv: 'Lapas valoda',
   lt: 'Puslapio kalba',
   'fr-CH': 'Langue de la page',
+  'it-CH': 'Lingua della pagina',
   uk: 'Мова сторінки',
   en: 'Page language',
 };

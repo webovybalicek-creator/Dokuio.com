@@ -631,6 +631,57 @@ const CHFR: InfoStranka[] = [
   },
 ];
 
+const CHIT: InfoStranka[] = [
+  {
+    typ: 'onas',
+    slug: 'chi-siamo',
+    title: 'Chi siamo – Dokuio, modelli di contratto gratuiti in PDF',
+    description: 'Dokuio.com – modelli di contratto gratuiti in PDF e Word per la Svizzera italiana. Chi c’è dietro il sito e come vengono redatti i modelli.',
+    html: `<p class="text-stranka__vytah">Dokuio esiste perché chiunque possa redigere da sé, in fretta e gratuitamente, un contratto semplice – per esempio per vendere la propria auto. Senza registrazione, senza costi e senza gergo giuridico.</p>
+<h2>Come vengono redatti i modelli</h2>
+<ul><li>I testi si basano sul diritto svizzero in vigore (CO, CC, LEF, LCA – fonte Fedlex, versione italiana) e sulle informazioni ufficiali di ch.ch, del DFAE, della SECO e dell’ElCom, non sull’intelligenza artificiale.</li>
+<li>I modelli in italiano hanno lo stesso contenuto giuridico dei nostri modelli per la Svizzera tedesca e romanda; ogni pagina rimanda alle versioni corrispondenti in tedesco e in francese.</li>
+<li>Ogni modello ha un numero di versione e una data di modifica – sulla pagina e nel piè di pagina del PDF. Un codice QR nel PDF porta alla verifica della versione.</li>
+<li>Ogni campo è spiegato, ogni documento contiene consigli «Da verificare prima di firmare».</li>
+<li>Rinunciamo volutamente alle clausole complicate. Un testo semplice ed equilibrato è più sicuro per le situazioni quotidiane.</li></ul>
+<h2>Perché gratis</h2><p>I contratti di base devono essere accessibili a tutti. Finanziamo il sito da soli e grazie ai contributi volontari degli utenti.</p>
+<h2>Contatto</h2><p>${p.nazev}<br />IČO (numero d’impresa, Repubblica Ceca) ${p.ico}<br />${p.sidlo}, Repubblica Ceca<br />E-mail: ${e}</p>
+<p>Avete trovato un errore in un modello o vi manca un documento? Scriveteci – leggiamo ogni messaggio.</p>`,
+  },
+  {
+    typ: 'podminky',
+    slug: 'condizioni-d-uso',
+    title: 'Condizioni d’uso',
+    description: 'Condizioni d’uso di Dokuio.com – modelli di contratto gratuiti in PDF e Word: servizio, responsabilità e uso dei modelli (Svizzera).',
+    aktualizovano: AKT,
+    html: `<h2>1. Gestore</h2><p>Il sito dokuio.com è gestito da ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Repubblica Ceca («gestore»). Contatto: ${e}.</p>
+<h2>2. Prestazione</h2><p>Modelli di contratti e di documenti semplici, che l’utente compila nella procedura guidata online o scarica vuoti, in PDF o Word. Il servizio è <strong>gratuito</strong> e utilizzabile senza registrazione.</p>
+<h2>3. Nessuna consulenza giuridica</h2><p>Offriamo i modelli in buona fede, come un servizio utile al pubblico. Si basano sul diritto in vigore, ma <strong>non costituiscono una consulenza giuridica</strong> e non sono adatti a ogni situazione. Il gestore non è un avvocato e non diventa parte dei contratti conclusi dagli utenti.</p>
+<h2>4. Responsabilità dell’utente</h2><p>L’utente è il solo responsabile del contenuto, delle modifiche, della compilazione e dell’uso di un contratto. Leggete il contratto con attenzione prima di firmare. Un testo modificato dall’utente non fa più parte del nostro modello – è segnalato nel PDF.</p>
+<h2>5. Limitazione della responsabilità</h2><p>Nella misura consentita dalla legge, il gestore non risponde dei danni risultanti dall’uso dei modelli, da una compilazione errata o da un uso estraneo al loro scopo. Restano riservati i diritti imperativi dei consumatori.</p>
+<h2>6. Sostegno volontario</h2><p>Il sito può essere sostenuto volontariamente tramite Stripe. Un pagamento non è una condizione d’uso e non dà diritto ad alcuna prestazione supplementare. In caso di pagamento per errore scriveteci entro 14 giorni – lo rimborsiamo.</p>
+<h2>7. Uso dei modelli</h2><p>Potete usare i modelli per le vostre esigenze, modificarli e condividere un contratto compilato con l’altra parte. Non sono permessi la copia in massa, la diffusione o la vendita dei modelli come raccolta propria senza autorizzazione.</p>
+<h2>8. Disposizioni finali</h2><p>Si applica il diritto ceco; restano riservate le disposizioni imperative di protezione dei consumatori del vostro Paese di residenza. Il trattamento dei dati personali è descritto nella pagina <a href="/ch-it/protezione-dei-dati/">Protezione dei dati</a>.</p>`,
+  },
+  {
+    typ: 'ochrana',
+    slug: 'protezione-dei-dati',
+    title: 'Protezione dei dati',
+    description: 'Come Dokuio.com tratta i dati personali. I dati dei contratti restano nel vostro browser; la misurazione delle visite solo con il vostro consenso.',
+    aktualizovano: AKT,
+    html: `<p class="text-stranka__vytah"><strong>In breve:</strong> ciò che inserite in un contratto non viene inviato da nessuna parte. Il contratto è creato direttamente nel vostro browser. Usiamo cookie di analisi solo con il vostro consenso.</p>
+<h2>1. Titolare del trattamento</h2><p>Il titolare è ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Repubblica Ceca, e-mail ${e}.</p>
+<h2>2. Dati dei contratti</h2><p>Nomi, indirizzi, dati del veicolo e altre indicazioni della procedura guidata sono trattati unicamente dal vostro browser; <strong>non sono inviati al nostro server né salvati</strong>. Un documento iniziato è salvato dal vostro browser nella memoria locale (localStorage), solo sul vostro dispositivo; potete cancellarlo nella procedura guidata o eliminando i dati del browser. Le firme disegnate sullo schermo non vengono salvate.</p>
+<p><strong>Link per l’altra parte:</strong> i dati si trovano nel link stesso (dopo il segno #, che il browser non invia al server). Inviatelo solo all’altra parte del contratto.</p>
+<p><strong>PDF per e-mail:</strong> il vostro browser invia il PDF finito e l’indirizzo indicato al nostro server, che spedisce l’e-mail una sola volta e non salva nulla. Per evitare abusi il server conserva per 24 ore solo un’impronta irreversibile dell’indirizzo IP e dell’e-mail e l’ora (base: interesse legittimo, art. 6 par. 1 lett. f GDPR).</p>
+<h2>3. Pareri degli utenti</h2><p>Conserviamo il testo dei pareri con la data e l’indirizzo della pagina, senza nome né e-mail, al massimo 2 anni.</p>
+<h2>4. Pagamenti</h2><p>I pagamenti con carta sono trattati da Stripe Payments Europe, Ltd.; non vediamo i dati della carta. Stripe ci trasmette e-mail, importo e data, che conserviamo secondo le regole contabili.</p>
+<h2>5. Analisi e cookie</h2><p>Se lo consentite nel banner, usiamo Google Analytics 4 (Google Ireland Ltd.) per misurare le visite in modo anonimo (art. 6 par. 1 lett. a GDPR); nell’UE Google non salva gli indirizzi IP. Senza consenso l’analisi non viene caricata e nessun cookie viene depositato. Potete modificare la vostra scelta in ogni momento tramite «Impostazioni dei cookie» in fondo alla pagina.</p>
+<h2>6. Hosting</h2><p>Il sito funziona su server di Exon nella Repubblica Ceca, che conservano brevemente registri d’accesso tecnici per motivi di sicurezza. Le foto della guida sono caricate da Unsplash (images.unsplash.com), che vede quindi il vostro indirizzo IP.</p>
+<h2>7. I vostri diritti</h2><p>Avete il diritto di accedere ai vostri dati, di farli rettificare o cancellare, di limitarne il trattamento e di opporvi. Scrivete a ${e}. Potete presentare un reclamo all’Incaricato federale della protezione dei dati e della trasparenza (<a href="https://www.edoeb.admin.ch/it" rel="noopener">IFPDT</a>) o all’autorità di controllo ceca (ÚOOÚ).</p>`,
+  },
+];
+
 const de = (zeme: 'de' | 'at' | 'ch'): InfoStranka[] => {
   const behoerde =
     zeme === 'at'
@@ -706,6 +757,7 @@ export const INFORMACE: Record<string, InfoStranka[]> = {
   lv: LV,
   lt: LT,
   'ch-fr': CHFR,
+  'ch-it': CHIT,
 };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */
