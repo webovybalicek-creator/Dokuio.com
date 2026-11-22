@@ -48,7 +48,7 @@ if (!in_array($puvod, $povolene, true)) odpoved(403, 'puvod');
 if (trim((string)($_POST['web'] ?? '')) !== '') odpoved(200, 'odeslano'); // past na roboty: tvářit se, že OK
 $email = trim((string)($_POST['email'] ?? ''));
 if ($email === '' || strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) odpoved(400, 'email');
-$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg', 'el', 'et'], true) ? (string)$_POST['jazyk'] : 'cs';
+$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg', 'el', 'et', 'lv'], true) ? (string)$_POST['jazyk'] : 'cs';
 $nazev = mb_substr(trim(strip_tags((string)($_POST['nazev'] ?? ''))), 0, 120) ?: 'Dokument';
 $soubor = substr(preg_replace('~[^a-z0-9-]~', '', strtolower((string)($_POST['soubor'] ?? ''))) ?: 'dokument', 0, 80);
 $zeme = preg_replace('~[^a-z]~', '', (string)($_POST['zeme'] ?? '')) ?: 'cz';
@@ -205,6 +205,17 @@ $T = [
         'podporaText' => 'Dokuio on tasuta, ilma reklaamide ja registreerimiseta. Servereid, põhjade kontrolli ja uusi dokumente maksame väikeste annetustega neilt, keda aitasime.',
         'podporaTl' => 'Tehke meile välja kohv (umbes 1,25 €)',
         'pata' => 'Tellisite selle sõnumi lehel dokuio.com. Palun ärge vastake.',
+    ],
+    'lv' => [
+        'predmet' => 'Jūsu dokuments PDF formātā: %s (Dokuio)',
+        'nadpis' => 'Sūtām jums dokumentu pielikumā',
+        'text' => 'Sūtām jums dokumentu <strong>%s</strong> PDF formātā. Pirms parakstīšanas to rūpīgi izlasiet un pārbaudiet visus datus.',
+        'pravni' => 'Paraugu piedāvājam bez maksas un labā ticībā, tā nav juridiska konsultācija. Par dokumenta saturu un izmantošanu atbildat jūs.',
+        'soukromi' => 'Dokumentu nosūtījām tikai pēc jūsu pieprasījuma un nekur to nesaglabājam.',
+        'podporaNadpis' => 'Vai ietaupījām jums laiku?',
+        'podporaText' => 'Dokuio ir bez maksas, bez reklāmām un reģistrācijas. Serverus, paraugu pārbaudi un jaunus dokumentus apmaksājam ar nelieliem ziedojumiem no tiem, kam palīdzējām.',
+        'podporaTl' => 'Uzsaukt mums kafiju (aptuveni 1,25 €)',
+        'pata' => 'Šo ziņu pieprasījāt vietnē dokuio.com. Lūdzu, neatbildiet uz to.',
     ],
 ][$jazyk];
 

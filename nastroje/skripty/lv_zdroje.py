@@ -1,0 +1,15 @@
+import sys; sys.path.insert(0,'/home/claude/skripty')
+from clanek import clanek
+CL=('Civillikums (likumi.lv)','https://likumi.lv/ta/id/225418-civillikums')
+DL=('Darba likums (likumi.lv)','https://likumi.lv/ta/id/26019-darba-likums')
+DZTIL=('Dzīvojamo telpu īres likums (likumi.lv)','https://likumi.lv/ta/id/322216-dzivojamo-telpu-ires-likums')
+PTAL=('Patērētāju tiesību aizsardzības likums (likumi.lv)','https://likumi.lv/ta/id/23309-pateretaju-tiesibu-aizsardzibas-likums')
+CSDD=('Īpašnieka maiņa e-CSDD (Ceļu satiksmes drošības direkcija)','https://csdd.lv/en/change-of-owner/electronic-change-of-owner-in-e-csdd')
+TEN=('Transportlīdzekļa ekspluatācijas nodokļa un uzņēmumu vieglo transportlīdzekļu nodokļa likums (likumi.lv)','https://likumi.lv/ta/id/223536')
+DAV=('Dāvinājums un iedzīvotāju ienākuma nodoklis (LV portāls)','https://lvportals.lv/skaidrojumi/375314-davinajums-vai-naudas-parskaitijums-virs-1425-eiro-kados-gadijumos-sanemejam-jamaksa-nodoklis-2025')
+ATT=('14 dienu atteikuma tiesības (Your Europe)','https://europa.eu/youreurope/citizens/consumers/shopping/returns/index_lv.htm')
+GAR=('Preču 2 gadu likumiskā garantija (Your Europe)','https://europa.eu/youreurope/citizens/consumers/shopping/guarantees/index_lv.htm')
+BERNS=('Likumīga pārcelšanās uz ārvalstīm ar bērniem – Latvija (e-justice)','https://e-justice.europa.eu/topics/family-matters-inheritance/moving-settling-abroad-children/lv_lv')
+ROB=('Kādi dokumenti nepieciešami bērnam, izbraucot no valsts (LV portāls)','https://lvportals.lv/skaidrojumi/352918-kadi-dokumenti-nepieciesami-bernam-izbraucot-no-valsts-2023')
+def c(slug, title, nazev, desc, perex, kat, tema, dok, slova, zdroje, faq, telo):
+    clanek('lv', slug, dict(title=title, nazev=nazev, description=desc, perex=perex, kategorie=kat, tema=tema, dokumenty=dok, slova=slova, zdroje=zdroje, faq=faq), telo)

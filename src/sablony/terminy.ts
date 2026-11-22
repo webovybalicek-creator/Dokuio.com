@@ -57,6 +57,25 @@ const SVATKY: Record<string, (rok: number) => string[]> = {
       iso(new Date(v.getFullYear(), v.getMonth(), v.getDate() - 2)), // suur reede
     ];
   },
+  lv: (rok) => {
+    const v = velikonoce(rok);
+    const posun = (dni: number) => iso(new Date(v.getFullYear(), v.getMonth(), v.getDate() + dni));
+    /** 4. maijs a 18. novembris: připadnou-li na víkend, je volno následující pondělí */
+    const prenos = (mm: number, dd: number) => {
+      const d = new Date(rok, mm - 1, dd);
+      const out = [iso(d)];
+      if (d.getDay() === 6) out.push(iso(new Date(rok, mm - 1, dd + 2)));
+      if (d.getDay() === 0) out.push(iso(new Date(rok, mm - 1, dd + 1)));
+      return out;
+    };
+    return [
+      ...['01-01', '05-01', '06-23', '06-24', '12-24', '12-25', '12-26', '12-31'].map((x) => `${rok}-${x}`),
+      ...prenos(5, 4),
+      ...prenos(11, 18),
+      posun(-2), // Lielā piektdiena
+      posun(1), // Otrās Lieldienas
+    ];
+  },
   sk: (rok) => {
     const v = velikonoce(rok);
     const posun = (dni: number) => iso(new Date(v.getFullYear(), v.getMonth(), v.getDate() + dni));

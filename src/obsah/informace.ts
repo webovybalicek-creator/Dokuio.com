@@ -479,6 +479,56 @@ const EE: InfoStranka[] = [
 ];
 
 
+const LV: InfoStranka[] = [
+  {
+    typ: 'onas',
+    slug: 'par-mums',
+    title: 'Dokuio – līgumu paraugi bez maksas PDF formātā',
+    description: 'Dokuio.com – līgumu paraugi bez maksas PDF un Word formātā. Kas stāv aiz vietnes un kā tiek sagatavoti paraugi (Latvija).',
+    html: `<p class="text-stranka__vytah">Dokuio radās, lai ikviens varētu ātri un bez maksas sagatavot vienkāršu līgumu – piemēram, pārdodot auto. Bez reģistrācijas, bez maksas un bez sarežģītas juridiskās valodas.</p>
+<h2>Kā tiek sagatavoti paraugi</h2>
+<ul><li>Teksti balstās uz spēkā esošajiem Latvijas likumiem un oficiāliem avotiem (Civillikums, Dzīvojamo telpu īres likums, Darba likums, likumi.lv, CSDD, VID, Your Europe), nevis uz mākslīgo intelektu.</li>
+<li>Katram paraugam ir versijas numurs un izmaiņu datums – tie redzami lapā un PDF kājenē. QR kods PDF failā ved uz versijas pārbaudi.</li>
+<li>Pie katra lauka ir skaidrojums, un katrā dokumentā ir padomi “Pārbaudiet pirms parakstīšanas”.</li>
+<li>Apzināti izvairāmies no sarežģītiem noteikumiem. Vienkāršs un līdzsvarots teksts parastās situācijās ir drošāks.</li></ul>
+<h2>Kāpēc bez maksas</h2><p>Vēlamies, lai pamata dokumenti būtu pieejami visiem. Vietnes darbību finansējam paši un ar lietotāju brīvprātīgiem ziedojumiem.</p>
+<h2>Kontakti</h2><p>${p.nazev}<br />IČO (reģistrācijas numurs Čehijā) ${p.ico}<br />${p.sidlo}, Čehija<br />E-pasts: ${e}</p>
+<p>Atradāt kļūdu paraugā vai jums pietrūkst kāda dokumenta? Uzrakstiet mums – izlasām katru ziņu.</p>`,
+  },
+  {
+    typ: 'podminky',
+    slug: 'lietosanas-noteikumi',
+    title: 'Lietošanas noteikumi',
+    description: 'Dokuio.com lietošanas noteikumi – līgumu paraugi bez maksas PDF un Word formātā: pakalpojums, atbildība un paraugu izmantošana.',
+    aktualizovano: AKT,
+    html: `<h2>1. Pakalpojuma sniedzējs</h2><p>Vietni dokuio.com uztur ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Čehija (“pakalpojuma sniedzējs”). Kontakti: ${e}.</p>
+<h2>2. Ko piedāvā Dokuio</h2><p>Vienkāršu līgumu un dokumentu paraugus, ko lietotājs aizpilda tiešsaistes ceļvedī vai lejupielādē tukšus PDF vai Word formātā. Pakalpojums ir <strong>bez maksas</strong> un neprasa reģistrāciju.</p>
+<h2>3. Tā nav juridiska konsultācija</h2><p>Paraugus piedāvājam labā ticībā kā sabiedrisku pakalpojumu. Tie balstās uz spēkā esošajām tiesībām, taču <strong>nav juridiska konsultācija</strong> un neder katrai situācijai. Pakalpojuma sniedzējs nav advokāts un nav lietotāju noslēgto līgumu puse.</p>
+<h2>4. Lietotāja atbildība</h2><p>Par līguma saturu, izmaiņām, aizpildīšanu un izmantošanu pilnībā atbild lietotājs. Pirms parakstīšanas līgumu rūpīgi izlasiet. Lietotāja rediģētais teksts vairs nav mūsu parauga daļa – PDF failā tas ir atzīmēts.</p>
+<h2>5. Atbildības ierobežojums</h2><p>Likumā atļautajā apmērā pakalpojuma sniedzējs neatbild par zaudējumiem, kas radušies paraugu izmantošanas, nepareizas aizpildīšanas vai izmantošanas citā nolūkā dēļ. Tas neietekmē patērētāja tiesības, kuras nevar ierobežot.</p>
+<h2>6. Brīvprātīgs atbalsts</h2><p>Vietnes darbību var brīvprātīgi atbalstīt ar Stripe starpniecību. Maksājums nav lietošanas priekšnoteikums un nedod tiesības uz papildu pakalpojumiem. Ja samaksājāt kļūdas pēc, uzrakstiet mums 14 dienu laikā – summu atmaksāsim.</p>
+<h2>7. Paraugu izmantošana</h2><p>Paraugus varat izmantot savām vajadzībām, rediģēt un kopīgot aizpildītu līgumu ar otru pusi. Paraugu masveida kopēšana, izplatīšana vai pārdošana kā savs krājums bez pakalpojuma sniedzēja piekrišanas nav atļauta.</p>
+<h2>8. Noslēguma noteikumi</h2><p>Noteikumiem piemēro Čehijas tiesības; tas neietekmē jūsu dzīvesvietas valsts obligātās patērētāju aizsardzības normas. Personas datu apstrādi apraksta lapa <a href="/lv/personas-datu-aizsardziba/">Personas datu aizsardzība</a>.</p>`,
+  },
+  {
+    typ: 'ochrana',
+    slug: 'personas-datu-aizsardziba',
+    title: 'Personas datu aizsardzība',
+    description: 'Kā Dokuio.com apstrādā personas datus. Līgumu dati paliek jūsu pārlūkā, apmeklējuma mērīšana tikai ar jūsu piekrišanu.',
+    aktualizovano: AKT,
+    html: `<p class="text-stranka__vytah"><strong>Īsumā:</strong> ko ierakstāt līgumā, to mēs nekur nesūtām. Līgums tiek izveidots tieši jūsu pārlūkā. Analītikas sīkdatnes izmantojam tikai ar jūsu piekrišanu.</p>
+<h2>1. Pārzinis</h2><p>Pārzinis ir ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, Čehija, e-pasts ${e}.</p>
+<h2>2. Līgumu dati</h2><p>Vārdus, adreses, transportlīdzekļa datus un citus ceļveža datus apstrādā tikai jūsu pārlūks; <strong>tie netiek sūtīti uz mūsu serveri, un mēs tos nesaglabājam</strong>. Iesākto dokumentu pārlūks saglabā lokālajā atmiņā (localStorage) tikai jūsu ierīcē; to varat izdzēst ceļvedī vai, dzēšot pārlūka datus. Ekrānā zīmētos parakstus mēs nesaglabājam.</p>
+<p><strong>Saite otrai pusei:</strong> ievadītie dati ir iekodēti saitē (aiz zīmes #, ko pārlūks uz serveri nesūta). Sūtiet saiti tikai otrai līguma pusei.</p>
+<p><strong>PDF nosūtīšana pa e-pastu:</strong> pārlūks nosūta gatavo PDF un norādīto adresi uz mūsu serveri, kas ziņu nosūta vienu reizi un neko nesaglabā. Ļaunprātīgas izmantošanas novēršanai serveris 24 stundas glabā tikai IP adresi, e-pasta neatgriezenisku nospiedumu un nosūtīšanas laiku (tiesiskais pamats: leģitīmās intereses, VDAR 6. panta 1. punkta f) apakšpunkts).</p>
+<h2>3. Lietotāju atsauksmes</h2><p>Atsauksmes tekstu saglabājam kopā ar datumu un lapas adresi, bez vārda un e-pasta, ne ilgāk kā 2 gadus.</p>
+<h2>4. Maksājumi</h2><p>Karšu maksājumus apstrādā Stripe Payments Europe, Ltd.; karšu datus mēs neredzam. No Stripe saņemam maksātāja e-pastu, summu un datumu, ko glabājam saskaņā ar grāmatvedības noteikumiem.</p>
+<h2>5. Analītika un sīkdatnes</h2><p>Ja joslā dodat piekrišanu, apmeklējuma anonīmai mērīšanai izmantojam Google Analytics 4 (Google Ireland Ltd.) (VDAR 6. panta 1. punkta a) apakšpunkts); Google ES nesaglabā IP adreses. Bez piekrišanas analītika netiek ielādēta un sīkdatnes netiek izmantotas. Piekrišanu varat jebkurā laikā mainīt ar saiti “Sīkdatņu iestatījumi” lapas apakšā.</p>
+<h2>6. Mitināšana</h2><p>Vietne darbojas uzņēmuma Exon serveros Čehijā, kas drošības nolūkā īslaicīgi glabā tehniskos piekļuves žurnālus. Padomu fotogrāfijas tiek ielādētas no Unsplash (images.unsplash.com), kas tādējādi redz jūsu IP adresi.</p>
+<h2>7. Jūsu tiesības</h2><p>Jums ir tiesības piekļūt saviem datiem, tos labot un dzēst, ierobežot to apstrādi un iebilst pret to. Rakstiet uz ${e}. Sūdzību varat iesniegt Datu valsts inspekcijā (<a href="https://www.dvi.gov.lv" rel="noopener">dvi.gov.lv</a>) vai Čehijas uzraudzības iestādē (ÚOOÚ).</p>`,
+  },
+];
+
 /* ------------------------------------------------------------------ německy (DE i AT) */
 const de = (zeme: 'de' | 'at' | 'ch'): InfoStranka[] => {
   const behoerde =
@@ -552,6 +602,7 @@ export const INFORMACE: Record<string, InfoStranka[]> = {
   bg: BG,
   gr: GR,
   ee: EE,
+  lv: LV,
 };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */
