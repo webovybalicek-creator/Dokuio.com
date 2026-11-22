@@ -54,7 +54,7 @@ const { kod } = Astro.props;
   )
 }
 {
-  kod === 'ch' && (
+  (kod === 'ch' || kod === 'ch-fr' || kod === 'ch-it') && (
     <svg class="vlajka" viewBox="0 0 27 18" aria-hidden="true">
       <rect width="27" height="18" fill="#da291c" />
       <rect x="11.75" y="4" width="3.5" height="10" fill="#fff" />

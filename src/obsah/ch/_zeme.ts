@@ -9,6 +9,7 @@ export const zeme: Zeme = {
   casovaZona: 'Europe/Zurich',
   aktivni: true,
   poradi: 6,
+  skupina: 'ch',
   kategorie: { auto: 'Auto und Fahrzeuge', geld: 'Geld und Schenkungen', wohnen: 'Wohnen und Miete', alltag: 'Alltag, Einkauf und Vollmachten', dienst: 'Handwerker und Aufträge', arbeit: 'Arbeit und Stelle', familie: 'Familie und Reisen' },
   skupiny: {
     auto: [

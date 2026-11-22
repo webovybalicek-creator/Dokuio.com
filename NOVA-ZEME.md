@@ -27,6 +27,10 @@ související dokumenty, OG obrázky, sitemap i hreflang.
 3. Vlajka v `src/components/Vlajka.astro`.
 4. Pro částky slovy v jiném jazyce/měně přidat funkci podobnou `castkaSlovy` (zatím jen česky).
 5. Šablony dané země podle jejích oficiálních zdrojů (viz zadání: bezpečnost).
+6. Další jazyk téže země (Švýcarsko: `ch` → `ch-fr`, `ch-it`): samostatná „země“ s kódem `<zeme>-<jazyk>` a adresou
+   `/<zeme>-<jazyk>/` (ne `/<zeme>/<jazyk>/` – ta patří uk/en verzím), jazyk rozhraní `fr-CH` apod. Všem variantám dejte
+   v `_zeme.ts` stejnou `skupina` a ve stránkách `protejsky: { <zeme>: '<slug>' }` → vzájemný hreflang a přepínač jazyka.
+   Registrace: `kontrola-seo.mjs`, `Base.astro`, `pdf.ts`, `fotky.ts` (alt), `odeslat-email.php`, `en.ts`/`uk.ts`, `index.astro`.
 
 ## Kontrola unikátnosti (povinné)
 

@@ -1,10 +1,10 @@
 import json, os
-def clanek(zeme, slug, fm, telo):
+def clanek(zeme, slug, fm, telo, datum='2026-11-20'):
     out = ['---']
     for k in ['title','nazev','description','perex','kategorie','tema']:
         out.append(f'{k}: {json.dumps(fm[k], ensure_ascii=False)}')
     out.append('dokumenty: ' + json.dumps(fm['dokumenty'], ensure_ascii=False))
-    out.append("datum: '2026-11-20'")
+    out.append(f"datum: '{datum}'")
     out.append('slova: ' + json.dumps(fm['slova'], ensure_ascii=False))
     out.append('zdroje:')
     for n,u in fm['zdroje']:

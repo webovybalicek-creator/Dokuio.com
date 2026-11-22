@@ -48,10 +48,11 @@ if (!in_array($puvod, $povolene, true)) odpoved(403, 'puvod');
 if (trim((string)($_POST['web'] ?? '')) !== '') odpoved(200, 'odeslano'); // past na roboty: tvářit se, že OK
 $email = trim((string)($_POST['email'] ?? ''));
 if ($email === '' || strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) odpoved(400, 'email');
-$jazyk = in_array($_POST['jazyk'] ?? '', ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg', 'el', 'et', 'lv', 'lt'], true) ? (string)$_POST['jazyk'] : 'cs';
+$jazyk = preg_replace('~-CH$~', '', (string)($_POST['jazyk'] ?? '')); // de-CH, fr-CH → de, fr
+$jazyk = in_array($jazyk, ['cs', 'sk', 'pl', 'de', 'hu', 'hr', 'sl', 'ro', 'bg', 'el', 'et', 'lv', 'lt', 'fr'], true) ? $jazyk : 'cs';
 $nazev = mb_substr(trim(strip_tags((string)($_POST['nazev'] ?? ''))), 0, 120) ?: 'Dokument';
 $soubor = substr(preg_replace('~[^a-z0-9-]~', '', strtolower((string)($_POST['soubor'] ?? ''))) ?: 'dokument', 0, 80);
-$zeme = preg_replace('~[^a-z]~', '', (string)($_POST['zeme'] ?? '')) ?: 'cz';
+$zeme = preg_replace('~[^a-z-]~', '', (string)($_POST['zeme'] ?? '')) ?: 'cz';
 
 $f = $_FILES['pdf'] ?? null;
 if (!$f || ($f['error'] ?? 1) !== UPLOAD_ERR_OK || !is_uploaded_file($f['tmp_name'])) odpoved(400, 'soubor');
@@ -205,6 +206,17 @@ $T = [
         'podporaText' => 'Dokuio on tasuta, ilma reklaamide ja registreerimiseta. Servereid, põhjade kontrolli ja uusi dokumente maksame väikeste annetustega neilt, keda aitasime.',
         'podporaTl' => 'Tehke meile välja kohv (umbes 1,25 €)',
         'pata' => 'Tellisite selle sõnumi lehel dokuio.com. Palun ärge vastake.',
+    ],
+    'fr' => [
+        'predmet' => 'Votre document en PDF : %s (Dokuio)',
+        'nadpis' => 'Voici votre document en pièce jointe',
+        'text' => 'Nous vous envoyons le document <strong>%s</strong> en PDF. Lisez-le attentivement et vérifiez toutes les données avant de signer.',
+        'pravni' => 'Nous proposons le modèle gratuitement et de bonne foi ; ce n’est pas un conseil juridique. Vous êtes responsable du contenu et de l’utilisation du document.',
+        'soukromi' => 'Nous avons envoyé le document uniquement à votre demande et ne l’enregistrons nulle part.',
+        'podporaNadpis' => 'Nous vous avons fait gagner du temps ?',
+        'podporaText' => 'Dokuio est gratuit, sans publicité ni inscription. Nous payons les serveurs, la vérification des modèles et les nouveaux documents grâce aux petits dons de celles et ceux que nous avons aidés.',
+        'podporaTl' => 'Offrez-nous un café (env. CHF 1.20)',
+        'pata' => 'Vous avez demandé ce message sur dokuio.com. Merci de ne pas y répondre.',
     ],
     'lt' => [
         'predmet' => 'Jūsų dokumentas PDF formatu: %s (Dokuio)',

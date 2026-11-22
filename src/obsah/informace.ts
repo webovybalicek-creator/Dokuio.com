@@ -580,6 +580,57 @@ const LV: InfoStranka[] = [
 ];
 
 /* ------------------------------------------------------------------ německy (DE i AT) */
+const CHFR: InfoStranka[] = [
+  {
+    typ: 'onas',
+    slug: 'a-propos',
+    title: 'À propos de Dokuio – modèles de contrats gratuits en PDF',
+    description: 'Dokuio.com – modèles de contrats gratuits en PDF et Word pour la Suisse romande. Qui est derrière le site et comment les modèles sont établis.',
+    html: `<p class="text-stranka__vytah">Dokuio existe pour que chacun puisse établir soi-même, rapidement et gratuitement, un contrat simple – par exemple pour vendre sa voiture. Sans inscription, sans frais et sans jargon juridique.</p>
+<h2>Comment les modèles sont établis</h2>
+<ul><li>Les textes reposent sur le droit suisse en vigueur (CO, CC, LP, LCA – source Fedlex, version française) et sur les informations officielles de ch.ch, du DFAE, du SECO et de l’ElCom, pas sur l’intelligence artificielle.</li>
+<li>Les modèles romands ont le même contenu juridique que nos modèles pour la Suisse alémanique ; chaque page renvoie à la version allemande correspondante.</li>
+<li>Chaque modèle a un numéro de version et une date de modification – sur la page et dans le pied de page du PDF. Un code QR dans le PDF mène à la vérification de la version.</li>
+<li>Chaque champ est expliqué, chaque document contient des conseils « À vérifier avant de signer ».</li>
+<li>Nous renonçons volontairement aux clauses compliquées. Un texte simple et équilibré est plus sûr pour les situations du quotidien.</li></ul>
+<h2>Pourquoi gratuit</h2><p>Les contrats de base doivent être accessibles à tous. Nous finançons le site nous-mêmes et grâce aux dons volontaires des utilisateurs.</p>
+<h2>Contact</h2><p>${p.nazev}<br />IČO (numéro d’entreprise, République tchèque) ${p.ico}<br />${p.sidlo}, République tchèque<br />E-mail : ${e}</p>
+<p>Vous avez trouvé une erreur dans un modèle ou il vous manque un document ? Écrivez-nous – nous lisons chaque message.</p>`,
+  },
+  {
+    typ: 'podminky',
+    slug: 'conditions-d-utilisation',
+    title: 'Conditions d’utilisation',
+    description: 'Conditions d’utilisation de Dokuio.com – modèles de contrats gratuits en PDF et Word : service, responsabilité et utilisation des modèles (Suisse).',
+    aktualizovano: AKT,
+    html: `<h2>1. Exploitant</h2><p>Le site dokuio.com est exploité par ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, République tchèque (« exploitant »). Contact : ${e}.</p>
+<h2>2. Prestation</h2><p>Des modèles de contrats et de documents simples, que l’utilisateur remplit dans l’assistant en ligne ou télécharge vierges, en PDF ou Word. Le service est <strong>gratuit</strong> et utilisable sans inscription.</p>
+<h2>3. Pas de conseil juridique</h2><p>Nous proposons les modèles de bonne foi, comme un service utile au public. Ils reposent sur le droit en vigueur, mais <strong>ne constituent pas un conseil juridique</strong> et ne conviennent pas à toutes les situations. L’exploitant n’est pas avocat et ne devient pas partie aux contrats conclus par les utilisateurs.</p>
+<h2>4. Responsabilité de l’utilisateur</h2><p>L’utilisateur est seul responsable du contenu, des modifications, du remplissage et de l’utilisation d’un contrat. Lisez le contrat attentivement avant de signer. Un texte modifié par l’utilisateur ne fait plus partie de notre modèle – il est signalé dans le PDF.</p>
+<h2>5. Limitation de responsabilité</h2><p>Dans la mesure permise par la loi, l’exploitant ne répond pas des dommages résultant de l’utilisation des modèles, d’un remplissage erroné ou d’un usage étranger à leur but. Les droits impératifs des consommateurs demeurent réservés.</p>
+<h2>6. Soutien volontaire</h2><p>Le site peut être soutenu volontairement par Stripe. Un paiement n’est pas une condition d’utilisation et ne donne droit à aucune prestation supplémentaire. En cas de paiement par erreur, écrivez-nous dans les 14 jours – nous le remboursons.</p>
+<h2>7. Utilisation des modèles</h2><p>Vous pouvez utiliser les modèles pour vos propres besoins, les modifier et partager un contrat rempli avec l’autre partie. La copie en masse, la diffusion ou la vente des modèles comme propre recueil sans autorisation ne sont pas permises.</p>
+<h2>8. Dispositions finales</h2><p>Le droit tchèque est applicable ; les dispositions impératives de protection des consommateurs de votre pays de résidence demeurent réservées. Le traitement des données personnelles est décrit dans la page <a href="/ch-fr/protection-des-donnees/">Protection des données</a>.</p>`,
+  },
+  {
+    typ: 'ochrana',
+    slug: 'protection-des-donnees',
+    title: 'Protection des données',
+    description: 'Comment Dokuio.com traite les données personnelles. Les données des contrats restent dans votre navigateur ; la mesure d’audience seulement avec votre accord.',
+    aktualizovano: AKT,
+    html: `<p class="text-stranka__vytah"><strong>En bref :</strong> ce que vous saisissez dans un contrat n’est envoyé nulle part. Le contrat est créé directement dans votre navigateur. Nous n’utilisons des cookies d’analyse qu’avec votre consentement.</p>
+<h2>1. Responsable du traitement</h2><p>Le responsable est ${p.nazev}, IČO ${p.ico}, ${p.sidlo}, République tchèque, e-mail ${e}.</p>
+<h2>2. Données des contrats</h2><p>Les noms, adresses, données du véhicule et autres indications de l’assistant sont traités uniquement par votre navigateur ; ils ne sont <strong>ni envoyés à notre serveur ni enregistrés</strong>. Un document commencé est enregistré par votre navigateur dans la mémoire locale (localStorage), uniquement sur votre appareil ; vous pouvez l’effacer dans l’assistant ou en supprimant les données du navigateur. Les signatures dessinées à l’écran ne sont pas enregistrées.</p>
+<p><strong>Lien pour l’autre partie :</strong> les données se trouvent dans le lien lui-même (après le signe #, que le navigateur n’envoie pas au serveur). Envoyez-le uniquement à l’autre partie au contrat.</p>
+<p><strong>PDF par e-mail :</strong> votre navigateur envoie le PDF terminé et l’adresse indiquée à notre serveur, qui envoie l’e-mail une seule fois et n’enregistre rien. Pour éviter les abus, le serveur conserve pendant 24 heures seulement une empreinte irréversible de l’adresse IP et de l’e-mail ainsi que l’heure (base : intérêt légitime, art. 6 al. 1 let. f RGPD).</p>
+<h2>3. Avis des utilisateurs</h2><p>Nous conservons le texte des avis avec la date et l’adresse de la page, sans nom ni e-mail, au plus 2 ans.</p>
+<h2>4. Paiements</h2><p>Les paiements par carte sont traités par Stripe Payments Europe, Ltd. ; nous ne voyons pas les données de carte. Stripe nous transmet l’e-mail, le montant et la date, que nous conservons selon les règles comptables.</p>
+<h2>5. Analyse et cookies</h2><p>Si vous y consentez dans le bandeau, nous utilisons Google Analytics 4 (Google Ireland Ltd.) pour mesurer l’audience de manière anonyme (art. 6 al. 1 let. a RGPD) ; dans l’UE, Google n’enregistre pas les adresses IP. Sans consentement, l’analyse n’est pas chargée et aucun cookie n’est déposé. Vous pouvez modifier votre choix en tout temps via « Paramètres des cookies » en bas de page.</p>
+<h2>6. Hébergement</h2><p>Le site fonctionne sur des serveurs d’Exon en République tchèque, qui conservent brièvement des journaux d’accès techniques pour des raisons de sécurité. Les photos des conseils sont chargées depuis Unsplash (images.unsplash.com), qui voit donc votre adresse IP.</p>
+<h2>7. Vos droits</h2><p>Vous avez le droit d’accéder à vos données, de les faire rectifier ou effacer, d’en limiter le traitement et de vous y opposer. Écrivez à ${e}. Vous pouvez déposer une plainte auprès du Préposé fédéral à la protection des données et à la transparence (<a href="https://www.edoeb.admin.ch/fr" rel="noopener">PFPDT</a>) ou de l’autorité de contrôle tchèque (ÚOOÚ).</p>`,
+  },
+];
+
 const de = (zeme: 'de' | 'at' | 'ch'): InfoStranka[] => {
   const behoerde =
     zeme === 'at'
@@ -654,6 +705,7 @@ export const INFORMACE: Record<string, InfoStranka[]> = {
   ee: EE,
   lv: LV,
   lt: LT,
+  'ch-fr': CHFR,
 };
 
 /** Odkazy v patičce podle země (CZ má vlastní stránky v src/pages/cz/) */

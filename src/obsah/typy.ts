@@ -43,6 +43,11 @@ export interface StrankaDokumentu {
   katalog: Omit<Dokument, 'nazev' | 'url'>;
   /** Skupina souvisejících dokumentů z _zeme.ts (landing „Hodí se k tomu“, panel „Co dál?“) */
   souvisejici: string;
+  /**
+   * Stejný dokument v jiné jazykové „zemi“ téže země (Švýcarsko: ch ↔ ch-fr ↔ ch-it): kód země → slug.
+   * Stačí zapsat na jedné straně – vazba platí oběma směry (hreflang a přepínač jazyka).
+   */
+  protejsky?: Record<string, string>;
   landing: {
     /** {rok} = rok poslední aktualizace šablony */
     title: string;
@@ -81,6 +86,8 @@ export interface Zeme {
   aktivni: boolean;
   /** Pořadí na rozcestníku a ve výběru země */
   poradi: number;
+  /** Jazykové varianty jedné země (Švýcarsko: ch, ch-fr, ch-it mají skupinu 'ch') – vzájemný hreflang rozcestníků a dokumentů */
+  skupina?: string;
   kategorie: Record<string, string>;
   /** Skupiny souvisejících dokumentů: slug + krátký popis do karty (pořadí = pořadí v kartách) */
   skupiny: Record<string, { slug: string; popis: string }[]>;

@@ -6,7 +6,7 @@
  * Adresy: /<zeme>/<jazyk>/<slug>/ (landing), …/vytvorit/ (průvodce), …/<slug>-<jazyk>-vzor.pdf|docx.
  */
 import type { Dokument, Odkaz, StrankaDokumentu } from '../obsah/typy';
-import { AKTIVNI_ZEME, HREFLANG_HUBY, STRANKY, slugStranky, urlStranky, zemeKod } from '../obsah';
+import { AKTIVNI_ZEME, HREFLANG_HUBY, STRANKY, slugStranky, strankaPodleSlugu, urlStranky, zemeKod } from '../obsah';
 import { JAZYKY_VERZI, NAZVY_JAZYKU } from '../i18n';
 import type { PrekladDokumentu } from './typy';
 import { slozVerzi } from './verze';
@@ -101,33 +101,90 @@ export interface JazykStranky {
 }
 
 /**
- * Jazyky dokumentu pro přepínač a hreflang: originál + verze. `aktualni` = jazyk otevřené stránky
- * (jazyk země u originálu), `cast` = doplněk adresy („vytvorit/“ u průvodce).
+ * Protějšky dokumentu v jazykových variantách téže země (Švýcarsko: ch ↔ ch-fr ↔ ch-it) podle `protejsky` ve stránkách.
+ * Vazba stačí na jedné straně; skupiny se spojí (A↔B a B↔C → A, B, C).
+ */
+const SKUPINY_PROTEJSKU = (() => {
+  const klic = (z: string, slug: string) => `${z}/${slug}`;
+  const rodic = new Map<string, string>();
+  const najdi = (k: string): string => {
+    const r = rodic.get(k) ?? k;
+    if (r === k) return k;
+    const koren = najdi(r);
+    rodic.set(k, koren);
+    return koren;
+  };
+  for (const [z, stranky] of Object.entries(STRANKY))
+    for (const st of stranky)
+      for (const [z2, slug2] of Object.entries(st.protejsky ?? {})) {
+        if (!strankaPodleSlugu(z2, slug2)) throw new Error(`${z}/${slugStranky(st)}: protějšek ${z2}/${slug2} neexistuje`);
+        rodic.set(najdi(klic(z, slugStranky(st))), najdi(klic(z2, slug2)));
+      }
+  const skupiny = new Map<string, StrankaDokumentu[]>();
+  for (const [z, stranky] of Object.entries(STRANKY))
+    for (const st of stranky) {
+      const k = klic(z, slugStranky(st));
+      if (!rodic.has(k) && ![...rodic.values()].includes(k)) continue;
+      const koren = najdi(k);
+      skupiny.set(koren, [...(skupiny.get(koren) ?? []), st]);
+    }
+  const podle = new Map<string, StrankaDokumentu[]>();
+  for (const cleny of skupiny.values()) for (const st of cleny) podle.set(klic(st.sablona.zeme, slugStranky(st)), cleny);
+  return podle;
+})();
+
+const poradiZeme = (kod: string) => zemeKod(kod).poradi;
+
+/** Originály téhož dokumentu v ostatních jazykových variantách země (bez dokumentu samotného) */
+export const protejskyDokumentu = (zeme: string, slug: string): StrankaDokumentu[] =>
+  (SKUPINY_PROTEJSKU.get(`${zeme}/${slug}`) ?? []).filter((st) => st.sablona.zeme !== zeme).sort((a, b) => poradiZeme(a.sablona.zeme) - poradiZeme(b.sablona.zeme));
+
+/**
+ * Jazyky dokumentu pro přepínač a hreflang: originál, protějšky v dalších jazycích země (Švýcarsko) a jazykové verze.
+ * `aktualni` = jazyk otevřené stránky (jazyk země u originálu), `cast` = doplněk adresy („vytvorit/“ u průvodce).
+ * Verze protějšků se přidají jen do hreflang (vzájemnost), v přepínači jen, když jazyk ještě chybí.
  */
 export function jazykyDokumentu(zeme: string, slug: string, aktualni?: string, cast = ''): JazykStranky[] {
+  const original = strankaPodleSlugu(zeme, slug);
+  const sestry = protejskyDokumentu(zeme, slug);
   const verze = verzeDokumentu(zeme, slug);
-  if (!verze.length) return [];
-  const z = zemeKod(zeme);
-  const original = verze[0].original;
-  return [
-    { jazyk: z.jazyk, nazev: NAZVY_JAZYKU[z.jazyk] ?? z.jazyk, hreflang: z.hreflang, href: urlStranky(original) + cast, aktivni: !aktualni || aktualni === z.jazyk },
-    ...verze.map((v) => ({
+  if (!original || (!verze.length && !sestry.length)) return [];
+  const orig = (st: StrankaDokumentu, vlastni: boolean): JazykStranky => {
+    const z = zemeKod(st.sablona.zeme);
+    return { jazyk: z.jazyk, nazev: NAZVY_JAZYKU[z.jazyk] ?? z.jazyk, hreflang: z.hreflang, href: urlStranky(st) + cast, aktivni: vlastni && (!aktualni || aktualni === z.jazyk) };
+  };
+  const originaly = [orig(original, true), ...sestry.map((st) => orig(st, false))].sort(
+    (a, b) => poradiZeme(zemeZHreflang(a.hreflang)) - poradiZeme(zemeZHreflang(b.hreflang)),
+  );
+  const verzeVse = [zeme, ...sestry.map((st) => st.sablona.zeme)].flatMap((z) =>
+    verzeDokumentu(z, z === zeme ? slug : slugStranky(sestry.find((st) => st.sablona.zeme === z)!)).map((v) => ({
       jazyk: v.jazyk,
       nazev: JAZYKY_VERZI[v.jazyk].nazev,
-      hreflang: hreflangVerze(zeme, v.jazyk),
+      hreflang: hreflangVerze(z, v.jazyk),
       href: urlStranky(v.stranka) + cast,
-      aktivni: aktualni === v.jazyk,
+      aktivni: z === zeme && aktualni === v.jazyk,
     })),
-  ];
+  );
+  const videne = new Set<string>();
+  return [...originaly, ...verzeVse].filter((j) => (videne.has(j.hreflang) ? false : (videne.add(j.hreflang), true)));
 }
 
-/** Jazyky rozcestníku země (originál + verze s dokumenty) */
+/** Kód země podle hreflang originálu (de-CH → ch, fr-CH → ch-fr) */
+const zemeZHreflang = (h: string) => AKTIVNI_ZEME.find((z) => z.hreflang === h)!.kod;
+
+/** Jazykové varianty země (stejná `skupina`), seřazené podle pořadí */
+const variantyZeme = (kod: string) => {
+  const sk = zemeKod(kod).skupina;
+  return sk ? AKTIVNI_ZEME.filter((z) => z.skupina === sk) : [zemeKod(kod)];
+};
+
+/** Jazyky rozcestníku země (originál, jazykové varianty země a verze s dokumenty) */
 export function jazykyRozcestniku(zeme: string, aktualni?: string): JazykStranky[] {
   const verze = ROZCESTNIKY_VERZI.filter((r) => r.zeme.kod === zeme);
-  if (!verze.length) return [];
-  const z = zemeKod(zeme);
+  const varianty = variantyZeme(zeme);
+  if (!verze.length && varianty.length < 2) return [];
   return [
-    { jazyk: z.jazyk, nazev: NAZVY_JAZYKU[z.jazyk] ?? z.jazyk, hreflang: z.hreflang, href: `/${zeme}/`, aktivni: !aktualni || aktualni === z.jazyk },
+    ...varianty.map((z) => ({ jazyk: z.jazyk, nazev: NAZVY_JAZYKU[z.jazyk] ?? z.jazyk, hreflang: z.hreflang, href: `/${z.kod}/`, aktivni: z.kod === zeme && (!aktualni || aktualni === z.jazyk) })),
     ...verze.map((r) => ({ jazyk: r.jazyk, nazev: JAZYKY_VERZI[r.jazyk].nazev, hreflang: hreflangVerze(zeme, r.jazyk), href: r.url, aktivni: aktualni === r.jazyk })),
   ];
 }
