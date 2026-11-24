@@ -1,5 +1,5 @@
 ---
-title: "Enfant en voyage sans ses parents : l’autorisation recommandée"
+title: "Enfant en voyage sans ses parents : l’autorisation"
 nazev: "Enfant en voyage"
 description: "Votre enfant voyage à l’étranger seul, avec un seul parent ou des proches ? Ce que recommande le DFAE, ce que demandent certains pays, comment préparer l’autorisation."
 perex: "Le DFAE recommande vivement une déclaration de consentement signée par les parents. Certains pays l’exigent ; vérifiez les règles du pays de destination."

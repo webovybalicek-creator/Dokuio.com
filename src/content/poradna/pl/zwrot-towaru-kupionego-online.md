@@ -1,5 +1,5 @@
 ---
-title: "Zwrot towaru kupionego przez internet: 14 dni na odstąpienie od umowy"
+title: "Zwrot towaru kupionego online: 14 dni na odstąpienie"
 nazev: "Zwrot zakupu z internetu"
 description: "Odstąpienie od umowy zawartej na odległość według ustawy o prawach konsumenta: 14 dni, zwrot pieniędzy w 14 dni, koszty odesłania i wyjątki."
 perex: "Towar kupiony w sklepie internetowym możesz zwrócić w ciągu 14 dni bez podawania przyczyny. Wystarczy w terminie wysłać oświadczenie o odstąpieniu."

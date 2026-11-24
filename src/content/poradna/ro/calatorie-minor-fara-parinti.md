@@ -1,5 +1,5 @@
 ---
-title: "Copilul călătorește în străinătate fără părinți: declarația notarială"
+title: "Călătoria minorului fără părinți: declarația notarială"
 nazev: "Călătoria minorului"
 description: "Ce acte trebuie când un minor iese din România cu un singur părinte, cu bunicii sau cu altă persoană: declarația notarială conform Legii 248/2005 și excepțiile."
 perex: "Cu un singur părinte – declarația notarială a celuilalt. Cu bunicii sau alt adult – declarația notarială a ambilor părinți. Plus actul de călătorie al copilului."

@@ -1,5 +1,5 @@
 ---
-title: "Cumpărarea unei mașini second-hand: ce verificați înainte de plată"
+title: "Cumpărarea unei mașini second-hand: ce verificați"
 nazev: "Cumpărarea unei mașini rulate"
 description: "Ce verificați la cumpărarea unei mașini rulate de la o persoană fizică: proprietarul, VIN-ul, kilometrajul, leasingul, datoriile la taxe locale și transcrierea."
 perex: "Înainte să plătiți verificați actele și VIN-ul, iar înainte de semnare asigurați-vă că nu aveți datorii la taxe locale – din 2026 se verifică și cumpărătorul."

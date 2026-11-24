@@ -1,5 +1,5 @@
 ---
-title: "Automobilio pardavimas dalimis tarp fizinių asmenų: kaip apsisaugoti"
+title: "Automobilio pardavimas dalimis: kaip apsisaugoti"
 nazev: "Pardavimas dalimis"
 description: "Parduodate automobilį ir pirkėjas mokės dalimis? Kaip tai užfiksuoti: sutartis, skolos pripažinimas, grąžinimo grafikas ir deklaravimo laikas."
 perex: "Pardavimas dalimis – tai pasitikėjimo klausimas. Įrašykite grafiką, pasekmes vėluojant ir apsvarstykite, kada deklaruoti perleidimą Regitroje."

@@ -1,5 +1,5 @@
 ---
-title: "Prekė su trūkumu: 2 metų garantija ir ko reikalauti iš pardavėjo"
+title: "Prekė su trūkumu: 2 metų garantija ir jūsų teisės"
 nazev: "Prekė su trūkumu"
 description: "Prekė sugedo? Ką reikalauti iš pardavėjo pagal 2 metų teisinę garantiją: taisymo, pakeitimo, kainos sumažinimo ar pinigų grąžinimo, ir kaip pateikti pretenziją."
 perex: "Pardavėjas atsako už trūkumus, paaiškėjusius per 2 metus. Jei trūkumas paaiškėja per metus, laikoma, kad jis buvo nuo pradžių."

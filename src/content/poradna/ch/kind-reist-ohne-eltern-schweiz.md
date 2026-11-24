@@ -1,5 +1,5 @@
 ---
-title: "Kind reist allein ins Ausland: Einverständniserklärung Schweiz"
+title: "Kind reist allein ins Ausland: Einverständnis Schweiz"
 nazev: "Kind reist ohne Eltern"
 description: "Wann das EDA eine Einverständniserklärung der Eltern dringend empfiehlt, was hineingehört, wer die Unterschrift beglaubigt und wo Sie die Regeln des Ziellandes finden."
 perex: "Mit den Grosseltern in die Ferien, mit dem Verein oder allein zu Verwandten: Das EDA empfiehlt eine schriftliche Einwilligung der Eltern dringend."

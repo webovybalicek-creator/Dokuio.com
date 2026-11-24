@@ -1,5 +1,5 @@
 ---
-title: "Démarchage à domicile ou par téléphone : révoquer en 14 jours"
+title: "Démarchage téléphonique : révoquer le contrat en 14 jours"
 nazev: "Révocation en 14 jours"
 description: "Contrat conclu à la porte, au téléphone ou dans la rue ? Le droit de révocation de 14 jours en Suisse : conditions, délai, exceptions et lettre de révocation."
 perex: "Pour un contrat de plus de 100 francs conclu à domicile, au travail, dans la rue ou par téléphone, vous pouvez révoquer dans les 14 jours – sans justification."

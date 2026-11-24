@@ -1,5 +1,5 @@
 ---
-title: "Bauda po automobilio pardavimo: kaip įrodyti, kad vairavo pirkėjas"
+title: "Bauda po automobilio pardavimo: kaip įrodyti pardavimą"
 nazev: "Bauda po pardavimo"
 description: "Gavote baudą ar pranešimą jau pardavę automobilį? Kaip padeda perdavimo aktas su laiku, sutartis ir deklaravimas Regitroje."
 perex: "Iki deklaravimo savininku laikomas registruotas asmuo. Sutartis ir aktas su tiksliu laiku įrodo, kas tuo metu vairavo automobilį."

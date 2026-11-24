@@ -1,5 +1,5 @@
 ---
-title: "Reklamace zboží – lhůty, vaše práva a co dělat, když obchod nereaguje"
+title: "Reklamace zboží: lhůty, práva a co když obchod nereaguje"
 nazev: "Reklamace zboží krok za krokem"
 description: "Jak reklamovat vadné zboží – 24 měsíců na reklamaci, vyřízení do 30 dnů, oprava nebo výměna, sleva a odstoupení. S reklamačním formulářem zdarma."
 perex: "Na vady máte 24 měsíců, obchod musí reklamaci vyřídit do 30 dnů a vadu, která se ukáže v prvním roce, musí vyvrátit on. Jak postupovat."

@@ -1,5 +1,5 @@
 ---
-title: "Darilo avtomobila družinskemu članu: pogodba, davek in prepis"
+title: "Darilo avtomobila v družini: pogodba, davek in prepis"
 nazev: "Darilo avtomobila"
 description: "Kako podariti avto otroku ali zakoncu: darilna pogodba, oprostitev davka na darila za prvi dedni red, napoved FURS v 15 dneh in prepis vozila."
 perex: "Za darilo avta uporabite darilno pogodbo. Prvi dedni red davka ne plača, prepis je treba opraviti v 15 dneh."

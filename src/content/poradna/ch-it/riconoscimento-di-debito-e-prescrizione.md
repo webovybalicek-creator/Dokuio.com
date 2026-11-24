@@ -1,5 +1,5 @@
 ---
-title: "Riconoscimento di debito e prescrizione: quando un debito si prescrive"
+title: "Riconoscimento di debito e prescrizione in Svizzera"
 nazev: "Prescrizione dei debiti"
 description: "Quando si prescrive un debito in Svizzera e come il riconoscimento di debito interrompe la prescrizione. Termini di 10 e 5 anni e consigli pratici."
 perex: "La maggior parte dei crediti si prescrive in 10 anni, molti in 5. Un riconoscimento di debito firmato interrompe la prescrizione e fa ricominciare il termine."

@@ -1,5 +1,5 @@
 ---
-title: "Auto verkauft und Busse erhalten? So hilft das Übergabeprotokoll"
+title: "Busse nach dem Autoverkauf? So hilft das Übergabeprotokoll"
 nazev: "Busse nach Autoverkauf"
 description: "Ordnungsbusse für ein verkauftes Auto in der Schweiz? Ist der Fahrer unbekannt, haftet der Halter. Kaufvertrag und Protokoll mit Uhrzeit belegen den Verkauf."
 perex: "Bei Ordnungsbussen zahlt der Halter, wenn der Fahrzeugführer nicht bekannt ist. Mit Kaufvertrag und Übergabeprotokoll samt Uhrzeit nennen Sie den Käufer."

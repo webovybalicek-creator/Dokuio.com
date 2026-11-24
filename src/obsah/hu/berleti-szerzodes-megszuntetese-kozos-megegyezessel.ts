@@ -8,7 +8,7 @@ const stranka: StrankaDokumentu = {
   katalog: {"popis": "Albérlet vége közös megegyezéssel – időpont, átadás, kaució.", "kategorie": "lakas", "ilustrace": "protokol", "slova": ["bérleti szerződés megszüntetése közös megegyezéssel", "albérlet felmondás", "közös megegyezés", "kaució", "lakás átadása"]},
   souvisejici: "lakas",
   landing: {
-  "title": "Bérleti szerződés megszüntetése közös megegyezéssel {rok} – minta",
+  "title": "Bérlet megszüntetése közös megegyezéssel {rok} – ingyenes minta",
   "description": "Ingyenes minta a lakásbérleti szerződés közös megegyezéses megszüntetéséhez (Ptk. 6:212. §): időpont, lakás átadása, kaució visszafizetése. PDF és Word.",
   "perex": "Előbb költözne, felmondási idő nélkül? A bérbeadó és a bérlő közös megegyezéssel bármikor megszüntetheti a bérletet.",
   "obsahPopis": "Három rész a Ptk. 6:212. §-a szerint.",

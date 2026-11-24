@@ -1,5 +1,5 @@
 ---
-title: "Umowa z fachowcem – ryczałt czy kosztorys, zaliczka i odbiór dzieła"
+title: "Umowa z fachowcem: ryczałt czy kosztorys i odbiór dzieła"
 nazev: "Umowa z fachowcem"
 description: "Remont łazienki czy naprawa na zamówienie: umowa o dzieło wg art. 627 KC, wynagrodzenie ryczałtowe lub kosztorysowe, zaliczka, odbiór i przedawnienie."
 perex: "Remont, malowanie, meble na wymiar. Pisemna umowa o dzieło oszczędzi sporów o cenę, termin i to, co dokładnie miało powstać."

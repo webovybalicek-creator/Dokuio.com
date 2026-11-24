@@ -1,5 +1,5 @@
 ---
-title: "Automobilio dovanojimas šeimoje: sutartis, mokesčiai ir Regitra"
+title: "Automobilio dovanojimas šeimoje: sutartis ir mokesčiai"
 nazev: "Automobilio dovanojimas"
 description: "Dovanojate automobilį vaikui ar sutuoktiniui? Dovanojimo sutarties forma, kada reikia notaro, pajamų mokestis ir deklaravimas Regitroje."
 perex: "Automobiliui notarinė forma privaloma tik tada, kai jo vertė viršija 14 500 €. Dovana iš artimų giminaičių neapmokestinama."

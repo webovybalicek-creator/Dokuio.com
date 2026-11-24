@@ -1,5 +1,5 @@
 ---
-title: "Eladta az autót, és bírság jött? Így segít az átadási jegyzőkönyv"
+title: "Bírság az autó eladása után? Így segít a jegyzőkönyv"
 nazev: "Bírság az autó eladása után"
 description: "Bírságot kapott egy már eladott autó után? Az adásvételi szerződés és az átadás-átvételi jegyzőkönyv az időponttal igazolja, hogy már nem Ön üzemeltette."
 perex: "Amíg a változás nincs bejegyezve, a bírság az üzembentartónak megy. A szerződés és a jegyzőkönyv a birtokba adás időpontjával a legjobb bizonyíték."

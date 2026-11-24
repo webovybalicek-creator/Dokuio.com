@@ -1,5 +1,5 @@
 ---
-title: "Vračilo blaga, kupljenega na spletu: odstop od pogodbe v 14 dneh"
+title: "Vračilo blaga, kupljenega na spletu: odstop v 14 dneh"
 nazev: "Vračilo blaga s spleta"
 description: "Kako vrniti blago, kupljeno na spletu: pravica do odstopa v 14 dneh brez razloga, obrazec za odstop, vračilo plačila v 14 dneh in izjeme po ZVPot-1."
 perex: "V 14 dneh od prejema lahko odstopite brez razloga. Trgovec vrne plačilo v 14 dneh."

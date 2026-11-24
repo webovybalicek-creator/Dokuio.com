@@ -1,5 +1,5 @@
 ---
-title: "Prepis vozila v Sloveniji: rok 15 dni, dokumenti in pooblastilo"
+title: "Prepis vozila v Sloveniji: rok 15 dni in dokumenti"
 nazev: "Prepis vozila"
 description: "Kako poteka prepis vozila v Sloveniji: rok 15 dni za prijavo spremembe lastništva, potrebni dokumenti, pooblastilo, overitev podpisa in darilo vozila."
 perex: "Spremembo lastništva prijavite registracijski organizaciji v 15 dneh. Če gre le kupec, potrebuje pogodbo z overjenim podpisom."

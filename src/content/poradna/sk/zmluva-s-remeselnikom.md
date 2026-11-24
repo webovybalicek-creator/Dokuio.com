@@ -1,5 +1,5 @@
 ---
-title: "Zmluva s remeselníkom – cena, preddavok, prevzatie a vady diela"
+title: "Zmluva s remeselníkom: cena, preddavok a prevzatie diela"
 nazev: "Zmluva s remeselníkom"
 description: "Na čo myslieť pri objednávke rekonštrukcie alebo opravy: zmluva o dielo podľa § 631 OZ, pevná cena vs. rozpočet, preddavok, prevzatie a vady."
 perex: "Rekonštrukcia kúpeľne, maľovanie, nová podlaha. Písomná zmluva o dielo vám ušetrí spory o cenu, termín aj rozsah prác."

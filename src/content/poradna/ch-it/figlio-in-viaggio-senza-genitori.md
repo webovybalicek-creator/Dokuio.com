@@ -1,5 +1,5 @@
 ---
-title: "Figlio in viaggio senza i genitori: l’autorizzazione raccomandata"
+title: "Figlio in viaggio senza genitori: l’autorizzazione"
 nazev: "Bambini in viaggio"
 description: "Il figlio viaggia all’estero con un solo genitore, con i nonni o da solo: dichiarazione di consenso raccomandata dal DFAE, contenuto, autenticazione e regole dei Paesi."
 perex: "Il DFAE raccomanda vivamente una dichiarazione di consenso quando un minorenne viaggia con un solo genitore o senza i genitori. Alcuni Paesi la esigono."

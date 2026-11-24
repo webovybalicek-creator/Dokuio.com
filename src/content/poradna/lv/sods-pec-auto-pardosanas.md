@@ -1,5 +1,5 @@
 ---
-title: "Sods pēc auto pārdošanas: kā pierādīt, ka auto vairs nebija jūsu"
+title: "Sods pēc auto pārdošanas: kā pierādīt pārdošanu"
 nazev: "Sods pēc pārdošanas"
 description: "Pēc auto pārdošanas pienāca paziņojums par pārkāpumu? Kā palīdz pirkuma līgums un nodošanas akts ar laiku un kāpēc nekavēties ar e-CSDD."
 perex: "Līdz īpašnieka maiņai reģistrā par īpašnieku uzskata pēdējo reģistrēto. Nodošanas akts ar precīzu laiku pierāda, kura rokās auto bija."

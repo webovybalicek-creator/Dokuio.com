@@ -1,5 +1,5 @@
 ---
-title: "Zajam prijatelju ili obitelji: kako posuditi i dobiti novac natrag"
+title: "Zajam prijatelju ili obitelji: kako dobiti novac natrag"
 nazev: "Zajam prijatelju"
 description: "Kako posuditi novac prijatelju ili članu obitelji: pisani ugovor o zajmu, iznos slovima, obroci, kamata u zakonskim granicama i što ako dužnik kasni."
 perex: "Kratak pisani ugovor, novac na račun i jasan plan vraćanja štite obje strane – i prijateljstvo."

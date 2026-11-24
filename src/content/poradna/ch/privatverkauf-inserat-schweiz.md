@@ -1,5 +1,5 @@
 ---
-title: "Privatverkauf über Inserat in der Schweiz: Vertrag und Betrug"
+title: "Privatverkauf über Inserat in der Schweiz: Vertrag"
 nazev: "Privatverkauf über Inserat"
 description: "Sicher privat verkaufen über Inserat in der Schweiz: kurzer Kaufvertrag, Gewährleistung wegbedingen, Mängel angeben, Bezahlung bei Übergabe und Betrugsmaschen."
 perex: "Bei teureren Sachen lohnt sich ein kurzer Kaufvertrag. Die Gewährleistung kann wegbedungen werden – nicht aber für arglistig verschwiegene Mängel (Art. 199 OR)."

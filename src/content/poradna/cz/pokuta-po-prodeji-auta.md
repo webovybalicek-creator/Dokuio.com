@@ -1,5 +1,5 @@
 ---
-title: "Prodali jste auto a přišla pokuta? Jak pomůže předávací protokol"
+title: "Pokuta po prodeji auta? Jak pomůže předávací protokol"
 nazev: "Pokuta po prodeji auta"
 description: "Přišla vám výzva k zaplacení pokuty za auto, které už jste prodali? Předávací protokol s časem předání a kupní smlouva prokážou, kdo vůz řídil. Jak postupovat."
 perex: "Dokud není auto přepsané, chodí výzvy k zaplacení na provozovatele zapsaného v registru. Předávací protokol s datem a časem předání je váš nejlepší důkaz."

@@ -1,5 +1,5 @@
 ---
-title: "Volikiri: millal piisab lihtkirjalikust ja millal on vaja notarit"
+title: "Volikiri: lihtkirjalik või notariaalselt tõestatud?"
 nazev: "Volikiri"
 description: "Millal piisab lihtkirjalikust või digiallkirjaga volikirjast ja millal peab volikiri olema notariaalne. Mida volikirja kirjutada."
 perex: "Enamikuks toiminguks piisab lihtkirjalikust või digiallkirjastatud volikirjast. Kui tehing vajab notari vormi, vajab seda ka volikiri."

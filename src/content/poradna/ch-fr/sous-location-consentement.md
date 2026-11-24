@@ -1,5 +1,5 @@
 ---
-title: "Sous-louer une chambre ou son appartement : ce que dit la loi"
+title: "Sous-location d’une chambre ou d’un appartement : règles"
 nazev: "Sous-location"
 description: "Sous-louer en Suisse : consentement du bailleur, motifs de refus, loyer de la sous-location, responsabilité du locataire principal et fin avec le bail principal."
 perex: "La sous-location est permise avec le consentement du bailleur, qui ne peut le refuser que pour des motifs précis. Le locataire principal reste responsable."

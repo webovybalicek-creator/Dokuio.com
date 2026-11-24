@@ -1,5 +1,5 @@
 ---
-title: "Subînchirierea unei camere sau a apartamentului: ce trebuie știut"
+title: "Subînchirierea unei camere sau a apartamentului"
 nazev: "Subînchirierea"
 description: "Puteți subînchiria o cameră sau apartamentul închiriat? Ce spune contractul principal, de ce contează acordul scris al proprietarului și ce obligații fiscale aveți."
 perex: "Verificați contractul principal și cereți acordul scris al proprietarului. Subînchirierea nu poate dura mai mult decât închirierea dvs."

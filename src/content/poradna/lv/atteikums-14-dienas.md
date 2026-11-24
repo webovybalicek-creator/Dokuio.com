@@ -1,5 +1,5 @@
 ---
-title: "Atteikuma tiesības: pirkuma internetā atgriešana 14 dienu laikā"
+title: "Atteikuma tiesības 14 dienu laikā, pērkot internetā"
 nazev: "Atteikums 14 dienas"
 description: "Kā atgriezt internetā pirktu preci 14 dienu laikā bez iemesla: no kura brīža skaita termiņu, kā nosūtīt paziņojumu un kad tirgotājs atmaksā naudu."
 perex: "No distances līguma varat atkāpties 14 dienu laikā bez iemesla. Termiņš precēm sākas ar saņemšanu, un pietiek nosūtīt paziņojumu laikus."

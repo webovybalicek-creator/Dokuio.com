@@ -1,5 +1,5 @@
 ---
-title: "Încheierea închirierii: preaviz, predare și restituirea garanției"
+title: "Încheierea închirierii: preaviz și restituirea garanției"
 nazev: "Denunțarea închirierii"
 description: "Cum încheiați închirierea ca chiriaș: notificarea de denunțare, preavizul din contract, procesul-verbal la predare și restituirea garanției."
 perex: "Trimiteți notificarea scrisă cu preavizul din contract, predați locuința cu proces-verbal și cereți garanția în contul indicat."

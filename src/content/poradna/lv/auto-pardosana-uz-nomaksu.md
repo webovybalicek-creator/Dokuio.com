@@ -1,5 +1,5 @@
 ---
-title: "Auto pārdošana uz nomaksu starp privātpersonām: kā sevi pasargāt"
+title: "Auto pārdošana uz nomaksu: kā sevi pasargāt"
 nazev: "Auto uz nomaksu"
 description: "Pārdodat auto un pircējs maksās pa daļām? Kā ierakstīt maksājumus, kāpēc svarīgs e-CSDD apstiprinājuma brīdis un kas notiek, ja maksājumi kavējas."
 perex: "Īpašuma tiesības reģistrā pāriet ar jūsu apstiprinājumu e-CSDD. Maksājumu grafiku un sekas kavējuma gadījumā ierakstiet rakstveidā."

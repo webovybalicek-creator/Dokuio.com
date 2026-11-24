@@ -1,5 +1,5 @@
 ---
-title: "Sprzedawca odrzucił reklamację: co dalej (rzecznik, mediacja)"
+title: "Odrzucona reklamacja: co dalej (rzecznik, mediacja)"
 nazev: "Odrzucona reklamacja"
 description: "Reklamacja odrzucona? Sprawdź termin 14 dni, domniemanie 2 lat, poproś o pomoc rzecznika konsumentów, skorzystaj z mediacji Inspekcji Handlowej albo idź do sądu."
 perex: "Odrzucenie reklamacji nie zamyka sprawy. Sprzedawca odpowiada za brak zgodności przez 2 lata, a rzecznik konsumentów pomoże bezpłatnie."

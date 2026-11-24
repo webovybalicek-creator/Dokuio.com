@@ -1,5 +1,5 @@
 ---
-title: "Dieťa cestuje do zahraničia bez rodičov – súhlas a overenie podpisu"
+title: "Dieťa cestuje do zahraničia bez rodičov: súhlas"
 nazev: "Dieťa cestuje bez rodičov"
 description: "Kedy dieťaťu pri ceste do zahraničia pripraviť písomný súhlas zákonného zástupcu, čo v ňom uviesť a kto osvedčí podpis na listine do cudziny."
 perex: "S babkou k moru, so školou na výlet, s jedným z rodičov. Písomný súhlas zákonného zástupcu sa odporúča a niektoré krajiny ho vyžadujú."

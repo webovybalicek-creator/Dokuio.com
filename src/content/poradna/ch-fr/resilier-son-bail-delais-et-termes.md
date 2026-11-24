@@ -1,5 +1,5 @@
 ---
-title: "Résilier son bail : délai de trois mois, termes et départ anticipé"
+title: "Résilier son bail : délai de trois mois et termes"
 nazev: "Résilier son bail"
 description: "Comment résilier son bail en Suisse romande : préavis de trois mois, termes usuels, lettre recommandée, logement de famille et locataire de remplacement."
 perex: "Trois mois au moins pour un terme usuel ou convenu, par lettre signée qui doit arriver à temps. Pour partir plus tôt : un locataire de remplacement ou une convention."

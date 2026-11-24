@@ -1,5 +1,5 @@
 ---
-title: "Auto verschenken in der Schweiz: Vertrag, Steuer, Halterwechsel"
+title: "Auto verschenken in der Schweiz: Vertrag und Steuer"
 nazev: "Auto verschenken in der Schweiz"
 description: "Auto in der Schweiz verschenken: Schenkung von Hand zu Hand formlos gültig, kantonale Schenkungssteuer (Ehegatten befreit), Halterwechsel, Schilder und Versicherung."
 perex: "Eine Schenkung von Hand zu Hand ist formlos gültig. Ob Schenkungssteuer anfällt, regelt der Kanton – Ehegatten sind praktisch überall befreit."

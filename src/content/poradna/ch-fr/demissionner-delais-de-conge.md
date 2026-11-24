@@ -1,5 +1,5 @@
 ---
-title: "Démissionner en Suisse : délais de congé, temps d’essai et chômage"
+title: "Démissionner en Suisse : délai de congé et temps d’essai"
 nazev: "Démissionner"
 description: "Comment démissionner en Suisse : délais de congé selon l’année de service, temps d’essai de 7 jours, lettre et réception, certificat de travail et chômage."
 perex: "Pendant le temps d’essai, 7 jours. Ensuite 1 à 3 mois pour la fin d’un mois. La démission compte dès sa réception ; sans nouvel emploi, les indemnités peuvent être suspendues."

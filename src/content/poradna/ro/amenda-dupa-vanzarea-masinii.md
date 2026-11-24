@@ -1,5 +1,5 @@
 ---
-title: "Amendă după vânzarea mașinii: cum dovediți că nu mai era a dvs."
+title: "Amendă după vânzarea mașinii: cum dovediți vânzarea"
 nazev: "Amendă după vânzare"
 description: "Ați vândut mașina, iar amenda vine tot la dvs.? Cum dovediți ora predării, de ce contează procesul-verbal și ce puteți face dacă cumpărătorul nu face transcrierea."
 perex: "Până la transcriere mașina figurează pe numele vânzătorului. Contractul și procesul-verbal cu ora exactă a predării dovedesc cine conducea."

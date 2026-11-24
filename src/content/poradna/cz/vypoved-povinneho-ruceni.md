@@ -1,5 +1,5 @@
 ---
-title: "Výpověď povinného ručení: lhůty, výročí, nehoda i prodej auta"
+title: "Výpověď povinného ručení: lhůty, výročí i prodej auta"
 nazev: "Výpověď povinného ručení"
 description: "Kdy a jak vypovědět povinné ručení: k výročí 6 týdnů předem, do 2 měsíců od sjednání, po pojistné události, při zdražení a po prodeji auta. Zákon 30/2024 Sb."
 perex: "Povinné ručení se automaticky prodlužuje každý rok. Změnit pojišťovnu můžete jen v zákonem daných situacích – a skoro vždy rozhoduje, kdy výpověď pojišťovna dostane."

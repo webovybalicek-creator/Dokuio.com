@@ -1,5 +1,5 @@
 ---
-title: "Lavori con un artigiano: contratto d’appalto, prezzo e collaudo"
+title: "Contratto con un artigiano: appalto, prezzo e collaudo"
 nazev: "Contratto con un artigiano"
 description: "Affidare lavori a un artigiano in Svizzera: contratto d’appalto, prezzo fisso o preventivo approssimativo, acconto, collaudo, avviso dei difetti e prescrizione."
 perex: "Descrivete l’opera, scegliete tra prezzo fisso e preventivo, verificate l’opera al collaudo e riservate subito i difetti. Così evitate le sorprese."

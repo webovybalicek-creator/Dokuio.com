@@ -1,5 +1,5 @@
 ---
-title: "Dimettersi in Svizzera: termini, tempo di prova e disoccupazione"
+title: "Dimettersi in Svizzera: termini e tempo di prova"
 nazev: "Dimettersi"
 description: "Come dimettersi in Svizzera: forma, termini di disdetta secondo l’anno di servizio, tempo di prova, attestato di lavoro, vacanze e conseguenze per la disoccupazione."
 perex: "Nel tempo di prova 7 giorni, poi da 1 a 3 mesi per la fine di un mese. Conta la ricezione da parte del datore di lavoro. Senza nuovo impiego: attenzione alla disoccupazione."

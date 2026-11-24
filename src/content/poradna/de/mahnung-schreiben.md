@@ -1,5 +1,5 @@
 ---
-title: "Mahnung schreiben: Verzug, Verzugszinsen und nächste Schritte"
+title: "Mahnung schreiben: Verzug, Verzugszinsen, nächste Schritte"
 nazev: "Mahnung schreiben"
 description: "Wann Verzug eintritt (§ 286 BGB), wie hoch Verzugszinsen sind (§ 288 BGB), was in eine Mahnung gehört und wie Sie den Zugang beweisen."
 perex: "Die Rechnung ist überfällig, das Darlehen nicht zurückgezahlt. Eine Mahnung setzt in Verzug und ist der letzte Schritt vor Mahnbescheid oder Klage."

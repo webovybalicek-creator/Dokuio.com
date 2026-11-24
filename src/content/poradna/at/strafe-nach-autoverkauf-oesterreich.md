@@ -1,5 +1,5 @@
 ---
-title: "Auto verkauft und Strafe bekommen? Lenkerauskunft richtig geben"
+title: "Strafe nach dem Autoverkauf? Lenkerauskunft richtig geben"
 nazev: "Strafe nach Autoverkauf in Österreich"
 description: "Lenkerauskunft oder Strafverfügung für ein verkauftes Auto in Österreich? Kaufvertrag und Übergabeprotokoll mit Uhrzeit belegen den Verkauf. Fristen und Antwort."
 perex: "Der Zulassungsbesitzer muss auf Verlangen bekanntgeben, wer das Auto gelenkt hat (§ 103 Abs. 2 KFG). Kaufvertrag und Protokoll mit Uhrzeit sind Ihr Beweis."

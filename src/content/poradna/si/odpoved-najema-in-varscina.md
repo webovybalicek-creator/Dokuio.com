@@ -1,5 +1,5 @@
 ---
-title: "Odpoved najema in vračilo varščine: kako se izseliti brez sporov"
+title: "Odpoved najema in vračilo varščine brez sporov"
 nazev: "Odpoved najema in varščina"
 description: "Kako najemnik odpove najemno pogodbo za stanovanje: pisna odpoved, odpovedni rok iz pogodbe, zapisnik o predaji in vračilo varščine po izselitvi."
 perex: "Pisna odpoved z rokom iz pogodbe, predaja z zapisnikom in vračilo varščine po poračunu stroškov."

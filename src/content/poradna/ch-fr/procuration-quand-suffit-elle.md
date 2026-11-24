@@ -1,5 +1,5 @@
 ---
-title: "Procuration simple : quand suffit-elle et quand faut-il plus ?"
+title: "Procuration simple ou légalisée : quand suffit-elle ?"
 nazev: "Procuration"
 description: "Quand une procuration simple suffit en Suisse : poste, école, service des automobiles. Et quand il faut une forme particulière ou un mandat pour cause d’inaptitude."
 perex: "Pour une affaire concrète – retirer un recommandé, une démarche au guichet – une procuration simple et précise suffit. Pour votre propre incapacité, il faut un mandat pour cause d’inaptitude."

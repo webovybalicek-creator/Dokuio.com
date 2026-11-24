@@ -9,16 +9,36 @@ a **chyba zastaví nasazení**. Varování opravit před commitem (cíl: 0 chyb,
 
 | Prvek | Pravidlo |
 |---|---|
-| `<title>` | Unikátní napříč celým webem (i mezi DE/AT/CH). 20–70 znaků, hlavní dotaz na začátku, u vzorů země a rok (`… Österreich {rok}`). Značka „| Dokuio“ jen když se vejde. |
+| `<title>` | Unikátní napříč celým webem (i mezi DE/AT/CH). **Cíl 45–60 znaků** (Google zobrazí zhruba 580 px ≈ 55–60 znaků), hlavní dotaz na začátku a jako součást věty – viz „Titulky, které Google nepřepíše“. U vzorů země a rok (`… Österreich {rok}`). Šablonové titulky „<název> {rok} – <fráze>“ smí mít až 70 znaků, pokud část před „ – “ má nejvýš 55 znaků (Google pak usekne jen obecnou frázi, ne klíčové slovo). Značka „| Dokuio“ jen když se celý titulek vejde do 60 znaků. |
 | `meta description` | Unikátní, 70–170 znaků, v jazyce země, konkrétní (zákon, lhůta, co uživatel dostane). Žádné kopie z jiné země – i AT/CH musí mít vlastní text. |
 | `<html lang>` | Podle země v URL: `cs-CZ`, `sk-SK`, `pl-PL`, `de-DE`, `de-AT`, `de-CH` (nastavuje `Base.astro` z `_zeme.ts`). Jazykové verze `/<zeme>/<jazyk>/…`: jazyk verze + region země (`uk-CZ`, `en-AT`). |
 | `og:locale` | Stejně jako lang s podtržítkem (`de_CH`). Jazykové verze: `uk_UA` / `en_GB` (Open Graph nezná `uk_CZ`). |
 | `canonical` | Absolutní URL stránky samé, s koncovým lomítkem. |
 | `hreflang` | Jen mezi opravdu stejnými stránkami: rozcestníky zemí (a jejich jazykových verzí) a dokument + jeho jazykové verze v téže zemi (`cs-CZ`, `uk-CZ`, `en-CZ`, vzájemně). Dokumenty různých zemí nejsou překlady – liší se právem, nespojovat. |
 | `og:image` | Vždy (generované OG nebo titulní fotka článku 1200×630). |
-| `<h1>` | Právě jeden na stránce. |
+| `<h1>` | Právě jeden na stránce. U článků je H1 = `title`. |
 | Strukturovaná data | Dokument: `HowTo`/`Product` dle šablony stránky, článek: `Article` (+ `image`), `BreadcrumbList`, `FAQPage` pokud jsou FAQ. |
 | `robots` | Indexovat; prázdné výpisy (kategorie bez článků) `noindex, follow`. |
+
+## Titulky, které Google nepřepíše
+
+Zkušenost z 24. 11. 2026: článek „Plná moc: kdy stačí obyčejná a kdy potřebujete úředně ověřený podpis“ (68 znaků) Google ve výsledcích
+zobrazil jako „kdy stačí obyčejná a kdy potřebujete úředně ověřený podpis“ – část před dvojtečkou zahodil a s ní i hlavní klíčové slovo.
+Proto byly 24. 11. 2026 zkráceny všechny titulky článků poradny delší než 60 znaků (98 článků ve všech zemích).
+
+1. **Délka 45–60 znaků.** Delší titulek Google zkracuje nebo si ho přepíše podle sebe – a může přitom vyhodit klíčové slovo.
+2. **Klíčové slovo ve větě, ne jako samostatný nadpis před dvojtečkou.** Vzor „Téma: podtitul“ je v pořádku jen tehdy, když se celý titulek
+   vejde do 60 znaků, nebo když podtitul bez tématu sám neobstojí.
+   - ❌ „Plná moc: kdy stačí obyčejná a kdy potřebujete úředně ověřený podpis“ (68 znaků, podtitul obstojí sám → Google „Plná moc:“ odřízne)
+   - ✅ „Plná moc s ověřeným podpisem: kdy je nutná a kdy ne“ (51 znaků)
+3. **Titulek odpovídá H1 a obsahu.** Když se výrazně liší, Google si často vezme H1 nebo jiný nadpis ze stránky.
+4. **Žádné opakování klíčového slova ani výplňové fráze** („kompletní průvodce“, „vše, co potřebujete vědět“).
+5. **Perex (první odstavec) obsahuje hlavní klíčové slovo a odpovídá na hlavní otázku.** Google místo meta popisu často ukáže větu
+   ze stránky, proto musí první odstavec fungovat i jako úryvek ve výsledcích.
+6. **Kontrola po nasazení:** u stránek, které mají v GSC zobrazení, ověřit, jak Google titulek opravdu ukazuje (hledání `site:dokuio.com/cesta/`
+   nebo dotazem z GSC). Přepsaný nebo oříznutý titulek opravit podle bodů výše.
+
+`scripts/kontrola-seo.mjs` hlásí varování u titulku nad 60 znaků, jehož hlavní část (před „ – “ nebo „ | “) má víc než 55 znaků, a u každého titulku nad 70 znaků.
 
 ## Lokalizace (nejen překlad)
 
@@ -38,13 +58,13 @@ Pravidla a kontrola úplnosti v [PREKLADY.md](PREKLADY.md).
 
 - Každé téma má **stejný článek ve všech zemích**, textově a právně upravený pro danou zemi
   (ne překlad – jiné lhůty, úřady, zákony). Přehled a stav v `BACKLOG-CLANKU.md` (matice témat × zemí).
-- Každý článek: `title` ≤ 70 znaků, `description` 70–170, titulní fotka (`foto:`), aspoň jedna fotka v textu, FAQ (3 otázky),
+- Každý článek: `title` 45–60 znaků (pravidla výše), `description` 70–170, titulní fotka (`foto:`), aspoň jedna fotka v textu, FAQ (3 otázky),
   `slova` pro vyhledávání, `zdroje` z úředních stránek.
 - Výpisy kategorií a témat skládají popis automaticky (`popisSeo`) – musí zůstat 70–170 znaků.
 
 ## Při přidání stránky nebo země
 
-1. Vyplnit `title`/`description` v jazyce země (vlastní text, ne převzatý z jiné země).
+1. Vyplnit `title`/`description` v jazyce země (vlastní text, ne převzatý z jiné země). Titulek podle „Titulky, které Google nepřepíše“.
 2. `npm run build && node scripts/kontrola-seo.mjs` → 0 chyb, 0 varování.
 3. Po nasazení se změněné stránky samy ohlásí vyhledávačům (IndexNow), Google čte sitemapu.
 
@@ -61,3 +81,5 @@ Penalizace za podobnost nehrozí, ale Google podobné stránky nezaindexuje nebo
 7. **Textové stránky:** podmínky užití a ochrana údajů mají `noindex` a nejsou v sitemapě; „O nás“ se indexuje jen tam, kde má vlastní text (AT a CH ne) – řídí `indexovatInfo` v `src/obsah/informace.ts`.
 8. **Balíčky:** stránka balíčku skládá „Po podpisu“ a kontrolu z dokumentů země; vlastní `title`, `description` a `perex` balíčku musí jmenovat zemi a její postup (ne kopie z DE).
 9. **Nestavět stránky bez poptávky** a každou novou stránku prolinkovat z poradny (článek ↔ vzor).
+10. **„Procházeno – momentálně neindexováno“ v GSC** = Google stránku viděl a nechtěl. Žádost o indexaci nepomůže – stránku nejdřív
+    obsahově odlišit (hlavně AT/CH/DE a nové země), teprve pak požádat znovu.

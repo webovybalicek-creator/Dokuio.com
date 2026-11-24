@@ -1,5 +1,5 @@
 ---
-title: "Prodej auta na splátky: výhrada vlastnictví a bezpečná platba"
+title: "Prodej auta na splátky: výhrada vlastnictví a platba"
 nazev: "Prodej auta na splátky"
 description: "Jak prodat auto na splátky soukromé osobě: výhrada vlastnictví podle § 2132 OZ, splátkový kalendář, přepis až po zaplacení, pojištění a co když kupující přestane platit."
 perex: "Prodáváte auto a kupující nemá celou částku? Vyhraďte si vlastnictví do zaplacení poslední splátky a sepište splátkový kalendář. Auto zůstane vaše, dokud není zaplacené."

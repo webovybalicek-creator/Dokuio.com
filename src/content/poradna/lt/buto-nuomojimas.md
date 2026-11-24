@@ -1,5 +1,5 @@
 ---
-title: "Buto nuomojimasis: ką patikrinti prieš pasirašant nuomos sutartį"
+title: "Buto nuomojimasis: ką patikrinti prieš pasirašant"
 nazev: "Buto nuomojimasis"
 description: "Nuomojatės butą? Ką patikrinti prieš pasirašant: savininką, sutarties terminą, užstatą, mokesčius už paslaugas, deklaravimą ir nutraukimo sąlygas."
 perex: "Patikrinkite, ar nuomotojas tikrai savininkas, ką apima nuomos mokestis ir kaip grąžinamas užstatas. Nutraukti galite įspėję prieš mėnesį."

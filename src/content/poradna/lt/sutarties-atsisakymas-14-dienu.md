@@ -1,5 +1,5 @@
 ---
-title: "Sutarties atsisakymas: pirkinio internetu grąžinimas per 14 dienų"
+title: "Sutarties atsisakymas per 14 dienų perkant internetu"
 nazev: "Atsisakymas per 14 dienų"
 description: "Kaip grąžinti internetu pirktą prekę per 14 dienų be priežasties: nuo kada skaičiuojamas terminas, kaip pranešti, kas apmoka grąžinimą ir kada grąžinami pinigai."
 perex: "Perkant internetu ar telefonu, sutarties galima atsisakyti per 14 dienų nuo prekės gavimo. Pakanka išsiųsti pranešimą iki termino pabaigos."

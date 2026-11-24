@@ -1,5 +1,5 @@
 ---
-title: "Naudoto automobilio pardavimas: sutartis, atsiskaitymas ir Regitra"
+title: "Naudoto automobilio pardavimas: sutartis ir Regitra"
 nazev: "Automobilio pardavimas"
 description: "Kaip parduoti naudotą automobilį fiziniam asmeniui: pirkimo–pardavimo sutartis, saugus atsiskaitymas, perdavimo laikas ir deklaravimas Regitroje."
 perex: "Sutartis su VIN ir SDK, pinigai pavedimu ir perdavimo aktas su laiku. Pirkėjas deklaruoja per 5 darbo dienas, jūs patvirtinate per 5 darbo dienas."

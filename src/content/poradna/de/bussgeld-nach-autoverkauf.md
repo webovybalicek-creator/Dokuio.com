@@ -1,5 +1,5 @@
 ---
-title: "Auto verkauft und Bußgeld bekommen? So hilft das Übergabeprotokoll"
+title: "Bußgeld nach dem Autoverkauf? So hilft das Protokoll"
 nazev: "Bußgeld nach Autoverkauf"
 description: "Anhörungsbogen oder Bußgeld für ein Auto, das Sie schon verkauft haben? Kaufvertrag und Übergabeprotokoll mit Uhrzeit belegen den Halterwechsel. So reagieren Sie."
 perex: "Bis zur Ummeldung landen Anhörungsbögen beim eingetragenen Halter. Mit Kaufvertrag und Übergabeprotokoll samt Uhrzeit weisen Sie nach, dass Sie das Auto nicht mehr hatten."

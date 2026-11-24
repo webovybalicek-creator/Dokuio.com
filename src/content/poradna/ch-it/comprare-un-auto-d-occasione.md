@@ -1,5 +1,5 @@
 ---
-title: "Comprare un’auto d’occasione: cosa verificare prima di pagare"
+title: "Comprare un’auto d’occasione: cosa verificare"
 nazev: "Comprare un’occasione"
 description: "Comprare un’auto d’occasione da un privato in Svizzera: licenza di circolazione, numero di telaio, collaudo, difetti, pagamento e immatricolazione. Lista di controllo."
 perex: "Prima di pagare: il venditore è il detentore, il numero di telaio corrisponde, quando è stato fatto l’ultimo collaudo? Poi contratto scritto e immatricolazione a vostro nome."

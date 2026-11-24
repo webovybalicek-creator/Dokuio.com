@@ -1,5 +1,5 @@
 ---
-title: "Smlouva s řemeslníkem – cena, záloha, převzetí a reklamace díla"
+title: "Smlouva s řemeslníkem: cena, záloha a převzetí díla"
 nazev: "Smlouva s řemeslníkem"
 description: "Na co myslet při objednávce rekonstrukce nebo opravy: smlouva o dílo podle § 2586 OZ, pevná cena vs. rozpočet, záloha, převzetí a vady do 2 let."
 perex: "Rekonstrukce koupelny, malování, nová podlaha. Písemná smlouva o dílo vám ušetří spory o cenu, termín i to, co přesně se mělo udělat."

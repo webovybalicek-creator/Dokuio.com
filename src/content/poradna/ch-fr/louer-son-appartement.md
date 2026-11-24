@@ -1,5 +1,5 @@
 ---
-title: "Louer son appartement en Suisse : bail, loyer et frais accessoires"
+title: "Louer son appartement en Suisse : bail, loyer et charges"
 nazev: "Louer son appartement"
 description: "Louer un appartement entre particuliers en Suisse romande : bail, loyer net, frais accessoires énumérés, garantie de loyer, formule officielle, état des lieux."
 perex: "Un bail écrit avec les frais accessoires énumérés un par un, une garantie bloquée au nom du locataire et un état des lieux à la remise des clés."

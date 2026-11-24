@@ -1,5 +1,5 @@
 ---
-title: "Prêter de l’argent à un ami : contrat, intérêts et remboursement"
+title: "Prêter de l’argent à un ami : contrat et remboursement"
 nazev: "Prêter de l’argent"
 description: "Comment prêter de l’argent à un ami ou un proche en Suisse : contrat de prêt écrit, virement, intérêts seulement s’ils sont convenus, mensualités et remboursement."
 perex: "Un contrat signé, l’argent par virement et une date de remboursement claire. Sans date, le prêt est remboursable dans les six semaines dès la première réclamation."

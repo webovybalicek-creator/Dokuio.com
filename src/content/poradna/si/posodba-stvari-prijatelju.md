@@ -1,5 +1,5 @@
 ---
-title: "Posodba stvari prijatelju: pogodba o posodbi in odgovornost za škodo"
+title: "Posodba stvari prijatelju: pogodba in odgovornost"
 nazev: "Posodba stvari"
 description: "Kako posoditi orodje, opremo ali avto prijatelju: pogodba o posodbi, rok vračila, stanje ob izročitvi in kdo odgovarja za škodo po Obligacijskem zakoniku."
 perex: "Pri brezplačni izposoji zapišite stanje, rok vračila in odgovornost za škodo."

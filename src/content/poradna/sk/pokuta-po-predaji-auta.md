@@ -1,5 +1,5 @@
 ---
-title: "Predali ste auto a prišla pokuta? Ako pomôže preberací protokol"
+title: "Pokuta po predaji auta? Ako pomôže preberací protokol"
 nazev: "Pokuta po predaji auta"
 description: "Prišla vám výzva na zaplatenie pokuty za auto, ktoré ste už predali? Preberací protokol s časom odovzdania a kúpna zmluva preukážu, kto mal vozidlo. Ako postupovať."
 perex: "Kým nie je zmena držby zapísaná, výzvy chodia držiteľovi v evidencii. Preberací protokol s dátumom a časom odovzdania je váš najlepší dôkaz."

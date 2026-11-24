@@ -1,5 +1,5 @@
 ---
-title: "Affittare il proprio appartamento: contratto, pigione e spese"
+title: "Affittare il proprio appartamento: contratto e spese"
 nazev: "Affittare un appartamento"
 description: "Affittare un appartamento a un privato in Svizzera: contratto di locazione, pigione netta, spese accessorie elencate, deposito di garanzia, verbale di consegna."
 perex: "Un buon contratto elenca le spese accessorie una per una, fissa la garanzia su un conto bloccato e i termini di disdetta. Alla consegna, un verbale firmato."

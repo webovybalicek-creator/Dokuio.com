@@ -1,5 +1,5 @@
 ---
-title: "Prestare denaro a un amico: contratto, interessi e restituzione"
+title: "Prestare denaro a un amico: contratto e restituzione"
 nazev: "Prestare denaro"
 description: "Prestare denaro a un amico o a un parente in Svizzera: contratto scritto, interessi, restituzione in una volta o a rate, cosa succede se non paga. Con un modello gratis."
 perex: "Un prestito tra amici funziona meglio con un contratto: importo, data di restituzione o rate, interessi sì o no. Firmato, vale anche come riconoscimento di debito."

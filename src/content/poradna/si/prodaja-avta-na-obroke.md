@@ -1,5 +1,5 @@
 ---
-title: "Prodaja avta na obroke med fizičnimi osebami: kako se zavarovati"
+title: "Prodaja avta na obroke: kako se zavarovati"
 nazev: "Prodaja avta na obroke"
 description: "Prodajate avto na obroke? Kako v pogodbo zapisati pridržek lastninske pravice, urnik obrokov, posledice zamude in kdaj izvesti prepis vozila."
 perex: "Pri prodaji na obroke se zavarujete s pridržkom lastninske pravice in dogovorom o obročnem odplačilu."

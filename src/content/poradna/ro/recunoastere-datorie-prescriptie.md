@@ -1,5 +1,5 @@
 ---
-title: "Recunoașterea de datorie și prescripția: cum păstrați creanța"
+title: "Recunoașterea de datorie și prescripția creanței"
 nazev: "Recunoașterea datoriei"
 description: "Ce este recunoașterea de datorie, cum întrerupe prescripția de 3 ani din Codul civil și ce trebuie să conțină declarația debitorului ca să vă protejeze."
 perex: "O recunoaștere scrisă a datoriei întrerupe prescripția – termenul începe din nou. Treceți suma, temeiul și termenul de plată."

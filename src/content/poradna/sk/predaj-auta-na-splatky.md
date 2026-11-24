@@ -1,5 +1,5 @@
 ---
-title: "Predaj auta na splátky: výhrada vlastníctva a bezpečná platba"
+title: "Predaj auta na splátky: výhrada vlastníctva a platba"
 nazev: "Predaj auta na splátky"
 description: "Ako predať auto na splátky súkromnej osobe: výhrada vlastníctva podľa § 601 OZ, splátkový kalendár, platby prevodom a čo dohodnúť pre prípad omeškania."
 perex: "Kupujúci nemá celú sumu naraz? Vyhraďte si vlastníctvo do zaplatenia poslednej splátky a spíšte splátkový kalendár. Auto zostane vaše, kým nie je zaplatené."

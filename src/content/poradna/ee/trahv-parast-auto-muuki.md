@@ -1,5 +1,5 @@
 ---
-title: "Trahv pärast auto müüki: kuidas tõendada, et auto oli ostja käes"
+title: "Trahv pärast auto müüki: kuidas tõendada müüki"
 nazev: "Trahv pärast müüki"
 description: "Tuli trahv või parkimisteade auto eest, mille müüsite? Kuidas aitavad üleandmise akt kellaajaga, ostu-müügileping ja õigeaegne omanikuvahetus."
 perex: "Kuni omanikuvahetus ei ole registris tehtud, võivad teated jõuda teile. Akt kellaajaga ja leping tõendavad, kelle käes auto oli."

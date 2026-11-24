@@ -1,5 +1,5 @@
 ---
-title: "Vânzarea unei motociclete sau a unui scuter: contract și ITL 054"
+title: "Vânzarea unei motociclete: contract și ITL 054"
 nazev: "Vânzarea motocicletei"
 description: "Cum vindeți o motocicletă sau un scuter unei persoane fizice: contractul, formularul ITL 054 cu viza fiscală, echipamentele, plata și transcrierea în 90 de zile."
 perex: "La motocicletă se aplică aceleași reguli ca la mașină: formularul ITL 054 vizat, transcriere în 90 de zile. Treceți și echipamentele și modificările."

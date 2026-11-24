@@ -1,5 +1,5 @@
 ---
-title: "Výpověď z nájmu bytu: výpovědní doba 3 měsíce a důvody pro obě strany"
+title: "Výpověď z nájmu bytu: výpovědní doba 3 měsíce a důvody"
 nazev: "Výpověď z nájmu bytu"
 description: "Jak dát výpověď z nájmu bytu: nájemce na dobu neurčitou bez důvodu, pronajímatel jen z důvodů podle § 2288. Tříměsíční výpovědní doba, poučení, okamžitá výpověď."
 perex: "Nájemce bytu může nájem na dobu neurčitou vypovědět kdykoliv a bez důvodu. Pronajímatel jen z důvodů, které vyjmenovává zákon – a výpověď musí mít předepsané náležitosti."

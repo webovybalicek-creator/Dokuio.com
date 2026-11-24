@@ -1,5 +1,5 @@
 ---
-title: "Půjčka kamarádovi nebo v rodině – jak ji sepsat, aby se peníze vrátily"
+title: "Půjčka kamarádovi nebo v rodině: jak ji sepsat"
 nazev: "Jak půjčit peníze, aby se vrátily"
 description: "Smlouva o zápůjčce mezi známými: co do ní napsat, proč posílat peníze převodem, jak na splátky, úroky a co dělat, když dlužník neplatí."
 perex: "Půjčka mezi známými bez papíru je nejčastější cesta k hádce. Stačí krátká smlouva o zápůjčce, převod místo hotovosti a potvrzování splátek."

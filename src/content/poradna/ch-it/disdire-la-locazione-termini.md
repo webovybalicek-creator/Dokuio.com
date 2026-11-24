@@ -1,5 +1,5 @@
 ---
-title: "Disdire la locazione: tre mesi, termini e partenza anticipata"
+title: "Disdire la locazione: tre mesi e termini di disdetta"
 nazev: "Disdire la locazione"
 description: "Come disdire un contratto di locazione in Svizzera: forma scritta, preavviso di tre mesi per un termine, abitazione familiare, nuovo conduttore e accordo di risoluzione."
 perex: "Per iscritto, firmata a mano, ricevuta dal locatore prima dell’inizio del termine di tre mesi. Se volete partire prima: nuovo conduttore o accordo."

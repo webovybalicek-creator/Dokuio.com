@@ -1,5 +1,5 @@
 ---
-title: "Prodaja rabljenega avtomobila: pogodba, izročitev in rok 15 dni"
+title: "Prodaja rabljenega avtomobila: pogodba in rok 15 dni"
 nazev: "Prodaja avtomobila"
 description: "Kako prodati rabljen avto fizični osebi: kupoprodajna pogodba, plačilo, izročitev s točno uro, prijava spremembe lastništva v 15 dneh in zavarovanje."
 perex: "Pogodba s številko šasije, denar na računu, zapisnik z uro izročitve. Spremembo lastništva je treba prijaviti v 15 dneh."

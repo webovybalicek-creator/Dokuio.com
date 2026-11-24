@@ -1,5 +1,5 @@
 ---
-title: "Prodaja rabljenog automobila: ugovor, predaja i rok od 15 dana"
+title: "Prodaja rabljenog automobila: ugovor i rok od 15 dana"
 nazev: "Prodaja automobila"
 description: "Kako prodati rabljeni automobil građaninu: kupoprodajni ugovor, plaćanje, primopredaja s točnim vremenom, promjena vlasništva u 15 dana i osiguranje."
 perex: "Ugovor s OIB-om i brojem šasije, novac na računu, zapisnik s vremenom predaje. Kupac ima 15 dana za promjenu vlasništva."

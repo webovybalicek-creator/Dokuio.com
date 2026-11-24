@@ -1,5 +1,5 @@
 ---
-title: "Transcrierea mașinii: termenul de 90 de zile și actele necesare"
+title: "Transcrierea mașinii: termen de 90 de zile și acte"
 nazev: "Transcrierea mașinii"
 description: "Transcrierea dreptului de proprietate asupra unei mașini cumpărate: termenul de 90 de zile, formularul ITL 054 vizat fiscal, procura și ce face vânzătorul."
 perex: "Cumpărătorul cere transcrierea în 90 de zile, pe baza formularului ITL 054 vizat de taxe locale. Dacă se ocupă altcineva, aveți nevoie de procură."

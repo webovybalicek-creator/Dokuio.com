@@ -1,5 +1,5 @@
 ---
-title: "Wezwanie do zapłaty – jak napisać i wysłać, odsetki za opóźnienie"
+title: "Wezwanie do zapłaty: jak napisać i wysłać, odsetki"
 nazev: "Wezwanie do zapłaty"
 description: "Co zrobić, gdy dłużnik nie płaci: przedsądowe wezwanie do zapłaty, termin, odsetki ustawowe za opóźnienie (art. 481 KC) i wysyłka listem poleconym."
 perex: "Faktura po terminie albo niezwrócona pożyczka. Pisemne wezwanie do zapłaty to ostatni krok przed sądem i dowód, że próbowałeś polubownie."

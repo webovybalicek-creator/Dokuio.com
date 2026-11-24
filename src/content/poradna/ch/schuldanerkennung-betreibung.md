@@ -1,5 +1,5 @@
 ---
-title: "Schuldanerkennung und Betreibung: So kommen Sie zu Ihrem Geld"
+title: "Schuldanerkennung und Betreibung: So kommen Sie zum Geld"
 nazev: "Schuldanerkennung und Betreibung"
 description: "Warum eine unterschriebene Schuldanerkennung so wertvoll ist: Rechtsvorschlag, provisorische Rechtsöffnung nach Art. 82 SchKG, Verjährung und Raten."
 perex: "Wer privat Geld verleiht, sollte sich die Schuld unterschreiben lassen. Mit einer Schuldanerkennung lässt sich ein Rechtsvorschlag in der Betreibung rasch beseitigen."

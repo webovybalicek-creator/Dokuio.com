@@ -1,5 +1,5 @@
 ---
-title: "Riconsegna dell’appartamento: difetti, usura normale e garanzia"
+title: "Riconsegna dell’appartamento: difetti, usura e garanzia"
 nazev: "Riconsegna dell’appartamento"
 description: "Come prepararsi alla riconsegna di un appartamento in Svizzera: verbale, usura normale, difetti da avvisare subito e deposito di garanzia."
 perex: "Alla riconsegna il locatore deve verificare lo stato e avvisare subito i difetti. Il conduttore non risponde dell’usura normale. Un verbale firmato evita le discussioni."

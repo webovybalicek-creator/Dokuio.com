@@ -1,5 +1,5 @@
 ---
-title: "Prodaja prek oglasa: pogodba, plačilo in kako prepoznati prevaro"
+title: "Prodaja prek oglasa: pogodba, plačilo in prevare"
 nazev: "Prodaja prek oglasa"
 description: "Kako varno prodati rabljeno stvar prek oglasa: kupoprodajna pogodba, opis napak, plačilo in najpogostejše prevare z lažnimi povezavami za plačilo."
 perex: "Pri dražji stvari pisna pogodba z napakami. Nikoli ne vpisujte podatkov kartice na povezavo kupca."

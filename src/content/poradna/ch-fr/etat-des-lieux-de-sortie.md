@@ -1,5 +1,5 @@
 ---
-title: "État des lieux de sortie : défauts, usure normale et garantie"
+title: "État des lieux de sortie : défauts, usure et garantie"
 nazev: "État des lieux de sortie"
 description: "L’état des lieux de sortie d’un appartement en Suisse : avis immédiat des défauts par le bailleur, usure normale, compteurs, clés et restitution de la garantie."
 perex: "Le bailleur doit vérifier l’état et aviser immédiatement les défauts, sinon il perd ses droits (sauf défauts cachés). Le locataire ne répond pas de l’usure normale."

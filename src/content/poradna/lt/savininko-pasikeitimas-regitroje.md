@@ -1,5 +1,5 @@
 ---
-title: "Savininko pasikeitimas Regitroje: deklaracijos, SDK ir terminai"
+title: "Savininko pasikeitimas Regitroje: deklaracijos ir terminai"
 nazev: "Savininko pasikeitimas"
 description: "Kaip deklaruoti automobilio savininko pasikeitimą Regitroje: pirkėjo įgijimo ir pardavėjo perleidimo deklaracijos, SDK ir 5 darbo dienų terminai."
 perex: "Pirkėjas deklaruoja įgijimą per 5 darbo dienas, pardavėjas patvirtina per 5 darbo dienas. Tada naujas savininkas gauna SDK ir gali registruoti automobilį."

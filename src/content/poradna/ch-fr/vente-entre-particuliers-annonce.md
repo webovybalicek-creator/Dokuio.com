@@ -1,5 +1,5 @@
 ---
-title: "Vendre un objet sur une annonce : contrat, paiement et arnaques"
+title: "Vendre un objet sur une annonce : contrat et arnaques"
 nazev: "Vente sur annonce"
 description: "Vendre un objet d’occasion à un particulier après une annonce en Suisse : contrat de vente, exclusion de garantie, paiement sûr et arnaques fréquentes à éviter."
 perex: "Un contrat court, l’objet remis seulement après le paiement, et de la méfiance envers les faux justificatifs et les liens de paiement inconnus."

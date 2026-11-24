@@ -1,5 +1,5 @@
 ---
-title: "Rücktritt vom Online-Kauf in Österreich: 14 Tage nach dem FAGG"
+title: "Rücktritt vom Online-Kauf in Österreich: 14 Tage laut FAGG"
 nazev: "Rücktritt vom Online-Kauf"
 description: "Rücktrittsrecht nach dem Fern- und Auswärtsgeschäfte-Gesetz (FAGG): 14 Tage, Rückzahlung binnen 14 Tagen, Rücksendekosten und Ausnahmen."
 perex: "Bei Online-Käufen von Unternehmern können Sie in Österreich binnen 14 Tagen ohne Angabe von Gründen zurücktreten. Rechtzeitiges Absenden genügt."

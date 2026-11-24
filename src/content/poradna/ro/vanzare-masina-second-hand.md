@@ -1,5 +1,5 @@
 ---
-title: "Vânzarea unei mașini second-hand: contract, ITL 054 și predare"
+title: "Vânzarea unei mașini second-hand: contract și ITL 054"
 nazev: "Vânzarea mașinii"
 description: "Cum vindeți o mașină rulată unei persoane fizice: contractul, formularul Model 2026 ITL 054 cu viza fiscală, plata, ora predării și transcrierea în 90 de zile."
 perex: "Contract cu VIN, formularul oficial ITL 054 vizat la taxe locale, banii în cont și proces-verbal cu ora predării. Cumpărătorul are 90 de zile pentru transcriere."

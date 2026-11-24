@@ -67,6 +67,7 @@ for (const f of soubory) {
   }
   if (h1 !== 1) ch(`počet <h1> = ${h1}`);
   if (title && title.length > 70) va(`titulek ${title.length} znaků (> 70): ${title}`);
+  else if (title && title.length > 60 && title.split(/ – | \| /)[0].length > 55) va(`titulek ${title.length} znaků (> 60) a hlavní část delší než 55 – Google ho zkrátí nebo přepíše: ${title}`);
   if (title && title.length < 20) va(`titulek krátký (${title.length}): ${title}`);
   if (desc && (desc.length < 70 || desc.length > 170)) va(`description ${desc.length} znaků (doporučeno 70–170)`);
   if (title) tituly.set(title, [...(tituly.get(title) ?? []), cesta]);

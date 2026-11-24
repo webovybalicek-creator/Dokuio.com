@@ -1,5 +1,5 @@
 ---
-title: "Dlužník nezaplatil – předžalobní výzva, úrok z prodlení a žaloba"
+title: "Dlužník nezaplatil: předžalobní výzva, úrok a žaloba"
 nazev: "Dlužník nezaplatil"
 description: "Co dělat, když vám někdo nezaplatí: předžalobní výzva podle § 142a OSŘ nejméně 7 dnů před žalobou, úrok z prodlení a jak výzvu správně poslat."
 perex: "Faktura po splatnosti, nevrácená půjčka. Než půjdete k soudu, pošlete dlužníkovi předžalobní výzvu – jinak můžete přijít o náhradu nákladů řízení."

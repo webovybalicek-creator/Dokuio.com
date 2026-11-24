@@ -1,5 +1,5 @@
 ---
-title: "Widerrufsrecht beim Online-Kauf: 14 Tage, Rücksendung und Erstattung"
+title: "Widerrufsrecht beim Online-Kauf: 14 Tage und Rücksendung"
 nazev: "Widerruf beim Online-Kauf"
 description: "Widerruf eines Online-Kaufs nach § 355 BGB: 14 Tage Frist, Rückzahlung binnen 14 Tagen, wer die Rücksendung zahlt und welche Ausnahmen gelten."
 perex: "Bei Online-Käufen von Händlern können Sie den Vertrag 14 Tage lang ohne Begründung widerrufen. Entscheidend ist, dass Sie den Widerruf rechtzeitig absenden."

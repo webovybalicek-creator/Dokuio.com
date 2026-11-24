@@ -1,5 +1,5 @@
 ---
-title: "Vânzarea mașinii în rate între persoane fizice: cum vă protejați"
+title: "Vânzarea mașinii în rate: cum vă protejați"
 nazev: "Vânzarea mașinii în rate"
 description: "Vindeți mașina în rate unei persoane fizice? Cum stabiliți graficul de plată, ce înseamnă rezerva proprietății, când semnați ITL 054 și ce faceți la întârziere."
 perex: "Vânzarea în rate cere încredere și acte clare: un grafic de plată semnat, rezerva proprietății și formalitățile oficiale abia după plata integrală."

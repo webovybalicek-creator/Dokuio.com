@@ -1,5 +1,5 @@
 ---
-title: "Travaux avec un artisan : contrat d’entreprise, prix et réception"
+title: "Contrat avec un artisan : prix, travaux et réception"
 nazev: "Contrat avec un artisan"
 description: "Faire des travaux avec un artisan en Suisse : contrat d’entreprise, prix ferme ou devis approximatif, acompte, réception de l’ouvrage, défauts et prescription."
 perex: "Une description précise, un prix ferme ou un devis approximatif, et une réception soigneuse où l’on réserve les défauts. Pour un ouvrage immobilier, 60 jours pour signaler un défaut."

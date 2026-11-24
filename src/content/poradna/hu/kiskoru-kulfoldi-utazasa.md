@@ -1,5 +1,5 @@
 ---
-title: "Gyerek külföldre utazik szülő nélkül – kell hozzájáruló nyilatkozat?"
+title: "Kiskorú külföldi utazása szülő nélkül: hozzájárulás"
 nazev: "Gyerek utazása szülő nélkül"
 description: "Mikor hasznos a szülői hozzájáruló nyilatkozat, ha a gyerek nagyszülővel, csoporttal vagy egy szülővel utazik külföldre, mit írjon bele és mikor kell tanú vagy közjegyző."
 perex: "Nagyszülőkkel a tengerhez, osztálykirándulás vagy út egyik szülővel. A magyar jog rövid úthoz nem kér hozzájárulást, más országok viszont igen."

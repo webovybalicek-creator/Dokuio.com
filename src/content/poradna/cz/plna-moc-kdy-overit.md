@@ -1,5 +1,5 @@
 ---
-title: "Plná moc: kdy stačí obyčejná a kdy potřebujete úředně ověřený podpis"
+title: "Plná moc s ověřeným podpisem: kdy je nutná a kdy ne"
 nazev: "Plná moc v praxi"
 description: "Jak napsat plnou moc podle § 441 občanského zákoníku, kdy stačí obyčejná a kdy úřad chce ověřený podpis (registr vozidel, katastr). Kde podpis ověřit."
 perex: "Plnou mocí pověříte někoho, aby za vás jednal. Často stačí obyčejná podepsaná listina, pro některé úřady ale potřebujete úředně ověřený podpis."

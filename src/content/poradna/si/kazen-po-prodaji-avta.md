@@ -1,5 +1,5 @@
 ---
-title: "Kazen za prekršek po prodaji avta: kako dokazati, da ste ga prodali"
+title: "Kazen po prodaji avta: kako dokazati, da ste ga prodali"
 nazev: "Kazen po prodaji avta"
 description: "Prišla vam je kazen za vozilo, ki ste ga že prodali? Kako z zapisnikom o izročitvi in pogodbo dokazati, kdo je vozil, in zakaj je prepis v 15 dneh pomemben."
 perex: "Dokler prepis ni opravljen, je vozilo vpisano na vas. Pogodba in zapisnik z uro izročitve sta vaš dokaz."

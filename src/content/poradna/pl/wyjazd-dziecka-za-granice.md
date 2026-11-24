@@ -1,5 +1,5 @@
 ---
-title: "Wyjazd dziecka za granicę bez rodziców – czy potrzebna jest zgoda?"
+title: "Wyjazd dziecka za granicę bez rodziców: czy trzeba zgody?"
 nazev: "Wyjazd dziecka za granicę"
 description: "Czy dziecko jadące za granicę bez rodziców potrzebuje pisemnej zgody, co w niej wpisać, kiedy poświadczyć podpis u notariusza i gdzie sprawdzić wymogi kraju."
 perex: "Kolonie, wyjazd z dziadkami albo z jednym rodzicem. Polskie prawo pisemnej zgody nie wymaga, ale inne kraje i Straż Graniczna mogą o nią zapytać."

@@ -1,5 +1,5 @@
 ---
-title: "Pardavimas pagal skelbimą: sutartis, atsiskaitymas ir sukčiai"
+title: "Pardavimas pagal skelbimą: sutartis ir sukčiai"
 nazev: "Pardavimas pagal skelbimą"
 description: "Parduodate ar perkate daiktą pagal skelbimą? Kaip užfiksuoti sandorį sutartimi, saugiai atsiskaityti ir atpažinti sukčius su netikromis nuorodomis."
 perex: "Trumpa sutartis su būkle ir trūkumais, atsiskaitymas akis į akį ar pavedimu ir jokių nuorodų „pinigams gauti“ – taip išvengsite problemų."

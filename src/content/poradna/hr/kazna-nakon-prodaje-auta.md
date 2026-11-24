@@ -1,5 +1,5 @@
 ---
-title: "Kazna nakon prodaje automobila: kako dokazati da više niste vlasnik"
+title: "Kazna nakon prodaje auta: kako dokazati da niste vlasnik"
 nazev: "Kazna nakon prodaje auta"
 description: "Prodali ste automobil, a stigla je kazna za parkiranje ili brzinu? Kako pomaže primopredajni zapisnik s vremenom predaje i kupoprodajni ugovor."
 perex: "Ako kupac nije na vrijeme promijenio vlasništvo, kazne mogu stizati vama. Ugovor i zapisnik s točnim vremenom predaje su dokaz."

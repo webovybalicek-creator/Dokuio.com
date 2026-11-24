@@ -1,5 +1,5 @@
 ---
-title: "Vendere un oggetto con un annuncio: contratto, pagamento e truffe"
+title: "Vendere un oggetto con un annuncio: contratto e truffe"
 nazev: "Vendita con annuncio"
 description: "Vendere un oggetto d’occasione con un annuncio in Svizzera: contratto tra privati, esclusione della garanzia, pagamento sicuro e come riconoscere le truffe più comuni."
 perex: "Descrivete l’oggetto e i difetti, consegnate solo dopo aver ricevuto il denaro e diffidate dei link di pagamento. Un contratto breve evita discussioni."
