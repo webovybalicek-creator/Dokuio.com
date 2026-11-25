@@ -1,5 +1,5 @@
 ---
-title: "Obchod zamítl reklamaci: co dál (posudek, ČOI, soud)"
+title: "Zamítnutá reklamace: co dál – posudek, ČOI a soud"
 nazev: "Zamítnutá reklamace"
 description: "Prodejce zamítl reklamaci? Vyžádejte si písemné odůvodnění, nechte vadu posoudit a obraťte se na ČOI – mimosoudní řešení sporu je zdarma, návrh do 1 roku."
 perex: "Zamítnutí reklamace není konečné. Chtějte písemné odůvodnění, nechte vadu nezávisle posoudit a zkuste bezplatné mimosoudní řešení sporu u ČOI."
