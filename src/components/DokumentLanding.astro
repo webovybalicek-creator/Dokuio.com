@@ -21,6 +21,7 @@ import { dokumentHtml } from '../sablony/html';
 import { SITE } from '../lib/config';
 import { JAZYKY_VERZI, POPISEK_PREPINACE, texty } from '../i18n';
 import { hreflangDokumentu, jazykyDokumentu, souvisejiciVerze, urlRozcestnikuVerze } from '../preklady';
+import { clanky, urlClanku } from '../lib/poradna';
 import '../styles/dokument.css';
 
 interface Props {
@@ -48,6 +49,10 @@ const p = {
 const hub = verze ? { url: urlRozcestnikuVerze(zeme.kod, verze), nazev: V!.zeme[zeme.kod].n } : { url: `/${zeme.kod}/`, nazev: zeme.nazev };
 // balíčky jsou jen v jazyce země
 const balicky = verze ? [] : balickyDokumentu(s.zeme, slugStranky(stranka));
+// Články poradny, které k tomuto vzoru vedou (jen v jazyce země) – zpětné prolinkování vzor → návod
+const navody = verze
+  ? []
+  : (await clanky(zeme.kod)).filter((c) => (c.data.dokumenty ?? []).includes(slugStranky(stranka))).slice(0, 4);
 const jazyky = jazykyDokumentu(s.zeme, slugStranky(stranka), jazyk);
 const vzorPdf = `${base}${nazevSouboru(s)}-vzor.pdf`;
 const vzorDocx = `${base}${nazevSouboru(s)}-vzor.docx`;
@@ -216,6 +221,31 @@ const schema = [
           <div class="ram sekce__in">
             <h2 id="cizinci-nadpis">{p.cizinci.nadpis}</h2>
             <ul class="fajfky">{p.cizinci.body.map((t) => <li>{t}</li>)}</ul>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    navody.length > 0 && (
+      <section class="sekce" aria-labelledby="navody-nadpis">
+        <div class="wrap">
+          <div class="ram sekce__in">
+            <h2 id="navody-nadpis">{TX.poradna.dalsi}</h2>
+            <ul class="vypis souvisejici">
+              {navody.map((c) => (
+                <li>
+                  <a class="vypis__polozka" href={urlClanku(c)}>
+                    <span class="vypis__text">
+                      <strong>{c.data.title}</strong>
+                      <span>{c.data.perex ?? c.data.description}</span>
+                    </span>
+                    <span class="vypis__stitek">{TX.poradna.clanek}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

@@ -32,6 +32,10 @@ ErrorDocument 404 /404.html
   <FilesMatch "\.(pdf)$">
     Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
+  # Stažené vzory neindexovat – ve výsledcích má být stránka vzoru, ne soubor
+  <FilesMatch "\.(pdf|docx)$">
+    Header set X-Robots-Tag "noindex, nofollow"
+  </FilesMatch>
 </IfModule>
 
 <IfModule mod_deflate.c>

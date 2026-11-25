@@ -38,6 +38,7 @@ const stranka: StrankaDokumentu = {
       { q: 'Musí být podpis na čestném prohlášení ověřený?', a: 'Jen když to příjemce (úřad, banka) výslovně vyžaduje. Ověření (legalizaci) udělá Czech POINT, obecní úřad nebo notář; podepíšete až před úředníkem.' },
       { q: 'Co když prohlásím něco nepravdivého?', a: 'Nepravdivé čestné prohlášení může mít právní následky – vůči úřadu jde o přestupek a v závažných případech (např. při žádosti o dávky nebo dotace) i o trestný čin.' },
       { q: 'Je nějaký předepsaný vzor?', a: 'Obecně ne. Pokud ale instituce má vlastní formulář, použijte jeho text.' },
+      { q: 'Potřebuji čestné prohlášení v angličtině?', a: 'Když ho předkládáte v zahraničí nebo cizojazyčné instituci, ano. Máme i anglickou verzi vzoru (odkaz English nahoře). Pro úřad v cizině může být nutný úřední překlad nebo apostila – ověřte si to u příjemce.' },
       { q: 'Ukládáte moje údaje?', a: 'Ne. Dokument se skládá přímo ve vašem prohlížeči.' },
     ],
     zakony: "Ověření podpisu upravuje zákon č. 21/2006 Sb., o ověřování shody opisu nebo kopie s listinou a o ověřování pravosti podpisu.",

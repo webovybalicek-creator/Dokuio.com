@@ -16,7 +16,7 @@ zdroje:
 faq:
   - q: "Was sagt mir das Pickerl-Gutachten?"
     a: "Das Gutachten nach § 57a KFG dokumentiert den Zustand bei der letzten Überprüfung und den Kilometerstand. Lassen Sie es sich zeigen."
-  - q: "Warum ist der Typenschein wichtig?"
+  - q: "Was ist der Typenschein und warum ist er beim Gebrauchtwagenkauf wichtig?"
     a: "Er dient als Nachweis zum Fahrzeug. Liegt er bei einer Bank oder Leasingfirma, ist das Auto oft noch nicht abbezahlt."
   - q: "Wer meldet an?"
     a: "Der Käufer meldet das Fahrzeug mit eigener Versicherung bei einer Zulassungsstelle an; der Verkäufer meldet ab."

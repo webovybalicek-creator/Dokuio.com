@@ -40,6 +40,7 @@ export default {
       { q: 'Does the signature on a declaration on honour have to be certified?', a: 'Only when the recipient (an authority, a bank) expressly requires it. Certification of the signature (legalizace) is done by Czech POINT, the municipal office (obecní úřad) or a notary; you sign only in front of the official.' },
       { q: 'What if I declare something untrue?', a: 'A false declaration on honour can have legal consequences – towards an authority it is an administrative offence (přestupek), and in serious cases (e.g. when applying for benefits or grants) even a criminal offence.' },
       { q: 'Is there a prescribed template?', a: 'Generally not. But if the institution has its own form, use its text.' },
+      { q: 'Do I need the declaration in English?', a: 'Yes, if you submit it abroad or to a foreign-language institution – that is what this English version is for. An authority abroad may require an official translation or an apostille, so check with the recipient.' },
       { q: 'Do you store my details?', a: 'No. The document is put together directly in your browser.' },
     ],
     zakony: 'Certification of signatures is governed by Czech Act No. 21/2006 Coll., on certifying that a copy matches the original document and on certifying the authenticity of a signature (zákon o ověřování shody opisu nebo kopie s listinou a o ověřování pravosti podpisu).',

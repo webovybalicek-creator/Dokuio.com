@@ -48,6 +48,16 @@ Am sichersten ist die **Überweisung vor der Übergabe** oder Bargeld bei der Ü
 
 Ein Übergabeprotokoll hält Kilometerstand, Tank, Schäden, Schlüssel, Papiere und **Datum und Uhrzeit** fest – wichtig, wenn später Bußgelder kommen.
 
+**Diese Unterlagen übergeben Sie:**
+
+- Zulassungsbescheinigung **Teil I** (Fahrzeugschein) und **Teil II** (Fahrzeugbrief),
+- Bericht der letzten **Hauptuntersuchung**, Serviceheft und Rechnungen,
+- **alle Schlüssel**, ggf. COC-Papier und Bordmappe.
+
+**Was Sie fotografieren sollten:** das Auto von allen Seiten, vorhandene Schäden aus der Nähe, den **Kilometerstand** im Tacho, die Fahrgestellnummer und die unterschriebenen Papiere. Fotos mit Zeitstempel sind Ihr Beweis, in welchem Zustand das Auto übergeben wurde.
+
+**Käufer reist von weit an:** Vereinbaren Sie vorab per Nachricht Preis, Zahlungsart und was mit den Kennzeichen passiert. Übergeben Sie Papiere und Schlüssel erst, wenn das Geld da ist – bar mit Quittung oder per Echtzeitüberweisung, die Sie im Konto sehen. Meldet der Käufer nicht sofort um, melden Sie das Auto selbst ab oder er fährt mit Kurzzeitkennzeichen.
+
 ## 5. Meldungen
 
 - Die **Veräußerung der Zulassungsbehörde unverzüglich anzeigen** (§ 15 FZV) – mit Name und Anschrift der Käuferin oder des Käufers.

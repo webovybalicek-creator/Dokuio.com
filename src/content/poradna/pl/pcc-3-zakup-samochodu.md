@@ -20,6 +20,8 @@ faq:
     a: "Kupujący. Sprzedający osoba prywatna nie płaci PCC, ale musi zgłosić zbycie pojazdu w ciągu 30 dni."
   - q: "Od jakiej kwoty płaci się PCC?"
     a: "Od umów, w których wartość rynkowa auta przekracza 3000 zł (próg obowiązuje od 3 listopada 2026; wcześniej 1000 zł). Podatek wynosi 2% wartości rynkowej."
+  - q: "Jak wypełnić PCC-3 przy zakupie samochodu?"
+    a: "Wskaż urząd skarbowy według miejsca zamieszkania, jako przedmiot umowę sprzedaży rzeczy ruchomej, wpisz wartość rynkową auta i oblicz 2% zaokrąglone do pełnych złotych. Najprościej online w e-Urzędzie Skarbowym."
   - q: "Co jeśli zapłaciłem za auto mniej niż jest warte?"
     a: "Podatek liczy się od wartości rynkowej. Jeśli zaniżysz cenę, urząd skarbowy może ją określić sam i dopłacić podatek z odsetkami."
 foto: 'ucty'
@@ -51,6 +53,10 @@ Deklarację **PCC-3** składasz i podatek wpłacasz **w ciągu 14 dni od podpisa
 3. Wpisz **wartość rynkową** (zwykle równa cenie z umowy, jeśli jest realna).
 4. Oblicz 2% (zaokrąglij do pełnych złotych).
 5. Wpłać na indywidualny mikrorachunek podatkowy.
+
+**Przykład:** kupujesz auto za 25 000 zł, a podobne egzemplarze kosztują tyle samo. Podatek to 2% × 25 000 zł = **500 zł**. Deklarację i wpłatę robisz najpóźniej 14. dnia od podpisania umowy.
+
+Online wypełnisz PCC-3 w **e-Urzędzie Skarbowym** (podatki.gov.pl) – formularz sam podpowie urząd i przeliczy kwotę, a podpisujesz go profilem zaufanym lub danymi autoryzującymi. Wydruk lub potwierdzenie wysyłki (UPO) zachowaj razem z umową.
 
 ## Rejestracja i zgłoszenie zbycia
 

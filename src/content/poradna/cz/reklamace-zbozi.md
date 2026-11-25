@@ -42,6 +42,16 @@ Když se zboží rozbije nebo nefunguje, jak má, máte vůči obchodu **práva 
 3. **Řekněte, co chcete** – opravu, výměnu, slevu, nebo odstoupení.
 4. **Chtějte písemné potvrzení** s datem, popisem vady a požadovaným vyřízením. Máte na něj nárok.
 
+### Jak napsat reklamaci (co do ní patří)
+
+- vaše jméno, adresa a kontakt, název a adresa prodejce,
+- co jste koupili, kdy a číslo dokladu nebo objednávky,
+- **popis vady** – co přesně nefunguje a odkdy,
+- **jaké vyřízení požadujete** (oprava, výměna, sleva, odstoupení),
+- číslo účtu pro případné vrácení peněz, datum a podpis.
+
+Hotový [reklamační formulář](/cz/reklamace/) vyplníte zdarma online a stáhnete v PDF. Lhůta **30 dnů** na vyřízení běží ode dne, kdy jste reklamaci uplatnili – proto si schovejte potvrzení nebo podací lístek.
+
 
 
 

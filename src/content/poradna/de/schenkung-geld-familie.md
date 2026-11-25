@@ -1,7 +1,7 @@
 ---
-title: "Geld schenken in der Familie: Freibeträge und Anzeige"
+title: "Geld schenken an Kinder und Familie: Freibeträge 2026"
 nazev: "Schenkung in der Familie"
-description: "Schenkung in Deutschland: Freibeträge (Ehegatte 500.000 €, Kind 400.000 €, Enkel 200.000 €), Anzeige beim Finanzamt binnen drei Monaten und Form des Schenkungsvertrags."
+description: "Geld schenken in Deutschland: Freibeträge (Kind 400.000 €, Enkel 200.000 €) alle 10 Jahre, Schenkung an Kinder zu Lebzeiten, monatliche Beträge, Anzeige."
 perex: "Kinder können alle zehn Jahre bis zu 400.000 € von jedem Elternteil steuerfrei erhalten. Anzeigen muss man die Schenkung trotzdem."
 kategorie: "geld"
 tema: "schenkung"
@@ -20,6 +20,8 @@ faq:
     a: "Ja, Schenker und Beschenkter müssen eine grundsätzlich steuerpflichtige Schenkung binnen drei Monaten dem Finanzamt anzeigen, auch wenn sie im Freibetrag bleibt (§ 30 ErbStG)."
   - q: "Braucht der Schenkungsvertrag einen Notar?"
     a: "Ein Schenkungsversprechen braucht die notarielle Beurkundung. Wird die Schenkung sofort vollzogen, etwa durch Überweisung, ist der Formmangel geheilt (§ 518 BGB)."
+  - q: "Wie viel Geld darf man monatlich verschenken?"
+    a: "Es gibt keine Monatsgrenze. Alle Schenkungen derselben Person werden über zehn Jahre zusammengerechnet; steuerfrei bleibt, was insgesamt unter dem Freibetrag liegt (Kind 400.000 €)."
 foto: 'dar'
 ---
 
@@ -50,6 +52,15 @@ Ein **Schenkungsversprechen** muss notariell beurkundet werden. Wird die Schenku
 ## 4. Steuerfrei ohne Freibetrag
 
 Übliche **Gelegenheitsgeschenke** (Geburtstag, Hochzeit) und **Unterhalt** sind steuerfrei.
+
+## 5. Geld an Kinder zu Lebzeiten schenken
+
+- **Beide Eltern** haben je einen eigenen Freibetrag: Zusammen können sie einem Kind **800.000 €** in zehn Jahren steuerfrei schenken.
+- Alle Schenkungen derselben Person innerhalb von **zehn Jahren** werden zusammengerechnet (**§ 14 ErbStG**). Wer früh anfängt, kann den Freibetrag mehrmals nutzen.
+- **Pflichtteil:** Andere Erben können eine Ergänzung verlangen, wenn der Schenker innerhalb von zehn Jahren stirbt – pro Jahr seit der Schenkung zählt sie um ein Zehntel weniger (**§ 2325 BGB**).
+- **Verarmung:** Gerät der Schenker später in Not, kann er das Geld innerhalb von zehn Jahren zurückfordern (**§ 528 BGB**).
+
+**Wie viel darf man monatlich verschenken?** Eine Monatsgrenze gibt es nicht. Regelmäßige Überweisungen werden über zehn Jahre addiert und auf den Freibetrag angerechnet – nur echter Unterhalt (z. B. für ein Kind in Ausbildung) zählt nicht als Schenkung.
 
 ## Fazit
 

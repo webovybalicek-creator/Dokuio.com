@@ -20,6 +20,8 @@ faq:
     a: "Öffentlich beglaubigt wird beim Notar. Manche Behörden beglaubigen Unterschriften für eigene Zwecke amtlich – das ersetzt die öffentliche Beglaubigung nicht immer."
   - q: "Warum sollte der Bevollmächtigte das Original mitnehmen?"
     a: "Bei einseitigen Erklärungen wie einer Kündigung kann der Empfänger sie zurückweisen, wenn keine Vollmachtsurkunde im Original vorgelegt wird (§ 174 BGB)."
+  - q: "Was ist eine Vollmachtsurkunde?"
+    a: "Die schriftliche, vom Vollmachtgeber unterschriebene Vollmacht. Legt der Bevollmächtigte sie im Original vor, darf sich der Geschäftspartner auf die Vollmacht verlassen, bis sie zurückgegeben oder für kraftlos erklärt ist (§§ 172, 175 BGB)."
 foto: 'podpis'
 ---
 
