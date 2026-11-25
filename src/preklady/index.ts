@@ -8,6 +8,8 @@
 import type { Dokument, Odkaz, StrankaDokumentu } from '../obsah/typy';
 import { AKTIVNI_ZEME, HREFLANG_HUBY, STRANKY, slugStranky, strankaPodleSlugu, urlStranky, zemeKod } from '../obsah';
 import { JAZYKY_VERZI, NAZVY_JAZYKU } from '../i18n';
+import { cizinci } from './cizinci';
+import { motorka } from './motorka';
 import type { PrekladDokumentu } from './typy';
 import { slozVerzi } from './verze';
 import { zkontrolujPreklad } from './kontrola';
@@ -64,7 +66,10 @@ for (const [soubor, m] of Object.entries(soubory)) {
       nazev: p.nazev,
       nazevA: p.nazevA,
       katalog: { ...original.katalog, popis: p.katalog.popis, slova: p.katalog.slova },
-      landing: p.landing,
+      landing: {
+        ...(original.katalog.ilustrace === 'motorka' ? motorka(p.landing, jazyk, zeme) : p.landing),
+        cizinci: cizinci(zeme, jazyk, original.katalog.kategorie),
+      },
       vytvorit: p.vytvorit,
     },
   });

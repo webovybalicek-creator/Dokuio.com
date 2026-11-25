@@ -120,7 +120,6 @@ Přidání země nebo dokumentu: viz `NOVA-ZEME.md`.
 ## Otevřené
 
 - Upozornění 1. 3. 2027: příprava SK vzorů na nový Občiansky zákonník (účinnost 1. 7. 2027) – naplánovaná úloha.
-- SEO unikátnost – dodělat obsah: AT a CH landingy (vlastní perex, „Po podpisu“, 3 FAQ místo převzatých z DE), motorka vs. auto (vlastní perex/FAQ), místní blok pro cizince v uk/en verzích, uk/en verze pro LT.
 - PL: tlačítko pro odstoupení – sledovat novelu zákona o právech spotřebitele.
 
-SEO unikátnost (22. 11. 2026): `scripts/kontrola-podobnosti.mjs` (i v CI) měří shodu stránek a šablonový text; okno podpory v `<template>`, landing bez obecných kroků, balíček s místním postupem a kontrolou, `noindex` u podmínek, ochrany údajů a „O nás“ v AT/CH (`indexovatInfo`). Pravidla: SEO.md, oddíl „Unikátnost obsahu“.
+SEO unikátnost (22. 11. 2026): `scripts/kontrola-podobnosti.mjs` (i v CI) měří shodu stránek a šablonový text; okno podpory v `<template>`, landing bez obecných kroků, balíček s místním postupem a kontrolou, `noindex` u podmínek, ochrany údajů a „O nás“ v AT/CH (`indexovatInfo`). Pravidla: SEO.md, oddíl „Unikátnost obsahu“. 25. 11. 2026: vlastní texty 14 AT a 4 CH stránek převzatých z DE (`src/obsah/at|ch/_eigen.ts`, překlady `src/preklady/at|ch/_eigen.ts`), blok „Pro cizince v <zemi>“ na uk/en landingách (`src/preklady/cizinci.ts`), odlišení uk/en verzí motorky od auta (`src/preklady/motorka.ts`).

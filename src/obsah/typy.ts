@@ -64,6 +64,8 @@ export interface StrankaDokumentu {
     faq: { q: string; a: string }[];
     zakony: string;
     souvisejiciPopis?: string;
+    /** Jen uk/en verze: místní blok pro cizince (src/preklady/cizinci.ts) */
+    cizinci?: { nadpis: string; body: string[] };
   };
   vytvorit: {
     title: string;
