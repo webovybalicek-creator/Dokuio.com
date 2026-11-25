@@ -1,5 +1,5 @@
 ---
-title: "Výpověď povinného ručení: lhůty, výročí i prodej auta"
+title: "Výpověď povinného ručení: kdy a jak ji podat, lhůty a vzor"
 nazev: "Výpověď povinného ručení"
 description: "Kdy a jak vypovědět povinné ručení: k výročí 6 týdnů předem, do 2 měsíců od sjednání, po pojistné události, při zdražení a po prodeji auta. Zákon 30/2024 Sb."
 perex: "Povinné ručení se automaticky prodlužuje každý rok. Změnit pojišťovnu můžete jen v zákonem daných situacích – a skoro vždy rozhoduje, kdy výpověď pojišťovna dostane."
@@ -7,12 +7,14 @@ kategorie: "auto"
 tema: "povinne-ruceni"
 dokumenty: ["vypoved-povinneho-ruceni", "kupni-smlouva-auto"]
 datum: '2026-11-19'
-slova: ["výpověď povinného ručení", "změna pojišťovny", "výročí smlouvy", "6 týdnů", "pojistná událost", "přeplatek pojistného", "zelená karta"]
+slova: ["výpověď povinného ručení", "kdy vypovědět povinné ručení", "ukončení povinného ručení", "výpověď povinného ručení vzor", "změna pojišťovny", "výročí smlouvy", "6 týdnů", "pojistná událost", "přeplatek pojistného", "zelená karta"]
 zdroje:
   - nazev: "Zákon č. 30/2024 Sb., o pojištění odpovědnosti z provozu vozidla (e-Sbírka)"
     url: https://www.e-sbirka.cz/sb/2024/30
   - nazev: "Občanský zákoník č. 89/2012 Sb., § 2805 a § 2807 (e-Sbírka)"
     url: https://www.e-sbirka.cz/sb/2012/89
+  - nazev: "Pojištění motorového vozidla (Portál občana)"
+    url: https://portal.gov.cz/informace/pojisteni-motoroveho-vozidla-INF-299
   - nazev: "Praktické informace k pojištění odpovědnosti z provozu vozidla (Ministerstvo financí)"
     url: https://mf.gov.cz/cs/financni-trh/pojistovnictvi/pojisteni-odpovednosti-z-provozu-vozidla/2024/prakticke-informace-k-pojisteni-odpovednosti-z-pro-55458
 faq:
@@ -20,6 +22,8 @@ faq:
     a: "Pojišťovna ji musí dostat nejpozději 6 týdnů před koncem pojistného období. Rozhoduje doručení, ne odeslání. Když to nestihnete, smlouva poběží další rok."
   - q: "Musím po prodeji auta povinné ručení vypovídat?"
     a: "Pojištění zaniká změnou vlastníka, ale pojišťovně to musíte oznámit a doložit (kupní smlouvou nebo dokladem o přepisu). Teprve pak vám vrátí přeplatek."
+  - q: "Potřebuji ještě zelenou kartu?"
+    a: "V Česku ne – od 1. října 2024 policie ověřuje pojištění online. Na cesty do zahraničí ji ale mějte s sebou."
   - q: "Můžu odejít, když pojišťovna zdraží?"
     a: "Ano. Se zvýšením pojistného můžete nesouhlasit, obvykle do 1 měsíce od doručení oznámení. Přesnou lhůtu najdete v pojistných podmínkách a v dopise o změně."
 foto: 'auto-jizda'
@@ -30,6 +34,8 @@ Povinné ručení (zákonné pojištění odpovědnosti z provozu vozidla) se sj
 ## 1. K výročí – nejčastější cesta
 
 Výpověď ke konci pojistného období nemusíte zdůvodňovat. Pojišťovna ji ale musí **dostat nejpozději 6 týdnů před koncem období**. Výročí najdete ve smlouvě nebo na zelené kartě. Pozdě doručená výpověď platí až k dalšímu výročí.
+
+**Příklad:** pojistné období končí 28. února. Šest týdnů předem je 17. ledna – do tohoto dne musí mít pojišťovna výpověď v ruce. Výpověď odeslaná 16. ledna poštou už může dorazit pozdě.
 
 **Tip:** výpověď pošlete aspoň 2 měsíce předem, doporučeně nebo přes datovou schránku či formulář pojišťovny, aby šlo doručení doložit.
 
@@ -55,6 +61,12 @@ Pokud pojišťovna oznámí vyšší pojistné na další období, můžete se z
 ## 5. Po prodeji auta
 
 Změnou vlastníka pojištění zaniká. Pojišťovně pošlete oznámení s **kupní smlouvou** nebo **dokladem o přepisu** a požádejte o vrácení nespotřebovaného pojistného. Pojišťovně zároveň vrátíte zelenou kartu, pokud ji chce zpět.
+
+## Zelená karta a kontrola pojištění
+
+Od **1. října 2024** se povinné ručení v Česku neprokazuje zelenou kartou – policie ho ověřuje online v evidenci České kanceláře pojistitelů. Na cesty do zahraničí se zelená karta dál hodí. Povinnost mít pojištění má **provozovatel vozidla**, ne řidič, který si auto půjčil.
+
+Pozor na mezeru mezi starou a novou smlouvou: pokud vozidlo není pojištěné **aspoň 30 dní**, může ho úřad vyřadit z provozu.
 
 ## Co do výpovědi napsat
 

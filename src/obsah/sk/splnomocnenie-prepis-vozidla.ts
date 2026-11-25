@@ -19,9 +19,9 @@ const stranka: StrankaDokumentu = {
   },
   souvisejici: 'auto',
   landing: {
-    "title": "Splnomocnenie na prepis vozidla {rok} – vzor PDF zadarmo",
+    "title": "Splnomocnenie na prepis auta {rok} – vzor PDF zadarmo",
     "description": "Splnomocnenie na zmenu držby vozidla zadarmo: keď na dopravný inšpektorát ide niekto iný. Podpis musí byť úradne overený. PDF aj Word.",
-    "perex": "Keď na dopravný inšpektorát nemôžete ísť osobne. Podpis splnomocniteľa musí byť úradne overený.",
+    "perex": "Splnomocnenie na prepis auta využijete, keď na dopravný inšpektorát nemôžete ísť osobne. Podpis splnomocniteľa musí byť úradne overený.",
     "obsahPopis": "Krátke splnomocnenie s presne vymedzeným rozsahom.",
     "obsah": [
       {
