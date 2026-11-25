@@ -18,6 +18,8 @@ zdroje:
 faq:
   - q: "Kdo musí přepis vyřídit – prodávající, nebo kupující?"
     a: "Oba. Žádost o zápis změny vlastníka podávají dosavadní a nový vlastník společně. Jeden z nich může jednat i za druhého na základě plné moci s úředně ověřeným podpisem."
+  - q: "Co potřebuji na přepis auta?"
+    a: "Kupní smlouvu, osvědčení o registraci (malý technický průkaz), velký technický průkaz, pokud ho auto ještě má, občanské průkazy obou stran nebo plnou moc s ověřeným podpisem a povinné ručení nového vlastníka."
   - q: "Kolik stojí přepis osobního auta?"
     a: "Správní poplatek je 800 Kč, při podání přes Portál dopravy 640 Kč. U starších aut s emisní třídou Euro 0 až 2 se navíc platí ekologický poplatek."
   - q: "Co když lhůtu 10 pracovních dnů nestihneme?"
@@ -31,12 +33,12 @@ Prodej auta nekončí podpisem kupní smlouvy. Dokud se změna neobjeví v **reg
 
 Žádost podávají **prodávající i kupující společně**. Nemusíte ale jít oba. Kdo na úřad nemůže, podepíše druhému **plnou moc k přepisu vozidla** s úředně ověřeným podpisem (Czech POINT, obecní úřad, notář). Bez ověřeného podpisu ji úřad nepřijme.
 
-## 2. Připravte doklady
+## 2. Co potřebujete na přepis auta
 
 - kupní smlouvu (nebo darovací smlouvu),
 - **osvědčení o registraci vozidla** (malý technický průkaz) a **technický průkaz** (velký), pokud ho auto ještě má,
 - občanské průkazy, u firem výpis z obchodního rejstříku,
-- doklad o povinném ručení nového vlastníka (zelenou kartu, často stačí číslo smlouvy),
+- povinné ručení nového vlastníka (stačí číslo pojistné smlouvy – zelená karta se v Česku od 1. 10. 2024 nevyžaduje),
 - případně protokol o evidenční kontrole – vyžaduje se u některých přepisů (např. dovezených aut).
 
 

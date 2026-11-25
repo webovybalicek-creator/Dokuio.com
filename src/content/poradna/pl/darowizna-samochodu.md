@@ -16,6 +16,8 @@ zdroje:
   - nazev: "Zgłoś zbycie lub nabycie pojazdu (gov.pl)"
     url: https://www.gov.pl/web/gov/zglos-zbycie-lub-nabycie-pojazdu-na-przyklad-sprzedaz-kupno-darowizne
 faq:
+  - q: "Czy mogę sprzedać samochód z darowizny przed upływem 6 miesięcy?"
+    a: "Tak, ale sprzedaż przed upływem 6 miesięcy, licząc od końca miesiąca, w którym otrzymałeś auto, jest przychodem podlegającym PIT (art. 10 ust. 1 pkt 8 lit. d ustawy o PIT). Po tym terminie sprzedaż prywatnego auta jest wolna od podatku dochodowego."
   - q: "Kto jest zwolniony z podatku?"
     a: "Małżonek, zstępni, wstępni, pasierb, rodzeństwo, ojczym i macocha – po zgłoszeniu darowizny na SD-Z2 w ciągu 6 miesięcy."
   - q: "Co jeśli nie zgłoszę SD-Z2?"

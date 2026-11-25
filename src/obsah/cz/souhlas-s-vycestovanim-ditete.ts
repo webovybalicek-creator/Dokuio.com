@@ -13,9 +13,9 @@ const stranka: StrankaDokumentu = {
   },
   souvisejici: 'bezne',
   landing: {
-    title: "Souhlas s vycestováním dítěte {rok} – vzor PDF zdarma",
+    title: "Souhlas s vycestováním dítěte do zahraničí {rok} – vzor PDF",
     description: 'Souhlas rodičů s cestou dítěte do zahraničí podle doporučení MZV: dítě, doprovod, země, termín. Zdarma v PDF i Wordu.',
-    perex: "Dítě jede k moři s babičkou, na tábor nebo s jedním z rodičů? Souhlas podle doporučení ministerstva zahraničí, vyplněný za pár minut.",
+    perex: "Dítě jede k moři s babičkou, na tábor nebo s jedním z rodičů? Souhlas zákonného zástupce s vycestováním dítěte do zahraničí podle doporučení ministerstva zahraničí, vyplněný za pár minut.",
     obsahPopis: "Obsah podle doporučení a vzorů Ministerstva zahraničních věcí ČR.",
     obsah: [
       { nazev: 'Zákonní zástupci', popis: 'Rodiče – jméno, datum narození, číslo dokladu, telefon.' },

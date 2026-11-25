@@ -13,7 +13,7 @@ const stranka: StrankaDokumentu = {
   },
   souvisejici: 'penize',
   landing: {
-    title: "Uznání dluhu {rok} – vzor PDF zdarma se splátkami",
+    title: "Uznání dluhu a splátkový kalendář {rok} – vzor PDF zdarma",
     description: "Uznání dluhu zdarma podle § 2053 občanského zákoníku: důvod, výše, splátky. Vyplňte online nebo stáhněte vzor v PDF i Wordu.",
     perex: "Dlužník písemně potvrdí, kolik a proč dluží, a případně jak bude splácet. Věřitel tím získá silný důkaz a novou desetiletou promlčecí lhůtu.",
     obsahPopis: "Tři krátké části podle § 2053 občanského zákoníku.",

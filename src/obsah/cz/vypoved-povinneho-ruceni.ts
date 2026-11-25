@@ -15,7 +15,7 @@ const stranka: StrankaDokumentu = {
   landing: {
     title: "Výpověď povinného ručení {rok} – vzor PDF zdarma",
     description: "Výpověď povinného ručení zdarma: k výročí, po prodeji auta, do 2 měsíců nebo při zdražení. Vyplňte online, stáhněte PDF nebo Word.",
-    perex: "K výročí smlouvy, po prodeji auta, do 2 měsíců od uzavření, po škodě nebo při zdražení. Vyplňte online, nebo stáhněte prázdný vzor.",
+    perex: "Výpověď (ukončení) povinného ručení k výročí smlouvy, po prodeji auta, do 2 měsíců od uzavření, po škodě nebo při zdražení. Vyplňte online, nebo stáhněte prázdný vzor.",
     obsahPopis: "Dopis pojišťovně se správným důvodem a žádostí o škodní průběh.",
     obsah: [
       { nazev: 'Pojistník', popis: 'Kdo smlouvu uzavřel – jméno, datum narození, adresa, kontakt.' },

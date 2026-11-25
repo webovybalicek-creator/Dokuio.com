@@ -22,6 +22,8 @@ faq:
     a: "Pojišťovna ji musí dostat nejpozději 6 týdnů před koncem pojistného období. Rozhoduje doručení, ne odeslání. Když to nestihnete, smlouva poběží další rok."
   - q: "Musím po prodeji auta povinné ručení vypovídat?"
     a: "Pojištění zaniká změnou vlastníka, ale pojišťovně to musíte oznámit a doložit (kupní smlouvou nebo dokladem o přepisu). Teprve pak vám vrátí přeplatek."
+  - q: "Do kdy se musí zaplatit povinné ručení?"
+    a: "Splatnost určuje smlouva. Když běžné pojistné nezaplatíte, pojišťovna pošle upomínku s lhůtou aspoň jeden měsíc – po jejím marném uplynutí pojištění zanikne (§ 2804 občanského zákoníku) a vy můžete přijít o bonus."
   - q: "Potřebuji ještě zelenou kartu?"
     a: "V Česku ne – od 1. října 2024 policie ověřuje pojištění online. Na cesty do zahraničí ji ale mějte s sebou."
   - q: "Můžu odejít, když pojišťovna zdraží?"
