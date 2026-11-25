@@ -22,7 +22,7 @@ const stranka: StrankaDokumentu = {
   landing: {
     "title": "Pokwitowanie odbioru pieniędzy {rok} – wzór PDF za darmo",
     "description": "Darmowe pokwitowanie odbioru gotówki: kwota liczbowo i słownie, tytuł płatności. PDF i Word.",
-    "perex": "Prosty dowód, że gotówka została przekazana. Kwota słownie uzupełni się sama.",
+    "perex": "Pokwitowanie odbioru gotówki to prosty dowód, że pieniądze zostały przekazane – przy sprzedaży auta, pożyczce czy zaliczce. Kwota słownie uzupełni się sama.",
     "obsahPopis": "Krótkie pokwitowanie z tytułem płatności.",
     "obsah": [
       {
