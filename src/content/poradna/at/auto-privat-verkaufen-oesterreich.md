@@ -1,5 +1,5 @@
 ---
-title: "Auto privat verkaufen Österreich: Vertrag, Zahlung, Abmeldung"
+title: "Auto privat verkaufen Österreich: Vertrag, Geld, Abmeldung"
 nazev: "Auto privat verkaufen (Österreich)"
 description: "Gebrauchtwagen privat verkaufen in Österreich – Kaufvertrag, Typenschein, Pickerl-Gutachten, Abmeldung durch den Verkäufer und Anmeldung durch den Käufer."
 perex: "Kaufvertrag, Übergabe von Typenschein und Pickerl-Gutachten, Abmeldung durch den Verkäufer und Anmeldung durch den Käufer – so läuft der Privatverkauf in Österreich."
