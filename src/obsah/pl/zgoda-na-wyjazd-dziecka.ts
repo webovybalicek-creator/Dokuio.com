@@ -40,6 +40,7 @@ const stranka: StrankaDokumentu = {
       { q: 'Czy podpis musi być poświadczony?', a: 'Portal powroty.gov.pl zaleca podpis przed notariuszem z klauzulą notarialną i dołączenie odpisu aktu urodzenia dziecka.' },
       { q: 'Gdzie sprawdzę wymogi kraju?', a: 'W serwisie MSZ „Informacje dla podróżujących”, w ambasadzie lub konsulacie kraju docelowego oraz u przewoźnika. Sprawdź też kraje tranzytowe.' },
       { q: 'Czy Straż Graniczna może pytać o zgodę?', a: 'Straż Graniczna może dodatkowo sprawdzać dzieci podróżujące same, z jednym rodzicem lub z osobą obcą, czy nie wyjeżdżają wbrew woli rodziców.' },
+      { q: 'Czy zgodę trzeba przetłumaczyć?', a: 'Zależy od kraju docelowego i przewoźnika. Bezpiecznie jest mieć zgodę także w języku angielskim lub w języku kraju, do którego dziecko jedzie – wymogi sprawdź w serwisie MSZ albo w konsulacie.' },
       { q: 'Czy zapisujecie moje dane?', a: 'Nie. Zgoda powstaje wyłącznie w Twojej przeglądarce.' },
     ],
     zakony: 'Wzór opiera się na art. 97 Kodeksu rodzinnego i opiekuńczego oraz na zaleceniach portali gov.pl (powroty.gov.pl, Stop uprowadzeniom dzieci), MSZ i Straży Granicznej. Wymogi krajów się różnią i zmieniają – sprawdź je przed podróżą.',

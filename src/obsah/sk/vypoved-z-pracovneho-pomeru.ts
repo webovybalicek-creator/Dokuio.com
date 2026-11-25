@@ -41,6 +41,7 @@ const stranka: StrankaDokumentu = {
       { q: 'Odkedy plynie výpovedná doba?', a: 'Od prvého dňa kalendárneho mesiaca nasledujúceho po doručení výpovede a končí posledným dňom kalendárneho mesiaca. Rozhoduje deň doručenia, nie odoslania.' },
       { q: 'Musím uviesť dôvod?', a: 'Nie. Zamestnanec môže dať výpoveď z akéhokoľvek dôvodu alebo bez uvedenia dôvodu (§ 67 Zákonníka práce).' },
       { q: 'Môžem skončiť skôr?', a: 'Len dohodou so zamestnávateľom – pracovný pomer potom skončí dohodnutým dňom. Dohoda musí byť písomná (§ 60). Ak odídete skôr bez dohody, zamestnávateľ môže žiadať náhradu, ak je písomne dohodnutá v pracovnej zmluve.' },
+      { q: 'Ako dať výpoveď v skúšobnej dobe?', a: 'V skúšobnej dobe nejde o výpoveď, ale o skončenie podľa § 72 Zákonníka práce: písomne, z akéhokoľvek dôvodu alebo bez neho, bez výpovednej doby. Oznámenie doručte spravidla aspoň 3 dni pred dňom skončenia a najneskôr v posledný deň skúšobnej doby. Vo vzore zvoľte možnosť Skúšobná doba.' },
       { q: 'Ukladáte moje údaje?', a: 'Nie. Výpoveď vzniká priamo vo vašom prehliadači.' },
     ],
     zakony: 'Vzor vychádza z § 38, § 60 až § 62, § 67, § 72 a § 75 zákona č. 311/2001 Z. z., Zákonník práce.',

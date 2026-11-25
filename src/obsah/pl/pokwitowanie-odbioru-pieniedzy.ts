@@ -21,7 +21,7 @@ const stranka: StrankaDokumentu = {
   souvisejici: 'pieniadze',
   landing: {
     "title": "Pokwitowanie odbioru pieniędzy {rok} – wzór PDF za darmo",
-    "description": "Darmowe pokwitowanie odbioru gotówki: kwota liczbowo i słownie, tytuł płatności. PDF i Word.",
+    "description": "Wzór pokwitowania odbioru pieniędzy (gotówki) za darmo: kto, komu, kwota liczbowo i słownie, tytuł płatności i data. PDF i Word do druku.",
     "perex": "Pokwitowanie odbioru gotówki to prosty dowód, że pieniądze zostały przekazane – przy sprzedaży auta, pożyczce czy zaliczce. Kwota słownie uzupełni się sama.",
     "obsahPopis": "Krótkie pokwitowanie z tytułem płatności.",
     "obsah": [
@@ -66,6 +66,14 @@ const stranka: StrankaDokumentu = {
       {
         "q": "Czy mogę żądać pokwitowania?",
         "a": "Tak. Dłużnik, który płaci, może żądać od wierzyciela pokwitowania (art. 462 KC)."
+      },
+      {
+        "q": "Co musi zawierać pokwitowanie odbioru gotówki?",
+        "a": "Imię i nazwisko osoby, która płaci, i osoby, która odbiera pieniądze, kwotę liczbowo i słownie, tytuł (np. zapłata za samochód, zwrot pożyczki, zaliczka), datę i miejsce oraz podpis odbierającego."
+      },
+      {
+        "q": "Czy pokwitowanie musi być podpisane przy świadkach?",
+        "a": "Nie. Wystarczy podpis osoby, która odbiera pieniądze. Przy większych kwotach warto przeliczyć gotówkę wspólnie i dać każdej stronie podpisany egzemplarz."
       },
       {
         "q": "Czy zapisujecie moje dane?",

@@ -64,6 +64,7 @@ export default {
       { q: 'When does the notice period start?', a: 'On the first day of the calendar month following delivery of the notice, and it ends on the last day of a calendar month. The day of delivery counts, not the day of sending.' },
       { q: 'Do I have to give a reason?', a: 'No. An employee may give notice for any reason or without stating a reason (Section 67 of the Labour Code).' },
       { q: 'Can I leave sooner?', a: 'Only by agreement with the employer – employment then ends on the agreed day. The agreement must be in writing (Section 60). If you leave sooner without an agreement, the employer may claim compensation if this is agreed in writing in the employment contract.' },
+      { q: 'How do I quit during the probation period?', a: 'During probation this is not notice but termination under Section 72 of the Labour Code: in writing, for any reason or none, with no notice period. Deliver it as a rule at least 3 days before the end date and no later than the last day of probation. Choose the probation option in the template.' },
       { q: 'Do you store my details?', a: 'No. The notice is created directly in your browser.' },
     ],
     zakony: 'The template is based on Sections 38, 60 to 62, 67, 72 and 75 of Act No. 311/2001 Coll., the Labour Code (Zákonník práce).',

@@ -34,6 +34,8 @@ export default {
         q: 'Can I demand a receipt?',
         a: 'Yes. A debtor who pays may demand a receipt from the creditor (Article 462 of the Civil Code – Kodeks cywilny, KC).',
       },
+      { q: 'What must a cash receipt contain?', a: 'The names of the person paying and the person receiving the money, the amount in figures and words, the purpose (e.g. payment for a car, loan repayment, deposit), the date and place, and the recipient’s signature.' },
+      { q: 'Does the receipt need witnesses?', a: 'No. The signature of the person receiving the money is enough. For larger amounts, count the cash together and give each party a signed copy.' },
       { q: 'Do you save my details?', a: 'No. The receipt is created solely in your browser.' },
     ],
     zakony: 'The template is based on the Polish Civil Code (Kodeks cywilny, Article 462).',

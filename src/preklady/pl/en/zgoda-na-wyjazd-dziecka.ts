@@ -62,6 +62,7 @@ export default {
         q: 'Can the Border Guard ask about the consent?',
         a: 'The Border Guard (Straż Graniczna) may carry out additional checks on children travelling alone, with one parent or with an unrelated person, to make sure they are not leaving against their parents’ will.',
       },
+      { q: 'Does the consent need to be translated?', a: 'It depends on the destination country and the carrier. It is safest to also have the consent in English or in the language of the country the child is travelling to – check the requirements on the Polish Foreign Ministry website or with the consulate.' },
       { q: 'Do you store my data?', a: 'No. The consent is created only in your browser.' },
     ],
     zakony:
