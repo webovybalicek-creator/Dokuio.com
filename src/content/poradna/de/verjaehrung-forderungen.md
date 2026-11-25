@@ -1,8 +1,8 @@
 ---
-title: "Verjährung von Schulden: 3 Jahre ab Jahresende (BGB)"
+title: "Wann verjähren Schulden? 3 Jahre ab Jahresende (BGB)"
 nazev: "Verjährung von Forderungen"
 description: "Wann private Forderungen in Deutschland verjähren: drei Jahre ab Jahresende (§§ 195, 199 BGB), 30 Jahre bei Titeln. Was die Verjährung hemmt oder neu beginnen lässt."
-perex: "Die meisten privaten Forderungen verjähren nach drei Jahren – gerechnet ab dem Ende des Jahres. Eine Mahnung allein hilft nicht."
+perex: "Schulden verjähren meist nach drei Jahren – gerechnet ab dem Ende des Jahres, in dem die Forderung entstanden ist. Eine Mahnung allein hilft nicht."
 kategorie: "geld"
 tema: "schulden"
 dokumenty: ["schuldanerkenntnis", "darlehensvertrag"]

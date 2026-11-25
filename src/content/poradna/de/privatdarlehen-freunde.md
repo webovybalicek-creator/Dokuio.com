@@ -1,8 +1,8 @@
 ---
-title: "Privatdarlehen an Freunde und Familie richtig absichern"
+title: "Darlehensvertrag unter Verwandten und Freunden absichern"
 nazev: "Privatdarlehen unter Freunden"
 description: "Geld privat verleihen in Deutschland: Darlehensvertrag nach § 488 BGB, Zinsen, Raten, Kündigungsfrist von drei Monaten, Quittung und was tun, wenn nicht gezahlt wird."
-perex: "Ein Darlehen unter Freunden braucht keine Form – aber ohne schriftlichen Vertrag wird es im Streit schwer, es als Darlehen zu beweisen."
+perex: "Ein Darlehen unter Verwandten oder Freunden braucht keine Form – aber ohne schriftlichen Vertrag wird es im Streit schwer, es als Darlehen zu beweisen."
 kategorie: "geld"
 tema: "darlehen"
 dokumenty: ["darlehensvertrag", "quittung", "schuldanerkenntnis"]

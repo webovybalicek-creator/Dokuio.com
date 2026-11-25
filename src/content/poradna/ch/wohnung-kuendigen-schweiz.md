@@ -1,5 +1,5 @@
 ---
-title: "Wohnung kündigen in der Schweiz: Termine und Nachmieter"
+title: "Wohnung kündigen: Termine und ausserterminlich (Schweiz)"
 nazev: "Wohnung kündigen"
 description: "Mietwohnung kündigen in der Schweiz: drei Monate auf einen ortsüblichen Termin (Art. 266c OR), schriftlich, Nachmieter nach Art. 264 OR."
 perex: "Mieter kündigen schriftlich mit drei Monaten Frist auf die Termine im Vertrag oder ortsübliche Termine. Wer früher raus will, schlägt einen Nachmieter vor."
@@ -18,8 +18,8 @@ faq:
     a: "Mindestens drei Monate auf einen ortsüblichen oder im Vertrag vereinbarten Termin (Art. 266c OR)."
   - q: "Kann ich früher ausziehen?"
     a: "Ja, wenn Sie einen zumutbaren, zahlungsfähigen Nachmieter vorschlagen, der den Vertrag zu gleichen Bedingungen übernimmt (Art. 264 OR)."
-  - q: "Wer muss unterschreiben?"
-    a: "Alle Mieter. Bei einer Familienwohnung auch der Ehegatte bzw. eingetragene Partner (Art. 266m OR)."
+  - q: "Gemeinsamer Mietvertrag: Wer muss die Kündigung unterschreiben?"
+    a: "Alle Mieter, die den Vertrag unterschrieben haben – einer allein kann einen gemeinsamen Mietvertrag nicht kündigen. Bei einer Familienwohnung auch der Ehegatte bzw. eingetragene Partner (Art. 266m OR)."
 foto: 'stehovani'
 ---
 
