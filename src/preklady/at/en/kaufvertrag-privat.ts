@@ -4,8 +4,9 @@
  * The German text prevails; rules and glossary – PREKLADY.md.
  */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   sablona: { kod: 'AT-KAUF-PRIVAT', verze: '1.0' },
 
   nazev: 'Private Purchase Agreement',
@@ -133,5 +134,15 @@ export default {
         ],
       },
     ],
+  },
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.en['kaufvertrag-privat'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
   },
 } satisfies PrekladDokumentu;

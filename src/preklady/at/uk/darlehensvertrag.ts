@@ -3,8 +3,9 @@
  * і src/sablony/at/darlehensvertrag.ts. Вирішальним є німецький текст; правила та словник – PREKLADY.md.
  */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   sablona: { kod: 'AT-DARLEHEN', verze: '1.0' },
 
   nazev: 'Приватний договір позики',
@@ -162,5 +163,15 @@ export default {
       Restschuld: 'Залишок боргу',
       'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Vertragstext.': 'Графік відповідає погодженим платежам; у разі розбіжностей діє текст договору.',
     },
+  },
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.uk['darlehensvertrag'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
   },
 } satisfies PrekladDokumentu;

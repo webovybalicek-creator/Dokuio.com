@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/mietaufhebungsvertrag';
 import { aufhebungMietvertragCH as sablona } from '../../sablony/ch/aufhebungsvereinbarung-mietvertrag';
 
@@ -27,4 +28,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Aufhebungsvereinbarung online ausfüllen – PDF kostenlos"} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'aufhebungsvereinbarung-mietvertrag');

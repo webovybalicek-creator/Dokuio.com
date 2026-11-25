@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/uebergabeprotokoll-fahrzeug';
 import { uebergabeprotokollFahrzeugAT as sablona } from '../../sablony/at/uebergabeprotokoll-fahrzeug';
 
@@ -19,4 +20,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Übergabeprotokoll Kfz (Österreich) online ausfüllen – PDF kostenlos"} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'uebergabeprotokoll-fahrzeug');

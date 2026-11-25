@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/vollmacht-zulassung';
 import { vollmachtZulassungAT as sablona } from '../../sablony/at/vollmacht-zulassung';
 
@@ -34,4 +35,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Vollmacht Zulassungsstelle (Österreich) online ausfüllen – PDF kostenlos"} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'vollmacht-zulassung');

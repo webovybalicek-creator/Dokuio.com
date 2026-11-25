@@ -3,8 +3,9 @@
  * і src/sablony/at/erklaerung.ts. Вирішальним є німецький текст; правила та словник – PREKLADY.md.
  */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   sablona: { kod: 'AT-ERKLAERUNG', verze: '1.1' },
 
   nazev: 'Заява',
@@ -101,5 +102,15 @@ export default {
         ],
       },
     ],
+  },
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.uk['erklaerung'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
   },
 } satisfies PrekladDokumentu;

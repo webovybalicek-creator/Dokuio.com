@@ -1,7 +1,8 @@
 /** English version of src/obsah/at/kaufvertrag-motorrad.ts – the original text prevails (PREKLADY.md). */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   "sablona": {
     "kod": "AT-KAUF-MOTO",
     "verze": "1.1"
@@ -339,4 +340,14 @@ export default {
       }
     ]
   }
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.en['kaufvertrag-motorrad'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
+  },
 } satisfies PrekladDokumentu;

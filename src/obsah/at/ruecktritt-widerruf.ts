@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/widerruf';
 import { ruecktrittAT as sablona } from '../../sablony/at/ruecktritt';
 
@@ -30,4 +31,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Rücktritt Online-Kauf (Österreich) online ausfüllen – PDF", "description": "Rücktritt vom Online-Kauf nach dem FAGG. PDF oder Word kostenlos."} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'ruecktritt-widerruf');

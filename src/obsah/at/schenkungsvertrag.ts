@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/schenkungsvertrag';
 import { schenkungsvertragAT as sablona } from '../../sablony/at/schenkungsvertrag';
 
@@ -52,4 +53,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Schenkungsvertrag (Österreich) online ausfüllen – PDF kostenlos"} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'schenkungsvertrag');

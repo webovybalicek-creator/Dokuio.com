@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/darlehensvertrag';
 import { darlehensvertragAT as sablona } from '../../sablony/at/darlehensvertrag';
 
@@ -19,4 +20,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, title: 'Darlehensvertrag (Österreich) online ausfüllen – PDF kostenlos' },
 };
 
-export default stranka;
+export default vlastni(stranka, 'darlehensvertrag');

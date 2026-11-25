@@ -4,8 +4,9 @@
  * The German text prevails; rules and glossary in PREKLADY.md.
  */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   sablona: { kod: 'AT-VOLLMACHT-KFZ', verze: '1.0' },
 
   nazev: 'Power of Attorney for Vehicle Registration',
@@ -124,5 +125,15 @@ export default {
         ],
       },
     ],
+  },
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.en['vollmacht-zulassung'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
   },
 } satisfies PrekladDokumentu;

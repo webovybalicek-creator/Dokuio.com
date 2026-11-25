@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/kaufvertrag-privat';
 import { kaufvertragPrivatAT as sablona } from '../../sablony/at/kaufvertrag-privat';
 
@@ -27,4 +28,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Kaufvertrag privat (Österreich) online ausfüllen – PDF kostenlos"} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'kaufvertrag-privat');

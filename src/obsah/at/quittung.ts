@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/quittung';
 import { quittungAT as sablona } from '../../sablony/at/quittung';
 
@@ -18,4 +19,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, title: 'Quittung (Österreich) online ausfüllen – PDF kostenlos' },
 };
 
-export default stranka;
+export default vlastni(stranka, 'quittung');

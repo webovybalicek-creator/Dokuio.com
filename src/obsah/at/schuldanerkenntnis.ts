@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/schuldanerkenntnis';
 import { schuldanerkenntnisAT as sablona } from '../../sablony/at/schuldanerkenntnis';
 
@@ -27,4 +28,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Schuldanerkenntnis (Österreich) online ausfüllen – PDF kostenlos"} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'schuldanerkenntnis');

@@ -3,8 +3,9 @@
  * and src/sablony/ch/erklaerung.ts (composed from the German template via nahrad + schweiz). The German text prevails.
  */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   sablona: { kod: 'CH-ERKLAERUNG', verze: '1.1' },
 
   nazev: 'Declaration',
@@ -112,5 +113,15 @@ export default {
         ],
       },
     ],
+  },
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.en['erklaerung'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
   },
 } satisfies PrekladDokumentu;

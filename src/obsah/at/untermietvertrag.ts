@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/untermietvertrag';
 import { untermietvertragAT as sablona } from '../../sablony/at/untermietvertrag';
 import { nahradV } from '../../sablony/nahrad';
@@ -26,4 +27,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Untermietvertrag (Österreich) online ausfüllen – PDF kostenlos"} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'untermietvertrag');

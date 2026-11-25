@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/leihvertrag';
 import { leihvertragAT as sablona } from '../../sablony/at/leihvertrag';
 import { nahradV } from '../../sablony/nahrad';
@@ -39,4 +40,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Leihvertrag (Österreich) online ausfüllen – PDF kostenlos"} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'leihvertrag');

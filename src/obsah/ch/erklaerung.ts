@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import de from '../de/erklaerung';
 import { erklaerungCH as sablona } from '../../sablony/ch/erklaerung';
 
@@ -26,4 +27,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...de.vytvorit, ...{"title": "Erklärung (Schweiz) online ausfüllen – PDF kostenlos"} },
 };
 
-export default stranka;
+export default vlastni(stranka, 'erklaerung');

@@ -4,8 +4,9 @@
  * Вирішальним є німецький текст; правила та словник – PREKLADY.md.
  */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   sablona: { kod: 'AT-SCHULDANERKENNTNIS', verze: '1.1' },
 
   nazev: 'Визнання боргу',
@@ -150,5 +151,15 @@ export default {
       Restschuld: 'Залишок боргу',
       'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Text des Schuldanerkenntnisses.': 'Графік відповідає домовленим платежам; у разі розбіжностей вирішальним є текст визнання боргу.',
     },
+  },
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.uk['schuldanerkenntnis'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
   },
 } satisfies PrekladDokumentu;

@@ -3,8 +3,9 @@
  * and src/sablony/at/darlehensvertrag.ts. The German text prevails; rules and glossary – PREKLADY.md.
  */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   sablona: { kod: 'AT-DARLEHEN', verze: '1.0' },
 
   nazev: 'Private Loan Agreement',
@@ -162,5 +163,15 @@ export default {
       Restschuld: 'Balance outstanding',
       'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Vertragstext.': 'The schedule follows the agreed instalments; in the event of discrepancies, the text of the agreement prevails.',
     },
+  },
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.en['darlehensvertrag'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
   },
 } satisfies PrekladDokumentu;

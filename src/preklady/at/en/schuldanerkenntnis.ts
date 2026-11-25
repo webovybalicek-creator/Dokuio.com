@@ -4,8 +4,9 @@
  * The German text prevails; rules and glossary in PREKLADY.md.
  */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   sablona: { kod: 'AT-SCHULDANERKENNTNIS', verze: '1.1' },
 
   nazev: 'Acknowledgement of Debt',
@@ -150,5 +151,15 @@ export default {
       Restschuld: 'Remaining debt',
       'Der Plan folgt den vereinbarten Raten; bei Widersprüchen gilt der Text des Schuldanerkenntnisses.': 'The plan follows the agreed instalments; in case of discrepancies, the text of the acknowledgement of debt prevails.',
     },
+  },
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.en['schuldanerkenntnis'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
   },
 } satisfies PrekladDokumentu;

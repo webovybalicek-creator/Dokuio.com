@@ -4,8 +4,9 @@
  * правила та словник – PREKLADY.md.
  */
 import type { PrekladDokumentu } from '../../typy';
+import { EIGEN } from '../_eigen';
 
-export default {
+const T = {
   sablona: { kod: 'AT-RUECKTRITT', verze: '1.0' },
 
   nazev: 'Відмова від онлайн-покупки',
@@ -126,5 +127,15 @@ export default {
         odstavce: ['{{p_jmeno}}, {{p_adresa}}'],
       },
     ],
+  },
+} satisfies PrekladDokumentu;
+
+const E = EIGEN.uk['ruecktritt-widerruf'];
+export default {
+  ...T,
+  landing: {
+    ...T.landing,
+    ...E,
+    faq: E.faq ? [...E.faq, ...T.landing.faq.filter((f) => /store|зберіга/i.test(f.q))] : T.landing.faq,
   },
 } satisfies PrekladDokumentu;

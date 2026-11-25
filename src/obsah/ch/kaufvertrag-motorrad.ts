@@ -1,4 +1,5 @@
 import type { StrankaDokumentu } from '../typy';
+import { vlastni } from './_eigen';
 import { preloz } from '../../sablony/motorka';
 import auto from './kaufvertrag-auto';
 import { kaufvertragMotorradCH as sablona, NAHRADY } from '../../sablony/ch/kaufvertrag-motorrad';
@@ -28,4 +29,4 @@ const stranka: StrankaDokumentu = {
   vytvorit: { ...auto.vytvorit, title: "Kaufvertrag Motorrad (Schweiz) online ausfüllen – PDF kostenlos", description: "Privater Kaufvertrag für ein Occasionsmotorrad nach Schweizer Recht. PDF oder Word kostenlos." },
 };
 
-export default stranka;
+export default vlastni(stranka, 'kaufvertrag-motorrad');
