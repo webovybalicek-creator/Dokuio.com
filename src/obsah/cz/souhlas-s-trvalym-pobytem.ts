@@ -13,9 +13,9 @@ const stranka: StrankaDokumentu = {
   },
   souvisejici: 'bezne',
   landing: {
-    title: "Souhlas s trvalým pobytem {rok} – vzor PDF zdarma",
+    title: "Souhlas majitele s trvalým pobytem {rok} – vzor PDF zdarma",
     description: "Souhlas vlastníka nebo nájemce s přihlášením k trvalému pobytu zdarma. Vyplňte online, stáhněte PDF nebo Word a nechte ověřit podpis.",
-    perex: "Vlastník nebo nájemce bytu potvrzuje, že se k němu někdo smí přihlásit k trvalému pobytu. Podpis je potřeba úředně ověřit.",
+    perex: "Souhlas majitele s přihlášením k trvalému pobytu: vlastník nebo nájemce bytu potvrzuje, že se k němu někdo smí přihlásit. Podpis je potřeba úředně ověřit.",
     obsahPopis: "Písemné potvrzení oprávněné osoby podle § 10 zákona č. 133/2000 Sb., o evidenci obyvatel.",
     obsah: [
       { nazev: 'Oprávněná osoba', popis: 'Vlastník nebo nájemce – jméno, datum narození, adresa.' },

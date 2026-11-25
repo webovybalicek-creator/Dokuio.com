@@ -1,5 +1,5 @@
 ---
-title: "Přepis auta: lhůta 10 pracovních dnů, poplatky a co s sebou"
+title: "Přepis auta 2026: kolik stojí, lhůta a co s sebou na úřad"
 nazev: "Přepis auta krok za krokem"
 description: "Přepis vozidla po prodeji: kdo ho podává, lhůta 10 pracovních dnů, správní poplatek 800 Kč (online 640 Kč), plná moc a co hrozí při zpoždění."
 perex: "Po prodeji auta musí prodávající i kupující požádat o zápis změny vlastníka v registru vozidel. Na to mají jen 10 pracovních dnů."

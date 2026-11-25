@@ -1,5 +1,5 @@
 ---
-title: "Jak sprzedać samochód w 2026 – krok po kroku"
+title: "Sprzedaż samochodu prywatnie 2026: umowa, PCC-3, zgłoszenie"
 nazev: "Jak sprzedać samochód krok po kroku"
 description: "Sprzedaż używanego auta między osobami prywatnymi – umowa, płatność, protokół, zgłoszenie zbycia w 30 dni i PCC-3 dla kupującego."
 perex: "Umowa kupna-sprzedaży, bezpieczna płatność, protokół przekazania, zgłoszenie zbycia w 30 dni. Co przygotować i o czym pamięta kupujący."
@@ -23,7 +23,7 @@ faq:
 foto: 'auto-predani'
 ---
 
-Sprzedaż auta między osobami prywatnymi jest prosta, jeśli trzymasz się kolejności: **dokumenty, umowa i pieniądze, przekazanie, zgłoszenia w urzędach**.
+Sprzedaż samochodu między osobami prywatnymi jest prosta, jeśli trzymasz się kolejności: **dokumenty, umowa i pieniądze, przekazanie, zgłoszenia w urzędach**.
 
 ## 1. Przygotuj dokumenty
 

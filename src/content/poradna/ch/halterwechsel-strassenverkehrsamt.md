@@ -1,5 +1,5 @@
 ---
-title: "Halterwechsel beim Strassenverkehrsamt: so gehts"
+title: "Auto ummelden in der Schweiz: so geht der Halterwechsel"
 nazev: "Halterwechsel beim Strassenverkehrsamt"
 description: "Occasion gekauft oder verkauft? In der Schweiz bleiben die Kontrollschilder beim Halter. Was Käufer und Verkäufer beim Strassenverkehrsamt erledigen müssen."
 perex: "Schilder und Versicherung gehören in der Schweiz zum Halter, nicht zum Auto. Der Käufer lässt den Fahrzeugausweis auf sich ausstellen, der Verkäufer behält seine Schilder."

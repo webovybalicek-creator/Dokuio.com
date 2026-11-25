@@ -1,7 +1,7 @@
 ---
-title: "Przerejestrowanie samochodu: 30 dni, kary i dokumenty"
+title: "Ile czasu na przerejestrowanie samochodu? 30 dni i kary"
 nazev: "Przerejestrowanie samochodu"
-description: "Kupiłeś lub sprzedałeś auto? Nabywca ma 30 dni na wniosek o rejestrację (kara 500 zł), sprzedający 30 dni na zawiadomienie o zbyciu. Dokumenty i OC."
+description: "Na przerejestrowanie samochodu nabywca ma 30 dni na wniosek o rejestrację (kara 500 zł), sprzedający 30 dni na zawiadomienie o zbyciu. Dokumenty i OC."
 perex: "Od 2024 r. kupujący nie zgłasza już nabycia osobno – w ciągu 30 dni składa wniosek o rejestrację. Sprzedający w tym samym terminie zawiadamia o zbyciu."
 kategorie: "samochody"
 tema: "rejestracja"
@@ -21,7 +21,7 @@ faq:
 foto: 'auto-palubka'
 ---
 
-Rejestrację pojazdu po zakupie reguluje **Prawo o ruchu drogowym**. Od **1 stycznia 2024 r.** nabywca nie składa już osobnego zgłoszenia nabycia – od razu składa **wniosek o rejestrację** (art. 73aa).
+Na przerejestrowanie samochodu kupujący ma **30 dni** od dnia nabycia, sprzedający tyle samo na zawiadomienie o zbyciu. Rejestrację pojazdu po zakupie reguluje **Prawo o ruchu drogowym**. Od **1 stycznia 2024 r.** nabywca nie składa już osobnego zgłoszenia nabycia – od razu składa **wniosek o rejestrację** (art. 73aa).
 
 ## 1. Terminy dla kupującego i sprzedającego
 

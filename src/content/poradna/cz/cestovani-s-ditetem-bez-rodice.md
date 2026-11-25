@@ -1,5 +1,5 @@
 ---
-title: "Cestování s dítětem bez rodiče: souhlas s vycestováním"
+title: "Cestování s dětmi do zahraničí bez rodiče: souhlas s cestou"
 nazev: "Cestování s dítětem bez rodiče"
 description: "Kdy se hodí souhlas druhého rodiče s vycestováním dítěte: cesta s jedním rodičem, prarodiči nebo na tábor, doklady dítěte, ověření podpisu a překlad do angličtiny."
 perex: "Česká pravidla souhlas nevyžadují, ale hraniční kontrola nebo letecká společnost se na něj může ptát. Některé země ho vyžadují úředně ověřený."
@@ -21,7 +21,7 @@ faq:
 foto: 'dite-cesta'
 ---
 
-Když dítě cestuje do zahraničí **bez jednoho z rodičů** nebo úplně bez rodičů (s prarodiči, na tábor, se školou), hodí se **písemný souhlas** rodiče, který necestuje.
+Při cestování s dětmi do zahraničí **bez jednoho z rodičů** nebo úplně bez rodičů (dítě jede s prarodiči, na tábor, se školou) se hodí **písemný souhlas** rodiče, který necestuje.
 
 ## 1. Proč souhlas mít
 
