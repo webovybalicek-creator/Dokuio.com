@@ -48,7 +48,7 @@ export const poradna: Poradna = {
       nazev: 'Úrady a splnomocnenia',
       popis: 'Keď za vás niečo vybaví niekto iný.',
       ilustrace: 'plnamoc',
-      temata: [{ slug: 'splnomocnenie', nazev: 'Splnomocnenie', popis: 'Kedy treba úradne overený podpis.' }, { slug: 'deti', nazev: 'Deti a cestovanie', popis: 'Súhlas s cestou dieťaťa do zahraničia.' }],
+      temata: [{ slug: 'splnomocnenie', nazev: 'Splnomocnenie', popis: 'Kedy treba úradne overený podpis.' }, { slug: 'deti', nazev: 'Deti a cestovanie', popis: 'Súhlas s cestou dieťaťa do zahraničia.' }, { slug: 'trvaly-pobyt', nazev: 'Trvalý pobyt', popis: 'Súhlas vlastníka a prihlásenie na pobyt.' }],
     },
     {
       slug: 'byvanie',
